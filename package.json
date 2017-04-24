@@ -50,5 +50,17 @@
     "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.1.0",
     "watch-less-do-more": "0.2.0",
     "watchify": "3.9.0"
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/preprocessor.js"
+    },
+    "testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js",
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx"
+    ],
+    "collectCoverage": true
   }
 }
