@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Row } from '../row';
+import { Row } from '../';
 
 describe('Row', () => {
 

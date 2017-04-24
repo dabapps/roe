@@ -6,11 +6,11 @@ interface IProps {
 }
 
 export const Container: React.SFC<IProps> = (props) => {
-  const { fluid } = props;
+  const { fluid, ...propsWithoutFluid } = props;
   const className = fluid ? 'container-fluid' : 'container';
 
   return (
-    <div className={className}>
+    <div {...propsWithoutFluid} className={className}>
       {props.children}
     </div>
   );
