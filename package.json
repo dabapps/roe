@@ -4,6 +4,8 @@
   "description": "DabApps' PDK - A Collection of React Components for Project Development",
   "main": "src/ts/index.ts",
   "scripts": {
+    "tests": "jest",
+    "lint-js": "tslint 'src/ts/'",
     "test": "npm run lint-js && npm run tests"
   },
   "repository": {
