@@ -7,7 +7,7 @@
     "start": "./scripts/start",
     "build": "./scripts/build",
     "dist": "./scripts/dist",
-    "tests": "jest",
+    "tests": "jest --no-cache --runInBand",
     "lint": "tslint 'src/ts/**/*.{ts,tsx}' 'docs/src/ts/**/*.{ts,tsx}'",
     "test": "npm run lint && npm run tests",
     "postinstall": "./scripts/dist"
