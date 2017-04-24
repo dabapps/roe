@@ -1,0 +1,27 @@
+{
+  "name": "roe",
+  "version": "0.0.0",
+  "description": "DabApps' PDK - A Collection of React Components for Project Development",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "npm run lint-js && npm run tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dabapps/roe.git"
+  },
+  "keywords": [
+    "pdk",
+    "project",
+    "development",
+    "kit",
+    "react",
+    "components"
+  ],
+  "author": "DabApps",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/dabapps/roe/issues"
+  },
+  "homepage": "https://github.com/dabapps/roe#readme"
+}
