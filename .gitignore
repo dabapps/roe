@@ -1,6 +1,7 @@
 /node_modules/**
 /coverage/**
 /.ncy_output/**
+/dist/**
 
 .DS_Store
 npm-debug.log*
