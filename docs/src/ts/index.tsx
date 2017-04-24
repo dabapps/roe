@@ -3,6 +3,30 @@ import * as ReactDOM from 'react-dom';
 
 import './livereload';
 
-import { Example } from '../../../src/ts';
+import {
+  Container,
+  Row,
+  Column
+} from '../../../src/ts';
 
-ReactDOM.render(<Example />, document.getElementById('app'));
+class App extends React.Component<void, void> {
+  render () {
+    return (
+      <Container>
+        <Row>
+          <Column>
+            Column 1
+          </Column>
+          <Column>
+            Column 2
+          </Column>
+          <Column>
+            Column 3
+          </Column>
+        </Row>
+      </Container>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.getElementById('app'));

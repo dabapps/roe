@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 interface IProps {
-  fluid: boolean;
+  fluid?: boolean;
 }
 
 export class Container extends React.Component<IProps, any> {
