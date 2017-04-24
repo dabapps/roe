@@ -10,7 +10,7 @@ import {
 } from '../../../src/ts';
 
 class App extends React.Component<void, void> {
-  render () {
+  public render () {
     return (
       <Container>
         <Row>
