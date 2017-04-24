@@ -1,10 +1,6 @@
 import * as React from 'react';
 
-interface IProps {
-  children?: React.ReactNode;
-}
-
-export const Column = (props: IProps) => {
+export const Column: React.SFC<void> = (props) => {
   return (
     <div className="column">
       {props.children}
