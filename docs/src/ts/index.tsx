@@ -15,6 +15,16 @@ class App extends React.Component<void, void> {
       <Container>
         <Row>
           <Column>
+            <h1>
+              Roe | Project Development Kit
+            </h1>
+            <p>
+              <strong>
+                A Collection of React Components for Project Development
+              </strong>
+            </p>
+          </Column>
+          <Column>
             Column 1
           </Column>
           <Column>
