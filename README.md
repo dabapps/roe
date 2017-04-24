@@ -7,5 +7,6 @@
 Clone the repo and run the following to start all the watchers, and serve `docs/` with livereloading CSS.
 
 ```shell
+npm install
 npm start
 ```
