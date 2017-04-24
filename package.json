@@ -4,14 +4,14 @@
   "description": "DabApps' PDK - A Collection of React Components for Project Development",
   "main": "src/ts/index.ts",
   "scripts": {
-    "start": "http-server -c-0 docs/ -o",
+    "start": "concurrently --prefix='name' --names='watch-less,watch-js,http-server' --prefix-colors='cyan,red,green' 'npm run watch-less' 'npm run watch-js' 'http-server -c-0 docs/ -o'",
     "build-dirs": "mkdir -p dist/js/ && mkdir -p dist/css/",
     "build-js": "browserify -d src/ts/index.ts -p [tsify] | exorcist dist/js/index.js.map > dist/js/index.js ",
     "build-less": "lessc src/less/index.less dist/css/index.css --silent --compress && postcss --use autoprefixer -r dist/css/index.css",
     "build": "npm run build-dirs && npm run build-less && npm run build-js",
     "watch-js": "watchify src/ts/index.ts -p [tsify] -o dist/js/index.js -v",
     "watch-less": "watch-less-do-more -u autoprefixer -i src/less/index.less -o dist/css/index.css",
-    "watch": "npm run build-dirs && npm run watch-less && npm run watch-js",
+    "watch": "npm run build-dirs && concurrently --prefix='name' --names='watch-less,watch-js' --prefix-colors='cyan,red,green' 'npm run watch-less' 'npm run watch-js'",
     "tests": "jest",
     "lint-js": "tslint 'src/ts/'",
     "test": "npm run lint-js && npm run tests"
@@ -52,6 +52,7 @@
   "devDependencies": {
     "@types/jest": "19.2.2",
     "@types/react-test-renderer": "15.4.5",
+    "concurrently": "3.4.0",
     "http-server": "0.9.0",
     "jest": "19.0.2",
     "react-test-renderer": "15.5.4",
