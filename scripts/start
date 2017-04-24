@@ -1,0 +1,10 @@
+mkdir -p docs/build/js/
+mkdir -p docs/build/css/
+
+concurrently \
+  --prefix='name' \
+  --names='watch-less,watch-js,http-server' \
+  --prefix-colors='cyan,red,green' \
+  'watch-less-do-more -u autoprefixer -i docs/src/less/index.less -o docs/build/css/index.css' \
+  'watchify -d docs/src/ts/index.ts -p [tsify] -o docs/build/js/index.js -v' \
+  'http-server -c-0 docs/ -o'
