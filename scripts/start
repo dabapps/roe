@@ -1,7 +1,7 @@
 mkdir -p docs/build/js/
 mkdir -p docs/build/css/
 
-concurrently \
+concurrently --kill-others \
   --prefix='name' \
   --names='watch-less,watch-js,livereload,http-server' \
   --prefix-colors='cyan,red,magenta,green' \
