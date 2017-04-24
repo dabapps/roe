@@ -6,6 +6,6 @@ export class Example extends React.Component<any, any> {
       <p>
         Hello, Example!
       </p>
-    )
+    );
   }
 }
