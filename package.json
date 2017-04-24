@@ -4,6 +4,13 @@
   "description": "DabApps' PDK - A Collection of React Components for Project Development",
   "main": "src/ts/index.ts",
   "scripts": {
+    "build-dirs": "mkdir -p dist/js/ && mkdir -p dist/css/",
+    "build-js": "browserify -d src/ts/index.ts -t envify -p [tsify] -p -o dist/js/index.js",
+    "build-less": "lessc src/less/index.less dist/css/index.css --silent --compress && postcss --use autoprefixer -r dist/css/index.css",
+    "build": "npm run build-dirs && npm run build-less && npm run build-js",
+    "watch-js": "watchify src/ts/index.tsx -t envify -p [tsify] -o dist/js/index.js -v",
+    "watch-less": "watch-less-do-more -u autoprefixer -i src/less/index.less -o dist/css/index.css",
+    "watch": "npm run build-dirs && npm run watch-less && npm run watch-js",
     "tests": "jest",
     "lint-js": "tslint 'src/ts/'",
     "test": "npm run lint-js && npm run tests"
