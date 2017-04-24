@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-export const Column = () => {
+export const Column = (props) => {
   return (
     <div className="column">
-      {this.props.children}
+      {props.children}
     </div>
   );
 };

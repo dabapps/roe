@@ -1,9 +1,9 @@
 import * as React from 'react';
 
-export const Row = () => {
+export const Row = (props) => {
   return (
     <div className="row">
-      {this.props.children}
+      {props.children}
     </div>
   );
 };

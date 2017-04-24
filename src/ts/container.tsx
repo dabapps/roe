@@ -5,12 +5,12 @@ interface IProps {
 }
 
 export const Container = (props: IProps) => {
-  const { fluid } = this.props;
+  const { fluid } = props;
   const fluidClass = fluid ? '-fluid' : '';
 
   return (
     <div className={`container${fluidClass}`}>
-      {this.props.children}
+      {props.children}
     </div>
   );
 };
