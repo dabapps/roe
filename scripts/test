@@ -1,2 +1,4 @@
+set -e
+
 tslint 'src/ts/**/*.{ts,tsx}' 'docs/src/ts/**/*.{ts,tsx}'
 jest
