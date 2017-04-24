@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "jsx": "react",
+    "target": "es5"
+  },
+  "files": [
+    "src/ts/index.ts"
+  ]
+}
