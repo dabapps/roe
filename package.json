@@ -2,7 +2,7 @@
   "name": "roe",
   "version": "0.0.0",
   "description": "DabApps' PDK - A Collection of React Components for Project Development",
-  "main": "src/index.ts",
+  "main": "src/ts/index.ts",
   "scripts": {
     "test": "npm run lint-js && npm run tests"
   },
