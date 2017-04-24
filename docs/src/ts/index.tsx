@@ -4,9 +4,9 @@ import * as ReactDOM from 'react-dom';
 import './livereload';
 
 import {
+  Column,
   Container,
-  Row,
-  Column
+  Row
 } from '../../../src/ts';
 
 class App extends React.Component<void, void> {
