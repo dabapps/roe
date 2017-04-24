@@ -1,13 +1,13 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Column } from '../column';
+import { Row } from '../row';
 
-describe('Column', () => {
+describe('Row', () => {
 
   it('should match snapshot', () => {
     const tree = renderer.create(
-      <Column />
+      <Row />
     );
 
     expect(tree).toMatchSnapshot();
