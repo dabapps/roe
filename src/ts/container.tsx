@@ -6,10 +6,10 @@ interface IProps {
 
 export const Container = (props: IProps) => {
   const { fluid } = props;
-  const fluidClass = fluid ? '-fluid' : '';
+  const className = fluid ? 'container-fluid' : 'container';
 
   return (
-    <div className={`container${fluidClass}`}>
+    <div className={className}>
       {props.children}
     </div>
   );
