@@ -22,4 +22,36 @@ describe('Column', () => {
     expect(tree).to.matchSnapshot();
   });
 
+  it('should convert column modifier props to class names', () => {
+    const values = [undefined, NaN, 0, 1, 2, 3];
+    const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
+    const modifiers = ['Offset', 'Fill', 'Push', 'Pull'];
+
+    const columns = sizes.map((size) =>
+      modifiers.map((modifier) =>
+        values.map((value) => {
+          const props: any = {};
+          props[size + modifier] = value;
+          return React.createElement(Column, props);
+        })
+      )
+    ).concat(
+      sizes.map((size) =>
+        values.map((value) => {
+          const props: any = {};
+          props[size] = value;
+          return React.createElement(Column, props);
+        })
+      )
+    );
+
+    const tree = renderer.create(
+      <div>
+        {columns}
+      </div>
+    );
+
+    expect(tree).to.matchSnapshot();
+  });
+
 });
