@@ -8,10 +8,10 @@ interface IProps {
 
 export const Container: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (props) => {
   const { fluid, className, ...remainingProps } = props;
-  const fluiClassName = fluid ? 'container-fluid' : 'container';
+  const fluidClassName = fluid ? 'container-fluid' : 'container';
 
   return (
-    <div {...remainingProps} className={joinClassNames([fluiClassName, className])}>
+    <div {...remainingProps} className={joinClassNames([fluidClassName, className])}>
       {props.children}
     </div>
   );
