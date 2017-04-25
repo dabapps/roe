@@ -14,7 +14,8 @@ declare module 'chai-jest-snapshot' {
   }
 
   global {
-    module Chai {
+    namespace Chai {
+      // tslint:disable-next-line:interface-name
       interface Assertion {
         matchSnapshot(snapshotFilename?: string, snapshotName?: string, update?: boolean): Assertion;
       }
