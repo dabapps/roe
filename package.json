@@ -1,13 +1,16 @@
 {
   "name": "roe",
   "version": "0.0.0",
-  "description": "DabApps' PDK - A Collection of React Components for Project Development",
+  "description": "A Collection of React Components for Project Development",
   "main": "src/ts/index.ts",
   "scripts": {
     "start": "./scripts/start",
     "build": "./scripts/build",
     "dist": "./scripts/dist",
-    "test": "./scripts/test"
+    "tests": "jest --runInBand",
+    "lint": "tslint 'src/ts/**/*.{ts,tsx}' 'docs/src/ts/**/*.{ts,tsx}'",
+    "test": "npm run lint && npm run tests",
+    "postinstall": "./scripts/dist"
   },
   "repository": {
     "type": "git",

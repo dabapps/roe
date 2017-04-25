@@ -1,0 +1,97 @@
+/* @group Mixins */
+
+.generate-columns (@prefix, @counter: 1) when (@counter < @grid-divisions) {
+  &.@{prefix}-@{counter} {
+    width: floor(percentage(1 / @grid-divisions * @counter) * 100) / 100;
+  }
+
+  &.@{prefix}-offset-@{counter} {
+    margin-left: floor(percentage(1 / @grid-divisions * @counter) * 100) / 100;
+  }
+
+  &.@{prefix}-fill-@{counter} {
+    margin-right: floor(percentage(1 / @grid-divisions * @counter) * 100) / 100;
+  }
+
+  &.@{prefix}-push-@{counter} {
+    left: floor(percentage(1 / @grid-divisions * @counter) * 100) / 100;
+  }
+
+  &.@{prefix}-pull-@{counter} {
+    left: floor(percentage(1 / @grid-divisions * @counter) * 100) / 100 * -1;
+  }
+
+  .generate-columns(@prefix, @counter + 1);
+}
+
+/* @end Mixins */
+
+.clearfix {
+  &::before,
+  &::after {
+    content: ' ';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+.container,
+.container-fluid,
+.column {
+  .clearfix();
+  width: 100%;
+  padding-left: @gutter-width / 2;
+  padding-right: @gutter-width / 2;
+}
+
+.container {
+  margin: 0 auto;
+
+  @media all and (min-width: @screen-sm) {
+    width: @screen-sm;
+  }
+
+  @media all and (min-width: @screen-md) {
+    width: @screen-md;
+  }
+
+  @media all and (min-width: @screen-lg) {
+    width: @screen-lg;
+  }
+
+  @media all and (min-width: @screen-xl) {
+    width: @screen-xl;
+  }
+}
+
+.row {
+  .clearfix();
+  margin-left: -@gutter-width / 2;
+  margin-right: -@gutter-width / 2;
+}
+
+.column {
+  float: left;
+  min-height: 1px;
+  position: relative;
+  .generate-columns(xs);
+
+  @media all and (min-width: @screen-sm) {
+    .generate-columns(sm);
+  }
+
+  @media all and (min-width: @screen-md) {
+    .generate-columns(md);
+  }
+
+  @media all and (min-width: @screen-lg) {
+    .generate-columns(lg);
+  }
+
+  @media all and (min-width: @screen-xl) {
+    .generate-columns(xl);
+  }
+}

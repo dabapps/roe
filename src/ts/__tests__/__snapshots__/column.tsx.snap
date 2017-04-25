@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Column should match snapshot 1`] = `
+<div
+  className="column"
+/>
+`;
+
+exports[`Column should take regular element attributes 1`] = `
+<div
+  className="column my-class"
+/>
+`;
