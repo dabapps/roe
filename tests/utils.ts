@@ -1,4 +1,5 @@
-import { joinClassNames } from '../utils';
+import { expect } from 'chai';
+import { joinClassNames } from '../src/ts/utils';
 
 describe('utils', () => {
 
@@ -14,7 +15,7 @@ describe('utils', () => {
       false,
       'test'
     ]))
-      .toBe('i-exist i-concatenate i-have-spaces test test');
+      .to.equal('i-exist i-concatenate i-have-spaces test test');
   });
 
 });

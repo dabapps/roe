@@ -1,7 +1,8 @@
+import { expect } from 'chai';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Row } from '../';
+import { Row } from '../src/ts/';
 
 describe('Row', () => {
 
@@ -10,7 +11,7 @@ describe('Row', () => {
       <Row />
     );
 
-    expect(tree).toMatchSnapshot();
+    expect(tree).to.matchSnapshot();
   });
 
   it('should take regular element attributes', () => {
@@ -18,7 +19,7 @@ describe('Row', () => {
       <Row className="my-class" />
     );
 
-    expect(tree).toMatchSnapshot();
+    expect(tree).to.matchSnapshot();
   });
 
 });

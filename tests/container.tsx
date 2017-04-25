@@ -1,7 +1,8 @@
+import { expect } from 'chai';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Container } from '../';
+import { Container } from '../src/ts/';
 
 describe('Container', () => {
 
@@ -10,7 +11,7 @@ describe('Container', () => {
       <Container />
     );
 
-    expect(tree).toMatchSnapshot();
+    expect(tree).to.matchSnapshot();
   });
 
   it('should take an optional fluid prop', () => {
@@ -18,7 +19,7 @@ describe('Container', () => {
       <Container fluid />
     );
 
-    expect(tree).toMatchSnapshot();
+    expect(tree).to.matchSnapshot();
   });
 
   it('should take regular element attributes', () => {
@@ -26,7 +27,7 @@ describe('Container', () => {
       <Container className="my-class" />
     );
 
-    expect(tree).toMatchSnapshot();
+    expect(tree).to.matchSnapshot();
   });
 
 });
