@@ -7,12 +7,12 @@ interface IProps {
 }
 
 export const Container: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (props) => {
-  const { fluid, className, ...remainingProps } = props;
+  const { children, className, fluid, ...remainingProps } = props;
   const fluidClassName = fluid ? 'container-fluid' : 'container';
 
   return (
     <div {...remainingProps} className={joinClassNames([fluidClassName, className])}>
-      {props.children}
+      {children}
     </div>
   );
 };
