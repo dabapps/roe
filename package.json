@@ -7,7 +7,7 @@
     "start": "./scripts/start",
     "build": "./scripts/build",
     "dist": "./scripts/dist",
-    "tests": "jest --runInBand",
+    "tests": "nyc mocha --opts .mocha.opts 'tests/**/*.{ts,tsx}'",
     "lint": "tslint 'src/ts/**/*.{ts,tsx}' 'docs/src/ts/**/*.{ts,tsx}'",
     "test": "npm run lint && npm run tests",
     "postinstall": "./scripts/dist"
@@ -46,33 +46,26 @@
     "typescript": "2.2.2"
   },
   "devDependencies": {
-    "@types/jest": "19.2.2",
+    "@types/chai": "3.5.1",
+    "@types/mocha": "2.2.41",
     "@types/node": "7.0.13",
     "@types/react-test-renderer": "15.4.5",
+    "@types/sinon-chai": "2.7.27",
+    "chai": "3.5.0",
+    "chai-jest-snapshot": "0.3.0",
     "concurrently": "3.4.0",
     "envify": "4.0.0",
     "http-server": "0.9.0",
-    "jest": "19.0.2",
     "livereload": "0.6.2",
+    "mocha": "3.3.0",
+    "nyc": "10.2.0",
     "react-test-renderer": "15.5.4",
-    "ts-jest": "19.0.10",
+    "sinon": "2.1.0",
+    "sinon-chai": "2.9.0",
+    "ts-node": "3.0.2",
     "tslint": "5.1.0",
     "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.1.0",
     "watch-less-do-more": "0.2.0",
     "watchify": "3.9.0"
-  },
-  "jest": {
-    "transform": {
-      ".(ts|tsx)": "<rootDir>/preprocessor.js"
-    },
-    "testResultsProcessor": "<rootDir>/node_modules/ts-jest/coverageprocessor.js",
-    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx"
-    ],
-    "collectCoverage": true
   }
 }
