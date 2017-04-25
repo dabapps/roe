@@ -1,8 +1,11 @@
 import * as React from 'react';
+import { joinClassNames } from './utils';
 
 export const Row: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
+  const { className, ...remainingProps } = props;
+
   return (
-    <div {...props} className="row">
+    <div {...remainingProps} className={joinClassNames(['row', className])}>
       {props.children}
     </div>
   );

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { joinClassNames } from './utils';
 
 interface IProps {
   fluid?: boolean;
@@ -6,11 +7,11 @@ interface IProps {
 }
 
 export const Container: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (props) => {
-  const { fluid, ...propsWithoutFluid } = props;
-  const className = fluid ? 'container-fluid' : 'container';
+  const { fluid, className, ...remainingProps } = props;
+  const fluiClassName = fluid ? 'container-fluid' : 'container';
 
   return (
-    <div {...propsWithoutFluid} className={className}>
+    <div {...remainingProps} className={joinClassNames([fluiClassName, className])}>
       {props.children}
     </div>
   );

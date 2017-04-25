@@ -11,3 +11,9 @@ exports[`Container should take an optional fluid prop 1`] = `
   className="container-fluid"
 />
 `;
+
+exports[`Container should take regular element attributes 1`] = `
+<div
+  className="container my-class"
+/>
+`;

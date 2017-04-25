@@ -13,4 +13,12 @@ describe('Column', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should take regular element attributes', () => {
+    const tree = renderer.create(
+      <Column className="my-class" />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
 });

@@ -5,3 +5,9 @@ exports[`Column should match snapshot 1`] = `
   className="column"
 />
 `;
+
+exports[`Column should take regular element attributes 1`] = `
+<div
+  className="column my-class"
+/>
+`;
