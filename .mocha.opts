@@ -1,4 +1,4 @@
 --bail
 --recursive
---require ts-node/register
---require tests/helpers/test-setup.ts
+--required ts-node/register
+--required tests/helpers/test-setup.ts
