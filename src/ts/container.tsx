@@ -5,7 +5,7 @@ interface IProps {
   children?: React.ReactNode;
 }
 
-export const Container: React.SFC<IProps> = (props) => {
+export const Container: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (props) => {
   const { fluid, ...propsWithoutFluid } = props;
   const className = fluid ? 'container-fluid' : 'container';
 
