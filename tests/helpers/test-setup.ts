@@ -25,7 +25,7 @@ Object.keys(window).forEach((key) => {
 chai.use(sinonChai);
 chai.use(chaiJestSnapshot);
 
-beforeEach(() => {
+beforeEach(function () {
   chaiJestSnapshot.configureUsingMochaContext(this);
 });
 
