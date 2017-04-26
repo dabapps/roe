@@ -8,7 +8,7 @@
     "build": "./scripts/build",
     "dist": "./scripts/dist",
     "tests": "nyc mocha --opts .mocha.opts 'tests/**/*.{ts,tsx}'",
-    "lint": "tslint '{src,tests,types,docs}/**/*.{ts,tsx}' -e 'tests/helpers/test-setup.ts'",
+    "lint": "tslint '{src,tests,types,docs}/**/*.{ts,tsx}'",
     "test": "npm run lint && npm run tests",
     "postinstall": "./scripts/dist"
   },
