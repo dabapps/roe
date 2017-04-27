@@ -9,6 +9,8 @@ import {
   Row
 } from '../../../src/ts';
 
+import { Columns } from './columns';
+
 class App extends React.Component<void, void> {
   public render () {
     return (
@@ -24,16 +26,8 @@ class App extends React.Component<void, void> {
               </strong>
             </p>
           </Column>
-          <Column>
-            Column 1
-          </Column>
-          <Column>
-            Column 2
-          </Column>
-          <Column>
-            Column 3
-          </Column>
         </Row>
+        <Columns />
       </Container>
     );
   }
