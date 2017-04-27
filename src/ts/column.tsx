@@ -1,5 +1,5 @@
+import * as classNames from 'classnames';
 import * as React from 'react';
-import { joinClassNames } from './utils';
 
 interface IProps {
   xs?: number;
@@ -61,7 +61,7 @@ export const Column: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (prop
     ...remainingProps
   } = props;
 
-  const classNames = [
+  const myClassNames = [
     'column',
     xs && `xs-${xs}`,
     sm && `sm-${sm}`,
@@ -92,7 +92,7 @@ export const Column: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (prop
   ];
 
   return (
-    <div {...remainingProps} className={joinClassNames(classNames)}>
+    <div {...remainingProps} className={classNames(myClassNames)}>
       {children}
     </div>
   );

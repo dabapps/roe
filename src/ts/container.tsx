@@ -1,5 +1,5 @@
+import * as classNames from 'classnames';
 import * as React from 'react';
-import { joinClassNames } from './utils';
 
 interface IProps {
   fluid?: boolean;
@@ -11,7 +11,7 @@ export const Container: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (p
   const fluidClassName = fluid ? 'container-fluid' : 'container';
 
   return (
-    <div {...remainingProps} className={joinClassNames([fluidClassName, className])}>
+    <div {...remainingProps} className={classNames([fluidClassName, className])}>
       {children}
     </div>
   );
