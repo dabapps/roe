@@ -16,7 +16,7 @@ class App extends React.Component<void, void> {
         <Row>
           <Column>
             <h1>
-              Roe | Project Development Kit
+              Roe - DabApps' Project Development Kit
             </h1>
             <p>
               <strong>
