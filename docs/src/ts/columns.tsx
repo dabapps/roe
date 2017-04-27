@@ -29,7 +29,7 @@ export const Columns = () => (
     </Row>
     <Row>
       <Column>
-        <CodeBlock>
+        <CodeBlock language="javascript">
           {`
           <Container>
             <Row>

@@ -8,6 +8,7 @@ const MATCHES_BLANK_LAST_LINE = /\n\s*$/;
 
 interface IProps extends React.HTMLProps<HTMLPreElement> {
   children?: string;
+  language?: string;
 }
 
 export class CodeBlock extends React.Component<IProps, any> {
@@ -30,7 +31,8 @@ export class CodeBlock extends React.Component<IProps, any> {
   }
 
   public render () {
-    const { children, ...remainingProps } = this.props;
+    const { children, className, language, ...remainingProps } = this.props;
+    const languageClassName = language && `language-${language}`;
 
     const initialIndentation: RegExpExecArray | null =
       typeof children === 'string' ? MATCHES_INITIAL_INDENTATION.exec(children) : null;
@@ -43,7 +45,11 @@ export class CodeBlock extends React.Component<IProps, any> {
       children;
 
     return (
-      <pre {...remainingProps} ref={this.highlightBlock}>
+      <pre
+        {...remainingProps}
+        ref={this.highlightBlock}
+        className={classNames(languageClassName, className)}
+      >
         {content}
       </pre>
     );
