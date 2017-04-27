@@ -1,0 +1,27 @@
+exports[`CodeBlock should match snapshot 1`] = `
+<pre
+  className="" />
+`;
+
+exports[`CodeBlock should take an optional language prop 1`] = `
+<pre
+  className="language-javascript" />
+`;
+
+exports[`CodeBlock should take remove weird indentation from children 1`] = `
+<pre
+  className="">
+  <p>
+    Hello, World!
+  </p>
+</pre>
+`;
+
+exports[`CodeBlock should take remove weird indentation from children 2`] = `
+<pre
+  className="">
+  <p>
+    Hello, World!
+  </p>
+</pre>
+`;

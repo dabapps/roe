@@ -1,6 +1,6 @@
 import * as classNames from 'classnames';
-import * as React from 'react';
 import * as hljs from 'highlight.js';
+import * as React from 'react';
 
 const MATCHES_INITIAL_INDENTATION = /^([^\n\S]*)\S/gm;
 const MATCHES_BLANK_FIRST_LINE = /^\s*\n/;
@@ -12,22 +12,26 @@ interface IProps extends React.HTMLProps<HTMLPreElement> {
 }
 
 export class CodeBlock extends React.Component<IProps, any> {
-  element: HTMLPreElement;
+  public element: HTMLPreElement;
 
-  private constructor (props: IProps) {
+  public constructor (props: IProps) {
     super(props);
 
     this.highlightBlock = this.highlightBlock.bind(this);
   }
 
-  private highlightBlock (element: HTMLPreElement) {
+  public highlightBlock (element: HTMLPreElement) {
     this.element = element;
 
-    hljs.highlightBlock(this.element);
+    if (this.element) {
+      hljs.highlightBlock(this.element);
+    }
   }
 
   public componentDidUpdate () {
-    hljs.highlightBlock(this.element);
+    if (this.element) {
+      hljs.highlightBlock(this.element);
+    }
   }
 
   public render () {
