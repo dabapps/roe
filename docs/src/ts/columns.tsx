@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  CodeBlock,
   Column,
   Container,
   Row
@@ -28,7 +29,7 @@ export const Columns = () => (
     </Row>
     <Row>
       <Column>
-        <pre>
+        <CodeBlock>
           {`
           <Container>
             <Row>
@@ -44,7 +45,7 @@ export const Columns = () => (
             </Row>
           </Container>
           `}
-        </pre>
+        </CodeBlock>
       </Column>
     </Row>
   </div>
