@@ -1,6 +1,6 @@
 /node_modules/**
 /coverage/**
-/.ncy_output/**
+/.nyc_output/**
 /dist/**
 /docs/build/**
 

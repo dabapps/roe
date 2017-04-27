@@ -1,0 +1,4 @@
+--bail
+--recursive
+--required ts-node/register
+--required tests/helpers/test-setup.ts

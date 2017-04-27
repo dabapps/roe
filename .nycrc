@@ -1,0 +1,29 @@
+{
+  "lines": 100,
+  "statements": 100,
+  "functions": 100,
+  "branches": 100,
+  "require": [
+    "ts-node/register"
+  ],
+  "include": [
+    "src/**/*.{ts,tsx}"
+  ],
+  "exclude": [
+    "**/*.d.ts"
+  ],
+  "extension": [
+    ".ts",
+    ".tsx"
+  ],
+  "reporter": [
+    "lcov",
+    "text"
+  ],
+  "all": true,
+  "cache": true,
+  "check-coverage": true,
+  "sourceMap": true,
+  "instrument": true,
+  "report-dir": "coverage"
+}
