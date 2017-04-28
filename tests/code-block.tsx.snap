@@ -1,7 +1,7 @@
 exports[`CodeBlock should handle empty code snippets 1`] = `
 <pre
   className="language-javascript">
-
+  
 </pre>
 `;
 
