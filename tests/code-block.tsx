@@ -51,4 +51,17 @@ describe('CodeBlock', () => {
     expect(tree).to.matchSnapshot();
   });
 
+  it('should highlight its contents', () => {
+    const children = `
+      <p>
+        Hello, World!
+      </p>
+    `;
+
+    const instance = new CodeBlock({children, language: 'javascript'});
+    instance.element = document.createElement('pre');
+
+    instance.highlightBlock(instance.element);
+  });
+
 });
