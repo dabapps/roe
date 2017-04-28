@@ -33,9 +33,9 @@ export const CodeBlocks = () => (
             <CodeBlock language="javascript">
               {\`
                 const foo = 'bar';
-              \`}
 
-              console.log(foo);
+                console.log(foo);
+              \`}
             </CodeBlock>
           `}
         </CodeBlock>
