@@ -26,7 +26,7 @@ export const CodeBlocks = () => (
     </Row>
     <Row>
       <Column>
-        <CodeBlock>
+        <CodeBlock language="javascript">
           {`
             <CodeBlock language="javascript">
               {\`
