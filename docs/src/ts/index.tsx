@@ -12,6 +12,7 @@ import {
 import { Buttons } from './buttons';
 import { CodeBlocks } from './code-blocks';
 import { Columns } from './columns';
+import { Inputs } from './inputs';
 import { Text } from './text';
 
 class App extends React.Component<void, void> {
@@ -33,6 +34,7 @@ class App extends React.Component<void, void> {
         <Buttons />
         <CodeBlocks />
         <Columns />
+        <Inputs />
         <Text />
       </Container>
     );

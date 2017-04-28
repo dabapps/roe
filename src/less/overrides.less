@@ -22,7 +22,8 @@ pre,
 code,
 ul,
 ol,
-li {
+li,
+label {
   margin-top: @spacing-vertical-base;
   margin-bottom: @spacing-vertical-base;
 }
@@ -83,4 +84,19 @@ button {
   font-weight: normal;
   cursor: pointer;
   overflow: hidden;
+}
+
+input,
+select {
+  display: inline-block;
+  padding: @padding-base / 2 @padding-base;
+  border-radius: @border-radius-base;
+  border: 1px solid @grey-light;
+  appearance: none;
+  font-size: @font-size-base;
+  width: 120px;
+}
+
+select {
+  padding-right: @padding-base * 2;
 }
