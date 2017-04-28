@@ -73,7 +73,7 @@ describe('CodeBlock', () => {
     const instance = new CodeBlock({children});
     const element = document.createElement('pre');
 
-      // tslint:disable-next-line
+    // tslint:disable-next-line
     expect(highlightBlockStub).not.to.have.been.called;
 
     instance.highlightBlock(element);
@@ -94,12 +94,12 @@ describe('CodeBlock', () => {
       // tslint:disable-next-line
     expect(highlightBlockStub).not.to.have.been.called;
 
+    instance.element = element;
+
     instance.componentDidUpdate({children});
 
       // tslint:disable-next-line
     expect(highlightBlockStub).not.to.have.been.called;
-
-    instance.element = element;
 
     instance.componentDidUpdate({children: 'Different children'});
 

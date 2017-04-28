@@ -23,13 +23,11 @@ export class CodeBlock extends React.Component<IProps, any> {
   public highlightBlock (element: HTMLPreElement) {
     this.element = element;
 
-    if (this.element) {
-      hljs.highlightBlock(this.element);
-    }
+    hljs.highlightBlock(this.element);
   }
 
   public componentDidUpdate (prevProps: IProps) {
-    if (this.element && prevProps.children !== this.props.children) {
+    if (prevProps.children !== this.props.children) {
       hljs.highlightBlock(this.element);
     }
   }
