@@ -28,8 +28,8 @@ export class CodeBlock extends React.Component<IProps, any> {
     }
   }
 
-  public componentDidUpdate () {
-    if (this.element) {
+  public componentDidUpdate (prevProps: IProps) {
+    if (this.element && prevProps.children !== this.props.children) {
       hljs.highlightBlock(this.element);
     }
   }
