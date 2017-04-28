@@ -5,3 +5,70 @@ label {
     margin-left: @spacing-horizontal-base;
   }
 }
+
+.form-group {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin-top: @spacing-vertical-base;
+  margin-bottom: @spacing-vertical-base;
+
+  & > label,
+  & > input,
+  & > select,
+  & > button,
+  & > .input-group {
+    display: table-cell;
+    margin-left: 0;
+  }
+
+  & > label {
+    width: 25%;
+    padding-right: @spacing-horizontal-base;
+    text-align: right;
+
+    @media all and (min-width: @screen-sm) {
+      width: 20%;
+    }
+
+    @media all and (min-width: @screen-sm) {
+      width: 15%;
+    }
+
+    @media all and (min-width: @screen-lg) {
+      width: 10%;
+    }
+  }
+
+  & > input,
+  & > select,
+  & > button,
+  & > .input-group {
+    width: 100%;
+  }
+
+  &.block {
+    & > label,
+    & > input,
+    & > select,
+    & > button,
+    & > .input-group {
+      text-align: left;
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+    }
+  }
+}
+
+.input-group {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+
+  input,
+  select,
+  button {
+    display: table-cell;
+  }
+}
