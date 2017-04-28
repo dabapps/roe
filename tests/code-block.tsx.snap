@@ -3,6 +3,20 @@ exports[`CodeBlock should match snapshot 1`] = `
   className="" />
 `;
 
+exports[`CodeBlock should remove weird indentation from single line snippets 1`] = `
+<pre
+  className="">
+  console.log(\'test\')
+</pre>
+`;
+
+exports[`CodeBlock should remove weird indentation from single line snippets 2`] = `
+<pre
+  className="">
+  console.log(\'test\')
+</pre>
+`;
+
 exports[`CodeBlock should take an optional language prop 1`] = `
 <pre
   className="language-javascript" />

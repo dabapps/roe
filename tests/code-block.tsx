@@ -63,6 +63,28 @@ describe('CodeBlock', () => {
     expect(tree).to.matchSnapshot();
   });
 
+  it('should remove weird indentation from single line snippets', () => {
+    // Correct indentation
+    let tree = renderer.create(
+      <CodeBlock>
+        {`console.log('test')`}
+      </CodeBlock>
+    );
+
+    expect(tree).to.matchSnapshot();
+
+    // Incorrect indentation (should match above snapshot after processing)
+    tree = renderer.create(
+      <CodeBlock>
+        {`
+          console.log('test')
+        `}
+      </CodeBlock>
+    );
+
+    expect(tree).to.matchSnapshot();
+  });
+
   it('should highlight its contents', () => {
     const children = `
       <p>
