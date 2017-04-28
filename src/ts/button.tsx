@@ -3,6 +3,7 @@ import * as React from 'react';
 
 interface IProps {
   block?: boolean;
+  large?: boolean;
   type?: string;
 }
 
@@ -11,6 +12,7 @@ export const Button: React.SFC<IProps & React.HTMLProps<HTMLButtonElement>> = (p
     children,
     className,
     block,
+    large,
     type,
     ...remainingProps
   } = props;
@@ -18,6 +20,7 @@ export const Button: React.SFC<IProps & React.HTMLProps<HTMLButtonElement>> = (p
   const myClassNames = [
     'button',
     block ? 'block' : null,
+    large ? 'large' : null,
     type,
     className
   ];

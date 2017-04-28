@@ -32,9 +32,25 @@ export const Buttons = () => (
             Tertiary
           </Button>
         </p>
+
         <p>
           <Button block>
             Block
+          </Button>
+        </p>
+
+        <p>
+          <Button large>
+            Default
+          </Button>
+          <Button large type="primary">
+            Primary
+          </Button>
+          <Button large type="secondary">
+            Secondary
+          </Button>
+          <Button large type="tertiary">
+            Tertiary
           </Button>
         </p>
       </Column>
@@ -57,9 +73,25 @@ export const Buttons = () => (
                 Tertiary
               </Button>
             </p>
+
             <p>
               <Button block>
                 Block
+              </Button>
+            </p>
+
+            <p>
+              <Button large>
+                Default
+              </Button>
+              <Button large type="primary">
+                Primary
+              </Button>
+              <Button large type="secondary">
+                Secondary
+              </Button>
+              <Button large type="tertiary">
+                Tertiary
               </Button>
             </p>
           `}
