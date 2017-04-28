@@ -11,7 +11,7 @@ export const Container: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (p
   const fluidClassName = fluid ? 'container-fluid' : 'container';
 
   return (
-    <div {...remainingProps} className={classNames([fluidClassName, className])}>
+    <div {...remainingProps} className={classNames(fluidClassName, className)}>
       {children}
     </div>
   );
