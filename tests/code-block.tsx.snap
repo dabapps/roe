@@ -1,3 +1,10 @@
+exports[`CodeBlock should handle empty code snippets 1`] = `
+<pre
+  className="language-javascript">
+
+</pre>
+`;
+
 exports[`CodeBlock should match snapshot 1`] = `
 <pre
   className="" />

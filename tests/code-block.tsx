@@ -34,6 +34,16 @@ describe('CodeBlock', () => {
     expect(tree).to.matchSnapshot();
   });
 
+  it('should handle empty code snippets', () => {
+    const tree = renderer.create(
+      <CodeBlock language="javascript">
+        {''}
+      </CodeBlock>
+    );
+
+    expect(tree).to.matchSnapshot();
+  });
+
   it('should remove weird indentation from multi line snippets', () => {
     // Correct indentation
     let tree = renderer.create(
