@@ -6,7 +6,7 @@ interface IProps {
   type?: string;
 }
 
-export const Button: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (props) => {
+export const Button: React.SFC<IProps & React.HTMLProps<HTMLButtonElement>> = (props) => {
   const {
     children,
     className,
@@ -23,8 +23,8 @@ export const Button: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (prop
   ];
 
   return (
-    <div {...remainingProps} className={classNames(myClassNames)}>
+    <button {...remainingProps} className={classNames(myClassNames)}>
       {children}
-    </div>
+    </button>
   );
 };
