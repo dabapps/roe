@@ -20,6 +20,8 @@ export const CodeBlocks = () => (
         <CodeBlock language="javascript">
           {`
             const foo = 'bar';
+
+            console.log(foo);
           `}
         </CodeBlock>
       </Column>
@@ -32,6 +34,8 @@ export const CodeBlocks = () => (
               {\`
                 const foo = 'bar';
               \`}
+
+              console.log(foo);
             </CodeBlock>
           `}
         </CodeBlock>
