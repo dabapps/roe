@@ -1,10 +1,22 @@
 import { expect } from 'chai';
+import * as hljs from 'highlight.js';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
+import { stub } from 'sinon';
 
 import { CodeBlock } from '../src/ts/';
 
 describe('CodeBlock', () => {
+
+  let highlightBlockStub: sinon.SinonStub;
+
+  beforeEach(() => {
+    highlightBlockStub = stub(hljs, 'highlightBlock');
+  });
+
+  afterEach(() => {
+    highlightBlockStub.restore();
+  })
 
   it('should match snapshot', () => {
     const tree = renderer.create(
@@ -58,10 +70,40 @@ describe('CodeBlock', () => {
       </p>
     `;
 
-    const instance = new CodeBlock({children, language: 'javascript'});
-    instance.element = document.createElement('pre');
+    const instance = new CodeBlock({children});
+    const element = document.createElement('pre');
 
-    instance.highlightBlock(instance.element);
+      // tslint:disable-next-line
+    expect(highlightBlockStub).not.to.have.been.called;
+
+    instance.highlightBlock(element);
+
+    expect(highlightBlockStub).to.have.been.calledWith(element);
+  });
+
+  it('should highlight its contens on update', () => {
+    const children = `
+      <p>
+        Hello, World!
+      </p>
+    `;
+
+    const instance = new CodeBlock({children});
+    const element = document.createElement('pre');
+
+      // tslint:disable-next-line
+    expect(highlightBlockStub).not.to.have.been.called;
+
+    instance.componentDidUpdate({children});
+
+      // tslint:disable-next-line
+    expect(highlightBlockStub).not.to.have.been.called;
+
+    instance.element = element;
+
+    instance.componentDidUpdate({children: 'Different children'});
+
+    expect(highlightBlockStub).to.have.been.calledWith(element);
   });
 
 });
