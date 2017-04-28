@@ -3,7 +3,6 @@ import * as React from 'react';
 import {
   CodeBlock,
   Column,
-  Container,
   Row
 } from '../../../src/ts';
 

@@ -10,6 +10,7 @@ import {
 } from '../../../src/ts';
 
 import { Columns } from './columns';
+import { CodeBlocks } from './code-blocks';
 
 class App extends React.Component<void, void> {
   public render () {
@@ -28,6 +29,7 @@ class App extends React.Component<void, void> {
           </Column>
         </Row>
         <Columns />
+        <CodeBlocks />
       </Container>
     );
   }
