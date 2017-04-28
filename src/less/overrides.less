@@ -11,6 +11,22 @@ body {
   color: @font-color-base;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+code,
+ul,
+ol,
+li {
+  margin-top: @base-spacing-vertical;
+  margin-bottom: @base-spacing-vertical;
+}
+
 pre,
 code,
 .hljs {
@@ -18,4 +34,26 @@ code,
   border-radius: @base-border-radius;
   background-color: @grey-lighter;
   padding: @base-padding;
+}
+
+button,
+.button {
+  display: inline-block;
+  border-radius: @base-border-radius;
+  background-color: @grey-light;
+  color: @font-color-base;
+  border: none;
+  padding: @base-padding / 2 @base-padding;
+  font-size: @font-size-base;
+
+  & + button,
+  & + .button {
+    margin-left: @base-spacing-horizontal;
+  }
+
+  &.block {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+  }
 }

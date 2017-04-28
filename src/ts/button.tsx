@@ -18,7 +18,7 @@ export const Button: React.SFC<IProps & React.HTMLProps<HTMLButtonElement>> = (p
   const myClassNames = [
     'button',
     block ? 'block' : null,
-    type ? type : 'default',
+    type,
     className
   ];
 
