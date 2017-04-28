@@ -9,8 +9,8 @@ import {
   Row
 } from '../../../src/ts';
 
-import { Columns } from './columns';
 import { CodeBlocks } from './code-blocks';
+import { Columns } from './columns';
 
 class App extends React.Component<void, void> {
   public render () {
