@@ -34,7 +34,7 @@ describe('CodeBlock', () => {
     expect(tree).to.matchSnapshot();
   });
 
-  it('should take remove weird indentation from children', () => {
+  it('should remove weird indentation from multi line snippets', () => {
     // Correct indentation
     let tree = renderer.create(
       <CodeBlock>
