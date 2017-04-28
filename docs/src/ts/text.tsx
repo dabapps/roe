@@ -36,7 +36,7 @@ export const Text = () => (
           Header 1
         </h6>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse luctus scelerisque arcu, lacinia porttitor justo pretium nec. Aliquam erat volutpat. Integer feugiat erat ut felis imperdiet, at aliquam quam auctor. Donec dictum pulvinar porta. Integer dui nibh, commodo vitae sodales eget, varius ac nulla. Morbi tempus risus ut hendrerit mattis. Nunc eu libero elementum ipsum accumsan interdum at eu ligula. Nunc accumsan tortor libero, sed dapibus augue hendrerit et. Donec vel nunc quis magna euismod facilisis. Ut mi est, aliquet non ultrices eget, euismod non risus. Vivamus vel nisi et enim efficitur interdum.
+          Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipiscing elit. Suspendisse luctus scelerisque arcu, lacinia porttitor justo pretium nec. Aliquam <a href="#">erat volutpat</a>. Integer feugiat erat ut felis imperdiet, at aliquam quam auctor. Donec dictum pulvinar porta. Integer dui nibh, commodo vitae sodales eget, varius ac nulla. Morbi tempus risus ut hendrerit mattis. Nunc eu libero elementum ipsum accumsan interdum at eu ligula. Nunc accumsan tortor libero, sed dapibus augue hendrerit et. Donec vel nunc quis magna euismod facilisis. Ut mi est, aliquet non ultrices eget, euismod non risus. <a href="#">Vivamus vel nisi et enim efficitur interdum</a>.
         </p>
         <p>
           <i>
