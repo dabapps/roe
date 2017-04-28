@@ -9,6 +9,7 @@ import {
   Row
 } from '../../../src/ts';
 
+import { Buttons } from './buttons';
 import { CodeBlocks } from './code-blocks';
 import { Columns } from './columns';
 
@@ -28,8 +29,9 @@ class App extends React.Component<void, void> {
             </p>
           </Column>
         </Row>
-        <Columns />
+        <Buttons />
         <CodeBlocks />
+        <Columns />
       </Container>
     );
   }
