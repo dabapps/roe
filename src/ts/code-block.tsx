@@ -2,7 +2,7 @@ import * as classNames from 'classnames';
 import * as hljs from 'highlight.js';
 import * as React from 'react';
 
-const MATCHES_INITIAL_INDENTATION = /^([^\n\S]*)\S/gm;
+const MATCHES_INITIAL_INDENTATION = /^([^\S\n]*)\S/;
 const MATCHES_BLANK_FIRST_LINE = /^\s*\n/;
 const MATCHES_BLANK_LAST_LINE = /\n\s*$/;
 
@@ -32,19 +32,25 @@ export class CodeBlock extends React.Component<IProps, any> {
     }
   }
 
+  public formatCode (code: string) {
+    const codeWithoutLeadingOrTrailingEmptyLines = code
+      .replace(MATCHES_BLANK_FIRST_LINE, '')
+      .replace(MATCHES_BLANK_LAST_LINE, '');
+
+    const initialIndentation: RegExpExecArray | null =
+      MATCHES_INITIAL_INDENTATION.exec(codeWithoutLeadingOrTrailingEmptyLines);
+
+    return initialIndentation ?
+      codeWithoutLeadingOrTrailingEmptyLines.replace(new RegExp(`^${initialIndentation[1]}`, 'gm'), '') :
+      codeWithoutLeadingOrTrailingEmptyLines;
+  }
+
   public render () {
     const { children, className, language, ...remainingProps } = this.props;
     const languageClassName = language && `language-${language}`;
 
-    const initialIndentation: RegExpExecArray | null =
-      typeof children === 'string' ? MATCHES_INITIAL_INDENTATION.exec(children) : null;
-
-    const content = typeof children === 'string' && initialIndentation ?
-      children
-        .replace(MATCHES_BLANK_FIRST_LINE, '')
-        .replace(MATCHES_BLANK_LAST_LINE, '')
-        .replace(new RegExp(initialIndentation[1], 'g'), '') :
-      children;
+    const childrenIsString = typeof children === 'string';
+    const content = typeof children === 'string' ? this.formatCode(children) : children;
 
     return (
       <pre
