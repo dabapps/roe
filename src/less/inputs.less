@@ -8,7 +8,44 @@ label {
 
 .form-group {
   display: table;
-  table-layout: fixed;
+  width: 100%;
+  margin-top: @spacing-vertical-base;
+  margin-bottom: @spacing-vertical-base;
+
+  & > label,
+  & > input,
+  & > select,
+  & > button {
+    display: table-cell;
+    margin-left: 0;
+  }
+
+  & > label {
+    width: auto;
+    padding-right: @spacing-horizontal-base;
+    margin-top: 0;
+    text-align: right;
+  }
+
+  & > input,
+  & > select,
+  & > button {
+    width: 100%;
+  }
+
+  &.block {
+    & > label,
+    & > input,
+    & > select,
+    & > button {
+      text-align: left;
+      display: block;
+    }
+  }
+}
+
+.input-group {
+  display: table;
   width: 100%;
   margin-top: @spacing-vertical-base;
   margin-bottom: @spacing-vertical-base;
@@ -17,58 +54,47 @@ label {
   & > input,
   & > select,
   & > button,
-  & > .input-group {
+  & > .input-group-addon {
+    width: 100%;
     display: table-cell;
-    margin-left: 0;
   }
 
-  & > label {
-    width: 25%;
-    padding-right: @spacing-horizontal-base;
-    text-align: right;
-
-    @media all and (min-width: @screen-sm) {
-      width: 20%;
-    }
-
-    @media all and (min-width: @screen-sm) {
-      width: 15%;
-    }
-
-    @media all and (min-width: @screen-lg) {
-      width: 10%;
-    }
-  }
-
+  & > label,
   & > input,
   & > select,
-  & > button,
-  & > .input-group {
-    width: 100%;
-  }
+  & > button {
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
 
-  &.block {
-    & > label,
-    & > input,
-    & > select,
-    & > button,
-    & > .input-group {
-      text-align: left;
-      display: table;
-      table-layout: fixed;
-      width: 100%;
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
     }
   }
-}
 
-.input-group {
-  display: table;
-  table-layout: fixed;
-  width: 100%;
+  & > .input-group-addon {
+    width: auto;
+    padding: @padding-base / 2 @padding-base;
+    border: 1px solid @grey-light;
+    border-radius: @border-radius-base;
+    background-color: @grey-lighter;
 
-  input,
-  select,
-  button {
-    display: table-cell;
+    &:first-child {
+      border-right: none;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+      border-left: none;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
   }
 }

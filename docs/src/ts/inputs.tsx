@@ -5,6 +5,7 @@ import {
   Column,
   FormGroup,
   InputGroup,
+  InputGroupAddon,
   Row
 } from '../../../src/ts';
 
@@ -20,7 +21,7 @@ export const Inputs = () => (
     <Row>
       <Column>
         <p>
-          Inline
+          Form Group Inline
         </p>
         <FormGroup>
           <label>
@@ -30,7 +31,7 @@ export const Inputs = () => (
         </FormGroup>
 
         <p>
-          Block
+          Form Group Block
         </p>
         <FormGroup block>
           <label>
@@ -44,34 +45,31 @@ export const Inputs = () => (
         </FormGroup>
 
         <p>
-          Inline With Input Group
+          Input Group with Input Group Addons
         </p>
-        <FormGroup>
-          <label>
-            Label
-          </label>
-          <InputGroup>
-            <input type="text" />
-            <Button>
-              Button
-            </Button>
-          </InputGroup>
-        </FormGroup>
+        <InputGroup>
+          <InputGroupAddon>
+            $
+          </InputGroupAddon>
+          <input type="number" />
+          <InputGroupAddon>
+            .00
+          </InputGroupAddon>
+        </InputGroup>
 
-        <p>
-          Block With Input Group
-        </p>
-        <FormGroup block>
-          <label>
-            Label
-          </label>
-          <InputGroup>
-            <input type="text" />
-            <Button>
-              Button
-            </Button>
-          </InputGroup>
-        </FormGroup>
+        <InputGroup>
+          <InputGroupAddon>
+            $
+          </InputGroupAddon>
+          <input type="number" />
+        </InputGroup>
+
+        <InputGroup>
+          <input type="number" />
+          <InputGroupAddon>
+            .00
+          </InputGroupAddon>
+        </InputGroup>
       </Column>
     </Row>
   </div>
