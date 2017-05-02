@@ -5,5 +5,5 @@ set -e
 mkdir -p dist/js/
 mkdir -p dist/css/
 
-tsc --sourceMap --declaration --rootDir "./src/ts/" --outDir "./dist/js/" --module "CommonJS"
+tsc --sourceMap --declaration --project 'src/ts/' --rootDir 'src/ts/' --outDir 'dist/js/' --module 'CommonJS'
 lessc src/less/index.less dist/css/index.css --silent --compress && postcss --use autoprefixer -r dist/css/index.css

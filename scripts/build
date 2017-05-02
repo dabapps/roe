@@ -5,5 +5,5 @@ set -e
 mkdir -p docs/build/js/
 mkdir -p docs/build/css/
 
-browserify -d docs/src/ts/index.tsx -p [tsify] | exorcist docs/build/js/index.js.map > docs/build/js/index.js
+browserify -d docs/src/ts/index.tsx -p [tsify --project 'src/ts/'] | exorcist docs/build/js/index.js.map > docs/build/js/index.js
 lessc docs/src/less/index.less docs/build/css/index.css --silent --compress && postcss --use autoprefixer -r docs/build/css/index.css
