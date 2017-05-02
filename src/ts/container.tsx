@@ -1,7 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-interface IProps {
+export interface IProps {
   fluid?: boolean;
   children?: React.ReactNode;
 }

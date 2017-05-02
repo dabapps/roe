@@ -6,7 +6,7 @@ const MATCHES_INITIAL_INDENTATION = /^([^\S\n]*)\S/;
 const MATCHES_BLANK_FIRST_LINE = /^\s*\n/;
 const MATCHES_BLANK_LAST_LINE = /\n\s*$/;
 
-interface IProps extends React.HTMLProps<HTMLPreElement> {
+export interface IProps extends React.HTMLProps<HTMLPreElement> {
   children?: string;
   language?: string;
 }
