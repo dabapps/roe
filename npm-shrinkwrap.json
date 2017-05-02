@@ -2,6 +2,11 @@
   "name": "roe",
   "version": "0.0.0",
   "dependencies": {
+    "@types/chai": {
+      "version": "3.5.1",
+      "from": "@types/chai@3.5.1",
+      "resolved": "https://registry.npmjs.org/@types/chai/-/chai-3.5.1.tgz"
+    },
     "@types/classnames": {
       "version": "0.0.32",
       "from": "@types/classnames@0.0.32",
@@ -1842,7 +1847,8 @@
     "nan": {
       "version": "2.6.2",
       "from": "nan@>=2.3.0 <3.0.0",
-      "resolved": "https://registry.npmjs.org/nan/-/nan-2.6.2.tgz"
+      "resolved": "https://registry.npmjs.org/nan/-/nan-2.6.2.tgz",
+      "optional": true
     },
     "nave": {
       "version": "0.5.3",

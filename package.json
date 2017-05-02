@@ -31,6 +31,7 @@
   },
   "homepage": "https://github.com/dabapps/roe#readme",
   "dependencies": {
+    "@types/chai": "3.5.1",
     "@types/classnames": "0.0.32",
     "@types/highlight.js": "9.1.9",
     "@types/react": "15.0.22",
@@ -50,7 +51,6 @@
     "typescript": "2.2.2"
   },
   "devDependencies": {
-    "@types/chai": "3.5.1",
     "@types/mocha": "2.2.41",
     "@types/node": "7.0.13",
     "@types/react-test-renderer": "15.4.5",
