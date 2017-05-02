@@ -96,6 +96,24 @@ export const Buttons = () => (
             </p>
           `}
         </CodeBlock>
+
+        <p>
+          You can create custom button using the create button mixin e.g.
+        </p>
+        <CodeBlock language="less">
+          {`
+            .create-button(custom, @background-color, @text-color);
+          `}
+        </CodeBlock>
+
+        <p>
+          And then use these with custom types e.g.
+        </p>
+        <CodeBlock language="javascript">
+          {`
+            <Button type="custom" />
+          `}
+        </CodeBlock>
       </Column>
     </Row>
   </div>
