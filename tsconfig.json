@@ -10,6 +10,6 @@
     ]
   },
   "files": [
-    "src/ts/index.ts"
+    "./src/ts/index.ts"
   ]
 }
