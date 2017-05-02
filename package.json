@@ -8,10 +8,7 @@
     "start": "./scripts/start",
     "build": "./scripts/build",
     "dist": "./scripts/dist",
-    "tests": "nyc mocha --opts .mocha.opts 'tests/**/*.{ts,tsx}'",
-    "update-tests": "CHAI_JEST_SNAPSHOT_UPDATE_ALL=true find 'tests' -regex '.*\\.snap$' | xargs rm && npm run tests",
-    "lint": "tslint '{src,tests,types,docs}/**/*.{ts,tsx}'",
-    "test": "npm run lint && npm run tests",
+    "test": "./scripts/test",
     "postinstall": "./scripts/dist"
   },
   "repository": {
