@@ -9,6 +9,7 @@
     "build": "./scripts/build",
     "dist": "./scripts/dist",
     "tests": "nyc mocha --opts .mocha.opts 'tests/**/*.{ts,tsx}'",
+    "update-tests": "CHAI_JEST_SNAPSHOT_UPDATE_ALL=true && npm run tests",
     "lint": "tslint '{src,tests,types,docs}/**/*.{ts,tsx}'",
     "test": "npm run lint && npm run tests",
     "postinstall": "./scripts/dist"
