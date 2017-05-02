@@ -1,0 +1,9 @@
+exports[`InputGroupAddon should match snapshot 1`] = `
+<div
+  className="input-group-addon" />
+`;
+
+exports[`InputGroupAddon should take regular element attributes 1`] = `
+<div
+  className="input-group-addon my-class" />
+`;
