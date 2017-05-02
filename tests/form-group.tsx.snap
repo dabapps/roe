@@ -3,6 +3,11 @@ exports[`FormGroup should match snapshot 1`] = `
   className="form-group" />
 `;
 
+exports[`FormGroup should take regular element attributes 1`] = `
+<div
+  className="form-group my-class" />
+`;
+
 exports[`FormGroup should use a block prop (boolean) as a class name 1`] = `
 <div
   className="form-group block" />

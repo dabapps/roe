@@ -22,4 +22,12 @@ describe('FormGroup', () => {
     expect(tree).to.matchSnapshot();
   });
 
+  it('should take regular element attributes', () => {
+    const tree = renderer.create(
+      <FormGroup className="my-class" />
+    );
+
+    expect(tree).to.matchSnapshot();
+  });
+
 });
