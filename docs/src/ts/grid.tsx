@@ -6,12 +6,12 @@ import {
   Row
 } from '../../../src/ts';
 
-export const Columns = () => (
+export const Grid = () => (
   <div>
     <Row>
       <Column>
         <h2>
-          Columns
+          Grid
         </h2>
       </Column>
     </Row>

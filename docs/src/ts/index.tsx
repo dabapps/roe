@@ -11,7 +11,7 @@ import {
 
 import { Buttons } from './buttons';
 import { CodeBlocks } from './code-blocks';
-import { Columns } from './columns';
+import { Grid } from './grid';
 import { Inputs } from './inputs';
 import { Text } from './text';
 
@@ -33,7 +33,7 @@ class App extends React.Component<void, void> {
         </Row>
         <Buttons />
         <CodeBlocks />
-        <Columns />
+        <Grid />
         <Inputs />
         <Text />
       </Container>
