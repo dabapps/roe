@@ -1,6 +1,6 @@
 import * as chai from 'chai';
 import * as chaiJestSnapshot from 'chai-jest-snapshot';
-import * as jsdom from 'jsdom';
+import { JSDOM } from 'jsdom';
 import * as sinonChai from 'sinon-chai';
 
 chai.use(sinonChai);
@@ -16,13 +16,7 @@ interface IGlobal extends NodeJS.Global {
 }
 
 // Jsdom document & window
-(global as IGlobal).document = jsdom.jsdom('<!doctype html><html><body></body></html>');
-(global as IGlobal).window = (global as IGlobal).document.defaultView;
+const dom = new JSDOM('<!DOCTYPE html><html><body></body></html>');
 
-// Add window keys to global window
-// Object.keys(window).forEach((key: string) => {
-//   if (!(key in global)) {
-//     const value: any = window[key];
-//     global[key] = value;
-//   }
-// });
+(global as IGlobal).window = dom.window;
+(global as IGlobal).document = dom.window.document;
