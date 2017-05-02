@@ -2,7 +2,8 @@
   "name": "roe",
   "version": "0.0.0",
   "description": "A Collection of React Components for Project Development",
-  "main": "src/ts/index.ts",
+  "main": "dist/js/index.js",
+  "types": "dist/js/index.d.ts",
   "scripts": {
     "start": "./scripts/start",
     "build": "./scripts/build",
