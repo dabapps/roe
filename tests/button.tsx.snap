@@ -3,7 +3,7 @@ exports[`Button should match snapshot 1`] = `
   className="button" />
 `;
 
-exports[`Button should take an optional fluid prop 1`] = `
+exports[`Button should take an optional large prop 1`] = `
 <button
   className="button large" />
 `;

@@ -31,14 +31,14 @@ exports[`CodeBlock should remove weird indentation from multi line snippets 2`] 
 exports[`CodeBlock should remove weird indentation from single line snippets 1`] = `
 <pre
   className="">
-  console.log('test')
+  console.log(\'test\')
 </pre>
 `;
 
 exports[`CodeBlock should remove weird indentation from single line snippets 2`] = `
 <pre
   className="">
-  console.log('test')
+  console.log(\'test\')
 </pre>
 `;
 
