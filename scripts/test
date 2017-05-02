@@ -2,7 +2,7 @@
 
 set -e
 
-if [[ $* == *-update* ]] || [[ $* == *-u* ]]; then
+if [[ $* == *--update* ]] || [[ $* == *-u* ]]; then
   echo 'Updating snapshots...'
   find 'tests' -regex '.*\\.snap$' | xargs rm
 else
