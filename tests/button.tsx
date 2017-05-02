@@ -14,7 +14,7 @@ describe('Button', () => {
     expect(tree).to.matchSnapshot();
   });
 
-  it('should take an optional fluid prop', () => {
+  it('should take an optional large prop', () => {
     const tree = renderer.create(
       <Button large />
     );
