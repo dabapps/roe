@@ -45,6 +45,16 @@ export const Grid = () => (
           </Container>
           `}
         </CodeBlock>
+
+        <p>
+          Container may also take a `fluid` prop that makes it fill the screen at all sizes
+        </p>
+
+        <CodeBlock language="javascript">
+          {`
+          <Container fluid />
+          `}
+        </CodeBlock>
       </Column>
     </Row>
   </div>
