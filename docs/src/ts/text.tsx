@@ -17,6 +17,9 @@ export const Text = () => (
     </Row>
     <Row>
       <Column>
+        <h3>
+          Headers
+        </h3>
         <h1>
           Header 1
         </h1>
@@ -35,6 +38,13 @@ export const Text = () => (
         <h6>
           Header 1
         </h6>
+      </Column>
+    </Row>
+    <Row>
+      <Column>
+        <h3>
+          Body
+        </h3>
         <p>
           Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipiscing elit. Suspendisse luctus scelerisque arcu,
           lacinia porttitor justo pretium nec. Aliquam <a href="#">erat volutpat</a>. Integer feugiat erat ut felis
@@ -63,6 +73,46 @@ export const Text = () => (
             In non pellentesque arcu. Maecenas lacinia semper lectus vitae sagittis. Mauris metus nibh, posuere at enim
             porttitor, maximus vehicula quam.
           </strong>
+        </p>
+      </Column>
+    </Row>
+    <Row>
+      <Column>
+        <h3>
+          Special
+        </h3>
+        <p className="info">
+          In non pellentesque arcu. Maecenas lacinia semper lectus vitae sagittis. Mauris metus nibh, posuere at enim
+          porttitor, maximus vehicula quam.
+        </p>
+        <p className="success">
+          In non pellentesque arcu. Maecenas lacinia semper lectus vitae sagittis. Mauris metus nibh, posuere at enim
+          porttitor, maximus vehicula quam.
+        </p>
+        <p className="warning">
+          In non pellentesque arcu. Maecenas lacinia semper lectus vitae sagittis. Mauris metus nibh, posuere at enim
+          porttitor, maximus vehicula quam.
+        </p>
+        <p className="error">
+          In non pellentesque arcu. Maecenas lacinia semper lectus vitae sagittis. Mauris metus nibh, posuere at enim
+          porttitor, maximus vehicula quam.
+        </p>
+
+        <p className="alert info">
+          In non pellentesque arcu. Maecenas lacinia semper lectus vitae sagittis. Mauris metus nibh, posuere at enim
+          porttitor, maximus vehicula quam.
+        </p>
+        <p className="alert success">
+          In non pellentesque arcu. Maecenas lacinia semper lectus vitae sagittis. Mauris metus nibh, posuere at enim
+          porttitor, maximus vehicula quam.
+        </p>
+        <p className="alert warning">
+          In non pellentesque arcu. Maecenas lacinia semper lectus vitae sagittis. Mauris metus nibh, posuere at enim
+          porttitor, maximus vehicula quam.
+        </p>
+        <p className="alert error">
+          In non pellentesque arcu. Maecenas lacinia semper lectus vitae sagittis. Mauris metus nibh, posuere at enim
+          porttitor, maximus vehicula quam.
         </p>
       </Column>
     </Row>
