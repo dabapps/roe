@@ -45,6 +45,17 @@ export const Inputs = () => (
         </FormGroup>
 
         <p>
+          Form Group Inline
+        </p>
+        <FormGroup>
+          <label>
+            Label
+          </label>
+          <input type="text" placeholder="Placeholder" />
+          <input type="text" placeholder="Placeholder" disabled />
+        </FormGroup>
+
+        <p>
           Input Group with Input Group Addons
         </p>
         <InputGroup>

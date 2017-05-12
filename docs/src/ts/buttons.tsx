@@ -22,6 +22,9 @@ export const Buttons = () => (
           <Button>
             Default
           </Button>
+          <Button disabled>
+            Disabled
+          </Button>
           <Button type="primary">
             Primary
           </Button>

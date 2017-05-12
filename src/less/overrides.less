@@ -69,9 +69,9 @@ h6 {
 pre,
 code,
 .hljs {
-  border: 1px solid @grey-light;
+  border: 1px solid @grey-lighter;
   border-radius: @border-radius-base;
-  background-color: @grey-lighter;
+  background-color: @grey-lightest;
   padding: @padding-base;
 }
 
@@ -91,12 +91,26 @@ select {
   display: inline-block;
   padding: @padding-base / 2 @padding-base;
   border-radius: @border-radius-base;
-  border: 1px solid @grey-light;
+  border: 1px solid @grey-lighter;
   appearance: none;
   font-size: @font-size-base;
   width: 120px;
+
+  &::placeholder {
+    color: @grey-light;
+  }
 }
 
 select {
   padding-right: @padding-base * 2;
+}
+
+button,
+input,
+select,
+textarea,
+form {
+  &[disabled] {
+    opacity: 0.5;
+  }
 }
