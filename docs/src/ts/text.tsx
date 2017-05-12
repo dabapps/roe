@@ -2,11 +2,12 @@ import * as React from 'react';
 
 import {
   Column,
-  Row
+  Row,
+  Section
 } from '../../../src/ts';
 
 export const Text = () => (
-  <div>
+  <Section>
     <Row>
       <Column>
         <h2>
@@ -65,5 +66,5 @@ export const Text = () => (
         </p>
       </Column>
     </Row>
-  </div>
+  </Section>
 );

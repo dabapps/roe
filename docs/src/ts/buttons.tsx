@@ -4,11 +4,12 @@ import {
   Button,
   CodeBlock,
   Column,
-  Row
+  Row,
+  Section
 } from '../../../src/ts';
 
 export const Buttons = () => (
-  <div>
+  <Section>
     <Row>
       <Column>
         <h2>
@@ -18,6 +19,9 @@ export const Buttons = () => (
     </Row>
     <Row>
       <Column>
+        <h3>
+          Demo
+        </h3>
         <p>
           <Button>
             Default
@@ -60,6 +64,9 @@ export const Buttons = () => (
     </Row>
     <Row>
       <Column>
+        <h3>
+          Code
+        </h3>
         <CodeBlock language="javascript">
           {`
             <p>
@@ -119,5 +126,5 @@ export const Buttons = () => (
         </CodeBlock>
       </Column>
     </Row>
-  </div>
+  </Section>
 );

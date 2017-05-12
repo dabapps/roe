@@ -3,11 +3,12 @@ import * as React from 'react';
 import {
   CodeBlock,
   Column,
-  Row
+  Row,
+  Section
 } from '../../../src/ts';
 
 export const CodeBlocks = () => (
-  <div>
+  <Section>
     <Row>
       <Column>
         <h2>
@@ -41,5 +42,5 @@ export const CodeBlocks = () => (
         </CodeBlock>
       </Column>
     </Row>
-  </div>
+  </Section>
 );

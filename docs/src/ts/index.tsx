@@ -6,7 +6,8 @@ import './livereload';
 import {
   Column,
   Container,
-  Row
+  Row,
+  Section
 } from '../../../src/ts';
 
 import { Buttons } from './buttons';
@@ -21,18 +22,20 @@ class App extends React.Component<void, void> {
   public render () {
     return (
       <Container>
-        <Row>
-          <Column>
-            <h1>
-              Roe - DabApps' Project Development Kit (v{packageJson.version})
-            </h1>
-            <p>
-              <strong>
-                A Collection of React Components for Project Development
-              </strong>
-            </p>
-          </Column>
-        </Row>
+        <Section>
+          <Row>
+            <Column>
+              <h1>
+                Roe - DabApps' Project Development Kit (v{packageJson.version})
+              </h1>
+              <p>
+                <strong>
+                  A Collection of React Components for Project Development
+                </strong>
+              </p>
+            </Column>
+          </Row>
+        </Section>
         <Buttons />
         <CodeBlocks />
         <Grid />

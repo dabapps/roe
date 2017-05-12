@@ -5,11 +5,12 @@ import {
   FormGroup,
   InputGroup,
   InputGroupAddon,
-  Row
+  Row,
+  Section
 } from '../../../src/ts';
 
 export const Inputs = () => (
-  <div>
+  <Section>
     <Row>
       <Column>
         <h2>
@@ -82,5 +83,5 @@ export const Inputs = () => (
         </InputGroup>
       </Column>
     </Row>
-  </div>
+  </Section>
 );
