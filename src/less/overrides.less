@@ -34,7 +34,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-weight: normal;
+  font-weight: @font-weight-normal;
   color: @secondary;
 }
 
@@ -69,7 +69,7 @@ h6 {
 pre,
 code,
 .hljs {
-  border: 1px solid @grey-lighter;
+  border: @border-base;
   border-radius: @border-radius-base;
   background-color: @grey-lightest;
   padding: @padding-base;
@@ -78,10 +78,10 @@ code,
 button {
   position: relative;
   border-radius: @border-radius-base;
-  border: none;
+  border: @border-none;
   padding: @padding-base / 2 @padding-base;
   font-size: @font-size-base;
-  font-weight: normal;
+  font-weight: @font-weight-normal;
   cursor: pointer;
   overflow: hidden;
 }
@@ -91,7 +91,7 @@ select {
   display: inline-block;
   padding: @padding-base / 2 @padding-base;
   border-radius: @border-radius-base;
-  border: 1px solid @grey-lighter;
+  border: @border-base;
   appearance: none;
   font-size: @font-size-base;
   width: 120px;
