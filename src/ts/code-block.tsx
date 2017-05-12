@@ -49,7 +49,6 @@ export class CodeBlock extends React.Component<IProps, any> {
     const { children, className, language, ...remainingProps } = this.props;
     const languageClassName = language && `language-${language}`;
 
-    const childrenIsString = typeof children === 'string';
     const content = typeof children === 'string' ? this.formatCode(children) : children;
 
     return (
