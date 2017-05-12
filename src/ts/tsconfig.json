@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "jsx": "react",
+    "target": "es5",
+    "typeRoots": [
+      "../node_modules/@types/",
+      "../types/"
+    ]
+  }
+}
