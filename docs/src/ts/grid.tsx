@@ -17,18 +17,28 @@ export const Grid = () => (
       </Column>
     </Row>
     <Row>
-      <Column xs={12} sm={6} md={3}>
-        Column 1
-      </Column>
-      <Column xs={12} sm={6} md={3}>
-        Column 2
-      </Column>
-      <Column xs={12} sm={6} md={3}>
-        Column 3
+      <Column>
+        <h3>
+          Demo
+        </h3>
+        <Row>
+          <Column xs={12} sm={6} md={3}>
+            Column 1
+          </Column>
+          <Column xs={12} sm={6} md={3}>
+            Column 2
+          </Column>
+          <Column xs={12} sm={6} md={3}>
+            Column 3
+          </Column>
+        </Row>
       </Column>
     </Row>
     <Row>
       <Column>
+        <h3>
+          Code
+        </h3>
         <CodeBlock language="javascript">
           {`
           <Container>

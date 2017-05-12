@@ -18,6 +18,9 @@ export const CodeBlocks = () => (
     </Row>
     <Row>
       <Column>
+        <h3>
+          Demo
+        </h3>
         <CodeBlock language="javascript">
           {`
             const foo = 'bar';
@@ -29,6 +32,9 @@ export const CodeBlocks = () => (
     </Row>
     <Row>
       <Column>
+        <h3>
+          Code
+        </h3>
         <CodeBlock language="javascript">
           {`
             <CodeBlock language="javascript">

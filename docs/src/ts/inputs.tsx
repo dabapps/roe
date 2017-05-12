@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  CodeBlock,
   Column,
   FormGroup,
   InputGroup,
@@ -20,6 +21,9 @@ export const Inputs = () => (
     </Row>
     <Row>
       <Column>
+        <h3>
+          Demo
+        </h3>
         <p>
           Form Group Inline
         </p>
@@ -81,6 +85,41 @@ export const Inputs = () => (
             .00
           </InputGroupAddon>
         </InputGroup>
+      </Column>
+    </Row>
+    <Row>
+      <Column>
+        <h3>
+          Code
+        </h3>
+        <CodeBlock language="javascript">
+          {`
+            <FormGroup>
+              <label>
+                Label
+              </label>
+              <input type="text" />
+            </FormGroup>
+
+            <FormGroup block>
+              <label>
+                Label
+              </label>
+              <select>
+                <option>
+                  Option
+                </option>
+              </select>
+            </FormGroup>
+
+            <InputGroup>
+              <InputGroupAddon>
+                $
+              </InputGroupAddon>
+              <input type="number" />
+            </InputGroup>
+          `}
+        </CodeBlock>
       </Column>
     </Row>
   </Section>
