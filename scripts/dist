@@ -6,4 +6,3 @@ mkdir -p dist/js/
 mkdir -p dist/css/
 
 tsc --sourceMap --declaration --listFiles --project 'src/ts/tsconfig.json' --rootDir 'src/ts/' --outDir 'dist/js/' --module 'CommonJS'
-lessc src/less/index.less dist/css/index.css --silent --compress && postcss --use autoprefixer -r dist/css/index.css
