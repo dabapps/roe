@@ -75,5 +75,12 @@
     "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.1.0",
     "watch-less-do-more": "0.2.0",
     "watchify": "3.9.0"
+  },
+  "peerDependencies": {
+    "highlight.js": ">= 9 < 10",
+    "normalize.css": ">= 6 < 7",
+    "react": ">= 15 < 16",
+    "react-dom": ">= 15 < 16",
+    "typescript": ">= 2 < 3"
   }
 }
