@@ -9,7 +9,7 @@
     "build": "./scripts/build",
     "dist": "./scripts/dist",
     "lint-js": "tslint --project tsconfig.json --type-check '{src,tests,types,docs}/**/*.{ts,tsx}'",
-    "lint-less": "lesshint src/less/",
+    "lint-less": "lesshint 'src/less/' 'docs/src/less/'",
     "lint": "npm run lint-js && npm run lint-less",
     "test": "npm run lint && ./scripts/test",
     "postinstall": "./scripts/dist"
