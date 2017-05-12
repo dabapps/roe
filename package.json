@@ -8,7 +8,9 @@
     "start": "./scripts/start",
     "build": "./scripts/build",
     "dist": "./scripts/dist",
-    "lint": "tslint '{src,tests,types,docs}/**/*.{ts,tsx}'",
+    "lint-js": "tslint '{src,tests,types,docs}/**/*.{ts,tsx}'",
+    "lint-less": "lesshint src/less/",
+    "lint": "npm run lint-js && npm run lint-less",
     "test": "npm run lint && ./scripts/test",
     "postinstall": "./scripts/dist"
   },
@@ -61,6 +63,7 @@
     "envify": "4.0.0",
     "http-server": "0.9.0",
     "jsdom": "10.1.0",
+    "lesshint": "3.3.1",
     "livereload": "0.6.2",
     "mocha": "3.3.0",
     "nyc": "10.2.0",
