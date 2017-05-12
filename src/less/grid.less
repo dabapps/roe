@@ -1,23 +1,23 @@
 /* @group Mixins */
 
 .generate-columns (@prefix, @counter: 1) when (@counter < @grid-divisions) {
-  &.@{prefix}-@{counter} {
+  &.@{prefix}-@{counter} { // lesshint qualifyingElement: false
     width: floor(percentage(1 / @grid-divisions * @counter) * 100) / 100;
   }
 
-  &.@{prefix}-offset-@{counter} {
+  &.@{prefix}-offset-@{counter} { // lesshint qualifyingElement: false
     margin-left: floor(percentage(1 / @grid-divisions * @counter) * 100) / 100;
   }
 
-  &.@{prefix}-fill-@{counter} {
+  &.@{prefix}-fill-@{counter} { // lesshint qualifyingElement: false
     margin-right: floor(percentage(1 / @grid-divisions * @counter) * 100) / 100;
   }
 
-  &.@{prefix}-push-@{counter} {
+  &.@{prefix}-push-@{counter} { // lesshint qualifyingElement: false
     left: floor(percentage(1 / @grid-divisions * @counter) * 100) / 100;
   }
 
-  &.@{prefix}-pull-@{counter} {
+  &.@{prefix}-pull-@{counter} { // lesshint qualifyingElement: false
     left: floor(percentage(1 / @grid-divisions * @counter) * 100) / 100 * -1;
   }
 
