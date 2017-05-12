@@ -15,6 +15,8 @@ import { Grid } from './grid';
 import { Inputs } from './inputs';
 import { Text } from './text';
 
+const packageJson = require( '../../../package.json'); // tslint:disable-line:no-var-requires
+
 class App extends React.Component<void, void> {
   public render () {
     return (
@@ -22,7 +24,7 @@ class App extends React.Component<void, void> {
         <Row>
           <Column>
             <h1>
-              Roe - DabApps' Project Development Kit
+              Roe - DabApps' Project Development Kit (v{packageJson.version})
             </h1>
             <p>
               <strong>
