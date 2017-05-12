@@ -98,7 +98,7 @@
   "qualifyingElement": {
     "enabled": true,
     "severity": "error",
-    "allowWithAttribute": false,
+    "allowWithAttribute": true,
     "allowWithClass": false,
     "allowWithId": false
   },
