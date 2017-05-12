@@ -1,0 +1,41 @@
+.info {
+  color: @info;
+}
+
+.success {
+  color: @success;
+}
+
+.warning {
+  color: @warning;
+}
+
+.error {
+  color: @error;
+}
+
+.alert {
+  padding: @padding-base / 2;
+  border: @border-base;
+  border-radius: @border-radius-base;
+
+  &.info {
+    background-color: @info-lighter;
+    border-color: @info-light;
+  }
+
+  &.success {
+    background-color: @success-lighter;
+    border-color: @success-light;
+  }
+
+  &.warning {
+    background-color: @warning-lighter;
+    border-color: @warning-light;
+  }
+
+  &.error {
+    background-color: @error-lighter;
+    border-color: @error-light;
+  }
+}
