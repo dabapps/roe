@@ -5,6 +5,14 @@ language: node_js
 node_js:
   - "6.10.2"
 
+install:
+  - npm install
+
+script:
+  - npm test
+  - npm run dist
+  - npm run build
+
 deploy:
   local_dir: docs
   provider: pages
