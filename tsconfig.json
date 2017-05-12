@@ -8,8 +8,5 @@
       "node_modules/@types/",
       "types/"
     ]
-  },
-  "files": [
-    "src/ts/index.ts"
-  ]
+  }
 }
