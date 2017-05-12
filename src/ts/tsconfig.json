@@ -5,8 +5,8 @@
     "jsx": "react",
     "target": "es5",
     "typeRoots": [
-      "node_modules/@types/",
-      "types/"
+      "../node_modules/@types/",
+      "../types/"
     ]
   }
 }

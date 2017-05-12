@@ -9,6 +9,14 @@ import {
   Row
 } from '../../../src/ts';
 
+import { Buttons } from './buttons';
+import { CodeBlocks } from './code-blocks';
+import { Grid } from './grid';
+import { Inputs } from './inputs';
+import { Text } from './text';
+
+const packageJson = require( '../../../package.json'); // tslint:disable-line:no-var-requires
+
 class App extends React.Component<void, void> {
   public render () {
     return (
@@ -16,7 +24,7 @@ class App extends React.Component<void, void> {
         <Row>
           <Column>
             <h1>
-              Roe | Project Development Kit
+              Roe - DabApps' Project Development Kit (v{packageJson.version})
             </h1>
             <p>
               <strong>
@@ -24,16 +32,12 @@ class App extends React.Component<void, void> {
               </strong>
             </p>
           </Column>
-          <Column>
-            Column 1
-          </Column>
-          <Column>
-            Column 2
-          </Column>
-          <Column>
-            Column 3
-          </Column>
         </Row>
+        <Buttons />
+        <CodeBlocks />
+        <Grid />
+        <Inputs />
+        <Text />
       </Container>
     );
   }

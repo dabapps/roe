@@ -4,17 +4,59 @@
 @secondary: #7B2240;
 @tertiary: #2E253F;
 
+@black: #000000;
 @grey-dark: #333333;
+@grey-medium: #555555;
+@grey-light: #AAAAAA;
+@grey-lighter: #E8E8E8;
+@grey-lightest: #F8F8F8;
+@white: #FFFFFF;
 
 /* @end Colors */
+
+/* @group Shadows */
+
+@shadow-none: 0 0 0 0 rgba(0, 0, 0, 0);
+@shadow-inset-subtle: inset 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+@shadow-inset-hard: inset 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+@shadow-subtle: 0 0 3px 0 rgba(0, 0, 0, 0.1);
+@shadow-hard: 0 0 5px 0 rgba(0, 0, 0, 0.2);
+
+/* @end Shadows */
+
+/* @group Borders */
+
+@border-base: 1px solid @grey-lighter;
+@border-none: 0;
+
+/* @end Borders */
 
 /* @group Fonts */
 
 @font-size-base: 14px;
+@font-size-large: floor(@font-size-base * 1.4);
 @font-color-base: @grey-dark;
 @font-family-base: arial, helvetica, sans-serif;
 
 /* @end Fonts */
+
+/* @group Font Weights */
+
+@font-weight-light: lighter;
+@font-weight-normal: normal;
+@font-weight-bold: bold;
+
+/* @end Font Weights */
+
+/* @group Misc Sizes */
+
+@border-radius-base: 2px;
+@padding-base: 10px;
+@padding-large: floor(@padding-base * 1.4);
+@spacing-horizontal-base: 10px;
+@spacing-vertical-base: 15px;
+
+/* @end Misc Sizes */
 
 /* @group Grid */
 

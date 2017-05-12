@@ -1,4 +1,4 @@
-* {
+* { // lesshint universalSelector: false
   box-sizing: border-box;
 }
 
@@ -9,4 +9,109 @@ body {
   font-size: @font-size-base;
   font-family: @font-family-base;
   color: @font-color-base;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+pre,
+code,
+ul,
+ol,
+li,
+label {
+  margin-top: @spacing-vertical-base;
+  margin-bottom: @spacing-vertical-base;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: @font-weight-normal;
+  color: @secondary;
+}
+
+a {
+  color: @primary;
+}
+
+h1 {
+  font-size: floor(@font-size-base * 3);
+}
+
+h2 {
+  font-size: floor(@font-size-base * 2.5);
+}
+
+h3 {
+  font-size: floor(@font-size-base * 2.2);
+}
+
+h4 {
+  font-size: floor(@font-size-base * 2);
+}
+
+h5 {
+  font-size: floor(@font-size-base * 1.8);
+}
+
+h6 {
+  font-size: floor(@font-size-base * 1.4);
+}
+
+pre,
+code,
+.hljs {
+  border: @border-base;
+  border-radius: @border-radius-base;
+  background-color: @grey-lightest;
+  padding: @padding-base;
+}
+
+button {
+  position: relative;
+  border-radius: @border-radius-base;
+  border: @border-none;
+  padding: @padding-base / 2 @padding-base;
+  font-size: @font-size-base;
+  font-weight: @font-weight-normal;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+input,
+select {
+  display: inline-block;
+  padding: @padding-base / 2 @padding-base;
+  border-radius: @border-radius-base;
+  border: @border-base;
+  appearance: none;
+  font-size: @font-size-base;
+  width: 120px;
+
+  &::placeholder {
+    color: @grey-light;
+  }
+}
+
+select {
+  background-color: transparent;
+  padding-right: @padding-base * 2;
+}
+
+button,
+input,
+select,
+textarea,
+form {
+  &[disabled] { // lesshint qualifyingElement: false
+    opacity: 0.5;
+  }
 }

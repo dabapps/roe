@@ -1,0 +1,99 @@
+/* @group Mixins */
+
+.create-button-styles (@background: @grey-lighter, @color: @font-color-base) {
+  background-color: @background;
+  color: @color;
+
+  &:hover:not([disabled]) {
+    background-color: darken(@background, 5%);
+  }
+
+  &::before {
+    background-color: contrast(@background, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
+  }
+}
+
+.create-button (@type, @background, @color) {
+  &.@{type} {
+    .create-button-styles(@background, @color);
+  }
+}
+
+/* @end Mixins */
+
+.button {
+  .create-button-styles();
+  .create-button(primary, @primary, @grey-lighter);
+  .create-button(secondary, @secondary, @grey-lighter);
+  .create-button(tertiary, @tertiary, @grey-lighter);
+
+  transition: ease-in-out 0.1s background-color, ease-in-out 0.1s box-shadow;
+  box-shadow: @shadow-none;
+
+  &:hover:not([disabled]) {
+    box-shadow: @shadow-inset-subtle;
+  }
+
+  &:active:not([disabled]) {
+    box-shadow: @shadow-inset-hard;
+  }
+
+  &:focus:not([disabled]) {
+    &::before {
+      content: ' ';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transition: 0.2s opacity, 0.2s transform;
+      transform: translate(-50%, -50%) scale(0, 0);
+      opacity: 0;
+      width: 200%;
+      height: 0;
+      padding-bottom: 200%;
+      animation: 1s button-click linear forwards;
+      border-radius: 50%;
+    }
+  }
+
+  & + button,
+  & + .button {
+    margin-left: @spacing-horizontal-base;
+  }
+
+  &.block {
+    display: block;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  &.large {
+    font-size: @font-size-large;
+    padding: @padding-large / 2 @padding-large;
+  }
+}
+
+/* @group Animations */
+
+@keyframes button-click {
+  0 {
+    transform: translate(-50%, -50%) scale(0, 0);
+    opacity: 0.5;
+  }
+
+  20% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5, 0.5);
+  }
+
+  40% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1, 1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1, 1);
+  }
+}
+
+/* @end Animations */

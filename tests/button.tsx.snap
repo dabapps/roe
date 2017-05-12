@@ -1,0 +1,24 @@
+exports[`Button should match snapshot 1`] = `
+<button
+  className="button" />
+`;
+
+exports[`Button should take an optional large prop 1`] = `
+<button
+  className="button large" />
+`;
+
+exports[`Button should take regular element attributes 1`] = `
+<button
+  className="button my-class" />
+`;
+
+exports[`Button should use a block prop (boolean) as a class name 1`] = `
+<button
+  className="button block" />
+`;
+
+exports[`Button should use a type prop as a class name 1`] = `
+<button
+  className="button primary" />
+`;

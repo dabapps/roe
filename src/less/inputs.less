@@ -1,0 +1,100 @@
+label {
+  & + select,
+  & + input,
+  & + button {
+    margin-left: @spacing-horizontal-base;
+  }
+}
+
+.form-group {
+  display: table;
+  width: 100%;
+  margin-top: @spacing-vertical-base;
+  margin-bottom: @spacing-vertical-base;
+
+  & > label,
+  & > input,
+  & > select,
+  & > button {
+    display: table-cell;
+    margin-left: 0;
+  }
+
+  & > label {
+    width: auto;
+    padding-right: @spacing-horizontal-base;
+    margin-top: 0;
+    text-align: right;
+  }
+
+  & > input,
+  & > select,
+  & > button {
+    width: 100%;
+  }
+
+  &.block {
+    & > label,
+    & > input,
+    & > select,
+    & > button {
+      text-align: left;
+      display: block;
+    }
+  }
+}
+
+.input-group {
+  display: table;
+  width: 100%;
+  margin-top: @spacing-vertical-base;
+  margin-bottom: @spacing-vertical-base;
+
+  & > label,
+  & > input,
+  & > select,
+  & > button,
+  & > .input-group-addon {
+    width: 100%;
+    display: table-cell;
+  }
+
+  & > label,
+  & > input,
+  & > select,
+  & > button {
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+    }
+  }
+
+  & > .input-group-addon {
+    width: auto;
+    padding: @padding-base / 2 @padding-base;
+    border: @border-base;
+    border-radius: @border-radius-base;
+    background-color: @grey-lightest;
+
+    &:first-child {
+      border-right: @border-none;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+      border-left: @border-none;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}

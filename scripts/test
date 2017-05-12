@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -e
+
+if [[ $* == *--update* ]] || [[ $* == *-u* ]]; then
+  echo 'Updating snapshots...'
+  find 'tests' -regex '.*\\.snap$' | xargs rm
+else
+  echo 'Run `npm test -- -u` to update existing snapshots'
+fi
+
+nyc mocha --opts .mocha.opts 'tests/**/*.{ts,tsx}'
