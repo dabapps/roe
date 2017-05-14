@@ -38,6 +38,18 @@ export const Buttons = () => (
           <Button type="tertiary">
             Tertiary
           </Button>
+          <Button type="info">
+            Info
+          </Button>
+          <Button type="success">
+            Success
+          </Button>
+          <Button type="warning">
+            Warning
+          </Button>
+          <Button type="error">
+            Error
+          </Button>
         </p>
 
         <p>
@@ -49,15 +61,6 @@ export const Buttons = () => (
         <p>
           <Button large>
             Default
-          </Button>
-          <Button large type="primary">
-            Primary
-          </Button>
-          <Button large type="secondary">
-            Secondary
-          </Button>
-          <Button large type="tertiary">
-            Tertiary
           </Button>
         </p>
       </Column>
@@ -73,6 +76,9 @@ export const Buttons = () => (
               <Button>
                 Default
               </Button>
+              <Button disabled>
+                Disabled
+              </Button>
               <Button type="primary">
                 Primary
               </Button>
@@ -81,6 +87,18 @@ export const Buttons = () => (
               </Button>
               <Button type="tertiary">
                 Tertiary
+              </Button>
+              <Button type="info">
+                Info
+              </Button>
+              <Button type="success">
+                Success
+              </Button>
+              <Button type="warning">
+                Warning
+              </Button>
+              <Button type="error">
+                Error
               </Button>
             </p>
 
@@ -94,15 +112,6 @@ export const Buttons = () => (
               <Button large>
                 Default
               </Button>
-              <Button large type="primary">
-                Primary
-              </Button>
-              <Button large type="secondary">
-                Secondary
-              </Button>
-              <Button large type="tertiary">
-                Tertiary
-              </Button>
             </p>
           `}
         </CodeBlock>
@@ -112,7 +121,9 @@ export const Buttons = () => (
         </p>
         <CodeBlock language="less">
           {`
-            .create-button(custom, @background-color, @text-color);
+            .button {
+              .create-button(custom, @background-color, @text-color);
+            }
           `}
         </CodeBlock>
 
