@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  CodeBlock,
   Column,
   DabIpsum,
   Row,
@@ -100,6 +101,26 @@ export const Text = () => (
         <p className="alert error">
           <DabIpsum type="text" />
         </p>
+      </Column>
+    </Row>
+    <Row>
+      <Column>
+        <h3>
+          Code
+        </h3>
+        <CodeBlock language="javascript">
+          {`
+            <p className="info" />
+            <p className="success" />
+            <p className="warning" />
+            <p className="error" />
+
+            <p className="alert info" />
+            <p className="alert success" />
+            <p className="alert warning" />
+            <p className="alert error" />
+          `}
+        </CodeBlock>
       </Column>
     </Row>
   </Section>
