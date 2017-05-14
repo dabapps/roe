@@ -14,6 +14,7 @@ import { Buttons } from './buttons';
 import { CodeBlocks } from './code-blocks';
 import { Grid } from './grid';
 import { Inputs } from './inputs';
+import { Layout } from './layout';
 import { Text } from './text';
 
 const packageJson = require( '../../../package.json'); // tslint:disable-line:no-var-requires
@@ -36,10 +37,12 @@ class App extends React.Component<void, void> {
             </Column>
           </Row>
         </Section>
+
         <Buttons />
         <CodeBlocks />
         <Grid />
         <Inputs />
+        <Layout />
         <Text />
       </Container>
     );
