@@ -89,6 +89,9 @@ export const Text = () => (
           <DabIpsum type="text" />
         </p>
 
+        <p className="alert">
+          <DabIpsum type="text" />
+        </p>
         <p className="alert info">
           <DabIpsum type="text" />
         </p>
@@ -115,6 +118,7 @@ export const Text = () => (
             <p className="warning" />
             <p className="error" />
 
+            <p className="alert" />
             <p className="alert info" />
             <p className="alert success" />
             <p className="alert warning" />
