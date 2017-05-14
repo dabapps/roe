@@ -109,6 +109,9 @@ export const Buttons = () => (
               <Button block>
                 Block
               </Button>
+              <Button block type="primary">
+                Block Primary
+              </Button>
             </p>
 
             <p>
