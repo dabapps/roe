@@ -1,21 +1,21 @@
 .create-floats (@screen-size) {
   .@{screen-size}-float-left {
-    float: left !important;
+    float: left !important; // lesshint importantRule: false
   }
 
   .@{screen-size}-float-right {
-    float: right !important;
+    float: right !important; // lesshint importantRule: false
   }
 }
 
 .float-left,
 .xs-float-left {
-  float: left !important;
+  float: left !important; // lesshint importantRule: false
 }
 
 .float-right,
 .xs-float-right {
-  float: right !important;
+  float: right !important; // lesshint importantRule: false
 }
 
 @media all and (min-width: @screen-sm) {
