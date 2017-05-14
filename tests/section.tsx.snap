@@ -1,0 +1,9 @@
+exports[`Section should match snapshot 1`] = `
+<section
+  className="section" />
+`;
+
+exports[`Section should take regular element attributes 1`] = `
+<section
+  className="section my-class" />
+`;
