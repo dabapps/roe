@@ -17,7 +17,7 @@ export const Grid = () => (
       </Column>
     </Row>
     <Row>
-      <Column>
+      <Column className="display-columns">
         <h3>
           Demo
         </h3>
@@ -30,6 +30,22 @@ export const Grid = () => (
           </Column>
           <Column xs={12} sm={6} md={3}>
             Column 3
+          </Column>
+        </Row>
+        <Row>
+          <Column xs={6} xsPush={6}>
+            Column 4
+          </Column>
+          <Column xs={6} xsPull={6}>
+            Column 5
+          </Column>
+        </Row>
+        <Row>
+          <Column xs={6} xsOffset={3} xsFill={3}>
+            Column 6
+          </Column>
+          <Column xs={6} xsOffset={3} xsFill={3}>
+            Column 7
           </Column>
         </Row>
       </Column>
@@ -51,6 +67,22 @@ export const Grid = () => (
               </Column>
               <Column xs={12} sm={6} md={3}>
                 Column 3
+              </Column>
+            </Row>
+            <Row>
+              <Column xs={6} xsPush={6}>
+                Column 4
+              </Column>
+              <Column xs={6} xsPull={6}>
+                Column 5
+              </Column>
+            </Row>
+            <Row>
+              <Column xs={6} xsOffset={3} xsFill={3}>
+                Column 6
+              </Column>
+              <Column xs={6} xsOffset={3} xsFill={3}>
+                Column 7
               </Column>
             </Row>
           </Container>
