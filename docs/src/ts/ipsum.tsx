@@ -22,6 +22,11 @@ export const Ipsum = () => (
         <h3>
           Demo
         </h3>
+        <p>
+          <strong>
+            <DabIpsum type="text" />
+          </strong>
+        </p>
         <DabIpsum />
         <DabIpsum type="ul" count={3} />
         <DabIpsum type="ol" count={3} />
@@ -34,6 +39,11 @@ export const Ipsum = () => (
         </h3>
         <CodeBlock language="javascript">
           {`
+            <p>
+              <strong>
+                <DabIpsum type="text" />
+              </strong>
+            </p>
             <DabIpsum />
             <DabIpsum type="ul" count={3} />
             <DabIpsum type="ol" count={3} />
