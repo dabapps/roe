@@ -47,17 +47,17 @@ export const Layout = () => (
           {`
             <Section>
               <p>
-                Section
+                Section 1
               </p>
             </Section>
             <Section>
               <p>
-                Section
+                Section 2
               </p>
             </Section>
             <Section>
               <p>
-                Section
+                Section 3
               </p>
             </Section>
           `}
