@@ -59,8 +59,12 @@
     }
   }
 
-  & + .button {
+  &:not(.block) + .button:not(.block) {
     margin-left: @spacing-horizontal-base;
+  }
+
+  &.block + .button.block {
+    margin-top: @spacing-horizontal-base;
   }
 
   &.block {
