@@ -1,11 +1,11 @@
 import * as React from 'react';
 
 interface IIpsumProps { // tslint:disable-line:no-unused-variable
-  type: 'li' | 'p';
+  type: 'li' | 'p' | 'text';
 }
 
 interface IDabIpsumProps {
-  type?: 'ul' | 'ol' | 'p';
+  type?: 'ul' | 'ol' | 'p' | 'text';
   count?: number;
 }
 
@@ -73,19 +73,27 @@ export const Ipsum: React.SFC<IIpsumProps> = (props) => {
 
   ipsum = ipsum.charAt(0).toUpperCase() + ipsum.substring(1) + '.';
 
-  if (type === 'li') {
-    return (
-      <li>
-        {ipsum}
-      </li>
-    );
+  switch (type) {
+    case 'li':
+      return (
+        <li>
+          {ipsum}
+        </li>
+      );
+    case 'text':
+      return (
+        <span>
+          {ipsum}
+        </span>
+      );
+    case 'p':
+    default:
+      return (
+        <p>
+          {ipsum}
+        </p>
+      );
   }
-
-  return (
-    <p>
-      {ipsum}
-    </p>
-  );
 };
 
 export class DabIpsum extends React.Component<IDabIpsumProps, void> {
@@ -118,6 +126,10 @@ export class DabIpsum extends React.Component<IDabIpsumProps, void> {
           <ol>
             {items}
           </ol>
+        );
+      case 'text':
+        return (
+          <Ipsum type="text" />
         );
       case 'p':
       default:
