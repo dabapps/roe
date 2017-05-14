@@ -123,7 +123,7 @@ export const Buttons = () => (
         </CodeBlock>
 
         <p>
-          You can create custom button using the create button mixin e.g.
+          You can create custom buttons using the create button mixin e.g.
         </p>
         <CodeBlock language="less">
           {`
