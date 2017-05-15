@@ -11,7 +11,8 @@
     "lint-js": "tslint --project tsconfig.json --type-check '{src,tests,types,docs}/**/*.{ts,tsx}'",
     "lint-less": "lesshint 'src/less/' 'docs/src/less/'",
     "lint": "npm run lint-js && npm run lint-less",
-    "test": "npm run lint && ./scripts/test",
+    "tests": "jest",
+    "test": "npm run lint && npm run tests -- --coverage",
     "postinstall": "./scripts/dist"
   },
   "repository": {
@@ -33,7 +34,6 @@
   },
   "homepage": "https://github.com/dabapps/roe#readme",
   "dependencies": {
-    "@types/chai": "3.5.1",
     "@types/classnames": "0.0.32",
     "@types/highlight.js": "9.1.9",
     "@types/random-seed": "0.3.2",
@@ -55,25 +55,18 @@
     "typescript": "2.2.2"
   },
   "devDependencies": {
-    "@types/mocha": "2.2.41",
+    "@types/jest": "19.2.3",
     "@types/node": "7.0.13",
     "@types/react-test-renderer": "15.4.5",
-    "@types/sinon-chai": "2.7.27",
     "brfs": "1.4.3",
-    "chai": "3.5.0",
-    "chai-jest-snapshot": "0.3.0",
     "concurrently": "3.4.0",
     "envify": "4.0.0",
     "http-server": "0.9.0",
-    "jsdom": "10.1.0",
+    "jest": "20.0.1",
     "lesshint": "3.3.1",
     "livereload": "0.6.2",
-    "mocha": "3.3.0",
-    "nyc": "10.2.0",
     "react-test-renderer": "15.5.4",
-    "sinon": "2.1.0",
-    "sinon-chai": "2.9.0",
-    "ts-node": "3.0.2",
+    "ts-jest": "20.0.3",
     "tslint": "5.1.0",
     "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.2.0",
     "watch-less-do-more": "0.2.0",
@@ -85,5 +78,26 @@
     "react": ">= 15 < 16",
     "react-dom": ">= 15 < 16",
     "typescript": ">= 2 < 3"
+  },
+  "jest": {
+    "coverageThreshold": {
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
+    },
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/tests/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx"
+    ],
+    "mapCoverage": true
   }
 }

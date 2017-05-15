@@ -1,9 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Alert should match snapshot 1`] = `
 <div
-  className="alert" />
+  className="alert"
+/>
 `;
 
 exports[`Alert should take regular element attributes 1`] = `
 <div
-  className="alert my-class" />
+  className="alert my-class"
+/>
 `;

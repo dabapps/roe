@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
@@ -11,7 +10,7 @@ describe('Column', () => {
       <Column />
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   it('should take regular element attributes', () => {
@@ -19,7 +18,7 @@ describe('Column', () => {
       <Column className="my-class" />
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   it('should convert column modifier props to class names', () => {
@@ -51,7 +50,7 @@ describe('Column', () => {
       </div>
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
 });

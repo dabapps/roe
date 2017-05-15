@@ -3,6 +3,5 @@
 set -e
 
 mkdir -p dist/js/
-mkdir -p dist/css/
 
 tsc --sourceMap --declaration --listFiles --project 'src/ts/tsconfig.json' --rootDir 'src/ts/' --outDir 'dist/js/' --module 'CommonJS'

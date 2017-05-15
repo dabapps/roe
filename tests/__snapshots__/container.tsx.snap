@@ -1,14 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Container should match snapshot 1`] = `
 <div
-  className="container" />
+  className="container"
+/>
 `;
 
 exports[`Container should take an optional fluid prop 1`] = `
 <div
-  className="container-fluid" />
+  className="container-fluid"
+/>
 `;
 
 exports[`Container should take regular element attributes 1`] = `
 <div
-  className="container my-class" />
+  className="container my-class"
+/>
 `;

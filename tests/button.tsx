@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
@@ -11,7 +10,7 @@ describe('Button', () => {
       <Button />
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   it('should take an optional large prop', () => {
@@ -19,7 +18,7 @@ describe('Button', () => {
       <Button large />
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   it('should take regular element attributes', () => {
@@ -27,7 +26,7 @@ describe('Button', () => {
       <Button className="my-class" />
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   it('should use a type prop as a class name', () => {
@@ -35,7 +34,7 @@ describe('Button', () => {
       <Button type="primary" />
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   it('should use a block prop (boolean) as a class name', () => {
@@ -43,7 +42,7 @@ describe('Button', () => {
       <Button block />
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
 });

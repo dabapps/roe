@@ -1,9 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`Well should match snapshot 1`] = `
 <div
-  className="well" />
+  className="well"
+/>
 `;
 
 exports[`Well should take regular element attributes 1`] = `
 <div
-  className="well my-class" />
+  className="well my-class"
+/>
 `;
