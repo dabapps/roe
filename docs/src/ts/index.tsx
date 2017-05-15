@@ -21,6 +21,7 @@ import { Inputs } from './inputs';
 import { Ipsum } from './ipsum';
 import { Layout } from './layout';
 import { Text } from './text';
+import { Wells } from './wells';
 
 const variables = fs.readFileSync(path.join(__dirname, '../../../src/less/variables.less'), 'utf8');
 
@@ -53,6 +54,7 @@ class App extends React.Component<void, void> {
         <Ipsum />
         <Layout />
         <Text />
+        <Wells />
 
         <Section>
           <Row>
