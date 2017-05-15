@@ -1,14 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`FormGroup should match snapshot 1`] = `
 <div
-  className="form-group" />
+  className="form-group"
+/>
 `;
 
 exports[`FormGroup should take regular element attributes 1`] = `
 <div
-  className="form-group my-class" />
+  className="form-group my-class"
+/>
 `;
 
 exports[`FormGroup should use a block prop (boolean) as a class name 1`] = `
 <div
-  className="form-group block" />
+  className="form-group block"
+/>
 `;

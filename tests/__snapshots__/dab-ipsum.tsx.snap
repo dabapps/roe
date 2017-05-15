@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`DabIpsum should allow rendering an ordered list 1`] = `
 <ol>
   <li>

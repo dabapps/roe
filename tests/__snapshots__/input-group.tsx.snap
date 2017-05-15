@@ -1,9 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`InputGroup should match snapshot 1`] = `
 <div
-  className="input-group" />
+  className="input-group"
+/>
 `;
 
 exports[`InputGroup should take regular element attributes 1`] = `
 <div
-  className="input-group my-class" />
+  className="input-group my-class"
+/>
 `;

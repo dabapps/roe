@@ -1,21 +1,15 @@
-import { expect } from 'chai';
 import * as hljs from 'highlight.js';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import { stub } from 'sinon';
 
 import { CodeBlock } from '../src/ts/';
 
 describe('CodeBlock', () => {
 
-  let highlightBlockStub: sinon.SinonStub;
-
-  beforeEach(() => {
-    highlightBlockStub = stub(hljs, 'highlightBlock');
-  });
+  const highlightBlockSpy = jest.spyOn(hljs, 'highlightBlock').mockImplementation(jest.fn);
 
   afterEach(() => {
-    highlightBlockStub.restore();
+    highlightBlockSpy.mockReset();
   })
 
   it('should match snapshot', () => {
@@ -23,7 +17,7 @@ describe('CodeBlock', () => {
       <CodeBlock />
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   it('should take an optional language prop', () => {
@@ -31,7 +25,7 @@ describe('CodeBlock', () => {
       <CodeBlock language="javascript" />
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   it('should handle empty code snippets', () => {
@@ -41,7 +35,7 @@ describe('CodeBlock', () => {
       </CodeBlock>
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   it('should remove weird indentation from multi line snippets', () => {
@@ -54,7 +48,7 @@ describe('CodeBlock', () => {
       </CodeBlock>
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
 
     // Incorrect indentation (should match above snapshot after processing)
     tree = renderer.create(
@@ -70,7 +64,7 @@ describe('CodeBlock', () => {
       </CodeBlock>
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   it('should remove weird indentation from single line snippets', () => {
@@ -81,7 +75,7 @@ describe('CodeBlock', () => {
       </CodeBlock>
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
 
     // Incorrect indentation (should match above snapshot after processing)
     tree = renderer.create(
@@ -92,7 +86,7 @@ describe('CodeBlock', () => {
       </CodeBlock>
     );
 
-    expect(tree).to.matchSnapshot();
+    expect(tree).toMatchSnapshot();
   });
 
   it('should highlight its contents', () => {
@@ -105,12 +99,11 @@ describe('CodeBlock', () => {
     const instance = new CodeBlock({children});
     const element = document.createElement('pre');
 
-    // tslint:disable-next-line
-    expect(highlightBlockStub).not.to.have.been.called;
+    expect(hljs.highlightBlock).not.toHaveBeenCalled();
 
     instance.highlightBlock(element);
 
-    expect(highlightBlockStub).to.have.been.calledWith(element);
+    expect(hljs.highlightBlock).toHaveBeenCalledWith(element);
   });
 
   it('should highlight its contens on update', () => {
@@ -124,18 +117,18 @@ describe('CodeBlock', () => {
     const element = document.createElement('pre');
 
       // tslint:disable-next-line
-    expect(highlightBlockStub).not.to.have.been.called;
+    expect(hljs.highlightBlock).not.toHaveBeenCalled()
 
     instance.element = element;
 
     instance.componentDidUpdate({children});
 
       // tslint:disable-next-line
-    expect(highlightBlockStub).not.to.have.been.called;
+    expect(hljs.highlightBlock).not.toHaveBeenCalled()
 
     instance.componentDidUpdate({children: 'Different children'});
 
-    expect(highlightBlockStub).to.have.been.calledWith(element);
+    expect(hljs.highlightBlock).toHaveBeenCalledWith(element);
   });
 
 });
