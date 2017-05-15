@@ -1,9 +1,12 @@
+import * as fs from 'fs';
+import * as path from 'path';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import './livereload';
 
 import {
+  CodeBlock,
   Column,
   Container,
   Row,
@@ -17,6 +20,8 @@ import { Inputs } from './inputs';
 import { Ipsum } from './ipsum';
 import { Layout } from './layout';
 import { Text } from './text';
+
+const variables = fs.readFileSync(path.join(__dirname, '../../../src/less/variables.less'), 'utf8');
 
 const packageJson = require( '../../../package.json'); // tslint:disable-line:no-var-requires
 
@@ -46,6 +51,19 @@ class App extends React.Component<void, void> {
         <Ipsum />
         <Layout />
         <Text />
+
+        <Section>
+          <Row>
+            <Column>
+              <h2>
+                Less variables
+              </h2>
+              <CodeBlock language="less">
+                {variables}
+              </CodeBlock>
+            </Column>
+          </Row>
+        </Section>
       </Container>
     );
   }
