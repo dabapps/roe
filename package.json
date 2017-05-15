@@ -57,6 +57,7 @@
     "@types/node": "7.0.13",
     "@types/react-test-renderer": "15.4.5",
     "@types/sinon-chai": "2.7.27",
+    "brfs": "1.4.3",
     "chai": "3.5.0",
     "chai-jest-snapshot": "0.3.0",
     "concurrently": "3.4.0",
