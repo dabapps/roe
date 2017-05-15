@@ -53,7 +53,6 @@ const words = [
   'react',
   'react-native',
   'recognition',
-  'recruitment',
   'rest',
   'service',
   'technical',
