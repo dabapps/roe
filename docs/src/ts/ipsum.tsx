@@ -27,7 +27,7 @@ export const Ipsum = () => (
             <DabIpsum type="text" />
           </strong>
         </p>
-        <DabIpsum />
+        <DabIpsum type="p" count={5} />
         <DabIpsum type="ul" count={3} />
         <DabIpsum type="ol" count={3} />
       </Column>
@@ -44,7 +44,7 @@ export const Ipsum = () => (
                 <DabIpsum type="text" />
               </strong>
             </p>
-            <DabIpsum />
+            <DabIpsum type="p" count={5} /> // Default
             <DabIpsum type="ul" count={3} />
             <DabIpsum type="ol" count={3} />
           `}
