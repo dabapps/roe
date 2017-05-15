@@ -1,0 +1,81 @@
+exports[`DabIpsum should allow rendering an ordered list 1`] = `
+<ol>
+  <li>
+    Teaching javascript client agile developers apps training partnerships product training equality teaching business careers javascript.
+  </li>
+  <li>
+    Objective-c testimonial academia product designers client training apprentice brighton partnerships testimonial django react teaching designers.
+  </li>
+  <li>
+    Prototyping teaching angular client designers rest news testimonial academia prototyping designers testimonial apprentice equality web.
+  </li>
+  <li>
+    Development framework technical ionic rest networking testing technical web testimonial cats agile digital rest django.
+  </li>
+  <li>
+    Design toolkit networking mobile rest react-native django ionic product kittens testing react product networking prototyping.
+  </li>
+</ol>
+`;
+
+exports[`DabIpsum should allow rendering an unordered list 1`] = `
+<ul>
+  <li>
+    Teaching javascript client agile developers apps training partnerships product training equality teaching business careers javascript.
+  </li>
+  <li>
+    Objective-c testimonial academia product designers client training apprentice brighton partnerships testimonial django react teaching designers.
+  </li>
+  <li>
+    Prototyping teaching angular client designers rest news testimonial academia prototyping designers testimonial apprentice equality web.
+  </li>
+  <li>
+    Development framework technical ionic rest networking testing technical web testimonial cats agile digital rest django.
+  </li>
+  <li>
+    Design toolkit networking mobile rest react-native django ionic product kittens testing react product networking prototyping.
+  </li>
+</ul>
+`;
+
+exports[`DabIpsum should allow rendering plain text (in a span) 1`] = `
+<span>
+  Teaching javascript client agile developers apps training partnerships product training equality teaching business careers javascript.
+</span>
+`;
+
+exports[`DabIpsum should allow setting how many items to render 1`] = `
+<div>
+  <p>
+    Teaching javascript client agile developers apps training partnerships product training equality teaching business careers javascript.
+  </p>
+  <p>
+    Objective-c testimonial academia product designers client training apprentice brighton partnerships testimonial django react teaching designers.
+  </p>
+  <p>
+    Prototyping teaching angular client designers rest news testimonial academia prototyping designers testimonial apprentice equality web.
+  </p>
+</div>
+`;
+
+exports[`DabIpsum should generate some ipsum 1`] = `"Teaching javascript client agile developers apps training partnerships product training equality teaching business careers javascript."`;
+
+exports[`DabIpsum should render some paragraphs by default 1`] = `
+<div>
+  <p>
+    Teaching javascript client agile developers apps training partnerships product training equality teaching business careers javascript.
+  </p>
+  <p>
+    Objective-c testimonial academia product designers client training apprentice brighton partnerships testimonial django react teaching designers.
+  </p>
+  <p>
+    Prototyping teaching angular client designers rest news testimonial academia prototyping designers testimonial apprentice equality web.
+  </p>
+  <p>
+    Development framework technical ionic rest networking testing technical web testimonial cats agile digital rest django.
+  </p>
+  <p>
+    Design toolkit networking mobile rest react-native django ionic product kittens testing react product networking prototyping.
+  </p>
+</div>
+`;

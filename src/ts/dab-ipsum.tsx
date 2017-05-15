@@ -1,3 +1,4 @@
+import * as randomSeed from 'random-seed';
 import * as React from 'react';
 
 interface IIpsumProps { // tslint:disable-line:no-unused-variable
@@ -66,13 +67,23 @@ const words = [
   'web'
 ];
 
-export const Ipsum: React.SFC<IIpsumProps> = (props) => {
-  const { type } = props;
-  let ipsum = Array.apply(null, new Array(15)).map(() => (
-    words[Math.floor(Math.random() * words.length)]
+let rand = randomSeed.create('dabapps');
+
+export const resetRandomSeed = () => {
+  rand = randomSeed.create('dabapps');
+}
+
+export const generateIpsum = () => {
+  const ipsum = Array.apply(null, new Array(15)).map(() => (
+    words[Math.floor(rand.range(words.length))]
   )).join(' ');
 
-  ipsum = ipsum.charAt(0).toUpperCase() + ipsum.substring(1) + '.';
+  return ipsum.charAt(0).toUpperCase() + ipsum.substring(1) + '.';
+}
+
+export const Ipsum: React.SFC<IIpsumProps> = (props) => {
+  const { type } = props;
+  const ipsum = generateIpsum();
 
   switch (type) {
     case 'li':
