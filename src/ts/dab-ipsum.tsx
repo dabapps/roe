@@ -40,7 +40,7 @@ const words = [
   'javascript',
   'kittens',
   'mobile',
-  'navite',
+  'native',
   'networking',
   'news',
   'objective-c',
