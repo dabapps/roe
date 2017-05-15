@@ -10,7 +10,7 @@ describe('CodeBlock', () => {
 
   afterEach(() => {
     highlightBlockSpy.mockReset();
-  })
+  });
 
   it('should match snapshot', () => {
     const tree = renderer.create(
