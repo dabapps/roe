@@ -1,11 +1,11 @@
 import * as randomSeed from 'random-seed';
 import * as React from 'react';
 
-interface IIpsumProps { // tslint:disable-line:no-unused-variable
+export interface IIpsumProps {
   type: 'li' | 'p' | 'text';
 }
 
-interface IDabIpsumProps {
+export interface IDabIpsumProps {
   type?: 'ul' | 'ol' | 'p' | 'text';
   count?: number;
 }
