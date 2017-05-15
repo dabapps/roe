@@ -98,7 +98,7 @@ export const Ipsum: React.SFC<IIpsumProps> = (props) => {
           {ipsum}
         </span>
       );
-    case 'p':
+    // case 'p':
     default:
       return (
         <p>
@@ -143,7 +143,7 @@ export class DabIpsum extends React.Component<IDabIpsumProps, void> {
         return (
           <Ipsum type="text" />
         );
-      case 'p':
+      // case 'p':
       default:
         return (
           <div>
