@@ -15,6 +15,7 @@ import {
 
 import { Buttons } from './buttons';
 import { CodeBlocks } from './code-blocks';
+import { Floats } from './floats';
 import { Grid } from './grid';
 import { Inputs } from './inputs';
 import { Ipsum } from './ipsum';
@@ -46,6 +47,7 @@ class App extends React.Component<void, void> {
 
         <Buttons />
         <CodeBlocks />
+        <Floats />
         <Grid />
         <Inputs />
         <Ipsum />
