@@ -1,0 +1,9 @@
+exports[`Alert should match snapshot 1`] = `
+<div
+  className="alert" />
+`;
+
+exports[`Alert should take regular element attributes 1`] = `
+<div
+  className="alert my-class" />
+`;

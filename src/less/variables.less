@@ -4,6 +4,21 @@
 @secondary: #7B2240;
 @tertiary: #2E253F;
 
+@info: #2D87A3;
+@success: #2FA34F;
+@warning: #D6982F;
+@error: #CD3B3B;
+
+@info-light: lighten(@info, 30%);
+@success-light: lighten(@success, 30%);
+@warning-light: lighten(@warning, 25%);
+@error-light: lighten(@error, 30%);
+
+@info-lighter: lighten(@info, 50%);
+@success-lighter: lighten(@success, 50%);
+@warning-lighter: lighten(@warning, 40%);
+@error-lighter: lighten(@error, 40%);
+
 @black: #000000;
 @grey-dark: #333333;
 @grey-medium: #555555;
@@ -26,6 +41,7 @@
 
 /* @group Borders */
 
+@border-radius-base: 2px;
 @border-base: 1px solid @grey-lighter;
 @border-none: 0;
 
@@ -37,6 +53,7 @@
 @font-size-large: floor(@font-size-base * 1.4);
 @font-color-base: @grey-dark;
 @font-family-base: arial, helvetica, sans-serif;
+@header-color-base: @font-color-base;
 
 /* @end Fonts */
 
@@ -50,7 +67,6 @@
 
 /* @group Misc Sizes */
 
-@border-radius-base: 2px;
 @padding-base: 10px;
 @padding-large: floor(@padding-base * 1.4);
 @spacing-horizontal-base: 10px;

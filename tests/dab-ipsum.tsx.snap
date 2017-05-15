@@ -1,0 +1,81 @@
+exports[`DabIpsum should allow rendering an ordered list 1`] = `
+<ol>
+  <li>
+    Teaching kittens coffee agile developers apps training product projects toolkit events tea careers cats javascript.
+  </li>
+  <li>
+    Objective-c testimonial academia projects designers coffee toolkit apprentice business product technical documentation react-native tea designers.
+  </li>
+  <li>
+    Python tea angular client development service news testimonial academia prototyping development technical apps events web.
+  </li>
+  <li>
+    Development innovation technical ios service networking testimonial technical web technical cats agile django service documentation.
+  </li>
+  <li>
+    Design toolkit networking mobile service recognition documentation ionic product llamas testing react-native product networking python.
+  </li>
+</ol>
+`;
+
+exports[`DabIpsum should allow rendering an unordered list 1`] = `
+<ul>
+  <li>
+    Teaching kittens coffee agile developers apps training product projects toolkit events tea careers cats javascript.
+  </li>
+  <li>
+    Objective-c testimonial academia projects designers coffee toolkit apprentice business product technical documentation react-native tea designers.
+  </li>
+  <li>
+    Python tea angular client development service news testimonial academia prototyping development technical apps events web.
+  </li>
+  <li>
+    Development innovation technical ios service networking testimonial technical web technical cats agile django service documentation.
+  </li>
+  <li>
+    Design toolkit networking mobile service recognition documentation ionic product llamas testing react-native product networking python.
+  </li>
+</ul>
+`;
+
+exports[`DabIpsum should allow rendering plain text (in a span) 1`] = `
+<span>
+  Teaching kittens coffee agile developers apps training product projects toolkit events tea careers cats javascript.
+</span>
+`;
+
+exports[`DabIpsum should allow setting how many items to render 1`] = `
+<div>
+  <p>
+    Teaching kittens coffee agile developers apps training product projects toolkit events tea careers cats javascript.
+  </p>
+  <p>
+    Objective-c testimonial academia projects designers coffee toolkit apprentice business product technical documentation react-native tea designers.
+  </p>
+  <p>
+    Python tea angular client development service news testimonial academia prototyping development technical apps events web.
+  </p>
+</div>
+`;
+
+exports[`DabIpsum should generate some ipsum 1`] = `"Teaching kittens coffee agile developers apps training product projects toolkit events tea careers cats javascript."`;
+
+exports[`DabIpsum should render some paragraphs by default 1`] = `
+<div>
+  <p>
+    Teaching kittens coffee agile developers apps training product projects toolkit events tea careers cats javascript.
+  </p>
+  <p>
+    Objective-c testimonial academia projects designers coffee toolkit apprentice business product technical documentation react-native tea designers.
+  </p>
+  <p>
+    Python tea angular client development service news testimonial academia prototyping development technical apps events web.
+  </p>
+  <p>
+    Development innovation technical ios service networking testimonial technical web technical cats agile django service documentation.
+  </p>
+  <p>
+    Design toolkit networking mobile service recognition documentation ionic product llamas testing react-native product networking python.
+  </p>
+</div>
+`;

@@ -1,0 +1,35 @@
+.create-floats (@screen-size) {
+  .@{screen-size}-float-left {
+    float: left !important; // lesshint importantRule: false
+  }
+
+  .@{screen-size}-float-right {
+    float: right !important; // lesshint importantRule: false
+  }
+}
+
+.float-left,
+.xs-float-left {
+  float: left !important; // lesshint importantRule: false
+}
+
+.float-right,
+.xs-float-right {
+  float: right !important; // lesshint importantRule: false
+}
+
+@media all and (min-width: @screen-sm) {
+  .create-floats(sm);
+}
+
+@media all and (min-width: @screen-md) {
+  .create-floats(md);
+}
+
+@media all and (min-width: @screen-lg) {
+  .create-floats(lg);
+}
+
+@media all and (min-width: @screen-xl) {
+  .create-floats(xl);
+}

@@ -1,12 +1,16 @@
 import * as React from 'react';
 
 import {
+  Alert,
+  CodeBlock,
   Column,
-  Row
+  DabIpsum,
+  Row,
+  Section
 } from '../../../src/ts';
 
 export const Text = () => (
-  <div>
+  <Section>
     <Row>
       <Column>
         <h2>
@@ -16,54 +20,131 @@ export const Text = () => (
     </Row>
     <Row>
       <Column>
+        <h3>
+          Headers
+        </h3>
         <h1>
           Header 1
         </h1>
         <h2>
-          Header 1
+          Header 2
         </h2>
         <h3>
-          Header 1
+          Header 3
         </h3>
         <h4>
-          Header 1
+          Header 4
         </h4>
         <h5>
-          Header 1
+          Header 5
         </h5>
         <h6>
-          Header 1
+          Header 6
         </h6>
-        <p>
-          Lorem ipsum dolor sit amet, <a href="#">consectetur</a> adipiscing elit. Suspendisse luctus scelerisque arcu,
-          lacinia porttitor justo pretium nec. Aliquam <a href="#">erat volutpat</a>. Integer feugiat erat ut felis
-          imperdiet, at aliquam quam auctor. Donec dictum pulvinar porta. Integer dui nibh, commodo vitae sodales eget,
-          varius ac nulla. Morbi tempus risus ut hendrerit mattis. Nunc eu libero elementum ipsum accumsan interdum at
-          eu ligula. Nunc accumsan tortor libero, sed dapibus augue hendrerit et. Donec vel nunc quis magna euismod
-          facilisis. Ut mi est, aliquet non ultrices eget, euismod non risus. <a href="#">Vivamus vel nisi et enim
-          efficitur interdum</a>.
-        </p>
+      </Column>
+    </Row>
+    <Row>
+      <Column>
+        <h3>
+          Body
+        </h3>
         <p>
           <i>
-            Sed lobortis id nisl nec laoreet. Nulla mattis fermentum augue vitae tempus. Cras lorem leo, finibus et
-            augue nec, sagittis vulputate turpis. Morbi tincidunt risus in elit dignissim, at luctus ligula feugiat.
+            <DabIpsum type="text" />
           </i>
         </p>
         <p>
           <strong>
             <i>
-              Quisque auctor rhoncus rutrum. Maecenas quis dui ut lectus tempor tincidunt. In nunc ex, condimentum in
-              risus nec, porta maximus arcu. Nam dictum ipsum in dui efficitur condimentum.
+              <DabIpsum type="text" />
             </i>
           </strong>
         </p>
         <p>
           <strong>
-            In non pellentesque arcu. Maecenas lacinia semper lectus vitae sagittis. Mauris metus nibh, posuere at enim
-            porttitor, maximus vehicula quam.
+            <DabIpsum type="text" />
           </strong>
+        </p>
+        <p>
+          <a href="#">
+            Link
+          </a>
         </p>
       </Column>
     </Row>
-  </div>
+    <Row>
+      <Column>
+        <h3>
+          Special
+        </h3>
+        <p className="info">
+          <DabIpsum type="text" />
+        </p>
+        <p className="success">
+          <DabIpsum type="text" />
+        </p>
+        <p className="warning">
+          <DabIpsum type="text" />
+        </p>
+        <p className="error">
+          <DabIpsum type="text" />
+        </p>
+
+        <Alert>
+          <DabIpsum count={2} />
+        </Alert>
+        <Alert className="info">
+          <DabIpsum count={2} />
+        </Alert>
+        <Alert className="success">
+          <DabIpsum count={2} />
+        </Alert>
+        <Alert className="warning">
+          <DabIpsum count={2} />
+        </Alert>
+        <Alert className="error">
+          <DabIpsum count={2} />
+        </Alert>
+      </Column>
+    </Row>
+    <Row>
+      <Column>
+        <h3>
+          Code
+        </h3>
+        <CodeBlock language="javascript">
+          {`
+            <p className="info">
+              <DabIpsum type="text" />
+            </p>
+            <p className="success">
+              <DabIpsum type="text" />
+            </p>
+            <p className="warning">
+              <DabIpsum type="text" />
+            </p>
+            <p className="error">
+              <DabIpsum type="text" />
+            </p>
+
+            <Alert>
+              <DabIpsum count={2} />
+            </Alert>
+            <Alert className="info">
+              <DabIpsum count={2} />
+            </Alert>
+            <Alert className="success">
+              <DabIpsum count={2} />
+            </Alert>
+            <Alert className="warning">
+              <DabIpsum count={2} />
+            </Alert>
+            <Alert className="error">
+              <DabIpsum count={2} />
+            </Alert>
+          `}
+        </CodeBlock>
+      </Column>
+    </Row>
+  </Section>
 );

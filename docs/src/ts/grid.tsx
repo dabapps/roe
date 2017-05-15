@@ -3,11 +3,12 @@ import * as React from 'react';
 import {
   CodeBlock,
   Column,
-  Row
+  Row,
+  Section
 } from '../../../src/ts';
 
 export const Grid = () => (
-  <div>
+  <Section>
     <Row>
       <Column>
         <h2>
@@ -16,18 +17,44 @@ export const Grid = () => (
       </Column>
     </Row>
     <Row>
-      <Column xs={12} sm={6} md={3}>
-        Column 1
-      </Column>
-      <Column xs={12} sm={6} md={3}>
-        Column 2
-      </Column>
-      <Column xs={12} sm={6} md={3}>
-        Column 3
+      <Column className="display-columns">
+        <h3>
+          Demo
+        </h3>
+        <Row>
+          <Column xs={12} sm={6} md={3}>
+            Column 1
+          </Column>
+          <Column xs={12} sm={6} md={3}>
+            Column 2
+          </Column>
+          <Column xs={12} sm={6} md={3}>
+            Column 3
+          </Column>
+        </Row>
+        <Row>
+          <Column xs={6} xsPush={6}>
+            Column 4
+          </Column>
+          <Column xs={6} xsPull={6}>
+            Column 5
+          </Column>
+        </Row>
+        <Row>
+          <Column xs={6} xsOffset={3} xsFill={3}>
+            Column 6
+          </Column>
+          <Column xs={6} xsOffset={3} xsFill={3}>
+            Column 7
+          </Column>
+        </Row>
       </Column>
     </Row>
     <Row>
       <Column>
+        <h3>
+          Code
+        </h3>
         <CodeBlock language="javascript">
           {`
           <Container>
@@ -40,6 +67,22 @@ export const Grid = () => (
               </Column>
               <Column xs={12} sm={6} md={3}>
                 Column 3
+              </Column>
+            </Row>
+            <Row>
+              <Column xs={6} xsPush={6}>
+                Column 4
+              </Column>
+              <Column xs={6} xsPull={6}>
+                Column 5
+              </Column>
+            </Row>
+            <Row>
+              <Column xs={6} xsOffset={3} xsFill={3}>
+                Column 6
+              </Column>
+              <Column xs={6} xsOffset={3} xsFill={3}>
+                Column 7
               </Column>
             </Row>
           </Container>
@@ -57,5 +100,5 @@ export const Grid = () => (
         </CodeBlock>
       </Column>
     </Row>
-  </div>
+  </Section>
 );

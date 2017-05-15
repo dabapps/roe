@@ -26,6 +26,10 @@
   .create-button(primary, @primary, @grey-lighter);
   .create-button(secondary, @secondary, @grey-lighter);
   .create-button(tertiary, @tertiary, @grey-lighter);
+  .create-button(info, @info, @grey-lighter);
+  .create-button(success, @success, @grey-lighter);
+  .create-button(warning, @warning, @grey-lighter);
+  .create-button(error, @error, @grey-lighter);
 
   transition: ease-in-out 0.1s background-color, ease-in-out 0.1s box-shadow;
   box-shadow: @shadow-none;
@@ -55,9 +59,12 @@
     }
   }
 
-  & + button,
-  & + .button {
+  &:not(.block) + .button:not(.block) {
     margin-left: @spacing-horizontal-base;
+  }
+
+  &.block + .button.block {
+    margin-top: @spacing-horizontal-base;
   }
 
   &.block {

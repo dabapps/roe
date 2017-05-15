@@ -4,11 +4,12 @@ import {
   Button,
   CodeBlock,
   Column,
-  Row
+  Row,
+  Section
 } from '../../../src/ts';
 
 export const Buttons = () => (
-  <div>
+  <Section>
     <Row>
       <Column>
         <h2>
@@ -18,6 +19,9 @@ export const Buttons = () => (
     </Row>
     <Row>
       <Column>
+        <h3>
+          Demo
+        </h3>
         <p>
           <Button>
             Default
@@ -34,11 +38,26 @@ export const Buttons = () => (
           <Button type="tertiary">
             Tertiary
           </Button>
+          <Button type="info">
+            Info
+          </Button>
+          <Button type="success">
+            Success
+          </Button>
+          <Button type="warning">
+            Warning
+          </Button>
+          <Button type="error">
+            Error
+          </Button>
         </p>
 
         <p>
           <Button block>
             Block
+          </Button>
+          <Button block type="primary">
+            Block Primary
           </Button>
         </p>
 
@@ -46,25 +65,22 @@ export const Buttons = () => (
           <Button large>
             Default
           </Button>
-          <Button large type="primary">
-            Primary
-          </Button>
-          <Button large type="secondary">
-            Secondary
-          </Button>
-          <Button large type="tertiary">
-            Tertiary
-          </Button>
         </p>
       </Column>
     </Row>
     <Row>
       <Column>
+        <h3>
+          Code
+        </h3>
         <CodeBlock language="javascript">
           {`
             <p>
               <Button>
                 Default
+              </Button>
+              <Button disabled>
+                Disabled
               </Button>
               <Button type="primary">
                 Primary
@@ -75,11 +91,26 @@ export const Buttons = () => (
               <Button type="tertiary">
                 Tertiary
               </Button>
+              <Button type="info">
+                Info
+              </Button>
+              <Button type="success">
+                Success
+              </Button>
+              <Button type="warning">
+                Warning
+              </Button>
+              <Button type="error">
+                Error
+              </Button>
             </p>
 
             <p>
               <Button block>
                 Block
+              </Button>
+              <Button block type="primary">
+                Block Primary
               </Button>
             </p>
 
@@ -87,25 +118,18 @@ export const Buttons = () => (
               <Button large>
                 Default
               </Button>
-              <Button large type="primary">
-                Primary
-              </Button>
-              <Button large type="secondary">
-                Secondary
-              </Button>
-              <Button large type="tertiary">
-                Tertiary
-              </Button>
             </p>
           `}
         </CodeBlock>
 
         <p>
-          You can create custom button using the create button mixin e.g.
+          You can create custom buttons using the create button mixin e.g.
         </p>
         <CodeBlock language="less">
           {`
-            .create-button(custom, @background-color, @text-color);
+            .button {
+              .create-button(custom, @background-color, @text-color);
+            }
           `}
         </CodeBlock>
 
@@ -119,5 +143,5 @@ export const Buttons = () => (
         </CodeBlock>
       </Column>
     </Row>
-  </div>
+  </Section>
 );

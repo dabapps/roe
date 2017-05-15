@@ -1,0 +1,9 @@
+exports[`Well should match snapshot 1`] = `
+<div
+  className="well" />
+`;
+
+exports[`Well should take regular element attributes 1`] = `
+<div
+  className="well my-class" />
+`;

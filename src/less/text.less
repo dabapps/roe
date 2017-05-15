@@ -1,0 +1,45 @@
+.info {
+  color: @info;
+}
+
+.success {
+  color: @success;
+}
+
+.warning {
+  color: @warning;
+}
+
+.error {
+  color: @error;
+}
+
+.alert {
+  .clearfix();
+  padding: 0 @padding-base;
+  margin-top: @spacing-vertical-base;
+  margin-bottom: @spacing-vertical-base;
+  border: @border-base;
+  border-radius: @border-radius-base;
+  background-color: @grey-lightest;
+
+  &.info {
+    background-color: @info-lighter;
+    border-color: @info-light;
+  }
+
+  &.success {
+    background-color: @success-lighter;
+    border-color: @success-light;
+  }
+
+  &.warning {
+    background-color: @warning-lighter;
+    border-color: @warning-light;
+  }
+
+  &.error {
+    background-color: @error-lighter;
+    border-color: @error-light;
+  }
+}

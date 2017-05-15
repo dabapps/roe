@@ -1,0 +1,18 @@
+.border-top {
+  border-top: @border-base;
+}
+
+.border-bottom {
+  border-bottom: @border-base;
+}
+
+.section {
+  .border-bottom();
+  padding: @spacing-vertical-base @gutter-width / 2;
+  margin-left: -@gutter-width / 2;
+  margin-right: -@gutter-width / 2;
+
+  &:last-child {
+    border-bottom: @border-none;
+  }
+}
