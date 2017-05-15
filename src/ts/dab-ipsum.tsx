@@ -92,12 +92,11 @@ export const Ipsum: React.SFC<IIpsumProps> = (props) => {
 
   switch (type) {
     case 'li':
-      return <li>{ipsum}</li>;
+      return (<li>{ipsum}</li>);
     case 'text':
-      return <span>{ipsum}</span>;
-    // case 'p': NOTE: this is the default, so a case for it is not needed
+      return (<span>{ipsum}</span>);
     default:
-      return <p>{ipsum}</p>;
+      return (<p>{ipsum}</p>);
   }
 };
 
@@ -121,14 +120,13 @@ export class DabIpsum extends React.Component<IDabIpsumProps, void> {
 
     switch (type) {
       case 'ul':
-        return <ul>{items}</ul>;
+        return (<ul>{items}</ul>);
       case 'ol':
-        return <ol>{items}</ol>;
+        return (<ol>{items}</ol>);
       case 'text':
-        return <Ipsum type="text" />;
-      // case 'p': NOTE: this is the default, so a case for it is not needed
+        return (<Ipsum type="text" />);
       default:
-        return <div>{items}</div>;
+        return (<div>{items}</div>);
     }
   }
 }
