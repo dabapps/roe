@@ -55,6 +55,14 @@ describe('DabIpsum', () => {
     const ipsum = generateIpsum();
 
     expect(ipsum).to.matchSnapshot();
-  })
+  });
+
+  it('should only update if type or count changed', () => {
+    const instance = new DabIpsum({type: 'text', count: 1});
+
+    expect(instance.shouldComponentUpdate({type: 'text', count: 1})).to.equal(false);
+    expect(instance.shouldComponentUpdate({type: 'p', count: 1})).to.equal(true);
+    expect(instance.shouldComponentUpdate({type: 'text', count: 2})).to.equal(true);
+  });
 
 });
