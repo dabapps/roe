@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Alert,
   CodeBlock,
   Column,
   DabIpsum,
@@ -89,21 +90,21 @@ export const Text = () => (
           <DabIpsum type="text" />
         </p>
 
-        <p className="alert">
-          <DabIpsum type="text" />
-        </p>
-        <p className="alert info">
-          <DabIpsum type="text" />
-        </p>
-        <p className="alert success">
-          <DabIpsum type="text" />
-        </p>
-        <p className="alert warning">
-          <DabIpsum type="text" />
-        </p>
-        <p className="alert error">
-          <DabIpsum type="text" />
-        </p>
+        <Alert>
+          <DabIpsum count={2} />
+        </Alert>
+        <Alert className="info">
+          <DabIpsum count={2} />
+        </Alert>
+        <Alert className="success">
+          <DabIpsum count={2} />
+        </Alert>
+        <Alert className="warning">
+          <DabIpsum count={2} />
+        </Alert>
+        <Alert className="error">
+          <DabIpsum count={2} />
+        </Alert>
       </Column>
     </Row>
     <Row>
@@ -113,16 +114,34 @@ export const Text = () => (
         </h3>
         <CodeBlock language="javascript">
           {`
-            <p className="info" />
-            <p className="success" />
-            <p className="warning" />
-            <p className="error" />
+            <p className="info">
+              <DabIpsum type="text" />
+            </p>
+            <p className="success">
+              <DabIpsum type="text" />
+            </p>
+            <p className="warning">
+              <DabIpsum type="text" />
+            </p>
+            <p className="error">
+              <DabIpsum type="text" />
+            </p>
 
-            <p className="alert" />
-            <p className="alert info" />
-            <p className="alert success" />
-            <p className="alert warning" />
-            <p className="alert error" />
+            <Alert>
+              <DabIpsum count={2} />
+            </Alert>
+            <Alert className="info">
+              <DabIpsum count={2} />
+            </Alert>
+            <Alert className="success">
+              <DabIpsum count={2} />
+            </Alert>
+            <Alert className="warning">
+              <DabIpsum count={2} />
+            </Alert>
+            <Alert className="error">
+              <DabIpsum count={2} />
+            </Alert>
           `}
         </CodeBlock>
       </Column>
