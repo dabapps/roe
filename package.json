@@ -11,7 +11,8 @@
     "lint-js": "tslint --project tsconfig.json --type-check '{src,tests,types,docs}/**/*.{ts,tsx}'",
     "lint-less": "lesshint 'src/less/' 'docs/src/less/'",
     "lint": "npm run lint-js && npm run lint-less",
-    "test": "npm run lint && jest",
+    "tests": "jest",
+    "test": "npm run lint && npm run tests",
     "postinstall": "./scripts/dist"
   },
   "repository": {
