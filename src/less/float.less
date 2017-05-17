@@ -4,7 +4,7 @@
 
 .create-float (@prefix, @name, @float, @alias) {
   .@{prefix}-@{name} {
-    .float-styles();
+    .float-styles(@float);
   }
 
   .float-alias () when (@alias = true) {
