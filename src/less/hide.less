@@ -3,36 +3,39 @@
   .@{name},
   .xs-@{name} {
     @media all and (max-width: @screen-sm) {
-      display: @display !important;
+      display: @display !important; // lesshint importantRule: false
     }
   }
 
   .sm-@{name} {
     @media all and (min-width: @screen-sm) and (max-width: @screen-md) {
-      display: @display !important;
+      display: @display !important; // lesshint importantRule: false
     }
   }
 
   .md-@{name} {
     @media all and (min-width: @screen-md) and (max-width: @screen-lg) {
-      display: @display !important;
+      display: @display !important; // lesshint importantRule: false
     }
   }
 
   .lg-@{name} {
     @media all and (min-width: @screen-lg) and (max-width: @screen-xl) {
-      display: @display !important;
+      display: @display !important; // lesshint importantRule: false
     }
   }
 
   .xl-@{name} {
     @media all and (min-width: @screen-xl) {
-      display: @display !important;
+      display: @display !important; // lesshint importantRule: false
     }
   }
+
 }
 
 .create-hidden(display-none, none);
 .create-hidden(display-block, block);
 .create-hidden(display-inline, inline);
 .create-hidden(display-inline-block, inline-block);
+
+// This comment fixes the linter complaining about a missing newline
