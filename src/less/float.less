@@ -1,23 +1,27 @@
-.create-float-with-alias (@name, @float) {
-  .@{name},
-  .xs-@{name} {
-    float: @float !important; // lesshint importantRule: false
-  }
+.float-styles (@float) {
+  float: @float !important; // lesshint importantRule: false
 }
 
-.create-float (@prefix, @name, @float) {
+.create-float (@prefix, @name, @float, @alias) {
   .@{prefix}-@{name} {
-    float: @float !important; // lesshint importantRule: false
+    .float-styles();
   }
+
+  .float-alias () when (@alias = true) {
+    .@{name} {
+      .float-styles(@float);
+    }
+  }
+
+  .float-alias();
 }
 
-.create-floats (@prefix) {
-  .create-float(@prefix, float-left, left);
-  .create-float(@prefix, float-right, right);
+.create-floats (@prefix, @alias: false) {
+  .create-float(@prefix, float-left, left, @alias);
+  .create-float(@prefix, float-right, right, @alias);
 }
 
-.create-float-with-alias(float-left, left);
-.create-float-with-alias(float-right, right);
+.create-floats(xs, true);
 
 @media all and (min-width: @screen-sm) {
   .create-floats(sm);

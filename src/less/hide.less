@@ -1,27 +1,29 @@
-.create-hidden-with-alias (@name, @display) {
-  .@{name},
-  .xs-@{name} {
-    display: @display !important; // lesshint importantRule: false
-  }
+.hidden-styles (@display) {
+  display: @display !important; // lesshint importantRule: false
 }
 
-.create-hidden (@prefix, @name, @display) {
+.create-hidden (@prefix, @name, @display, @alias) {
   .@{prefix}-@{name} {
-    display: @display !important; // lesshint importantRule: false
+    .hidden-styles(@display);
   }
+
+  .hidden-alias () when (@alias = true) {
+    .@{name} {
+      .hidden-styles(@display);
+    }
+  }
+
+  .hidden-alias();
 }
 
-.create-hiddens (@prefix) {
-  .create-hidden(@prefix, display-none, none);
-  .create-hidden(@prefix, display-inline, inline);
-  .create-hidden(@prefix, display-block, block);
-  .create-hidden(@prefix, display-inline-block, inline-block);
+.create-hiddens (@prefix, @alias: false) {
+  .create-hidden(@prefix, display-none, none, @alias);
+  .create-hidden(@prefix, display-inline, inline, @alias);
+  .create-hidden(@prefix, display-block, block, @alias);
+  .create-hidden(@prefix, display-inline-block, inline-block, @alias);
 }
 
-.create-hidden-with-alias(display-none, none);
-.create-hidden-with-alias(display-inline, inline);
-.create-hidden-with-alias(display-block, block);
-.create-hidden-with-alias(display-inline-block, inline-block);
+.create-hiddens(xs, true);
 
 @media all and (min-width: @screen-sm) {
   .create-hiddens(sm);
