@@ -1,111 +1,41 @@
-.hidden-xs {
-  display: none;
-}
+.create-hidden (@name, @display) {
 
-.hidden-sm {
-  @media all and (min-width: @screen-sm) {
-    display: none;
+  .@{name},
+  .xs-@{name} {
+    @media all and (max-width: (@screen-sm - 1px)) {
+      display: @display !important; // lesshint importantRule: false
+    }
   }
-}
 
-.hidden-md {
-  @media all and (min-width: @screen-md) {
-    display: none;
+  .sm-@{name} {
+    @media all and (min-width: @screen-sm) and (max-width: (@screen-md - 1px)) {
+      display: @display !important; // lesshint importantRule: false
+    }
   }
-}
 
-.hidden-lg {
-  @media all and (min-width: @screen-lg) {
-    display: none;
+  .md-@{name} {
+    @media all and (min-width: @screen-md) and (max-width: (@screen-lg - 1px)) {
+      display: @display !important; // lesshint importantRule: false
+    }
   }
-}
 
-.hidden-xl {
-  @media all and (min-width: @screen-xl) {
-    display: none;
+  .lg-@{name} {
+    @media all and (min-width: @screen-lg) and (max-width: (@screen-xl - 1px)) {
+      display: @display !important; // lesshint importantRule: false
+    }
   }
-}
 
-.visible-xs-block {
-  display: block;
-}
-
-.visible-sm-block {
-  @media all and (min-width: @screen-sm) {
-    display: block;
+  .xl-@{name} {
+    @media all and (min-width: @screen-xl) {
+      display: @display !important; // lesshint importantRule: false
+    }
   }
+
 }
 
-.visible-md-block {
-  @media all and (min-width: @screen-md) {
-    display: block;
-  }
-}
+.create-hidden(display-none, none);
+.create-hidden(display-block, block);
+.create-hidden(display-inline, inline);
+.create-hidden(display-inline-block, inline-block);
 
-.visible-lg-block {
-  @media all and (min-width: @screen-lg) {
-    display: block;
-  }
-}
-
-.visible-xl-block {
-  @media all and (min-width: @screen-xl) {
-    display: block;
-  }
-}
-
-.visible-xs-inline {
-  display: inline;
-}
-
-.visible-sm-inline {
-  @media all and (min-width: @screen-sm) {
-    display: inline;
-  }
-}
-
-.visible-md-inline {
-  @media all and (min-width: @screen-md) {
-    display: inline;
-  }
-}
-
-.visible-lg-inline {
-  @media all and (min-width: @screen-lg) {
-    display: inline;
-  }
-}
-
-.visible-xl-inline {
-  @media all and (min-width: @screen-xl) {
-    display: inline;
-  }
-}
-
-.visible-xs-inline-block {
-  display: inline-block;
-}
-
-.visible-sm-inline-block {
-  @media all and (min-width: @screen-sm) {
-    display: inline-block;
-  }
-}
-
-.visible-md-inline-block {
-  @media all and (min-width: @screen-md) {
-    display: inline-block;
-  }
-}
-
-.visible-lg-inline-block {
-  @media all and (min-width: @screen-lg) {
-    display: inline-block;
-  }
-}
-
-.visible-xl-inline-block {
-  @media all and (min-width: @screen-xl) {
-    display: inline-block;
-  }
-}
+// This comment fixes the linter complaining about a missing newline
