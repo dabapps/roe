@@ -75,7 +75,7 @@ code,
   padding: @padding-base;
 }
 
-button {
+.button-overrides() {
   position: relative;
   border-radius: @border-radius-base;
   border: @border-none;
@@ -84,6 +84,12 @@ button {
   font-weight: @font-weight-normal;
   cursor: pointer;
   overflow: hidden;
+  display: inline-block;
+  text-decoration: none;
+}
+
+button {
+  .button-overrides();
 }
 
 input,

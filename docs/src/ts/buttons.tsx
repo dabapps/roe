@@ -66,6 +66,15 @@ export const Buttons = () => (
             Default
           </Button>
         </p>
+
+        <p>
+          <a href="#" className="button">
+            Link as button
+          </a>
+          <a href="#" className="button primary">
+            Link as primary button
+          </a>
+        </p>
       </Column>
     </Row>
     <Row>
@@ -118,6 +127,15 @@ export const Buttons = () => (
               <Button large>
                 Default
               </Button>
+            </p>
+
+            <p>
+              <a href="#" className="button">
+                Link as button
+              </a>
+              <a href="#" className="button primary">
+                Link as primary button
+              </a>
             </p>
           `}
         </CodeBlock>
