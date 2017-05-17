@@ -1,4 +1,4 @@
-.create-hidden-no-query (@name, @display) {
+.create-hidden-with-alias (@name, @display) {
   .@{name},
   .xs-@{name} {
     display: @display !important; // lesshint importantRule: false
@@ -18,10 +18,10 @@
   .create-hidden(@prefix, display-inline-block, inline-block);
 }
 
-.create-hidden-no-query(display-none, none);
-.create-hidden-no-query(display-inline, inline);
-.create-hidden-no-query(display-block, block);
-.create-hidden-no-query(display-inline-block, inline-block);
+.create-hidden-with-alias(display-none, none);
+.create-hidden-with-alias(display-inline, inline);
+.create-hidden-with-alias(display-block, block);
+.create-hidden-with-alias(display-inline-block, inline-block);
 
 @media all and (min-width: @screen-sm) {
   .create-hiddens(sm);

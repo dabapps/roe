@@ -1,4 +1,4 @@
-.create-float-no-query (@name, @float) {
+.create-float-with-alias (@name, @float) {
   .@{name},
   .xs-@{name} {
     float: @float !important; // lesshint importantRule: false
@@ -16,8 +16,8 @@
   .create-float(@prefix, float-right, right);
 }
 
-.create-float-no-query(float-left, left);
-.create-float-no-query(float-right, right);
+.create-float-with-alias(float-left, left);
+.create-float-with-alias(float-right, right);
 
 @media all and (min-width: @screen-sm) {
   .create-floats(sm);
