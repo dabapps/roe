@@ -7,8 +7,15 @@
 
 .create-hidden (@prefix, @name, @display) {
   .@{prefix}-@{name} {
-    display: @display !important;
+    display: @display !important; // lesshint importantRule: false
   }
+}
+
+.create-hiddens (@prefix) {
+  .create-hidden(@prefix, display-none, none);
+  .create-hidden(@prefix, display-inline, inline);
+  .create-hidden(@prefix, display-block, block);
+  .create-hidden(@prefix, display-inline-block, inline-block);
 }
 
 .create-hidden-no-query(display-none, none);
@@ -17,29 +24,17 @@
 .create-hidden-no-query(display-inline-block, inline-block);
 
 @media all and (min-width: @screen-sm) {
-  .create-hidden(sm, display-none, none);
-  .create-hidden(sm, display-inline, inline);
-  .create-hidden(sm, display-block, block);
-  .create-hidden(sm, display-inline-block, inline-block);
+  .create-hiddens(sm);
 }
 
 @media all and (min-width: @screen-md) {
-  .create-hidden(md, display-none, none);
-  .create-hidden(md, display-inline, inline);
-  .create-hidden(md, display-block, block);
-  .create-hidden(md, display-inline-block, inline-block);
+  .create-hiddens(md);
 }
 
 @media all and (min-width: @screen-lg) {
-  .create-hidden(lg, display-none, none);
-  .create-hidden(lg, display-inline, inline);
-  .create-hidden(lg, display-block, block);
-  .create-hidden(lg, display-inline-block, inline-block);
+  .create-hiddens(lg);
 }
 
 @media all and (min-width: @screen-xl) {
-  .create-hidden(xl, display-none, none);
-  .create-hidden(xl, display-inline, inline);
-  .create-hidden(xl, display-block, block);
-  .create-hidden(xl, display-inline-block, inline-block);
+  .create-hiddens(xl);
 }
