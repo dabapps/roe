@@ -2,25 +2,25 @@
 
   .@{name},
   .xs-@{name} {
-    @media all and (max-width: @screen-sm) {
+    @media all and (max-width: (@screen-sm - 1px)) {
       display: @display !important; // lesshint importantRule: false
     }
   }
 
   .sm-@{name} {
-    @media all and (min-width: @screen-sm) and (max-width: @screen-md) {
+    @media all and (min-width: @screen-sm) and (max-width: (@screen-md - 1px)) {
       display: @display !important; // lesshint importantRule: false
     }
   }
 
   .md-@{name} {
-    @media all and (min-width: @screen-md) and (max-width: @screen-lg) {
+    @media all and (min-width: @screen-md) and (max-width: (@screen-lg - 1px)) {
       display: @display !important; // lesshint importantRule: false
     }
   }
 
   .lg-@{name} {
-    @media all and (min-width: @screen-lg) and (max-width: @screen-xl) {
+    @media all and (min-width: @screen-lg) and (max-width: (@screen-xl - 1px)) {
       display: @display !important; // lesshint importantRule: false
     }
   }
