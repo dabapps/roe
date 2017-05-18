@@ -24,6 +24,44 @@ export const Inputs = () => (
         <h3>
           Demo
         </h3>
+
+        <p>
+          Textarea
+        </p>
+        <textarea value="Content" />
+
+        <p>
+          Input
+        </p>
+        <input type="text" placeholder="Placeholder" />
+        <input type="text" placeholder="Placeholder" disabled />
+        <input type="text" className="error" placeholder="Placeholder" />
+        <input type="text" className="error" placeholder="Placeholder" disabled />
+
+        <p>
+          Select
+        </p>
+        <select>
+          <option>
+            Option
+          </option>
+        </select>
+        <select disabled>
+          <option>
+            Option
+          </option>
+        </select>
+        <select className="error">
+          <option>
+            Option
+          </option>
+        </select>
+        <select className="error" disabled>
+          <option>
+            Option
+          </option>
+        </select>
+
         <p>
           Form Group Inline
         </p>
@@ -46,17 +84,6 @@ export const Inputs = () => (
               Option
             </option>
           </select>
-        </FormGroup>
-
-        <p>
-          Form Group Inline
-        </p>
-        <FormGroup>
-          <label>
-            Label
-          </label>
-          <input type="text" placeholder="Placeholder" />
-          <input type="text" placeholder="Placeholder" disabled />
         </FormGroup>
 
         <p>
@@ -94,6 +121,43 @@ export const Inputs = () => (
         </h3>
         <CodeBlock language="javascript">
           {`
+            <p>
+              Textarea
+            </p>
+            <textarea value="Content" />
+
+            <p>
+              Input
+            </p>
+            <input type="text" placeholder="Placeholder" />
+            <input type="text" placeholder="Placeholder" disabled />
+            <input type="text" className="error" placeholder="Placeholder" />
+            <input type="text" className="error" placeholder="Placeholder" disabled />
+
+            <p>
+              Select
+            </p>
+            <select>
+              <option>
+                Option
+              </option>
+            </select>
+            <select disabled>
+              <option>
+                Option
+              </option>
+            </select>
+            <select className="error">
+              <option>
+                Option
+              </option>
+            </select>
+            <select className="error" disabled>
+              <option>
+                Option
+              </option>
+            </select>
+
             <FormGroup>
               <label>
                 Label
