@@ -1,41 +1,42 @@
-.create-hidden (@name, @display) {
-
-  .@{name},
-  .xs-@{name} {
-    @media all and (max-width: (@screen-sm - 1px)) {
-      display: @display !important; // lesshint importantRule: false
-    }
-  }
-
-  .sm-@{name} {
-    @media all and (min-width: @screen-sm) and (max-width: (@screen-md - 1px)) {
-      display: @display !important; // lesshint importantRule: false
-    }
-  }
-
-  .md-@{name} {
-    @media all and (min-width: @screen-md) and (max-width: (@screen-lg - 1px)) {
-      display: @display !important; // lesshint importantRule: false
-    }
-  }
-
-  .lg-@{name} {
-    @media all and (min-width: @screen-lg) and (max-width: (@screen-xl - 1px)) {
-      display: @display !important; // lesshint importantRule: false
-    }
-  }
-
-  .xl-@{name} {
-    @media all and (min-width: @screen-xl) {
-      display: @display !important; // lesshint importantRule: false
-    }
-  }
-
+.hidden-styles (@display) {
+  display: @display !important; // lesshint importantRule: false
 }
 
-.create-hidden(display-none, none);
-.create-hidden(display-block, block);
-.create-hidden(display-inline, inline);
-.create-hidden(display-inline-block, inline-block);
+.create-hidden (@prefix, @name, @display, @alias) {
+  .@{prefix}-@{name} {
+    .hidden-styles(@display);
+  }
 
-// This comment fixes the linter complaining about a missing newline
+  .hidden-alias () when (@alias = true) {
+    .@{name} {
+      .hidden-styles(@display);
+    }
+  }
+
+  .hidden-alias();
+}
+
+.create-hiddens (@prefix, @alias: false) {
+  .create-hidden(@prefix, display-none, none, @alias);
+  .create-hidden(@prefix, display-inline, inline, @alias);
+  .create-hidden(@prefix, display-block, block, @alias);
+  .create-hidden(@prefix, display-inline-block, inline-block, @alias);
+}
+
+.create-hiddens(xs, true);
+
+@media all and (min-width: @screen-sm) {
+  .create-hiddens(sm);
+}
+
+@media all and (min-width: @screen-md) {
+  .create-hiddens(md);
+}
+
+@media all and (min-width: @screen-lg) {
+  .create-hiddens(lg);
+}
+
+@media all and (min-width: @screen-xl) {
+  .create-hiddens(xl);
+}

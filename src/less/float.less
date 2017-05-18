@@ -1,22 +1,27 @@
-.create-floats (@screen-size) {
-  .@{screen-size}-float-left {
-    float: left !important; // lesshint importantRule: false
+.float-styles (@float) {
+  float: @float !important; // lesshint importantRule: false
+}
+
+.create-float (@prefix, @name, @float, @alias) {
+  .@{prefix}-@{name} {
+    .float-styles(@float);
   }
 
-  .@{screen-size}-float-right {
-    float: right !important; // lesshint importantRule: false
+  .float-alias () when (@alias = true) {
+    .@{name} {
+      .float-styles(@float);
+    }
   }
+
+  .float-alias();
 }
 
-.float-left,
-.xs-float-left {
-  float: left !important; // lesshint importantRule: false
+.create-floats (@prefix, @alias: false) {
+  .create-float(@prefix, float-left, left, @alias);
+  .create-float(@prefix, float-right, right, @alias);
 }
 
-.float-right,
-.xs-float-right {
-  float: right !important; // lesshint importantRule: false
-}
+.create-floats(xs, true);
 
 @media all and (min-width: @screen-sm) {
   .create-floats(sm);
