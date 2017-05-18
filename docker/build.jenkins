@@ -1,0 +1,7 @@
+#!/bin/bash -l
+. /root/.nvm/nvm.sh
+nvm install
+npm install
+npm test
+npm run dist
+npm run build
