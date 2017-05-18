@@ -20,21 +20,8 @@ node {
             sh "docker-compose -f docker/docker-compose-jenkins.yaml up -d --build"
         }
 
-        stage('Install') {
-            sh "docker-compose -f docker/docker-compose-jenkins.yaml run runhost bash -l -c nvm install"
-            sh "docker-compose -f docker/docker-compose-jenkins.yaml run runhost bash -l -c npm install"
-        }
-
-        stage('Test') {
-            sh "docker-compose -f docker/docker-compose-jenkins.yaml run runhost bash -l -c npm test"
-        }
-
-        stage('Dist') {
-            sh "docker-compose -f docker/docker-compose-jenkins.yaml run runhost bash -l -c npm run dist"
-        }
-
-        stage('Build') {
-            sh "docker-compose -f docker/docker-compose-jenkins.yaml run runhost bash -l -c npm run build"
+        stage('Do The Stuff') {
+            sh "docker-compose -f docker/docker-compose-jenkins.yaml run runhost docker/build.jenkins"
         }
 
     } finally {

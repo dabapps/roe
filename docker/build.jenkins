@@ -1,0 +1,5 @@
+nvm install
+npm install
+npm test
+npm run dist
+npm run build
