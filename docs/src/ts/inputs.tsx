@@ -24,6 +24,12 @@ export const Inputs = () => (
         <h3>
           Demo
         </h3>
+
+        <p>
+          Textarea
+        </p>
+        <textarea value="Content" />
+
         <p>
           Input
         </p>
@@ -115,6 +121,11 @@ export const Inputs = () => (
         </h3>
         <CodeBlock language="javascript">
           {`
+            <p>
+              Textarea
+            </p>
+            <textarea value="Content" />
+
             <p>
               Input
             </p>
