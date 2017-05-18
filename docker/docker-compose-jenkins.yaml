@@ -1,0 +1,14 @@
+version: '2'
+services:
+    runhost:
+        build:
+            context: ..
+            dockerfile: docker/Dockerfile.jenkins
+        tty: true
+        stdin_open: true
+        volumes:
+            - ..:/code
+        networks:
+            - buildnetwork
+networks:
+    buildnetwork:

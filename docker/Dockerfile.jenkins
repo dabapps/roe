@@ -1,0 +1,50 @@
+FROM ubuntu:16.04
+
+RUN apt-get clean && apt-get update -y
+
+RUN apt-get install locales
+RUN locale-gen en_US.UTF-8  
+ENV LANG en_US.UTF-8  
+ENV LANGUAGE en_US:en  
+ENV LC_ALL en_US.UTF-8  
+
+RUN apt-get install -y apt-utils && \
+    apt-get install -y \
+    curl \
+    git \
+    build-essential \
+    libssl-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    libsqlite3-dev \
+    libjpeg-dev \
+    libpq-dev \
+    wget \
+    tar \
+    sed \
+    mawk \
+    ca-certificates \
+    libreadline-dev \
+    wget \
+    llvm \
+    libncurses5-dev \
+    libncursesw5-dev \
+    xz-utils \
+    netcat \
+ && rm -rf /var/lib/apt/lists/*
+
+WORKDIR /root
+ENV HOME /root
+ENV NVM_DIR /root/.nvm
+
+RUN echo 'export LC_ALL=en_US.UTF-8' >>~/.bash_profile
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.1/install.sh | bash
+RUN . /root/.nvm/nvm.sh
+
+RUN mkdir -p /code
+WORKDIR /code
+
+# RUN echo "jobs=1" >> /root/.npmrc
+
+ENTRYPOINT ["bash", "-l", "-c"]
+VOLUME /code
