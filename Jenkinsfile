@@ -30,9 +30,9 @@ node {
             sh "docker-compose -f docker/docker-compose-jenkins.yaml down"
         }
 
-        stage('Collect xunit test output') {
-            junit '**/TEST-*.xml'
-        }
+//        stage('Collect xunit test output') {
+//            junit '**/TEST-*.xml'
+//        }
 
     }
 }
