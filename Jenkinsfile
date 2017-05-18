@@ -21,6 +21,7 @@ node {
         }
 
         stage('Install') {
+            sh "docker-compose -f docker/docker-compose-jenkins.yaml run runhost nvm install"
             sh "docker-compose -f docker/docker-compose-jenkins.yaml run runhost npm install"
         }
 
