@@ -87,6 +87,26 @@ export const Inputs = () => (
         </FormGroup>
 
         <p>
+          Form Group Inline
+        </p>
+        <FormGroup>
+          <label>
+            Label
+          </label>
+          <textarea />
+        </FormGroup>
+
+        <p>
+          Form Group Block
+        </p>
+        <FormGroup block>
+          <label>
+            Label
+          </label>
+          <textarea />
+        </FormGroup>
+
+        <p>
           Input Group with Input Group Addons
         </p>
         <InputGroup>
