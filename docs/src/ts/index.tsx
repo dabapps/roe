@@ -28,7 +28,7 @@ const variables = fs.readFileSync(path.join(__dirname, '../../../src/less/variab
 
 const packageJson = require( '../../../package.json'); // tslint:disable-line:no-var-requires
 
-class App extends React.Component<void, void> {
+class App extends React.Component<{}, void> {
   public render () {
     return (
       <Container>
@@ -75,4 +75,7 @@ class App extends React.Component<void, void> {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <App />,
+  document.getElementById('app')
+);
