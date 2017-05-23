@@ -1,4 +1,8 @@
 .table-wrapper {
+  position: relative;
+}
+
+.table-scroller {
   overflow: auto;
 }
 
@@ -46,6 +50,19 @@
     .table-header,
     .table-cell {
       border: @border-base;
+    }
+  }
+
+  &.fix-column-headers {
+    .table-row .table-header:first-child {
+      position: absolute;
+      border-right: @border-base;
+      left: 0;
+      border-bottom: @border-base;
+    }
+
+    .table-body .table-row:last-child .table-header:first-child {
+      border-bottom: @border-none;
     }
   }
 }

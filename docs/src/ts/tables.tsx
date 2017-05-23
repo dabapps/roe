@@ -22,6 +22,8 @@ const data = [
   ['Row header 5', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5']
 ];
 
+const COLUMN_HEADER_WIDTH = 150;
+
 export const Tables = () => {
   const [ headers = [], ...body ] = data;
 
@@ -39,12 +41,12 @@ export const Tables = () => {
           <h3>
             Demo
           </h3>
-          <Table striped hover>
+          <Table striped hover fixColumnHeaders columnHeaderMaxWidth={COLUMN_HEADER_WIDTH}>
             <TableHead>
               <TableRow>
                 {
                   headers.map((header, index) => index === 0 ? (
-                    <TableHeader key={header} />
+                    <TableHeader key={header} maxWidth={COLUMN_HEADER_WIDTH} />
                   ) : (
                     <TableHeader key={header}>
                       {header}
@@ -59,7 +61,7 @@ export const Tables = () => {
                   <TableRow key={rowIndex + row.join()}>
                     {
                       row.map((cell, index) => index === 0 ? (
-                        <TableHeader key={cell}>
+                        <TableHeader key={cell} maxWidth={COLUMN_HEADER_WIDTH}>
                           {cell}
                         </TableHeader>
                       ) : (
