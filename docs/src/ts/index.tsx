@@ -21,6 +21,7 @@ import { Hides } from './hides';
 import { Inputs } from './inputs';
 import { Ipsum } from './ipsum';
 import { Layout } from './layout';
+import { Tables } from './tables';
 import { Text } from './text';
 import { Wells } from './wells';
 
@@ -55,6 +56,7 @@ class App extends React.Component<{}, void> {
         <Inputs />
         <Ipsum />
         <Layout />
+        <Tables />
         <Text />
         <Wells />
 

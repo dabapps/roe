@@ -127,3 +127,32 @@ form {
     opacity: 0.5;
   }
 }
+
+table,
+thead,
+tbody,
+tr,
+th,
+td {
+  border-collapse: collapse;
+  border: @border-none;
+}
+
+tr {
+  background-color: @white;
+}
+
+th,
+td {
+  padding: @padding-base;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  text-align: left;
+}
+
+thead tr {
+  border-bottom: @border-base;
+  border-bottom-width: 2px;
+}

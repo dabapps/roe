@@ -1,0 +1,51 @@
+.table {
+
+  .table-head,
+  .table-body {
+    .table-row {
+      border-bottom: @border-base;
+    }
+  }
+
+  .table-body {
+    .table-row {
+      &:last-child {
+        border-bottom: @border-none;
+      }
+    }
+  }
+
+  &.striped {
+    .table-body {
+      .table-row:nth-child(odd) {
+        background-color: @grey-lightest;
+      }
+    }
+  }
+
+  &.condensed {
+    .table-header,
+    .table-cell {
+      padding: @padding-base / 2;
+    }
+  }
+
+  &.hover {
+    .table-body .table-row {
+      cursor: pointer;
+
+      &:hover {
+        background-color: @grey-lighter;
+      }
+    }
+  }
+
+  &.bordered {
+    border: @border-base;
+
+    .table-header,
+    .table-cell {
+      border: @border-base;
+    }
+  }
+}
