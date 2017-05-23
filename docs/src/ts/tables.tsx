@@ -22,11 +22,12 @@ const data = [
   ['Row header 5', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5']
 ];
 
+const [ headers = [], ...body ] = data;
+const smallBody: string[][] = [...body].splice(0, 2);
+
 const COLUMN_HEADER_WIDTH = 150;
 
 export const Tables = () => {
-  const [ headers = [], ...body ] = data;
-
   return (
     <Section>
       <Row>
@@ -41,6 +42,24 @@ export const Tables = () => {
           <h3>
             Demo
           </h3>
+          <Table bordered condensed>
+            <TableBody>
+              {
+                smallBody.map((row = [], rowIndex) => (
+                  <TableRow key={rowIndex + row.join()}>
+                    {
+                      row.map((cell) => (
+                        <TableCell key={cell}>
+                          {cell}
+                        </TableCell>
+                      ))
+                    }
+                  </TableRow>
+                ))
+              }
+            </TableBody>
+          </Table>
+
           <Table striped hover fill fixColumnHeaders columnHeaderMaxWidth={COLUMN_HEADER_WIDTH}>
             <TableHead>
               <TableRow>
@@ -84,21 +103,58 @@ export const Tables = () => {
           </h3>
           <CodeBlock language="javascript">
             {`
-              <Section>
-                <p>
-                  Section 1
-                </p>
-              </Section>
-              <Section>
-                <p>
-                  Section 2
-                </p>
-              </Section>
-              <Section>
-                <p>
-                  Section 3
-                </p>
-              </Section>
+              <Table bordered condensed>
+                <TableBody>
+                  {
+                    smallBody.map((row = [], rowIndex) => (
+                      <TableRow key={rowIndex + row.join()}>
+                        {
+                          row.map((cell) => (
+                            <TableCell key={cell}>
+                              {cell}
+                            </TableCell>
+                          ))
+                        }
+                      </TableRow>
+                    ))
+                  }
+                </TableBody>
+              </Table>
+
+              <Table striped hover fill fixColumnHeaders columnHeaderMaxWidth={COLUMN_HEADER_WIDTH}>
+                <TableHead>
+                  <TableRow>
+                    {
+                      headers.map((header, index) => index === 0 ? (
+                        <TableHeader key={header} maxWidth={COLUMN_HEADER_WIDTH} />
+                      ) : (
+                        <TableHeader key={header}>
+                          {header}
+                        </TableHeader>
+                      ))
+                    }
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {
+                    body.map((row = [], rowIndex) => (
+                      <TableRow key={rowIndex + row.join()}>
+                        {
+                          row.map((cell, index) => index === 0 ? (
+                            <TableHeader key={cell} maxWidth={COLUMN_HEADER_WIDTH}>
+                              {cell}
+                            </TableHeader>
+                          ) : (
+                            <TableCell key={cell}>
+                              {cell}
+                            </TableCell>
+                          ))
+                        }
+                      </TableRow>
+                    ))
+                  }
+                </TableBody>
+              </Table>
             `}
           </CodeBlock>
         </Column>
