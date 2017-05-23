@@ -4,7 +4,7 @@ import * as React from 'react';
 // tslint:disable-next-line:no-unused-variable
 interface ITableProps {
   collapse?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  fixHeaders?: 'none' | 'both' | 'column' | 'row';
+  fixColumnHeaders?: boolean;
   striped?: boolean;
   bordered?: boolean;
   hover?: boolean;
@@ -16,7 +16,7 @@ export const Table: React.SFC<ITableProps & React.HTMLAttributes<HTMLTableElemen
     className,
     children,
     collapse = 'sm',
-    fixHeaders = 'none',
+    fixColumnHeaders,
     striped,
     bordered,
     hover,
@@ -27,7 +27,7 @@ export const Table: React.SFC<ITableProps & React.HTMLAttributes<HTMLTableElemen
   const myClassNames = [
     'table',
     `${collapse}-collapse`,
-    `fix-headers-${fixHeaders}`,
+    fixColumnHeaders ? 'fix-column-headers' : null,
     striped ? 'striped' : null,
     bordered ? 'bordered' : null,
     hover ? 'hover' : null,

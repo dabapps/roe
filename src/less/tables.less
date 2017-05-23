@@ -7,7 +7,10 @@
   &.striped {
     .table-body {
       .table-row:nth-child(odd) {
-        background-color: @grey-lightest;
+        .table-header,
+        .table-cell {
+          background-color: @grey-lightest;
+        }
       }
     }
   }
@@ -23,8 +26,16 @@
     .table-body .table-row {
       cursor: pointer;
 
+      .table-header,
+      .table-cell {
+        transition: ease-in-out 0.1s background-color;
+      }
+
       &:hover {
-        background-color: darken(@grey-lightest, 3%);
+        .table-header,
+        .table-cell {
+          background-color: darken(@grey-lightest, 3%);
+        }
       }
     }
   }
