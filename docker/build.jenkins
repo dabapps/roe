@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-set -x
+. /root/.nvm/nvm.sh
+
 set -e
 
-. /root/.nvm/nvm.sh
 nvm install
 
 npm install
