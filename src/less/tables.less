@@ -1,0 +1,68 @@
+.table-wrapper {
+  position: relative;
+}
+
+.table-scroller {
+  overflow: auto;
+}
+
+.table {
+
+  &.striped {
+    .table-body {
+      .table-row:nth-child(odd) {
+        .table-header,
+        .table-cell {
+          background-color: @table-stripe;
+        }
+      }
+    }
+  }
+
+  &.condensed {
+    .table-header,
+    .table-cell {
+      padding: @padding-base / 2;
+    }
+  }
+
+  &.hover {
+    .table-body .table-row {
+      cursor: pointer;
+
+      .table-header,
+      .table-cell {
+        transition: ease-in-out 0.1s background-color;
+      }
+
+      &:hover {
+        .table-header,
+        .table-cell {
+          background-color: @table-hover;
+        }
+      }
+    }
+  }
+
+  &.bordered {
+    border: @border-base;
+
+    .table-header,
+    .table-cell {
+      border: @border-base;
+    }
+  }
+
+  &.fix-column-headers {
+    .table-row .table-header:first-child {
+      position: absolute;
+      border-right: @border-base;
+      left: 0;
+      border-bottom: @border-base;
+    }
+
+    .table-body .table-row:last-child .table-header:first-child {
+      border-bottom: @border-none;
+    }
+  }
+}

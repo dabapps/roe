@@ -28,7 +28,7 @@ export const Inputs = () => (
         <p>
           Textarea
         </p>
-        <textarea value="Content" />
+        <textarea />
 
         <p>
           Input
@@ -144,7 +144,7 @@ export const Inputs = () => (
             <p>
               Textarea
             </p>
-            <textarea value="Content" />
+            <textarea />
 
             <p>
               Input

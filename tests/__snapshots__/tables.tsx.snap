@@ -1,0 +1,227 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Row Table should apply table styles classes 1`] = `
+<div
+  className="table-wrapper"
+  style={
+    Object {
+      "paddingLeft": null,
+    }
+  }
+>
+  <div
+    className="table-scroller"
+  >
+    <table
+      className="table sm-collapse striped bordered hover condensed"
+      style={
+        Object {
+          "minWidth": null,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Row Table should fix column headers to specified width 1`] = `
+<div
+  className="table-wrapper"
+  style={
+    Object {
+      "paddingLeft": 100,
+    }
+  }
+>
+  <div
+    className="table-scroller"
+  >
+    <table
+      className="table sm-collapse fix-column-headers"
+      style={
+        Object {
+          "minWidth": null,
+        }
+      }
+    >
+      <thead
+        className="table-head"
+      >
+        <tr
+          className="table-row"
+        >
+          <th
+            className="table-header"
+            style={
+              Object {
+                "maxWidth": 100,
+                "width": 100,
+              }
+            }
+          >
+            Header
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className="table-body"
+      >
+        <tr
+          className="table-row"
+        >
+          <td
+            className="table-cell"
+            style={
+              Object {
+                "maxWidth": 100,
+                "width": 100,
+              }
+            }
+          >
+            Cell
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Row Table should set the collapse size 1`] = `
+<div
+  className="table-wrapper"
+  style={
+    Object {
+      "paddingLeft": null,
+    }
+  }
+>
+  <div
+    className="table-scroller"
+  >
+    <table
+      className="table xs-collapse"
+      style={
+        Object {
+          "minWidth": null,
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Row Table should set the min width if set to fill 1`] = `
+<div
+  className="table-wrapper"
+  style={
+    Object {
+      "paddingLeft": null,
+    }
+  }
+>
+  <div
+    className="table-scroller"
+  >
+    <table
+      className="table sm-collapse"
+      style={
+        Object {
+          "minWidth": "100%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Row TableCell should render a non breaking space if no children provided 1`] = `
+<td
+  className="table-cell"
+  style={
+    Object {
+      "maxWidth": undefined,
+      "width": undefined,
+    }
+  }
+>
+   
+</td>
+`;
+
+exports[`Row TableHeader should render a non breaking space if no children provided 1`] = `
+<th
+  className="table-header"
+  style={
+    Object {
+      "maxWidth": undefined,
+      "width": undefined,
+    }
+  }
+>
+   
+</th>
+`;
+
+exports[`Row should match snapshot 1`] = `
+<div
+  className="table-wrapper"
+  style={
+    Object {
+      "paddingLeft": null,
+    }
+  }
+>
+  <div
+    className="table-scroller"
+  >
+    <table
+      className="table sm-collapse"
+      style={
+        Object {
+          "minWidth": null,
+        }
+      }
+    >
+      <thead
+        className="table-head"
+      >
+        <tr
+          className="table-row"
+        >
+          <th
+            className="table-header"
+            style={
+              Object {
+                "maxWidth": undefined,
+                "width": undefined,
+              }
+            }
+          >
+            Header
+          </th>
+        </tr>
+      </thead>
+      <tbody
+        className="table-body"
+      >
+        <tr
+          className="table-row"
+        >
+          <td
+            className="table-cell"
+            style={
+              Object {
+                "maxWidth": undefined,
+                "width": undefined,
+              }
+            }
+          >
+            Cell
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;

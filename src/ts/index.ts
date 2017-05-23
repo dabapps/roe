@@ -9,4 +9,5 @@ export { InputGroup } from './input-group';
 export { InputGroupAddon } from './input-group-addon';
 export { Row } from './row';
 export { Section } from './section';
+export * from './tables';
 export { Well } from './well';
