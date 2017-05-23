@@ -1,7 +1,11 @@
-#!/bin/bash -l
+#!/usr/bin/env bash -l
+
+set -e
+
 . /root/.nvm/nvm.sh
 nvm install
+
 npm install
+
 npm test
-npm run dist
 npm run build
