@@ -23,7 +23,7 @@ const data = [
 ];
 
 const [ headers = [], ...body ] = data;
-const smallBody: string[][] = [...body].splice(0, 2);
+const smallBody = [...body].splice(0, 2);
 
 const COLUMN_HEADER_WIDTH = 150;
 
@@ -101,6 +101,21 @@ export const Tables = () => {
           <h3>
             Code
           </h3>
+          <CodeBlock language="javascript">
+            {`
+              const data = [
+                ['', 'Column header 1', 'Column header 2', 'Column header 3', 'Column header 4', 'Column header 5'],
+                ['Row header 1', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5'],
+                ['Row header 2', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5'],
+                ['Row header 3', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5'],
+                ['Row header 4', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5'],
+                ['Row header 5', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5']
+              ];
+
+              const [ headers = [], ...body ] = data;
+              const smallBody = [...body].splice(0, 2);
+            `}
+          </CodeBlock>
           <CodeBlock language="javascript">
             {`
               <Table bordered condensed>
