@@ -3,8 +3,7 @@ import * as React from 'react';
 
 const NBSP = '\u00a0';
 
-// tslint:disable-next-line:no-unused-variable
-interface ITableProps {
+export interface ITableProps {
   collapse?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   fixColumnHeaders?: boolean;
   columnHeaderMaxWidth?: number;
@@ -99,7 +98,7 @@ export const TableRow: React.SFC<React.HTMLAttributes<HTMLTableRowElement>> = (p
   );
 };
 
-interface ITableHeaderProps {
+export interface ITableHeaderProps {
   maxWidth?: number | string;
 }
 
@@ -123,8 +122,7 @@ export const TableHeader: React.SFC<ITableHeaderProps & React.HTMLAttributes<HTM
   );
 };
 
-// tslint:disable-next-line:no-unused-variable
-interface ITableCellProps {
+export interface ITableCellProps {
   maxWidth?: number | string;
 }
 
