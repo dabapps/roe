@@ -40,5 +40,5 @@ import {
   Column,
   Container,
   Row
-} from 'roe;
+} from 'roe';
 ```
