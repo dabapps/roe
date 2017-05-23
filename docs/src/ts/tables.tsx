@@ -41,7 +41,7 @@ export const Tables = () => {
           <h3>
             Demo
           </h3>
-          <Table striped hover fixColumnHeaders columnHeaderMaxWidth={COLUMN_HEADER_WIDTH}>
+          <Table striped hover fill fixColumnHeaders columnHeaderMaxWidth={COLUMN_HEADER_WIDTH}>
             <TableHead>
               <TableRow>
                 {

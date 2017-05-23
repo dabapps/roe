@@ -12,12 +12,14 @@ interface ITableProps {
   bordered?: boolean;
   hover?: boolean;
   condensed?: boolean;
+  fill?: boolean;
 }
 
 export const Table: React.SFC<ITableProps & React.HTMLAttributes<HTMLTableElement>> = (props) => {
   const {
     className,
     children,
+    style,
     collapse = 'sm',
     fixColumnHeaders,
     columnHeaderMaxWidth,
@@ -25,6 +27,7 @@ export const Table: React.SFC<ITableProps & React.HTMLAttributes<HTMLTableElemen
     bordered,
     hover,
     condensed,
+    fill,
     ...remainingProps
   } = props;
 
@@ -45,6 +48,7 @@ export const Table: React.SFC<ITableProps & React.HTMLAttributes<HTMLTableElemen
         <table
           {...remainingProps}
           className={classNames(myClassNames)}
+          style={{minWidth: fill ? '100%' : null, ...style}}
         >
           {children}
         </table>
