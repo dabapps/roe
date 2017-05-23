@@ -34,7 +34,7 @@
   },
   "homepage": "https://github.com/dabapps/roe#readme",
   "dependencies": {
-    "@types/classnames": "0.0.32",
+    "@types/classnames": "2.2.0",
     "@types/highlight.js": "9.1.9",
     "@types/random-seed": "0.3.2",
     "@types/react": "15.0.22",
@@ -52,7 +52,7 @@
     "react": "15.5.4",
     "react-dom": "15.5.4",
     "tsify": "3.0.1",
-    "typescript": "2.2.2"
+    "typescript": "2.3.3"
   },
   "devDependencies": {
     "@types/jest": "19.2.3",
@@ -62,7 +62,7 @@
     "concurrently": "3.4.0",
     "envify": "4.0.0",
     "http-server": "0.9.0",
-    "jest": "20.0.1",
+    "jest": "20.0.3",
     "lesshint": "3.3.1",
     "livereload": "0.6.2",
     "react-test-renderer": "15.5.4",
