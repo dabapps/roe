@@ -156,3 +156,18 @@ thead tr {
   border-bottom: @border-base;
   border-bottom-width: 2px;
 }
+
+thead,
+tbody {
+  tr {
+    border-bottom: @border-base;
+  }
+}
+
+tbody {
+  tr {
+    &:last-child {
+      border-bottom: @border-none;
+    }
+  }
+}

@@ -36,9 +36,11 @@ export const Table: React.SFC<ITableProps & React.HTMLAttributes<HTMLTableElemen
   ]
 
   return (
-    <table {...remainingProps} className={classNames(myClassNames)}>
-      {children}
-    </table>
+    <div className="table-wrapper">
+      <table {...remainingProps} className={classNames(myClassNames)}>
+        {children}
+      </table>
+    </div>
   );
 }
 
