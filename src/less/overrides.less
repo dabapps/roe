@@ -121,11 +121,19 @@ select {
 button,
 input,
 select,
+textarea {
+  &[disabled] { // lesshint qualifyingElement: false
+    cursor: no-drop;
+  }
+}
+
+button,
+input,
+select,
 textarea,
 form {
   &[disabled] { // lesshint qualifyingElement: false
     opacity: 0.5;
-    cursor: no-drop;
   }
 }
 
