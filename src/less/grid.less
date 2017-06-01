@@ -1,6 +1,6 @@
 /* @group Mixins */
 
-.generate-columns (@prefix, @counter: 1) when (@counter < @grid-divisions) {
+.generate-columns (@prefix, @counter: 1) when (@counter <= @grid-divisions) {
   &.@{prefix}-@{counter} { // lesshint qualifyingElement: false
     width: floor(percentage(1 / @grid-divisions * @counter) * 100) / 100;
   }
