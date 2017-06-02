@@ -21,6 +21,7 @@ import { Grid } from './grid';
 import { Hides } from './hides';
 import { Inputs } from './inputs';
 import { Ipsum } from './ipsum';
+import { Modals } from './modals';
 import { Sections } from './sections';
 import { Tables } from './tables';
 import { Text } from './text';
@@ -58,6 +59,7 @@ class App extends React.Component<{}, void> {
         <Ipsum />
         <ContentBoxes />
         <Sections />
+        <Modals />
         <Tables />
         <Text />
         <Wells />
