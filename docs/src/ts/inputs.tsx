@@ -73,6 +73,26 @@ export const Inputs = () => (
         </FormGroup>
 
         <p>
+          Form Group Inline Checkbox
+        </p>
+        <FormGroup>
+          <label>
+            Label
+          </label>
+          <input type="checkbox" />
+        </FormGroup>
+
+        <p>
+          Form Group Inline Radio
+        </p>
+        <FormGroup>
+          <label>
+            Label
+          </label>
+          <input type="radio" />
+        </FormGroup>
+
+        <p>
           Form Group Block
         </p>
         <FormGroup block>
@@ -84,6 +104,26 @@ export const Inputs = () => (
               Option
             </option>
           </select>
+        </FormGroup>
+
+        <p>
+          Form Group Block Checkbox
+        </p>
+        <FormGroup block>
+          <label>
+            Label
+          </label>
+          <input type="checkbox" />
+        </FormGroup>
+
+        <p>
+          Form Group Block Radio
+        </p>
+        <FormGroup block>
+          <label>
+            Label
+          </label>
+          <input type="radio" />
         </FormGroup>
 
         <p>
