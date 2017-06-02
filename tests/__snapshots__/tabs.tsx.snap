@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tab should add an active class 1`] = `
+<li
+  className="tab active my-class"
+/>
+`;
+
+exports[`Tab should take regular element attributes 1`] = `
+<li
+  className="tab my-class"
+/>
+`;
+
+exports[`Tabs should match snapshot 1`] = `
+<ul
+  className="tabs"
+>
+  <li
+    className="tab"
+  >
+    <a>
+      Tab 1
+    </a>
+  </li>
+  <li
+    className="tab"
+  >
+    <a>
+      Tab 2
+    </a>
+  </li>
+  <li
+    className="tab"
+  >
+    <a>
+      Tab 3
+    </a>
+  </li>
+</ul>
+`;
+
+exports[`Tabs should take regular element attributes 1`] = `
+<ul
+  className="tabs my-class"
+/>
+`;
