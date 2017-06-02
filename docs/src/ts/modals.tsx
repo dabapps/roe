@@ -80,7 +80,7 @@ export class Modals extends React.Component<{}, IState> {
             <h3>
               Demo
             </h3>
-            <ModalRenderer modals={modals} />
+            <ModalRenderer modals={modals} onClickOutside={this.onClickCloseModal} />
 
             <Button type="primary" onClick={this.onClickOpenModal}>
               Open modal
@@ -136,7 +136,7 @@ export class Modals extends React.Component<{}, IState> {
             </p>
             <CodeBlock language="javascript">
               {`
-                <ModalRenderer modals={modals} />
+                <ModalRenderer modals={modals} onClickOutside={this.onClickCloseModal} />
 
                 <Button type="primary" onClick={this.onClickOpenModal}>
                   Open modal
