@@ -1,0 +1,30 @@
+.content-box {
+  .clearfix();
+  border-radius: @border-radius-base;
+  border: 1px solid @grey-lighter;
+  padding-left: @padding-base;
+  padding-right: @padding-base;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  background-color: @white;
+  margin-top: @spacing-vertical-base;
+  margin-bottom: @spacing-vertical-base;
+}
+
+.content-box-header {
+  .clearfix();
+  margin: 0 -@padding-base;
+  padding: @padding-base;
+  border-top-left-radius: @border-radius-base;
+  border-top-right-radius: @border-radius-base;
+  background-color: @primary-lighter;
+  border-bottom: 1px solid @primary-light;
+
+  h2 {
+    margin: 0;
+    font-size: floor(@font-size-base * 1.4);
+  }
+
+  .meta {
+    margin-bottom: 0;
+  }
+}
