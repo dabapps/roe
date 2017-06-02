@@ -4,12 +4,10 @@ import {
   CodeBlock,
   Column,
   ContentBox,
-  ContentBoxHeader,
   Row,
   Section,
   Tab,
   Tabs,
-  Well
 } from '../../../src/ts';
 
 interface IState {
