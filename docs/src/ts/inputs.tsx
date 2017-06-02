@@ -76,20 +76,20 @@ export const Inputs = () => (
           Form Group Inline Checkbox
         </p>
         <FormGroup>
-          <input type="checkbox" />
           <label>
             Label
           </label>
+          <input type="checkbox" />
         </FormGroup>
 
         <p>
           Form Group Inline Radio
         </p>
         <FormGroup>
-          <input type="radio" />
           <label>
             Label
           </label>
+          <input type="radio" />
         </FormGroup>
 
         <p>
