@@ -1,10 +1,9 @@
 import * as classNames from 'classnames';
-import { List } from 'immutable';
 import * as React from 'react';
 import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 interface IModalRendererProps {
-  modals: List<React.ReactNode>;
+  modals: React.ReactNode[];
   onClickOutside?(event: React.MouseEvent<HTMLDivElement>): void;
 }
 

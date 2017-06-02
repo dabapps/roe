@@ -1,4 +1,3 @@
-import { List } from 'immutable';
 import * as React from 'react';
 
 import {
@@ -14,7 +13,7 @@ import {
 } from '../../../src/ts';
 
 interface IState {
-  modals: List<React.ReactNode>;
+  modals: React.ReactNode[];
 }
 
 export class Modals extends React.Component<{}, IState> {
@@ -22,7 +21,7 @@ export class Modals extends React.Component<{}, IState> {
     super(props);
 
     this.state = {
-      modals: List()
+      modals: []
     };
 
     this.onClickOpenModal = this.onClickOpenModal.bind(this);
@@ -30,14 +29,17 @@ export class Modals extends React.Component<{}, IState> {
   }
 
   public onClickCloseModal () {
+    const modals = [...this.state.modals];
+    modals.pop();
+
     this.setState({
-      modals: this.state.modals.pop()
+      modals
     });
   }
 
   public onClickOpenModal () {
     this.setState({
-      modals: this.state.modals.push(
+      modals: [...this.state.modals, (
         <Modal>
           <ModalHeader>
             <h5>
@@ -55,7 +57,7 @@ export class Modals extends React.Component<{}, IState> {
             </p>
           </ModalFooter>
         </Modal>
-      )
+      )]
     });
   }
 
@@ -95,15 +97,18 @@ export class Modals extends React.Component<{}, IState> {
             </p>
             <CodeBlock language="javascript">
               {`
-                onClickCloseModal () {
+                public onClickCloseModal () {
+                  const modals = [...this.state.modals];
+                  modals.pop();
+
                   this.setState({
-                    modals: this.state.modals.pop()
+                    modals
                   });
                 }
 
-                onClickOpenModal () {
+                public onClickOpenModal () {
                   this.setState({
-                    modals: this.state.modals.push(
+                    modals: [...this.state.modals, (
                       <Modal>
                         <ModalHeader>
                           <h5>
@@ -121,7 +126,7 @@ export class Modals extends React.Component<{}, IState> {
                           </p>
                         </ModalFooter>
                       </Modal>
-                    )
+                    )]
                   });
                 }
               `}
