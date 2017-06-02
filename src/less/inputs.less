@@ -7,38 +7,31 @@ textarea {
   }
 }
 
-label {
-  & + select,
-  & + input,
-  & + button {
-    margin-left: @spacing-horizontal-base;
-  }
-}
-
 .form-group {
   display: table;
-  width: 100%;
   margin-top: @spacing-vertical-base;
   margin-bottom: @spacing-vertical-base;
+
+  & > label,
+  & > input:not([type=checkbox]):not([type=radio]),
+  & > select,
+  & > button,
+  & > textarea {
+    display: table-cell;
+  }
 
   & > label,
   & > input,
   & > select,
   & > button,
   & > textarea {
-    display: table-cell;
-    margin-left: 0;
-  }
-
-  & > textarea {
-    resize: vertical;
-  }
-
-  & > label {
-    width: auto;
-    padding-right: @spacing-horizontal-base;
-    margin-top: 0;
-    text-align: right;
+    & + label,
+    & + input,
+    & + select,
+    & + button,
+    & + textarea {
+      margin-left: @spacing-horizontal-base;
+    }
   }
 
   & > input,
@@ -48,14 +41,36 @@ label {
     width: 100%;
   }
 
+  & > label {
+    width: auto;
+    margin-top: 0;
+    text-align: right;
+    vertical-align: middle;
+  }
+
+  & > textarea {
+    resize: vertical;
+  }
+
   &.block {
+    width: 100%;
+
     & > label,
     & > input,
     & > select,
     & > button,
     & > textarea {
+      margin-left: 0;
+    }
+
+    & > label,
+    & > input:not([type=checkbox]):not([type=radio]),
+    & > select,
+    & > button,
+    & > textarea {
       text-align: left;
       display: block;
+      width: 100%;
     }
   }
 }
@@ -67,7 +82,7 @@ label {
   margin-bottom: @spacing-vertical-base;
 
   & > label,
-  & > input,
+  & > input:not([type=checkbox]):not([type=radio]),
   & > select,
   & > button,
   & > .input-group-addon {
@@ -76,7 +91,7 @@ label {
   }
 
   & > label,
-  & > input,
+  & > input:not([type=checkbox]):not([type=radio]),
   & > select,
   & > button {
     &:first-child {
