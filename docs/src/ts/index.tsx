@@ -24,6 +24,7 @@ import { Ipsum } from './ipsum';
 import { Modals } from './modals';
 import { Sections } from './sections';
 import { Tables } from './tables';
+import { TabDemo } from './tabs';
 import { Text } from './text';
 import { Wells } from './wells';
 
@@ -60,6 +61,7 @@ class App extends React.Component<{}, void> {
         <ContentBoxes />
         <Sections />
         <Modals />
+        <TabDemo />
         <Tables />
         <Text />
         <Wells />
