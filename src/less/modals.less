@@ -1,0 +1,112 @@
+/* @group Transition */
+
+.modal-transition-enter,
+.modal-transition-appear {
+  opacity: 0.01;
+
+  .modal {
+    transform: translate3d(0, -50px, 0);
+  }
+}
+
+.modal-transition-enter.modal-transition-enter-active,
+.modal-transition-appear.modal-transition-appear-active {
+  opacity: 1;
+  transition: opacity 0.3s ease-in;
+
+  .modal {
+    transform: translate3d(0, 0, 0);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+.modal-transition-leave {
+  opacity: 1;
+
+  .modal {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.modal-transition-leave.modal-transition-leave-active {
+  opacity: 0.01;
+  transition: opacity 0.2s ease-in;
+
+  .modal {
+    transform: translate3d(0, -50px, 0);
+    transition: transform 0.2s ease-in-out;
+  }
+}
+
+/* @end Transition */
+
+.modal-overlay,
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+}
+
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 0;
+}
+
+.modal-container {
+  overflow: auto;
+}
+
+.modal-position {
+  margin: @gutter-width auto;
+  padding-left: @gutter-width;
+  padding-right: @gutter-width;
+
+  @media all and (min-width: @screen-sm) {
+    width: @screen-sm;
+  }
+
+  @media all and (min-width: @screen-md) {
+    width: @screen-md;
+  }
+}
+
+.modal {
+  .content-box();
+  position: relative;
+  z-index: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.modal-close-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  margin: @padding-base;
+  fill: @primary;
+  color: @primary;
+  cursor: pointer;
+  text-align: center;
+  font-size: 24px;
+}
+
+.modal-header {
+  .content-box-header();
+  background-color: @modal-header-background;
+  border-bottom: @modal-header-border;
+}
+
+.modal-footer {
+  .content-box-header();
+  background-color: @modal-footer-background;
+  border-top: @modal-footer-border;
+  border-bottom: @border-none;
+  text-align: right;
+  border-radius: 0;
+  border-bottom-left-radius: @border-radius-base;
+  border-bottom-right-radius: @border-radius-base;
+}

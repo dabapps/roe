@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContentBox should match snapshot 1`] = `
+<div
+  className="content-box"
+>
+  <div
+    className="content-box-header"
+  >
+    <h1>
+      Header
+    </h1>
+  </div>
+  <p>
+    Content
+  </p>
+</div>
+`;
+
+exports[`ContentBox should take regular element attributes 1`] = `
+<div
+  className="content-box my-class"
+/>
+`;
+
+exports[`ContentBoxHeader should take regular element attributes 1`] = `
+<div
+  className="content-box-header my-class"
+/>
+`;

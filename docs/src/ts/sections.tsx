@@ -7,7 +7,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const Layout = () => (
+export const Sections = () => (
   <Section>
     <Row>
       <Column>

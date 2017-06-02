@@ -15,12 +15,14 @@ import {
 
 import { Buttons } from './buttons';
 import { CodeBlocks } from './code-blocks';
+import { ContentBoxes } from './content-boxes';
 import { Floats } from './floats';
 import { Grid } from './grid';
 import { Hides } from './hides';
 import { Inputs } from './inputs';
 import { Ipsum } from './ipsum';
-import { Layout } from './layout';
+import { Modals } from './modals';
+import { Sections } from './sections';
 import { Tables } from './tables';
 import { Text } from './text';
 import { Wells } from './wells';
@@ -55,7 +57,9 @@ class App extends React.Component<{}, void> {
         <Grid />
         <Inputs />
         <Ipsum />
-        <Layout />
+        <ContentBoxes />
+        <Sections />
+        <Modals />
         <Tables />
         <Text />
         <Wells />
