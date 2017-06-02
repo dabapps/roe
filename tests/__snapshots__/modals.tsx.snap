@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal should match snapshot 1`] = `
+<div>
+  <div
+    className="modal-overlay"
+    onClick={[Function]}
+  />
+  <div
+    className="modal"
+  >
+    <div
+      className="modal-close-icon"
+    >
+      x
+    </div>
+    <div
+      className="modal-header"
+    >
+      <h1>
+        Header
+      </h1>
+    </div>
+    <p>
+      Content
+    </p>
+    <div
+      className="modal-footer"
+    >
+      <p>
+        Footer
+      </p>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Modal should take regular element attributes 1`] = `
+<div>
+  <div
+    className="modal-overlay"
+    onClick={[Function]}
+  />
+  <div
+    className="modal my-class"
+  />
+</div>
+`;
+
+exports[`ModalCloseIcon should take regular element attributes 1`] = `
+<div
+  className="modal-close-icon my-class"
+/>
+`;
+
+exports[`ModalFooter should take regular element attributes 1`] = `
+<div
+  className="modal-footer my-class"
+/>
+`;
+
+exports[`ModalHeader should take regular element attributes 1`] = `
+<div
+  className="modal-header my-class"
+/>
+`;
+
+exports[`ModalRenderer should render some modals 1`] = `
+<span>
+  <div
+    className="modal-container"
+  >
+    <div
+      className="modal-position"
+    >
+      <div>
+        <div
+          className="modal-overlay"
+          onClick={[Function]}
+        />
+        <div
+          className="modal"
+        >
+          <p>
+            Modal
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</span>
+`;
