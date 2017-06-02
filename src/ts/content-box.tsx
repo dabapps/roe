@@ -1,7 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-export const ContentBox: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) {
+export const ContentBox: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
   const {
     className,
     children,
@@ -15,7 +15,7 @@ export const ContentBox: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) {
   );
 }
 
-export const ContentBoxHeader: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) {
+export const ContentBoxHeader: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
   const {
     className,
     children,
