@@ -7,6 +7,7 @@ export { DabIpsum } from './dab-ipsum';
 export { FormGroup } from './form-group';
 export { InputGroup } from './input-group';
 export { InputGroupAddon } from './input-group-addon';
+export * from './modals';
 export { Row } from './row';
 export { Section } from './section';
 export * from './tables';
