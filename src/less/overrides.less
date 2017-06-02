@@ -123,7 +123,9 @@ select {
 button,
 input,
 select,
-textarea {
+textarea,
+datalist,
+keygen {
   &[disabled] { // lesshint qualifyingElement: false
     cursor: no-drop;
   }
@@ -133,7 +135,12 @@ button,
 input,
 select,
 textarea,
-form {
+datalist,
+keygen,
+form,
+fieldset,
+legend,
+output {
   &[disabled] { // lesshint qualifyingElement: false
     opacity: 0.5;
   }
