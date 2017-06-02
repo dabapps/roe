@@ -87,6 +87,11 @@ export class TabDemo extends React.Component<{}, IState> {
                     ))
                   }
                 </Tabs>
+                <ContentBox>
+                  <p>
+                    Content
+                  </p>
+                </ContentBox>
               `}
             </CodeBlock>
           </Column>
