@@ -2,7 +2,7 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
-interface IModalRendererProps {
+export interface IModalRendererProps {
   modals: React.ReactNode[];
 }
 
@@ -30,7 +30,7 @@ export const ModalRenderer: React.SFC<IModalRendererProps & React.HTMLProps<HTML
   );
 }
 
-interface IModalProps {
+export interface IModalProps {
   onClickOutside(event: React.MouseEvent<HTMLDivElement>): void;
 }
 
