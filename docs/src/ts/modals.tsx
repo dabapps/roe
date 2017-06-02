@@ -41,7 +41,7 @@ export class Modals extends React.Component<{}, IState> {
   public onClickOpenModal () {
     this.setState({
       modals: [...this.state.modals, (
-        <Modal>
+        <Modal onClickOutside={this.onClickCloseModal}>
           <ModalCloseIcon onClick={this.onClickCloseModal}>
             x
           </ModalCloseIcon>
@@ -84,7 +84,7 @@ export class Modals extends React.Component<{}, IState> {
             <h3>
               Demo
             </h3>
-            <ModalRenderer modals={modals} onClickOutside={this.onClickCloseModal} />
+            <ModalRenderer modals={modals} />
 
             <Button type="primary" onClick={this.onClickOpenModal}>
               Open modal
@@ -113,7 +113,7 @@ export class Modals extends React.Component<{}, IState> {
                 public onClickOpenModal () {
                   this.setState({
                     modals: [...this.state.modals, (
-                      <Modal>
+                      <Modal onClickOutside={this.onClickCloseModal}>
                         <ModalCloseIcon onClick={this.onClickCloseModal}>
                           x
                         </ModalCloseIcon>
@@ -143,7 +143,7 @@ export class Modals extends React.Component<{}, IState> {
             </p>
             <CodeBlock language="javascript">
               {`
-                <ModalRenderer modals={modals} onClickOutside={this.onClickCloseModal} />
+                <ModalRenderer modals={modals} />
 
                 <Button type="primary" onClick={this.onClickOpenModal}>
                   Open modal

@@ -4,13 +4,11 @@ import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 interface IModalRendererProps {
   modals: React.ReactNode[];
-  onClickOutside?(event: React.MouseEvent<HTMLDivElement>): void;
 }
 
 export const ModalRenderer: React.SFC<IModalRendererProps & React.HTMLProps<HTMLDivElement>> = (props) => {
   const {
     modals,
-    onClickOutside
   } = props;
 
   return (
@@ -22,7 +20,6 @@ export const ModalRenderer: React.SFC<IModalRendererProps & React.HTMLProps<HTML
       {
         modals && modals.map((modal, index) => (
           <div key={index} className="modal-container">
-            <div className="modal-overlay" onClick={onClickOutside} />
             <div className="modal-position">
               {modal}
             </div>
@@ -33,16 +30,24 @@ export const ModalRenderer: React.SFC<IModalRendererProps & React.HTMLProps<HTML
   );
 }
 
-export const Modal: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
+interface IModalProps {
+  onClickOutside?(event: React.MouseEvent<HTMLDivElement>): void;
+}
+
+export const Modal: React.SFC<IModalProps & React.HTMLProps<HTMLDivElement>> = (props) => {
   const {
     className,
     children,
+    onClickOutside,
     ...remainingProps
   } = props;
 
   return (
-    <div {...remainingProps} className={classNames('modal', className)}>
-      {children}
+    <div>
+      <div className="modal-overlay" onClick={onClickOutside} />
+      <div {...remainingProps} className={classNames('modal', className)}>
+        {children}
+      </div>
     </div>
   );
 }
