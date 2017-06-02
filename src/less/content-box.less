@@ -1,10 +1,10 @@
 .content-box {
   .clearfix();
   border-radius: @border-radius-base;
-  border: 1px solid @grey-lighter;
+  border: @border-base;
   padding-left: @padding-base;
   padding-right: @padding-base;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: @shadow-subtle;
   background-color: @white;
   margin-top: @spacing-vertical-base;
   margin-bottom: @spacing-vertical-base;
@@ -17,7 +17,8 @@
   border-top-left-radius: @border-radius-base;
   border-top-right-radius: @border-radius-base;
   background-color: @primary-lighter;
-  border-bottom: 1px solid @primary-light;
+  border-bottom: @border-base;
+  border-bottom-color: @primary-light;
 
   h2 {
     margin: 0;
