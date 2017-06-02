@@ -9,17 +9,17 @@
 @warning: #D6982F;
 @error: #CD3B3B;
 
-@primary-light: lighten(@primary, 30%);
-@secondary-light: lighten(@secondary, 30%);
-@tertiary-light: lighten(@tertiary, 30%);
+@primary-light: lighten(@primary, 55%);
+@secondary-light: lighten(@secondary, 55%);
+@tertiary-light: lighten(@tertiary, 55%);
 @info-light: lighten(@info, 30%);
 @success-light: lighten(@success, 30%);
 @warning-light: lighten(@warning, 25%);
 @error-light: lighten(@error, 30%);
 
-@primary-lighter: lighten(@primary, 50%);
-@secondary-lighter: lighten(@secondary, 50%);
-@tertiary-lighter: lighten(@tertiary, 50%);
+@primary-lighter: lighten(@primary, 60%);
+@secondary-lighter: lighten(@secondary, 60%);
+@tertiary-lighter: lighten(@tertiary, 60%);
 @info-lighter: lighten(@info, 50%);
 @success-lighter: lighten(@success, 50%);
 @warning-lighter: lighten(@warning, 40%);
@@ -35,6 +35,12 @@
 
 @table-stripe: @grey-lightest;
 @table-hover: darken(@grey-lightest, 3%);
+
+@content-box-header-background: @primary-lighter;
+@content-box-header-border: 1px solid @primary-light;
+
+@modal-header-background: @content-box-header-background;
+@modal-header-border: @content-box-header-border;
 
 @well-background: @grey-lightest;
 
