@@ -32,19 +32,6 @@ export class CodeBlock extends React.Component<IProps, any> {
     }
   }
 
-  public formatCode (code: string) {
-    const codeWithoutLeadingOrTrailingEmptyLines = code
-      .replace(MATCHES_BLANK_FIRST_LINE, '')
-      .replace(MATCHES_BLANK_LAST_LINE, '');
-
-    const initialIndentation: RegExpExecArray | null =
-      MATCHES_INITIAL_INDENTATION.exec(codeWithoutLeadingOrTrailingEmptyLines);
-
-    return initialIndentation ?
-      codeWithoutLeadingOrTrailingEmptyLines.replace(new RegExp(`^${initialIndentation[1]}`, 'gm'), '') :
-      codeWithoutLeadingOrTrailingEmptyLines;
-  }
-
   public render () {
     const { children, className, language, ...remainingProps } = this.props;
     const languageClassName = language && `language-${language}`;
@@ -60,5 +47,18 @@ export class CodeBlock extends React.Component<IProps, any> {
         {content}
       </pre>
     );
+  }
+
+  private formatCode (code: string) {
+    const codeWithoutLeadingOrTrailingEmptyLines = code
+      .replace(MATCHES_BLANK_FIRST_LINE, '')
+      .replace(MATCHES_BLANK_LAST_LINE, '');
+
+    const initialIndentation: RegExpExecArray | null =
+      MATCHES_INITIAL_INDENTATION.exec(codeWithoutLeadingOrTrailingEmptyLines);
+
+    return initialIndentation ?
+      codeWithoutLeadingOrTrailingEmptyLines.replace(new RegExp(`^${initialIndentation[1]}`, 'gm'), '') :
+      codeWithoutLeadingOrTrailingEmptyLines;
   }
 }
