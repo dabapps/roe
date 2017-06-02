@@ -12,71 +12,88 @@ import {
   Well
 } from '../../../src/ts';
 
-export const TabDemo = () => (
-  <Section>
-    <Row>
-      <Column>
-        <h2>
-          Tabs
-        </h2>
-      </Column>
-    </Row>
-    <Row>
-      <Column>
-        <h3>
-          Demo
-        </h3>
-        <Tabs>
-          <Tab active>
-            <a>
-              Tab 1
-            </a>
-          </Tab>
-          <Tab>
-            <a>
-              Tab 2
-            </a>
-          </Tab>
-          <Tab>
-            <a>
-              Tab 3
-            </a>
-          </Tab>
-        </Tabs>
-        <ContentBox>
-          <p>
-            Content
-          </p>
-        </ContentBox>
-      </Column>
-    </Row>
-    <Row>
-      <Column>
-        <h3>
-          Code
-        </h3>
-        <CodeBlock language="javascript">
-          {`
+interface IState {
+  activeTab: number;
+  tabs: number[];
+}
+
+export class TabDemo extends React.Component<{}, IState> {
+  public constructor (props: {}) {
+    super(props);
+
+    this.state = {
+      activeTab: 1,
+      tabs: [1, 2, 3],
+    };
+  }
+
+  public onClickSetActiveTab (tab: number) {
+    this.setState({
+      activeTab: tab
+    });
+  }
+
+  public render () {
+    const {
+      activeTab,
+      tabs
+    } = this.state;
+
+    return (
+      <Section>
+        <Row>
+          <Column>
+            <h2>
+              Tabs
+            </h2>
+          </Column>
+        </Row>
+        <Row>
+          <Column>
+            <h3>
+              Demo
+            </h3>
             <Tabs>
-              <Tab active>
-                <a>
-                  Tab 1
-                </a>
-              </Tab>
-              <Tab>
-                <a>
-                  Tab 2
-                </a>
-              </Tab>
-              <Tab>
-                <a>
-                  Tab 3
-                </a>
-              </Tab>
+              {
+                tabs.map((tab) => (
+                  <Tab key={tab} active={tab === activeTab}>
+                    <a onClick={() => this.onClickSetActiveTab(tab)}>
+                      Tab {tab}
+                    </a>
+                  </Tab>
+                ))
+              }
             </Tabs>
-          `}
-        </CodeBlock>
-      </Column>
-    </Row>
-  </Section>
-);
+            <ContentBox>
+              <p>
+                Content
+              </p>
+            </ContentBox>
+          </Column>
+        </Row>
+        <Row>
+          <Column>
+            <h3>
+              Code
+            </h3>
+            <CodeBlock language="javascript">
+              {`
+                <Tabs>
+                  {
+                    tabs.map((tab) => (
+                      <Tab key={tab} active={tab === activeTab}>
+                        <a onClick={() => this.onClickSetActiveTab(tab)}>
+                          Tab {tab}
+                        </a>
+                      </Tab>
+                    ))
+                  }
+                </Tabs>
+              `}
+            </CodeBlock>
+          </Column>
+        </Row>
+      </Section>
+    );
+  }
+}
