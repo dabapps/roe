@@ -5,6 +5,7 @@ import {
   CodeBlock,
   Column,
   Modal,
+  ModalCloseIcon,
   ModalFooter,
   ModalHeader,
   ModalRenderer,
@@ -41,6 +42,9 @@ export class Modals extends React.Component<{}, IState> {
     this.setState({
       modals: [...this.state.modals, (
         <Modal>
+          <ModalCloseIcon onClick={this.onClickCloseModal}>
+            x
+          </ModalCloseIcon>
           <ModalHeader>
             <h5>
               Header
@@ -110,6 +114,9 @@ export class Modals extends React.Component<{}, IState> {
                   this.setState({
                     modals: [...this.state.modals, (
                       <Modal>
+                        <ModalCloseIcon onClick={this.onClickCloseModal}>
+                          x
+                        </ModalCloseIcon>
                         <ModalHeader>
                           <h5>
                             Header

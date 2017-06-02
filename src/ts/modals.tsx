@@ -74,3 +74,17 @@ export const ModalFooter: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) =
     </div>
   );
 }
+
+export const ModalCloseIcon: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
+  const {
+    className,
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <div {...remainingProps} className={classNames('modal-close-icon', className)}>
+      {children}
+    </div>
+  );
+}
