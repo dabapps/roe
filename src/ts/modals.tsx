@@ -31,7 +31,7 @@ export const ModalRenderer: React.SFC<IModalRendererProps & React.HTMLProps<HTML
 }
 
 interface IModalProps {
-  onClickOutside?(event: React.MouseEvent<HTMLDivElement>): void;
+  onClickOutside(event: React.MouseEvent<HTMLDivElement>): void;
 }
 
 export const Modal: React.SFC<IModalProps & React.HTMLProps<HTMLDivElement>> = (props) => {
