@@ -11,6 +11,19 @@ export interface IProps extends React.HTMLProps<HTMLPreElement> {
   language?: string;
 }
 
+export function formatCode (code: string) {
+    const codeWithoutLeadingOrTrailingEmptyLines = code
+      .replace(MATCHES_BLANK_FIRST_LINE, '')
+      .replace(MATCHES_BLANK_LAST_LINE, '');
+
+    const initialIndentation: RegExpExecArray | null =
+      MATCHES_INITIAL_INDENTATION.exec(codeWithoutLeadingOrTrailingEmptyLines);
+
+    return initialIndentation ?
+      codeWithoutLeadingOrTrailingEmptyLines.replace(new RegExp(`^${initialIndentation[1]}`, 'gm'), '') :
+      codeWithoutLeadingOrTrailingEmptyLines;
+  }
+
 export class CodeBlock extends React.Component<IProps, any> {
   public element: HTMLPreElement;
 
@@ -36,7 +49,7 @@ export class CodeBlock extends React.Component<IProps, any> {
     const { children, className, language, ...remainingProps } = this.props;
     const languageClassName = language && `language-${language}`;
 
-    const content = typeof children === 'string' ? this.formatCode(children) : children;
+    const content = typeof children === 'string' ? formatCode(children) : children;
 
     return (
       <pre
@@ -47,18 +60,5 @@ export class CodeBlock extends React.Component<IProps, any> {
         {content}
       </pre>
     );
-  }
-
-  private formatCode (code: string) {
-    const codeWithoutLeadingOrTrailingEmptyLines = code
-      .replace(MATCHES_BLANK_FIRST_LINE, '')
-      .replace(MATCHES_BLANK_LAST_LINE, '');
-
-    const initialIndentation: RegExpExecArray | null =
-      MATCHES_INITIAL_INDENTATION.exec(codeWithoutLeadingOrTrailingEmptyLines);
-
-    return initialIndentation ?
-      codeWithoutLeadingOrTrailingEmptyLines.replace(new RegExp(`^${initialIndentation[1]}`, 'gm'), '') :
-      codeWithoutLeadingOrTrailingEmptyLines;
   }
 }
