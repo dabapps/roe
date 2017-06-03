@@ -62,8 +62,14 @@ export const Buttons = () => (
         </p>
 
         <p>
+          <Button small>
+            Small
+          </Button>
+        </p>
+
+        <p>
           <Button large>
-            Default
+            Large
           </Button>
         </p>
 
@@ -124,8 +130,14 @@ export const Buttons = () => (
             </p>
 
             <p>
+              <Button small>
+                Small
+              </Button>
+            </p>
+
+            <p>
               <Button large>
-                Default
+                Large
               </Button>
             </p>
 
