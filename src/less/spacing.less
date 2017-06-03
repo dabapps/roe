@@ -1,0 +1,51 @@
+.create-spacing (@prefix, @alias) {
+  .@{prefix}-padding-base {
+    padding: @padding-base !important; // lesshint importantRule: false
+  }
+
+  .@{prefix}-padding-small {
+    padding: @padding-small !important; // lesshint importantRule: false
+  }
+
+  .@{prefix}-padding-large {
+    padding: @padding-large !important; // lesshint importantRule: false
+  }
+
+  .spacing-alias () when (@alias = true) {
+    .padding-base {
+      padding: @padding-base !important; // lesshint importantRule: false
+    }
+
+    .padding-small {
+      padding: @padding-small !important; // lesshint importantRule: false
+    }
+
+    .padding-large {
+      padding: @padding-large !important; // lesshint importantRule: false
+    }
+  }
+
+  .spacing-alias();
+}
+
+.create-spacings (@prefix, @alias: false) {
+  .create-spacing(@prefix, @alias);
+}
+
+.create-spacings(xs, true);
+
+@media all and (min-width: @screen-sm) {
+  .create-spacings(sm);
+}
+
+@media all and (min-width: @screen-md) {
+  .create-spacings(md);
+}
+
+@media all and (min-width: @screen-lg) {
+  .create-spacings(lg);
+}
+
+@media all and (min-width: @screen-xl) {
+  .create-spacings(xl);
+}
