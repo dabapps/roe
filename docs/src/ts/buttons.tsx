@@ -80,6 +80,15 @@ export const Buttons = () => (
           <a href="#" className="button primary">
             Link as primary button
           </a>
+          <a href="#" className="button error">
+            Link as error button
+          </a>
+        </p>
+
+        <p>
+          <input className="button" type="button" value="Input as button" />
+          <input className="button primary" type="button" value="Input as primary button" />
+          <input className="button error" type="button" value="Input as error button" />
         </p>
       </Column>
     </Row>
