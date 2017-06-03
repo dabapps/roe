@@ -99,11 +99,7 @@ export const Inputs = () => (
           <label>
             Label
           </label>
-          <select>
-            <option>
-              Option
-            </option>
-          </select>
+          <input type="text" />
         </FormGroup>
 
         <p>
@@ -229,11 +225,7 @@ export const Inputs = () => (
               <label>
                 Label
               </label>
-              <select>
-                <option>
-                  Option
-                </option>
-              </select>
+              <input type="text" />
             </FormGroup>
 
             <InputGroup>
