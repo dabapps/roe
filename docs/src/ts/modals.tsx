@@ -29,42 +29,6 @@ export class Modals extends React.Component<{}, IState> {
     this.onClickCloseModal = this.onClickCloseModal.bind(this);
   }
 
-  public onClickCloseModal () {
-    const modals = [...this.state.modals];
-    modals.pop();
-
-    this.setState({
-      modals
-    });
-  }
-
-  public onClickOpenModal () {
-    this.setState({
-      modals: [...this.state.modals, (
-        <Modal onClickOutside={this.onClickCloseModal}>
-          <ModalCloseIcon onClick={this.onClickCloseModal}>
-            x
-          </ModalCloseIcon>
-          <ModalHeader>
-            <h5>
-              Header
-            </h5>
-          </ModalHeader>
-          <p>
-            Content
-          </p>
-          <ModalFooter>
-            <p>
-              <Button type="primary" onClick={this.onClickCloseModal}>
-                Close
-              </Button>
-            </p>
-          </ModalFooter>
-        </Modal>
-      )]
-    });
-  }
-
   public render () {
     const {
       modals
@@ -154,5 +118,41 @@ export class Modals extends React.Component<{}, IState> {
         </Row>
       </Section>
     );
+  }
+
+  private onClickCloseModal () {
+    const modals = [...this.state.modals];
+    modals.pop();
+
+    this.setState({
+      modals
+    });
+  }
+
+  private onClickOpenModal () {
+    this.setState({
+      modals: [...this.state.modals, (
+        <Modal onClickOutside={this.onClickCloseModal}>
+          <ModalCloseIcon onClick={this.onClickCloseModal}>
+            x
+          </ModalCloseIcon>
+          <ModalHeader>
+            <h5>
+              Header
+            </h5>
+          </ModalHeader>
+          <p>
+            Content
+          </p>
+          <ModalFooter>
+            <p>
+              <Button type="primary" onClick={this.onClickCloseModal}>
+                Close
+              </Button>
+            </p>
+          </ModalFooter>
+        </Modal>
+      )]
+    });
   }
 }

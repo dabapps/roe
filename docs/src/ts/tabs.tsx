@@ -25,12 +25,6 @@ export class TabDemo extends React.Component<{}, IState> {
     };
   }
 
-  public onClickSetActiveTab (tab: number) {
-    this.setState({
-      activeTab: tab
-    });
-  }
-
   public render () {
     const {
       activeTab,
@@ -98,5 +92,11 @@ export class TabDemo extends React.Component<{}, IState> {
         </Row>
       </Section>
     );
+  }
+
+  private onClickSetActiveTab (tab: number) {
+    this.setState({
+      activeTab: tab
+    });
   }
 }
