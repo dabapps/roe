@@ -3,8 +3,6 @@ import * as React from 'react';
 import {
   CodeBlock,
   Column,
-  ContentBox,
-  ContentBoxHeader,
   Row,
   Section
 } from '../../../src/ts';
