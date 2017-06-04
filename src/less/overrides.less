@@ -114,9 +114,20 @@ textarea {
   }
 }
 
+@select-arrows-background: linear-gradient(135deg, transparent 75%, @font-color-base 75%) 0 0, linear-gradient(-135deg, transparent 75%, @font-color-base 75%) 0 0, linear-gradient(45deg, transparent 75%, @font-color-base 75%) 0 0, linear-gradient(-45deg, transparent 75%, @font-color-base 75%) 0 0; // lesshint maxCharPerLine: false
+@select-arrows-position: ~'calc(100% - 10px)' ~'calc(50% - 5px)', ~'calc(100% - 2px)' ~'calc(50% - 5px)', ~'calc(100% - 10px)' ~'calc(50% + 5px)', ~'calc(100% - 2px)' ~'calc(50% + 5px)'; // lesshint maxCharPerLine: false
+
 select {
   background-color: transparent;
   padding-right: @padding-base * 2;
+  background: @select-arrows-background;
+  background-position: @select-arrows-position;
+  background-size: 8px 8px;
+  background-repeat: no-repeat;
+
+  &::-ms-expand {
+    display: none;
+  }
 }
 
 button,
