@@ -17,6 +17,10 @@
 }
 
 .create-spacing (@prefix, @alias, @style, @value-base, @value-small, @value-large) {
+  .@{prefix}-@{style}-none {
+    .spacing-styles(@style, 0);
+  }
+
   .@{prefix}-@{style}-base {
     .spacing-styles(@style, @value-base);
   }
@@ -27,6 +31,10 @@
 
   .@{prefix}-@{style}-large {
     .spacing-styles(@style, @value-large);
+  }
+
+  .@{prefix}-@{style}-vertical-none {
+    .spacing-vertical-styles(@style, 0);
   }
 
   .@{prefix}-@{style}-vertical-base {
@@ -41,6 +49,10 @@
     .spacing-vertical-styles(@style, @value-large);
   }
 
+  .@{prefix}-@{style}-horizontal-none {
+    .spacing-horizontal-styles(@style, 0);
+  }
+
   .@{prefix}-@{style}-horizontal-base {
     .spacing-horizontal-styles(@style, @value-base);
   }
@@ -51,6 +63,10 @@
 
   .@{prefix}-@{style}-horizontal-large {
     .spacing-horizontal-styles(@style, @value-large);
+  }
+
+  .@{prefix}-@{style}-top-none {
+    .spacing-directional-styles(@style, 0, top);
   }
 
   .@{prefix}-@{style}-top-base {
@@ -65,6 +81,10 @@
     .spacing-directional-styles(@style, @value-large, top);
   }
 
+  .@{prefix}-@{style}-right-none {
+    .spacing-directional-styles(@style, 0, right);
+  }
+
   .@{prefix}-@{style}-right-base {
     .spacing-directional-styles(@style, @value-base, right);
   }
@@ -77,6 +97,10 @@
     .spacing-directional-styles(@style, @value-large, right);
   }
 
+  .@{prefix}-@{style}-bottom-none {
+    .spacing-directional-styles(@style, 0, bottom);
+  }
+
   .@{prefix}-@{style}-bottom-base {
     .spacing-directional-styles(@style, @value-base, bottom);
   }
@@ -87,6 +111,10 @@
 
   .@{prefix}-@{style}-bottom-large {
     .spacing-directional-styles(@style, @value-large, bottom);
+  }
+
+  .@{prefix}-@{style}-left-none {
+    .spacing-directional-styles(@style, 0, left);
   }
 
   .@{prefix}-@{style}-left-base {
@@ -102,6 +130,10 @@
   }
 
   .spacing-alias () when (@alias = true) {
+    .@{style}-none {
+      .spacing-styles(@style, 0);
+    }
+
     .@{style}-base {
       .spacing-styles(@style, @value-base);
     }
@@ -112,6 +144,10 @@
 
     .@{style}-large {
       .spacing-styles(@style, @value-large);
+    }
+
+    .@{style}-vertical-none {
+      .spacing-vertical-styles(@style, 0);
     }
 
     .@{style}-vertical-base {
@@ -126,6 +162,10 @@
       .spacing-vertical-styles(@style, @value-large);
     }
 
+    .@{style}-horizontal-none {
+      .spacing-horizontal-styles(@style, 0);
+    }
+
     .@{style}-horizontal-base {
       .spacing-horizontal-styles(@style, @value-base);
     }
@@ -136,6 +176,10 @@
 
     .@{style}-horizontal-large {
       .spacing-horizontal-styles(@style, @value-large);
+    }
+
+    .@{style}-top-none {
+      .spacing-directional-styles(@style, 0, top);
     }
 
     .@{style}-top-base {
@@ -154,12 +198,20 @@
       .spacing-directional-styles(@style, @value-base, right);
     }
 
+    .@{style}-right-none {
+      .spacing-directional-styles(@style, 0, right);
+    }
+
     .@{style}-right-small {
       .spacing-directional-styles(@style, @value-small, right);
     }
 
     .@{style}-right-large {
       .spacing-directional-styles(@style, @value-large, right);
+    }
+
+    .@{style}-bottom-none {
+      .spacing-directional-styles(@style, 0, bottom);
     }
 
     .@{style}-bottom-base {
@@ -172,6 +224,10 @@
 
     .@{style}-bottom-large {
       .spacing-directional-styles(@style, @value-large, bottom);
+    }
+
+    .@{style}-left-none {
+      .spacing-directional-styles(@style, 0, left);
     }
 
     .@{style}-left-base {
