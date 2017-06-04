@@ -13,6 +13,7 @@ import {
   Section
 } from '../../../src/ts';
 
+import { Alerts } from './alerts';
 import { AtomicFloats } from './atomic-floats';
 import { AtomicHides } from './atomic-hides';
 import { AtomicSpacing } from './atomic-spacing';
@@ -27,7 +28,6 @@ import { Modals } from './modals';
 import { Sections } from './sections';
 import { Tables } from './tables';
 import { TabDemo } from './tabs';
-import { Text } from './text';
 import { Wells } from './wells';
 
 const variables = fs.readFileSync(path.join(__dirname, '../../../src/less/variables.less'), 'utf8');
@@ -57,6 +57,7 @@ class App extends React.Component<{}, void> {
         <AtomicHides />
         <AtomicSpacing />
         <AtomicText />
+        <Alerts />
         <Buttons />
         <CodeBlocks />
         <Grid />
@@ -67,7 +68,6 @@ class App extends React.Component<{}, void> {
         <Modals />
         <TabDemo />
         <Tables />
-        <Text />
         <Wells />
 
         <Section>

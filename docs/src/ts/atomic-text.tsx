@@ -3,6 +3,7 @@ import * as React from 'react';
 import {
   CodeBlock,
   Column,
+  DabIpsum,
   Row,
   Section
 } from '../../../src/ts';
@@ -21,9 +22,11 @@ export const AtomicText = () => (
         <h3>
           Demo
         </h3>
+
         <p className="font-size-h1">
           Paragraph with header size
         </p>
+
         <p>
           <span className="bold">
             Bold
@@ -32,6 +35,19 @@ export const AtomicText = () => (
           </span> <span className="bold italic">
             Bold Italic
           </span>
+        </p>
+
+        <p className="info">
+          <DabIpsum type="text" />
+        </p>
+        <p className="success">
+          <DabIpsum type="text" />
+        </p>
+        <p className="warning">
+          <DabIpsum type="text" />
+        </p>
+        <p className="error">
+          <DabIpsum type="text" />
         </p>
       </Column>
     </Row>
@@ -45,6 +61,7 @@ export const AtomicText = () => (
             <p className="font-size-h1">
               Paragraph with header size
             </p>
+
             <p>
               <span className="bold">
                 Bold
@@ -53,6 +70,19 @@ export const AtomicText = () => (
               </span> <span className="bold italic">
                 Bold Italic
               </span>
+            </p>
+
+            <p className="info">
+              <DabIpsum type="text" />
+            </p>
+            <p className="success">
+              <DabIpsum type="text" />
+            </p>
+            <p className="warning">
+              <DabIpsum type="text" />
+            </p>
+            <p className="error">
+              <DabIpsum type="text" />
             </p>
           `}
         </CodeBlock>
