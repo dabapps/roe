@@ -7,12 +7,12 @@ import {
   Section
 } from '../../../src/ts';
 
-export const Floats = () => (
+export const AtomicFloats = () => (
   <Section>
     <Row>
       <Column>
         <h2>
-          Floats
+          Atomic Float Classes
         </h2>
       </Column>
     </Row>

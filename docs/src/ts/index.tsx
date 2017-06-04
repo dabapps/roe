@@ -13,14 +13,14 @@ import {
   Section
 } from '../../../src/ts';
 
+import { AtomicFloats } from './atomic-floats';
+import { AtomicHides } from './atomic-hides';
 import { AtomicSpacing } from './atomic-spacing';
 import { AtomicText } from './atomic-text';
 import { Buttons } from './buttons';
 import { CodeBlocks } from './code-blocks';
 import { ContentBoxes } from './content-boxes';
-import { Floats } from './floats';
 import { Grid } from './grid';
-import { Hides } from './hides';
 import { Inputs } from './inputs';
 import { Ipsum } from './ipsum';
 import { Modals } from './modals';
@@ -53,12 +53,12 @@ class App extends React.Component<{}, void> {
           </Row>
         </Section>
 
-        <Buttons />
-        <CodeBlocks />
-        <Floats />
-        <Hides />
+        <AtomicFloats />
+        <AtomicHides />
         <AtomicSpacing />
         <AtomicText />
+        <Buttons />
+        <CodeBlocks />
         <Grid />
         <Inputs />
         <Ipsum />
