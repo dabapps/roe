@@ -7,7 +7,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const CodeBlocks = () => (
+const CodeBlocks = () => (
   <Section>
     <Row>
       <Column>
@@ -50,3 +50,5 @@ export const CodeBlocks = () => (
     </Row>
   </Section>
 );
+
+export default CodeBlocks;

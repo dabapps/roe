@@ -8,7 +8,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const AtomicText = () => (
+const AtomicText = () => (
   <Section>
     <Row>
       <Column>
@@ -90,3 +90,5 @@ export const AtomicText = () => (
     </Row>
   </Section>
 );
+
+export default AtomicText;

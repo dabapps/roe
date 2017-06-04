@@ -8,7 +8,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const Ipsum = () => (
+const Ipsum = () => (
   <Section>
     <Row>
       <Column>
@@ -53,3 +53,5 @@ export const Ipsum = () => (
     </Row>
   </Section>
 );
+
+export default Ipsum;

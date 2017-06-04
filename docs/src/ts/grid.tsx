@@ -7,7 +7,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const Grid = () => (
+const Grid = () => (
   <Section>
     <Row>
       <Column>
@@ -102,3 +102,5 @@ export const Grid = () => (
     </Row>
   </Section>
 );
+
+export default Grid;

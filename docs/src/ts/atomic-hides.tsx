@@ -7,7 +7,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const AtomicHides = () => (
+const AtomicHides = () => (
   <Section>
     <Row>
       <Column>
@@ -57,4 +57,6 @@ export const AtomicHides = () => (
       </Column>
     </Row>
   </Section>
-)
+);
+
+export default AtomicHides;

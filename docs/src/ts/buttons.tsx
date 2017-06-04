@@ -8,7 +8,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const Buttons = () => (
+const Buttons = () => (
   <Section>
     <Row>
       <Column>
@@ -193,3 +193,5 @@ export const Buttons = () => (
     </Row>
   </Section>
 );
+
+export default Buttons;

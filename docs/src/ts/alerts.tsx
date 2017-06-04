@@ -9,7 +9,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const Alerts = () => (
+const Alerts = () => (
   <Section>
     <Row>
       <Column>
@@ -62,3 +62,5 @@ export const Alerts = () => (
     </Row>
   </Section>
 );
+
+export default Alerts;

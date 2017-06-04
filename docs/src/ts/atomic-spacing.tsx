@@ -7,7 +7,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const AtomicSpacing = () => (
+const AtomicSpacing = () => (
   <Section>
     <Row>
       <Column>
@@ -70,3 +70,5 @@ export const AtomicSpacing = () => (
     </Row>
   </Section>
 );
+
+export default AtomicSpacing;

@@ -10,7 +10,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const Inputs = () => (
+const Inputs = () => (
   <Section>
     <Row>
       <Column>
@@ -240,3 +240,5 @@ export const Inputs = () => (
     </Row>
   </Section>
 );
+
+export default Inputs;

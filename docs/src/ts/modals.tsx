@@ -17,7 +17,7 @@ interface IState {
   modals: React.ReactNode[];
 }
 
-export class Modals extends React.Component<{}, IState> {
+class Modals extends React.Component<{}, IState> {
   public constructor (props: {}) {
     super(props);
 
@@ -156,3 +156,5 @@ export class Modals extends React.Component<{}, IState> {
     });
   }
 }
+
+export default Modals;
