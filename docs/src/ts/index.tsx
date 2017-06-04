@@ -13,6 +13,7 @@ import {
   Section
 } from '../../../src/ts';
 
+import { AtomicSpacing } from './atomic-spacing';
 import { AtomicText } from './atomic-text';
 import { Buttons } from './buttons';
 import { CodeBlocks } from './code-blocks';
@@ -56,6 +57,7 @@ class App extends React.Component<{}, void> {
         <CodeBlocks />
         <Floats />
         <Hides />
+        <AtomicSpacing />
         <AtomicText />
         <Grid />
         <Inputs />
