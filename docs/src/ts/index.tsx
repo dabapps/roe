@@ -78,7 +78,7 @@ class App extends React.Component<{}, void> {
               <h2>
                 Less variables
               </h2>
-              <CodeBlock language="less">
+              <CodeBlock language="less" name="Less variables">
                 {variables}
               </CodeBlock>
             </Column>

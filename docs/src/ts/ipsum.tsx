@@ -37,7 +37,7 @@ const Ipsum = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="JSX">
           {`
             <p>
               <strong>

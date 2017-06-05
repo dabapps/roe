@@ -66,7 +66,7 @@ class Modals extends React.Component<{}, IState> {
             <p>
               Note: ModalCloseIcon should be the first element inside the ModalHeader.
             </p>
-            <CodeBlock language="javascript">
+            <CodeBlock language="javascript" name="Opening and closing modals">
               {`
                 public onClickCloseModal () {
                   const modals = [...this.state.modals];
@@ -108,7 +108,7 @@ class Modals extends React.Component<{}, IState> {
             <p>
               Ideally the ModalRenderer should be in the root of your application.
             </p>
-            <CodeBlock language="javascript">
+            <CodeBlock language="javascript" name="JSX">
               {`
                 <ModalRenderer modals={modals} />
 

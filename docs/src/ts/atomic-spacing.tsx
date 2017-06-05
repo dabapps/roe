@@ -47,7 +47,7 @@ const AtomicSpacing = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="JSX">
           {`
             <div className="padding-base">
               Padding all around

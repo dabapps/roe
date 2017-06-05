@@ -21,13 +21,18 @@ const CodeBlocks = () => (
         <h3>
           Demo
         </h3>
-        <CodeBlock language="javascript">
+
+        <CodeBlock language="javascript" name="Example">
           {`
             const foo = 'bar';
 
             console.log(foo);
           `}
         </CodeBlock>
+
+        <p>
+          If name is not supplied the code block will be rendered like the one below.
+        </p>
       </Column>
     </Row>
     <Row>
@@ -37,7 +42,7 @@ const CodeBlocks = () => (
         </h3>
         <CodeBlock language="javascript">
           {`
-            <CodeBlock language="javascript">
+            <CodeBlock language="javascript" name="Example">
               {\`
                 const foo = 'bar';
 

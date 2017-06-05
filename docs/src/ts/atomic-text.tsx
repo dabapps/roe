@@ -60,7 +60,7 @@ const AtomicText = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="JSX">
           {`
             <p className="font-size-h1">
               Paragraph with header size

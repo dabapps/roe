@@ -39,7 +39,7 @@ const Alerts = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="JSX">
           {`
             <Alert>
               <DabIpsum count={2} />
