@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   ContentBox,
@@ -36,7 +37,9 @@ class TabDemo extends React.Component<{}, IState> {
         <Row>
           <Column>
             <h2>
-              Tabs
+              <Anchor>
+                Tabs
+              </Anchor>
             </h2>
           </Column>
         </Row>

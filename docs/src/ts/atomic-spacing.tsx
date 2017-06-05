@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   Row,
@@ -12,7 +13,9 @@ const AtomicSpacing = () => (
     <Row>
       <Column>
         <h2>
-          Atomic Padding & Margin Classes
+          <Anchor>
+            Atomic Padding & Margin Classes
+          </Anchor>
         </h2>
       </Column>
     </Row>

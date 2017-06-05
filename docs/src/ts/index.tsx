@@ -6,6 +6,7 @@ import * as ReactDOM from 'react-dom';
 import './livereload';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   Container,
@@ -76,7 +77,9 @@ class App extends React.Component<{}, void> {
           <Row>
             <Column>
               <h2>
-                Less variables
+                <Anchor>
+                  Less variables
+                </Anchor>
               </h2>
               <CodeBlock language="less" name="Less variables">
                 {variables}

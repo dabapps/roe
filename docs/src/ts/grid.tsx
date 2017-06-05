@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   Row,
@@ -12,7 +13,9 @@ const Grid = () => (
     <Row>
       <Column>
         <h2>
-          Grid
+          <Anchor>
+            Grid
+          </Anchor>
         </h2>
       </Column>
     </Row>

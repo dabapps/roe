@@ -2,6 +2,7 @@ import * as React from 'react';
 
 import {
   Alert,
+  Anchor,
   CodeBlock,
   Column,
   DabIpsum,
@@ -14,7 +15,9 @@ const Alerts = () => (
     <Row>
       <Column>
         <h2>
-          Alerts
+          <Anchor>
+            Alerts
+          </Anchor>
         </h2>
 
         <Alert>

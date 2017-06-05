@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   DabIpsum,
@@ -13,7 +14,9 @@ const AtomicText = () => (
     <Row>
       <Column>
         <h2>
-          Atomic Text Classes
+          <Anchor>
+            Atomic Text Classes
+          </Anchor>
         </h2>
       </Column>
     </Row>

@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   Row,
@@ -12,7 +13,9 @@ const AtomicHides = () => (
     <Row>
       <Column>
         <h2>
-          Atomic Hide & Display Classes
+          <Anchor>
+            Atomic Hide & Display Classes
+          </Anchor>
         </h2>
       </Column>
     </Row>

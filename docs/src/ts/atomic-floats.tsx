@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   Row,
@@ -12,7 +13,9 @@ const AtomicFloats = () => (
     <Row>
       <Column>
         <h2>
-          Atomic Float Classes
+          <Anchor>
+            Atomic Float Classes
+          </Anchor>
         </h2>
       </Column>
     </Row>

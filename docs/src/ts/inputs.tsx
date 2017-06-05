@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   FormGroup,
@@ -15,7 +16,9 @@ const Inputs = () => (
     <Row>
       <Column>
         <h2>
-          Inputs
+          <Anchor>
+            Inputs
+          </Anchor>
         </h2>
       </Column>
     </Row>

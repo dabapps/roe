@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   Button,
   CodeBlock,
   Column,
@@ -39,7 +40,9 @@ class Modals extends React.Component<{}, IState> {
         <Row>
           <Column>
             <h2>
-              Modals
+              <Anchor>
+                Modals
+              </Anchor>
             </h2>
           </Column>
         </Row>
