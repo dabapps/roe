@@ -56,6 +56,13 @@ export class CodeBlock extends React.Component<IProps, any> {
         {
           typeof name !== 'undefined' && (
             <div className="code-block-name">
+              {
+                typeof language !== 'undefined' && (
+                  <div className="code-block-language">
+                    {language}
+                  </div>
+                )
+              }
               {name}
             </div>
           )

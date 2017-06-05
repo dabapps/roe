@@ -33,6 +33,10 @@ const CodeBlocks = () => (
         <p>
           If name is not supplied the code block will be rendered like the one below.
         </p>
+
+        <p>
+          If a language is supplied (recommended) it will display to the right of the name.
+        </p>
       </Column>
     </Row>
     <Row>
