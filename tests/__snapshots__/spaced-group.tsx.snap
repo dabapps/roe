@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`SpacedGroup should match snapshot 1`] = `
-<div
+<span
   className="spaced-group"
 />
 `;
 
 exports[`SpacedGroup should take regular element attributes 1`] = `
-<div
+<span
   className="spaced-group my-class"
 />
 `;
