@@ -42,11 +42,11 @@ class App extends React.Component<{}, void> {
           <Row>
             <Column>
               <h1>
-                Roe - DabApps' Project Development Kit (v{packageJson.version})
+                Roe
               </h1>
               <p>
                 <strong>
-                  A Collection of React Components for Project Development
+                  DabApps' Project Development Kit (v{packageJson.version})
                 </strong>
               </p>
             </Column>
