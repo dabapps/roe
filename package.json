@@ -1,6 +1,6 @@
 {
   "name": "roe",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "description": "A Collection of React Components for Project Development",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
