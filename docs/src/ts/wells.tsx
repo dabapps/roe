@@ -9,7 +9,7 @@ import {
   Well
 } from '../../../src/ts';
 
-export const Wells = () => (
+const Wells = () => (
   <Section>
     <Row>
       <Column>
@@ -43,4 +43,6 @@ export const Wells = () => (
       </Column>
     </Row>
   </Section>
-)
+);
+
+export default Wells;

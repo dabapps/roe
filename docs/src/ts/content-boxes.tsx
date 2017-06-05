@@ -9,7 +9,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const ContentBoxes = () => (
+const ContentBoxes = () => (
   <Section>
     <Row>
       <Column>
@@ -58,3 +58,5 @@ export const ContentBoxes = () => (
     </Row>
   </Section>
 );
+
+export default ContentBoxes;

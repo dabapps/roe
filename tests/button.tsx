@@ -21,6 +21,14 @@ describe('Button', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should take an optional small prop', () => {
+    const tree = renderer.create(
+      <Button small />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('should take regular element attributes', () => {
     const tree = renderer.create(
       <Button className="my-class" />

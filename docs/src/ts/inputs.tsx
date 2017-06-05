@@ -10,7 +10,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const Inputs = () => (
+const Inputs = () => (
   <Section>
     <Row>
       <Column>
@@ -99,11 +99,7 @@ export const Inputs = () => (
           <label>
             Label
           </label>
-          <select>
-            <option>
-              Option
-            </option>
-          </select>
+          <input type="text" />
         </FormGroup>
 
         <p>
@@ -229,11 +225,7 @@ export const Inputs = () => (
               <label>
                 Label
               </label>
-              <select>
-                <option>
-                  Option
-                </option>
-              </select>
+              <input type="text" />
             </FormGroup>
 
             <InputGroup>
@@ -248,3 +240,5 @@ export const Inputs = () => (
     </Row>
   </Section>
 );
+
+export default Inputs;

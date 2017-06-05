@@ -27,7 +27,7 @@ const smallBody = [...body].splice(0, 2);
 
 const COLUMN_HEADER_WIDTH = 150;
 
-export const Tables = () => {
+const Tables = () => {
   return (
     <Section>
       <Row>
@@ -177,3 +177,5 @@ export const Tables = () => {
     </Section>
   );
 };
+
+export default Tables;

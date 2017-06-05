@@ -8,7 +8,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const Buttons = () => (
+const Buttons = () => (
   <Section>
     <Row>
       <Column>
@@ -62,8 +62,14 @@ export const Buttons = () => (
         </p>
 
         <p>
+          <Button small>
+            Small
+          </Button>
+        </p>
+
+        <p>
           <Button large>
-            Default
+            Large
           </Button>
         </p>
 
@@ -74,6 +80,15 @@ export const Buttons = () => (
           <a href="#" className="button primary">
             Link as primary button
           </a>
+          <a href="#" className="button error">
+            Link as error button
+          </a>
+        </p>
+
+        <p>
+          <input className="button" type="button" value="Input as button" />
+          <input className="button primary" type="button" value="Input as primary button" />
+          <input className="button error" type="button" value="Input as error button" />
         </p>
       </Column>
     </Row>
@@ -124,8 +139,14 @@ export const Buttons = () => (
             </p>
 
             <p>
+              <Button small>
+                Small
+              </Button>
+            </p>
+
+            <p>
               <Button large>
-                Default
+                Large
               </Button>
             </p>
 
@@ -136,6 +157,15 @@ export const Buttons = () => (
               <a href="#" className="button primary">
                 Link as primary button
               </a>
+              <a href="#" className="button error">
+                Link as error button
+              </a>
+            </p>
+
+            <p>
+              <input className="button" type="button" value="Input as button" />
+              <input className="button primary" type="button" value="Input as primary button" />
+              <input className="button error" type="button" value="Input as error button" />
             </p>
           `}
         </CodeBlock>
@@ -163,3 +193,5 @@ export const Buttons = () => (
     </Row>
   </Section>
 );
+
+export default Buttons;

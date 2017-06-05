@@ -15,7 +15,7 @@ interface IState {
   tabs: number[];
 }
 
-export class TabDemo extends React.Component<{}, IState> {
+class TabDemo extends React.Component<{}, IState> {
   public constructor (props: {}) {
     super(props);
 
@@ -100,3 +100,5 @@ export class TabDemo extends React.Component<{}, IState> {
     });
   }
 }
+
+export default TabDemo;

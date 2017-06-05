@@ -13,20 +13,22 @@ import {
   Section
 } from '../../../src/ts';
 
-import { Buttons } from './buttons';
-import { CodeBlocks } from './code-blocks';
-import { ContentBoxes } from './content-boxes';
-import { Floats } from './floats';
-import { Grid } from './grid';
-import { Hides } from './hides';
-import { Inputs } from './inputs';
-import { Ipsum } from './ipsum';
-import { Modals } from './modals';
-import { Sections } from './sections';
-import { Tables } from './tables';
-import { TabDemo } from './tabs';
-import { Text } from './text';
-import { Wells } from './wells';
+import Alerts from './alerts';
+import AtomicFloats from './atomic-floats';
+import AtomicHides from './atomic-hides';
+import AtomicSpacing from './atomic-spacing';
+import AtomicText from './atomic-text';
+import Buttons from './buttons';
+import CodeBlocks from './code-blocks';
+import ContentBoxes from './content-boxes';
+import Grid from './grid';
+import Inputs from './inputs';
+import Ipsum from './ipsum';
+import Modals from './modals';
+import Sections from './sections';
+import Tables from './tables';
+import TabDemo from './tabs';
+import Wells from './wells';
 
 const variables = fs.readFileSync(path.join(__dirname, '../../../src/less/variables.less'), 'utf8');
 
@@ -51,10 +53,13 @@ class App extends React.Component<{}, void> {
           </Row>
         </Section>
 
+        <AtomicFloats />
+        <AtomicHides />
+        <AtomicSpacing />
+        <AtomicText />
+        <Alerts />
         <Buttons />
         <CodeBlocks />
-        <Floats />
-        <Hides />
         <Grid />
         <Inputs />
         <Ipsum />
@@ -63,7 +68,6 @@ class App extends React.Component<{}, void> {
         <Modals />
         <TabDemo />
         <Tables />
-        <Text />
         <Wells />
 
         <Section>

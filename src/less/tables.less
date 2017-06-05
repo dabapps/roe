@@ -45,20 +45,20 @@
   }
 
   &.bordered {
-    border: @border-base;
+    border: @table-border;
 
     .table-header,
     .table-cell {
-      border: @border-base;
+      border: @table-border;
     }
   }
 
   &.fix-column-headers {
     .table-row .table-header:first-child {
       position: absolute;
-      border-right: @border-base;
+      border-right: @table-border;
       left: 0;
-      border-bottom: @border-base;
+      border-bottom: @table-border;
     }
 
     .table-body .table-row:last-child .table-header:first-child {

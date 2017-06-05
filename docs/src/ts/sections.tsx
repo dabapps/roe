@@ -7,7 +7,7 @@ import {
   Section
 } from '../../../src/ts';
 
-export const Sections = () => (
+const Sections = () => (
   <Section>
     <Row>
       <Column>
@@ -66,3 +66,5 @@ export const Sections = () => (
     </Row>
   </Section>
 );
+
+export default Sections;

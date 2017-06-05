@@ -60,12 +60,16 @@
     }
   }
 
-  &:not(.block) + .button:not(.block) {
-    margin-left: @spacing-horizontal-base;
+  &:not(.block) {
+    margin-right: @margin-base;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 
   &.block + .button.block {
-    margin-top: @spacing-horizontal-base;
+    margin-top: @margin-base;
   }
 
   &.block {
@@ -77,6 +81,11 @@
   &.large {
     font-size: @font-size-large;
     padding: @padding-large / 2 @padding-large;
+  }
+
+  &.small {
+    font-size: @font-size-small;
+    padding: @padding-small / 2 @padding-small;
   }
 }
 

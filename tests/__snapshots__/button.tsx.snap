@@ -12,6 +12,12 @@ exports[`Button should take an optional large prop 1`] = `
 />
 `;
 
+exports[`Button should take an optional small prop 1`] = `
+<button
+  className="button small"
+/>
+`;
+
 exports[`Button should take regular element attributes 1`] = `
 <button
   className="button my-class"

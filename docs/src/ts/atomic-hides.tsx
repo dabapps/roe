@@ -7,12 +7,12 @@ import {
   Section
 } from '../../../src/ts';
 
-export const Hides = () => (
+const AtomicHides = () => (
   <Section>
     <Row>
       <Column>
         <h2>
-          Hide and display
+          Atomic Hide & Display Classes
         </h2>
       </Column>
     </Row>
@@ -57,4 +57,6 @@ export const Hides = () => (
       </Column>
     </Row>
   </Section>
-)
+);
+
+export default AtomicHides;

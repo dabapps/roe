@@ -1,4 +1,4 @@
-input:not([type='checkbox']):not([type='radio']):not([type='submit']),
+input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
 select,
 textarea {
   &.error { // lesshint qualifyingElement: false
@@ -9,11 +9,11 @@ textarea {
 
 .form-group {
   display: table;
-  margin-top: @spacing-vertical-base;
-  margin-bottom: @spacing-vertical-base;
+  margin-top: @margin-large;
+  margin-bottom: @margin-large;
 
   & > label,
-  & > input:not([type='checkbox']):not([type='radio']),
+  & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
   & > select,
   & > button,
   & > textarea {
@@ -30,11 +30,11 @@ textarea {
     & + select,
     & + button,
     & + textarea {
-      margin-left: @spacing-horizontal-base;
+      margin-left: @margin-base;
     }
   }
 
-  & > input,
+  & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
   & > select,
   & > button,
   & > textarea {
@@ -64,7 +64,7 @@ textarea {
     }
 
     & > label,
-    & > input:not([type='checkbox']):not([type='radio']),
+    & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
     & > select,
     & > button,
     & > textarea {
@@ -78,11 +78,11 @@ textarea {
 .input-group {
   display: table;
   width: 100%;
-  margin-top: @spacing-vertical-base;
-  margin-bottom: @spacing-vertical-base;
+  margin-top: @margin-large;
+  margin-bottom: @margin-large;
 
   & > label,
-  & > input:not([type='checkbox']):not([type='radio']),
+  & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
   & > select,
   & > button,
   & > .input-group-addon {
@@ -91,7 +91,7 @@ textarea {
   }
 
   & > label,
-  & > input:not([type='checkbox']):not([type='radio']),
+  & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
   & > select,
   & > button {
     &:first-child {
