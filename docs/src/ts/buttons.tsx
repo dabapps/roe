@@ -5,7 +5,8 @@ import {
   CodeBlock,
   Column,
   Row,
-  Section
+  Section,
+  SpacedGroup
 } from '../../../src/ts';
 
 const Buttons = () => (
@@ -22,7 +23,7 @@ const Buttons = () => (
         <h3>
           Demo
         </h3>
-        <p>
+        <SpacedGroup className="margin-vertical-base">
           <Button>
             Default
           </Button>
@@ -50,7 +51,7 @@ const Buttons = () => (
           <Button type="error">
             Error
           </Button>
-        </p>
+        </SpacedGroup>
 
         <p>
           <Button block>
@@ -73,7 +74,7 @@ const Buttons = () => (
           </Button>
         </p>
 
-        <p>
+        <SpacedGroup className="margin-vertical-base">
           <a href="#" className="button">
             Link as button
           </a>
@@ -83,13 +84,13 @@ const Buttons = () => (
           <a href="#" className="button error">
             Link as error button
           </a>
-        </p>
+        </SpacedGroup>
 
-        <p>
+        <SpacedGroup className="margin-vertical-base">
           <input className="button" type="button" value="Input as button" />
           <input className="button primary" type="button" value="Input as primary button" />
           <input className="button error" type="button" value="Input as error button" />
-        </p>
+        </SpacedGroup>
       </Column>
     </Row>
     <Row>
@@ -99,7 +100,7 @@ const Buttons = () => (
         </h3>
         <CodeBlock language="javascript">
           {`
-            <p>
+            <SpacedGroup className="margin-vertical-base">
               <Button>
                 Default
               </Button>
@@ -127,7 +128,7 @@ const Buttons = () => (
               <Button type="error">
                 Error
               </Button>
-            </p>
+            </SpacedGroup>
 
             <p>
               <Button block>
@@ -150,7 +151,7 @@ const Buttons = () => (
               </Button>
             </p>
 
-            <p>
+            <SpacedGroup className="margin-vertical-base">
               <a href="#" className="button">
                 Link as button
               </a>
@@ -160,13 +161,13 @@ const Buttons = () => (
               <a href="#" className="button error">
                 Link as error button
               </a>
-            </p>
+            </SpacedGroup>
 
-            <p>
+            <SpacedGroup className="margin-vertical-base">
               <input className="button" type="button" value="Input as button" />
               <input className="button primary" type="button" value="Input as primary button" />
               <input className="button error" type="button" value="Input as error button" />
-            </p>
+            </SpacedGroup>
           `}
         </CodeBlock>
 
