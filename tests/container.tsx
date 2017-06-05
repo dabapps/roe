@@ -21,6 +21,14 @@ describe('Container', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should take an optional solid prop', () => {
+    const tree = renderer.create(
+      <Container solid />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('should take regular element attributes', () => {
     const tree = renderer.create(
       <Container className="my-class" />
