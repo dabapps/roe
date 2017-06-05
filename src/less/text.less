@@ -1,3 +1,47 @@
+.font-size-base {
+  font-size: @font-size-base;
+}
+
+.font-size-small {
+  font-size: @font-size-small;
+}
+
+.font-size-large {
+  font-size: @font-size-large;
+}
+
+.font-size-h1 {
+  font-size: @font-size-h1;
+}
+
+.font-size-h2 {
+  font-size: @font-size-h2;
+}
+
+.font-size-h3 {
+  font-size: @font-size-h3;
+}
+
+.font-size-h4 {
+  font-size: @font-size-h4;
+}
+
+.font-size-h5 {
+  font-size: @font-size-h5;
+}
+
+.font-size-h6 {
+  font-size: @font-size-h6;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.bold {
+  font-weight: @font-weight-bold;
+}
+
 .info {
   color: @info;
 }
@@ -12,34 +56,4 @@
 
 .error {
   color: @error;
-}
-
-.alert {
-  .clearfix();
-  padding: 0 @padding-base;
-  margin-top: @margin-large;
-  margin-bottom: @margin-large;
-  border: @border-base;
-  border-radius: @border-radius-base;
-  background-color: @grey-lightest;
-
-  &.info {
-    background-color: @info-lighter;
-    border-color: @info-light;
-  }
-
-  &.success {
-    background-color: @success-lighter;
-    border-color: @success-light;
-  }
-
-  &.warning {
-    background-color: @warning-lighter;
-    border-color: @warning-light;
-  }
-
-  &.error {
-    background-color: @error-lighter;
-    border-color: @error-light;
-  }
 }
