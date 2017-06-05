@@ -23,6 +23,7 @@ const SpacedGroups = () => (
         <h3>
           Demo
         </h3>
+
         <p>
           <SpacedGroup>
             <Button>
@@ -33,6 +34,7 @@ const SpacedGroups = () => (
             </Button>
           </SpacedGroup>
         </p>
+
         <p>
           <SpacedGroup>
             <a>
@@ -65,6 +67,7 @@ const SpacedGroups = () => (
                 </Button>
               </SpacedGroup>
             </p>
+
             <p>
               <SpacedGroup>
                 <a>
