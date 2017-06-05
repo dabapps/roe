@@ -48,8 +48,11 @@
 }
 
 .container {
-  background-color: @container-background;
   margin: 0 auto;
+
+  &.solid {
+    background-color: @container-background;
+  }
 
   @media all and (min-width: @screen-sm) {
     width: @screen-sm;

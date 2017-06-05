@@ -98,6 +98,16 @@ const Grid = () => (
           <Container fluid />
           `}
         </CodeBlock>
+
+        <p>
+          You can configure the @container-background if the container is set to solid
+        </p>
+
+        <CodeBlock language="javascript">
+          {`
+            <Container solid />
+          `}
+        </CodeBlock>
       </Column>
     </Row>
   </Section>

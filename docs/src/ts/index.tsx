@@ -37,7 +37,7 @@ const packageJson = require( '../../../package.json'); // tslint:disable-line:no
 class App extends React.Component<{}, void> {
   public render () {
     return (
-      <Container>
+      <Container solid>
         <Section>
           <Row>
             <Column>
