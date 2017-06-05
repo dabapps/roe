@@ -1,4 +1,5 @@
 export { Alert } from './alert';
+export { Anchor } from './anchor';
 export { Button } from './button';
 export { CodeBlock } from './code-block';
 export { Column } from './column';
