@@ -1,57 +1,85 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CodeBlock should handle empty code snippets 1`] = `
-<pre
-  className="language-javascript"
+<div
+  className="code-block-wrapper"
 >
-  
-</pre>
+  <pre
+    className="code-block language-javascript"
+  >
+    
+  </pre>
+</div>
 `;
 
 exports[`CodeBlock should match snapshot 1`] = `
-<pre
-  className=""
-/>
+<div
+  className="code-block-wrapper"
+>
+  <pre
+    className="code-block"
+  />
+</div>
 `;
 
 exports[`CodeBlock should remove weird indentation from multi line snippets 1`] = `
-<pre
-  className=""
+<div
+  className="code-block-wrapper"
 >
-  &lt;p&gt;
-    Hello, World!
-  &lt;/p&gt;
-</pre>
+  <pre
+    className="code-block"
+  >
+    &lt;p&gt;
+      Hello, World!
+    &lt;/p&gt;
+  </pre>
+</div>
 `;
 
 exports[`CodeBlock should remove weird indentation from multi line snippets 2`] = `
-<pre
-  className=""
+<div
+  className="code-block-wrapper"
 >
-  &lt;p&gt;
-    Hello, World!
-  &lt;/p&gt;
-</pre>
+  <pre
+    className="code-block"
+  >
+    &lt;p&gt;
+      Hello, World!
+    &lt;/p&gt;
+  </pre>
+</div>
 `;
 
 exports[`CodeBlock should remove weird indentation from single line snippets 1`] = `
-<pre
-  className=""
+<div
+  className="code-block-wrapper"
 >
-  console.log('test')
-</pre>
+  <pre
+    className="code-block"
+  >
+    console.log('test')
+  </pre>
+</div>
 `;
 
 exports[`CodeBlock should remove weird indentation from single line snippets 2`] = `
-<pre
-  className=""
+<div
+  className="code-block-wrapper"
 >
-  console.log('test')
-</pre>
+  <pre
+    className="code-block"
+  >
+    console.log('test')
+  </pre>
+</div>
 `;
 
 exports[`CodeBlock should take an optional language prop 1`] = `
-<pre
-  className="language-javascript"
-/>
+<div
+  className="code-block-wrapper"
+>
+  <pre
+    className="code-block language-javascript"
+  />
+</div>
 `;
