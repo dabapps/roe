@@ -30,7 +30,7 @@ const AtomicSpacing = () => (
         <div className="md-padding-left-large">
           Large padding left on medium screens and above
         </div>
-        <div className="margin-left-base sm-margin-left-none">
+        <div className="margin-left-base md-margin-left-none">
           Margin left only only small screens
         </div>
         <div className="margin-vertical-small">
@@ -58,7 +58,7 @@ const AtomicSpacing = () => (
             <div className="md-padding-left-large">
               Large padding left on medium screens and above
             </div>
-            <div className="margin-left-base sm-margin-left-none">
+            <div className="margin-left-base md-margin-left-none">
               Margin left only only small screens
             </div>
             <div className="margin-vertical-small">
