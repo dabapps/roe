@@ -33,7 +33,7 @@ const Wells = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock>
+        <CodeBlock language="javascript">
           {`
             <Well>
               <DabIpsum count={2} />

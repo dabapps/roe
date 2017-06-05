@@ -42,7 +42,7 @@ const AtomicHides = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock>
+        <CodeBlock language="javascript">
           {`
             <Row>
               <Column xs={6} className="xs-display-none sm-display-block md-display-none">
