@@ -83,3 +83,23 @@ exports[`CodeBlock should take an optional language prop 1`] = `
   />
 </div>
 `;
+
+exports[`CodeBlock should take an optional name prop 1`] = `
+<div
+  className="code-block-wrapper"
+>
+  <div
+    className="code-block-name"
+  >
+    <div
+      className="code-block-language"
+    >
+      javascript
+    </div>
+    example
+  </div>
+  <pre
+    className="code-block language-javascript"
+  />
+</div>
+`;
