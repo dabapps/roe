@@ -1,0 +1,29 @@
+.alert {
+  .clearfix();
+  padding: 0 @padding-base;
+  margin-top: @margin-large;
+  margin-bottom: @margin-large;
+  border: @border-base;
+  border-radius: @border-radius-base;
+  background-color: @grey-lightest;
+
+  &.info {
+    background-color: @info-lighter;
+    border-color: @info-light;
+  }
+
+  &.success {
+    background-color: @success-lighter;
+    border-color: @success-light;
+  }
+
+  &.warning {
+    background-color: @warning-lighter;
+    border-color: @warning-light;
+  }
+
+  &.error {
+    background-color: @error-lighter;
+    border-color: @error-light;
+  }
+}
