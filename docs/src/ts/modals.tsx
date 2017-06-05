@@ -63,6 +63,9 @@ class Modals extends React.Component<{}, IState> {
             <p>
               Store a list of Modals that can be rendered using the ModalRenderer.
             </p>
+            <p>
+              Note: ModalCloseIcon should be the first element inside the ModalHeader.
+            </p>
             <CodeBlock language="javascript">
               {`
                 public onClickCloseModal () {
@@ -78,10 +81,10 @@ class Modals extends React.Component<{}, IState> {
                   this.setState({
                     modals: [...this.state.modals, (
                       <Modal onClickOutside={this.onClickCloseModal}>
-                        <ModalCloseIcon onClick={this.onClickCloseModal}>
-                          x
-                        </ModalCloseIcon>
                         <ModalHeader>
+                          <ModalCloseIcon onClick={this.onClickCloseModal}>
+                            x
+                          </ModalCloseIcon>
                           <h5>
                             Header
                           </h5>
@@ -133,10 +136,10 @@ class Modals extends React.Component<{}, IState> {
     this.setState({
       modals: [...this.state.modals, (
         <Modal onClickOutside={this.onClickCloseModal}>
-          <ModalCloseIcon onClick={this.onClickCloseModal}>
-            x
-          </ModalCloseIcon>
           <ModalHeader>
+            <ModalCloseIcon onClick={this.onClickCloseModal}>
+              x
+            </ModalCloseIcon>
             <h5>
               Header
             </h5>
