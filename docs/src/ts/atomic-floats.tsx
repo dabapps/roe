@@ -39,7 +39,7 @@ const AtomicFloats = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="JSX">
           {`
             <Row>
               <Column xs={6} className="xs-float-right sm-float-left md-float-right">

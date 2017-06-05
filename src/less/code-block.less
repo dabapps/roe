@@ -1,0 +1,22 @@
+.code-block {
+  background-color: @code-block-background;
+}
+
+.code-block-name {
+  background-color: @code-block-name-background;
+  border: @code-block-border;
+  border-bottom: @border-none;
+  border-radius: @border-radius-base;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  margin-top: @margin-large;
+  font-size: @font-size-small;
+  padding: @padding-small;
+  font-weight: @font-weight-bold;
+
+  & + .code-block {
+    margin-top: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
