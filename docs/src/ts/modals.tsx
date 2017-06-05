@@ -83,7 +83,7 @@ class Modals extends React.Component<{}, IState> {
                       <Modal onClickOutside={this.onClickCloseModal}>
                         <ModalHeader>
                           <ModalCloseIcon onClick={this.onClickCloseModal}>
-                            x
+                            X
                           </ModalCloseIcon>
                           <h5>
                             Header
@@ -138,7 +138,7 @@ class Modals extends React.Component<{}, IState> {
         <Modal onClickOutside={this.onClickCloseModal}>
           <ModalHeader>
             <ModalCloseIcon onClick={this.onClickCloseModal}>
-              x
+              X
             </ModalCloseIcon>
             <h5>
               Header
