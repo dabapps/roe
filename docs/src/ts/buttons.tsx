@@ -23,35 +23,37 @@ const Buttons = () => (
         <h3>
           Demo
         </h3>
-        <SpacedGroup className="margin-vertical-base">
-          <Button>
-            Default
-          </Button>
-          <Button disabled>
-            Disabled
-          </Button>
-          <Button type="primary">
-            Primary
-          </Button>
-          <Button type="secondary">
-            Secondary
-          </Button>
-          <Button type="tertiary">
-            Tertiary
-          </Button>
-          <Button type="info">
-            Info
-          </Button>
-          <Button type="success">
-            Success
-          </Button>
-          <Button type="warning">
-            Warning
-          </Button>
-          <Button type="error">
-            Error
-          </Button>
-        </SpacedGroup>
+        <p>
+          <SpacedGroup className="margin-vertical-base">
+            <Button>
+              Default
+            </Button>
+            <Button disabled>
+              Disabled
+            </Button>
+            <Button type="primary">
+              Primary
+            </Button>
+            <Button type="secondary">
+              Secondary
+            </Button>
+            <Button type="tertiary">
+              Tertiary
+            </Button>
+            <Button type="info">
+              Info
+            </Button>
+            <Button type="success">
+              Success
+            </Button>
+            <Button type="warning">
+              Warning
+            </Button>
+            <Button type="error">
+              Error
+            </Button>
+          </SpacedGroup>
+        </p>
 
         <p>
           <Button block>
@@ -74,23 +76,27 @@ const Buttons = () => (
           </Button>
         </p>
 
-        <SpacedGroup className="margin-vertical-base">
-          <a href="#" className="button">
-            Link as button
-          </a>
-          <a href="#" className="button primary">
-            Link as primary button
-          </a>
-          <a href="#" className="button error">
-            Link as error button
-          </a>
-        </SpacedGroup>
+        <p>
+          <SpacedGroup className="margin-vertical-base">
+            <a href="#" className="button">
+              Link as button
+            </a>
+            <a href="#" className="button primary">
+              Link as primary button
+            </a>
+            <a href="#" className="button error">
+              Link as error button
+            </a>
+          </SpacedGroup>
+        </p>
 
-        <SpacedGroup className="margin-vertical-base">
-          <input className="button" type="button" value="Input as button" />
-          <input className="button primary" type="button" value="Input as primary button" />
-          <input className="button error" type="button" value="Input as error button" />
-        </SpacedGroup>
+        <p>
+          <SpacedGroup className="margin-vertical-base">
+            <input className="button" type="button" value="Input as button" />
+            <input className="button primary" type="button" value="Input as primary button" />
+            <input className="button error" type="button" value="Input as error button" />
+          </SpacedGroup>
+        </p>
       </Column>
     </Row>
     <Row>
@@ -100,35 +106,37 @@ const Buttons = () => (
         </h3>
         <CodeBlock language="javascript">
           {`
-            <SpacedGroup className="margin-vertical-base">
-              <Button>
-                Default
-              </Button>
-              <Button disabled>
-                Disabled
-              </Button>
-              <Button type="primary">
-                Primary
-              </Button>
-              <Button type="secondary">
-                Secondary
-              </Button>
-              <Button type="tertiary">
-                Tertiary
-              </Button>
-              <Button type="info">
-                Info
-              </Button>
-              <Button type="success">
-                Success
-              </Button>
-              <Button type="warning">
-                Warning
-              </Button>
-              <Button type="error">
-                Error
-              </Button>
-            </SpacedGroup>
+            <p>
+              <SpacedGroup className="margin-vertical-base">
+                <Button>
+                  Default
+                </Button>
+                <Button disabled>
+                  Disabled
+                </Button>
+                <Button type="primary">
+                  Primary
+                </Button>
+                <Button type="secondary">
+                  Secondary
+                </Button>
+                <Button type="tertiary">
+                  Tertiary
+                </Button>
+                <Button type="info">
+                  Info
+                </Button>
+                <Button type="success">
+                  Success
+                </Button>
+                <Button type="warning">
+                  Warning
+                </Button>
+                <Button type="error">
+                  Error
+                </Button>
+              </SpacedGroup>
+            </p>
 
             <p>
               <Button block>
@@ -151,23 +159,27 @@ const Buttons = () => (
               </Button>
             </p>
 
-            <SpacedGroup className="margin-vertical-base">
-              <a href="#" className="button">
-                Link as button
-              </a>
-              <a href="#" className="button primary">
-                Link as primary button
-              </a>
-              <a href="#" className="button error">
-                Link as error button
-              </a>
-            </SpacedGroup>
+            <p>
+              <SpacedGroup className="margin-vertical-base">
+                <a href="#" className="button">
+                  Link as button
+                </a>
+                <a href="#" className="button primary">
+                  Link as primary button
+                </a>
+                <a href="#" className="button error">
+                  Link as error button
+                </a>
+              </SpacedGroup>
+            </p>
 
-            <SpacedGroup className="margin-vertical-base">
-              <input className="button" type="button" value="Input as button" />
-              <input className="button primary" type="button" value="Input as primary button" />
-              <input className="button error" type="button" value="Input as error button" />
-            </SpacedGroup>
+            <p>
+              <SpacedGroup className="margin-vertical-base">
+                <input className="button" type="button" value="Input as button" />
+                <input className="button primary" type="button" value="Input as primary button" />
+                <input className="button error" type="button" value="Input as error button" />
+              </SpacedGroup>
+            </p>
           `}
         </CodeBlock>
 

@@ -24,26 +24,30 @@ const SpacedGroups = () => (
           Demo
         </h3>
 
-        <SpacedGroup className="margin-vertical-large">
-          <Button>
-            Cancel
-          </Button>
-          <Button type="primary">
-            Continue
-          </Button>
-        </SpacedGroup>
+        <p>
+          <SpacedGroup>
+            <Button>
+              Cancel
+            </Button>
+            <Button type="primary">
+              Continue
+            </Button>
+          </SpacedGroup>
+        </p>
 
-        <SpacedGroup className="margin-vertical-large">
-          <a>
-            Link 1
-          </a>
-          <a>
-            Link 2
-          </a>
-          <a>
-            Link 3
-          </a>
-        </SpacedGroup>
+        <p>
+          <SpacedGroup>
+            <a>
+              Link 1
+            </a>
+            <a>
+              Link 2
+            </a>
+            <a>
+              Link 3
+            </a>
+          </SpacedGroup>
+        </p>
       </Column>
     </Row>
     <Row>
@@ -53,26 +57,30 @@ const SpacedGroups = () => (
         </h3>
         <CodeBlock language="javascript">
           {`
-            <SpacedGroup className="margin-vertical-large">
-              <Button>
-                Cancel
-              </Button>
-              <Button type="primary">
-                Continue
-              </Button>
-            </SpacedGroup>
+            <p>
+              <SpacedGroup>
+                <Button>
+                  Cancel
+                </Button>
+                <Button type="primary">
+                  Continue
+                </Button>
+              </SpacedGroup>
+            </p>
 
-            <SpacedGroup className="margin-vertical-large">
-              <a>
-                Link 1
-              </a>
-              <a>
-                Link 2
-              </a>
-              <a>
-                Link 3
-              </a>
-            </SpacedGroup>
+            <p>
+              <SpacedGroup>
+                <a>
+                  Link 1
+                </a>
+                <a>
+                  Link 2
+                </a>
+                <a>
+                  Link 3
+                </a>
+              </SpacedGroup>
+            </p>
           `}
         </CodeBlock>
       </Column>
