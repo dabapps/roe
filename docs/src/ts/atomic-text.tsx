@@ -41,6 +41,15 @@ const AtomicText = () => (
           </span>
         </p>
 
+        <p className="primary">
+          <DabIpsum type="text" />
+        </p>
+        <p className="secondary">
+          <DabIpsum type="text" />
+        </p>
+        <p className="tertiary">
+          <DabIpsum type="text" />
+        </p>
         <p className="info">
           <DabIpsum type="text" />
         </p>
@@ -80,6 +89,15 @@ const AtomicText = () => (
               </span>
             </p>
 
+            <p className="primary">
+              <DabIpsum type="text" />
+            </p>
+            <p className="secondary">
+              <DabIpsum type="text" />
+            </p>
+            <p className="tertiary">
+              <DabIpsum type="text" />
+            </p>
             <p className="info">
               <DabIpsum type="text" />
             </p>
