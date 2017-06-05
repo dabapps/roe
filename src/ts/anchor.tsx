@@ -1,7 +1,8 @@
 import * as React from 'react';
 
+const MATCHES_AMPERSAND = /&/gi;
+const MATCHES_NON_WORD_CHARACTERS = /[\W_]+/gi;
 const MATCHES_LEADING_AND_TRAILING_HYPHENS = /(^-+|-+$)/gi;
-const MATCHES_NON_WORD_CHARACTERS = /\W+/gi;
 
 export const getHref = (children?: React.ReactNode, href?: string): string | undefined => {
   if (href) {
@@ -13,6 +14,7 @@ export const getHref = (children?: React.ReactNode, href?: string): string | und
   }
 
   return children
+    .replace(MATCHES_AMPERSAND, '-and-')
     .replace(MATCHES_NON_WORD_CHARACTERS, '-')
     .replace(MATCHES_LEADING_AND_TRAILING_HYPHENS, '')
     .toLowerCase();

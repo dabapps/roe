@@ -38,6 +38,7 @@ describe('Anchor', () => {
       expect(getHref('yup', undefined)).toBe('yup');
       expect(getHref('A regular text string - oh, special chars')).toBe('a-regular-text-string-oh-special-chars');
       expect(getHref(' - Leading and trailing whitespace ,; ')).toBe('leading-and-trailing-whitespace');
+      expect(getHref(' - Ampersand & underscore _ ,; ')).toBe('ampersand-and-underscore');
     });
 
   });
