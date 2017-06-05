@@ -27,6 +27,10 @@ const AtomicText = () => (
           Paragraph with header size
         </p>
 
+        <h3 className="font-size-base">
+          Header with base font size (small & large also available)
+        </h3>
+
         <p>
           <span className="bold">
             Bold
@@ -61,6 +65,10 @@ const AtomicText = () => (
             <p className="font-size-h1">
               Paragraph with header size
             </p>
+
+            <h3 className="font-size-base">
+              Header with base font size (small & large also available)
+            </h3>
 
             <p>
               <span className="bold">
