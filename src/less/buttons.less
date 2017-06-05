@@ -1,6 +1,6 @@
 /* @group Mixins */
 
-.create-button-styles (@background: @grey-lighter, @color: @font-color-base) {
+.create-button-styles (@background: @button-background-default, @color: @button-text-color-dark) {
   background-color: @background;
   color: @color;
 
@@ -24,13 +24,13 @@
 .button {
   .button-overrides();
   .create-button-styles();
-  .create-button(primary, @primary, @white);
-  .create-button(secondary, @secondary, @white);
-  .create-button(tertiary, @tertiary, @white);
-  .create-button(info, @info, @white);
-  .create-button(success, @success, @white);
-  .create-button(warning, @warning, @white);
-  .create-button(error, @error, @white);
+  .create-button(primary, @primary, @button-text-color-light);
+  .create-button(secondary, @secondary, @button-text-color-light);
+  .create-button(tertiary, @tertiary, @button-text-color-light);
+  .create-button(info, @info, @button-text-color-light);
+  .create-button(success, @success, @button-text-color-light);
+  .create-button(warning, @warning, @button-text-color-light);
+  .create-button(error, @error, @button-text-color-light);
 
   transition: ease-in-out 0.1s background-color, ease-in-out 0.1s box-shadow;
   box-shadow: @shadow-none;
