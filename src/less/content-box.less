@@ -2,8 +2,8 @@
   .clearfix();
   border-radius: @border-radius-base;
   border: @border-base;
-  padding-left: @padding-base;
-  padding-right: @padding-base;
+  padding-left: @gutter-width / 2;
+  padding-right: @gutter-width / 2;
   box-shadow: @shadow-subtle;
   background-color: @white;
   margin-top: @margin-large;
@@ -12,8 +12,8 @@
 
 .content-box-header {
   .clearfix();
-  margin: 0 -@padding-base;
-  padding: 0 @padding-base;
+  margin: 0 -@gutter-width / 2;
+  padding: 0 @gutter-width / 2;
   border-top-left-radius: @border-radius-base;
   border-top-right-radius: @border-radius-base;
   background-color: @content-box-header-background;
