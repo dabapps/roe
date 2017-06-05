@@ -39,13 +39,13 @@ class App extends React.Component<{}, void> {
   public render () {
     return (
       <Container solid>
-        <Section>
+        <Section className="padding-vertical-none">
           <Row>
             <Column>
               <h1>
-                Roe
+                <img src="images/roe-logo-medium.png" alt="Roe" style={{width: 150, display: 'block'}} />
               </h1>
-              <p>
+              <p className="secondary">
                 <strong>
                   DabApps' Project Development Kit (v{packageJson.version})
                 </strong>
