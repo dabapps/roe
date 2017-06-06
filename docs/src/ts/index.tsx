@@ -26,6 +26,7 @@ import Inputs from './inputs';
 import Ipsum from './ipsum';
 import Modals from './modals';
 import Sections from './sections';
+import SpacedGroups from './spaced-groups';
 import Tables from './tables';
 import TabDemo from './tabs';
 import Wells from './wells';
@@ -60,12 +61,13 @@ class App extends React.Component<{}, void> {
         <Alerts />
         <Buttons />
         <CodeBlocks />
+        <ContentBoxes />
         <Grid />
         <Inputs />
         <Ipsum />
-        <ContentBoxes />
-        <Sections />
         <Modals />
+        <Sections />
+        <SpacedGroups />
         <TabDemo />
         <Tables />
         <Wells />

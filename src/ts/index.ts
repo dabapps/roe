@@ -11,6 +11,7 @@ export { InputGroupAddon } from './input-group-addon';
 export * from './modals';
 export { Row } from './row';
 export { Section } from './section';
+export { SpacedGroup } from './spaced-group';
 export * from './tabs';
 export * from './tables';
 export { Well } from './well';
