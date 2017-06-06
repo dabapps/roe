@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   Row,
@@ -12,7 +13,9 @@ const AtomicHides = () => (
     <Row>
       <Column>
         <h2>
-          Atomic Hide & Display Classes
+          <Anchor>
+            Atomic Hide & Display Classes
+          </Anchor>
         </h2>
       </Column>
     </Row>
@@ -42,7 +45,7 @@ const AtomicHides = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock>
+        <CodeBlock language="javascript" name="JSX">
           {`
             <Row>
               <Column xs={6} className="xs-display-none sm-display-block md-display-none">

@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   ContentBox,
@@ -14,7 +15,9 @@ const ContentBoxes = () => (
     <Row>
       <Column>
         <h2>
-          Content Box
+          <Anchor>
+            Content Box
+          </Anchor>
         </h2>
       </Column>
     </Row>
@@ -40,7 +43,7 @@ const ContentBoxes = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="JSX">
           {`
             <ContentBox>
               <ContentBoxHeader>

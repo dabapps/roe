@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Anchor should have an id and href 1`] = `
+<a
+  href="#my-href"
+  id="my-href"
+/>
+`;
+
+exports[`Anchor should match snapshot 1`] = `
+<a
+  href={undefined}
+  id={undefined}
+/>
+`;
+
+exports[`Anchor should take regular element attributes 1`] = `
+<a
+  className="my-class"
+  href={undefined}
+  id={undefined}
+/>
+`;

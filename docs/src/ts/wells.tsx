@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   DabIpsum,
@@ -14,7 +15,9 @@ const Wells = () => (
     <Row>
       <Column>
         <h2>
-          Wells
+          <Anchor>
+            Wells
+          </Anchor>
         </h2>
       </Column>
     </Row>
@@ -33,7 +36,7 @@ const Wells = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock>
+        <CodeBlock language="javascript" name="JSX">
           {`
             <Well>
               <DabIpsum count={2} />

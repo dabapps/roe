@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   Row,
@@ -33,7 +34,9 @@ const Tables = () => {
       <Row>
         <Column>
           <h2>
-            Tables
+            <Anchor>
+              Tables
+            </Anchor>
           </h2>
         </Column>
       </Row>
@@ -101,7 +104,7 @@ const Tables = () => {
           <h3>
             Code
           </h3>
-          <CodeBlock language="javascript">
+          <CodeBlock language="javascript" name="Data">
             {`
               const data = [
                 ['', 'Column header 1', 'Column header 2', 'Column header 3', 'Column header 4', 'Column header 5'],
@@ -116,7 +119,7 @@ const Tables = () => {
               const smallBody = [...body].splice(0, 2);
             `}
           </CodeBlock>
-          <CodeBlock language="javascript">
+          <CodeBlock language="javascript" name="JSX">
             {`
               <Table bordered condensed>
                 <TableBody>

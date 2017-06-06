@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   Button,
   CodeBlock,
   Column,
@@ -14,7 +15,9 @@ const Buttons = () => (
     <Row>
       <Column>
         <h2>
-          Buttons
+          <Anchor>
+            Buttons
+          </Anchor>
         </h2>
       </Column>
     </Row>
@@ -104,7 +107,7 @@ const Buttons = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="JSX">
           {`
             <p>
               <SpacedGroup className="margin-vertical-base">
@@ -186,7 +189,7 @@ const Buttons = () => (
         <p>
           You can create custom buttons using the create button mixin e.g.
         </p>
-        <CodeBlock language="less">
+        <CodeBlock language="less" name="Custom button less">
           {`
             .button {
               .create-button(custom, @background-color, @text-color);
@@ -197,7 +200,7 @@ const Buttons = () => (
         <p>
           And then use these with custom types e.g.
         </p>
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="Custom button JSX">
           {`
             <Button type="custom" />
           `}

@@ -1,7 +1,7 @@
 /* @group Colors */
 
 /* Base colors */
-@primary: #A30000;
+@primary: #EF592B;
 @secondary: #7B2240;
 @tertiary: #2E253F;
 @info: #2D87A3;
@@ -10,7 +10,7 @@
 @error: #CD3B3B;
 
 /* Light colors */
-@primary-light: lighten(@primary, 55%);
+@primary-light: lighten(@primary, 30%);
 @secondary-light: lighten(@secondary, 55%);
 @tertiary-light: lighten(@tertiary, 55%);
 @info-light: lighten(@info, 30%);
@@ -19,7 +19,7 @@
 @error-light: lighten(@error, 30%);
 
 /* Lighter colors */
-@primary-lighter: lighten(@primary, 60%);
+@primary-lighter: lighten(@primary, 35%);
 @secondary-lighter: lighten(@secondary, 60%);
 @tertiary-lighter: lighten(@tertiary, 60%);
 @info-lighter: lighten(@info, 50%);
@@ -28,7 +28,7 @@
 @error-lighter: lighten(@error, 40%);
 
 /* Lighest colors */
-@primary-lightest: lighten(@primary, 65%);
+@primary-lightest: lighten(@primary, 40%);
 @secondary-lightest: lighten(@secondary, 65%);
 @tertiary-lightest: lighten(@tertiary, 70%);
 @info-lightest: lighten(@info, 60%);
@@ -77,6 +77,10 @@
 @tab-background: @grey-lightest;
 @tab-active-background: @white;
 @tab-border: @border-base;
+
+@code-block-background: @grey-lightest;
+@code-block-name-background: contrast(@code-block-background, darken(@code-block-background, 5%), lighten(@code-block-background, 5%)); // lesshint maxCharPerLine: false
+@code-block-border: @border-base;
 
 /* @end Component styles */
 

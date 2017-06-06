@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   Button,
   CodeBlock,
   Column,
@@ -14,7 +15,9 @@ const SpacedGroups = () => (
     <Row>
       <Column>
         <h2>
-          Spaced Groups
+          <Anchor>
+            Spaced Groups
+          </Anchor>
         </h2>
       </Column>
     </Row>
@@ -55,7 +58,7 @@ const SpacedGroups = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="JSX">
           {`
             <p>
               <SpacedGroup>

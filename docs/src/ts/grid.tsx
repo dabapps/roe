@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   Row,
@@ -12,7 +13,9 @@ const Grid = () => (
     <Row>
       <Column>
         <h2>
-          Grid
+          <Anchor>
+            Grid
+          </Anchor>
         </h2>
       </Column>
     </Row>
@@ -55,7 +58,7 @@ const Grid = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="JSX">
           {`
           <Container>
             <Row>
@@ -93,7 +96,7 @@ const Grid = () => (
           Container may also take a `fluid` prop that makes it fill the screen at all sizes
         </p>
 
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="JSX">
           {`
           <Container fluid />
           `}
@@ -103,7 +106,7 @@ const Grid = () => (
           You can configure the @container-background if the container is set to solid
         </p>
 
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="JSX">
           {`
             <Container solid />
           `}

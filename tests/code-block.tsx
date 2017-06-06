@@ -28,6 +28,14 @@ describe('CodeBlock', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should take an optional name prop', () => {
+    const tree = renderer.create(
+      <CodeBlock name="example" language="javascript" />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('should handle empty code snippets', () => {
     const tree = renderer.create(
       <CodeBlock language="javascript">

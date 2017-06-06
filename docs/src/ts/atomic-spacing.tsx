@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   Row,
@@ -12,7 +13,9 @@ const AtomicSpacing = () => (
     <Row>
       <Column>
         <h2>
-          Atomic Padding & Margin Classes
+          <Anchor>
+            Atomic Padding & Margin Classes
+          </Anchor>
         </h2>
       </Column>
     </Row>
@@ -27,7 +30,7 @@ const AtomicSpacing = () => (
         <div className="md-padding-left-large">
           Large padding left on medium screens and above
         </div>
-        <div className="margin-left-base sm-margin-left-none">
+        <div className="margin-left-base md-margin-left-none">
           Margin left only only small screens
         </div>
         <div className="margin-vertical-small">
@@ -47,7 +50,7 @@ const AtomicSpacing = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="JSX">
           {`
             <div className="padding-base">
               Padding all around
@@ -55,7 +58,7 @@ const AtomicSpacing = () => (
             <div className="md-padding-left-large">
               Large padding left on medium screens and above
             </div>
-            <div className="margin-left-base sm-margin-left-none">
+            <div className="margin-left-base md-margin-left-none">
               Margin left only only small screens
             </div>
             <div className="margin-vertical-small">

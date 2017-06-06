@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import {
+  Anchor,
   CodeBlock,
   Column,
   DabIpsum,
@@ -13,7 +14,9 @@ const Ipsum = () => (
     <Row>
       <Column>
         <h2>
-          Ipsum
+          <Anchor>
+            Ipsum
+          </Anchor>
         </h2>
       </Column>
     </Row>
@@ -37,7 +40,7 @@ const Ipsum = () => (
         <h3>
           Code
         </h3>
-        <CodeBlock language="javascript">
+        <CodeBlock language="javascript" name="JSX">
           {`
             <p>
               <strong>
