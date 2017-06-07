@@ -106,11 +106,17 @@ textarea {
   border: @border-base;
   appearance: none;
   font-size: @font-size-base;
-  width: 200px;
+  width: @input-width;
+  height: @input-height;
 
   &::placeholder {
     color: @grey-light;
   }
+}
+
+textarea {
+  width: @textarea-width;
+  height: @textarea-height;
 }
 
 input[type='submit'],

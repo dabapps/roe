@@ -112,8 +112,16 @@ textarea {
   & > select,
   & > button,
   & > .input-group-addon {
-    width: 100%;
     display: table-cell;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  & > label,
+  & > input,
+  & > select,
+  & > button {
+    width: 100%;
   }
 
   & > label,
@@ -136,7 +144,9 @@ textarea {
   }
 
   & > .input-group-addon {
+    vertical-align: middle;
     width: 10px;
+    height: @input-height;
     padding: @padding-base / 2 @padding-base;
     border: @border-base;
     border-radius: @border-radius-base;
