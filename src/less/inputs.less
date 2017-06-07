@@ -8,7 +8,6 @@ textarea {
 }
 
 .form-group {
-  display: table;
   margin-top: @margin-large;
   margin-bottom: @margin-large;
 
@@ -16,34 +15,30 @@ textarea {
   & > input,
   & > select,
   & > button,
-  & > textarea {
-    display: table-cell;
+  & > textarea,
+  & > .input-group {
+    display: inline-block;
+    vertical-align: middle;
   }
 
-  & > input[type='checkbox'],
-  & > input[type='radio'] {
-    display: inline-block;
+  & > .input-group {
+    display: inline-table;
   }
 
   & > label,
   & > input,
   & > select,
   & > button,
-  & > textarea {
+  & > textarea,
+  .input-group {
     & + label,
     & + input,
     & + select,
     & + button,
-    & + textarea {
+    & + textarea,
+    & + .input-group {
       margin-left: @margin-base;
     }
-  }
-
-  & > input,
-  & > select,
-  & > button,
-  & > textarea {
-    width: 100%;
   }
 
   & > input[type='checkbox'],
@@ -54,8 +49,12 @@ textarea {
   & > label {
     width: auto;
     margin-top: 0;
+    margin-bottom: 0;
     text-align: right;
-    vertical-align: middle;
+
+    &:first-child {
+      width: 100px;
+    }
   }
 
   & > textarea {
@@ -69,25 +68,41 @@ textarea {
     & > input,
     & > select,
     & > button,
-    & > textarea {
+    & > textarea,
+    & > .input-group {
       margin-left: 0;
     }
 
     & > label,
-    & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+    & > input,
     & > select,
     & > button,
-    & > textarea {
+    & > textarea,
+    & > .input-group {
       text-align: left;
       display: block;
       width: 100%;
+    }
+
+    & > input[type='checkbox'],
+    & > input[type='radio'] {
+      display: inline-block;
+      width: @checkbox-size;
+    }
+
+    & > .input-group {
+      display: table;
+    }
+
+    & > label:first-child {
+      margin-bottom: @margin-base;
     }
   }
 }
 
 .input-group {
-  display: table;
-  width: 100%;
+  display: inline-table;
+  width: auto;
   margin-top: @margin-large;
   margin-bottom: @margin-large;
 
@@ -120,7 +135,7 @@ textarea {
   }
 
   & > .input-group-addon {
-    width: auto;
+    width: 10px;
     padding: @padding-base / 2 @padding-base;
     border: @border-base;
     border-radius: @border-radius-base;
