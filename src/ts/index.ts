@@ -23,7 +23,7 @@ export { Row } from './row';
 export { Section } from './section';
 export { SpacedGroup } from './spaced-group';
 export {
-  Tab
+  Tab,
   Tabs,
 } from './tabs';
 export {
