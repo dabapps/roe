@@ -1,4 +1,4 @@
-input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+input,
 select,
 textarea {
   &.error { // lesshint qualifyingElement: false
@@ -13,11 +13,16 @@ textarea {
   margin-bottom: @margin-large;
 
   & > label,
-  & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+  & > input,
   & > select,
   & > button,
   & > textarea {
     display: table-cell;
+  }
+
+  & > input[type='checkbox'],
+  & > input[type='radio'] {
+    display: inline-block;
   }
 
   & > label,
@@ -34,11 +39,16 @@ textarea {
     }
   }
 
-  & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+  & > input,
   & > select,
   & > button,
   & > textarea {
     width: 100%;
+  }
+
+  & > input[type='checkbox'],
+  & > input[type='radio'] {
+    width: @checkbox-size;
   }
 
   & > label {
@@ -82,7 +92,7 @@ textarea {
   margin-bottom: @margin-large;
 
   & > label,
-  & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+  & > input,
   & > select,
   & > button,
   & > .input-group-addon {
@@ -91,7 +101,7 @@ textarea {
   }
 
   & > label,
-  & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+  & > input,
   & > select,
   & > button {
     &:first-child {

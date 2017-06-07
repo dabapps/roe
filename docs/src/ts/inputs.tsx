@@ -42,6 +42,14 @@ const Inputs = () => (
         <input type="text" className="error" placeholder="Placeholder" disabled />
 
         <p>
+          Checkbox
+        </p>
+        <input type="checkbox" />
+        <input type="checkbox" disabled />
+        <input type="checkbox" className="error" />
+        <input type="checkbox" className="error" disabled />
+
+        <p>
           Select
         </p>
         <select>

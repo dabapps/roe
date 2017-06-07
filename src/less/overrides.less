@@ -97,7 +97,7 @@ button {
   .button-overrides();
 }
 
-input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+input,
 select,
 textarea {
   display: inline-block;
@@ -110,6 +110,70 @@ textarea {
 
   &::placeholder {
     color: @grey-light;
+  }
+}
+
+input[type='submit'],
+input[type='button'] {
+  width: auto;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  position: relative;
+  padding: 0;
+  width: @checkbox-size;
+  height: @checkbox-size;
+  background-color: @checkbox-background;
+  border: @checkbox-border;
+  box-shadow: @checkbox-shadow;
+  outline: none;
+
+  &:checked {
+    background-color: @checkbox-active-background;
+    box-shadow: @shadow-none;
+
+    &::after {
+      content: '';
+      display: block;
+      box-sizing: border-box;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform-origin: 50% 50%;
+    }
+  }
+}
+
+input[type='checkbox'] {
+  border-radius: @border-radius-base * 2;
+
+  &:checked {
+    background-color: @checkbox-active-background;
+
+    &::after {
+      transform: translate(-50%, -60%) rotate(-55deg);
+      width: floor(@checkbox-size / 2);
+      height: floor(@checkbox-size / 3);
+      border-left: 2px solid @checkbox-icon-background;
+      border-bottom: 2px solid @checkbox-icon-background;
+    }
+  }
+}
+
+input[type='radio'] {
+  border-radius: 50%;
+
+  &:checked {
+    background-color: @checkbox-active-background;
+
+    &::after {
+      width: floor(@checkbox-size / 3);
+      height: floor(@checkbox-size / 3);
+      background-color: @checkbox-icon-background;
+      border-radius: 50%;
+    }
   }
 }
 
