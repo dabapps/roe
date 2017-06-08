@@ -96,7 +96,7 @@
     }
   },
   "qualifyingElement": {
-    "enabled": true,
+    "enabled": false,
     "severity": "error",
     "allowWithAttribute": false,
     "allowWithClass": false,

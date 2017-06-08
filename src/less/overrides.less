@@ -164,8 +164,8 @@ input[type='checkbox'] {
       transform: translate(-50%, -60%) rotate(-55deg);
       width: floor(@checkbox-size / 2);
       height: floor(@checkbox-size / 3);
-      border-left: 2px solid @checkbox-icon-background;
-      border-bottom: 2px solid @checkbox-icon-background;
+      border-left: @checkbox-icon-border;
+      border-bottom: @checkbox-icon-border;
     }
   }
 }
@@ -207,7 +207,7 @@ select,
 textarea,
 datalist,
 keygen {
-  &[disabled] { // lesshint qualifyingElement: false
+  &[disabled] {
     cursor: no-drop;
   }
 }
@@ -222,7 +222,7 @@ form,
 fieldset,
 legend,
 output {
-  &[disabled] { // lesshint qualifyingElement: false
+  &[disabled] {
     opacity: 0.5;
   }
 }
