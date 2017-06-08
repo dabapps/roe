@@ -97,7 +97,7 @@ button {
   .button-overrides();
 }
 
-input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+input,
 select,
 textarea {
   display: inline-block;
@@ -106,10 +106,82 @@ textarea {
   border: @border-base;
   appearance: none;
   font-size: @font-size-base;
-  width: 200px;
+  width: @input-width;
+  height: @input-height;
 
   &::placeholder {
     color: @grey-light;
+  }
+}
+
+textarea {
+  width: @textarea-width;
+  height: @textarea-height;
+}
+
+input[type='submit'],
+input[type='button'] {
+  width: auto;
+  cursor: pointer;
+}
+
+input[type='checkbox'],
+input[type='radio'] {
+  position: relative;
+  padding: 0;
+  width: @checkbox-size;
+  height: @checkbox-size;
+  background-color: @checkbox-background;
+  border: @checkbox-border;
+  box-shadow: @checkbox-shadow;
+  outline: none;
+  cursor: pointer;
+
+  &:checked {
+    background-color: @checkbox-active-background;
+    box-shadow: @shadow-none;
+
+    &::after {
+      content: '';
+      display: block;
+      box-sizing: border-box;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      transform-origin: 50% 50%;
+    }
+  }
+}
+
+input[type='checkbox'] {
+  border-radius: @border-radius-base * 2;
+
+  &:checked {
+    background-color: @checkbox-active-background;
+
+    &::after {
+      transform: translate(-50%, -60%) rotate(-55deg);
+      width: floor(@checkbox-size / 2);
+      height: floor(@checkbox-size / 3);
+      border-left: @checkbox-icon-border;
+      border-bottom: @checkbox-icon-border;
+    }
+  }
+}
+
+input[type='radio'] {
+  border-radius: 50%;
+
+  &:checked {
+    background-color: @checkbox-active-background;
+
+    &::after {
+      width: floor(@checkbox-size / 3);
+      height: floor(@checkbox-size / 3);
+      background-color: @checkbox-icon-background;
+      border-radius: 50%;
+    }
   }
 }
 
@@ -135,7 +207,7 @@ select,
 textarea,
 datalist,
 keygen {
-  &[disabled] { // lesshint qualifyingElement: false
+  &[disabled] {
     cursor: no-drop;
   }
 }
@@ -150,7 +222,7 @@ form,
 fieldset,
 legend,
 output {
-  &[disabled] { // lesshint qualifyingElement: false
+  &[disabled] {
     opacity: 0.5;
   }
 }

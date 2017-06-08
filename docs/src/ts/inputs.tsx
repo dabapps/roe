@@ -42,6 +42,14 @@ const Inputs = () => (
         <input type="text" className="error" placeholder="Placeholder" disabled />
 
         <p>
+          Checkbox
+        </p>
+        <input type="checkbox" />
+        <input type="checkbox" disabled />
+        <input type="checkbox" className="error" />
+        <input type="checkbox" className="error" disabled />
+
+        <p>
           Select
         </p>
         <select>
@@ -93,6 +101,16 @@ const Inputs = () => (
             Label
           </label>
           <input type="radio" />
+        </FormGroup>
+
+        <p>
+          Form Group Inline Checkbox / Radio Alternative
+        </p>
+        <FormGroup>
+          <input type="checkbox" />
+          <label>
+            Label
+          </label>
         </FormGroup>
 
         <p>
@@ -148,29 +166,44 @@ const Inputs = () => (
         <p>
           Input Group with Input Group Addons
         </p>
-        <InputGroup>
-          <InputGroupAddon>
-            $
-          </InputGroupAddon>
-          <input type="number" />
-          <InputGroupAddon>
-            .00
-          </InputGroupAddon>
-        </InputGroup>
+        <FormGroup>
+          <label>
+            Label
+          </label>
+          <InputGroup>
+            <InputGroupAddon>
+              $
+            </InputGroupAddon>
+            <input type="number" />
+            <InputGroupAddon>
+              .00
+            </InputGroupAddon>
+          </InputGroup>
+        </FormGroup>
 
-        <InputGroup>
-          <InputGroupAddon>
-            $
-          </InputGroupAddon>
-          <input type="number" />
-        </InputGroup>
+        <FormGroup>
+          <label>
+            Label
+          </label>
+          <InputGroup>
+            <InputGroupAddon>
+              $
+            </InputGroupAddon>
+            <input type="number" />
+          </InputGroup>
+        </FormGroup>
 
-        <InputGroup>
-          <input type="number" />
-          <InputGroupAddon>
-            .00
-          </InputGroupAddon>
-        </InputGroup>
+        <FormGroup block>
+          <label>
+            Label
+          </label>
+          <InputGroup>
+            <input type="number" />
+            <InputGroupAddon>
+              .00
+            </InputGroupAddon>
+          </InputGroup>
+        </FormGroup>
       </Column>
     </Row>
     <Row>
@@ -181,42 +214,8 @@ const Inputs = () => (
         <CodeBlock language="javascript" name="JSX">
           {`
             <p>
-              Textarea
+              Form Group Inline
             </p>
-            <textarea />
-
-            <p>
-              Input
-            </p>
-            <input type="text" placeholder="Placeholder" />
-            <input type="text" placeholder="Placeholder" disabled />
-            <input type="text" className="error" placeholder="Placeholder" />
-            <input type="text" className="error" placeholder="Placeholder" disabled />
-
-            <p>
-              Select
-            </p>
-            <select>
-              <option>
-                Option
-              </option>
-            </select>
-            <select disabled>
-              <option>
-                Option
-              </option>
-            </select>
-            <select className="error">
-              <option>
-                Option
-              </option>
-            </select>
-            <select className="error" disabled>
-              <option>
-                Option
-              </option>
-            </select>
-
             <FormGroup>
               <label>
                 Label
@@ -224,6 +223,39 @@ const Inputs = () => (
               <input type="text" />
             </FormGroup>
 
+            <p>
+              Form Group Inline Checkbox
+            </p>
+            <FormGroup>
+              <label>
+                Label
+              </label>
+              <input type="checkbox" />
+            </FormGroup>
+
+            <p>
+              Form Group Inline Radio
+            </p>
+            <FormGroup>
+              <label>
+                Label
+              </label>
+              <input type="radio" />
+            </FormGroup>
+
+            <p>
+              Form Group Inline Checkbox / Radio Alternative
+            </p>
+            <FormGroup>
+              <input type="checkbox" />
+              <label>
+                Label
+              </label>
+            </FormGroup>
+
+            <p>
+              Form Group Block
+            </p>
             <FormGroup block>
               <label>
                 Label
@@ -231,12 +263,87 @@ const Inputs = () => (
               <input type="text" />
             </FormGroup>
 
-            <InputGroup>
-              <InputGroupAddon>
-                $
-              </InputGroupAddon>
-              <input type="number" />
-            </InputGroup>
+            <p>
+              Form Group Block Checkbox
+            </p>
+            <FormGroup block>
+              <label>
+                Label
+              </label>
+              <input type="checkbox" />
+            </FormGroup>
+
+            <p>
+              Form Group Block Radio
+            </p>
+            <FormGroup block>
+              <label>
+                Label
+              </label>
+              <input type="radio" />
+            </FormGroup>
+
+            <p>
+              Form Group Inline
+            </p>
+            <FormGroup>
+              <label>
+                Label
+              </label>
+              <textarea />
+            </FormGroup>
+
+            <p>
+              Form Group Block
+            </p>
+            <FormGroup block>
+              <label>
+                Label
+              </label>
+              <textarea />
+            </FormGroup>
+
+            <p>
+              Input Group with Input Group Addons
+            </p>
+            <FormGroup>
+              <label>
+                Label
+              </label>
+              <InputGroup>
+                <InputGroupAddon>
+                  $
+                </InputGroupAddon>
+                <input type="number" />
+                <InputGroupAddon>
+                  .00
+                </InputGroupAddon>
+              </InputGroup>
+            </FormGroup>
+
+            <FormGroup>
+              <label>
+                Label
+              </label>
+              <InputGroup>
+                <InputGroupAddon>
+                  $
+                </InputGroupAddon>
+                <input type="number" />
+              </InputGroup>
+            </FormGroup>
+
+            <FormGroup block>
+              <label>
+                Label
+              </label>
+              <InputGroup>
+                <input type="number" />
+                <InputGroupAddon>
+                  .00
+                </InputGroupAddon>
+              </InputGroup>
+            </FormGroup>
           `}
         </CodeBlock>
       </Column>

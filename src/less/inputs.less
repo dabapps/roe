@@ -1,51 +1,61 @@
-input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+input,
 select,
 textarea {
-  &.error { // lesshint qualifyingElement: false
+  &.error {
     color: initial; // lesshint variableValue: false
     border-color: @error;
   }
 }
 
 .form-group {
-  display: table;
   margin-top: @margin-large;
   margin-bottom: @margin-large;
 
   & > label,
-  & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+  & > input,
   & > select,
   & > button,
-  & > textarea {
-    display: table-cell;
+  & > textarea,
+  & > .input-group {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  & > .input-group {
+    display: inline-table;
   }
 
   & > label,
   & > input,
   & > select,
   & > button,
-  & > textarea {
+  & > textarea,
+  .input-group {
+    margin-top: 0;
+    margin-bottom: 0;
+
     & + label,
     & + input,
     & + select,
     & + button,
-    & + textarea {
+    & + textarea,
+    & + .input-group {
       margin-left: @margin-base;
     }
   }
 
-  & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
-  & > select,
-  & > button,
-  & > textarea {
-    width: 100%;
+  & > input[type='checkbox'],
+  & > input[type='radio'] {
+    width: @checkbox-size;
   }
 
   & > label {
     width: auto;
-    margin-top: 0;
     text-align: right;
-    vertical-align: middle;
+
+    &:first-child {
+      width: 100px;
+    }
   }
 
   & > textarea {
@@ -59,39 +69,63 @@ textarea {
     & > input,
     & > select,
     & > button,
-    & > textarea {
+    & > textarea,
+    & > .input-group {
       margin-left: 0;
     }
 
     & > label,
-    & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+    & > input,
     & > select,
     & > button,
-    & > textarea {
+    & > textarea,
+    & > .input-group {
       text-align: left;
       display: block;
       width: 100%;
+    }
+
+    & > input[type='checkbox'],
+    & > input[type='radio'] {
+      display: inline-block;
+      width: @checkbox-size;
+    }
+
+    & > .input-group {
+      display: table;
+    }
+
+    & > label:first-child {
+      margin-bottom: @margin-base;
     }
   }
 }
 
 .input-group {
-  display: table;
-  width: 100%;
+  display: inline-table;
+  width: auto;
   margin-top: @margin-large;
   margin-bottom: @margin-large;
 
   & > label,
-  & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+  & > input,
   & > select,
   & > button,
   & > .input-group-addon {
-    width: 100%;
     display: table-cell;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   & > label,
-  & > input:not([type='checkbox']):not([type='radio']):not([type='submit']):not([type='button']),
+  & > input,
+  & > select,
+  & > button {
+    width: 100%;
+  }
+
+  & > label,
+  & > input,
   & > select,
   & > button {
     &:first-child {
@@ -110,7 +144,9 @@ textarea {
   }
 
   & > .input-group-addon {
-    width: auto;
+    vertical-align: middle;
+    width: 10px;
+    height: @input-height;
     padding: @padding-base / 2 @padding-base;
     border: @border-base;
     border-radius: @border-radius-base;
