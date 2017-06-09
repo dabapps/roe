@@ -45,19 +45,19 @@ describe('Row', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it('should fix column headers to specified width', () => {
+    it('should fix row headers to specified width', () => {
       const tree = renderer.create(
-        <Table fixColumnHeaders columnHeaderMaxWidth={100}>
+        <Table fixRowHeaders rowHeaderWidth={100}>
           <TableHead>
             <TableRow>
-              <TableHeader maxWidth={100}>
+              <TableHeader width={100}>
                 Header
               </TableHeader>
             </TableRow>
           </TableHead>
           <TableBody>
             <TableRow>
-              <TableCell maxWidth={100}>
+              <TableCell width={100}>
                 Cell
               </TableCell>
             </TableRow>
