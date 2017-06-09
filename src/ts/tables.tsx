@@ -3,10 +3,18 @@ import * as React from 'react';
 
 const NBSP = '\u00a0';
 
+export interface ITableFixedProps {
+  fixRowHeaders: true;
+  rowHeaderWidth: number;
+}
+
+export interface ITableUnfixedProps {
+  fixRowHeaders?: false;
+  rowHeaderWidth?: undefined;
+}
+
 export interface ITableProps {
   collapse?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  fixColumnHeaders?: boolean;
-  columnHeaderMaxWidth?: number;
   striped?: boolean;
   bordered?: boolean;
   hover?: boolean;
@@ -14,14 +22,17 @@ export interface ITableProps {
   fill?: boolean;
 }
 
-export const Table: React.SFC<ITableProps & React.HTMLAttributes<HTMLTableElement>> = (props) => {
+export type TTable = React.SFC<
+  (ITableFixedProps | ITableUnfixedProps) & ITableProps & React.HTMLAttributes<HTMLTableElement>
+>;
+
+export const Table: TTable = (props) => {
   const {
     className,
     children,
-    style,
     collapse = 'sm',
-    fixColumnHeaders,
-    columnHeaderMaxWidth,
+    fixRowHeaders,
+    rowHeaderWidth,
     striped,
     bordered,
     hover,
@@ -33,24 +44,26 @@ export const Table: React.SFC<ITableProps & React.HTMLAttributes<HTMLTableElemen
   const myClassNames = [
     'table',
     `${collapse}-collapse`,
-    fixColumnHeaders ? 'fix-column-headers' : null,
+    fixRowHeaders ? 'fix-column-headers' : null,
     striped ? 'striped' : null,
     bordered ? 'bordered' : null,
     hover ? 'hover' : null,
     condensed ? 'condensed' : null,
+    fill ? 'fill' : null,
     className
   ];
 
   return (
-    <div className="table-wrapper" style={{paddingLeft: fixColumnHeaders ? columnHeaderMaxWidth : null}}>
-      <div className="table-scroller">
-        <table
-          {...remainingProps}
-          className={classNames(myClassNames)}
-          style={{minWidth: fill ? '100%' : null, ...style}}
-        >
-          {children}
-        </table>
+    <div className="table-wrapper">
+      <div style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null}}>
+        <div className="table-scroller">
+          <table
+            {...remainingProps}
+            className={classNames(myClassNames)}
+          >
+            {children}
+          </table>
+        </div>
       </div>
     </div>
   );
@@ -98,16 +111,16 @@ export const TableRow: React.SFC<React.HTMLAttributes<HTMLTableRowElement>> = (p
   );
 };
 
-export interface ITableHeaderProps {
-  maxWidth?: number | string;
+export interface ITableCellProps {
+  width?: number | string;
 }
 
-export const TableHeader: React.SFC<ITableHeaderProps & React.HTMLAttributes<HTMLTableHeaderCellElement>> = (props) => {
+export const TableHeader: React.SFC<ITableCellProps & React.HTMLAttributes<HTMLTableHeaderCellElement>> = (props) => {
   const {
     className,
     children,
     style,
-    maxWidth,
+    width,
     ...remainingProps
   } = props;
 
@@ -115,23 +128,19 @@ export const TableHeader: React.SFC<ITableHeaderProps & React.HTMLAttributes<HTM
     <th
       {...remainingProps}
       className={classNames('table-header', className)}
-      style={{maxWidth, width: maxWidth, ...style}}
+      style={{width, maxWidth: width, ...style}}
     >
       {children || NBSP}
     </th>
   );
 };
 
-export interface ITableCellProps {
-  maxWidth?: number | string;
-}
-
 export const TableCell: React.SFC<ITableCellProps & React.HTMLAttributes<HTMLTableCellElement>> = (props) => {
   const {
     className,
     children,
     style,
-    maxWidth,
+    width,
     ...remainingProps
   } = props;
 
@@ -139,7 +148,7 @@ export const TableCell: React.SFC<ITableCellProps & React.HTMLAttributes<HTMLTab
     <td
       {...remainingProps}
       className={classNames('table-cell', className)}
-      style={{maxWidth, width: maxWidth, ...style}}
+      style={{width, maxWidth: width, ...style}}
     >
       {children || NBSP}
     </td>

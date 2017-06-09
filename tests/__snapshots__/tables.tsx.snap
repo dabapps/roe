@@ -3,86 +3,82 @@
 exports[`Row Table should apply table styles classes 1`] = `
 <div
   className="table-wrapper"
-  style={
-    Object {
-      "paddingLeft": null,
-    }
-  }
 >
   <div
-    className="table-scroller"
-  >
-    <table
-      className="table sm-collapse striped bordered hover condensed"
-      style={
-        Object {
-          "minWidth": null,
-        }
+    style={
+      Object {
+        "paddingLeft": null,
       }
-    />
+    }
+  >
+    <div
+      className="table-scroller"
+    >
+      <table
+        className="table sm-collapse striped bordered hover condensed"
+      />
+    </div>
   </div>
 </div>
 `;
 
-exports[`Row Table should fix column headers to specified width 1`] = `
+exports[`Row Table should fix row headers to specified width 1`] = `
 <div
   className="table-wrapper"
-  style={
-    Object {
-      "paddingLeft": 100,
-    }
-  }
 >
   <div
-    className="table-scroller"
-  >
-    <table
-      className="table sm-collapse fix-column-headers"
-      style={
-        Object {
-          "minWidth": null,
-        }
+    style={
+      Object {
+        "paddingLeft": 100,
       }
+    }
+  >
+    <div
+      className="table-scroller"
     >
-      <thead
-        className="table-head"
+      <table
+        className="table sm-collapse fix-column-headers"
       >
-        <tr
-          className="table-row"
+        <thead
+          className="table-head"
         >
-          <th
-            className="table-header"
-            style={
-              Object {
-                "maxWidth": 100,
-                "width": 100,
-              }
-            }
+          <tr
+            className="table-row"
           >
-            Header
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        className="table-body"
-      >
-        <tr
-          className="table-row"
+            <th
+              className="table-header"
+              style={
+                Object {
+                  "maxWidth": 100,
+                  "width": 100,
+                }
+              }
+            >
+              Header
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          className="table-body"
         >
-          <td
-            className="table-cell"
-            style={
-              Object {
-                "maxWidth": 100,
-                "width": 100,
-              }
-            }
+          <tr
+            className="table-row"
           >
-            Cell
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <td
+              className="table-cell"
+              style={
+                Object {
+                  "maxWidth": 100,
+                  "width": 100,
+                }
+              }
+            >
+              Cell
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 `;
@@ -90,23 +86,21 @@ exports[`Row Table should fix column headers to specified width 1`] = `
 exports[`Row Table should set the collapse size 1`] = `
 <div
   className="table-wrapper"
-  style={
-    Object {
-      "paddingLeft": null,
-    }
-  }
 >
   <div
-    className="table-scroller"
-  >
-    <table
-      className="table xs-collapse"
-      style={
-        Object {
-          "minWidth": null,
-        }
+    style={
+      Object {
+        "paddingLeft": null,
       }
-    />
+    }
+  >
+    <div
+      className="table-scroller"
+    >
+      <table
+        className="table xs-collapse"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -114,23 +108,21 @@ exports[`Row Table should set the collapse size 1`] = `
 exports[`Row Table should set the min width if set to fill 1`] = `
 <div
   className="table-wrapper"
-  style={
-    Object {
-      "paddingLeft": null,
-    }
-  }
 >
   <div
-    className="table-scroller"
-  >
-    <table
-      className="table sm-collapse"
-      style={
-        Object {
-          "minWidth": "100%",
-        }
+    style={
+      Object {
+        "paddingLeft": null,
       }
-    />
+    }
+  >
+    <div
+      className="table-scroller"
+    >
+      <table
+        className="table sm-collapse fill"
+      />
+    </div>
   </div>
 </div>
 `;
@@ -166,62 +158,60 @@ exports[`Row TableHeader should render a non breaking space if no children provi
 exports[`Row should match snapshot 1`] = `
 <div
   className="table-wrapper"
-  style={
-    Object {
-      "paddingLeft": null,
-    }
-  }
 >
   <div
-    className="table-scroller"
-  >
-    <table
-      className="table sm-collapse"
-      style={
-        Object {
-          "minWidth": null,
-        }
+    style={
+      Object {
+        "paddingLeft": null,
       }
+    }
+  >
+    <div
+      className="table-scroller"
     >
-      <thead
-        className="table-head"
+      <table
+        className="table sm-collapse"
       >
-        <tr
-          className="table-row"
+        <thead
+          className="table-head"
         >
-          <th
-            className="table-header"
-            style={
-              Object {
-                "maxWidth": undefined,
-                "width": undefined,
-              }
-            }
+          <tr
+            className="table-row"
           >
-            Header
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        className="table-body"
-      >
-        <tr
-          className="table-row"
+            <th
+              className="table-header"
+              style={
+                Object {
+                  "maxWidth": undefined,
+                  "width": undefined,
+                }
+              }
+            >
+              Header
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          className="table-body"
         >
-          <td
-            className="table-cell"
-            style={
-              Object {
-                "maxWidth": undefined,
-                "width": undefined,
-              }
-            }
+          <tr
+            className="table-row"
           >
-            Cell
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            <td
+              className="table-cell"
+              style={
+                Object {
+                  "maxWidth": undefined,
+                  "width": undefined,
+                }
+              }
+            >
+              Cell
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 `;
