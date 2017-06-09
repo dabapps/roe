@@ -42,8 +42,11 @@ export const Table: React.SFC<ITableProps & React.HTMLAttributes<HTMLTableElemen
   ];
 
   return (
-    <div className="table-wrapper" style={{paddingLeft: fixColumnHeaders ? columnHeaderMaxWidth : null}}>
-      <div className="table-scroller">
+    <div className="table-wrapper">
+      <div
+        className="table-scroller"
+        style={{paddingLeft: fixColumnHeaders ? columnHeaderMaxWidth : null}}
+      >
         <table
           {...remainingProps}
           className={classNames(myClassNames)}
