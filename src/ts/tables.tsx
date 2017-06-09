@@ -57,7 +57,7 @@ export const Table: TTable = (props) => {
     <div className="table-wrapper">
       <div
         className="table-scroller"
-        style={{marginLeft: fixRowHeaders ? rowHeaderWidth : null}}
+        style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null}}
       >
         <table
           {...remainingProps}
@@ -129,7 +129,7 @@ export const TableHeader: React.SFC<ITableCellProps & React.HTMLAttributes<HTMLT
     <th
       {...remainingProps}
       className={classNames('table-header', className)}
-      style={{width, ...style}}
+      style={{width, maxWidth: width, ...style}}
     >
       {children || NBSP}
     </th>
@@ -149,7 +149,7 @@ export const TableCell: React.SFC<ITableCellProps & React.HTMLAttributes<HTMLTab
     <td
       {...remainingProps}
       className={classNames('table-cell', className)}
-      style={{width, ...style}}
+      style={{width, maxWidth: width, ...style}}
     >
       {children || NBSP}
     </td>
