@@ -55,16 +55,15 @@ export const Table: TTable = (props) => {
 
   return (
     <div className="table-wrapper">
-      <div
-        className="table-scroller"
-        style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null}}
-      >
-        <table
-          {...remainingProps}
-          className={classNames(myClassNames)}
-        >
-          {children}
-        </table>
+      <div style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null}}>
+        <div className="table-scroller">
+          <table
+            {...remainingProps}
+            className={classNames(myClassNames)}
+          >
+            {children}
+          </table>
+        </div>
       </div>
     </div>
   );
