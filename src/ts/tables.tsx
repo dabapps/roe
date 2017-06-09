@@ -18,7 +18,6 @@ export const Table: React.SFC<ITableProps & React.HTMLAttributes<HTMLTableElemen
   const {
     className,
     children,
-    style,
     collapse = 'sm',
     fixColumnHeaders,
     columnHeaderMaxWidth,
@@ -38,6 +37,7 @@ export const Table: React.SFC<ITableProps & React.HTMLAttributes<HTMLTableElemen
     bordered ? 'bordered' : null,
     hover ? 'hover' : null,
     condensed ? 'condensed' : null,
+    fill ? 'fill' : null,
     className
   ];
 
@@ -47,7 +47,6 @@ export const Table: React.SFC<ITableProps & React.HTMLAttributes<HTMLTableElemen
         <table
           {...remainingProps}
           className={classNames(myClassNames)}
-          style={{minWidth: fill ? '100%' : null, ...style}}
         >
           {children}
         </table>
