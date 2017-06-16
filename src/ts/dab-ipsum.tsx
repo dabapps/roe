@@ -2,11 +2,11 @@ import * as randomSeed from 'random-seed';
 import * as React from 'react';
 
 export interface IIpsumProps {
-  type: 'li' | 'p' | 'text';
+  component: 'li' | 'p' | 'text';
 }
 
 export interface IDabIpsumProps {
-  type?: 'ul' | 'ol' | 'p' | 'text';
+  component?: 'ul' | 'ol' | 'p' | 'text';
   count?: number;
 }
 
@@ -87,10 +87,10 @@ export const generateIpsum = () => {
 }
 
 export const Ipsum: React.SFC<IIpsumProps> = (props) => {
-  const { type } = props;
+  const { component } = props;
   const ipsum = generateIpsum();
 
-  switch (type) {
+  switch (component) {
     case 'li':
       return (
         <li>
@@ -115,23 +115,21 @@ export const Ipsum: React.SFC<IIpsumProps> = (props) => {
 
 export class DabIpsum extends React.Component<IDabIpsumProps, void> {
   public shouldComponentUpdate (prevProps: IDabIpsumProps) {
-    return prevProps.type !== this.props.type ||
+    return prevProps.component !== this.props.component ||
       prevProps.count !== this.props.count;
   }
 
   public render () {
     const {
-      type = 'p',
+      component = 'p',
       count = 5
     } = this.props;
 
-    const component = type === 'p' ? type : 'li';
-
     const items = Array.apply(null, new Array(count)).map((v: void, index: number) => (
-      <Ipsum key={index} type={component} />
+      <Ipsum key={index} component={component === 'p' ? component : 'li'} />
     ));
 
-    switch (type) {
+    switch (component) {
       case 'ul':
         return (
           <ul>
@@ -146,7 +144,7 @@ export class DabIpsum extends React.Component<IDabIpsumProps, void> {
         );
       case 'text':
         return (
-          <Ipsum type="text" />
+          <Ipsum component="text" />
         );
       // case 'p': NOTE: this is the default, so a case for it is not needed
       default:
