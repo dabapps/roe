@@ -234,6 +234,7 @@ tr,
 th,
 td {
   border-collapse: collapse;
+  border-spacing: 0;
   border: @border-none;
 }
 
@@ -242,7 +243,9 @@ tr {
 }
 
 th,
-td {
+td,
+.table-header,
+.table-cell {
   padding: @padding-base;
   background-color: @white;
   white-space: nowrap;

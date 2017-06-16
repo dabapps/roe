@@ -7,7 +7,6 @@
 }
 
 .table {
-
   &.striped {
     .table-body {
       .table-row:nth-child(odd) {
@@ -53,16 +52,29 @@
     }
   }
 
-  &.fix-column-headers {
-    .table-row .table-header:first-child {
-      position: absolute;
-      border-right: @table-border;
-      left: 0;
-      border-bottom: @table-border;
-    }
+  .with-fixed-header {
+    padding: 0;
 
-    .table-body .table-row:last-child .table-header:first-child {
-      border-bottom: @border-none;
+    .fixed-header {
+      display: inline-block;
+      position: relative;
+      z-index: 0;
+    }
+  }
+
+  tr .with-fixed-header:first-child .fixed-header {
+    z-index: 1;
+  }
+
+  &.fix-row-headers {
+    tr .with-fixed-header:first-child {
+      vertical-align: top;
+
+      .fixed-header {
+        position: absolute;
+        left: 0;
+        border-right: @table-border;
+      }
     }
   }
 
