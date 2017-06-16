@@ -6,8 +6,26 @@ exports[`SpacedGroup should match snapshot 1`] = `
 />
 `;
 
+exports[`SpacedGroup should take an optional large prop 1`] = `
+<span
+  className="spaced-group large"
+/>
+`;
+
+exports[`SpacedGroup should take an optional small prop 1`] = `
+<span
+  className="spaced-group small"
+/>
+`;
+
 exports[`SpacedGroup should take regular element attributes 1`] = `
 <span
   className="spaced-group my-class"
+/>
+`;
+
+exports[`SpacedGroup should use a block prop (boolean) as a class name 1`] = `
+<span
+  className="spaced-group block"
 />
 `;

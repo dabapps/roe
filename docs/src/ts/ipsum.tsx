@@ -27,12 +27,12 @@ const Ipsum = () => (
         </h3>
         <p>
           <strong>
-            <DabIpsum type="text" />
+            <DabIpsum component="text" />
           </strong>
         </p>
-        <DabIpsum type="p" count={5} />
-        <DabIpsum type="ul" count={3} />
-        <DabIpsum type="ol" count={3} />
+        <DabIpsum component="p" count={5} />
+        <DabIpsum component="ul" count={3} />
+        <DabIpsum component="ol" count={3} />
       </Column>
     </Row>
     <Row>
@@ -44,12 +44,12 @@ const Ipsum = () => (
           {`
             <p>
               <strong>
-                <DabIpsum type="text" />
+                <DabIpsum component="text" />
               </strong>
             </p>
-            <DabIpsum type="p" count={5} /> // Default
-            <DabIpsum type="ul" count={3} />
-            <DabIpsum type="ol" count={3} />
+            <DabIpsum component="p" count={5} /> // Default
+            <DabIpsum component="ul" count={3} />
+            <DabIpsum component="ol" count={3} />
           `}
         </CodeBlock>
       </Column>

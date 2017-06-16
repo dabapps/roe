@@ -18,20 +18,21 @@ exports[`Button should take an optional small prop 1`] = `
 />
 `;
 
+exports[`Button should take multiple class names 1`] = `
+<button
+  className="button primary float-right"
+/>
+`;
+
 exports[`Button should take regular element attributes 1`] = `
 <button
   className="button my-class"
+  type="submit"
 />
 `;
 
 exports[`Button should use a block prop (boolean) as a class name 1`] = `
 <button
   className="button block"
-/>
-`;
-
-exports[`Button should use a type prop as a class name 1`] = `
-<button
-  className="button primary"
 />
 `;
