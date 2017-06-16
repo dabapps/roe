@@ -29,25 +29,25 @@ describe('Button', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should take regular element attributes', () => {
-    const tree = renderer.create(
-      <Button className="my-class" />
-    );
-
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('should use a type prop as a class name', () => {
-    const tree = renderer.create(
-      <Button type="primary" />
-    );
-
-    expect(tree).toMatchSnapshot();
-  });
-
   it('should use a block prop (boolean) as a class name', () => {
     const tree = renderer.create(
       <Button block />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should take regular element attributes', () => {
+    const tree = renderer.create(
+      <Button className="my-class" type="submit" />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should take multiple class names', () => {
+    const tree = renderer.create(
+      <Button className="primary float-right" />
     );
 
     expect(tree).toMatchSnapshot();
