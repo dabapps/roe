@@ -1,8 +1,30 @@
-.spaced-group > * { // lesshint universalSelector: false
-  display: inline-block;
-  margin-right: @margin-base;
+.spaced-group {
+  & > * { // lesshint universalSelector: false
+    display: inline-block;
+    margin-right: @margin-base;
 
-  &:last-child {
-    margin-right: 0;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &.block {
+    display: block;
+  }
+
+  &.small > * { // lesshint universalSelector: false
+    margin-right: @margin-small;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &.large > * { // lesshint universalSelector: false
+    margin-right: @margin-large;
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
