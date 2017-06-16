@@ -34,25 +34,25 @@ const Buttons = () => (
             <Button disabled>
               Disabled
             </Button>
-            <Button type="primary">
+            <Button className="primary">
               Primary
             </Button>
-            <Button type="secondary">
+            <Button className="secondary">
               Secondary
             </Button>
-            <Button type="tertiary">
+            <Button className="tertiary">
               Tertiary
             </Button>
-            <Button type="info">
+            <Button className="info">
               Info
             </Button>
-            <Button type="success">
+            <Button className="success">
               Success
             </Button>
-            <Button type="warning">
+            <Button className="warning">
               Warning
             </Button>
-            <Button type="error">
+            <Button className="error">
               Error
             </Button>
           </SpacedGroup>
@@ -62,7 +62,7 @@ const Buttons = () => (
           <Button block>
             Block
           </Button>
-          <Button block type="primary">
+          <Button block className="primary">
             Block Primary
           </Button>
         </p>
@@ -117,25 +117,25 @@ const Buttons = () => (
                 <Button disabled>
                   Disabled
                 </Button>
-                <Button type="primary">
+                <Button className="primary">
                   Primary
                 </Button>
-                <Button type="secondary">
+                <Button className="secondary">
                   Secondary
                 </Button>
-                <Button type="tertiary">
+                <Button className="tertiary">
                   Tertiary
                 </Button>
-                <Button type="info">
+                <Button className="info">
                   Info
                 </Button>
-                <Button type="success">
+                <Button className="success">
                   Success
                 </Button>
-                <Button type="warning">
+                <Button className="warning">
                   Warning
                 </Button>
-                <Button type="error">
+                <Button className="error">
                   Error
                 </Button>
               </SpacedGroup>
@@ -145,7 +145,7 @@ const Buttons = () => (
               <Button block>
                 Block
               </Button>
-              <Button block type="primary">
+              <Button block className="primary">
                 Block Primary
               </Button>
             </p>
@@ -202,7 +202,7 @@ const Buttons = () => (
         </p>
         <CodeBlock language="javascript" name="Custom button JSX">
           {`
-            <Button type="custom" />
+            <Button className="custom" />
           `}
         </CodeBlock>
       </Column>
