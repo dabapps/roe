@@ -45,25 +45,25 @@ const AtomicText = () => (
         </p>
 
         <p className="primary">
-          <DabIpsum type="text" />
+          <DabIpsum component="text" />
         </p>
         <p className="secondary">
-          <DabIpsum type="text" />
+          <DabIpsum component="text" />
         </p>
         <p className="tertiary">
-          <DabIpsum type="text" />
+          <DabIpsum component="text" />
         </p>
         <p className="info">
-          <DabIpsum type="text" />
+          <DabIpsum component="text" />
         </p>
         <p className="success">
-          <DabIpsum type="text" />
+          <DabIpsum component="text" />
         </p>
         <p className="warning">
-          <DabIpsum type="text" />
+          <DabIpsum component="text" />
         </p>
         <p className="error">
-          <DabIpsum type="text" />
+          <DabIpsum component="text" />
         </p>
       </Column>
     </Row>
@@ -93,25 +93,25 @@ const AtomicText = () => (
             </p>
 
             <p className="primary">
-              <DabIpsum type="text" />
+              <DabIpsum component="text" />
             </p>
             <p className="secondary">
-              <DabIpsum type="text" />
+              <DabIpsum component="text" />
             </p>
             <p className="tertiary">
-              <DabIpsum type="text" />
+              <DabIpsum component="text" />
             </p>
             <p className="info">
-              <DabIpsum type="text" />
+              <DabIpsum component="text" />
             </p>
             <p className="success">
-              <DabIpsum type="text" />
+              <DabIpsum component="text" />
             </p>
             <p className="warning">
-              <DabIpsum type="text" />
+              <DabIpsum component="text" />
             </p>
             <p className="error">
-              <DabIpsum type="text" />
+              <DabIpsum component="text" />
             </p>
           `}
         </CodeBlock>
