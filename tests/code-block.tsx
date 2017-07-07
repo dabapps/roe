@@ -1,15 +1,28 @@
-import * as hljs from 'highlight.js';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
 import { CodeBlock } from '../src/ts/';
 
+interface IHighlightJS {
+  highlightBlock: jest.Mock<any>;
+}
+
+// tslint:disable:no-namespace
+declare global {
+  // tslint:disable:interface-name
+  interface Window {
+    hljs: IHighlightJS;
+  }
+}
+
+window.hljs = {
+  highlightBlock: jest.fn()
+};
+
 describe('CodeBlock', () => {
 
-  const highlightBlockSpy = jest.spyOn(hljs, 'highlightBlock').mockImplementation(jest.fn);
-
   afterEach(() => {
-    highlightBlockSpy.mockReset();
+    window.hljs.highlightBlock.mockReset();
   });
 
   it('should match snapshot', () => {
@@ -107,14 +120,14 @@ describe('CodeBlock', () => {
     const instance = new CodeBlock({children});
     const element = document.createElement('pre');
 
-    expect(hljs.highlightBlock).not.toHaveBeenCalled();
+    expect(window.hljs.highlightBlock).not.toHaveBeenCalled();
 
     instance.highlightBlock(element);
 
-    expect(hljs.highlightBlock).toHaveBeenCalledWith(element);
+    expect(window.hljs.highlightBlock).toHaveBeenCalledWith(element);
   });
 
-  it('should highlight its contens on update', () => {
+  it('should highlight its contents on update', () => {
     const children = `
       <p>
         Hello, World!
@@ -125,18 +138,18 @@ describe('CodeBlock', () => {
     const element = document.createElement('pre');
 
       // tslint:disable-next-line
-    expect(hljs.highlightBlock).not.toHaveBeenCalled()
+    expect(window.hljs.highlightBlock).not.toHaveBeenCalled()
 
     instance.element = element;
 
     instance.componentDidUpdate({children});
 
       // tslint:disable-next-line
-    expect(hljs.highlightBlock).not.toHaveBeenCalled()
+    expect(window.hljs.highlightBlock).not.toHaveBeenCalled()
 
     instance.componentDidUpdate({children: 'Different children'});
 
-    expect(hljs.highlightBlock).toHaveBeenCalledWith(element);
+    expect(window.hljs.highlightBlock).toHaveBeenCalledWith(element);
   });
 
 });
