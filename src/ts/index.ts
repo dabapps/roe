@@ -6,6 +6,7 @@ export { Column } from './column';
 export { Container } from './container';
 export {
   ContentBox,
+  ContentBoxFooter,
   ContentBoxHeader,
 } from './content-box';
 export { DabIpsum } from './dab-ipsum';
