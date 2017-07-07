@@ -4,9 +4,6 @@ set -e
 
 mkdir -p docs/build/js/
 mkdir -p docs/build/css/
-mkdir -p docs/build/lib/
-
-cp node_modules/highlight.js/styles/github-gist.css docs/build/lib/github-gist.css
 
 browserify -d docs/src/ts/index.tsx -p [tsify] -t brfs -t envify | exorcist docs/build/js/index.js.map > docs/build/js/index.js
 lessc docs/src/less/index.less docs/build/css/index.css --silent --compress && postcss --use autoprefixer -r docs/build/css/index.css
