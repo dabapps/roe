@@ -11,18 +11,24 @@ interface IHighlightJS {
 declare global {
   // tslint:disable:interface-name
   interface Window {
-    hljs: IHighlightJS;
+    hljs: void | IHighlightJS;
   }
 }
 
-window.hljs = {
-  highlightBlock: jest.fn()
-};
-
 describe('CodeBlock', () => {
 
+  beforeEach(() => {
+    if (!window.hljs) {
+      window.hljs = {
+        highlightBlock: jest.fn()
+      };
+    }
+  })
+
   afterEach(() => {
-    window.hljs.highlightBlock.mockReset();
+    if (window.hljs) {
+      window.hljs.highlightBlock.mockReset();
+    }
   });
 
   it('should match snapshot', () => {
@@ -110,6 +116,23 @@ describe('CodeBlock', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should handle missing global hljs', () => {
+    window.hljs = undefined;
+
+    const children = `
+      <p>
+        Hello, World!
+      </p>
+    `;
+
+    const instance = new CodeBlock({children});
+    const element = document.createElement('pre');
+
+    instance.highlightBlock(element);
+    instance.componentDidUpdate({children});
+    instance.componentDidUpdate({children: 'Different children'});
+  });
+
   it('should highlight its contents', () => {
     const children = `
       <p>
@@ -120,11 +143,11 @@ describe('CodeBlock', () => {
     const instance = new CodeBlock({children});
     const element = document.createElement('pre');
 
-    expect(window.hljs.highlightBlock).not.toHaveBeenCalled();
+    expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled();
 
     instance.highlightBlock(element);
 
-    expect(window.hljs.highlightBlock).toHaveBeenCalledWith(element);
+    expect(window.hljs && window.hljs.highlightBlock).toHaveBeenCalledWith(element);
   });
 
   it('should highlight its contents on update', () => {
@@ -137,19 +160,17 @@ describe('CodeBlock', () => {
     const instance = new CodeBlock({children});
     const element = document.createElement('pre');
 
-      // tslint:disable-next-line
-    expect(window.hljs.highlightBlock).not.toHaveBeenCalled()
+    expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled()
 
     instance.element = element;
 
     instance.componentDidUpdate({children});
 
-      // tslint:disable-next-line
-    expect(window.hljs.highlightBlock).not.toHaveBeenCalled()
+    expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled()
 
     instance.componentDidUpdate({children: 'Different children'});
 
-    expect(window.hljs.highlightBlock).toHaveBeenCalledWith(element);
+    expect(window.hljs && window.hljs.highlightBlock).toHaveBeenCalledWith(element);
   });
 
 });
