@@ -75,7 +75,6 @@
     "watchify": "3.9.0"
   },
   "peerDependencies": {
-    "normalize.css": ">= 6 < 7",
     "react": ">= 15 < 16",
     "react-dom": ">= 15 < 16",
     "react-transition-group": ">= 1 < 2",
