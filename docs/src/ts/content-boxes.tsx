@@ -5,6 +5,7 @@ import {
   CodeBlock,
   Column,
   ContentBox,
+  ContentBoxFooter,
   ContentBoxHeader,
   Row,
   Section
@@ -35,6 +36,11 @@ const ContentBoxes = () => (
           <p>
             Content
           </p>
+          <ContentBoxFooter>
+            <p>
+              Footer
+            </p>
+          </ContentBoxFooter>
         </ContentBox>
       </Column>
     </Row>
@@ -54,6 +60,11 @@ const ContentBoxes = () => (
               <p>
                 Content
               </p>
+              <ContentBoxFooter>
+                <p>
+                  Footer
+                </p>
+              </ContentBoxFooter>
             </ContentBox>
           `}
         </CodeBlock>

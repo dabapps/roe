@@ -28,3 +28,17 @@ export const ContentBoxHeader: React.SFC<React.HTMLProps<HTMLDivElement>> = (pro
     </div>
   );
 }
+
+export const ContentBoxFooter: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
+  const {
+    className,
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <div {...remainingProps} className={classNames('content-box-footer', className)}>
+      {children}
+    </div>
+  );
+}

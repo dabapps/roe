@@ -23,6 +23,12 @@ exports[`ContentBox should take regular element attributes 1`] = `
 />
 `;
 
+exports[`ContentBoxFooter should take regular element attributes 1`] = `
+<div
+  className="content-box-footer my-class"
+/>
+`;
+
 exports[`ContentBoxHeader should take regular element attributes 1`] = `
 <div
   className="content-box-header my-class"
