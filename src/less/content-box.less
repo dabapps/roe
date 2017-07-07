@@ -19,3 +19,14 @@
   background-color: @content-box-header-background;
   border-bottom: @content-box-header-border;
 }
+
+.content-box-footer {
+  .content-box-header();
+  background-color: @content-box-footer-background;
+  border-top: @content-box-footer-border;
+  border-bottom: @border-none;
+  text-align: right;
+  border-radius: 0;
+  border-bottom-left-radius: @border-radius-base;
+  border-bottom-right-radius: @border-radius-base;
+}
