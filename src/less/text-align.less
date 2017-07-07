@@ -1,0 +1,41 @@
+.text-align-styles (@text-align) {
+  text-align: @text-align !important; // lesshint importantRule: false
+}
+
+.create-text-align (@prefix, @name, @text-align, @alias) {
+  .@{prefix}-@{name} {
+    .text-align-styles(@text-align);
+  }
+
+  .text-align-alias () when (@alias = true) {
+    .@{name} {
+      .text-align-styles(@text-align);
+    }
+  }
+
+  .text-align-alias();
+}
+
+.create-text-aligns (@prefix, @alias: false) {
+  .create-text-align(@prefix, text-align-left, left, @alias);
+  .create-text-align(@prefix, text-align-right, right, @alias);
+  .create-text-align(@prefix, text-align-center, center, @alias);
+}
+
+.create-text-aligns(xs, true);
+
+@media all and (min-width: @screen-sm) {
+  .create-text-aligns(sm);
+}
+
+@media all and (min-width: @screen-md) {
+  .create-text-aligns(md);
+}
+
+@media all and (min-width: @screen-lg) {
+  .create-text-aligns(lg);
+}
+
+@media all and (min-width: @screen-xl) {
+  .create-text-aligns(xl);
+}
