@@ -44,6 +44,7 @@
     "browserify": "14.3.0",
     "classnames": "2.2.5",
     "exorcist": "0.4.0",
+    "highlight.js": "9.11.0",
     "less": "2.7.2",
     "normalize.css": "6.0.0",
     "postcss": "5.2.17",
