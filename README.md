@@ -47,7 +47,7 @@ import {
 
 If you want to use the `CodeBlock` component with code highlighting you will need to include `highlight.js` in your index.html (or bundle the styles if you prefer, the javascript must be globally available).
 
-I'd recommend this official CDN.
+Highlight.js recommends this CDN.
 
 ```html
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-gist.min.css">
