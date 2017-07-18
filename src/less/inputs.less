@@ -8,8 +8,10 @@ textarea {
 }
 
 .form-group {
+  position: relative;
   margin-top: @margin-large;
   margin-bottom: @margin-large;
+  min-height: @checkbox-size;
 
   & > label,
   & > input,
@@ -47,6 +49,18 @@ textarea {
   & > input[type='checkbox'],
   & > input[type='radio'] {
     width: @checkbox-size;
+
+    &:first-child {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      margin-top: -@checkbox-size / 2;
+    }
+
+    & + label {
+      margin-left: @margin-base + @checkbox-size;
+      text-align: left;
+    }
   }
 
   & > label {
