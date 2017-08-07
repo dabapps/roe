@@ -5,11 +5,17 @@ export const InputGroupAddon: React.SFC<React.HTMLProps<HTMLDivElement>> = (prop
   const {
     children,
     className,
+    width,
+    style,
     ...remainingProps
   } = props;
 
   return (
-    <div {...remainingProps} className={classNames('input-group-addon', className)}>
+    <div
+      {...remainingProps}
+      className={classNames('input-group-addon', className)}
+      style={{width, ...style}}
+    >
       {children}
     </div>
   );

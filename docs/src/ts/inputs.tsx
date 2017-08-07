@@ -187,7 +187,7 @@ const Inputs = () => (
               $
             </InputGroupAddon>
             <input type="number" />
-            <InputGroupAddon>
+            <InputGroupAddon width={100}>
               .00
             </InputGroupAddon>
           </InputGroup>
@@ -344,7 +344,7 @@ const Inputs = () => (
                   $
                 </InputGroupAddon>
                 <input type="number" />
-                <InputGroupAddon>
+                <InputGroupAddon width={100}>
                   .00
                 </InputGroupAddon>
               </InputGroup>
