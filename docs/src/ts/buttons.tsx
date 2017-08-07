@@ -84,6 +84,9 @@ const Buttons = () => (
             <a href="#" className="button">
               Link as button
             </a>
+            <a href="#" className="button" disabled>
+              Link as disabled button
+            </a>
             <a href="#" className="button primary">
               Link as primary button
             </a>
@@ -166,6 +169,9 @@ const Buttons = () => (
               <SpacedGroup className="margin-vertical-base">
                 <a href="#" className="button">
                   Link as button
+                </a>
+                <a href="#" className="button" disabled>
+                  Link as disabled button
                 </a>
                 <a href="#" className="button primary">
                   Link as primary button

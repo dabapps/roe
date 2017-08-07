@@ -235,6 +235,10 @@ const Inputs = () => (
           Note: you can use the class names "input", "select", "label", and "button" so that FormGroup & InputGroup
           styles can be applied to custom elements.
         </p>
+
+        <p>
+          You can use the "disabled" class name to give elements that cannot be disabled the disabled styling.
+        </p>
       </Column>
     </Row>
     <Row>
