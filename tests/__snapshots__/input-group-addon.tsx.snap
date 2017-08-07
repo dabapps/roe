@@ -3,11 +3,21 @@
 exports[`InputGroupAddon should match snapshot 1`] = `
 <div
   className="input-group-addon"
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
 />
 `;
 
 exports[`InputGroupAddon should take regular element attributes 1`] = `
 <div
   className="input-group-addon my-class"
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
 />
 `;
