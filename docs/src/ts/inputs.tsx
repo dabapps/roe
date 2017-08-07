@@ -84,6 +84,18 @@ const Inputs = () => (
         </FormGroup>
 
         <p>
+          Form Group Inline Custom Elements
+        </p>
+        <FormGroup>
+          <a className="label">
+            Custom Label
+          </a>
+          <div className="input">
+            Custom Input
+          </div>
+        </FormGroup>
+
+        <p>
           Form Group Inline Checkbox
         </p>
         <FormGroup>
@@ -204,6 +216,11 @@ const Inputs = () => (
             </InputGroupAddon>
           </InputGroup>
         </FormGroup>
+
+        <p>
+          Note: you can use the class names "input", "select", "label", and "button" so that FormGroup & InputGroup
+          styles can be applied to custom elements.
+        </p>
       </Column>
     </Row>
     <Row>
@@ -221,6 +238,18 @@ const Inputs = () => (
                 Label
               </label>
               <input type="text" />
+            </FormGroup>
+
+            <p>
+              Form Group Inline Custom Elements
+            </p>
+            <FormGroup>
+              <a className="label">
+                Custom Label
+              </a>
+              <div className="input">
+                Custom Input
+              </div>
             </FormGroup>
 
             <p>
