@@ -18,7 +18,11 @@ textarea {
   & > select,
   & > button,
   & > textarea,
-  & > .input-group {
+  & > .input-group,
+  & > .input,
+  & > .select,
+  & > .label,
+  & > .button {
     display: inline-block;
     vertical-align: middle;
   }
@@ -32,7 +36,11 @@ textarea {
   & > select,
   & > button,
   & > textarea,
-  .input-group {
+  & > .input-group,
+  & > .input,
+  & > .select,
+  & > .label,
+  & > .button {
     margin-top: 0;
     margin-bottom: 0;
 
@@ -41,7 +49,11 @@ textarea {
     & + select,
     & + button,
     & + textarea,
-    & + .input-group {
+    & + .input-group,
+    & + .input,
+    & + .select,
+    & + .label,
+    & + .button {
       margin-left: @margin-base;
     }
   }
@@ -57,13 +69,15 @@ textarea {
       margin-top: -@checkbox-size / 2;
     }
 
-    & + label {
+    & + label,
+    & + .label {
       margin-left: @margin-base + @checkbox-size;
       text-align: left;
     }
   }
 
-  & > label {
+  & > label,
+  & > .label {
     width: auto;
     text-align: right;
 
@@ -84,16 +98,12 @@ textarea {
     & > select,
     & > button,
     & > textarea,
-    & > .input-group {
+    & > .input-group,
+    & > .input,
+    & > .select,
+    & > .label,
+    & > .button {
       margin-left: 0;
-    }
-
-    & > label,
-    & > input,
-    & > select,
-    & > button,
-    & > textarea,
-    & > .input-group {
       text-align: left;
       display: block;
       width: 100%;
@@ -109,7 +119,8 @@ textarea {
       display: table;
     }
 
-    & > label:first-child {
+    & > label:first-child,
+    & > .label:first-child {
       margin-bottom: @margin-base;
     }
   }
@@ -125,7 +136,11 @@ textarea {
   & > input,
   & > select,
   & > button,
-  & > .input-group-addon {
+  & > .input-group-addon,
+  & > .input,
+  & > .select,
+  & > .label,
+  & > .button {
     display: table-cell;
     margin-top: 0;
     margin-bottom: 0;
@@ -134,14 +149,22 @@ textarea {
   & > label,
   & > input,
   & > select,
-  & > button {
+  & > button,
+  & > .input,
+  & > .select,
+  & > .label,
+  & > .button {
     width: 100%;
   }
 
   & > label,
   & > input,
   & > select,
-  & > button {
+  & > button,
+  & > .input,
+  & > .select,
+  & > .label,
+  & > .button {
     &:first-child {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
