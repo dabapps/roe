@@ -218,6 +218,20 @@ const Inputs = () => (
         </FormGroup>
 
         <p>
+          Input Group Block
+        </p>
+
+        <InputGroup block>
+          <InputGroupAddon>
+            $
+          </InputGroupAddon>
+          <input type="number" />
+          <InputGroupAddon>
+            .00
+          </InputGroupAddon>
+        </InputGroup>
+
+        <p>
           Note: you can use the class names "input", "select", "label", and "button" so that FormGroup & InputGroup
           styles can be applied to custom elements.
         </p>
@@ -373,6 +387,20 @@ const Inputs = () => (
                 </InputGroupAddon>
               </InputGroup>
             </FormGroup>
+
+            <p>
+              Input Group Block
+            </p>
+
+            <InputGroup block>
+              <InputGroupAddon>
+                $
+              </InputGroupAddon>
+              <input type="number" />
+              <InputGroupAddon>
+                .00
+              </InputGroupAddon>
+            </InputGroup>
           `}
         </CodeBlock>
       </Column>
