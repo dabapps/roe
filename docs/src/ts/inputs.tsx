@@ -144,7 +144,7 @@ const Inputs = () => (
         </FormGroup>
 
         <p>
-          Form Group Inline
+          Form Group Inline Textarea
         </p>
         <FormGroup>
           <label>
@@ -154,7 +154,7 @@ const Inputs = () => (
         </FormGroup>
 
         <p>
-          Form Group Block
+          Form Group Block Textarea
         </p>
         <FormGroup block>
           <label>
@@ -284,7 +284,7 @@ const Inputs = () => (
             </FormGroup>
 
             <p>
-              Form Group Inline
+              Form Group Inline Textarea
             </p>
             <FormGroup>
               <label>
@@ -294,7 +294,7 @@ const Inputs = () => (
             </FormGroup>
 
             <p>
-              Form Group Block
+              Form Group Block Textarea
             </p>
             <FormGroup block>
               <label>
