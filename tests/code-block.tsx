@@ -1,15 +1,34 @@
-import * as hljs from 'highlight.js';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
 import { CodeBlock } from '../src/ts/';
 
+interface IHighlightJS {
+  highlightBlock: jest.Mock<any>;
+}
+
+// tslint:disable:no-namespace
+declare global {
+  // tslint:disable:interface-name
+  interface Window {
+    hljs: void | IHighlightJS;
+  }
+}
+
 describe('CodeBlock', () => {
 
-  const highlightBlockSpy = jest.spyOn(hljs, 'highlightBlock').mockImplementation(jest.fn);
+  beforeEach(() => {
+    if (!window.hljs) {
+      window.hljs = {
+        highlightBlock: jest.fn()
+      };
+    }
+  })
 
   afterEach(() => {
-    highlightBlockSpy.mockReset();
+    if (window.hljs) {
+      window.hljs.highlightBlock.mockReset();
+    }
   });
 
   it('should match snapshot', () => {
@@ -97,6 +116,23 @@ describe('CodeBlock', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should handle missing global hljs', () => {
+    window.hljs = undefined;
+
+    const children = `
+      <p>
+        Hello, World!
+      </p>
+    `;
+
+    const instance = new CodeBlock({children});
+    const element = document.createElement('pre');
+
+    instance.highlightBlock(element);
+    instance.componentDidUpdate({children});
+    instance.componentDidUpdate({children: 'Different children'});
+  });
+
   it('should highlight its contents', () => {
     const children = `
       <p>
@@ -107,14 +143,14 @@ describe('CodeBlock', () => {
     const instance = new CodeBlock({children});
     const element = document.createElement('pre');
 
-    expect(hljs.highlightBlock).not.toHaveBeenCalled();
+    expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled();
 
     instance.highlightBlock(element);
 
-    expect(hljs.highlightBlock).toHaveBeenCalledWith(element);
+    expect(window.hljs && window.hljs.highlightBlock).toHaveBeenCalledWith(element);
   });
 
-  it('should highlight its contens on update', () => {
+  it('should highlight its contents on update', () => {
     const children = `
       <p>
         Hello, World!
@@ -124,19 +160,17 @@ describe('CodeBlock', () => {
     const instance = new CodeBlock({children});
     const element = document.createElement('pre');
 
-      // tslint:disable-next-line
-    expect(hljs.highlightBlock).not.toHaveBeenCalled()
+    expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled()
 
     instance.element = element;
 
     instance.componentDidUpdate({children});
 
-      // tslint:disable-next-line
-    expect(hljs.highlightBlock).not.toHaveBeenCalled()
+    expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled()
 
     instance.componentDidUpdate({children: 'Different children'});
 
-    expect(hljs.highlightBlock).toHaveBeenCalledWith(element);
+    expect(window.hljs && window.hljs.highlightBlock).toHaveBeenCalledWith(element);
   });
 
 });

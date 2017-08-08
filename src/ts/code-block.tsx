@@ -1,5 +1,10 @@
+interface IHighlightJS {
+  highlightBlock(element: HTMLElement): void;
+}
+
+declare const hljs: void | IHighlightJS;
+
 import * as classNames from 'classnames';
-import * as hljs from 'highlight.js';
 import * as React from 'react';
 
 const MATCHES_INITIAL_INDENTATION = /^([^\S\n]*)\S/;
@@ -36,11 +41,16 @@ export class CodeBlock extends React.Component<IProps, any> {
   public highlightBlock (element: HTMLPreElement) {
     this.element = element;
 
-    hljs.highlightBlock(this.element);
+    if (hljs && typeof hljs.highlightBlock === 'function') {
+      hljs.highlightBlock(this.element);
+    }
   }
 
   public componentDidUpdate (prevProps: IProps) {
-    if (prevProps.children !== this.props.children) {
+    if (
+      hljs && typeof hljs.highlightBlock === 'function' &&
+      prevProps.children !== this.props.children
+    ) {
       hljs.highlightBlock(this.element);
     }
   }

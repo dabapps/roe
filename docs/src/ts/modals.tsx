@@ -53,7 +53,7 @@ class Modals extends React.Component<{}, IState> {
             </h3>
             <ModalRenderer modals={modals} />
 
-            <Button type="primary" onClick={this.onClickOpenModal}>
+            <Button className="primary" onClick={this.onClickOpenModal}>
               Open modal
             </Button>
           </Column>
@@ -97,7 +97,7 @@ class Modals extends React.Component<{}, IState> {
                         </p>
                         <ModalFooter>
                           <p>
-                            <Button type="primary" onClick={this.onClickCloseModal}>
+                            <Button className="primary" onClick={this.onClickCloseModal}>
                               Close
                             </Button>
                           </p>
@@ -115,7 +115,7 @@ class Modals extends React.Component<{}, IState> {
               {`
                 <ModalRenderer modals={modals} />
 
-                <Button type="primary" onClick={this.onClickOpenModal}>
+                <Button className="primary" onClick={this.onClickOpenModal}>
                   Open modal
                 </Button>
               `}
@@ -152,7 +152,7 @@ class Modals extends React.Component<{}, IState> {
           </p>
           <ModalFooter>
             <p>
-              <Button type="primary" onClick={this.onClickCloseModal}>
+              <Button className="primary" onClick={this.onClickCloseModal}>
                 Close
               </Button>
             </p>

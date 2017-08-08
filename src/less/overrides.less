@@ -80,6 +80,10 @@ code {
   padding: @padding-base;
 }
 
+pre {
+  overflow: auto;
+}
+
 .button-overrides() {
   position: relative;
   border-radius: @border-radius-base;
@@ -108,9 +112,10 @@ textarea {
   font-size: @font-size-base;
   width: @input-width;
   height: @input-height;
+  color: @font-color-base;
 
   &::placeholder {
-    color: @grey-light;
+    color: @font-color-light;
   }
 }
 
@@ -185,15 +190,26 @@ input[type='radio'] {
   }
 }
 
-@select-arrows-background: linear-gradient(135deg, transparent 75%, @font-color-base 75%) 0 0, linear-gradient(-135deg, transparent 75%, @font-color-base 75%) 0 0, linear-gradient(45deg, transparent 75%, @font-color-base 75%) 0 0, linear-gradient(-45deg, transparent 75%, @font-color-base 75%) 0 0; // lesshint maxCharPerLine: false
-@select-arrows-position: ~'calc(100% - 10px)' ~'calc(50% - 5px)', ~'calc(100% - 2px)' ~'calc(50% - 5px)', ~'calc(100% - 10px)' ~'calc(50% + 5px)', ~'calc(100% - 2px)' ~'calc(50% + 5px)'; // lesshint maxCharPerLine: false
+@select-arrows-width: 8px;
+@select-arrows-height: 16px;
+@select-arrows-offset: (@padding-base * 2 - @select-arrows-width) / 2;
+/* Original image:
+  <svg xmlns="http://www.w3.org/2000/svg" width="8" height="14" viewBox="0 0 8 14">
+    <path d="M 4 0 8 5 0 5 z"/>
+    <path d="M 0 9 8 9 4 14 z"/>
+  </svg>
+*/
+@select-arrows-background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgOCAxNCI+PHBhdGggZD0iTSA0IDAgOCA1IDAgNSB6Ii8+PHBhdGggZD0iTSAwIDkgOCA5IDQgMTQgeiIvPjwvc3ZnPgo='); // lesshint maxCharPerLine: false
+@select-arrows-position: ~'calc(100% - @{select-arrows-offset})' 50%;
+
+
 
 select {
   background-color: transparent;
   padding-right: @padding-base * 2;
-  background: @select-arrows-background;
+  background-image: @select-arrows-background;
   background-position: @select-arrows-position;
-  background-size: 8px 8px;
+  background-size: @select-arrows-width @select-arrows-height;
   background-repeat: no-repeat;
 
   &::-ms-expand {
@@ -207,24 +223,15 @@ select,
 textarea,
 datalist,
 keygen {
-  &[disabled] {
+  &[disabled],
+  &.disabled {
     cursor: no-drop;
   }
 }
 
-button,
-input,
-select,
-textarea,
-datalist,
-keygen,
-form,
-fieldset,
-legend,
-output {
-  &[disabled] {
-    opacity: 0.5;
-  }
+[disabled],
+.disabled {
+  opacity: 0.5;
 }
 
 table,

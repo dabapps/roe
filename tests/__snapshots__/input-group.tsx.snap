@@ -11,3 +11,9 @@ exports[`InputGroup should take regular element attributes 1`] = `
   className="input-group my-class"
 />
 `;
+
+exports[`InputGroup should use a block prop (boolean) as a class name 1`] = `
+<div
+  className="input-group block"
+/>
+`;

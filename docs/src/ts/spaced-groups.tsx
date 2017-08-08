@@ -32,8 +32,19 @@ const SpacedGroups = () => (
             <Button>
               Cancel
             </Button>
-            <Button type="primary">
+            <Button className="primary">
               Continue
+            </Button>
+          </SpacedGroup>
+        </p>
+
+        <p>
+          <SpacedGroup large block>
+            <Button>
+              Cancel
+            </Button>
+            <Button className="error">
+              Delete
             </Button>
           </SpacedGroup>
         </p>
@@ -65,8 +76,19 @@ const SpacedGroups = () => (
                 <Button>
                   Cancel
                 </Button>
-                <Button type="primary">
+                <Button className="primary">
                   Continue
+                </Button>
+              </SpacedGroup>
+            </p>
+
+            <p>
+              <SpacedGroup large block>
+                <Button>
+                  Cancel
+                </Button>
+                <Button className="error">
+                  Delete
                 </Button>
               </SpacedGroup>
             </p>

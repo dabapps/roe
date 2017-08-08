@@ -28,7 +28,7 @@ describe('DabIpsum', () => {
 
   it('should allow rendering an unordered list', () => {
     const tree = renderer.create(
-      <DabIpsum type="ul" />
+      <DabIpsum component="ul" />
     );
 
     expect(tree).toMatchSnapshot();
@@ -36,7 +36,7 @@ describe('DabIpsum', () => {
 
   it('should allow rendering an ordered list', () => {
     const tree = renderer.create(
-      <DabIpsum type="ol" />
+      <DabIpsum component="ol" />
     );
 
     expect(tree).toMatchSnapshot();
@@ -44,7 +44,7 @@ describe('DabIpsum', () => {
 
   it('should allow rendering plain text (in a span)', () => {
     const tree = renderer.create(
-      <DabIpsum type="text" />
+      <DabIpsum component="text" />
     );
 
     expect(tree).toMatchSnapshot();
@@ -57,11 +57,11 @@ describe('DabIpsum', () => {
   });
 
   it('should only update if type or count changed', () => {
-    const instance = new DabIpsum({type: 'text', count: 1});
+    const instance = new DabIpsum({component: 'text', count: 1});
 
-    expect(instance.shouldComponentUpdate({type: 'text', count: 1})).toBe(false);
-    expect(instance.shouldComponentUpdate({type: 'p', count: 1})).toBe(true);
-    expect(instance.shouldComponentUpdate({type: 'text', count: 2})).toBe(true);
+    expect(instance.shouldComponentUpdate({component: 'text', count: 1})).toBe(false);
+    expect(instance.shouldComponentUpdate({component: 'p', count: 1})).toBe(true);
+    expect(instance.shouldComponentUpdate({component: 'text', count: 2})).toBe(true);
   });
 
 });

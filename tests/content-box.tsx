@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { ContentBox, ContentBoxHeader } from '../src/ts/';
+import { ContentBox, ContentBoxFooter, ContentBoxHeader } from '../src/ts/';
 
 describe('ContentBox', () => {
 
@@ -37,6 +37,18 @@ describe('ContentBoxHeader', () => {
   it('should take regular element attributes', () => {
     const tree = renderer.create(
       <ContentBoxHeader className="my-class" />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
+});
+
+describe('ContentBoxFooter', () => {
+
+  it('should take regular element attributes', () => {
+    const tree = renderer.create(
+      <ContentBoxFooter className="my-class" />
     );
 
     expect(tree).toMatchSnapshot();

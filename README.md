@@ -18,7 +18,7 @@ npm start
 You need to install Roe and its peer dependencies with npm. Npm should warn you if you haven't installed any peer dependencies.
 
 ```shell
-npm i dabapps/roe#v0.0.0
+npm i dabapps/roe#vX.X.X
 ```
 
 See [releases](https://github.com/dabapps/roe/releases) for a full list of versions.
@@ -41,4 +41,18 @@ import {
   Container,
   Row
 } from 'roe';
+```
+
+### Code Higlighting
+
+If you want to use the `CodeBlock` component with code highlighting you will need to include `highlight.js` in your index.html (or bundle the styles if you prefer, the javascript must be globally available).
+
+Highlight.js recommends this CDN.
+
+```html
+<!-- Include this in your head tag -->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-gist.min.css">
+
+<!-- Include this anywhere before your main javascript file -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
 ```

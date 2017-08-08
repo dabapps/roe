@@ -1,6 +1,6 @@
 {
   "name": "roe",
-  "version": "0.6.1",
+  "version": "0.8.4",
   "description": "A Collection of React Components for Project Development",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
@@ -35,7 +35,6 @@
   "homepage": "https://github.com/dabapps/roe#readme",
   "dependencies": {
     "@types/classnames": "2.2.0",
-    "@types/highlight.js": "9.1.9",
     "@types/random-seed": "0.3.2",
     "@types/react": "15.0.22",
     "@types/react-dom": "15.5.0",
@@ -44,7 +43,6 @@
     "browserify": "14.3.0",
     "classnames": "2.2.5",
     "exorcist": "0.4.0",
-    "highlight.js": "9.11.0",
     "less": "2.7.2",
     "normalize.css": "6.0.0",
     "postcss": "5.2.17",
@@ -69,14 +67,12 @@
     "livereload": "0.6.2",
     "react-test-renderer": "15.5.4",
     "ts-jest": "20.0.3",
-    "tslint": "5.1.0",
+    "tslint": "5.5.0",
     "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.2.0",
     "watch-less-do-more": "0.2.0",
     "watchify": "3.9.0"
   },
   "peerDependencies": {
-    "highlight.js": ">= 9 < 10",
-    "normalize.css": ">= 6 < 7",
     "react": ">= 15 < 16",
     "react-dom": ">= 15 < 16",
     "react-transition-group": ">= 1 < 2",
