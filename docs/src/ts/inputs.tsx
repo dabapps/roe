@@ -84,6 +84,18 @@ const Inputs = () => (
         </FormGroup>
 
         <p>
+          Form Group Inline Custom Elements
+        </p>
+        <FormGroup>
+          <a className="label">
+            Custom Label
+          </a>
+          <div className="input">
+            Custom Input
+          </div>
+        </FormGroup>
+
+        <p>
           Form Group Inline Checkbox
         </p>
         <FormGroup>
@@ -144,7 +156,7 @@ const Inputs = () => (
         </FormGroup>
 
         <p>
-          Form Group Inline
+          Form Group Inline Textarea
         </p>
         <FormGroup>
           <label>
@@ -154,7 +166,7 @@ const Inputs = () => (
         </FormGroup>
 
         <p>
-          Form Group Block
+          Form Group Block Textarea
         </p>
         <FormGroup block>
           <label>
@@ -175,7 +187,7 @@ const Inputs = () => (
               $
             </InputGroupAddon>
             <input type="number" />
-            <InputGroupAddon>
+            <InputGroupAddon width={100}>
               .00
             </InputGroupAddon>
           </InputGroup>
@@ -204,6 +216,29 @@ const Inputs = () => (
             </InputGroupAddon>
           </InputGroup>
         </FormGroup>
+
+        <p>
+          Input Group Block
+        </p>
+
+        <InputGroup block>
+          <InputGroupAddon>
+            $
+          </InputGroupAddon>
+          <input type="number" />
+          <InputGroupAddon>
+            .00
+          </InputGroupAddon>
+        </InputGroup>
+
+        <p>
+          Note: you can use the class names "input", "select", "label", and "button" so that FormGroup & InputGroup
+          styles can be applied to custom elements.
+        </p>
+
+        <p>
+          You can use the "disabled" class name to give elements that cannot be disabled the disabled styling.
+        </p>
       </Column>
     </Row>
     <Row>
@@ -221,6 +256,18 @@ const Inputs = () => (
                 Label
               </label>
               <input type="text" />
+            </FormGroup>
+
+            <p>
+              Form Group Inline Custom Elements
+            </p>
+            <FormGroup>
+              <a className="label">
+                Custom Label
+              </a>
+              <div className="input">
+                Custom Input
+              </div>
             </FormGroup>
 
             <p>
@@ -284,7 +331,7 @@ const Inputs = () => (
             </FormGroup>
 
             <p>
-              Form Group Inline
+              Form Group Inline Textarea
             </p>
             <FormGroup>
               <label>
@@ -294,7 +341,7 @@ const Inputs = () => (
             </FormGroup>
 
             <p>
-              Form Group Block
+              Form Group Block Textarea
             </p>
             <FormGroup block>
               <label>
@@ -315,7 +362,7 @@ const Inputs = () => (
                   $
                 </InputGroupAddon>
                 <input type="number" />
-                <InputGroupAddon>
+                <InputGroupAddon width={100}>
                   .00
                 </InputGroupAddon>
               </InputGroup>
@@ -344,6 +391,20 @@ const Inputs = () => (
                 </InputGroupAddon>
               </InputGroup>
             </FormGroup>
+
+            <p>
+              Input Group Block
+            </p>
+
+            <InputGroup block>
+              <InputGroupAddon>
+                $
+              </InputGroupAddon>
+              <input type="number" />
+              <InputGroupAddon>
+                .00
+              </InputGroupAddon>
+            </InputGroup>
           `}
         </CodeBlock>
       </Column>

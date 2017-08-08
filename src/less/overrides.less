@@ -223,24 +223,15 @@ select,
 textarea,
 datalist,
 keygen {
-  &[disabled] {
+  &[disabled],
+  &.disabled {
     cursor: no-drop;
   }
 }
 
-button,
-input,
-select,
-textarea,
-datalist,
-keygen,
-form,
-fieldset,
-legend,
-output {
-  &[disabled] {
-    opacity: 0.5;
-  }
+[disabled],
+.disabled {
+  opacity: 0.5;
 }
 
 table,

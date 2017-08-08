@@ -41,6 +41,18 @@ const AtomicText = () => (
             Italic
           </span> <span className="bold italic">
             Bold Italic
+          </span> <span className="underline">
+            Underline
+          </span>
+        </p>
+
+        <p>
+          <span className="font-weight-light">
+            Light
+          </span> <span className="font-weight-normal">
+            Normal
+          </span> <span className="font-weight-bold">
+            Bold
           </span>
         </p>
 

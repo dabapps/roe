@@ -1,13 +1,35 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`InputGroupAddon should apply width to the element 1`] = `
+<div
+  className="input-group-addon"
+  style={
+    Object {
+      "color": "red",
+      "width": 100,
+    }
+  }
+/>
+`;
+
 exports[`InputGroupAddon should match snapshot 1`] = `
 <div
   className="input-group-addon"
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
 />
 `;
 
 exports[`InputGroupAddon should take regular element attributes 1`] = `
 <div
   className="input-group-addon my-class"
+  style={
+    Object {
+      "width": undefined,
+    }
+  }
 />
 `;
