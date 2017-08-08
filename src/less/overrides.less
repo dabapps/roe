@@ -110,13 +110,19 @@ textarea {
   border: @border-base;
   appearance: none;
   font-size: @font-size-base;
-  width: @input-width;
   height: @input-height;
   color: @font-color-base;
 
   &::placeholder {
     color: @font-color-light;
   }
+}
+
+input,
+select,
+.input,
+.select {
+  width: @input-width;
 }
 
 textarea {
