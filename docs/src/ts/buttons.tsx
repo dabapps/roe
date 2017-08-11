@@ -104,6 +104,18 @@ const Buttons = () => (
             <input className="button error" type="button" value="Input as error button" />
           </SpacedGroup>
         </p>
+
+        <p>
+          <SpacedGroup className="margin-vertical-base">
+            <Button>
+              Default
+            </Button>
+            <a href="#" className="button">
+              Link as button
+            </a>
+            <input className="button" type="button" value="Input as button" />
+          </SpacedGroup>
+        </p>
       </Column>
     </Row>
     <Row>
