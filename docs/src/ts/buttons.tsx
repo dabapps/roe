@@ -99,6 +99,7 @@ const Buttons = () => (
         <p>
           <SpacedGroup className="margin-vertical-base">
             <input className="button" type="button" value="Input as button" />
+            <input className="button" type="button" value="Input as disabled button" disabled />
             <input className="button primary" type="button" value="Input as primary button" />
             <input className="button error" type="button" value="Input as error button" />
           </SpacedGroup>
@@ -185,6 +186,7 @@ const Buttons = () => (
             <p>
               <SpacedGroup className="margin-vertical-base">
                 <input className="button" type="button" value="Input as button" />
+                <input className="button" type="button" value="Input as disabled button" disabled />
                 <input className="button primary" type="button" value="Input as primary button" />
                 <input className="button error" type="button" value="Input as error button" />
               </SpacedGroup>
