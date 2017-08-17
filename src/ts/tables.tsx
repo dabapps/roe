@@ -20,6 +20,7 @@ export interface ITableProps {
   hover?: boolean;
   condensed?: boolean;
   fill?: boolean;
+  fixed?: boolean;
 }
 
 export type TTable = React.SFC<
@@ -38,6 +39,7 @@ export const Table: TTable = (props) => {
     hover,
     condensed,
     fill,
+    fixed,
     ...remainingProps
   } = props;
 
@@ -50,6 +52,7 @@ export const Table: TTable = (props) => {
     hover ? 'hover' : null,
     condensed ? 'condensed' : null,
     fill ? 'fill' : null,
+    fixed ? 'fixed' : null,
     className
   ];
 
