@@ -97,6 +97,11 @@ const Tables = () => {
               }
             </TableBody>
           </Table>
+
+          <p>
+            Note: tables can also take a "fixed" prop to easily set the style "table-layout: fixed;".
+          </p>
+
         </Column>
       </Row>
       <Row>

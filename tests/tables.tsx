@@ -76,9 +76,16 @@ describe('Row', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it('should set the min width if set to fill', () => {
+    it('should apply some boolean classes', () => {
       const tree = renderer.create(
-        <Table fill />
+        <Table
+          striped
+          bordered
+          hover
+          condensed
+          fill
+          fixed
+        />
       );
 
       expect(tree).toMatchSnapshot();
