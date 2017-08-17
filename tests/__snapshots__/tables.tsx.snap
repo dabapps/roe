@@ -127,28 +127,6 @@ exports[`Row Table should set the collapse size 1`] = `
 </div>
 `;
 
-exports[`Row Table should set the min width if set to fill 1`] = `
-<div
-  className="table-wrapper"
->
-  <div
-    style={
-      Object {
-        "paddingLeft": null,
-      }
-    }
-  >
-    <div
-      className="table-scroller"
-    >
-      <table
-        className="table sm-collapse fill"
-      />
-    </div>
-  </div>
-</div>
-`;
-
 exports[`Row TableCell should render a non breaking space if no children provided 1`] = `
 <td
   className="table-cell"
