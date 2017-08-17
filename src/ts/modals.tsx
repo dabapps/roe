@@ -18,10 +18,16 @@ export const ModalRenderer: React.SFC<IModalRendererProps & React.HTMLProps<HTML
       transitionLeaveTimeout={200}
     >
       {
-        modals && modals.map((modal, index) => (
+        modals && modals.length > 1 ? modals.map((modal, index) => (
           <div key={index} className="modal-container">
             <div className="modal-position">
               {modal}
+            </div>
+          </div>
+        )) : (modals && modals.length === 1 && (
+          <div className="modal-container">
+            <div className="modal-position">
+              {modals[0]}
             </div>
           </div>
         ))
