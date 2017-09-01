@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Modal, ModalCloseIcon, ModalFooter, ModalHeader, ModalRenderer } from '../src/ts/';
+import { Modal, ModalBody, ModalCloseIcon, ModalFooter, ModalHeader, ModalRenderer } from '../src/ts/';
 
 describe('Modal', () => {
 
@@ -38,6 +38,14 @@ describe('Modal', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should take a scrollable prop and use it as a class name', () => {
+    const tree = renderer.create(
+      <Modal onClickOutside={() => null} scrollable />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
 });
 
 describe('ModalCloseIcon', () => {
@@ -45,6 +53,18 @@ describe('ModalCloseIcon', () => {
   it('should take regular element attributes', () => {
     const tree = renderer.create(
       <ModalCloseIcon className="my-class" />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
+});
+
+describe('ModalBody', () => {
+
+  it('should take regular element attributes', () => {
+    const tree = renderer.create(
+      <ModalBody className="my-class" />
     );
 
     expect(tree).toMatchSnapshot();

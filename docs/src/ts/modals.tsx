@@ -5,13 +5,16 @@ import {
   Button,
   CodeBlock,
   Column,
+  DabIpsum,
   Modal,
+  ModalBody,
   ModalCloseIcon,
   ModalFooter,
   ModalHeader,
   ModalRenderer,
   Row,
-  Section
+  Section,
+  SpacedGroup,
 } from '../../../src/ts';
 
 interface IState {
@@ -28,6 +31,7 @@ class Modals extends React.Component<{}, IState> {
 
     this.onClickOpenModal = this.onClickOpenModal.bind(this);
     this.onClickCloseModal = this.onClickCloseModal.bind(this);
+    this.onClickOpenScrollableModal = this.onClickOpenScrollableModal.bind(this);
   }
 
   public render () {
@@ -53,9 +57,15 @@ class Modals extends React.Component<{}, IState> {
             </h3>
             <ModalRenderer modals={modals} />
 
-            <Button className="primary" onClick={this.onClickOpenModal}>
-              Open modal
-            </Button>
+            <SpacedGroup>
+              <Button className="primary" onClick={this.onClickOpenModal}>
+                Open modal
+              </Button>
+
+              <Button className="primary" onClick={this.onClickOpenScrollableModal}>
+                Open scrollable modal
+              </Button>
+            </SpacedGroup>
           </Column>
         </Row>
         <Row>
@@ -71,7 +81,7 @@ class Modals extends React.Component<{}, IState> {
             </p>
             <CodeBlock language="javascript" name="Opening and closing modals">
               {`
-                public onClickCloseModal () {
+                private onClickCloseModal () {
                   const modals = [...this.state.modals];
                   modals.pop();
 
@@ -80,7 +90,7 @@ class Modals extends React.Component<{}, IState> {
                   });
                 }
 
-                public onClickOpenModal () {
+                private onClickOpenModal () {
                   this.setState({
                     modals: [...this.state.modals, (
                       <Modal onClickOutside={this.onClickCloseModal}>
@@ -92,9 +102,36 @@ class Modals extends React.Component<{}, IState> {
                             Header
                           </h5>
                         </ModalHeader>
-                        <p>
-                          Content
-                        </p>
+                        <ModalBody>
+                          <DabIpsum count={25} />
+                        </ModalBody>
+                        <ModalFooter>
+                          <p>
+                            <Button className="primary" onClick={this.onClickCloseModal}>
+                              Close
+                            </Button>
+                          </p>
+                        </ModalFooter>
+                      </Modal>
+                    )]
+                  });
+                }
+
+                private onClickOpenScrollableModal () {
+                  this.setState({
+                    modals: [...this.state.modals, (
+                      <Modal scrollable onClickOutside={this.onClickCloseModal}>
+                        <ModalHeader>
+                          <ModalCloseIcon onClick={this.onClickCloseModal}>
+                            X
+                          </ModalCloseIcon>
+                          <h5>
+                            Header
+                          </h5>
+                        </ModalHeader>
+                        <ModalBody>
+                          <DabIpsum count={25} />
+                        </ModalBody>
                         <ModalFooter>
                           <p>
                             <Button className="primary" onClick={this.onClickCloseModal}>
@@ -115,9 +152,15 @@ class Modals extends React.Component<{}, IState> {
               {`
                 <ModalRenderer modals={modals} />
 
-                <Button className="primary" onClick={this.onClickOpenModal}>
-                  Open modal
-                </Button>
+                <SpacedGroup>
+                  <Button className="primary" onClick={this.onClickOpenModal}>
+                    Open modal
+                  </Button>
+
+                  <Button className="primary" onClick={this.onClickOpenScrollableModal}>
+                    Open scrollable modal
+                  </Button>
+                </SpacedGroup>
               `}
             </CodeBlock>
           </Column>
@@ -147,9 +190,36 @@ class Modals extends React.Component<{}, IState> {
               Header
             </h5>
           </ModalHeader>
-          <p>
-            Content
-          </p>
+          <ModalBody>
+            <DabIpsum count={25} />
+          </ModalBody>
+          <ModalFooter>
+            <p>
+              <Button className="primary" onClick={this.onClickCloseModal}>
+                Close
+              </Button>
+            </p>
+          </ModalFooter>
+        </Modal>
+      )]
+    });
+  }
+
+  private onClickOpenScrollableModal () {
+    this.setState({
+      modals: [...this.state.modals, (
+        <Modal scrollable onClickOutside={this.onClickCloseModal}>
+          <ModalHeader>
+            <ModalCloseIcon onClick={this.onClickCloseModal}>
+              X
+            </ModalCloseIcon>
+            <h5>
+              Header
+            </h5>
+          </ModalHeader>
+          <ModalBody>
+            <DabIpsum count={25} />
+          </ModalBody>
           <ModalFooter>
             <p>
               <Button className="primary" onClick={this.onClickCloseModal}>
