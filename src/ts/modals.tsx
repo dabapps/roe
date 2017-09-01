@@ -68,6 +68,20 @@ export const ModalHeader: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) =
   );
 }
 
+export const ModalBody: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
+  const {
+    className,
+    children,
+    ...remainingProps
+  } = props;
+
+  return (
+    <div {...remainingProps} className={classNames('modal-body', className)}>
+      {children}
+    </div>
+  );
+}
+
 export const ModalFooter: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
   const {
     className,
