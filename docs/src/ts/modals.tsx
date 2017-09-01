@@ -81,7 +81,7 @@ class Modals extends React.Component<{}, IState> {
             </p>
             <CodeBlock language="javascript" name="Opening and closing modals">
               {`
-                public onClickCloseModal () {
+                private onClickCloseModal () {
                   const modals = [...this.state.modals];
                   modals.pop();
 
@@ -90,7 +90,7 @@ class Modals extends React.Component<{}, IState> {
                   });
                 }
 
-                public onClickOpenModal () {
+                private onClickOpenModal () {
                   this.setState({
                     modals: [...this.state.modals, (
                       <Modal onClickOutside={this.onClickCloseModal}>
@@ -102,9 +102,36 @@ class Modals extends React.Component<{}, IState> {
                             Header
                           </h5>
                         </ModalHeader>
-                        <p>
-                          Content
-                        </p>
+                        <ModalBody>
+                          <DabIpsum count={25} />
+                        </ModalBody>
+                        <ModalFooter>
+                          <p>
+                            <Button className="primary" onClick={this.onClickCloseModal}>
+                              Close
+                            </Button>
+                          </p>
+                        </ModalFooter>
+                      </Modal>
+                    )]
+                  });
+                }
+
+                private onClickOpenScrollableModal () {
+                  this.setState({
+                    modals: [...this.state.modals, (
+                      <Modal scrollable onClickOutside={this.onClickCloseModal}>
+                        <ModalHeader>
+                          <ModalCloseIcon onClick={this.onClickCloseModal}>
+                            X
+                          </ModalCloseIcon>
+                          <h5>
+                            Header
+                          </h5>
+                        </ModalHeader>
+                        <ModalBody>
+                          <DabIpsum count={25} />
+                        </ModalBody>
                         <ModalFooter>
                           <p>
                             <Button className="primary" onClick={this.onClickCloseModal}>
@@ -125,9 +152,15 @@ class Modals extends React.Component<{}, IState> {
               {`
                 <ModalRenderer modals={modals} />
 
-                <Button className="primary" onClick={this.onClickOpenModal}>
-                  Open modal
-                </Button>
+                <SpacedGroup>
+                  <Button className="primary" onClick={this.onClickOpenModal}>
+                    Open modal
+                  </Button>
+
+                  <Button className="primary" onClick={this.onClickOpenScrollableModal}>
+                    Open scrollable modal
+                  </Button>
+                </SpacedGroup>
               `}
             </CodeBlock>
           </Column>
