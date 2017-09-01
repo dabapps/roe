@@ -35,6 +35,18 @@ exports[`Modal should match snapshot 1`] = `
 </div>
 `;
 
+exports[`Modal should take a scrollable prop and use it as a class name 1`] = `
+<div>
+  <div
+    className="modal-overlay"
+    onClick={[Function]}
+  />
+  <div
+    className="modal scrollable"
+  />
+</div>
+`;
+
 exports[`Modal should take regular element attributes 1`] = `
 <div>
   <div
@@ -45,6 +57,12 @@ exports[`Modal should take regular element attributes 1`] = `
     className="modal my-class"
   />
 </div>
+`;
+
+exports[`ModalBody should take regular element attributes 1`] = `
+<div
+  className="modal-body my-class"
+/>
 `;
 
 exports[`ModalCloseIcon should take regular element attributes 1`] = `
