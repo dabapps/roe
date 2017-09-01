@@ -63,9 +63,14 @@
   padding: 0 @gutter-width;
   margin: 0 auto;
 
+  @modal-margins: @margin-large * 2;
+  @modal-header-and-footer-margins: (@margin-large * 2) * 2;
+  @modal-header-and-footer-content: 50px * 2; // Magic number to allow slightly larger content
+  @modal-header-and-footer-space: @modal-margins + @modal-header-and-footer-margins + @modal-header-and-footer-content;
+
   .scrollable {
     .modal-body {
-      max-height: ~'calc(100vh - 200px)';
+      max-height: ~'calc(100vh - @{modal-header-and-footer-space})';
       overflow: auto;
     }
   }
