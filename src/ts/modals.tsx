@@ -31,6 +31,7 @@ export const ModalRenderer: React.SFC<IModalRendererProps & React.HTMLProps<HTML
 }
 
 export interface IModalProps {
+  scrollable?: boolean;
   onClickOutside(event: React.MouseEvent<HTMLDivElement>): void;
 }
 
@@ -39,13 +40,14 @@ export const Modal: React.SFC<IModalProps & React.HTMLProps<HTMLDivElement>> = (
     className,
     children,
     onClickOutside,
+    scrollable,
     ...remainingProps
   } = props;
 
   return (
     <div>
       <div className="modal-overlay" onClick={onClickOutside} />
-      <div {...remainingProps} className={classNames('modal', className)}>
+      <div {...remainingProps} className={classNames('modal', scrollable && 'scrollable', className)}>
         {children}
       </div>
     </div>
