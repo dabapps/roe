@@ -201,33 +201,6 @@ class Modals extends React.Component<{}, IState> {
       )]
     });
   }
-
-  private onClickOpenScrollableModal () {
-    this.setState({
-      modals: [...this.state.modals, (
-        <Modal scrollable onClickOutside={this.onClickCloseModal}>
-          <ModalHeader>
-            <ModalCloseIcon onClick={this.onClickCloseModal}>
-              X
-            </ModalCloseIcon>
-            <h5>
-              Header
-            </h5>
-          </ModalHeader>
-          <ModalBody>
-            <DabIpsum count={25} />
-          </ModalBody>
-          <ModalFooter>
-            <p>
-              <Button className="primary" onClick={this.onClickCloseModal}>
-                Close
-              </Button>
-            </p>
-          </ModalFooter>
-        </Modal>
-      )]
-    });
-  }
 }
 
 export default Modals;
