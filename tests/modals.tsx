@@ -46,6 +46,30 @@ describe('Modal', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should take a small prop and use it as a class name', () => {
+    const tree = renderer.create(
+      <Modal onClickOutside={() => null} small />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should take a large prop and use it as a class name', () => {
+    const tree = renderer.create(
+      <Modal onClickOutside={() => null} large />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should take a fill prop and use it as a class name', () => {
+    const tree = renderer.create(
+      <Modal onClickOutside={() => null} fill />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
 });
 
 describe('ModalCloseIcon', () => {

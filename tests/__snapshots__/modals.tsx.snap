@@ -39,6 +39,38 @@ exports[`Modal should match snapshot 1`] = `
 </div>
 `;
 
+exports[`Modal should take a fill prop and use it as a class name 1`] = `
+<div>
+  <div
+    className="modal-overlay"
+    onClick={[Function]}
+  />
+  <div
+    className="modal-position fill"
+  >
+    <div
+      className="modal"
+    />
+  </div>
+</div>
+`;
+
+exports[`Modal should take a large prop and use it as a class name 1`] = `
+<div>
+  <div
+    className="modal-overlay"
+    onClick={[Function]}
+  />
+  <div
+    className="modal-position large"
+  >
+    <div
+      className="modal"
+    />
+  </div>
+</div>
+`;
+
 exports[`Modal should take a scrollable prop and use it as a class name 1`] = `
 <div>
   <div
@@ -47,6 +79,22 @@ exports[`Modal should take a scrollable prop and use it as a class name 1`] = `
   />
   <div
     className="modal-position scrollable"
+  >
+    <div
+      className="modal"
+    />
+  </div>
+</div>
+`;
+
+exports[`Modal should take a small prop and use it as a class name 1`] = `
+<div>
+  <div
+    className="modal-overlay"
+    onClick={[Function]}
+  />
+  <div
+    className="modal-position small"
   >
     <div
       className="modal"
