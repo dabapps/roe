@@ -21,6 +21,13 @@ interface IState {
   modals: React.ReactNode[];
 }
 
+interface IModalAdditionalProps {
+  scrollable: boolean;
+  small: boolean;
+  large: boolean;
+  fill: boolean;
+}
+
 class Modals extends React.Component<{}, IState> {
   public constructor (props: {}) {
     super(props);
@@ -31,7 +38,6 @@ class Modals extends React.Component<{}, IState> {
 
     this.onClickOpenModal = this.onClickOpenModal.bind(this);
     this.onClickCloseModal = this.onClickCloseModal.bind(this);
-    this.onClickOpenScrollableModal = this.onClickOpenScrollableModal.bind(this);
   }
 
   public render () {
@@ -58,12 +64,24 @@ class Modals extends React.Component<{}, IState> {
             <ModalRenderer modals={modals} />
 
             <SpacedGroup>
-              <Button className="primary" onClick={this.onClickOpenModal}>
+              <Button className="primary" onClick={() => this.onClickOpenModal()}>
                 Open modal
               </Button>
 
-              <Button className="primary" onClick={this.onClickOpenScrollableModal}>
+              <Button className="primary" onClick={() => this.onClickOpenModal({scrollable: true})}>
                 Open scrollable modal
+              </Button>
+
+              <Button className="primary" onClick={() => this.onClickOpenModal({small: true})}>
+                Open small modal
+              </Button>
+
+              <Button className="primary" onClick={() => this.onClickOpenModal({large: true})}>
+                Open large modal
+              </Button>
+
+              <Button className="primary" onClick={() => this.onClickOpenModal({fill: true})}>
+                Open fill modal
               </Button>
             </SpacedGroup>
           </Column>
@@ -78,6 +96,18 @@ class Modals extends React.Component<{}, IState> {
             </p>
             <p>
               Note: ModalCloseIcon should be the first element inside the ModalHeader.
+            </p>
+            <p>
+              Give a modal the scrollable prop to limit its height to the window and allow the ModalBody to scroll.
+            </p>
+            <p>
+              Give a modal the small prop to limit its width (ideal for alert / confirm dialogs).
+            </p>
+            <p>
+              Give a modal the large prop so that it fills the same area as the Container on all screens.
+            </p>
+            <p>
+              Give a modal the fill prop so that it fills the entire window.
             </p>
             <CodeBlock language="javascript" name="Opening and closing modals">
               {`
@@ -116,33 +146,6 @@ class Modals extends React.Component<{}, IState> {
                     )]
                   });
                 }
-
-                private onClickOpenScrollableModal () {
-                  this.setState({
-                    modals: [...this.state.modals, (
-                      <Modal scrollable onClickOutside={this.onClickCloseModal}>
-                        <ModalHeader>
-                          <ModalCloseIcon onClick={this.onClickCloseModal}>
-                            X
-                          </ModalCloseIcon>
-                          <h5>
-                            Header
-                          </h5>
-                        </ModalHeader>
-                        <ModalBody>
-                          <DabIpsum count={25} />
-                        </ModalBody>
-                        <ModalFooter>
-                          <p>
-                            <Button className="primary" onClick={this.onClickCloseModal}>
-                              Close
-                            </Button>
-                          </p>
-                        </ModalFooter>
-                      </Modal>
-                    )]
-                  });
-                }
               `}
             </CodeBlock>
             <p>
@@ -152,15 +155,9 @@ class Modals extends React.Component<{}, IState> {
               {`
                 <ModalRenderer modals={modals} />
 
-                <SpacedGroup>
-                  <Button className="primary" onClick={this.onClickOpenModal}>
-                    Open modal
-                  </Button>
-
-                  <Button className="primary" onClick={this.onClickOpenScrollableModal}>
-                    Open scrollable modal
-                  </Button>
-                </SpacedGroup>
+                <Button className="primary" onClick={this.onClickOpenModal}>
+                  Open modal
+                </Button>
               `}
             </CodeBlock>
           </Column>
@@ -178,37 +175,10 @@ class Modals extends React.Component<{}, IState> {
     });
   }
 
-  private onClickOpenModal () {
+  private onClickOpenModal (props?: Partial<IModalAdditionalProps>) {
     this.setState({
       modals: [...this.state.modals, (
-        <Modal onClickOutside={this.onClickCloseModal}>
-          <ModalHeader>
-            <ModalCloseIcon onClick={this.onClickCloseModal}>
-              X
-            </ModalCloseIcon>
-            <h5>
-              Header
-            </h5>
-          </ModalHeader>
-          <ModalBody>
-            <DabIpsum count={25} />
-          </ModalBody>
-          <ModalFooter>
-            <p>
-              <Button className="primary" onClick={this.onClickCloseModal}>
-                Close
-              </Button>
-            </p>
-          </ModalFooter>
-        </Modal>
-      )]
-    });
-  }
-
-  private onClickOpenScrollableModal () {
-    this.setState({
-      modals: [...this.state.modals, (
-        <Modal scrollable onClickOutside={this.onClickCloseModal}>
+        <Modal {...props} onClickOutside={this.onClickCloseModal}>
           <ModalHeader>
             <ModalCloseIcon onClick={this.onClickCloseModal}>
               X

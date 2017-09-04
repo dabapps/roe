@@ -7,30 +7,66 @@ exports[`Modal should match snapshot 1`] = `
     onClick={[Function]}
   />
   <div
-    className="modal"
+    className="modal-position"
   >
     <div
-      className="modal-close-icon"
+      className="modal"
     >
-      x
-    </div>
-    <div
-      className="modal-header"
-    >
-      <h1>
-        Header
-      </h1>
-    </div>
-    <p>
-      Content
-    </p>
-    <div
-      className="modal-footer"
-    >
+      <div
+        className="modal-close-icon"
+      >
+        x
+      </div>
+      <div
+        className="modal-header"
+      >
+        <h1>
+          Header
+        </h1>
+      </div>
       <p>
-        Footer
+        Content
       </p>
+      <div
+        className="modal-footer"
+      >
+        <p>
+          Footer
+        </p>
+      </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`Modal should take a fill prop and use it as a class name 1`] = `
+<div>
+  <div
+    className="modal-overlay"
+    onClick={[Function]}
+  />
+  <div
+    className="modal-position fill"
+  >
+    <div
+      className="modal"
+    />
+  </div>
+</div>
+`;
+
+exports[`Modal should take a large prop and use it as a class name 1`] = `
+<div>
+  <div
+    className="modal-overlay"
+    onClick={[Function]}
+  />
+  <div
+    className="modal-position large"
+  >
+    <div
+      className="modal"
+    />
   </div>
 </div>
 `;
@@ -42,8 +78,28 @@ exports[`Modal should take a scrollable prop and use it as a class name 1`] = `
     onClick={[Function]}
   />
   <div
-    className="modal scrollable"
+    className="modal-position scrollable"
+  >
+    <div
+      className="modal"
+    />
+  </div>
+</div>
+`;
+
+exports[`Modal should take a small prop and use it as a class name 1`] = `
+<div>
+  <div
+    className="modal-overlay"
+    onClick={[Function]}
   />
+  <div
+    className="modal-position small"
+  >
+    <div
+      className="modal"
+    />
+  </div>
 </div>
 `;
 
@@ -54,8 +110,12 @@ exports[`Modal should take regular element attributes 1`] = `
     onClick={[Function]}
   />
   <div
-    className="modal my-class"
-  />
+    className="modal-position"
+  >
+    <div
+      className="modal"
+    />
+  </div>
 </div>
 `;
 
@@ -88,14 +148,14 @@ exports[`ModalRenderer should render some modals 1`] = `
   <div
     className="modal-container"
   >
-    <div
-      className="modal-position"
-    >
-      <div>
-        <div
-          className="modal-overlay"
-          onClick={[Function]}
-        />
+    <div>
+      <div
+        className="modal-overlay"
+        onClick={[Function]}
+      />
+      <div
+        className="modal-position"
+      >
         <div
           className="modal"
         >
