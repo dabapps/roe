@@ -103,6 +103,30 @@ describe('Row', () => {
       expect(tree).toMatchSnapshot();
     });
 
+    it('should render the number 0', () => {
+      expect(renderer.create(
+        <TableHeader>{0}</TableHeader>
+      )).toMatchSnapshot();
+    });
+
+    it('should not render null, false, undefined or empty string', () => {
+      expect(renderer.create(
+        <TableHeader>{null}</TableHeader>
+      )).toMatchSnapshot();
+
+      expect(renderer.create(
+        <TableHeader>{false}</TableHeader>
+      )).toMatchSnapshot();
+
+      expect(renderer.create(
+        <TableHeader>{undefined}</TableHeader>
+      )).toMatchSnapshot();
+
+      expect(renderer.create(
+        <TableHeader>{''}</TableHeader>
+      )).toMatchSnapshot();
+    });
+
   });
 
   describe('TableCell', () => {
@@ -113,6 +137,30 @@ describe('Row', () => {
       );
 
       expect(tree).toMatchSnapshot();
+    });
+
+    it('should render the number 0', () => {
+      expect(renderer.create(
+        <TableCell>{0}</TableCell>
+      )).toMatchSnapshot();
+    });
+
+    it('should not render null, false, undefined or empty string', () => {
+      expect(renderer.create(
+        <TableCell>{null}</TableCell>
+      )).toMatchSnapshot();
+
+      expect(renderer.create(
+        <TableCell>{false}</TableCell>
+      )).toMatchSnapshot();
+
+      expect(renderer.create(
+        <TableCell>{undefined}</TableCell>
+      )).toMatchSnapshot();
+
+      expect(renderer.create(
+        <TableCell>{''}</TableCell>
+      )).toMatchSnapshot();
     });
 
   });

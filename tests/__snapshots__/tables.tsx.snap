@@ -127,6 +127,62 @@ exports[`Row Table should set the collapse size 1`] = `
 </div>
 `;
 
+exports[`Row TableCell should not render null, false, undefined or empty string 1`] = `
+<td
+  className="table-cell"
+  style={
+    Object {
+      "maxWidth": undefined,
+      "width": undefined,
+    }
+  }
+>
+   
+</td>
+`;
+
+exports[`Row TableCell should not render null, false, undefined or empty string 2`] = `
+<td
+  className="table-cell"
+  style={
+    Object {
+      "maxWidth": undefined,
+      "width": undefined,
+    }
+  }
+>
+   
+</td>
+`;
+
+exports[`Row TableCell should not render null, false, undefined or empty string 3`] = `
+<td
+  className="table-cell"
+  style={
+    Object {
+      "maxWidth": undefined,
+      "width": undefined,
+    }
+  }
+>
+   
+</td>
+`;
+
+exports[`Row TableCell should not render null, false, undefined or empty string 4`] = `
+<td
+  className="table-cell"
+  style={
+    Object {
+      "maxWidth": undefined,
+      "width": undefined,
+    }
+  }
+>
+   
+</td>
+`;
+
 exports[`Row TableCell should render a non breaking space if no children provided 1`] = `
 <td
   className="table-cell"
@@ -141,6 +197,76 @@ exports[`Row TableCell should render a non breaking space if no children provide
 </td>
 `;
 
+exports[`Row TableCell should render the number 0 1`] = `
+<td
+  className="table-cell"
+  style={
+    Object {
+      "maxWidth": undefined,
+      "width": undefined,
+    }
+  }
+>
+  0
+</td>
+`;
+
+exports[`Row TableHeader should not render null, false, undefined or empty string 1`] = `
+<th
+  className="table-header"
+  style={
+    Object {
+      "maxWidth": undefined,
+      "width": undefined,
+    }
+  }
+>
+   
+</th>
+`;
+
+exports[`Row TableHeader should not render null, false, undefined or empty string 2`] = `
+<th
+  className="table-header"
+  style={
+    Object {
+      "maxWidth": undefined,
+      "width": undefined,
+    }
+  }
+>
+   
+</th>
+`;
+
+exports[`Row TableHeader should not render null, false, undefined or empty string 3`] = `
+<th
+  className="table-header"
+  style={
+    Object {
+      "maxWidth": undefined,
+      "width": undefined,
+    }
+  }
+>
+   
+</th>
+`;
+
+exports[`Row TableHeader should not render null, false, undefined or empty string 4`] = `
+<th
+  className="table-header"
+  style={
+    Object {
+      "maxWidth": undefined,
+      "width": undefined,
+    }
+  }
+>
+   
+</th>
+`;
+
 exports[`Row TableHeader should render a non breaking space if no children provided 1`] = `
 <th
   className="table-header"
@@ -152,6 +278,20 @@ exports[`Row TableHeader should render a non breaking space if no children provi
   }
 >
    
+</th>
+`;
+
+exports[`Row TableHeader should render the number 0 1`] = `
+<th
+  className="table-header"
+  style={
+    Object {
+      "maxWidth": undefined,
+      "width": undefined,
+    }
+  }
+>
+  0
 </th>
 `;
 
