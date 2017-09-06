@@ -3,6 +3,10 @@ import * as React from 'react';
 
 const NBSP = '\u00a0';
 
+const shouldNotBeRendered = (children: any) => {
+  return children === false || children === null || children === undefined || children === '';
+};
+
 export interface ITableFixedProps {
   fixRowHeaders: true;
   rowHeaderWidth: number;
@@ -133,7 +137,7 @@ export const TableHeader: React.SFC<ITableCellProps & React.HTMLAttributes<HTMLT
       className={classNames('table-header', className)}
       style={{width, maxWidth: width, ...style}}
     >
-      {children || NBSP}
+      {shouldNotBeRendered(children) ? NBSP : children}
     </th>
   );
 };
@@ -153,7 +157,7 @@ export const TableCell: React.SFC<ITableCellProps & React.HTMLAttributes<HTMLTab
       className={classNames('table-cell', className)}
       style={{width, maxWidth: width, ...style}}
     >
-      {children || NBSP}
+      {shouldNotBeRendered(children) ? NBSP : children}
     </td>
   );
 };
