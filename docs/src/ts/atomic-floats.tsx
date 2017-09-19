@@ -35,6 +35,9 @@ const AtomicFloats = () => (
         <p>
           Note: float-left is an alias for xs-float-left, and float-right an alias for xs-float-right
         </p>
+        <p>
+          float-none & all size variations are also available
+        </p>
       </Column>
     </Row>
     <Row>
