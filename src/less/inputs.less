@@ -27,10 +27,6 @@ textarea {
     vertical-align: middle;
   }
 
-  & > .input-group {
-    display: inline-table;
-  }
-
   & > label,
   & > input,
   & > select,
@@ -127,7 +123,7 @@ textarea {
 }
 
 .input-group {
-  display: inline-table;
+  display: inline-table !important; // lesshint importantRule: false
   width: auto;
   margin-top: @margin-large;
   margin-bottom: @margin-large;
