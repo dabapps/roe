@@ -91,6 +91,16 @@ describe('Row', () => {
       expect(tree).toMatchSnapshot();
     });
 
+    it('should use a component prop as the table component', () => {
+      const tree = renderer.create(
+        <Table
+          component="p"
+        />
+      );
+
+      expect(tree).toMatchSnapshot();
+    });
+
   });
 
   describe('TableHeader', () => {
