@@ -1,44 +1,51 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-export const ContentBox: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
+interface IComponentProps {
+  component?: string;
+}
+
+export const ContentBox: React.SFC<IComponentProps & React.HTMLProps<HTMLDivElement>> = (props) => {
   const {
     className,
     children,
+    component: Component = 'div',
     ...remainingProps
   } = props;
 
   return (
-    <div {...remainingProps} className={classNames('content-box', className)}>
+    <Component {...remainingProps} className={classNames('content-box', className)}>
       {children}
-    </div>
+    </Component>
   );
 }
 
-export const ContentBoxHeader: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
+export const ContentBoxHeader: React.SFC<IComponentProps & React.HTMLProps<HTMLDivElement>> = (props) => {
   const {
     className,
     children,
+    component: Component = 'div',
     ...remainingProps
   } = props;
 
   return (
-    <div {...remainingProps} className={classNames('content-box-header', className)}>
+    <Component {...remainingProps} className={classNames('content-box-header', className)}>
       {children}
-    </div>
+    </Component>
   );
 }
 
-export const ContentBoxFooter: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
+export const ContentBoxFooter: React.SFC<IComponentProps & React.HTMLProps<HTMLDivElement>> = (props) => {
   const {
     className,
     children,
+    component: Component = 'div',
     ...remainingProps
   } = props;
 
   return (
-    <div {...remainingProps} className={classNames('content-box-footer', className)}>
+    <Component {...remainingProps} className={classNames('content-box-footer', className)}>
       {children}
-    </div>
+    </Component>
   );
 }

@@ -1,12 +1,16 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-export const Well: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
-  const { children, className, ...remainingProps } = props;
+interface IProps {
+  component?: string;
+}
+
+export const Well: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (props) => {
+  const { children, className, component: Component = 'div', ...remainingProps } = props;
 
   return (
-    <div {...remainingProps} className={classNames(['well', className])}>
+    <Component {...remainingProps} className={classNames(['well', className])}>
       {children}
-    </div>
+    </Component>
   );
 };

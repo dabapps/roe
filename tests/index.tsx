@@ -33,6 +33,7 @@ describe('index file', () => {
   describe('components', () => {
 
     it('should all accept a component prop', () => {
+      const exceptions = ['Anchor', 'DabIpsum', 'ModalRenderer', 'Modal', 'Table'];
       type Keys = keyof typeof index;
 
       for (const key in index) {
@@ -41,7 +42,7 @@ describe('index file', () => {
 
           const instance = <Component component="p" />;
 
-          if (renderer.create(instance).toJSON().type !== 'p') {
+          if (exceptions.indexOf(key) < 0 && renderer.create(instance).toJSON().type !== 'p') {
             throw new Error(`${key} cannot take a component prop. :\'(`);
           }
         }

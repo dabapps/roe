@@ -18,6 +18,7 @@ export interface ITableUnfixedProps {
 }
 
 export interface ITableProps {
+  component?: string;
   collapse?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   striped?: boolean;
   bordered?: boolean;
@@ -44,6 +45,7 @@ export const Table: TTable = (props) => {
     condensed,
     fill,
     fixed,
+    component: Component = 'table',
     ...remainingProps
   } = props;
 
@@ -64,61 +66,68 @@ export const Table: TTable = (props) => {
     <div className="table-wrapper">
       <div style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null}}>
         <div className="table-scroller">
-          <table
+          <Component
             {...remainingProps}
             className={classNames(myClassNames)}
           >
             {children}
-          </table>
+          </Component>
         </div>
       </div>
     </div>
   );
 }
 
-export const TableHead: React.SFC<React.HTMLAttributes<HTMLTableSectionElement>> = (props) => {
+interface IComponentProps {
+  component?: string;
+}
+
+export const TableHead: React.SFC<IComponentProps & React.HTMLAttributes<HTMLTableSectionElement>> = (props) => {
   const {
     className,
     children,
+    component: Component = 'thead',
     ...remainingProps
   } = props;
 
   return (
-    <thead {...remainingProps} className={classNames('table-head', className)}>
+    <Component {...remainingProps} className={classNames('table-head', className)}>
       {children}
-    </thead>
+    </Component>
   );
 };
 
-export const TableBody: React.SFC<React.HTMLAttributes<HTMLTableSectionElement>> = (props) => {
+export const TableBody: React.SFC<IComponentProps & React.HTMLAttributes<HTMLTableSectionElement>> = (props) => {
   const {
     className,
     children,
+    component: Component = 'tbody',
     ...remainingProps
   } = props;
 
   return (
-    <tbody {...remainingProps} className={classNames('table-body', className)}>
+    <Component {...remainingProps} className={classNames('table-body', className)}>
       {children}
-    </tbody>
+    </Component>
   );
 };
 
-export const TableRow: React.SFC<React.HTMLAttributes<HTMLTableRowElement>> = (props) => {
+export const TableRow: React.SFC<IComponentProps & React.HTMLAttributes<HTMLTableRowElement>> = (props) => {
   const {
     className,
     children,
+    component: Component = 'tr',
     ...remainingProps
   } = props;
 
   return (
-    <tr {...remainingProps} className={classNames('table-row', className)}>
+    <Component {...remainingProps} className={classNames('table-row', className)}>
       {children}
-    </tr>
+    </Component>
   );
 };
 
-export interface ITableCellProps {
+export interface ITableCellProps extends IComponentProps {
   width?: number | string;
 }
 
@@ -128,17 +137,18 @@ export const TableHeader: React.SFC<ITableCellProps & React.HTMLAttributes<HTMLT
     children,
     style,
     width,
+    component: Component = 'th',
     ...remainingProps
   } = props;
 
   return (
-    <th
+    <Component
       {...remainingProps}
       className={classNames('table-header', className)}
       style={{width, maxWidth: width, ...style}}
     >
       {shouldNotBeRendered(children) ? NBSP : children}
-    </th>
+    </Component>
   );
 };
 
@@ -148,16 +158,17 @@ export const TableCell: React.SFC<ITableCellProps & React.HTMLAttributes<HTMLTab
     children,
     style,
     width,
+    component: Component = 'td',
     ...remainingProps
   } = props;
 
   return (
-    <td
+    <Component
       {...remainingProps}
       className={classNames('table-cell', className)}
       style={{width, maxWidth: width, ...style}}
     >
       {shouldNotBeRendered(children) ? NBSP : children}
-    </td>
+    </Component>
   );
 };
