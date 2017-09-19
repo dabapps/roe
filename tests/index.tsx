@@ -39,7 +39,11 @@ describe('index file', () => {
         if (index.hasOwnProperty(key)) {
           const Component = index[key as Keys];
 
-          expect(renderer.create(<Component component="p" />).toJSON().type).toBe('p');
+          const instance = <Component component="p" />;
+
+          if (renderer.create(instance).toJSON().type !== 'p') {
+            throw new Error(`${key} cannot take a component prop. :\'(`);
+          }
         }
       }
     });
