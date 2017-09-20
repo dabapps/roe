@@ -78,7 +78,7 @@ export const Table: TTable = (props) => {
   );
 }
 
-interface IComponentProps {
+export interface IComponentProps {
   component?: string;
 }
 

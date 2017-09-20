@@ -1,7 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-interface IComponentProps {
+export interface IComponentProps {
   component?: string;
 }
 
