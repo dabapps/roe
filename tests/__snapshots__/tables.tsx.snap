@@ -127,6 +127,28 @@ exports[`Row Table should set the collapse size 1`] = `
 </div>
 `;
 
+exports[`Row Table should use a component prop as the table component 1`] = `
+<div
+  className="table-wrapper"
+>
+  <div
+    style={
+      Object {
+        "paddingLeft": null,
+      }
+    }
+  >
+    <div
+      className="table-scroller"
+    >
+      <p
+        className="table sm-collapse"
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Row TableCell should not render null, false, undefined or empty string 1`] = `
 <td
   className="table-cell"

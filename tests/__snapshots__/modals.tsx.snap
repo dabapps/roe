@@ -39,6 +39,22 @@ exports[`Modal should match snapshot 1`] = `
 </div>
 `;
 
+exports[`Modal should take a component prop and use it as the modal component 1`] = `
+<div>
+  <div
+    className="modal-overlay"
+    onClick={[Function]}
+  />
+  <div
+    className="modal-position"
+  >
+    <p
+      className="modal"
+    />
+  </div>
+</div>
+`;
+
 exports[`Modal should take a fill prop and use it as a class name 1`] = `
 <div>
   <div

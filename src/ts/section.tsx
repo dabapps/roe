@@ -1,12 +1,16 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-export const Section: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
-  const { children, className, ...remainingProps } = props;
+export interface IProps {
+  component?: string;
+}
+
+export const Section: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (props) => {
+  const { children, className, component: Component = 'section', ...remainingProps } = props;
 
   return (
-    <section {...remainingProps} className={classNames(['section', className])}>
+    <Component {...remainingProps} className={classNames(['section', className])}>
       {children}
-    </section>
+    </Component>
   );
 };

@@ -70,6 +70,14 @@ describe('Modal', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should take a component prop and use it as the modal component', () => {
+    const tree = renderer.create(
+      <Modal onClickOutside={() => null} component="p" />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
 });
 
 describe('ModalCloseIcon', () => {
