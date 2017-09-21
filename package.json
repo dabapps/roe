@@ -68,7 +68,7 @@
     "react-test-renderer": "15.5.4",
     "ts-jest": "20.0.3",
     "tslint": "5.5.0",
-    "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.2.0",
+    "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.3.0",
     "watch-less-do-more": "0.2.0",
     "watchify": "3.9.0"
   },
