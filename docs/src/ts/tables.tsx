@@ -102,6 +102,11 @@ const Tables = () => {
             Note: tables can also take a "fixed" prop to easily set the style "table-layout: fixed;".
           </p>
 
+          <p>
+            Note: you can prevent a table from scrolling (so, for example, its parent scrolls instead)
+            by setting {'scrollable={false}'}
+          </p>
+
         </Column>
       </Row>
       <Row>
