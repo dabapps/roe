@@ -20,6 +20,7 @@ export interface ITableUnfixedProps {
 export interface ITableProps {
   component?: string;
   collapse?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+  scrollable?: boolean;
   striped?: boolean;
   bordered?: boolean;
   hover?: boolean;
@@ -37,6 +38,7 @@ export const Table: TTable = (props) => {
     className,
     children,
     collapse = 'sm',
+    scrollable = true,
     fixRowHeaders,
     rowHeaderWidth,
     striped,
@@ -65,7 +67,7 @@ export const Table: TTable = (props) => {
   return (
     <div className="table-wrapper">
       <div style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null}}>
-        <div className="table-scroller">
+        <div className={scrollable ? 'table-scroller' : undefined}>
           <Component
             {...remainingProps}
             className={classNames(myClassNames)}
