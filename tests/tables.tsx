@@ -10,7 +10,7 @@ import {
   TableRow
 } from '../src/ts/';
 
-describe('Row', () => {
+describe('Tables', () => {
 
   it('should match snapshot', () => {
     const tree = renderer.create(
@@ -85,6 +85,16 @@ describe('Row', () => {
           condensed
           fill
           fixed
+        />
+      );
+
+      expect(tree).toMatchSnapshot();
+    });
+
+    it('should allow disabling scrolling', () => {
+      const tree = renderer.create(
+        <Table
+          scrollable={false}
         />
       );
 
