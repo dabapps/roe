@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Row Table should allow disabling scrolling 1`] = `
+exports[`Tables Table should allow disabling scrolling 1`] = `
 <div
   className="table-wrapper"
 >
@@ -22,7 +22,7 @@ exports[`Row Table should allow disabling scrolling 1`] = `
 </div>
 `;
 
-exports[`Row Table should apply some boolean classes 1`] = `
+exports[`Tables Table should apply some boolean classes 1`] = `
 <div
   className="table-wrapper"
 >
@@ -44,7 +44,7 @@ exports[`Row Table should apply some boolean classes 1`] = `
 </div>
 `;
 
-exports[`Row Table should apply table styles classes 1`] = `
+exports[`Tables Table should apply table styles classes 1`] = `
 <div
   className="table-wrapper"
 >
@@ -66,7 +66,7 @@ exports[`Row Table should apply table styles classes 1`] = `
 </div>
 `;
 
-exports[`Row Table should fix row headers to specified width 1`] = `
+exports[`Tables Table should fix row headers to specified width 1`] = `
 <div
   className="table-wrapper"
 >
@@ -127,7 +127,7 @@ exports[`Row Table should fix row headers to specified width 1`] = `
 </div>
 `;
 
-exports[`Row Table should set the collapse size 1`] = `
+exports[`Tables Table should set the collapse size 1`] = `
 <div
   className="table-wrapper"
 >
@@ -149,7 +149,7 @@ exports[`Row Table should set the collapse size 1`] = `
 </div>
 `;
 
-exports[`Row Table should use a component prop as the table component 1`] = `
+exports[`Tables Table should use a component prop as the table component 1`] = `
 <div
   className="table-wrapper"
 >
@@ -171,7 +171,7 @@ exports[`Row Table should use a component prop as the table component 1`] = `
 </div>
 `;
 
-exports[`Row TableCell should not render null, false, undefined or empty string 1`] = `
+exports[`Tables TableCell should not render null, false, undefined or empty string 1`] = `
 <td
   className="table-cell"
   style={
@@ -185,7 +185,7 @@ exports[`Row TableCell should not render null, false, undefined or empty string 
 </td>
 `;
 
-exports[`Row TableCell should not render null, false, undefined or empty string 2`] = `
+exports[`Tables TableCell should not render null, false, undefined or empty string 2`] = `
 <td
   className="table-cell"
   style={
@@ -199,7 +199,7 @@ exports[`Row TableCell should not render null, false, undefined or empty string 
 </td>
 `;
 
-exports[`Row TableCell should not render null, false, undefined or empty string 3`] = `
+exports[`Tables TableCell should not render null, false, undefined or empty string 3`] = `
 <td
   className="table-cell"
   style={
@@ -213,7 +213,7 @@ exports[`Row TableCell should not render null, false, undefined or empty string 
 </td>
 `;
 
-exports[`Row TableCell should not render null, false, undefined or empty string 4`] = `
+exports[`Tables TableCell should not render null, false, undefined or empty string 4`] = `
 <td
   className="table-cell"
   style={
@@ -227,7 +227,7 @@ exports[`Row TableCell should not render null, false, undefined or empty string 
 </td>
 `;
 
-exports[`Row TableCell should render a non breaking space if no children provided 1`] = `
+exports[`Tables TableCell should render a non breaking space if no children provided 1`] = `
 <td
   className="table-cell"
   style={
@@ -241,7 +241,7 @@ exports[`Row TableCell should render a non breaking space if no children provide
 </td>
 `;
 
-exports[`Row TableCell should render the number 0 1`] = `
+exports[`Tables TableCell should render the number 0 1`] = `
 <td
   className="table-cell"
   style={
@@ -255,7 +255,7 @@ exports[`Row TableCell should render the number 0 1`] = `
 </td>
 `;
 
-exports[`Row TableHeader should not render null, false, undefined or empty string 1`] = `
+exports[`Tables TableHeader should not render null, false, undefined or empty string 1`] = `
 <th
   className="table-header"
   style={
@@ -269,7 +269,7 @@ exports[`Row TableHeader should not render null, false, undefined or empty strin
 </th>
 `;
 
-exports[`Row TableHeader should not render null, false, undefined or empty string 2`] = `
+exports[`Tables TableHeader should not render null, false, undefined or empty string 2`] = `
 <th
   className="table-header"
   style={
@@ -283,7 +283,7 @@ exports[`Row TableHeader should not render null, false, undefined or empty strin
 </th>
 `;
 
-exports[`Row TableHeader should not render null, false, undefined or empty string 3`] = `
+exports[`Tables TableHeader should not render null, false, undefined or empty string 3`] = `
 <th
   className="table-header"
   style={
@@ -297,7 +297,7 @@ exports[`Row TableHeader should not render null, false, undefined or empty strin
 </th>
 `;
 
-exports[`Row TableHeader should not render null, false, undefined or empty string 4`] = `
+exports[`Tables TableHeader should not render null, false, undefined or empty string 4`] = `
 <th
   className="table-header"
   style={
@@ -311,7 +311,7 @@ exports[`Row TableHeader should not render null, false, undefined or empty strin
 </th>
 `;
 
-exports[`Row TableHeader should render a non breaking space if no children provided 1`] = `
+exports[`Tables TableHeader should render a non breaking space if no children provided 1`] = `
 <th
   className="table-header"
   style={
@@ -325,7 +325,7 @@ exports[`Row TableHeader should render a non breaking space if no children provi
 </th>
 `;
 
-exports[`Row TableHeader should render the number 0 1`] = `
+exports[`Tables TableHeader should render the number 0 1`] = `
 <th
   className="table-header"
   style={
@@ -339,7 +339,7 @@ exports[`Row TableHeader should render the number 0 1`] = `
 </th>
 `;
 
-exports[`Row should match snapshot 1`] = `
+exports[`Tables should match snapshot 1`] = `
 <div
   className="table-wrapper"
 >

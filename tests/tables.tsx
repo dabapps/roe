@@ -10,7 +10,7 @@ import {
   TableRow
 } from '../src/ts/';
 
-describe('Row', () => {
+describe('Tables', () => {
 
   it('should match snapshot', () => {
     const tree = renderer.create(
