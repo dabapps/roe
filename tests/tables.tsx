@@ -91,6 +91,16 @@ describe('Row', () => {
       expect(tree).toMatchSnapshot();
     });
 
+    it('should allow disabling scrolling', () => {
+      const tree = renderer.create(
+        <Table
+          scrollable={false}
+        />
+      );
+
+      expect(tree).toMatchSnapshot();
+    });
+
     it('should use a component prop as the table component', () => {
       const tree = renderer.create(
         <Table
