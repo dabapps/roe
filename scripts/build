@@ -2,4 +2,10 @@
 
 set -e
 
-bluekit --baseDir src/ts/ --paths .
+rm -rf docs/build/
+
+bluekit --baseDir src/ts/ --paths . --exclude "./componentsIndex.js"
+
+mkdir -p docs/build/js/
+
+browserify -d docs/src/ts/index.tsx -p [tsify -p docs/src/ts/tsconfig.json] -t brfs -t envify | exorcist docs/build/js/index.js.map > docs/build/js/index.js

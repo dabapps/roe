@@ -5,7 +5,7 @@
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
   "scripts": {
-    "start": "./scripts/start",
+    "start": "http-server -c-0 docs/ -o",
     "build": "./scripts/build",
     "dist": "./scripts/dist",
     "lint-js": "tslint --project tsconfig.json --type-check '@(src|tests|types|docs)/**/*.@(ts|tsx)'",
