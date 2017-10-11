@@ -56,6 +56,9 @@ module.exports = {
   ignore: [],
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
   webpackConfig: require('react-scripts-ts/config/webpack.config.dev.js'),
+  getExampleFilename: function (componentPath) {
+    return componentPath.replace(/\.tsx?$/, '.examples.md');
+  },
   sections: sortByName([
     {
       name: 'Components',
