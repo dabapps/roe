@@ -47,7 +47,7 @@ describe('Tables', () => {
 
     it('should fix row headers to specified width', () => {
       const tree = renderer.create(
-        <Table fixRowHeaders rowHeaderWidth={100}>
+        <Table fixRowHeaders>
           <TableHead>
             <TableRow>
               <TableHeader width={100}>

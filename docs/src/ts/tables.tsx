@@ -14,6 +14,8 @@ import {
   TableRow
 } from '../../../src/ts';
 
+const TABLE_HEADER_WIDTH = 150;
+
 const data = [
   ['', 'Column header 1', 'Column header 2', 'Column header 3', 'Column header 4', 'Column header 5'],
   ['Row header 1', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5'],
@@ -25,8 +27,6 @@ const data = [
 
 const [ headers = [], ...body ] = data;
 const smallBody = [...body].splice(0, 2);
-
-const COLUMN_HEADER_WIDTH = 150;
 
 const Tables = () => {
   return (
@@ -63,14 +63,14 @@ const Tables = () => {
             </TableBody>
           </Table>
 
-          <Table striped hover fill fixRowHeaders rowHeaderWidth={COLUMN_HEADER_WIDTH}>
+          <Table striped hover fill fixRowHeaders fixColumnHeaders>
             <TableHead>
               <TableRow>
                 {
                   headers.map((header, index) => index === 0 ? (
-                    <TableHeader key={header} width={COLUMN_HEADER_WIDTH} />
+                    <TableHeader key={header} fixed width={TABLE_HEADER_WIDTH} />
                   ) : (
-                    <TableHeader key={header}>
+                    <TableHeader key={header} fixed width={TABLE_HEADER_WIDTH}>
                       {header}
                     </TableHeader>
                   ))
@@ -83,7 +83,7 @@ const Tables = () => {
                   <TableRow key={rowIndex + row.join()}>
                     {
                       row.map((cell, index) => index === 0 ? (
-                        <TableHeader key={cell} width={COLUMN_HEADER_WIDTH}>
+                        <TableHeader key={cell} fixed width={TABLE_HEADER_WIDTH}>
                           {cell}
                         </TableHeader>
                       ) : (
