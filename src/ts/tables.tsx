@@ -14,7 +14,7 @@ export interface ITableFixedProps {
 
 export interface ITableUnfixedProps {
   fixRowHeaders?: false;
-  rowHeaderWidth?: undefined;
+  rowHeaderWidth?: never;
 }
 
 export interface ITableProps {
