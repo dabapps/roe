@@ -128,15 +128,20 @@ export const TableRow: React.SFC<IComponentProps & React.HTMLAttributes<HTMLTabl
   );
 };
 
-export interface ITableCellProps {
-  fixed?: boolean;
+export interface ITableCellUnfixedProps {
+  fixed?: false | undefined;
   width?: number;
 }
 
-export type TTableCellProps = React.SFC<ITableCellProps & IComponentProps &
+export interface ITableCellFixedProps {
+  fixed: true;
+  width: number;
+}
+
+export type TTableCellProps = React.SFC<(ITableCellUnfixedProps | ITableCellFixedProps) & IComponentProps &
   React.HTMLAttributes<HTMLTableHeaderCellElement>>;
 
-export type TTableHeaderProps = React.SFC<ITableCellProps & IComponentProps &
+export type TTableHeaderProps = React.SFC<(ITableCellUnfixedProps | ITableCellFixedProps) & IComponentProps &
   React.HTMLAttributes<HTMLTableHeaderCellElement>>;
 
 export const TableHeader: TTableHeaderProps = (props) => {
@@ -155,7 +160,7 @@ export const TableHeader: TTableHeaderProps = (props) => {
   return (
     <Component
       {...remainingProps}
-      className={classNames('table-header', fixed && 'with-fixed-header', className)}
+      className={classNames('table-header', fixed && 'with-fixed-element', className)}
       style={{width, maxWidth: width, minWidth: width, ...style}}
     >
       {
@@ -163,15 +168,18 @@ export const TableHeader: TTableHeaderProps = (props) => {
           (
             <span
               key={0}
-              className="table-header fixed-header"
-              style={{width, maxWidth: width, minWidth: width}}
+              className="table-header table-fixed-element"
+              style={{width}}
             >
               {content}
             </span>
           ),
           (
-            <span key={1}>
-              {NBSP}
+            <span
+              key={1}
+              className="table-header table-space-holder"
+            >
+              {content}
             </span>
           )
         ] : content
@@ -191,13 +199,35 @@ export const TableCell: TTableCellProps = (props) => {
     ...remainingProps
   } = props;
 
+  const content = shouldNotBeRendered(children) ? NBSP : children;
+
   return (
     <Component
       {...remainingProps}
-      className={classNames('table-cell', className)}
+      className={classNames('table-header', fixed && 'with-fixed-element', className)}
       style={{width, maxWidth: width, minWidth: width, ...style}}
     >
-      {shouldNotBeRendered(children) ? NBSP : children}
+      {
+        fixed ? [
+          (
+            <span
+              key={0}
+              className="table-cell table-fixed-element"
+              style={{width}}
+            >
+              {content}
+            </span>
+          ),
+          (
+            <span
+              key={1}
+              className="table-cell table-space-holder"
+            >
+              {content}
+            </span>
+          )
+        ] : content
+      }
     </Component>
   );
 };

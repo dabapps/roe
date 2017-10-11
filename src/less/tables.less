@@ -57,28 +57,37 @@
     }
   }
 
-  .with-fixed-header {
+  .with-fixed-element {
     padding: 0;
 
-    .fixed-header {
-      display: inline-block;
+    .table-fixed-element {
+      display: block;
       position: relative;
       z-index: 0;
     }
+
+    .table-space-holder {
+      display: none;
+      visibility: hidden;
+    }
   }
 
-  tr .with-fixed-header:first-child .fixed-header {
+  .with-fixed-element:first-child .table-fixed-element {
     z-index: 1;
   }
 
   &.fix-row-headers {
-    tr .with-fixed-header:first-child {
+    .with-fixed-element:first-child {
       vertical-align: top;
 
-      .fixed-header {
+      .table-fixed-element {
         position: absolute;
         left: 0;
         border-right: @table-border;
+      }
+
+      .table-space-holder {
+        display: block;
       }
     }
   }

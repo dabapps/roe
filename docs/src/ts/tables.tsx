@@ -14,6 +14,8 @@ import {
   TableRow
 } from '../../../src/ts';
 
+const TABLE_HEADER_WIDTH = 150;
+
 const data = [
   ['', 'Column header 1', 'Column header 2', 'Column header 3', 'Column header 4', 'Column header 5'],
   ['Row header 1', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5'],
@@ -66,9 +68,9 @@ const Tables = () => {
               <TableRow>
                 {
                   headers.map((header, index) => index === 0 ? (
-                    <TableHeader key={header} fixed />
+                    <TableHeader key={header} fixed width={TABLE_HEADER_WIDTH} />
                   ) : (
-                    <TableHeader key={header} fixed>
+                    <TableHeader key={header} fixed width={TABLE_HEADER_WIDTH}>
                       {header}
                     </TableHeader>
                   ))
@@ -81,7 +83,7 @@ const Tables = () => {
                   <TableRow key={rowIndex + row.join()}>
                     {
                       row.map((cell, index) => index === 0 ? (
-                        <TableHeader key={cell} fixed>
+                        <TableHeader key={cell} fixed width={TABLE_HEADER_WIDTH}>
                           {cell}
                         </TableHeader>
                       ) : (
