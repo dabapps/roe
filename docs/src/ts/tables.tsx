@@ -26,8 +26,6 @@ const data = [
 const [ headers = [], ...body ] = data;
 const smallBody = [...body].splice(0, 2);
 
-const COLUMN_HEADER_WIDTH = 150;
-
 const Tables = () => {
   return (
     <Section>

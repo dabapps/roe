@@ -67,15 +67,13 @@ export const Table: TTable = (props) => {
 
   return (
     <div className="table-wrapper">
-      <div style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null}}>
-       <div className={scrollable ? 'table-scroller' : undefined}>
-          <Component
-            {...remainingProps}
-            className={classNames(myClassNames)}
-          >
-           {children}
-          </Component>
-        </div>
+      <div className={scrollable ? 'table-scroller' : undefined}>
+        <Component
+          {...remainingProps}
+          className={classNames(myClassNames)}
+        >
+          {children}
+        </Component>
       </div>
     </div>
   );
@@ -130,15 +128,15 @@ export const TableRow: React.SFC<IComponentProps & React.HTMLAttributes<HTMLTabl
   );
 };
 
-export interface ITableCellUnfixedProps {
-  fixed?: false | undefined;
-  width?: undefined;
+export interface ITableCellProps {
+  fixed?: boolean;
+  width?: number;
 }
 
-export type TTableCellProps = React.SFC<(ITableCellFixedProps | ITableCellUnfixedProps) & IComponentProps &
+export type TTableCellProps = React.SFC<ITableCellProps & IComponentProps &
   React.HTMLAttributes<HTMLTableHeaderCellElement>>;
 
-export type TTableHeaderProps = React.SFC<(ITableCellFixedProps | ITableCellUnfixedProps) & IComponentProps &
+export type TTableHeaderProps = React.SFC<ITableCellProps & IComponentProps &
   React.HTMLAttributes<HTMLTableHeaderCellElement>>;
 
 export const TableHeader: TTableHeaderProps = (props) => {
