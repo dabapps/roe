@@ -1,16 +1,19 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
+import { HTMLProps, PureComponent } from 'react';
 
-export interface IProps {
+export interface WellProps extends HTMLProps<HTMLDivElement> {
   component?: string;
 }
 
-export const Well: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (props) => {
-  const { children, className, component: Component = 'div', ...remainingProps } = props;
+export class Well extends PureComponent<WellProps, void> {
+  public render () {
+    const { children, className, component: Component = 'div', ...remainingProps } = this.props;
 
-  return (
-    <Component {...remainingProps} className={classNames(['well', className])}>
-      {children}
-    </Component>
-  );
-};
+    return (
+      <Component {...remainingProps} className={classNames(['well', className])}>
+        {children}
+      </Component>
+    );
+  }
+}
