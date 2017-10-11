@@ -1,22 +1,27 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-export const InputGroupAddon: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
+export interface IProps {
+  component?: string;
+}
+
+export const InputGroupAddon: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (props) => {
   const {
     children,
     className,
     width,
     style,
+    component: Component = 'div',
     ...remainingProps
   } = props;
 
   return (
-    <div
+    <Component
       {...remainingProps}
       className={classNames('input-group-addon', className)}
       style={{width, ...style}}
     >
       {children}
-    </div>
+    </Component>
   );
 };

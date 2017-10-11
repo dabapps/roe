@@ -10,7 +10,7 @@ import {
   TableRow
 } from '../src/ts/';
 
-describe('Row', () => {
+describe('Tables', () => {
 
   it('should match snapshot', () => {
     const tree = renderer.create(
@@ -76,9 +76,36 @@ describe('Row', () => {
       expect(tree).toMatchSnapshot();
     });
 
-    it('should set the min width if set to fill', () => {
+    it('should apply some boolean classes', () => {
       const tree = renderer.create(
-        <Table fill />
+        <Table
+          striped
+          bordered
+          hover
+          condensed
+          fill
+          fixed
+        />
+      );
+
+      expect(tree).toMatchSnapshot();
+    });
+
+    it('should allow disabling scrolling', () => {
+      const tree = renderer.create(
+        <Table
+          scrollable={false}
+        />
+      );
+
+      expect(tree).toMatchSnapshot();
+    });
+
+    it('should use a component prop as the table component', () => {
+      const tree = renderer.create(
+        <Table
+          component="p"
+        />
       );
 
       expect(tree).toMatchSnapshot();
@@ -96,6 +123,30 @@ describe('Row', () => {
       expect(tree).toMatchSnapshot();
     });
 
+    it('should render the number 0', () => {
+      expect(renderer.create(
+        <TableHeader>{0}</TableHeader>
+      )).toMatchSnapshot();
+    });
+
+    it('should not render null, false, undefined or empty string', () => {
+      expect(renderer.create(
+        <TableHeader>{null}</TableHeader>
+      )).toMatchSnapshot();
+
+      expect(renderer.create(
+        <TableHeader>{false}</TableHeader>
+      )).toMatchSnapshot();
+
+      expect(renderer.create(
+        <TableHeader>{undefined}</TableHeader>
+      )).toMatchSnapshot();
+
+      expect(renderer.create(
+        <TableHeader>{''}</TableHeader>
+      )).toMatchSnapshot();
+    });
+
   });
 
   describe('TableCell', () => {
@@ -106,6 +157,30 @@ describe('Row', () => {
       );
 
       expect(tree).toMatchSnapshot();
+    });
+
+    it('should render the number 0', () => {
+      expect(renderer.create(
+        <TableCell>{0}</TableCell>
+      )).toMatchSnapshot();
+    });
+
+    it('should not render null, false, undefined or empty string', () => {
+      expect(renderer.create(
+        <TableCell>{null}</TableCell>
+      )).toMatchSnapshot();
+
+      expect(renderer.create(
+        <TableCell>{false}</TableCell>
+      )).toMatchSnapshot();
+
+      expect(renderer.create(
+        <TableCell>{undefined}</TableCell>
+      )).toMatchSnapshot();
+
+      expect(renderer.create(
+        <TableCell>{''}</TableCell>
+      )).toMatchSnapshot();
     });
 
   });

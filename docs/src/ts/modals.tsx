@@ -5,17 +5,27 @@ import {
   Button,
   CodeBlock,
   Column,
+  DabIpsum,
   Modal,
+  ModalBody,
   ModalCloseIcon,
   ModalFooter,
   ModalHeader,
   ModalRenderer,
   Row,
-  Section
+  Section,
+  SpacedGroup,
 } from '../../../src/ts';
 
 interface IState {
   modals: React.ReactNode[];
+}
+
+interface IModalAdditionalProps {
+  scrollable: boolean;
+  small: boolean;
+  large: boolean;
+  fill: boolean;
 }
 
 class Modals extends React.Component<{}, IState> {
@@ -53,9 +63,27 @@ class Modals extends React.Component<{}, IState> {
             </h3>
             <ModalRenderer modals={modals} />
 
-            <Button className="primary" onClick={this.onClickOpenModal}>
-              Open modal
-            </Button>
+            <SpacedGroup>
+              <Button className="primary" onClick={() => this.onClickOpenModal()}>
+                Open modal
+              </Button>
+
+              <Button className="primary" onClick={() => this.onClickOpenModal({scrollable: true})}>
+                Open scrollable modal
+              </Button>
+
+              <Button className="primary" onClick={() => this.onClickOpenModal({small: true})}>
+                Open small modal
+              </Button>
+
+              <Button className="primary" onClick={() => this.onClickOpenModal({large: true})}>
+                Open large modal
+              </Button>
+
+              <Button className="primary" onClick={() => this.onClickOpenModal({fill: true})}>
+                Open fill modal
+              </Button>
+            </SpacedGroup>
           </Column>
         </Row>
         <Row>
@@ -69,9 +97,21 @@ class Modals extends React.Component<{}, IState> {
             <p>
               Note: ModalCloseIcon should be the first element inside the ModalHeader.
             </p>
+            <p>
+              Give a modal the scrollable prop to limit its height to the window and allow the ModalBody to scroll.
+            </p>
+            <p>
+              Give a modal the small prop to limit its width (ideal for alert / confirm dialogs).
+            </p>
+            <p>
+              Give a modal the large prop so that it fills the same area as the Container on all screens.
+            </p>
+            <p>
+              Give a modal the fill prop so that it fills the entire window.
+            </p>
             <CodeBlock language="javascript" name="Opening and closing modals">
               {`
-                public onClickCloseModal () {
+                private onClickCloseModal () {
                   const modals = [...this.state.modals];
                   modals.pop();
 
@@ -80,7 +120,7 @@ class Modals extends React.Component<{}, IState> {
                   });
                 }
 
-                public onClickOpenModal () {
+                private onClickOpenModal () {
                   this.setState({
                     modals: [...this.state.modals, (
                       <Modal onClickOutside={this.onClickCloseModal}>
@@ -92,9 +132,9 @@ class Modals extends React.Component<{}, IState> {
                             Header
                           </h5>
                         </ModalHeader>
-                        <p>
-                          Content
-                        </p>
+                        <ModalBody>
+                          <DabIpsum count={25} />
+                        </ModalBody>
                         <ModalFooter>
                           <p>
                             <Button className="primary" onClick={this.onClickCloseModal}>
@@ -135,10 +175,10 @@ class Modals extends React.Component<{}, IState> {
     });
   }
 
-  private onClickOpenModal () {
+  private onClickOpenModal (props?: Partial<IModalAdditionalProps>) {
     this.setState({
       modals: [...this.state.modals, (
-        <Modal onClickOutside={this.onClickCloseModal}>
+        <Modal {...props} onClickOutside={this.onClickCloseModal}>
           <ModalHeader>
             <ModalCloseIcon onClick={this.onClickCloseModal}>
               X
@@ -147,9 +187,9 @@ class Modals extends React.Component<{}, IState> {
               Header
             </h5>
           </ModalHeader>
-          <p>
-            Content
-          </p>
+          <ModalBody>
+            <DabIpsum count={25} />
+          </ModalBody>
           <ModalFooter>
             <p>
               <Button className="primary" onClick={this.onClickCloseModal}>

@@ -2,6 +2,7 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 
 export interface IProps {
+  component?: string;
   block?: boolean;
 }
 
@@ -10,6 +11,7 @@ export const FormGroup: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (p
     children,
     className,
     block,
+    component: Component = 'div',
     ...remainingProps
   } = props;
 
@@ -20,8 +22,8 @@ export const FormGroup: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (p
   ];
 
   return (
-    <div {...remainingProps} className={classNames(myClassNames)}>
+    <Component {...remainingProps} className={classNames(myClassNames)}>
       {children}
-    </div>
+    </Component>
   );
 };

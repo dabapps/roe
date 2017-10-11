@@ -2,6 +2,7 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 
 export interface IProps {
+  component?: string;
   xs?: number;
   sm?: number;
   md?: number;
@@ -33,6 +34,7 @@ export const Column: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (prop
   const {
     children,
     className,
+    component: Component = 'div',
     xs,
     sm,
     md,
@@ -92,8 +94,8 @@ export const Column: React.SFC<IProps & React.HTMLProps<HTMLDivElement>> = (prop
   ];
 
   return (
-    <div {...remainingProps} className={classNames(myClassNames)}>
+    <Component {...remainingProps} className={classNames(myClassNames)}>
       {children}
-    </div>
+    </Component>
   );
 };

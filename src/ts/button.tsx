@@ -2,6 +2,7 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 
 export interface IProps {
+  component?: string;
   block?: boolean;
   large?: boolean;
   small?: boolean;
@@ -14,6 +15,7 @@ export const Button: React.SFC<IProps & React.HTMLProps<HTMLButtonElement>> = (p
     block,
     large,
     small,
+    component: Component = 'button',
     ...remainingProps
   } = props;
 
@@ -26,8 +28,8 @@ export const Button: React.SFC<IProps & React.HTMLProps<HTMLButtonElement>> = (p
   ];
 
   return (
-    <button {...remainingProps} className={classNames(myClassNames)}>
+    <Component {...remainingProps} className={classNames(myClassNames)}>
       {children}
-    </button>
+    </Component>
   );
 };

@@ -2,6 +2,7 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 
 export interface IProps {
+  component?: string;
   block?: boolean;
   small?: boolean;
   large?: boolean;
@@ -14,6 +15,7 @@ export const SpacedGroup: React.SFC<IProps & React.HTMLProps<HTMLSpanElement>> =
     block,
     small,
     large,
+    component: Component = 'span',
     ...remainingProps
   } = props;
 
@@ -26,8 +28,8 @@ export const SpacedGroup: React.SFC<IProps & React.HTMLProps<HTMLSpanElement>> =
   ]
 
   return (
-    <span {...remainingProps} className={classNames(myClassNames)}>
+    <Component {...remainingProps} className={classNames(myClassNames)}>
       {children}
-    </span>
+    </Component>
   );
 };

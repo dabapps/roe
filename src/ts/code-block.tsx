@@ -12,6 +12,7 @@ const MATCHES_BLANK_FIRST_LINE = /^\s*\n/;
 const MATCHES_BLANK_LAST_LINE = /\n\s*$/;
 
 export interface IProps extends React.HTMLProps<HTMLDivElement> {
+  component?: string;
   children?: string;
   language?: string;
 }
@@ -56,13 +57,13 @@ export class CodeBlock extends React.Component<IProps, any> {
   }
 
   public render () {
-    const { children, className, language, name, ...remainingProps } = this.props;
+    const { children, className, language, name, component: Component = 'div', ...remainingProps } = this.props;
     const languageClassName = language && `language-${language}`;
 
     const content = typeof children === 'string' ? formatCode(children) : children;
 
     return (
-      <div {...remainingProps} className={classNames('code-block-wrapper', className)}>
+      <Component {...remainingProps} className={classNames('code-block-wrapper', className)}>
         {
           typeof name !== 'undefined' && (
             <div className="code-block-name">
@@ -83,7 +84,7 @@ export class CodeBlock extends React.Component<IProps, any> {
         >
           {content}
         </pre>
-      </div>
+      </Component>
     );
   }
 }

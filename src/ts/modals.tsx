@@ -20,9 +20,7 @@ export const ModalRenderer: React.SFC<IModalRendererProps & React.HTMLProps<HTML
       {
         modals && modals.map((modal, index) => (
           <div key={index} className="modal-container">
-            <div className="modal-position">
-              {modal}
-            </div>
+            {modal}
           </div>
         ))
       }
@@ -31,7 +29,16 @@ export const ModalRenderer: React.SFC<IModalRendererProps & React.HTMLProps<HTML
 }
 
 export interface IModalProps {
+  component?: string;
+  scrollable?: boolean;
+  small?: boolean;
+  large?: boolean;
+  fill?: boolean;
   onClickOutside(event: React.MouseEvent<HTMLDivElement>): void;
+}
+
+export interface IComponentProps {
+  component?: string;
 }
 
 export const Modal: React.SFC<IModalProps & React.HTMLProps<HTMLDivElement>> = (props) => {
@@ -39,57 +46,90 @@ export const Modal: React.SFC<IModalProps & React.HTMLProps<HTMLDivElement>> = (
     className,
     children,
     onClickOutside,
+    scrollable,
+    small,
+    large,
+    fill,
+    component: Component = 'div',
     ...remainingProps
   } = props;
+
+  const myClassNames = [
+    'modal-position',
+    scrollable ? 'scrollable' : null,
+    small ? 'small' : null,
+    large ? 'large' : null,
+    fill ? 'fill' : null,
+  ];
 
   return (
     <div>
       <div className="modal-overlay" onClick={onClickOutside} />
-      <div {...remainingProps} className={classNames('modal', className)}>
-        {children}
+      <div {...remainingProps} className={classNames(myClassNames)}>
+        <Component className="modal">
+          {children}
+        </Component>
       </div>
     </div>
   );
 }
 
-export const ModalHeader: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
+export const ModalHeader: React.SFC<IComponentProps & React.HTMLProps<HTMLDivElement>> = (props) => {
   const {
     className,
     children,
+    component: Component = 'div',
     ...remainingProps
   } = props;
 
   return (
-    <div {...remainingProps} className={classNames('modal-header', className)}>
+    <Component {...remainingProps} className={classNames('modal-header', className)}>
       {children}
-    </div>
+    </Component>
   );
 }
 
-export const ModalFooter: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
+export const ModalBody: React.SFC<IComponentProps & React.HTMLProps<HTMLDivElement>> = (props) => {
   const {
     className,
     children,
+    component: Component = 'div',
     ...remainingProps
   } = props;
 
   return (
-    <div {...remainingProps} className={classNames('modal-footer', className)}>
+    <Component {...remainingProps} className={classNames('modal-body', className)}>
       {children}
-    </div>
+    </Component>
   );
 }
 
-export const ModalCloseIcon: React.SFC<React.HTMLProps<HTMLDivElement>> = (props) => {
+export const ModalFooter: React.SFC<IComponentProps & React.HTMLProps<HTMLDivElement>> = (props) => {
   const {
     className,
     children,
+    component: Component = 'div',
     ...remainingProps
   } = props;
 
   return (
-    <div {...remainingProps} className={classNames('modal-close-icon', className)}>
+    <Component {...remainingProps} className={classNames('modal-footer', className)}>
       {children}
-    </div>
+    </Component>
+  );
+}
+
+export const ModalCloseIcon: React.SFC<IComponentProps & React.HTMLProps<HTMLDivElement>> = (props) => {
+  const {
+    className,
+    children,
+    component: Component = 'div',
+    ...remainingProps
+  } = props;
+
+  return (
+    <Component {...remainingProps} className={classNames('modal-close-icon', className)}>
+      {children}
+    </Component>
   );
 }
