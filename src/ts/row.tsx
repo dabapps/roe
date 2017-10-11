@@ -1,19 +1,17 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { HTMLProps, StatelessComponent } from 'react';
 
-export interface RowProps extends HTMLProps<HTMLDivElement> {
+export interface RowProps extends HTMLProps<HTMLElement> {
   component?: string;
 }
 
-export class Row extends PureComponent<RowProps, void> {
-  public render () {
-    const { children, className, component: Component = 'div', ...remainingProps } = this.props;
+export const Row: StatelessComponent<RowProps> = (props) => {
+  const { children, className, component: Component = 'div', ...remainingProps } = props;
 
-    return (
-      <Component {...remainingProps} className={classNames(['row', className])}>
-        {children}
-      </Component>
-    );
-  }
+  return (
+    <Component {...remainingProps} className={classNames(['row', className])}>
+      {children}
+    </Component>
+  );
 }

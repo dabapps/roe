@@ -1,6 +1,6 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { HTMLProps, StatelessComponent } from 'react';
 
 const NBSP = '\u00a0';
 
@@ -32,171 +32,159 @@ export interface BaseTableProps {
 
 export type TableProps = BaseTableProps &
   (TableFixedRowHeaderProps | TableUnfixedRowHeaderProps) &
-  HTMLProps<HTMLTableElement>;
+  HTMLProps<HTMLElement>;
 
-export class Table extends PureComponent<TableProps, void> {
-  public render () {
-    const {
-      className,
-      children,
-      collapse = 'sm',
-      scrollable = true,
-      fixRowHeaders,
-      rowHeaderWidth,
-      striped,
-      bordered,
-      hover,
-      condensed,
-      fill,
-      fixed,
-      component: Component = 'table',
-      ...remainingProps
-    } = this.props;
+export const Table: StatelessComponent<TableProps> = (props) => {
+  const {
+    className,
+    children,
+    collapse = 'sm',
+    scrollable = true,
+    fixRowHeaders,
+    rowHeaderWidth,
+    striped,
+    bordered,
+    hover,
+    condensed,
+    fill,
+    fixed,
+    component: Component = 'table',
+    ...remainingProps
+  } = props;
 
-    const myClassNames = [
-      'table',
-      `${collapse}-collapse`,
-      fixRowHeaders ? 'fix-row-headers' : null,
-      striped ? 'striped' : null,
-      bordered ? 'bordered' : null,
-      hover ? 'hover' : null,
-      condensed ? 'condensed' : null,
-      fill ? 'fill' : null,
-      fixed ? 'fixed' : null,
-      className
-    ];
+  const myClassNames = [
+    'table',
+    `${collapse}-collapse`,
+    fixRowHeaders ? 'fix-row-headers' : null,
+    striped ? 'striped' : null,
+    bordered ? 'bordered' : null,
+    hover ? 'hover' : null,
+    condensed ? 'condensed' : null,
+    fill ? 'fill' : null,
+    fixed ? 'fixed' : null,
+    className
+  ];
 
-    return (
-      <div className="table-wrapper">
-        <div style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null}}>
-          <div className={scrollable ? 'table-scroller' : undefined}>
-            <Component
-              {...remainingProps}
-              className={classNames(myClassNames)}
-            >
-              {children}
-            </Component>
-          </div>
+  return (
+    <div className="table-wrapper">
+      <div style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null}}>
+        <div className={scrollable ? 'table-scroller' : undefined}>
+          <Component
+            {...remainingProps}
+            className={classNames(myClassNames)}
+          >
+            {children}
+          </Component>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export interface ComponentProps {
   component?: string;
 }
 
-export type TableSectionProps = ComponentProps & HTMLProps<HTMLTableSectionElement>;
+export type TableSectionProps = ComponentProps & HTMLProps<HTMLElement>;
 
 // tslint:disable-next-line:max-classes-per-file
-export class TableHead extends PureComponent<TableSectionProps, void> {
-  public render () {
-    const {
-      className,
-      children,
-      component: Component = 'thead',
-      ...remainingProps
-    } = this.props;
+export const TableHead: StatelessComponent<TableSectionProps> = (props) => {
+  const {
+    className,
+    children,
+    component: Component = 'thead',
+    ...remainingProps
+  } = props;
 
-    return (
-      <Component {...remainingProps} className={classNames('table-head', className)}>
-        {children}
-      </Component>
-    );
-  }
+  return (
+    <Component {...remainingProps} className={classNames('table-head', className)}>
+      {children}
+    </Component>
+  );
 }
 
 // tslint:disable-next-line:max-classes-per-file
-export class TableBody extends PureComponent<TableSectionProps, void> {
-  public render () {
-    const {
-      className,
-      children,
-      component: Component = 'tbody',
-      ...remainingProps
-    } = this.props;
+export const TableBody: StatelessComponent<TableSectionProps> = (props) => {
+  const {
+    className,
+    children,
+    component: Component = 'tbody',
+    ...remainingProps
+  } = props;
 
-    return (
-      <Component {...remainingProps} className={classNames('table-body', className)}>
-        {children}
-      </Component>
-    );
-  }
+  return (
+    <Component {...remainingProps} className={classNames('table-body', className)}>
+      {children}
+    </Component>
+  );
 }
 
-export type TableRowProps = ComponentProps & HTMLProps<HTMLTableRowElement>;
+export type TableRowProps = ComponentProps & HTMLProps<HTMLElement>;
 
 // tslint:disable-next-line:max-classes-per-file
-export class TableRow extends PureComponent<TableRowProps, void> {
-  public render () {
-    const {
-      className,
-      children,
-      component: Component = 'tr',
-      ...remainingProps
-    } = this.props;
+export const TableRow: StatelessComponent<TableRowProps> = (props) => {
+  const {
+    className,
+    children,
+    component: Component = 'tr',
+    ...remainingProps
+  } = props;
 
-    return (
-      <Component {...remainingProps} className={classNames('table-row', className)}>
-        {children}
-      </Component>
-    );
-  }
+  return (
+    <Component {...remainingProps} className={classNames('table-row', className)}>
+      {children}
+    </Component>
+  );
 }
 
 export interface BaseTableCellProps extends ComponentProps {
   width?: number | string;
 }
 
-export type TableHeaderProps = BaseTableCellProps & HTMLProps<HTMLTableHeaderCellElement>;
+export type TableHeaderProps = BaseTableCellProps & HTMLProps<HTMLElement>;
 
 // tslint:disable-next-line:max-classes-per-file
-export class TableHeader extends PureComponent<TableHeaderProps, void> {
-  public render () {
-    const {
-      className,
-      children,
-      style,
-      width,
-      component: Component = 'th',
-      ...remainingProps
-    } = this.props;
+export const TableHeader: StatelessComponent<TableHeaderProps> = (props) => {
+  const {
+    className,
+    children,
+    style,
+    width,
+    component: Component = 'th',
+    ...remainingProps
+  } = props;
 
-    return (
-      <Component
-        {...remainingProps}
-        className={classNames('table-header', className)}
-        style={{width, maxWidth: width, minWidth: width, ...style}}
-      >
-        {shouldNotBeRendered(children) ? NBSP : children}
-      </Component>
-    );
-  }
+  return (
+    <Component
+      {...remainingProps}
+      className={classNames('table-header', className)}
+      style={{width, maxWidth: width, minWidth: width, ...style}}
+    >
+      {shouldNotBeRendered(children) ? NBSP : children}
+    </Component>
+  );
 }
 
-export type TableCellProps = BaseTableCellProps & HTMLProps<HTMLTableCellElement>;
+export type TableCellProps = BaseTableCellProps & HTMLProps<HTMLElement>;
 
 // tslint:disable-next-line:max-classes-per-file
-export class TableCell extends PureComponent<TableCellProps, void> {
-  public render () {
-    const {
-      className,
-      children,
-      style,
-      width,
-      component: Component = 'td',
-      ...remainingProps
-    } = this.props;
+export const TableCell: StatelessComponent<TableCellProps> = (props) => {
+  const {
+    className,
+    children,
+    style,
+    width,
+    component: Component = 'td',
+    ...remainingProps
+  } = props;
 
-    return (
-      <Component
-        {...remainingProps}
-        className={classNames('table-cell', className)}
-        style={{width, maxWidth: width, minWidth: width, ...style}}
-      >
-        {shouldNotBeRendered(children) ? NBSP : children}
-      </Component>
-    );
-  }
+  return (
+    <Component
+      {...remainingProps}
+      className={classNames('table-cell', className)}
+      style={{width, maxWidth: width, minWidth: width, ...style}}
+    >
+      {shouldNotBeRendered(children) ? NBSP : children}
+    </Component>
+  );
 }

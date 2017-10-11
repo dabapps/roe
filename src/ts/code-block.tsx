@@ -6,17 +6,17 @@ declare const hljs: void | IHighlightJS;
 
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { HTMLProps } from 'react';
 
 import { formatCode } from './utils';
 
-export interface CodeBlockProps extends HTMLProps<HTMLDivElement> {
+export interface CodeBlockProps extends HTMLProps<HTMLElement> {
   component?: string;
   children?: string;
   language?: string;
 }
 
-export class CodeBlock extends PureComponent<CodeBlockProps, any> {
+export class CodeBlock extends React.Component<CodeBlockProps, any> {
   public element: HTMLPreElement;
 
   public constructor (props: CodeBlockProps) {

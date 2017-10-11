@@ -1,19 +1,17 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { HTMLProps, StatelessComponent } from 'react';
 
-export interface WellProps extends HTMLProps<HTMLDivElement> {
+export interface WellProps extends HTMLProps<HTMLElement> {
   component?: string;
 }
 
-export class Well extends PureComponent<WellProps, void> {
-  public render () {
-    const { children, className, component: Component = 'div', ...remainingProps } = this.props;
+export const Well: StatelessComponent<WellProps> = (props) => {
+  const { children, className, component: Component = 'div', ...remainingProps } = props;
 
-    return (
-      <Component {...remainingProps} className={classNames(['well', className])}>
-        {children}
-      </Component>
-    );
-  }
+  return (
+    <Component {...remainingProps} className={classNames(['well', className])}>
+      {children}
+    </Component>
+  );
 }

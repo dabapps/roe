@@ -1,19 +1,17 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { HTMLProps, StatelessComponent } from 'react';
 
-export interface SectionProps extends HTMLProps<HTMLDivElement> {
+export interface SectionProps extends HTMLProps<HTMLElement> {
   component?: string;
 }
 
-export class Section extends PureComponent<SectionProps, void> {
-  public render () {
-    const { children, className, component: Component = 'section', ...remainingProps } = this.props;
+export const Section: StatelessComponent<SectionProps> = (props) => {
+  const { children, className, component: Component = 'section', ...remainingProps } = props;
 
-    return (
-      <Component {...remainingProps} className={classNames(['section', className])}>
-        {children}
-      </Component>
-    );
-  }
+  return (
+    <Component {...remainingProps} className={classNames(['section', className])}>
+      {children}
+    </Component>
+  );
 }

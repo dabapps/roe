@@ -1,30 +1,28 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { HTMLProps, StatelessComponent } from 'react';
 
-export interface InputGroupAddonProps extends HTMLProps<HTMLDivElement> {
+export interface InputGroupAddonProps extends HTMLProps<HTMLElement> {
   component?: string;
 }
 
-export class InputGroupAddon extends PureComponent<InputGroupAddonProps, void> {
-  public render () {
-    const {
-      children,
-      className,
-      width,
-      style,
-      component: Component = 'div',
-      ...remainingProps
-    } = this.props;
+export const InputGroupAddon: StatelessComponent<InputGroupAddonProps> = (props) => {
+  const {
+    children,
+    className,
+    width,
+    style,
+    component: Component = 'div',
+    ...remainingProps
+  } = props;
 
-    return (
-      <Component
-        {...remainingProps}
-        className={classNames('input-group-addon', className)}
-        style={{width, ...style}}
-      >
-        {children}
-      </Component>
-    );
-  }
+  return (
+    <Component
+      {...remainingProps}
+      className={classNames('input-group-addon', className)}
+      style={{width, ...style}}
+    >
+      {children}
+    </Component>
+  );
 }
