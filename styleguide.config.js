@@ -1,7 +1,7 @@
 module.exports = {
   title: 'Roe',
   components: 'src/ts/**/*.{ts,tsx}',
-  ignore: ['**/ts/index.ts', '**/utils/**'],
+  ignore: ['**/ts/index.ts', '**/utils.ts'],
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
   webpackConfig: require('react-scripts-ts/config/webpack.config.dev.js'),
   sections: [
