@@ -87,7 +87,7 @@ export const generateIpsum = () => {
   return ipsum.charAt(0).toUpperCase() + ipsum.substring(1) + '.';
 }
 
-export class Ipsum extends PureComponent<IpsumProps, void> {
+class Ipsum extends PureComponent<IpsumProps, void> {
   public render () {
     const { component } = this.props;
     const ipsum = generateIpsum();
