@@ -8,7 +8,7 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps } from 'react';
 
-import { formatCode } from './utils';
+import { formatCode } from '../utils';
 
 export interface CodeBlockProps extends HTMLProps<HTMLElement> {
   component?: string;

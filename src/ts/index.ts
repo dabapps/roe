@@ -1,7 +1,7 @@
-export { Alert } from './alert';
-export { Anchor } from './anchor';
+export { Alert } from './components/alert';
+export { Anchor } from './components/anchor';
 export { Button } from './components/forms/button';
-export { CodeBlock } from './code-block';
+export { CodeBlock } from './components/code-block';
 export { Column } from './components/grid/column';
 export { Container } from './components/grid/container';
 export {
@@ -23,7 +23,7 @@ export {
 } from './components/modals/modals';
 export { Row } from './components/grid/row';
 export { Section } from './components/content/section';
-export { SpacedGroup } from './spaced-group';
+export { SpacedGroup } from './components/spaced-group';
 export { Tabs } from './components/tabs/tabs';
 export { Tab } from './components/tabs/tab';
 export {
@@ -34,4 +34,4 @@ export {
   TableHeader,
   TableRow
 } from './components/tables/tables';
-export { Well } from './well';
+export { Well } from './components/well';
