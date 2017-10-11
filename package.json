@@ -5,8 +5,8 @@
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
   "scripts": {
-    "start": "http-server -c-0 docs/ -o",
-    "build": "./scripts/build",
+    "start": "styleguidist server",
+    "build": "styleguidist build",
     "dist": "./scripts/dist",
     "lint-js": "tslint --project tsconfig.json --type-check '@(src|tests|types|docs)/**/*.@(ts|tsx)'",
     "lint-less": "lesshint 'src/less/' 'docs/src/less/'",
@@ -65,12 +65,16 @@
     "jest": "20.0.3",
     "lesshint": "3.3.1",
     "livereload": "0.6.2",
+    "react-docgen-typescript": "1.0.2",
+    "react-scripts-ts": "2.7.0",
+    "react-styleguidist": "6.0.30",
     "react-test-renderer": "15.5.4",
     "ts-jest": "20.0.3",
     "tslint": "5.5.0",
     "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.3.1",
     "watch-less-do-more": "0.2.0",
-    "watchify": "3.9.0"
+    "watchify": "3.9.0",
+    "webpack": "3.7.1"
   },
   "peerDependencies": {
     "react": ">= 15 < 16",
