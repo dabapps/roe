@@ -7,11 +7,19 @@ module.exports = {
   sections: [
     {
       name: 'Grid',
-      components: '**/grid/**/*.tsx'
+      components: 'src/ts/components/grid/**/*.tsx'
     },
     {
       name: 'Tabs',
-      components: '**/tabs/**/*.tsx'
+      components: 'src/ts/components/tabs/**/*.tsx'
+    },
+    {
+      name: 'Forms',
+      components: 'src/ts/components/forms/**/*.tsx'
+    },
+    {
+      name: 'Misc',
+      components: 'src/ts/components/*.tsx'
     }
   ]
 };

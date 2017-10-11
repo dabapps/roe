@@ -1,6 +1,6 @@
 export { Alert } from './alert';
 export { Anchor } from './anchor';
-export { Button } from './button';
+export { Button } from './components/forms/button';
 export { CodeBlock } from './code-block';
 export { Column } from './components/grid/column';
 export { Container } from './container';
@@ -10,9 +10,9 @@ export {
   ContentBoxHeader,
 } from './content-box';
 export { DabIpsum } from './dab-ipsum';
-export { FormGroup } from './form-group';
-export { InputGroup } from './input-group';
-export { InputGroupAddon } from './input-group-addon';
+export { FormGroup } from './components/forms/form-group';
+export { InputGroup } from './components/forms/input-group';
+export { InputGroupAddon } from './components/forms/input-group-addon';
 export {
   Modal,
   ModalBody,
