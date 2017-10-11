@@ -54,7 +54,7 @@ export const Table: TTable = (props) => {
   const myClassNames = [
     'table',
     `${collapse}-collapse`,
-    fixRowHeaders ? 'fix-column-headers' : null,
+    fixRowHeaders ? 'fix-row-headers' : null,
     striped ? 'striped' : null,
     bordered ? 'bordered' : null,
     hover ? 'hover' : null,
