@@ -7,3 +7,5 @@ export interface ComponentProps {
 export interface ContentBoxProps extends HTMLProps<HTMLElement> {
   component?: string;
 }
+
+export type ModalContentProps = ComponentProps & HTMLProps<HTMLElement>;

@@ -11,14 +11,12 @@ export { DabIpsum } from './components/prototyping/dab-ipsum';
 export { FormGroup } from './components/forms/form-group';
 export { InputGroup } from './components/forms/input-group';
 export { InputGroupAddon } from './components/forms/input-group-addon';
-export {
-  Modal,
-  ModalBody,
-  ModalCloseIcon,
-  ModalFooter,
-  ModalHeader,
-  ModalRenderer,
-} from './components/modals/modals';
+export { Modal } from './components/modals/modal';
+export { ModalBody } from './components/modals/modal-body';
+export { ModalCloseIcon } from './components/modals/modal-close-icon';
+export { ModalFooter } from './components/modals/modal-footer';
+export { ModalHeader } from './components/modals/modal-header';
+export { ModalRenderer } from './components/modals/modal-renderer';
 export { Row } from './components/grid/row';
 export { Section } from './components/content/section';
 export { SpacedGroup } from './components/spaced-group';
