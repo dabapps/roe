@@ -68,7 +68,7 @@ const Tables = () => {
               <TableRow>
                 {
                   headers.map((header, index) => index === 0 ? (
-                    <TableHeader key={header} width={ROW_HEADER_WIDTH} fixed />
+                    <TableHeader key={header} width={ROW_HEADER_WIDTH} />
                   ) : (
                     <TableHeader key={header}>
                       {header}
@@ -83,7 +83,7 @@ const Tables = () => {
                   <TableRow key={rowIndex + row.join()}>
                     {
                       row.map((cell, index) => index === 0 ? (
-                        <TableHeader key={cell} width={ROW_HEADER_WIDTH} fixed>
+                        <TableHeader key={cell} width={ROW_HEADER_WIDTH}>
                           {cell}
                         </TableHeader>
                       ) : (
