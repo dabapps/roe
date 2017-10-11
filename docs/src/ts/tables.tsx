@@ -26,7 +26,7 @@ const data = [
 const [ headers = [], ...body ] = data;
 const smallBody = [...body].splice(0, 2);
 
-const COLUMN_HEADER_WIDTH = 150;
+const ROW_HEADER_WIDTH = 150;
 
 const Tables = () => {
   return (
@@ -63,12 +63,12 @@ const Tables = () => {
             </TableBody>
           </Table>
 
-          <Table striped hover fill fixRowHeaders rowHeaderWidth={COLUMN_HEADER_WIDTH}>
+          <Table striped hover fill fixRowHeaders rowHeaderWidth={ROW_HEADER_WIDTH}>
             <TableHead>
               <TableRow>
                 {
                   headers.map((header, index) => index === 0 ? (
-                    <TableHeader key={header} width={COLUMN_HEADER_WIDTH} />
+                    <TableHeader key={header} width={ROW_HEADER_WIDTH} />
                   ) : (
                     <TableHeader key={header}>
                       {header}
@@ -83,9 +83,9 @@ const Tables = () => {
                   <TableRow key={rowIndex + row.join()}>
                     {
                       row.map((cell, index) => index === 0 ? (
-                        <TableHeader key={cell} width={COLUMN_HEADER_WIDTH}>
+                        <TableCell key={cell} width={ROW_HEADER_WIDTH}>
                           {cell}
-                        </TableHeader>
+                        </TableCell>
                       ) : (
                         <TableCell key={cell}>
                           {cell}
@@ -149,12 +149,12 @@ const Tables = () => {
                 </TableBody>
               </Table>
 
-              <Table striped hover fill fixRowHeaders rowHeaderWidth={COLUMN_HEADER_WIDTH}>
+              <Table striped hover fill fixRowHeaders rowHeaderWidth={ROW_HEADER_WIDTH}>
                 <TableHead>
                   <TableRow>
                     {
                       headers.map((header, index) => index === 0 ? (
-                        <TableHeader key={header} width={COLUMN_HEADER_WIDTH} />
+                        <TableHeader key={header} width={ROW_HEADER_WIDTH} />
                       ) : (
                         <TableHeader key={header}>
                           {header}
@@ -169,7 +169,7 @@ const Tables = () => {
                       <TableRow key={rowIndex + row.join()}>
                         {
                           row.map((cell, index) => index === 0 ? (
-                            <TableHeader key={cell} width={COLUMN_HEADER_WIDTH}>
+                            <TableHeader key={cell} width={ROW_HEADER_WIDTH}>
                               {cell}
                             </TableHeader>
                           ) : (

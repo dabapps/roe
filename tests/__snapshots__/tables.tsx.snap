@@ -81,7 +81,7 @@ exports[`Tables Table should fix row headers to specified width 1`] = `
       className="table-scroller"
     >
       <table
-        className="table sm-collapse fix-column-headers"
+        className="table sm-collapse fix-row-headers"
       >
         <thead
           className="table-head"
@@ -94,6 +94,7 @@ exports[`Tables Table should fix row headers to specified width 1`] = `
               style={
                 Object {
                   "maxWidth": 100,
+                  "minWidth": 100,
                   "width": 100,
                 }
               }
@@ -113,6 +114,7 @@ exports[`Tables Table should fix row headers to specified width 1`] = `
               style={
                 Object {
                   "maxWidth": 100,
+                  "minWidth": 100,
                   "width": 100,
                 }
               }
@@ -177,6 +179,7 @@ exports[`Tables TableCell should not render null, false, undefined or empty stri
   style={
     Object {
       "maxWidth": undefined,
+      "minWidth": undefined,
       "width": undefined,
     }
   }
@@ -191,6 +194,7 @@ exports[`Tables TableCell should not render null, false, undefined or empty stri
   style={
     Object {
       "maxWidth": undefined,
+      "minWidth": undefined,
       "width": undefined,
     }
   }
@@ -205,6 +209,7 @@ exports[`Tables TableCell should not render null, false, undefined or empty stri
   style={
     Object {
       "maxWidth": undefined,
+      "minWidth": undefined,
       "width": undefined,
     }
   }
@@ -219,6 +224,7 @@ exports[`Tables TableCell should not render null, false, undefined or empty stri
   style={
     Object {
       "maxWidth": undefined,
+      "minWidth": undefined,
       "width": undefined,
     }
   }
@@ -233,6 +239,7 @@ exports[`Tables TableCell should render a non breaking space if no children prov
   style={
     Object {
       "maxWidth": undefined,
+      "minWidth": undefined,
       "width": undefined,
     }
   }
@@ -247,6 +254,7 @@ exports[`Tables TableCell should render the number 0 1`] = `
   style={
     Object {
       "maxWidth": undefined,
+      "minWidth": undefined,
       "width": undefined,
     }
   }
@@ -261,6 +269,7 @@ exports[`Tables TableHeader should not render null, false, undefined or empty st
   style={
     Object {
       "maxWidth": undefined,
+      "minWidth": undefined,
       "width": undefined,
     }
   }
@@ -275,6 +284,7 @@ exports[`Tables TableHeader should not render null, false, undefined or empty st
   style={
     Object {
       "maxWidth": undefined,
+      "minWidth": undefined,
       "width": undefined,
     }
   }
@@ -289,6 +299,7 @@ exports[`Tables TableHeader should not render null, false, undefined or empty st
   style={
     Object {
       "maxWidth": undefined,
+      "minWidth": undefined,
       "width": undefined,
     }
   }
@@ -303,6 +314,7 @@ exports[`Tables TableHeader should not render null, false, undefined or empty st
   style={
     Object {
       "maxWidth": undefined,
+      "minWidth": undefined,
       "width": undefined,
     }
   }
@@ -317,6 +329,7 @@ exports[`Tables TableHeader should render a non breaking space if no children pr
   style={
     Object {
       "maxWidth": undefined,
+      "minWidth": undefined,
       "width": undefined,
     }
   }
@@ -331,6 +344,7 @@ exports[`Tables TableHeader should render the number 0 1`] = `
   style={
     Object {
       "maxWidth": undefined,
+      "minWidth": undefined,
       "width": undefined,
     }
   }
@@ -367,6 +381,7 @@ exports[`Tables should match snapshot 1`] = `
               style={
                 Object {
                   "maxWidth": undefined,
+                  "minWidth": undefined,
                   "width": undefined,
                 }
               }
@@ -386,6 +401,7 @@ exports[`Tables should match snapshot 1`] = `
               style={
                 Object {
                   "maxWidth": undefined,
+                  "minWidth": undefined,
                   "width": undefined,
                 }
               }

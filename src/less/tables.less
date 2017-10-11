@@ -57,14 +57,18 @@
     }
   }
 
-  &.fix-column-headers {
+  &.fix-row-headers {
+    .table-row .table-cell:first-child,
     .table-row .table-header:first-child {
       position: absolute;
       border-right: @table-border;
       left: 0;
       border-bottom: @table-border;
+      // Hack to fix bad rendering in Chrome
+      transform: translate(0, 0);
     }
 
+    .table-body .table-row:last-child .table-cell:first-child,
     .table-body .table-row:last-child .table-header:first-child {
       border-bottom: @border-none;
     }
