@@ -1,6 +1,7 @@
-import * as randomSeed from 'random-seed';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
+import { generateIpsum } from '../../utils';
+import { WORDS } from '../../words';
 
 export interface IpsumProps {
   component: 'li' | 'p' | 'text';
@@ -11,85 +12,9 @@ export interface DabIpsumProps {
   count?: number;
 }
 
-const words = [
-  'academia',
-  'agile',
-  'angular',
-  'apprentice',
-  'apps',
-  'brighton',
-  'business',
-  'careers',
-  'cats',
-  'client',
-  'coffee',
-  'community',
-  'css',
-  'dabapps',
-  'design',
-  'designers',
-  'development',
-  'developers',
-  'digital',
-  'django',
-  'documentation',
-  'education',
-  'equality',
-  'events',
-  'framework',
-  'green',
-  'innovation',
-  'ionic',
-  'ios',
-  'java',
-  'javascript',
-  'kittens',
-  'llamas',
-  'mobile',
-  'native',
-  'networking',
-  'news',
-  'objective-c',
-  'open-source',
-  'partnerships',
-  'product',
-  'projects',
-  'prototyping',
-  'python',
-  'react',
-  'react-native',
-  'recognition',
-  'rest',
-  'service',
-  'smashing',
-  'tea',
-  'teaching',
-  'technical',
-  'testimonial',
-  'testing',
-  'toolkit',
-  'training',
-  'typescript',
-  'web'
-];
-
-let rand = randomSeed.create('dabapps');
-
-export const resetRandomSeed = () => {
-  rand = randomSeed.create('dabapps');
-}
-
-export const generateIpsum = () => {
-  const ipsum = Array.apply(null, new Array(15)).map(() => (
-    words[Math.floor(rand.range(words.length))]
-  )).join(' ');
-
-  return ipsum.charAt(0).toUpperCase() + ipsum.substring(1) + '.';
-}
-
 const Ipsum: StatelessComponent<IpsumProps> = (props) => {
   const { component } = props;
-  const ipsum = generateIpsum();
+  const ipsum = generateIpsum(WORDS);
 
   switch (component) {
     case 'li':
