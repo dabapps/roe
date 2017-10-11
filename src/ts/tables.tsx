@@ -147,7 +147,7 @@ export const TableHeader: React.SFC<ITableCellProps & React.HTMLAttributes<HTMLT
     <Component
       {...remainingProps}
       className={classNames('table-header', className)}
-      style={{width, maxWidth: width, ...style}}
+      style={{width, maxWidth: width, minWidth: width, ...style}}
     >
       {shouldNotBeRendered(children) ? NBSP : children}
     </Component>
@@ -168,7 +168,7 @@ export const TableCell: React.SFC<ITableCellProps & React.HTMLAttributes<HTMLTab
     <Component
       {...remainingProps}
       className={classNames('table-cell', className)}
-      style={{width, maxWidth: width, ...style}}
+      style={{width, maxWidth: width, minWidth: width, ...style}}
     >
       {shouldNotBeRendered(children) ? NBSP : children}
     </Component>
