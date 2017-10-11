@@ -27,3 +27,5 @@ export const TableCell: StatelessComponent<TableCellProps> = (props) => {
     </Component>
   );
 }
+
+export default TableCell;

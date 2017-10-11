@@ -17,3 +17,5 @@ export const ModalFooter: StatelessComponent<ModalContentProps> = (props) => {
     </Component>
   );
 }
+
+export default ModalFooter;

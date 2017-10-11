@@ -26,3 +26,5 @@ export const InputGroupAddon: StatelessComponent<InputGroupAddonProps> = (props)
     </Component>
   );
 }
+
+export default InputGroupAddon;

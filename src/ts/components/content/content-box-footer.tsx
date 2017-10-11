@@ -17,3 +17,5 @@ export const ContentBoxFooter: StatelessComponent<ContentBoxProps> = (props) => 
     </Component>
   );
 }
+
+export default ContentBoxFooter;

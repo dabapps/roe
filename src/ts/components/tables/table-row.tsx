@@ -19,3 +19,5 @@ export const TableRow: StatelessComponent<TableRowProps> = (props) => {
     </Component>
   );
 }
+
+export default TableRow;

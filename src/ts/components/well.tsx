@@ -15,3 +15,5 @@ export const Well: StatelessComponent<WellProps> = (props) => {
     </Component>
   );
 }
+
+export default Well;

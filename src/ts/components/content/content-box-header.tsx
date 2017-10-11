@@ -17,3 +17,5 @@ export const ContentBoxHeader: StatelessComponent<ContentBoxProps> = (props) => 
     </Component>
   );
 }
+
+export default ContentBoxHeader;

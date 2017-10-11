@@ -34,3 +34,5 @@ export const Button: StatelessComponent<ButtonProps> = (props) => {
     </Component>
   );
 }
+
+export default Button;

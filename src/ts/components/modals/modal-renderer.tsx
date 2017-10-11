@@ -27,3 +27,5 @@ export const ModalRenderer: StatelessComponent<ModalRendererProps> = (props) => 
     </CSSTransitionGroup>
   );
 }
+
+export default ModalRenderer;

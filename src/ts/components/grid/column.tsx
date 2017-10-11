@@ -100,3 +100,5 @@ export const Column: StatelessComponent<ColumnProps> = (props) => {
     </Component>
   );
 }
+
+export default Column;

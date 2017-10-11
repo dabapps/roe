@@ -17,3 +17,5 @@ export const ModalCloseIcon: StatelessComponent<ModalContentProps> = (props) => 
     </Component>
   );
 }
+
+export default ModalCloseIcon;

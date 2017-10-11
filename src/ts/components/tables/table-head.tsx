@@ -17,3 +17,5 @@ export const TableHead: StatelessComponent<TableSectionProps> = (props) => {
     </Component>
   );
 }
+
+export default TableHead;

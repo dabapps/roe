@@ -17,3 +17,5 @@ export const ModalHeader: StatelessComponent<ModalContentProps> = (props) => {
     </Component>
   );
 }
+
+export default ModalHeader;

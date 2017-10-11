@@ -20,3 +20,5 @@ export const Container: StatelessComponent<ContainerProps> = (props) => {
     </Component>
   );
 }
+
+export default Container;

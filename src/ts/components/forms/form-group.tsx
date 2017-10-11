@@ -28,3 +28,5 @@ export const FormGroup: StatelessComponent<FormGroupProps> = (props) => {
     </Component>
   );
 }
+
+export default FormGroup;

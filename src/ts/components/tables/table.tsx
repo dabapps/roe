@@ -74,3 +74,5 @@ export const Table: StatelessComponent<TableProps> = (props) => {
     </div>
   );
 }
+
+export default Table;

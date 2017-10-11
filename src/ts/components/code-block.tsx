@@ -74,3 +74,5 @@ export class CodeBlock extends React.Component<CodeBlockProps, any> {
     );
   }
 }
+
+export default CodeBlock;

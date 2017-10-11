@@ -22,3 +22,5 @@ export const Tab: StatelessComponent<TabProps> = (props) => {
     </Component>
   );
 }
+
+export default Tab;

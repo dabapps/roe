@@ -43,3 +43,5 @@ export const Modal: StatelessComponent<ModalProps> = (props) => {
     </div>
   );
 }
+
+export default Modal;

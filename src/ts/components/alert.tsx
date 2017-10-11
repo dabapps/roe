@@ -15,3 +15,5 @@ export const Alert: StatelessComponent<AlertProps> = (props) => {
     </Component>
   );
 }
+
+export default Alert;

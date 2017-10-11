@@ -15,3 +15,5 @@ export const Section: StatelessComponent<SectionProps> = (props) => {
     </Component>
   );
 }
+
+export default Section;

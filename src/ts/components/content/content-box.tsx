@@ -17,3 +17,5 @@ export const ContentBox: StatelessComponent<ContentBoxProps> = (props) => {
     </Component>
   );
 }
+
+export default ContentBox;

@@ -19,3 +19,5 @@ export const Tabs: StatelessComponent<TabsProps> = (props) => {
     </Component>
   );
 }
+
+export default Tabs;

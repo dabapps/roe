@@ -15,3 +15,5 @@ export const Row: StatelessComponent<RowProps> = (props) => {
     </Component>
   );
 }
+
+export default Row;

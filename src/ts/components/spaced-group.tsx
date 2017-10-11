@@ -34,3 +34,5 @@ export const SpacedGroup: StatelessComponent<SpacedGroupProps> = (props) => {
     </Component>
   );
 }
+
+export default SpacedGroup;

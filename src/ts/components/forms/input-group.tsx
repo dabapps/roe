@@ -28,3 +28,5 @@ export const InputGroup: StatelessComponent<InputGroupProps> = (props) => {
     </Component>
   );
 }
+
+export default InputGroup;

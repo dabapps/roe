@@ -15,3 +15,5 @@ export const Anchor: StatelessComponent<AnchorProps> = (props) => {
     </a>
   );
 }
+
+export default Anchor;

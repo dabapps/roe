@@ -82,3 +82,5 @@ export class DabIpsum extends React.Component<DabIpsumProps, void> {
     }
   }
 }
+
+export default DabIpsum;
