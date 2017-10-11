@@ -4,11 +4,9 @@ export { Button } from './components/forms/button';
 export { CodeBlock } from './components/code-block';
 export { Column } from './components/grid/column';
 export { Container } from './components/grid/container';
-export {
-  ContentBox,
-  ContentBoxFooter,
-  ContentBoxHeader,
-} from './components/content/content-box';
+export { ContentBox } from './components/content/content-box';
+export { ContentBoxHeader } from './components/content/content-box-header';
+export { ContentBoxFooter } from './components/content/content-box-footer';
 export { DabIpsum } from './components/prototyping/dab-ipsum';
 export { FormGroup } from './components/forms/form-group';
 export { InputGroup } from './components/forms/input-group';

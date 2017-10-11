@@ -3,7 +3,7 @@ import * as React from 'react';
 import { StatelessComponent } from 'react';
 import { ContentBoxProps } from '../../types';
 
-export const ContentBox: StatelessComponent<ContentBoxProps> = (props) => {
+export const ContentBoxFooter: StatelessComponent<ContentBoxProps> = (props) => {
   const {
     className,
     children,
@@ -12,7 +12,7 @@ export const ContentBox: StatelessComponent<ContentBoxProps> = (props) => {
   } = props;
 
   return (
-    <Component {...remainingProps} className={classNames('content-box', className)}>
+    <Component {...remainingProps} className={classNames('content-box-footer', className)}>
       {children}
     </Component>
   );
