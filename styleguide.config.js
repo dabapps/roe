@@ -1,4 +1,5 @@
 module.exports = {
+  title: 'Roe',
   components: 'src/ts/**/*.{ts,tsx}',
   ignore: ['**/ts/index.ts', '**/utils/**'],
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
