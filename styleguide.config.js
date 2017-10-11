@@ -1,4 +1,4 @@
-const sections = [
+const components = [
   {
     name: 'Content',
     components: 'src/ts/components/content/**/*.tsx'
@@ -29,13 +29,15 @@ const sections = [
   }
 ];
 
-module.exports = {
-  title: 'Roe',
-  components: 'src/ts/components/**/*.{ts,tsx}',
-  ignore: [],
-  propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
-  webpackConfig: require('react-scripts-ts/config/webpack.config.dev.js'),
-  sections: sections.sort((a, b) => {
+const less = [
+  {
+    name: 'Variables',
+    content: 'src/less/variables.less'
+  }
+];
+
+function sortByName (arr) {
+  return arr.sort((a, b) => {
     if (a.name > b.name) {
       return 1;
     }
@@ -46,4 +48,22 @@ module.exports = {
 
     return 0;
   })
+}
+
+module.exports = {
+  title: 'Roe',
+  components: 'src/ts/components/**/*.{ts,tsx}',
+  ignore: [],
+  propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
+  webpackConfig: require('react-scripts-ts/config/webpack.config.dev.js'),
+  sections: sortByName([
+    {
+      name: 'Components',
+      sections: sortByName(components)
+    },
+    {
+      name: 'Less',
+      sections: sortByName(less)
+    }
+  ])
 };
