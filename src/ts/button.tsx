@@ -1,35 +1,38 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
+import { HTMLProps, PureComponent } from 'react';
 
-export interface IProps {
+export interface ButtonProps extends HTMLProps<HTMLButtonElement> {
   component?: string;
   block?: boolean;
   large?: boolean;
   small?: boolean;
 }
 
-export const Button: React.SFC<IProps & React.HTMLProps<HTMLButtonElement>> = (props) => {
-  const {
-    children,
-    className,
-    block,
-    large,
-    small,
-    component: Component = 'button',
-    ...remainingProps
-  } = props;
+export class Button extends PureComponent<ButtonProps, void> {
+  public render () {
+    const {
+      children,
+      className,
+      block,
+      large,
+      small,
+      component: Component = 'button',
+      ...remainingProps
+    } = this.props;
 
-  const myClassNames = [
-    'button',
-    block ? 'block' : null,
-    small ? 'small' : null,
-    large ? 'large' : null,
-    className
-  ];
+    const myClassNames = [
+      'button',
+      block ? 'block' : null,
+      small ? 'small' : null,
+      large ? 'large' : null,
+      className
+    ];
 
-  return (
-    <Component {...remainingProps} className={classNames(myClassNames)}>
-      {children}
-    </Component>
-  );
-};
+    return (
+      <Component {...remainingProps} className={classNames(myClassNames)}>
+        {children}
+      </Component>
+    );
+  }
+}

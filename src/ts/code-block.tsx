@@ -6,12 +6,13 @@ declare const hljs: void | IHighlightJS;
 
 import * as classNames from 'classnames';
 import * as React from 'react';
+import { HTMLProps, PureComponent } from 'react';
 
 const MATCHES_INITIAL_INDENTATION = /^([^\S\n]*)\S/;
 const MATCHES_BLANK_FIRST_LINE = /^\s*\n/;
 const MATCHES_BLANK_LAST_LINE = /\n\s*$/;
 
-export interface IProps extends React.HTMLProps<HTMLDivElement> {
+export interface CodeBlockProps extends HTMLProps<HTMLDivElement> {
   component?: string;
   children?: string;
   language?: string;
@@ -30,10 +31,10 @@ export function formatCode (code: string) {
       codeWithoutLeadingOrTrailingEmptyLines;
   }
 
-export class CodeBlock extends React.Component<IProps, any> {
+export class CodeBlock extends PureComponent<CodeBlockProps, any> {
   public element: HTMLPreElement;
 
-  public constructor (props: IProps) {
+  public constructor (props: CodeBlockProps) {
     super(props);
 
     this.highlightBlock = this.highlightBlock.bind(this);
@@ -47,7 +48,7 @@ export class CodeBlock extends React.Component<IProps, any> {
     }
   }
 
-  public componentDidUpdate (prevProps: IProps) {
+  public componentDidUpdate (prevProps: CodeBlockProps) {
     if (
       hljs && typeof hljs.highlightBlock === 'function' &&
       prevProps.children !== this.props.children

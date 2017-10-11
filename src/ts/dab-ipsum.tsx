@@ -1,11 +1,12 @@
 import * as randomSeed from 'random-seed';
 import * as React from 'react';
+import { HTMLProps, PureComponent } from 'react';
 
-export interface IIpsumProps {
+export interface IpsumProps {
   component: 'li' | 'p' | 'text';
 }
 
-export interface IDabIpsumProps {
+export interface DabIpsumProps {
   component?: 'ul' | 'ol' | 'p' | 'text';
   count?: number;
 }
@@ -86,35 +87,38 @@ export const generateIpsum = () => {
   return ipsum.charAt(0).toUpperCase() + ipsum.substring(1) + '.';
 }
 
-export const Ipsum: React.SFC<IIpsumProps> = (props) => {
-  const { component } = props;
-  const ipsum = generateIpsum();
+export class Ipsum extends PureComponent<IpsumProps, void> {
+  public render () {
+    const { component } = this.props;
+    const ipsum = generateIpsum();
 
-  switch (component) {
-    case 'li':
-      return (
-        <li>
-          {ipsum}
-        </li>
-      );
-    case 'text':
-      return (
-        <span>
-          {ipsum}
-        </span>
-      );
-    // case 'p': NOTE: this is the default, so a case for it is not needed
-    default:
-      return (
-        <p>
-          {ipsum}
-        </p>
-      );
+    switch (component) {
+      case 'li':
+        return (
+          <li>
+            {ipsum}
+          </li>
+        );
+      case 'text':
+        return (
+          <span>
+            {ipsum}
+          </span>
+        );
+      // case 'p': NOTE: this is the default, so a case for it is not needed
+      default:
+        return (
+          <p>
+            {ipsum}
+          </p>
+        );
+    }
   }
-};
+}
 
-export class DabIpsum extends React.Component<IDabIpsumProps, void> {
-  public shouldComponentUpdate (prevProps: IDabIpsumProps) {
+// tslint:disable-next-line:max-classes-per-file
+export class DabIpsum extends PureComponent<DabIpsumProps, void> {
+  public shouldComponentUpdate (prevProps: DabIpsumProps) {
     return prevProps.component !== this.props.component ||
       prevProps.count !== this.props.count;
   }
