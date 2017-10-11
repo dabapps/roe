@@ -87,7 +87,6 @@ export interface ComponentProps {
 
 export type TableSectionProps = ComponentProps & HTMLProps<HTMLElement>;
 
-// tslint:disable-next-line:max-classes-per-file
 export const TableHead: StatelessComponent<TableSectionProps> = (props) => {
   const {
     className,
@@ -103,7 +102,6 @@ export const TableHead: StatelessComponent<TableSectionProps> = (props) => {
   );
 }
 
-// tslint:disable-next-line:max-classes-per-file
 export const TableBody: StatelessComponent<TableSectionProps> = (props) => {
   const {
     className,
@@ -121,7 +119,6 @@ export const TableBody: StatelessComponent<TableSectionProps> = (props) => {
 
 export type TableRowProps = ComponentProps & HTMLProps<HTMLElement>;
 
-// tslint:disable-next-line:max-classes-per-file
 export const TableRow: StatelessComponent<TableRowProps> = (props) => {
   const {
     className,
@@ -143,7 +140,6 @@ export interface BaseTableCellProps extends ComponentProps {
 
 export type TableHeaderProps = BaseTableCellProps & HTMLProps<HTMLElement>;
 
-// tslint:disable-next-line:max-classes-per-file
 export const TableHeader: StatelessComponent<TableHeaderProps> = (props) => {
   const {
     className,
@@ -167,7 +163,6 @@ export const TableHeader: StatelessComponent<TableHeaderProps> = (props) => {
 
 export type TableCellProps = BaseTableCellProps & HTMLProps<HTMLElement>;
 
-// tslint:disable-next-line:max-classes-per-file
 export const TableCell: StatelessComponent<TableCellProps> = (props) => {
   const {
     className,

@@ -27,7 +27,6 @@ export interface TabProps extends ComponentProps, HTMLProps<HTMLElement> {
   active?: boolean;
 }
 
-// tslint:disable-next-line:max-classes-per-file
 export const Tab: StatelessComponent<TabProps> = (props) => {
   const {
     className,

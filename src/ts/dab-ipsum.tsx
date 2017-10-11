@@ -114,7 +114,6 @@ const Ipsum: StatelessComponent<IpsumProps> = (props) => {
   }
 }
 
-// tslint:disable-next-line:max-classes-per-file
 export class DabIpsum extends React.Component<DabIpsumProps, void> {
   public shouldComponentUpdate (prevProps: DabIpsumProps) {
     return prevProps.component !== this.props.component ||

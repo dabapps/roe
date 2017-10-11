@@ -44,7 +44,6 @@ export const ModalRenderer: StatelessComponent<ModalRendererProps> = (props) => 
   );
 }
 
-// tslint:disable-next-line:max-classes-per-file
 export const Modal: StatelessComponent<ModalProps> = (props) => {
   const {
     className,
@@ -78,7 +77,6 @@ export const Modal: StatelessComponent<ModalProps> = (props) => {
   );
 }
 
-// tslint:disable-next-line:max-classes-per-file
 export const ModalHeader: StatelessComponent<ModalContentProps> = (props) => {
   const {
     className,
@@ -94,7 +92,6 @@ export const ModalHeader: StatelessComponent<ModalContentProps> = (props) => {
   );
 }
 
-// tslint:disable-next-line:max-classes-per-file
 export const ModalBody: StatelessComponent<ModalContentProps> = (props) => {
   const {
     className,
@@ -110,7 +107,6 @@ export const ModalBody: StatelessComponent<ModalContentProps> = (props) => {
   );
 }
 
-// tslint:disable-next-line:max-classes-per-file
 export const ModalFooter: StatelessComponent<ModalContentProps> = (props) => {
   const {
     className,
@@ -126,7 +122,6 @@ export const ModalFooter: StatelessComponent<ModalContentProps> = (props) => {
   );
 }
 
-// tslint:disable-next-line:max-classes-per-file
 export const ModalCloseIcon: StatelessComponent<ModalContentProps> = (props) => {
   const {
     className,

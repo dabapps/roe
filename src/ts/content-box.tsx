@@ -21,7 +21,6 @@ export const ContentBox: StatelessComponent<ContentBoxProps> = (props) => {
   );
 }
 
-// tslint:disable-next-line:max-classes-per-file
 export const ContentBoxHeader: StatelessComponent<ContentBoxProps> = (props) => {
   const {
     className,
@@ -37,7 +36,6 @@ export const ContentBoxHeader: StatelessComponent<ContentBoxProps> = (props) => 
   );
 }
 
-// tslint:disable-next-line:max-classes-per-file
 export const ContentBoxFooter: StatelessComponent<ContentBoxProps> = (props) => {
   const {
     className,
