@@ -2,7 +2,7 @@ export { Alert } from './alert';
 export { Anchor } from './anchor';
 export { Button } from './button';
 export { CodeBlock } from './code-block';
-export { Column } from './column';
+export { Column } from './components/grid/column';
 export { Container } from './container';
 export {
   ContentBox,
@@ -21,13 +21,11 @@ export {
   ModalHeader,
   ModalRenderer,
 } from './modals';
-export { Row } from './row';
+export { Row } from './components/grid/row';
 export { Section } from './section';
 export { SpacedGroup } from './spaced-group';
-export {
-  Tab,
-  Tabs,
-} from './tabs';
+export { Tabs } from './components/tabs/tabs';
+export { Tab } from './components/tabs/tab';
 export {
   Table,
   TableBody,
