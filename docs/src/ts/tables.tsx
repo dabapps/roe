@@ -83,9 +83,9 @@ const Tables = () => {
                   <TableRow key={rowIndex + row.join()}>
                     {
                       row.map((cell, index) => index === 0 ? (
-                        <TableHeader key={cell} width={ROW_HEADER_WIDTH}>
+                        <TableCell key={cell} width={ROW_HEADER_WIDTH}>
                           {cell}
-                        </TableHeader>
+                        </TableCell>
                       ) : (
                         <TableCell key={cell}>
                           {cell}
