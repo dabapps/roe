@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { HTMLProps, PureComponent } from 'react';
 
 const MATCHES_AMPERSAND = /&/gi;
 const MATCHES_NON_WORD_CHARACTERS = /[\W_]+/gi;
@@ -20,14 +21,18 @@ export const getHref = (children?: React.ReactNode, href?: string): string | und
     .toLowerCase();
 }
 
-export const Anchor: React.SFC<React.HTMLProps<HTMLAnchorElement>> = (props) => {
-  const { children, href, ...remainingProps } = props;
+export type AnchorProps = HTMLProps<HTMLAnchorElement>;
 
-  const automaticHref = getHref(children, href);
+export class Anchor extends PureComponent<AnchorProps, void> {
+  public render () {
+    const { children, href, ...remainingProps } = this.props;
 
-  return (
-    <a {...remainingProps} id={automaticHref} href={automaticHref ? '#' + automaticHref : undefined}>
-      {children}
-    </a>
-  );
-};
+    const automaticHref = getHref(children, href);
+
+    return (
+      <a {...remainingProps} id={automaticHref} href={automaticHref ? '#' + automaticHref : undefined}>
+        {children}
+      </a>
+    );
+  }
+}
