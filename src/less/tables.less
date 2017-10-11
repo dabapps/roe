@@ -63,6 +63,8 @@
       border-right: @table-border;
       left: 0;
       border-bottom: @table-border;
+      // Hack to fix bad rendering in Chrome
+      transform: translate(0, 0);
     }
 
     .table-body .table-row:last-child .table-header:first-child {
