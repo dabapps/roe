@@ -22,12 +22,10 @@ export { Section } from './components/content/section';
 export { SpacedGroup } from './components/spaced-group';
 export { Tabs } from './components/tabs/tabs';
 export { Tab } from './components/tabs/tab';
-export {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow
-} from './components/tables/tables';
+export { Table } from './components/tables/table';
+export { TableBody } from './components/tables/table-body';
+export { TableCell } from './components/tables/table-cell';
+export { TableHead } from './components/tables/table-head';
+export { TableHeader } from './components/tables/table-header';
+export { TableRow } from './components/tables/table-row';
 export { Well } from './components/well';

@@ -1,8 +1,12 @@
 import * as randomSeed from 'random-seed';
-
-const MATCHES_INITIAL_INDENTATION = /^([^\S\n]*)\S/;
-const MATCHES_BLANK_FIRST_LINE = /^\s*\n/;
-const MATCHES_BLANK_LAST_LINE = /\n\s*$/;
+import {
+  MATCHES_AMPERSAND,
+  MATCHES_BLANK_FIRST_LINE,
+  MATCHES_BLANK_LAST_LINE,
+  MATCHES_INITIAL_INDENTATION,
+  MATCHES_LEADING_AND_TRAILING_HYPHENS,
+  MATCHES_NON_WORD_CHARACTERS,
+} from './constants';
 
 export function formatCode (code: string) {
   const codeWithoutLeadingOrTrailingEmptyLines = code
@@ -16,10 +20,6 @@ export function formatCode (code: string) {
     codeWithoutLeadingOrTrailingEmptyLines.replace(new RegExp(`^${initialIndentation[1]}`, 'gm'), '') :
     codeWithoutLeadingOrTrailingEmptyLines;
 }
-
-const MATCHES_AMPERSAND = /&/gi;
-const MATCHES_NON_WORD_CHARACTERS = /[\W_]+/gi;
-const MATCHES_LEADING_AND_TRAILING_HYPHENS = /(^-+|-+$)/gi;
 
 export const getHref = (children?: React.ReactNode, href?: string): string | undefined => {
   if (href) {
@@ -50,3 +50,7 @@ export const generateIpsum = (words: string[]) => {
 
   return ipsum.charAt(0).toUpperCase() + ipsum.substring(1) + '.';
 }
+
+export const shouldNotBeRendered = (children: any) => {
+  return children === false || children === null || children === undefined || children === '';
+};
