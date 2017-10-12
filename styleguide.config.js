@@ -1,3 +1,5 @@
+const path = require('path');
+
 const components = [
   {
     name: 'Content',
@@ -50,15 +52,48 @@ function sortByName (arr) {
   })
 }
 
+function getExampleFilename (componentPath) {
+  return componentPath.replace(/\.tsx?$/, '.examples.md');
+}
+
+function mergeWithArrays (objValue, srcValue, key, object, source, stack) {
+  if (Array.isArray(objValue) && Array.isArray(srcValue)) {
+    return objValue.concat(srcValue);
+  }
+
+  return;
+}
+
+const lessLoader = {
+  test: /\.less$/,
+  use: [
+    'style-loader', // creates style nodes from JS strings
+    'css-loader', // translates CSS into CommonJS
+    {
+      loader: 'less-loader', // compiles Less to CSS
+      options: {
+        paths: [
+            path.resolve(__dirname, 'node_modules')
+        ]
+      }
+    }
+  ]
+};
+
+const webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
+
+webpackConfig.module.rules[2].oneOf[2] = lessLoader;
+
 module.exports = {
+  require: [
+    path.join(__dirname, 'src/less/index.less'),
+  ],
   title: 'Roe',
   components: 'src/ts/components/**/*.{ts,tsx}',
   ignore: [],
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
-  webpackConfig: require('react-scripts-ts/config/webpack.config.dev.js'),
-  getExampleFilename: function (componentPath) {
-    return componentPath.replace(/\.tsx?$/, '.examples.md');
-  },
+  webpackConfig,
+  getExampleFilename,
   sections: sortByName([
     {
       name: 'Components',
