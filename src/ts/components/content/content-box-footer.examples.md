@@ -2,7 +2,7 @@ ContentBoxFooter example:
 
 ```js
 <ContentBoxFooter>
-  <SpacedGroup className="margin-vertical-large">
+  <SpacedGroup block className="margin-vertical-large">
     <Button>
       Cancel
     </Button>
