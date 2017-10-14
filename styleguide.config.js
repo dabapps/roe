@@ -95,8 +95,11 @@ module.exports = {
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
   webpackConfig,
   getExampleFilename,
-  assetsDir: 'static',
-  template: 'templates/index.html',
+  assetsDir: path.join(__dirname, 'docs/static/'),
+  template: path.join(__dirname, 'docs/templates/index.html'),
+  styleguideComponents: {
+		Logo: path.join(__dirname, 'docs/components/logo.js'),
+	},
   sections: sortByName([
     {
       name: 'Components',
