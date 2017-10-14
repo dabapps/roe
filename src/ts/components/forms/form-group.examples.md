@@ -22,9 +22,13 @@
 
   <FormGroup>
     <label>
-      Label
+      Label 1
     </label>
-    <input type="checkbox" />
+    <input type="radio" />
+    <label>
+      Label 2
+    </label>
+    <input type="radio" />
   </FormGroup>
 
   <FormGroup>
