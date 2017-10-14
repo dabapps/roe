@@ -89,12 +89,14 @@ module.exports = {
   require: [
     path.join(__dirname, 'src/less/index.less'),
   ],
-  title: 'Roe',
+  title: 'Roe - DabApps\' Project Development Kit',
   components: 'src/ts/components/**/*.{ts,tsx}',
   ignore: [],
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
   webpackConfig,
   getExampleFilename,
+  assetsDir: 'static',
+  template: 'templates/index.html',
   sections: sortByName([
     {
       name: 'Components',
