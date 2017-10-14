@@ -1,4 +1,4 @@
-ContentBoxFooter example:
+#### Example
 
 ```js
 <ContentBoxFooter>
@@ -11,4 +11,11 @@ ContentBoxFooter example:
     </Button>
   </SpacedGroup>
 </ContentBoxFooter>
+```
+
+#### Less variables
+
+```less
+@content-box-footer-background: @content-box-header-background; // @primary-lightest;
+@content-box-footer-border: @content-box-header-border; // 1px solid @primary-lighter;
 ```
