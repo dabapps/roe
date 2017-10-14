@@ -1,19 +1,28 @@
 #### Example
 
 ```js
-<div>
+<div className="display-columns">
   <Row>
     <Column>
       Row 1
     </Column>
   </Row>
   <Row>
-    <Column>
+    <Column xs={6}>
+      Row 2
+    </Column>
+    <Column xs={6}>
       Row 2
     </Column>
   </Row>
   <Row>
-    <Column>
+    <Column xs={4}>
+      Row 3
+    </Column>
+    <Column xs={4}>
+      Row 3
+    </Column>
+    <Column xs={4}>
       Row 3
     </Column>
   </Row>
