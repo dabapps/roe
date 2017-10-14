@@ -98,8 +98,8 @@ module.exports = {
   assetsDir: path.join(__dirname, 'docs/static/'),
   template: path.join(__dirname, 'docs/templates/index.html'),
   styleguideComponents: {
-		Logo: path.join(__dirname, 'docs/components/logo'),
-	},
+    Logo: path.join(__dirname, 'docs/components/logo'),
+  },
   sections: sortByName([
     {
       name: 'Components',
