@@ -87,7 +87,7 @@ webpackConfig.module.rules[2].oneOf[2] = lessLoader;
 
 module.exports = {
   require: [
-    path.join(__dirname, 'src/less/index.less'),
+    path.join(__dirname, 'docs/less/index.less'),
   ],
   title: 'Roe - DabApps\' Project Development Kit',
   components: 'src/ts/components/**/*.{ts,tsx}',
