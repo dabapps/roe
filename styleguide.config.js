@@ -69,6 +69,7 @@ const lessLoader = {
   use: [
     'style-loader', // creates style nodes from JS strings
     'css-loader', // translates CSS into CommonJS
+    'postcss-loader',
     {
       loader: 'less-loader', // compiles Less to CSS
       options: {
