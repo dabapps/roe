@@ -121,5 +121,10 @@ module.exports = {
         border: 'none'
       }
     }
+  },
+  theme: {
+    color: {
+      linkHover: '#EF592B'
+    }
   }
 };
