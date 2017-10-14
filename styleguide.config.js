@@ -103,5 +103,12 @@ module.exports = {
       name: 'Less',
       sections: sortByName(less)
     }
-  ])
+  ]),
+  styles: {
+    Code: {
+      code: {
+        border: 'none'
+      }
+    }
+  }
 };
