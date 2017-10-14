@@ -1,16 +1,18 @@
 #### Example
 
 ```js
-<ContentBoxFooter>
-  <SpacedGroup block className="margin-vertical-large">
-    <Button>
-      Cancel
-    </Button>
-    <Button className="primary">
-      Done
-    </Button>
-  </SpacedGroup>
-</ContentBoxFooter>
+<ContentBox>
+  <ContentBoxFooter>
+    <SpacedGroup block className="margin-vertical-large">
+      <Button>
+        Cancel
+      </Button>
+      <Button className="primary">
+        Done
+      </Button>
+    </SpacedGroup>
+  </ContentBoxFooter>
+</ContentBox>
 ```
 
 #### Less variables
