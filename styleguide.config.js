@@ -34,7 +34,7 @@ const components = [
 const less = [
   {
     name: 'Variables',
-    content: 'src/less/variables.less'
+    content: 'src/less/variables.examples.md'
   }
 ];
 
