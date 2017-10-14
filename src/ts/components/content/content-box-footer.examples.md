@@ -2,6 +2,9 @@
 
 ```js
 <ContentBox>
+  <p>
+    Content
+  </p>
   <ContentBoxFooter>
     <SpacedGroup block className="margin-vertical-large">
       <Button>

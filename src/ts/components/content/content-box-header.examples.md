@@ -7,6 +7,9 @@
       Header
     </h5>
   </ContentBoxHeader>
+  <p>
+    Content
+  </p>
 </ContentBox>
 ```
 
