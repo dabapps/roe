@@ -56,7 +56,7 @@ A mixin is available that allows you to define custom buttons styles.
 
 You can then use your custom buttons by supplying the name you provided the mixin as the class name.
 
-```ts
+```html
 <Button className="custom">
   Custom
 </Button>
