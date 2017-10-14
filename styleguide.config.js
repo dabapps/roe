@@ -105,8 +105,13 @@ module.exports = {
     }
   ]),
   styles: {
-    Code: {
-      code: {
+    Markdown: { // Component
+      pre: { // Class
+        overflow: 'auto'
+      }
+    },
+    Code: { // Component
+      code: { // Class
         border: 'none'
       }
     }
