@@ -14,6 +14,7 @@ export interface CodeBlockProps extends HTMLProps<HTMLElement> {
   component?: string;
   children?: string;
   language?: string;
+  codeBlockName?: string;
 }
 
 export class CodeBlock extends React.Component<CodeBlockProps, any> {
@@ -43,7 +44,14 @@ export class CodeBlock extends React.Component<CodeBlockProps, any> {
   }
 
   public render () {
-    const { children, className, language, name, component: Component = 'div', ...remainingProps } = this.props;
+    const {
+      children,
+      className,
+      language,
+      codeBlockName,
+      component: Component = 'div',
+      ...remainingProps
+    } = this.props;
     const languageClassName = language && `language-${language}`;
 
     const content = typeof children === 'string' ? formatCode(children) : children;
@@ -51,7 +59,7 @@ export class CodeBlock extends React.Component<CodeBlockProps, any> {
     return (
       <Component {...remainingProps} className={classNames('code-block-wrapper', className)}>
         {
-          typeof name !== 'undefined' && (
+          typeof codeBlockName !== 'undefined' && (
             <div className="code-block-name">
               {
                 typeof language !== 'undefined' && (
@@ -60,7 +68,7 @@ export class CodeBlock extends React.Component<CodeBlockProps, any> {
                   </div>
                 )
               }
-              {name}
+              {codeBlockName}
             </div>
           )
         }
