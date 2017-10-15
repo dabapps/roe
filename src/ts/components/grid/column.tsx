@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
+import { isValidColumnNumber } from '../../utils';
 
 export interface ColumnProps extends HTMLProps<HTMLElement> {
   component?: string;
@@ -29,10 +30,6 @@ export interface ColumnProps extends HTMLProps<HTMLElement> {
   mdPull?: number;
   lgPull?: number;
   xlPull?: number;
-}
-
-export function isValidNumber (value?: number) {
-  return typeof value === 'number' && value === +value;
 }
 
 export const Column: StatelessComponent<ColumnProps> = (props) => {
@@ -70,31 +67,31 @@ export const Column: StatelessComponent<ColumnProps> = (props) => {
 
   const myClassNames = [
     'column',
-    isValidNumber(xs) ? `xs-${xs}` : null,
-    isValidNumber(sm) ? `sm-${sm}` : null,
-    isValidNumber(md) ? `md-${md}` : null,
-    isValidNumber(lg) ? `lg-${lg}` : null,
-    isValidNumber(xl) ? `xl-${xl}` : null,
-    isValidNumber(xsOffset) ? `xs-offset-${xsOffset}` : null,
-    isValidNumber(smOffset) ? `sm-offset-${smOffset}` : null,
-    isValidNumber(mdOffset) ? `md-offset-${mdOffset}` : null,
-    isValidNumber(lgOffset) ? `lg-offset-${lgOffset}` : null,
-    isValidNumber(xlOffset) ? `xl-offset-${xlOffset}` : null,
-    isValidNumber(xsFill) ? `xs-fill-${xsFill}` : null,
-    isValidNumber(smFill) ? `sm-fill-${smFill}` : null,
-    isValidNumber(mdFill) ? `md-fill-${mdFill}` : null,
-    isValidNumber(lgFill) ? `lg-fill-${lgFill}` : null,
-    isValidNumber(xlFill) ? `xl-fill-${xlFill}` : null,
-    isValidNumber(xsPush) ? `xs-push-${xsPush}` : null,
-    isValidNumber(smPush) ? `sm-push-${smPush}` : null,
-    isValidNumber(mdPush) ? `md-push-${mdPush}` : null,
-    isValidNumber(lgPush) ? `lg-push-${lgPush}` : null,
-    isValidNumber(xlPush) ? `xl-push-${xlPush}` : null,
-    isValidNumber(xsPull) ? `xs-pull-${xsPull}` : null,
-    isValidNumber(smPull) ? `sm-pull-${smPull}` : null,
-    isValidNumber(mdPull) ? `md-pull-${mdPull}` : null,
-    isValidNumber(lgPull) ? `lg-pull-${lgPull}` : null,
-    isValidNumber(xlPull) ? `xl-pull-${xlPull}` : null,
+    isValidColumnNumber(xs) ? `xs-${xs}` : null,
+    isValidColumnNumber(sm) ? `sm-${sm}` : null,
+    isValidColumnNumber(md) ? `md-${md}` : null,
+    isValidColumnNumber(lg) ? `lg-${lg}` : null,
+    isValidColumnNumber(xl) ? `xl-${xl}` : null,
+    isValidColumnNumber(xsOffset) ? `xs-offset-${xsOffset}` : null,
+    isValidColumnNumber(smOffset) ? `sm-offset-${smOffset}` : null,
+    isValidColumnNumber(mdOffset) ? `md-offset-${mdOffset}` : null,
+    isValidColumnNumber(lgOffset) ? `lg-offset-${lgOffset}` : null,
+    isValidColumnNumber(xlOffset) ? `xl-offset-${xlOffset}` : null,
+    isValidColumnNumber(xsFill) ? `xs-fill-${xsFill}` : null,
+    isValidColumnNumber(smFill) ? `sm-fill-${smFill}` : null,
+    isValidColumnNumber(mdFill) ? `md-fill-${mdFill}` : null,
+    isValidColumnNumber(lgFill) ? `lg-fill-${lgFill}` : null,
+    isValidColumnNumber(xlFill) ? `xl-fill-${xlFill}` : null,
+    isValidColumnNumber(xsPush) ? `xs-push-${xsPush}` : null,
+    isValidColumnNumber(smPush) ? `sm-push-${smPush}` : null,
+    isValidColumnNumber(mdPush) ? `md-push-${mdPush}` : null,
+    isValidColumnNumber(lgPush) ? `lg-push-${lgPush}` : null,
+    isValidColumnNumber(xlPush) ? `xl-push-${xlPush}` : null,
+    isValidColumnNumber(xsPull) ? `xs-pull-${xsPull}` : null,
+    isValidColumnNumber(smPull) ? `sm-pull-${smPull}` : null,
+    isValidColumnNumber(mdPull) ? `md-pull-${mdPull}` : null,
+    isValidColumnNumber(lgPull) ? `lg-pull-${lgPull}` : null,
+    isValidColumnNumber(xlPull) ? `xl-pull-${xlPull}` : null,
     className
   ];
 

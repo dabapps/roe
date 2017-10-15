@@ -8,7 +8,7 @@ import {
   MATCHES_NON_WORD_CHARACTERS,
 } from './constants';
 
-export function formatCode (code: string) {
+export const formatCode = (code: string) => {
   const codeWithoutLeadingOrTrailingEmptyLines = code
     .replace(MATCHES_BLANK_FIRST_LINE, '')
     .replace(MATCHES_BLANK_LAST_LINE, '');
@@ -53,4 +53,6 @@ export const generateIpsum = (words: string[]) => {
 
 export const shouldNotBeRendered = (children: any) => {
   return children === false || children === null || children === undefined || children === '';
-};
+}
+
+export const isValidColumnNumber = (value?: number) => typeof value === 'number' && value === +value;
