@@ -29,14 +29,14 @@ export class CodeBlock extends React.Component<CodeBlockProps, any> {
   public highlightBlock (element: HTMLPreElement) {
     this.element = element;
 
-    if (hljs && typeof hljs.highlightBlock === 'function') {
+    if (typeof hljs === 'object' && typeof hljs.highlightBlock === 'function') {
       hljs.highlightBlock(this.element);
     }
   }
 
   public componentDidUpdate (prevProps: CodeBlockProps) {
     if (
-      hljs && typeof hljs.highlightBlock === 'function' &&
+      typeof hljs === 'object' && typeof hljs.highlightBlock === 'function' &&
       prevProps.children !== this.props.children
     ) {
       hljs.highlightBlock(this.element);
