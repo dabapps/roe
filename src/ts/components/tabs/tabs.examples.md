@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+const { Tab } = require('./tab');
+
 <Tabs>
   <Tab active>
     <a>Tab 1</a>

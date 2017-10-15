@@ -1,6 +1,12 @@
 #### Example
 
 ```js
+const { TableHead } = require('./table-head');
+const { TableBody } = require('./table-body');
+const { TableRow } = require('./table-row');
+const { TableHeader } = require('./table-header');
+const { TableCell } = require('./table-cell');
+
 <div>
   <Table bordered condensed>
     <TableHead>

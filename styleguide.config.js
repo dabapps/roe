@@ -11,11 +11,11 @@ const components = [
   },
   {
     name: 'Tabs',
-    components: 'src/ts/components/tabs/**/*.tsx'
+    components: 'src/ts/components/tabs/tabs.tsx'
   },
   {
     name: 'Tables',
-    components: 'src/ts/components/tables/**/*.tsx'
+    components: 'src/ts/components/tables/table.tsx'
   },
   {
     name: 'Forms',
