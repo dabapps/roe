@@ -42,8 +42,15 @@ h6 {
 }
 
 a {
-  color: @primary;
+  color: @link-color;
+  text-decoration: @link-text-decoration;
   cursor: pointer;
+  transition: ease-in-out color 0.1s;
+
+  &:hover:not([disabled]) {
+    color: @link-color-hover;
+    text-decoration: @link-text-decoration-hover;
+  }
 }
 
 img {
