@@ -309,9 +309,11 @@ hr {
   height: 1px;
   border-width: 0;
   background-color: @grey-light;
-  margin: @padding-base 0;
+  margin: @margin-base 0;
+}
 
-  &.fade {
+@supports (background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)) {
+  hr.fade {
     background-color: transparent;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), fade(@grey-light, 100%), rgba(0, 0, 0, 0));
   }
