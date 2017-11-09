@@ -27,10 +27,13 @@ const AtomicPosition = () => (
         <div className="atomic-position-demo">
           <p>This is a container div relatively positioned for purpose of this demo</p>
           <div className="position-relative">
-            position-relative. relative positioning means the element is positioned relative to itself. Without using the top, right, bottom, or left properties, it behaves like a static element. Try adding properties to move this element!
+            position-relative. relative positioning means the element is positioned relative to itself. Without using
+            the top, right, bottom, or left properties, it behaves like a static element. Try adding properties to
+             move this element!
           </div>
           <div className="position-absolute">
-            position-absolute. absolute means positioned relative to its nearest positioned parent positioned element. It is now positioned relative to its nearest relative ancestor.
+            position-absolute. absolute means positioned relative to its nearest positioned parent positioned
+             element. It is now positioned relative to its nearest relative ancestor.
           </div>
         </div>
         <p>
@@ -48,10 +51,13 @@ const AtomicPosition = () => (
             <div className="atomic-position-demo">
               <p>This is a container div relatively positioned for purpose of this demo</p>
               <div className="position-relative">
-                position-relative. relative positioning means the element is positioned relative to itself. Without using the top, right, bottom, or left properties, it behaves like a static element. Try adding properties to move this element!
+                position-relative. relative positioning means the element is positioned relative to itself.
+                 Without using the top, right, bottom, or left properties, it behaves like a static element.
+                  Try adding properties to move this element!
               </div>
               <div className="position-absolute">
-                position-absolute. absolute means positioned relative to its nearest positioned parent positioned element. It is now positioned relative to its nearest relative ancestor.
+                position-absolute. absolute means positioned relative to its nearest positioned parent positioned
+                 element. It is now positioned relative to its nearest relative ancestor.
               </div>
             </div>
           `}

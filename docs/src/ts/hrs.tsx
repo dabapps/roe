@@ -39,7 +39,7 @@ const Hrs = () => (
             <DabIpsum count={2} />
 
             <hr className="fade"/>
-            
+
             <DabIpsum count={2} />
           `}
         </CodeBlock>
