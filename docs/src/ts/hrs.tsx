@@ -32,7 +32,15 @@ const Hrs = () => (
         </h3>
         <CodeBlock language="html" name="HTML">
           {`
+            <DabIpsum count={2} />
+
             <hr/>
+
+            <DabIpsum count={2} />
+
+            <hr className="fade"/>
+            
+            <DabIpsum count={2} />
           `}
         </CodeBlock>
       </Column>
