@@ -17,6 +17,7 @@ import {
 import Alerts from './alerts';
 import AtomicFloats from './atomic-floats';
 import AtomicHides from './atomic-hides';
+import AtomicPosition from './atomic-position';
 import AtomicSpacing from './atomic-spacing';
 import AtomicText from './atomic-text';
 import AtomicTextAlign from './atomic-text-align';
@@ -60,6 +61,7 @@ class App extends React.Component<{}, void> {
         <AtomicFloats />
         <AtomicHides />
         <AtomicSpacing />
+        <AtomicPosition />
         <AtomicText />
         <AtomicTextAlign />
         <Alerts />
