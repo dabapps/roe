@@ -181,7 +181,7 @@ class Modals extends React.Component<{}, IState> {
         <Modal {...props} onClickOutside={this.onClickCloseModal}>
           <ModalHeader>
             <ModalCloseIcon onClick={this.onClickCloseModal}>
-              X
+              &times;
             </ModalCloseIcon>
             <h5>
               Header
