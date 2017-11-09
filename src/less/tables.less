@@ -39,7 +39,7 @@
         transition: ease-in-out 0.1s background-color;
       }
 
-      &:hover {
+      &:hover:not([disabled]) {
         .table-header,
         .table-cell {
           background-color: @table-hover;
