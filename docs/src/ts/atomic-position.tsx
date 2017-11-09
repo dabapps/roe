@@ -26,18 +26,23 @@ const AtomicPosition = () => (
         </h3>
         <div className="atomic-position-demo">
           <p>This is a container div relatively positioned for purpose of this demo</p>
+
+          <div className="position-static">
+            class <strong>position-static</strong>. static positioning means that this element is unpositioned. It is rendered where the element is by default according to the HTML. It's not participating in all the positioning fun.
+          </div>
           <div className="position-relative">
-            position-relative. relative positioning means the element is positioned relative to itself. Without using
+            class <strong>position-relative</strong>. relative positioning means the element is positioned relative to itself. Without using
             the top, right, bottom, or left properties, it behaves like a static element. Try adding properties to
              move this element!
           </div>
           <div className="position-absolute">
-            position-absolute. absolute means positioned relative to its nearest positioned parent positioned
+            class <strong>position-absolute</strong>. absolute means positioned relative to its nearest positioned parent positioned
              element. It is now positioned relative to its nearest relative ancestor.
           </div>
         </div>
         <p>
-          Note: all the padding and colour above was just part of the demo.
+          <strong>Note</strong>: all the padding and colour above was just part of the demo.
+          There's also class <strong>.position-fixed</strong>, but not shown for this demo.
         </p>
       </Column>
     </Row>
@@ -50,15 +55,22 @@ const AtomicPosition = () => (
           {`
             <div className="atomic-position-demo">
               <p>This is a container div relatively positioned for purpose of this demo</p>
-              <div className="position-relative">
-                position-relative. relative positioning means the element is positioned relative to itself.
-                 Without using the top, right, bottom, or left properties, it behaves like a static element.
-                  Try adding properties to move this element!
+
+              <div className="position-static">
+                class <strong>position-static</strong>. static positioning means that this element is unpositioned. It is rendered where the element is by default according to the HTML. It's not participating in all the positioning fun.
               </div>
+
+              <div className="position-relative">
+                class <strong>position-relative</strong>. relative positioning means the element is positioned relative to itself. Without using
+                the top, right, bottom, or left properties, it behaves like a static element. Try adding properties to
+                 move this element!
+              </div>
+
               <div className="position-absolute">
-                position-absolute. absolute means positioned relative to its nearest positioned parent positioned
+                class <strong>position-absolute</strong>. absolute means positioned relative to its nearest positioned parent positioned
                  element. It is now positioned relative to its nearest relative ancestor.
               </div>
+
             </div>
           `}
         </CodeBlock>
