@@ -7,11 +7,10 @@ declare const hljs: void | IHighlightJS;
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps } from 'react';
-
+import { ComponentProps } from '../types';
 import { formatCode } from '../utils';
 
-export interface CodeBlockProps extends HTMLProps<HTMLElement> {
-  component?: string;
+export interface CodeBlockProps extends ComponentProps, HTMLProps<HTMLElement> {
   children?: string;
   language?: string;
   codeBlockName?: string;

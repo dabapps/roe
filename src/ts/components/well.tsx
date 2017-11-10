@@ -1,10 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
+import { ComponentProps } from '../types';
 
-export interface WellProps extends HTMLProps<HTMLElement> {
-  component?: string;
-}
+export type WellProps = ComponentProps & HTMLProps<HTMLElement>;
 
 export const Well: StatelessComponent<WellProps> = (props) => {
   const { children, className, component: Component = 'div', ...remainingProps } = props;

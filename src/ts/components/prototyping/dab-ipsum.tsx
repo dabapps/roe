@@ -4,10 +4,16 @@ import { generateIpsum } from '../../utils';
 import { WORDS } from '../../words';
 
 export interface IpsumProps {
+  /**
+   * Set the component to render a different element type
+   */
   component: 'li' | 'p' | 'text';
 }
 
 export interface DabIpsumProps {
+  /**
+   * Set the component to render a different element type
+   */
   component?: 'ul' | 'ol' | 'p' | 'text';
   count?: number;
 }

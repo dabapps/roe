@@ -1,9 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
+import { ComponentProps } from '../../types';
 
-export interface InputGroupProps extends HTMLProps<HTMLElement> {
-  component?: string;
+export interface InputGroupProps extends ComponentProps, HTMLProps<HTMLElement> {
   block?: boolean;
 }
 

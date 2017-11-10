@@ -1,10 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
+import { ComponentProps } from '../types';
 
-export interface AlertProps extends HTMLProps<HTMLElement> {
-  component?: string;
-}
+export type AlertProps = ComponentProps & HTMLProps<HTMLElement>;
 
 export const Alert: StatelessComponent<AlertProps> = (props) => {
   const { children, className, component: Component = 'div', ...remainingProps } = props;

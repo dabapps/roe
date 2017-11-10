@@ -1,10 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
+import { ComponentProps } from '../../types';
 
-export interface InputGroupAddonProps extends HTMLProps<HTMLElement> {
-  component?: string;
-}
+export type InputGroupAddonProps = ComponentProps & HTMLProps<HTMLElement>;
 
 export const InputGroupAddon: StatelessComponent<InputGroupAddonProps> = (props) => {
   const {

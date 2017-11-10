@@ -1,9 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
+import { ComponentProps } from '../../types';
 
-export interface ContainerProps extends HTMLProps<HTMLElement> {
-  component?: string;
+export interface ContainerProps extends ComponentProps, HTMLProps<HTMLElement> {
   fluid?: boolean;
   solid?: boolean;
   children?: React.ReactNode;

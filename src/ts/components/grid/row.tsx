@@ -1,10 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
+import { ComponentProps } from '../../types';
 
-export interface RowProps extends HTMLProps<HTMLElement> {
-  component?: string;
-}
+export type RowProps = ComponentProps & HTMLProps<HTMLElement>;
 
 export const Row: StatelessComponent<RowProps> = (props) => {
   const { children, className, component: Component = 'div', ...remainingProps } = props;

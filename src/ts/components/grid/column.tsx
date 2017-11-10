@@ -1,10 +1,10 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
+import { ComponentProps } from '../../types';
 import { isValidColumnNumber } from '../../utils';
 
-export interface ColumnProps extends HTMLProps<HTMLElement> {
-  component?: string;
+export interface ColumnProps extends ComponentProps, HTMLProps<HTMLElement> {
   xs?: number;
   sm?: number;
   md?: number;
