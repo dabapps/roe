@@ -1,11 +1,20 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
+import { ComponentProps } from '../../types';
 
-export interface ButtonProps extends HTMLProps<HTMLElement> {
-  component?: string;
+export interface ButtonProps extends ComponentProps, HTMLProps<HTMLElement> {
+  /**
+   * Set the style `display: block;`
+   */
   block?: boolean;
+  /**
+   * Make the button large
+   */
   large?: boolean;
+  /**
+   * Make the button small
+   */
   small?: boolean;
 }
 
