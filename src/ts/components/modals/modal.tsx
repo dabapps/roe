@@ -1,9 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
+import { ComponentProps } from '../../types';
 
-export interface ModalProps extends HTMLProps<HTMLElement> {
-  component?: string;
+export interface ModalProps extends ComponentProps, HTMLProps<HTMLElement> {
   scrollable?: boolean;
   small?: boolean;
   large?: boolean;

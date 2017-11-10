@@ -1,9 +1,11 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
-import { TableSectionProps } from '../../types';
+import { ComponentProps } from '../../types';
 
-export const TableHead: StatelessComponent<TableSectionProps> = (props) => {
+type TableHeadProps = ComponentProps & HTMLProps<HTMLElement>;
+
+export const TableHead: StatelessComponent<TableHeadProps> = (props) => {
   const {
     className,
     children,

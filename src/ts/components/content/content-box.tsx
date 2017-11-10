@@ -1,7 +1,10 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
+import { HTMLProps } from 'react';
 import { StatelessComponent } from 'react';
-import { ContentBoxProps } from '../../types';
+import { ComponentProps } from '../../types';
+
+type ContentBoxProps = ComponentProps & HTMLProps<HTMLElement>;
 
 export const ContentBox: StatelessComponent<ContentBoxProps> = (props) => {
   const {

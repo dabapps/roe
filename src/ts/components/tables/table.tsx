@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
+import { ComponentProps } from '../../types';
 
 export interface TableFixedRowHeaderProps {
   fixRowHeaders: true;
@@ -12,8 +13,7 @@ export interface TableUnfixedRowHeaderProps {
   rowHeaderWidth?: never;
 }
 
-export interface BaseTableProps {
-  component?: string;
+export interface BaseTableProps extends ComponentProps {
   collapse?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   scrollable?: boolean;
   striped?: boolean;

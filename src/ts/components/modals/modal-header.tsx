@@ -1,9 +1,11 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { StatelessComponent } from 'react';
-import { ModalContentProps } from '../../types';
+import { HTMLProps, StatelessComponent } from 'react';
+import { ComponentProps } from '../../types';
 
-export const ModalHeader: StatelessComponent<ModalContentProps> = (props) => {
+type ModalHeaderProps = ComponentProps & HTMLProps<HTMLElement>;
+
+export const ModalHeader: StatelessComponent<ModalHeaderProps> = (props) => {
   const {
     className,
     children,

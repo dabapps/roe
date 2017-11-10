@@ -1,9 +1,11 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
-import { ModalContentProps } from '../../types';
+import { ComponentProps } from '../../types';
 
-export const ModalFooter: StatelessComponent<ModalContentProps> = (props) => {
+type ModalFooterProps = ComponentProps & HTMLProps<HTMLElement>;
+
+export const ModalFooter: StatelessComponent<ModalFooterProps> = (props) => {
   const {
     className,
     children,
