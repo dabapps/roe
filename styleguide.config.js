@@ -12,11 +12,15 @@ const components = [
   },
   {
     name: 'Tabs',
-    components: 'src/ts/components/tabs/tabs.tsx'
+    components: 'src/ts/components/tabs/**/*.tsx'
   },
   {
     name: 'Tables',
-    components: 'src/ts/components/tables/table.tsx'
+    components: 'src/ts/components/tables/**/*.tsx'
+  },
+  {
+    name: 'Modals',
+    components: 'src/ts/components/modals/**/*.tsx'
   },
   {
     name: 'Forms',
