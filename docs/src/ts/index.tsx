@@ -17,6 +17,7 @@ import {
 import Alerts from './alerts';
 import AtomicFloats from './atomic-floats';
 import AtomicHides from './atomic-hides';
+import AtomicPosition from './atomic-position';
 import AtomicSpacing from './atomic-spacing';
 import AtomicText from './atomic-text';
 import AtomicTextAlign from './atomic-text-align';
@@ -24,6 +25,7 @@ import Buttons from './buttons';
 import CodeBlocks from './code-blocks';
 import ContentBoxes from './content-boxes';
 import Grid from './grid';
+import Hrs from './hrs';
 import Inputs from './inputs';
 import Ipsum from './ipsum';
 import Modals from './modals';
@@ -59,9 +61,11 @@ class App extends React.Component<{}, void> {
         <AtomicFloats />
         <AtomicHides />
         <AtomicSpacing />
+        <AtomicPosition />
         <AtomicText />
         <AtomicTextAlign />
         <Alerts />
+        <Hrs />
         <Buttons />
         <CodeBlocks />
         <ContentBoxes />
