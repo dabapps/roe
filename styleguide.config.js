@@ -1,3 +1,4 @@
+const fs = require('fs');
 const path = require('path');
 
 const components = [
@@ -56,6 +57,28 @@ function getExampleFilename (componentPath) {
   return componentPath.replace(/\.tsx?$/, '.examples.md');
 }
 
+function updateExample (props, exampleFilePath) {
+  const { settings, lang } = props;
+
+  if (typeof settings.file === 'string') {
+    const filepath = path.resolve(path.dirname(exampleFilePath), settings.file);
+
+    if (lang === 'less') {
+      settings.static = true;
+    }
+
+    delete settings.file;
+
+    return {
+      content: fs.readFileSync(filepath, 'utf8'),
+      settings,
+      lang,
+    }
+  }
+
+  return props;
+}
+
 function mergeWithArrays (objValue, srcValue, key, object, source, stack) {
   if (Array.isArray(objValue) && Array.isArray(srcValue)) {
     return objValue.concat(srcValue);
@@ -95,6 +118,7 @@ module.exports = {
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
   webpackConfig,
   getExampleFilename,
+  updateExample,
   assetsDir: path.join(__dirname, 'docs/static/'),
   template: path.join(__dirname, 'docs/templates/index.html'),
   styleguideComponents: {
