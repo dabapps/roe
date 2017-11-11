@@ -1,5 +1,7 @@
 #### Example
 
+Note: for buttons to render correctly you must set their `component` prop to something else e.g. `"div"`.
+
 ```js
 <div>
   <InputGroup>
