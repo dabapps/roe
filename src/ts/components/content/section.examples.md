@@ -11,5 +11,10 @@
   <Section>
     Section 3
   </Section>
+  <p>
+    Horizontal rules
+  </p>
+  <hr />
+  <hr className="fade" />
 </ContentBox>
 ```
