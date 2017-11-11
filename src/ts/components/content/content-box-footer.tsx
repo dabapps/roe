@@ -4,7 +4,7 @@ import { HTMLProps } from 'react';
 import { StatelessComponent } from 'react';
 import { ComponentProps } from '../../types';
 
-type ContentBoxFooterProps = ComponentProps & HTMLProps<HTMLElement>;
+export type ContentBoxFooterProps = ComponentProps & HTMLProps<HTMLElement>;
 
 export const ContentBoxFooter: StatelessComponent<ContentBoxFooterProps> = (props) => {
   const {

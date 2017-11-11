@@ -3,7 +3,7 @@ import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
 import { ComponentProps } from '../../types';
 
-type ModalCloseIconProps = ComponentProps & HTMLProps<HTMLElement>;
+export type ModalCloseIconProps = ComponentProps & HTMLProps<HTMLElement>;
 
 export const ModalCloseIcon: StatelessComponent<ModalCloseIconProps> = (props) => {
   const {

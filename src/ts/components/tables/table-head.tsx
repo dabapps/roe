@@ -3,7 +3,7 @@ import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
 import { ComponentProps } from '../../types';
 
-type TableHeadProps = ComponentProps & HTMLProps<HTMLElement>;
+export type TableHeadProps = ComponentProps & HTMLProps<HTMLElement>;
 
 export const TableHead: StatelessComponent<TableHeadProps> = (props) => {
   const {

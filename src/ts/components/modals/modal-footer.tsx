@@ -3,7 +3,7 @@ import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
 import { ComponentProps } from '../../types';
 
-type ModalFooterProps = ComponentProps & HTMLProps<HTMLElement>;
+export type ModalFooterProps = ComponentProps & HTMLProps<HTMLElement>;
 
 export const ModalFooter: StatelessComponent<ModalFooterProps> = (props) => {
   const {

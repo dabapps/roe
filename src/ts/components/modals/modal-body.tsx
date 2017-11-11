@@ -3,7 +3,7 @@ import * as React from 'react';
 import { HTMLProps, StatelessComponent } from 'react';
 import { ComponentProps } from '../../types';
 
-type ModalBodyProps = ComponentProps & HTMLProps<HTMLElement>;
+export type ModalBodyProps = ComponentProps & HTMLProps<HTMLElement>;
 
 export const ModalBody: StatelessComponent<ModalBodyProps> = (props) => {
   const {
