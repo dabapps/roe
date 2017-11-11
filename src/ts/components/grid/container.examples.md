@@ -12,6 +12,8 @@
 
 #### Less variables
 
+Note: the container must have the `solid` prop set to true in order to set the background color.
+
 ```less
 @container-background: @white;
 
