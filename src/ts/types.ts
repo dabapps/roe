@@ -1,5 +1,3 @@
-import { HTMLProps } from 'react';
-
 export interface ComponentProps {
   /**
    * Set the component to render a different element type
