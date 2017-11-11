@@ -9,6 +9,9 @@ export interface ContainerProps extends ComponentProps, HTMLProps<HTMLElement> {
   children?: React.ReactNode;
 }
 
+/**
+ * Used inside `NavBar`s or as the main wrapper for an application.
+ */
 export const Container: StatelessComponent<ContainerProps> = (props) => {
   const { children, className, fluid, solid, component: Component = 'div', ...remainingProps } = props;
   const fluidClassName = fluid ? 'container-fluid' : 'container';

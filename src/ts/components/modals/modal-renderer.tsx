@@ -6,6 +6,10 @@ export interface ModalRendererProps extends HTMLProps<HTMLElement> {
   modals: React.ReactNode[];
 }
 
+/**
+ * Required to render modals.
+ * Should be rendered in the root of your app.
+ */
 export const ModalRenderer: StatelessComponent<ModalRendererProps> = (props) => {
   const {
     modals,

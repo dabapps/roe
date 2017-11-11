@@ -16,6 +16,9 @@ export interface CodeBlockProps extends ComponentProps, HTMLProps<HTMLElement> {
   codeBlockName?: string;
 }
 
+/**
+ * Component to nicely highlight code inside a `pre` element.
+ */
 export class CodeBlock extends React.Component<CodeBlockProps, any> {
   public element: HTMLPreElement;
 

@@ -7,6 +7,9 @@ import { shouldNotBeRendered } from '../../utils';
 
 export type TableHeaderProps = BaseTableCellProps & HTMLProps<HTMLElement>;
 
+/**
+ * Table header component with additional styles & functionality, used to style and or fix table headers.
+ */
 export const TableHeader: StatelessComponent<TableHeaderProps> = (props) => {
   const {
     className,

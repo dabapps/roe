@@ -7,6 +7,9 @@ export interface FormGroupProps extends ComponentProps, HTMLProps<HTMLElement> {
   block?: boolean;
 }
 
+/**
+ * Used to group a label & form input (or select).
+ */
 export const FormGroup: StatelessComponent<FormGroupProps> = (props) => {
   const {
     children,

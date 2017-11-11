@@ -9,6 +9,9 @@ export interface SpacedGroupProps extends ComponentProps, HTMLProps<HTMLElement>
   large?: boolean;
 }
 
+/**
+ * Component to contain & automatically add space between inline elements.
+ */
 export const SpacedGroup: StatelessComponent<SpacedGroupProps> = (props) => {
   const {
     children,

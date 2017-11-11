@@ -5,6 +5,9 @@ import { ComponentProps } from '../types';
 
 export type WellProps = ComponentProps & HTMLProps<HTMLElement>;
 
+/**
+ * Stylistic content container.
+ */
 export const Well: StatelessComponent<WellProps> = (props) => {
   const { children, className, component: Component = 'div', ...remainingProps } = props;
 

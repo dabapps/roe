@@ -45,6 +45,9 @@ const Ipsum: StatelessComponent<IpsumProps> = (props) => {
   }
 }
 
+/**
+ * Custom Ipsum component, useful for rendering placeholder text when prototyping.
+ */
 export class DabIpsum extends React.Component<DabIpsumProps, void> {
   public shouldComponentUpdate (prevProps: DabIpsumProps) {
     return prevProps.component !== this.props.component ||

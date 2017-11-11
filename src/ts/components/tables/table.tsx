@@ -28,6 +28,9 @@ export type TableProps = BaseTableProps &
   (TableFixedRowHeaderProps | TableUnfixedRowHeaderProps) &
   HTMLProps<HTMLElement>;
 
+/**
+ * Table component with additional styles & functionality.
+ */
 export const Table: StatelessComponent<TableProps> = (props) => {
   const {
     className,

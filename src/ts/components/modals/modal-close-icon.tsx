@@ -5,6 +5,9 @@ import { ComponentProps } from '../../types';
 
 export type ModalCloseIconProps = ComponentProps & HTMLProps<HTMLElement>;
 
+/**
+ * Used within a `ModalHeader` to add a close icon in the top right.
+ */
 export const ModalCloseIcon: StatelessComponent<ModalCloseIconProps> = (props) => {
   const {
     className,

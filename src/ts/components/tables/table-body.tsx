@@ -5,6 +5,9 @@ import { ComponentProps } from '../../types';
 
 export type TableBodyProps = ComponentProps & HTMLProps<HTMLElement>;
 
+/**
+ * Table body component with additional styles & functionality, used to contain main table content.
+ */
 export const TableBody: StatelessComponent<TableBodyProps> = (props) => {
   const {
     className,

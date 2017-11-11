@@ -11,6 +11,9 @@ export interface ModalProps extends ComponentProps, HTMLProps<HTMLElement> {
   onClickOutside(event: React.MouseEvent<HTMLDivElement>): void;
 }
 
+/**
+ * Component used to render a modal.
+ */
 export const Modal: StatelessComponent<ModalProps> = (props) => {
   const {
     className,

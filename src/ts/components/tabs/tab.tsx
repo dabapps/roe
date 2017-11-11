@@ -7,6 +7,10 @@ export interface TabProps extends ComponentProps, HTMLProps<HTMLElement> {
   active?: boolean;
 }
 
+/**
+ * Tab component for use within the `Tabs` component.
+ * Easily style active tabs with the `active` prop.
+ */
 export const Tab: StatelessComponent<TabProps> = (props) => {
   const {
     className,

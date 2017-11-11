@@ -18,6 +18,9 @@ export interface ButtonProps extends ComponentProps, HTMLProps<HTMLElement> {
   small?: boolean;
 }
 
+/**
+ * Used in place of a standard `button` tag, this component adds additional styles and effects.
+ */
 export const Button: StatelessComponent<ButtonProps> = (props) => {
   const {
     children,

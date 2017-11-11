@@ -32,6 +32,9 @@ export interface ColumnProps extends ComponentProps, HTMLProps<HTMLElement> {
   xlPull?: number;
 }
 
+/**
+ * Placed inside rows to align content in columns.
+ */
 export const Column: StatelessComponent<ColumnProps> = (props) => {
   const {
     children,

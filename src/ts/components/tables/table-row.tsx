@@ -5,6 +5,9 @@ import { ComponentProps } from '../../types';
 
 export type TableRowProps = ComponentProps & HTMLProps<HTMLElement>;
 
+/**
+ * Table row component with additional styles & functionality, used within a table head or body.
+ */
 export const TableRow: StatelessComponent<TableRowProps> = (props) => {
   const {
     className,

@@ -6,6 +6,9 @@ import { ComponentProps } from '../../types';
 
 export type ContentBoxProps = ComponentProps & HTMLProps<HTMLElement>;
 
+/**
+ * Box for displaying content within.
+ */
 export const ContentBox: StatelessComponent<ContentBoxProps> = (props) => {
   const {
     className,

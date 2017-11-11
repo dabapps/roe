@@ -5,6 +5,9 @@ import { ComponentProps } from '../../types';
 
 export type ModalHeaderProps = ComponentProps & HTMLProps<HTMLElement>;
 
+/**
+ * Header for `Modal`s to display a title.
+ */
 export const ModalHeader: StatelessComponent<ModalHeaderProps> = (props) => {
   const {
     className,

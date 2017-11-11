@@ -7,6 +7,9 @@ import { shouldNotBeRendered } from '../../utils';
 
 export type TableCellProps = BaseTableCellProps & HTMLProps<HTMLElement>;
 
+/**
+ * Table cell component with additional styles & functionality, used within table rows.
+ */
 export const TableCell: StatelessComponent<TableCellProps> = (props) => {
   const {
     className,

@@ -7,6 +7,9 @@ export interface InputGroupProps extends ComponentProps, HTMLProps<HTMLElement> 
   block?: boolean;
 }
 
+/**
+ * Used to group inputs, selects, buttons, and `InputGroupAddon`s.
+ */
 export const InputGroup: StatelessComponent<InputGroupProps> = (props) => {
   const {
     children,

@@ -5,6 +5,9 @@ import { ComponentProps } from '../../types';
 
 export type InputGroupAddonProps = ComponentProps & HTMLProps<HTMLElement>;
 
+/**
+ * Used to display additional context within an `InputGroup`.
+ */
 export const InputGroupAddon: StatelessComponent<InputGroupAddonProps> = (props) => {
   const {
     children,
