@@ -74,17 +74,7 @@ exports[`CodeBlock should remove weird indentation from single line snippets 2`]
 </div>
 `;
 
-exports[`CodeBlock should take an optional language prop 1`] = `
-<div
-  className="code-block-wrapper"
->
-  <pre
-    className="code-block language-javascript"
-  />
-</div>
-`;
-
-exports[`CodeBlock should take an optional name prop 1`] = `
+exports[`CodeBlock should take an optional codeBlockName prop 1`] = `
 <div
   className="code-block-wrapper"
 >
@@ -98,6 +88,16 @@ exports[`CodeBlock should take an optional name prop 1`] = `
     </div>
     example
   </div>
+  <pre
+    className="code-block language-javascript"
+  />
+</div>
+`;
+
+exports[`CodeBlock should take an optional language prop 1`] = `
+<div
+  className="code-block-wrapper"
+>
   <pre
     className="code-block language-javascript"
   />
