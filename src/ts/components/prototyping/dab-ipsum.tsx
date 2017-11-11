@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HTMLProps, StatelessComponent } from 'react';
+import { StatelessComponent } from 'react';
 import { generateIpsum } from '../../utils';
 import { WORDS } from '../../words';
 
