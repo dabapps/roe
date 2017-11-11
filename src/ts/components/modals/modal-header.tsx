@@ -7,6 +7,7 @@ export type ModalHeaderProps = ComponentProps & HTMLProps<HTMLElement>;
 
 /**
  * Header for `Modal`s to display a title.
+ * See the [Modal](#modal) section for a full example.
  */
 export const ModalHeader: StatelessComponent<ModalHeaderProps> = (props) => {
   const {

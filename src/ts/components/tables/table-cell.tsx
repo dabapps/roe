@@ -9,6 +9,7 @@ export type TableCellProps = BaseTableCellProps & HTMLProps<HTMLElement>;
 
 /**
  * Table cell component with additional styles & functionality, used within table rows.
+ * See the [Table](#table) section for a full example.
  */
 export const TableCell: StatelessComponent<TableCellProps> = (props) => {
   const {

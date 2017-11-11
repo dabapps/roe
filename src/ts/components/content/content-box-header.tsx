@@ -8,6 +8,7 @@ export type ContentBoxHeaderProps = ComponentProps & HTMLProps<HTMLElement>;
 
 /**
  * Footer for `ContentBox`s, used to display a content's title.
+ * See the [ContentBox](#contentbox) section for a full example.
  */
 export const ContentBoxHeader: StatelessComponent<ContentBoxHeaderProps> = (props) => {
   const {

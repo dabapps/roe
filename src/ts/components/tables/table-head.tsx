@@ -7,6 +7,7 @@ export type TableHeadProps = ComponentProps & HTMLProps<HTMLElement>;
 
 /**
  * Table head component with additional styles & functionality, used to contain table headers.
+ * See the [Table](#table) section for a full example.
  */
 export const TableHead: StatelessComponent<TableHeadProps> = (props) => {
   const {

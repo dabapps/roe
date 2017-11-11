@@ -7,6 +7,7 @@ export type ModalFooterProps = ComponentProps & HTMLProps<HTMLElement>;
 
 /**
  * Footer for `Modal`s to contain submit buttons, link or sub-text.
+ * See the [Modal](#modal) section for a full example.
  */
 export const ModalFooter: StatelessComponent<ModalFooterProps> = (props) => {
   const {
