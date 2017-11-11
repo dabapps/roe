@@ -41,7 +41,7 @@
 @grey-dark: #333333;
 @grey-medium: #555555;
 @grey-light: #AAAAAA;
-@grey-lighter: #E8E8E8;
+@grey-lighter: #DDDDDD;
 @grey-lightest: #F8F8F8;
 @white: #FFFFFF;
 
@@ -64,7 +64,7 @@
 @container-background: @white;
 
 @button-text-color-dark: @grey-dark;
-@button-text-color-light: @grey-lighter;
+@button-text-color-light: @grey-lightest;
 @button-background-default: @grey-lighter;
 
 @table-stripe: @grey-lightest;
@@ -98,6 +98,7 @@
 @input-group-addon-background: @grey-lightest;
 @input-group-addon-border: @border-base;
 
+@input-border: @border-dark;
 @input-width: 200px;
 @input-height: 32px;
 @label-width: 100px;
@@ -107,7 +108,7 @@
 
 @checkbox-size: 16px;
 @checkbox-background: @white;
-@checkbox-border: @border-base;
+@checkbox-border: @border-dark;
 @checkbox-active-background: @primary;
 @checkbox-icon-background: @checkbox-background;
 @checkbox-icon-border: 2px solid @checkbox-icon-background;
@@ -128,7 +129,8 @@
 /* @group Borders */
 
 @border-radius-base: 2px;
-@border-base: 1px solid @grey-light;
+@border-base: 1px solid @grey-lighter;
+@border-dark: 1px solid @grey-light;
 @border-none: 0;
 
 /* @end Borders */
