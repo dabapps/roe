@@ -40,6 +40,22 @@ const less = [
   {
     name: 'Variables',
     content: 'src/less/variables.examples.md'
+  },
+  {
+    name: 'Atomic float classes',
+    content: 'src/less/float.examples.md'
+  },
+  {
+    name: 'Atomic padding & margin classes',
+    content: 'src/less/padding-and-margin.examples.md'
+  },
+  {
+    name: 'Atomic position classes',
+    content: 'src/less/position.examples.md'
+  },
+  {
+    name: 'Atomic text classes',
+    content: 'src/less/text.examples.md'
   }
 ];
 

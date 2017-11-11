@@ -6,54 +6,63 @@
     border-color: @primary-light;
     background-color: @primary-lighter;
 
-    &:nth-child(1) {
+    &:nth-of-type(3n - 2) {
       border-color: @primary-light;
       background-color: @primary-lighter;
     }
 
-    &:nth-child(2) {
+    &:nth-of-type(3n - 1) {
       border-color: @secondary-light;
       background-color: @secondary-lighter;
     }
 
-    &:nth-child(3) {
+    &:nth-of-type(3n) {
       border-color: @tertiary-light;
       background-color: @tertiary-lighter;
     }
   }
 }
 
-.atomic-position-demo {
-  height: 250px;
-  width: 100%;
-  position: relative;
+.display-divs {
   border: @border-base;
-  border-color: @success;
+  border-color: @success-light;
   background-color: @success-lighter;
 
-  .position-static {
+  div {
     border: @border-base;
-    border-color: @primary;
-    background-color: @primary-lighter;
+
+    &:nth-of-type(3n - 2) {
+      border-color: @primary-light;
+      background-color: @primary-lighter;
+    }
+
+    &:nth-of-type(3n - 1) {
+      border-color: @secondary-light;
+      background-color: @secondary-lighter;
+    }
+
+    &:nth-of-type(3n) {
+      border-color: @tertiary-light;
+      background-color: @tertiary-lighter;
+    }
+  }
+}
+
+.atomic-position-example {
+  height: 250px;
+  width: 100%;
+
+  .position-static {
     bottom: 0;
     right: 0;
-    padding: @padding-base;
   }
 
   .position-absolute {
-    border: @border-base;
-    border-color: @secondary;
-    background-color: @secondary-lighter;
     bottom: 0;
     right: 0;
-    padding: @padding-base;
   }
 
   .position-relative {
-    border: @border-base;
-    border-color: @tertiary;
-    background-color: @tertiary-lighter;
     left: 30px;
-    padding: @padding-base;
   }
 }
