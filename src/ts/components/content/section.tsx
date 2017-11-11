@@ -7,6 +7,7 @@ export type SectionProps = ComponentProps & HTMLProps<HTMLElement>;
 
 /**
  * Used to separate sections of content with a horizontal-rule-like style.
+ * Should only be used inside `ContentBox`s or `Column`s.
  */
 export const Section: StatelessComponent<SectionProps> = (props) => {
   const { children, className, component: Component = 'section', ...remainingProps } = props;
