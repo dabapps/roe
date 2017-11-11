@@ -56,6 +56,10 @@ const less = [
   {
     name: 'Atomic text classes',
     content: 'src/less/text.examples.md'
+  },
+  {
+    name: 'Atomic text align classes',
+    content: 'src/less/text-align.examples.md'
   }
 ];
 

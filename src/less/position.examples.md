@@ -5,7 +5,7 @@ Available values include: `static`, `relative`, `absolute`, and `fixed`.
 #### Example
 
 ```js
-<div className="position-relative padding-base display-divs atomic-position-example">
+<div className="position-relative display-divs atomic-position-example">
   <p>
     This is a container div relatively positioned for purpose of this demo
   </p>
