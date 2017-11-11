@@ -40,19 +40,22 @@
 
 .atomic-position-example {
   height: 250px;
-  width: 100%;
 
-  .position-static {
-    bottom: 0;
-    right: 0;
+  div {
+    width: 100%;
   }
 
-  .position-absolute {
-    bottom: 0;
-    right: 0;
+  .position-static {
+    bottom: @gutter-width / 2;
+    right: @gutter-width / 2;
   }
 
   .position-relative {
-    left: 30px;
+    left: @gutter-width / 2;
+  }
+
+  .position-absolute {
+    bottom: @gutter-width / 2;
+    right: @gutter-width / 2;
   }
 }
