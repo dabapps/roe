@@ -18,6 +18,21 @@
       Done
     </Button>
   </InputGroup>
+
+  <InputGroup>
+    <Button component="div" tabIndex={0}>
+      1
+    </Button>
+    <Button component="div" tabIndex={0}>
+      2
+    </Button>
+    <Button component="div" tabIndex={0}>
+      3
+    </Button>
+    <Button component="div" tabIndex={0}>
+      4
+    </Button>
+  </InputGroup>
 </div>
 ```
 

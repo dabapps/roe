@@ -151,6 +151,23 @@ textarea {
     display: table-cell;
     margin-top: 0;
     margin-bottom: 0;
+    border: @border-base;
+    border-right: @border-none;
+
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    &:last-child {
+      border: @border-base;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    &:not(:last-child):not(:first-child) {
+      border-radius: 0;
+    }
   }
 
   & > input,
@@ -160,47 +177,11 @@ textarea {
     width: 100%;
   }
 
-  & > label,
-  & > input,
-  & > select,
-  & > button,
-  & > .input,
-  & > .select,
-  & > .label,
-  & > .button {
-    &:first-child {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    &:last-child {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-
-    &:not(:first-child):not(:last-child) {
-      border-radius: 0;
-    }
-  }
-
   & > .input-group-addon {
     vertical-align: middle;
     height: @input-height;
     padding: @padding-base / 2 @padding-base;
-    border: @input-group-addon-border;
     border-radius: @border-radius-base;
     background-color: @input-group-addon-background;
-
-    &:first-child {
-      border-right: @border-none;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    &:last-child {
-      border-left: @border-none;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
   }
 }
