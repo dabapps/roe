@@ -24,6 +24,7 @@
 #### Less variables
 
 ```less
+@input-border: @border-dark;
+
 @input-group-addon-background: @grey-lightest;
-@input-group-addon-border: @border-base;
 ```

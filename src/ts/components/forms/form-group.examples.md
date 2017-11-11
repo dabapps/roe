@@ -43,6 +43,7 @@
 #### Less variables
 
 ```less
+@input-border: @border-dark;
 @input-width: 200px;
 @input-height: 32px;
 @label-width: 100px;

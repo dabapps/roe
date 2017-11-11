@@ -66,7 +66,7 @@ You can then use your custom buttons by supplying the name you provided the mixi
 
 ```less
 @button-text-color-dark: @grey-dark;
-@button-text-color-light: @grey-lighter;
+@button-text-color-light: @grey-lightest;
 @button-background-default: @grey-lighter;
 
 @font-size-button: 1em;
