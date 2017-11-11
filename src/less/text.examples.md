@@ -3,43 +3,57 @@
 ```js
 <div>
   <p className="font-size-h1">
-    Paragraph with header size
+    font-size-h1
   </p>
 
   <h3 className="font-size-base">
-    Header with base font size (small & large also available)
+    <SpacedGroup block>
+      <span>
+        font-size-base
+      </span>
+      <span className="font-size-small">
+        font-size-small (relative to parent)
+      </span>
+      <span className="font-size-large">
+        font-size-large (relative to parent)
+      </span>
+    </SpacedGroup>
   </h3>
 
-  <p>
+  <SpacedGroup block className="margin-vertical-base">
     <span className="bold">
-      Bold
-    </span> <span className="italic">
-      Italic
-    </span> <span className="bold italic">
-      Bold Italic
+      bold
     </span>
-  </p>
+    <span className="italic">
+      italic
+    </span>
+    <span className="bold italic">
+      bold italic
+    </span>
+  </SpacedGroup>
 
-  <p className="primary">
-    <DabIpsum component="text" />
-  </p>
-  <p className="secondary">
-    <DabIpsum component="text" />
-  </p>
-  <p className="tertiary">
-    <DabIpsum component="text" />
-  </p>
-  <p className="info">
-    <DabIpsum component="text" />
-  </p>
-  <p className="success">
-    <DabIpsum component="text" />
-  </p>
-  <p className="warning">
-    <DabIpsum component="text" />
-  </p>
-  <p className="error">
-    <DabIpsum component="text" />
-  </p>
+  <SpacedGroup block className="margin-vertical-base">
+    <span className="primary">
+      primary
+    </span>
+    <span className="secondary">
+      secondary
+    </span>
+    <span className="tertiary">
+      tertiary
+    </span>
+    <span className="info">
+      info
+    </span>
+    <span className="success">
+      success
+    </span>
+    <span className="warning">
+      warning
+    </span>
+    <span className="error">
+      error
+    </span>
+  </SpacedGroup>
 </div>
 ```

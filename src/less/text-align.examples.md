@@ -7,16 +7,24 @@ Note: `text-align-left` is an alias for `xs-text-align-left`, same for `right` a
 ```js
 <div className="display-paragraphs">
   <p className="text-align-left">
-    Left
+    <strong>
+      text-align-left
+      </strong>
   </p>
   <p className="text-align-center">
-    Center
+    <strong>
+      text-align-center
+    </strong>
   </p>
   <p className="text-align-right">
-    Right
+    <strong>
+      text-align-right
+    </strong>
   </p>
   <p className="xs-text-align-center sm-text-align-left">
-    Centered on mobile
+    <strong>
+      xs-text-align-center sm-text-align-left
+    </strong> - centered on mobile, and left on larger screens
   </p>
 </div>
 ```

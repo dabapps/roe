@@ -1,23 +1,35 @@
 Used to adjust the quickly adjust an element's padding.
 
+You can set padding for all sides; `left`, `right`, `top`, or `bottom`; or all `vertical` / `horizontal` sides.
+
 #### Examples
 
 ```js
 <div className="display-divs">
   <div className="padding-base">
-    Padding all around
+    <strong>
+      padding-base
+    </strong>
   </div>
   <div className="md-padding-left-large">
-    Large padding left on medium screens and above
+    <strong>
+      md-padding-left-large
+    </strong> - large padding left on medium screens and above
   </div>
   <div className="margin-left-base md-margin-left-none">
-    Margin left only only small screens
+    <strong>
+      margin-left-base md-margin-left-none
+    </strong> - margin left only only small screens
   </div>
   <div className="margin-vertical-small">
-    Small vertical margin
+    <strong>
+      margin-vertical-small
+      </strong>
   </div>
   <div className="margin-horizontal-large">
-    Large horizontal margin
+    <strong>
+      margin-horizontal-large
+    </strong>
   </div>
 </div>
 ```
