@@ -3,6 +3,9 @@ import { HTMLProps, StatelessComponent } from 'react';
 import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 export interface ModalRendererProps extends HTMLProps<HTMLElement> {
+  /**
+   * Array of modals to be rendered.
+   */
   modals: React.ReactNode[];
 }
 

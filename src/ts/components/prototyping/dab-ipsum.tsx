@@ -5,16 +5,19 @@ import { WORDS } from '../../words';
 
 export interface IpsumProps {
   /**
-   * Set the component to render a different element type
+   * Set the component to render a different element type.
    */
   component: 'li' | 'p' | 'text';
 }
 
 export interface DabIpsumProps {
   /**
-   * Set the component to render a different element type
+   * Set the component to render a different element type.
    */
   component?: 'ul' | 'ol' | 'p' | 'text';
+  /**
+   * The number of elements (e.g. paragraphs) to render.
+   */
   count?: number;
 }
 
