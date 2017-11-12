@@ -4,13 +4,7 @@ import { HTMLProps, StatelessComponent } from 'react';
 import { ComponentProps } from '../../types';
 
 export interface TableFixedRowHeaderProps {
-  /**
-   * Fix the first cell of every row so they do not scroll.
-   */
   fixRowHeaders: true;
-  /**
-   * Set a width for the first column when fixed.
-   */
   rowHeaderWidth: number;
 }
 
@@ -61,9 +55,8 @@ export interface BaseTableProps extends ComponentProps {
   fixed?: boolean;
 }
 
-export type TableProps = BaseTableProps &
-  (TableFixedRowHeaderProps | TableUnfixedRowHeaderProps) &
-  HTMLProps<HTMLElement>;
+export type TableProps = (TableFixedRowHeaderProps | TableUnfixedRowHeaderProps) &
+  BaseTableProps & HTMLProps<HTMLElement>;
 
 /**
  * Table component with additional styles & functionality.
