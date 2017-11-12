@@ -28,6 +28,7 @@ export interface TableUnfixedRowHeaderProps {
 export interface BaseTableProps extends ComponentProps {
   /**
    * Currently unused.
+   * @default "'sm'"
    */
   collapse?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   /**

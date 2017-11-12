@@ -13,10 +13,12 @@ export interface IpsumProps {
 export interface DabIpsumProps {
   /**
    * Set the component to render a different element type.
+   * @default "'p'"
    */
   component?: 'ul' | 'ol' | 'p' | 'text';
   /**
    * The number of elements (e.g. paragraphs) to render.
+   * @default 5
    */
   count?: number;
 }
