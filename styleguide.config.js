@@ -159,14 +159,29 @@ module.exports = {
     }
   ]),
   styles: {
-    Markdown: { // Component
-      pre: { // Class
+    /*
+    Component: {
+      class: {
+        property: 'value'
+      }
+    },
+    */
+    Markdown: {
+      pre: {
         overflow: 'auto'
       }
     },
-    Code: { // Component
-      code: { // Class
-        border: 'none'
+    Code: {
+      code: {
+        border: 'none',
+        display: 'block',
+        margin: 0,
+        padding: 0
+      }
+    },
+    Type: {
+      type: {
+        whiteSpace: 'normal'
       }
     }
   },
