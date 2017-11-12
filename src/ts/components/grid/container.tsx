@@ -4,9 +4,14 @@ import { HTMLProps, StatelessComponent } from 'react';
 import { ComponentProps } from '../../types';
 
 export interface ContainerProps extends ComponentProps, HTMLProps<HTMLElement> {
+  /**
+   * Fill parent with no media queries to affect width.
+   */
   fluid?: boolean;
+  /**
+   * Allows applying a background color with `@container-background` variable.
+   */
   solid?: boolean;
-  children?: React.ReactNode;
 }
 
 /**

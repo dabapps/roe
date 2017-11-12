@@ -5,7 +5,7 @@ import { ComponentProps } from '../../types';
 
 export interface ButtonProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**
-   * Set the style `display: block;`
+   * Set the style `display: block;`.
    */
   block?: boolean;
   /**

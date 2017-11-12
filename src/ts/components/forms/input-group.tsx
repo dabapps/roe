@@ -4,6 +4,9 @@ import { HTMLProps, StatelessComponent } from 'react';
 import { ComponentProps } from '../../types';
 
 export interface InputGroupProps extends ComponentProps, HTMLProps<HTMLElement> {
+  /**
+   * Set the style `display: block;` so the group fills its parent.
+   */
   block?: boolean;
 }
 

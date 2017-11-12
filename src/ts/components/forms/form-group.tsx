@@ -4,6 +4,9 @@ import { HTMLProps, StatelessComponent } from 'react';
 import { ComponentProps } from '../../types';
 
 export interface FormGroupProps extends ComponentProps, HTMLProps<HTMLElement> {
+  /**
+   * Set the style `display: block;` with label above input.
+   */
   block?: boolean;
 }
 
