@@ -11,8 +11,17 @@ import { ComponentProps } from '../types';
 import { formatCode } from '../utils';
 
 export interface CodeBlockProps extends ComponentProps, HTMLProps<HTMLElement> {
+  /**
+   * Code to display.
+   */
   children?: string;
+  /**
+   * Language of the code to display e.g. "javascript".
+   */
   language?: string;
+  /**
+   * Name of the code block e.g. "index.js".
+   */
   codeBlockName?: string;
 }
 

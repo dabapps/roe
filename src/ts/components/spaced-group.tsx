@@ -4,8 +4,17 @@ import { HTMLProps, StatelessComponent } from 'react';
 import { ComponentProps } from '../types';
 
 export interface SpacedGroupProps extends ComponentProps, HTMLProps<HTMLElement> {
+  /**
+   * Set the group to `display: block;` so it fills its parent.
+   */
   block?: boolean;
+  /**
+   * Reduced spacing between items.
+   */
   small?: boolean;
+  /**
+   * Increased spacing between items.
+   */
   large?: boolean;
 }
 

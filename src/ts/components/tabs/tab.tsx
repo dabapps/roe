@@ -4,6 +4,9 @@ import { HTMLProps, StatelessComponent } from 'react';
 import { ComponentProps } from '../../types';
 
 export interface TabProps extends ComponentProps, HTMLProps<HTMLElement> {
+  /**
+   * Apply active `Tab` styles.
+   */
   active?: boolean;
 }
 
