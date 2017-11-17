@@ -135,6 +135,10 @@ textarea {
     width: 100%;
   }
 
+  & > * { // lesshint universalSelector: false
+    width: 1px;
+  }
+
   & > label,
   & > input,
   & > select,
@@ -147,61 +151,37 @@ textarea {
     display: table-cell;
     margin-top: 0;
     margin-bottom: 0;
-  }
+    border: @input-border;
+    border-right: @border-none;
 
-  & > label,
-  & > input,
-  & > select,
-  & > button,
-  & > .input,
-  & > .select,
-  & > .label,
-  & > .button {
-    width: 100%;
-  }
-
-  & > label,
-  & > input,
-  & > select,
-  & > button,
-  & > .input,
-  & > .select,
-  & > .label,
-  & > .button {
     &:first-child {
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
     }
 
     &:last-child {
+      border: @input-border;
       border-top-left-radius: 0;
       border-bottom-left-radius: 0;
     }
 
-    &:not(:first-child):not(:last-child) {
+    &:not(:last-child):not(:first-child) {
       border-radius: 0;
     }
   }
 
+  & > input,
+  & > select,
+  & > .input,
+  & > .select {
+    width: 100%;
+  }
+
   & > .input-group-addon {
     vertical-align: middle;
-    width: 10px;
     height: @input-height;
     padding: @padding-base / 2 @padding-base;
-    border: @border-base;
     border-radius: @border-radius-base;
-    background-color: @grey-lightest;
-
-    &:first-child {
-      border-right: @border-none;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    &:last-child {
-      border-left: @border-none;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
+    background-color: @input-group-addon-background;
   }
 }

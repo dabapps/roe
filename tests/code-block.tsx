@@ -47,9 +47,9 @@ describe('CodeBlock', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should take an optional name prop', () => {
+  it('should take an optional codeBlockName prop', () => {
     const tree = renderer.create(
-      <CodeBlock name="example" language="javascript" />
+      <CodeBlock codeBlockName="example" language="javascript" />
     );
 
     expect(tree).toMatchSnapshot();

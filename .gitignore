@@ -3,6 +3,7 @@
 /.nyc_output/**
 /dist/**
 /docs/build/**
+/styleguide/**
 
 .DS_Store
 npm-debug.log*

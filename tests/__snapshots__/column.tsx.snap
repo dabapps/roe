@@ -9,7 +9,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column xs-offset-0"
   />
   <div
     className="column xs-offset-1"
@@ -27,7 +27,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column xs-fill-0"
   />
   <div
     className="column xs-fill-1"
@@ -45,7 +45,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column xs-push-0"
   />
   <div
     className="column xs-push-1"
@@ -63,7 +63,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column xs-pull-0"
   />
   <div
     className="column xs-pull-1"
@@ -81,7 +81,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column sm-offset-0"
   />
   <div
     className="column sm-offset-1"
@@ -99,7 +99,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column sm-fill-0"
   />
   <div
     className="column sm-fill-1"
@@ -117,7 +117,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column sm-push-0"
   />
   <div
     className="column sm-push-1"
@@ -135,7 +135,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column sm-pull-0"
   />
   <div
     className="column sm-pull-1"
@@ -153,7 +153,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column md-offset-0"
   />
   <div
     className="column md-offset-1"
@@ -171,7 +171,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column md-fill-0"
   />
   <div
     className="column md-fill-1"
@@ -189,7 +189,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column md-push-0"
   />
   <div
     className="column md-push-1"
@@ -207,7 +207,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column md-pull-0"
   />
   <div
     className="column md-pull-1"
@@ -225,7 +225,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column lg-offset-0"
   />
   <div
     className="column lg-offset-1"
@@ -243,7 +243,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column lg-fill-0"
   />
   <div
     className="column lg-fill-1"
@@ -261,7 +261,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column lg-push-0"
   />
   <div
     className="column lg-push-1"
@@ -279,7 +279,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column lg-pull-0"
   />
   <div
     className="column lg-pull-1"
@@ -297,7 +297,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column xl-offset-0"
   />
   <div
     className="column xl-offset-1"
@@ -315,7 +315,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column xl-fill-0"
   />
   <div
     className="column xl-fill-1"
@@ -333,7 +333,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column xl-push-0"
   />
   <div
     className="column xl-push-1"
@@ -351,7 +351,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column xl-pull-0"
   />
   <div
     className="column xl-pull-1"
@@ -369,7 +369,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column xs-0"
   />
   <div
     className="column xs-1"
@@ -387,7 +387,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column sm-0"
   />
   <div
     className="column sm-1"
@@ -405,7 +405,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column md-0"
   />
   <div
     className="column md-1"
@@ -423,7 +423,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column lg-0"
   />
   <div
     className="column lg-1"
@@ -441,7 +441,7 @@ exports[`Column should convert column modifier props to class names 1`] = `
     className="column"
   />
   <div
-    className="column"
+    className="column xl-0"
   />
   <div
     className="column xl-1"

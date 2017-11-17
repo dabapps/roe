@@ -1,0 +1,61 @@
+@import 'src/less/index.less';
+
+.highlight(@selector) {
+  border: @border-base;
+  background-color: @grey-lightest;
+
+  @{selector} {
+    border: @border-base;
+    border-color: @success-light;
+    background-color: @success-lighter;
+
+    &:nth-of-type(3n - 2) {
+      border-color: @primary-light;
+      background-color: @primary-lighter;
+    }
+
+    &:nth-of-type(3n - 1) {
+      border-color: @secondary-light;
+      background-color: @secondary-lighter;
+    }
+
+    &:nth-of-type(3n) {
+      border-color: @tertiary-light;
+      background-color: @tertiary-lighter;
+    }
+  }
+}
+
+.display-columns {
+  .highlight(~'.column');
+}
+
+.display-divs {
+  .highlight(div);
+}
+
+.display-paragraphs {
+  .highlight(p);
+}
+
+.atomic-position-example {
+  height: 250px;
+
+  div {
+    width: 100%;
+  }
+
+  .position-static {
+    bottom: @gutter-width / 2;
+    right: @gutter-width / 2;
+  }
+
+  .position-relative {
+    left: @gutter-width / 2;
+  }
+
+  .position-absolute {
+    bottom: @gutter-width / 2;
+    right: @gutter-width / 2;
+  }
+}
