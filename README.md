@@ -1,4 +1,4 @@
-# ![roe](docs/images/roe-logo-small.png) [![Build Status](https://travis-ci.com/dabapps/roe.svg?token=YbH3f6uroz5f5q8RxDdW&branch=master)](https://travis-ci.com/dabapps/roe)
+# ![roe](docs/static/images/roe-logo-small.png)
 
 **DabApps' Project Development Kit**
 
