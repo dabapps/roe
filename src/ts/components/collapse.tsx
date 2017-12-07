@@ -41,7 +41,7 @@ export interface CollapseProps extends ComponentProps, React.HTMLAttributes<HTML
   fadeHeight?: number;
 }
 
-interface CollapseState { // tslint:disable-line:no-unused-variable
+export interface CollapseState { // tslint:disable-line:no-unused-variable
   height: number;
   opened: boolean;
   opening: boolean;
