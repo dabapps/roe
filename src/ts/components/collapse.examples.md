@@ -31,7 +31,7 @@ class CollapseExample extends React.Component {
           fadeOut
           fadeColor="#FFF"
           fadeHeight={50}
-          animationDuration={1000}
+          animationDuration={200}
         >
           <DabIpsum count={10} />
         </Collapse>
