@@ -35,9 +35,25 @@ describe('Collapse', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should match snapshot with custom animation duration', () => {
+    const tree = renderer.create(
+      <Collapse open={false} animationDuration={100} />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('should match snapshot with fade out', () => {
     const tree = renderer.create(
       <Collapse open={false} fadeOut />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should match snapshot with customized fade out', () => {
+    const tree = renderer.create(
+      <Collapse open={false} fadeOut fadeColor="red" fadeHeight={10} />
     );
 
     expect(tree).toMatchSnapshot();
