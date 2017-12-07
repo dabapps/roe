@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collapse should match snapshot when collapsed 1`] = `
+<div
+  className="clearfix collapse"
+  style={
+    Object {
+      "height": 0,
+      "overflow": "hidden",
+      "position": "relative",
+      "transition": "ease-in-out 200ms height",
+    }
+  }
+/>
+`;
+
+exports[`Collapse should match snapshot when expanded 1`] = `
+<div
+  className="clearfix collapse collapse-open"
+  style={
+    Object {
+      "height": "auto",
+      "overflow": "hidden",
+      "position": "relative",
+      "transition": "ease-in-out 200ms height",
+    }
+  }
+/>
+`;
+
+exports[`Collapse should take regular element attributes 1`] = `
+<div
+  className="clearfix collapse my-class"
+  style={
+    Object {
+      "height": 0,
+      "overflow": "hidden",
+      "position": "relative",
+      "transition": "ease-in-out 200ms height",
+    }
+  }
+/>
+`;
