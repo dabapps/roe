@@ -1,5 +1,6 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
+import { ComponentProps } from '../types';
 
 const ENOUGH_TIME_FOR_RERENDER = 50;
 const DEFAULT_HEIGHT = 0;
@@ -7,7 +8,7 @@ const DEFAULT_DURATION = 200;
 const DEFAULT_FADE_HEIGHT = 50;
 const DEFAULT_FADE_COLOR = '#FFF';
 
-export interface CollapseProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface CollapseProps extends ComponentProps, React.HTMLAttributes<HTMLDivElement> {
   /**
    * Whether the collapse is open or not
    * @default false
@@ -110,6 +111,7 @@ export class Collapse extends React.PureComponent<CollapseProps, CollapseState> 
     const { opening, opened, height } = this.state;
 
     const {
+      component: Component = 'div',
       children,
       className,
       fadeOut,
@@ -139,7 +141,7 @@ export class Collapse extends React.PureComponent<CollapseProps, CollapseState> 
     };
 
     return (
-      <div
+      <Component
         ref={(element: HTMLDivElement) => this.element = element}
         {...remainingProps}
         className={classNames('clearfix collapse', height ? 'collapse-open' : null, className)}
@@ -154,7 +156,7 @@ export class Collapse extends React.PureComponent<CollapseProps, CollapseState> 
             />
           )
         }
-      </div>
+      </Component>
     );
   }
 }
