@@ -52,8 +52,38 @@ describe('Collapse', () => {
   });
 
   it('should open', () => {
-    const instance = enzyme.mount(<Collapse open={false} />);
+    jest.useFakeTimers();
 
+    const instance = enzyme.mount(<Collapse open={false} fadeOut />);
+    const node = instance.getDOMNode();
+
+    // Set a scrollHeight
+    Object.defineProperty(node, 'scrollHeight', {
+      get: () => 500
+    });
+
+    // Initial state
+    instance.update();
+    expect(instance).toMatchSnapshot();
+
+    instance.setProps({
+      open: true
+    });
+
+    // Prepare to open
+    instance.update();
+    expect(instance).toMatchSnapshot();
+
+    jest.runOnlyPendingTimers();
+
+    // Begin open sequence
+    instance.update();
+    expect(instance).toMatchSnapshot();
+
+    jest.runOnlyPendingTimers();
+
+    // Complete open sequence
+    instance.update();
     expect(instance).toMatchSnapshot();
   });
 

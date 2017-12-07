@@ -73,6 +73,7 @@ exports[`Collapse should match snapshot with fade out 1`] = `
 
 exports[`Collapse should open 1`] = `
 <Collapse
+  fadeOut={true}
   open={false}
 >
   <div
@@ -80,6 +81,108 @@ exports[`Collapse should open 1`] = `
     style={
       Object {
         "height": 0,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 1,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should open 2`] = `
+<Collapse
+  fadeOut={true}
+  open={true}
+>
+  <div
+    className="clearfix collapse"
+    style={
+      Object {
+        "height": 0,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 1,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should open 3`] = `
+<Collapse
+  fadeOut={true}
+  open={true}
+>
+  <div
+    className="clearfix collapse collapse-open"
+    style={
+      Object {
+        "height": 500,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 0,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should open 4`] = `
+<Collapse
+  fadeOut={true}
+  open={true}
+>
+  <div
+    className="clearfix collapse collapse-open"
+    style={
+      Object {
+        "height": "auto",
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms height",
