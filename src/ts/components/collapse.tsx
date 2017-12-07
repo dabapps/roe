@@ -56,12 +56,12 @@ export class Collapse extends React.PureComponent<CollapseProps, CollapseState> 
   public constructor (props: CollapseProps) {
     super(props);
 
-    const { maxCollapsedHeight = DEFAULT_HEIGHT } = props;
+    const { maxCollapsedHeight = DEFAULT_HEIGHT, open } = props;
 
     this.state = {
       height: maxCollapsedHeight,
       opening: false,
-      opened: false
+      opened: open
     };
   }
 
