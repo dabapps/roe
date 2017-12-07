@@ -35,7 +35,7 @@ class CollapseExample extends React.Component {
         >
           <DabIpsum count={10} />
         </Collapse>
-        <Button className="margin-top-base" onClick={this.onClickToggleCollapse}>
+        <Button className="primary margin-top-base" onClick={this.onClickToggleCollapse}>
           {open ? 'Collapse' : 'Expand'}
         </Button>
       </div>
