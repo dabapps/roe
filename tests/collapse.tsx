@@ -26,6 +26,22 @@ describe('Collapse', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should match snapshot with custom collapsed height', () => {
+    const tree = renderer.create(
+      <Collapse open={false} maxCollapsedHeight={100} />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should match snapshot with fade out', () => {
+    const tree = renderer.create(
+      <Collapse open={false} fadeOut />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('should take regular element attributes', () => {
     const tree = renderer.create(
       <Collapse open={false} className="my-class" />

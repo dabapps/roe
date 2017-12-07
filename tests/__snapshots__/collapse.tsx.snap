@@ -28,6 +28,49 @@ exports[`Collapse should match snapshot when expanded 1`] = `
 />
 `;
 
+exports[`Collapse should match snapshot with custom collapsed height 1`] = `
+<div
+  className="clearfix collapse collapse-open"
+  style={
+    Object {
+      "height": 100,
+      "overflow": "hidden",
+      "position": "relative",
+      "transition": "ease-in-out 200ms height",
+    }
+  }
+/>
+`;
+
+exports[`Collapse should match snapshot with fade out 1`] = `
+<div
+  className="clearfix collapse"
+  style={
+    Object {
+      "height": 0,
+      "overflow": "hidden",
+      "position": "relative",
+      "transition": "ease-in-out 200ms height",
+    }
+  }
+>
+  <div
+    className="collapse-fade"
+    style={
+      Object {
+        "background": "linear-gradient(transparent, #FFF 80%)",
+        "bottom": 0,
+        "height": 50,
+        "opacity": 1,
+        "position": "absolute",
+        "transition": "ease-in-out 200ms opacity",
+        "width": "100%",
+      }
+    }
+  />
+</div>
+`;
+
 exports[`Collapse should take regular element attributes 1`] = `
 <div
   className="clearfix collapse my-class"
