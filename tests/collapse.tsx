@@ -123,4 +123,76 @@ describe('Collapse', () => {
     expect(instance).toMatchSnapshot();
   });
 
+  it('should close to default height', () => {
+    jest.useFakeTimers();
+
+    const instance = enzyme.mount(<Collapse open={true} fadeOut />);
+    const node = instance.getDOMNode();
+
+    // Set a scrollHeight
+    Object.defineProperty(node, 'scrollHeight', {
+      get: () => 500
+    });
+
+    // Initial state
+    instance.update();
+    expect(instance).toMatchSnapshot();
+
+    instance.setProps({
+      open: false
+    });
+
+    // Prepare to close
+    instance.update();
+    expect(instance).toMatchSnapshot();
+
+    jest.runOnlyPendingTimers();
+
+    // Begin close sequence
+    instance.update();
+    expect(instance).toMatchSnapshot();
+
+    jest.runOnlyPendingTimers();
+
+    // Complete close sequence
+    instance.update();
+    expect(instance).toMatchSnapshot();
+  });
+
+  it('should close to custom height', () => {
+    jest.useFakeTimers();
+
+    const instance = enzyme.mount(<Collapse open={true} maxCollapsedHeight={100} fadeOut />);
+    const node = instance.getDOMNode();
+
+    // Set a scrollHeight
+    Object.defineProperty(node, 'scrollHeight', {
+      get: () => 500
+    });
+
+    // Initial state
+    instance.update();
+    expect(instance).toMatchSnapshot();
+
+    instance.setProps({
+      open: false
+    });
+
+    // Prepare to close
+    instance.update();
+    expect(instance).toMatchSnapshot();
+
+    jest.runOnlyPendingTimers();
+
+    // Begin close sequence
+    instance.update();
+    expect(instance).toMatchSnapshot();
+
+    jest.runOnlyPendingTimers();
+
+    // Complete close sequence
+    instance.update();
+    expect(instance).toMatchSnapshot();
+  });
+
 });
