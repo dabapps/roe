@@ -51,10 +51,46 @@ describe('Collapse', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should open', () => {
+  it('should open from default height', () => {
     jest.useFakeTimers();
 
     const instance = enzyme.mount(<Collapse open={false} fadeOut />);
+    const node = instance.getDOMNode();
+
+    // Set a scrollHeight
+    Object.defineProperty(node, 'scrollHeight', {
+      get: () => 500
+    });
+
+    // Initial state
+    instance.update();
+    expect(instance).toMatchSnapshot();
+
+    instance.setProps({
+      open: true
+    });
+
+    // Prepare to open
+    instance.update();
+    expect(instance).toMatchSnapshot();
+
+    jest.runOnlyPendingTimers();
+
+    // Begin open sequence
+    instance.update();
+    expect(instance).toMatchSnapshot();
+
+    jest.runOnlyPendingTimers();
+
+    // Complete open sequence
+    instance.update();
+    expect(instance).toMatchSnapshot();
+  });
+
+  it('should open from custom height', () => {
+    jest.useFakeTimers();
+
+    const instance = enzyme.mount(<Collapse open={false} maxCollapsedHeight={100} fadeOut />);
     const node = instance.getDOMNode();
 
     // Set a scrollHeight
