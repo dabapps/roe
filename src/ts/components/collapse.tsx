@@ -108,10 +108,7 @@ export class Collapse extends React.PureComponent<CollapseProps, CollapseState> 
   }
 
   public render () {
-    const { opening, opened, height } = this.state;
-
     const {
-      component: Component = 'div',
       children,
       className,
       fadeOut,
@@ -120,8 +117,11 @@ export class Collapse extends React.PureComponent<CollapseProps, CollapseState> 
       open,
       maxCollapsedHeight,
       animationDuration = DEFAULT_DURATION,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
+
+    const { opening, opened, height } = this.state;
 
     const collapseStyle = {
       height: opened ? 'auto' : height,
@@ -144,7 +144,7 @@ export class Collapse extends React.PureComponent<CollapseProps, CollapseState> 
       <Component
         ref={(element: HTMLDivElement) => this.element = element}
         {...remainingProps}
-        className={classNames('clearfix collapse', height ? 'collapse-open' : null, className)}
+        className={classNames('clearfix collapse', open ? 'collapse-open' : null, className)}
         style={collapseStyle}
       >
         {children}

@@ -7,7 +7,7 @@ exports[`Collapse should close to custom height 1`] = `
   open={true}
 >
   <div
-    className="clearfix collapse"
+    className="clearfix collapse collapse-open"
     style={
       Object {
         "height": "auto",
@@ -27,7 +27,7 @@ exports[`Collapse should close to custom height 2`] = `
   open={false}
 >
   <div
-    className="clearfix collapse collapse-open"
+    className="clearfix collapse"
     style={
       Object {
         "height": 500,
@@ -62,7 +62,7 @@ exports[`Collapse should close to custom height 3`] = `
   open={false}
 >
   <div
-    className="clearfix collapse collapse-open"
+    className="clearfix collapse"
     style={
       Object {
         "height": 100,
@@ -97,7 +97,7 @@ exports[`Collapse should close to custom height 4`] = `
   open={false}
 >
   <div
-    className="clearfix collapse collapse-open"
+    className="clearfix collapse"
     style={
       Object {
         "height": 100,
@@ -131,7 +131,7 @@ exports[`Collapse should close to default height 1`] = `
   open={true}
 >
   <div
-    className="clearfix collapse"
+    className="clearfix collapse collapse-open"
     style={
       Object {
         "height": "auto",
@@ -150,7 +150,7 @@ exports[`Collapse should close to default height 2`] = `
   open={false}
 >
   <div
-    className="clearfix collapse collapse-open"
+    className="clearfix collapse"
     style={
       Object {
         "height": 500,
@@ -276,7 +276,7 @@ exports[`Collapse should match snapshot when expanded 1`] = `
 
 exports[`Collapse should match snapshot with custom collapsed height 1`] = `
 <div
-  className="clearfix collapse collapse-open"
+  className="clearfix collapse"
   style={
     Object {
       "height": 100,
@@ -324,7 +324,7 @@ exports[`Collapse should open from custom height 1`] = `
   open={false}
 >
   <div
-    className="clearfix collapse collapse-open"
+    className="clearfix collapse"
     style={
       Object {
         "height": 100,
@@ -482,7 +482,7 @@ exports[`Collapse should open from default height 2`] = `
   open={true}
 >
   <div
-    className="clearfix collapse"
+    className="clearfix collapse collapse-open"
     style={
       Object {
         "height": 0,
