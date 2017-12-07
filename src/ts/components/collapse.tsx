@@ -7,31 +7,7 @@ const DEFAULT_DURATION = 200;
 const DEFAULT_FADE_HEIGHT = 50;
 const DEFAULT_FADE_COLOR = '#FFF';
 
-interface FadePropsActive {
-  /**
-   * Whether to fade out the content
-   * @default false
-   */
-  fadeOut: true;
-  /**
-   * Color to fade to
-   * @default white
-   */
-  fadeColor?: string;
-  /**
-   * Height of the faded area
-   * @default 50
-   */
-  fadeHeight?: number;
-}
-
-interface FadePropsDisabled {
-  fadeOut?: false;
-  fadeColor?: undefined;
-  fadeHeight?: undefined;
-}
-
-interface ExternalProps {
+export interface CollapseProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Whether the collapse is open or not
    * @default false
@@ -47,6 +23,21 @@ interface ExternalProps {
    * @default 0
    */
   maxCollapsedHeight?: number;
+  /**
+   * Whether to fade out the content
+   * @default false
+   */
+  fadeOut?: boolean;
+  /**
+   * Color to fade to
+   * @default white
+   */
+  fadeColor?: string;
+  /**
+   * Height of the faded area
+   * @default 50
+   */
+  fadeHeight?: number;
 }
 
 interface CollapseState { // tslint:disable-line:no-unused-variable
@@ -54,10 +45,6 @@ interface CollapseState { // tslint:disable-line:no-unused-variable
   opened: boolean;
   opening: boolean;
 }
-
-export type CollapseProps = ExternalProps &
-  (FadePropsActive | FadePropsDisabled) &
-  React.HTMLAttributes<HTMLDivElement>;
 
 /**
  * Component to expand and collapse content, optionally displaying a small preview.
