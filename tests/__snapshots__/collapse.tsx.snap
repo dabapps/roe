@@ -71,6 +71,24 @@ exports[`Collapse should match snapshot with fade out 1`] = `
 </div>
 `;
 
+exports[`Collapse should open 1`] = `
+<Collapse
+  open={false}
+>
+  <div
+    className="clearfix collapse"
+    style={
+      Object {
+        "height": 0,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  />
+</Collapse>
+`;
+
 exports[`Collapse should take regular element attributes 1`] = `
 <div
   className="clearfix collapse my-class"

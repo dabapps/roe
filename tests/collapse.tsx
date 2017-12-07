@@ -1,3 +1,4 @@
+import * as enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
@@ -48,6 +49,12 @@ describe('Collapse', () => {
     );
 
     expect(tree).toMatchSnapshot();
+  });
+
+  it('should open', () => {
+    const instance = enzyme.mount(<Collapse open={false} />);
+
+    expect(instance).toMatchSnapshot();
   });
 
 });
