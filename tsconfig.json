@@ -1,12 +1,14 @@
 {
   "compilerOptions": {
-    "noImplicitAny": true,
     "strictNullChecks": true,
+    "noImplicitAny": true,
+    "pretty": true,
     "jsx": "react",
     "target": "es5",
+    "module": "commonjs",
     "typeRoots": [
-      "node_modules/@types/",
-      "types/"
+      "node_modules/@types/*",
+      "types/*"
     ]
   },
   "exclude": [

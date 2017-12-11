@@ -1,0 +1,621 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collapse should close to custom height 1`] = `
+<Collapse
+  fadeOut={true}
+  maxCollapsedHeight={100}
+  open={true}
+>
+  <div
+    className="clearfix collapse collapse-open"
+    style={
+      Object {
+        "height": "auto",
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  />
+</Collapse>
+`;
+
+exports[`Collapse should close to custom height 2`] = `
+<Collapse
+  fadeOut={true}
+  maxCollapsedHeight={100}
+  open={false}
+>
+  <div
+    className="clearfix collapse"
+    style={
+      Object {
+        "height": 500,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 0,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should close to custom height 3`] = `
+<Collapse
+  fadeOut={true}
+  maxCollapsedHeight={100}
+  open={false}
+>
+  <div
+    className="clearfix collapse"
+    style={
+      Object {
+        "height": 100,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 1,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should close to custom height 4`] = `
+<Collapse
+  fadeOut={true}
+  maxCollapsedHeight={100}
+  open={false}
+>
+  <div
+    className="clearfix collapse"
+    style={
+      Object {
+        "height": 100,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 1,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should close to default height 1`] = `
+<Collapse
+  fadeOut={true}
+  open={true}
+>
+  <div
+    className="clearfix collapse collapse-open"
+    style={
+      Object {
+        "height": "auto",
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  />
+</Collapse>
+`;
+
+exports[`Collapse should close to default height 2`] = `
+<Collapse
+  fadeOut={true}
+  open={false}
+>
+  <div
+    className="clearfix collapse"
+    style={
+      Object {
+        "height": 500,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 0,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should close to default height 3`] = `
+<Collapse
+  fadeOut={true}
+  open={false}
+>
+  <div
+    className="clearfix collapse"
+    style={
+      Object {
+        "height": 0,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 1,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should close to default height 4`] = `
+<Collapse
+  fadeOut={true}
+  open={false}
+>
+  <div
+    className="clearfix collapse"
+    style={
+      Object {
+        "height": 0,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 1,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should match snapshot when collapsed 1`] = `
+<div
+  className="clearfix collapse"
+  style={
+    Object {
+      "height": 0,
+      "overflow": "hidden",
+      "position": "relative",
+      "transition": "ease-in-out 200ms height",
+    }
+  }
+/>
+`;
+
+exports[`Collapse should match snapshot when expanded 1`] = `
+<div
+  className="clearfix collapse collapse-open"
+  style={
+    Object {
+      "height": "auto",
+      "overflow": "hidden",
+      "position": "relative",
+      "transition": "ease-in-out 200ms height",
+    }
+  }
+/>
+`;
+
+exports[`Collapse should match snapshot with custom animation duration 1`] = `
+<div
+  className="clearfix collapse"
+  style={
+    Object {
+      "height": 0,
+      "overflow": "hidden",
+      "position": "relative",
+      "transition": "ease-in-out 100ms height",
+    }
+  }
+/>
+`;
+
+exports[`Collapse should match snapshot with custom collapsed height 1`] = `
+<div
+  className="clearfix collapse"
+  style={
+    Object {
+      "height": 100,
+      "overflow": "hidden",
+      "position": "relative",
+      "transition": "ease-in-out 200ms height",
+    }
+  }
+/>
+`;
+
+exports[`Collapse should match snapshot with customized fade out 1`] = `
+<div
+  className="clearfix collapse"
+  style={
+    Object {
+      "height": 0,
+      "overflow": "hidden",
+      "position": "relative",
+      "transition": "ease-in-out 200ms height",
+    }
+  }
+>
+  <div
+    className="collapse-fade"
+    style={
+      Object {
+        "background": "linear-gradient(transparent, red 80%)",
+        "bottom": 0,
+        "height": 10,
+        "opacity": 1,
+        "position": "absolute",
+        "transition": "ease-in-out 200ms opacity",
+        "width": "100%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Collapse should match snapshot with fade out 1`] = `
+<div
+  className="clearfix collapse"
+  style={
+    Object {
+      "height": 0,
+      "overflow": "hidden",
+      "position": "relative",
+      "transition": "ease-in-out 200ms height",
+    }
+  }
+>
+  <div
+    className="collapse-fade"
+    style={
+      Object {
+        "background": "linear-gradient(transparent, #FFF 80%)",
+        "bottom": 0,
+        "height": 50,
+        "opacity": 1,
+        "position": "absolute",
+        "transition": "ease-in-out 200ms opacity",
+        "width": "100%",
+      }
+    }
+  />
+</div>
+`;
+
+exports[`Collapse should open from custom height 1`] = `
+<Collapse
+  fadeOut={true}
+  maxCollapsedHeight={100}
+  open={false}
+>
+  <div
+    className="clearfix collapse"
+    style={
+      Object {
+        "height": 100,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 1,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should open from custom height 2`] = `
+<Collapse
+  fadeOut={true}
+  maxCollapsedHeight={100}
+  open={true}
+>
+  <div
+    className="clearfix collapse collapse-open"
+    style={
+      Object {
+        "height": 100,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 1,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should open from custom height 3`] = `
+<Collapse
+  fadeOut={true}
+  maxCollapsedHeight={100}
+  open={true}
+>
+  <div
+    className="clearfix collapse collapse-open"
+    style={
+      Object {
+        "height": 500,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 0,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should open from custom height 4`] = `
+<Collapse
+  fadeOut={true}
+  maxCollapsedHeight={100}
+  open={true}
+>
+  <div
+    className="clearfix collapse collapse-open"
+    style={
+      Object {
+        "height": "auto",
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  />
+</Collapse>
+`;
+
+exports[`Collapse should open from default height 1`] = `
+<Collapse
+  fadeOut={true}
+  open={false}
+>
+  <div
+    className="clearfix collapse"
+    style={
+      Object {
+        "height": 0,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 1,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should open from default height 2`] = `
+<Collapse
+  fadeOut={true}
+  open={true}
+>
+  <div
+    className="clearfix collapse collapse-open"
+    style={
+      Object {
+        "height": 0,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 1,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should open from default height 3`] = `
+<Collapse
+  fadeOut={true}
+  open={true}
+>
+  <div
+    className="clearfix collapse collapse-open"
+    style={
+      Object {
+        "height": 500,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  >
+    <div
+      className="collapse-fade"
+      style={
+        Object {
+          "background": "linear-gradient(transparent, #FFF 80%)",
+          "bottom": 0,
+          "height": 50,
+          "opacity": 0,
+          "position": "absolute",
+          "transition": "ease-in-out 200ms opacity",
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</Collapse>
+`;
+
+exports[`Collapse should open from default height 4`] = `
+<Collapse
+  fadeOut={true}
+  open={true}
+>
+  <div
+    className="clearfix collapse collapse-open"
+    style={
+      Object {
+        "height": "auto",
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 200ms height",
+      }
+    }
+  />
+</Collapse>
+`;
+
+exports[`Collapse should take regular element attributes 1`] = `
+<div
+  className="clearfix collapse my-class"
+  style={
+    Object {
+      "height": 0,
+      "overflow": "hidden",
+      "position": "relative",
+      "transition": "ease-in-out 200ms height",
+    }
+  }
+/>
+`;
