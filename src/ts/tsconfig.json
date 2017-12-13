@@ -12,7 +12,7 @@
     "sourceMap": true,
     "listFiles": true,
     "rootDir": "./",
-    "outDir": "../../dist/"
+    "outDir": "../../dist/js/"
   },
   "exclude": [
     "../../node_modules/@types/enzyme/*"
