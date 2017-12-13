@@ -1,9 +1,9 @@
 {
   "name": "roe",
-  "version": "0.8.25",
+  "version": "0.8.26",
   "description": "A Collection of React Components for Project Development",
-  "main": "dist/js/index.js",
-  "types": "dist/js/index.d.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "start": "styleguidist server",
     "build": "styleguidist build",
