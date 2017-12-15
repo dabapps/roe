@@ -1,6 +1,6 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, StatelessComponent } from 'react';
+import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 
 export interface ModalProps extends ComponentProps, HTMLProps<HTMLElement> {
@@ -29,37 +29,37 @@ export interface ModalProps extends ComponentProps, HTMLProps<HTMLElement> {
 /**
  * Component used to render a modal.
  */
-export const Modal: StatelessComponent<ModalProps> = (props) => {
-  const {
-    className,
-    children,
-    onClickOutside,
-    scrollable,
-    small,
-    large,
-    fill,
-    component: Component = 'div',
-    ...remainingProps
-  } = props;
+export default class Modal extends PureComponent<ModalProps, {}> {
+  public render () {
+    const {
+      className,
+      children,
+      onClickOutside,
+      scrollable,
+      small,
+      large,
+      fill,
+      component: Component = 'div',
+      ...remainingProps
+    } = this.props;
 
-  const myClassNames = [
-    'modal-position',
-    scrollable ? 'scrollable' : null,
-    small ? 'small' : null,
-    large ? 'large' : null,
-    fill ? 'fill' : null,
-  ];
+    const myClassNames = [
+      'modal-position',
+      scrollable ? 'scrollable' : null,
+      small ? 'small' : null,
+      large ? 'large' : null,
+      fill ? 'fill' : null,
+    ];
 
-  return (
-    <div>
-      <div className="modal-overlay" onClick={onClickOutside} />
-      <div {...remainingProps} className={classNames(myClassNames)}>
-        <Component className="modal">
-          {children}
-        </Component>
+    return (
+      <div>
+        <div className="modal-overlay" onClick={onClickOutside} />
+        <div {...remainingProps} className={classNames(myClassNames)}>
+          <Component className="modal">
+            {children}
+          </Component>
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
-
-export default Modal;
