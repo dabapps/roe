@@ -1,14 +1,7 @@
 import * as React from 'react';
-import { StatelessComponent } from 'react';
+import { PureComponent } from 'react';
 import { generateIpsum } from '../../utils';
 import { WORDS } from '../../words';
-
-export interface IpsumProps {
-  /**
-   * Set the component to render a different element type.
-   */
-  component: 'li' | 'p' | 'text';
-}
 
 export interface DabIpsumProps {
   /**
@@ -23,23 +16,19 @@ export interface DabIpsumProps {
   count?: number;
 }
 
-const Ipsum: StatelessComponent<IpsumProps> = (props) => {
-  const { component } = props;
+const ipsumItem = (component: DabIpsumProps['component']) => {
   const ipsum = generateIpsum(WORDS);
 
   switch (component) {
-    case 'li':
+    case 'ol':
+    case 'ul':
       return (
         <li>
           {ipsum}
         </li>
       );
     case 'text':
-      return (
-        <span>
-          {ipsum}
-        </span>
-      );
+      return ipsum;
     // case 'p': NOTE: this is the default, so a case for it is not needed
     default:
       return (
@@ -48,12 +37,12 @@ const Ipsum: StatelessComponent<IpsumProps> = (props) => {
         </p>
       );
   }
-}
+};
 
 /**
  * Custom Ipsum component, useful for rendering placeholder text when prototyping.
  */
-export class DabIpsum extends React.Component<DabIpsumProps, {}> {
+export class DabIpsum extends PureComponent<DabIpsumProps, {}> {
   public shouldComponentUpdate (prevProps: DabIpsumProps) {
     return prevProps.component !== this.props.component ||
       prevProps.count !== this.props.count;
@@ -65,32 +54,32 @@ export class DabIpsum extends React.Component<DabIpsumProps, {}> {
       count = 5
     } = this.props;
 
-    const items = Array.apply(null, new Array(count)).map((v: void, index: number) => (
-      <Ipsum key={index} component={component === 'p' ? component : 'li'} />
-    ));
+    const items = Array.apply(null, new Array(count));
 
     switch (component) {
       case 'ul':
         return (
           <ul>
-            {items}
+            {items.map(() => ipsumItem(component))}
           </ul>
         );
       case 'ol':
         return (
           <ol>
-            {items}
+            {items.map(() => ipsumItem(component))}
           </ol>
         );
       case 'text':
         return (
-          <Ipsum component="text" />
+          <span>
+            {ipsumItem(component)}
+          </span>
         );
-      // case 'p': NOTE: this is the default, so a case for it is not needed
+      // case 'p'
       default:
         return (
           <div>
-            {items}
+            {items.map(() => ipsumItem(component))}
           </div>
         );
     }
