@@ -1,6 +1,6 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, StatelessComponent } from 'react';
+import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../types';
 
 export type AlertProps = ComponentProps & HTMLProps<HTMLElement>;
@@ -8,14 +8,19 @@ export type AlertProps = ComponentProps & HTMLProps<HTMLElement>;
 /**
  * A component for applying various styles to text, ideal for info, success, and error messages.
  */
-export const Alert: StatelessComponent<AlertProps> = (props) => {
-  const { children, className, component: Component = 'div', ...remainingProps } = props;
+export default class Alert extends PureComponent<AlertProps, {}> {
+  public render () {
+    const {
+      children,
+      className,
+      component: Component = 'div',
+      ...remainingProps
+    } = this.props;
 
-  return (
-    <Component {...remainingProps} className={classNames(['alert', className])}>
-      {children}
-    </Component>
-  );
+    return (
+      <Component {...remainingProps} className={classNames(['alert', className])}>
+        {children}
+      </Component>
+    );
+  }
 }
-
-export default Alert;

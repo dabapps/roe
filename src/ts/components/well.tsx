@@ -1,6 +1,6 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, StatelessComponent } from 'react';
+import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../types';
 
 export type WellProps = ComponentProps & HTMLProps<HTMLElement>;
@@ -8,14 +8,19 @@ export type WellProps = ComponentProps & HTMLProps<HTMLElement>;
 /**
  * Stylistic content container.
  */
-export const Well: StatelessComponent<WellProps> = (props) => {
-  const { children, className, component: Component = 'div', ...remainingProps } = props;
+export default class Well extends PureComponent<WellProps, {}> {
+  public render () {
+    const {
+      children,
+      className,
+      component: Component = 'div',
+      ...remainingProps
+    } = this.props;
 
-  return (
-    <Component {...remainingProps} className={classNames(['well', className])}>
-      {children}
-    </Component>
-  );
+    return (
+      <Component {...remainingProps} className={classNames(['well', className])}>
+        {children}
+      </Component>
+    );
+  }
 }
-
-export default Well;

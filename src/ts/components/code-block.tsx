@@ -6,7 +6,7 @@ declare const hljs: void | IHighlightJS;
 
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps } from 'react';
+import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../types';
 import { formatCode } from '../utils';
 
@@ -28,7 +28,7 @@ export interface CodeBlockProps extends ComponentProps, HTMLProps<HTMLElement> {
 /**
  * Component to nicely highlight code inside a `pre` element.
  */
-export class CodeBlock extends React.Component<CodeBlockProps, {}> {
+export default class CodeBlock extends PureComponent<CodeBlockProps, {}> {
   public element: HTMLPreElement;
 
   public constructor (props: CodeBlockProps) {
@@ -93,5 +93,3 @@ export class CodeBlock extends React.Component<CodeBlockProps, {}> {
     );
   }
 }
-
-export default CodeBlock;
