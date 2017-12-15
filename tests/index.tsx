@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { PureComponent } from 'react';
 import * as renderer from 'react-test-renderer';
 import * as index from '../src/ts/';
 
@@ -44,6 +45,20 @@ describe('index file', () => {
 
           if (exceptions.indexOf(key) < 0 && renderer.create(instance).toJSON().type !== 'p') {
             throw new Error(`${key} cannot take a component prop. :\'(`);
+          }
+        }
+      }
+    });
+
+    it('should all extend PureComponent', () => {
+      type Keys = keyof typeof index;
+
+      for (const key in index) {
+        if (index.hasOwnProperty(key)) {
+          const Component = index[key as Keys];
+
+          if (!(Component.prototype instanceof PureComponent)) {
+            throw new Error(`${key} does not extend PureComponent. :\'(`);
           }
         }
       }
