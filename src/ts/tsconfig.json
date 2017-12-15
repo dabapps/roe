@@ -1,18 +1,15 @@
 {
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "noImplicitAny": true,
-    "strictNullChecks": true,
-    "jsx": "react",
-    "target": "es5",
-    "typeRoots": [
-      "../../node_modules/@types/*",
-      "../../types/*"
-    ],
     "declaration": true,
     "sourceMap": true,
     "listFiles": true,
     "rootDir": "./",
-    "outDir": "../../dist/js/"
+    "outDir": "../../dist/js/",
+    "typeRoots": [
+      "node_modules/@types/*",
+      "types/"
+    ]
   },
   "exclude": [
     "../../node_modules/@types/enzyme/*"
