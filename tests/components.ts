@@ -30,7 +30,7 @@ const getAllComponents = (directory: string): string[] => {
 
 describe('components', () => {
 
-  it('should all export a named class and as default (for styleguidist)', () => {
+  it('should all export a named class and the same class as default (for styleguidist)', () => {
     const components = getAllComponents(COMPONENTS_DIR);
 
     components.forEach((filePath) => {
@@ -45,7 +45,7 @@ describe('components', () => {
       const classRegex = new RegExp(`^export class ${defaultExport[1]}`, 'm');
 
       if (!classRegex.test(content)) {
-        throw new Error(`Default export is not exported as a named class at ${filePath}`);
+        throw new Error(`Default export ${defaultExport[0]} is not exported as a named class at ${filePath}`);
       }
     });
   });
