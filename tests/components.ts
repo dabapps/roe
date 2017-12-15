@@ -69,7 +69,7 @@ describe('components', () => {
       const indexContent = fs.readFileSync(INDEX_FILE_PATH, UTF8);
 
       const indexRegex =
-        new RegExp(`^export\\s{\\sdefault\\sas\\s${defaultExport[1]}\\s}\\sfrom\\s'[a-z/.-]+';`, 'm');
+        new RegExp(`^export\\s{\\sdefault\\sas\\s${defaultExport[1]}\\s}\\sfrom\\s'[a-z/.-]+';$`, 'm');
 
       if (!indexRegex.test(indexContent)) {
         throw new Error(`Component ${defaultExport[1]} is not exported from default at ${INDEX_FILE_PATH}`);
