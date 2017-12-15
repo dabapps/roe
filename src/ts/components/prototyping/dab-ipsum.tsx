@@ -16,23 +16,27 @@ export interface DabIpsumProps {
   count?: number;
 }
 
-const ipsumItem = (component: DabIpsumProps['component']) => {
+const ipsumItem = (component: DabIpsumProps['component'], index: number) => {
   const ipsum = generateIpsum(WORDS);
 
   switch (component) {
     case 'ol':
     case 'ul':
       return (
-        <li>
+        <li key={index}>
           {ipsum}
         </li>
       );
     case 'text':
-      return ipsum;
+      return (
+        <span key={index}>
+          {ipsum}
+        </span>
+      );
     // case 'p': NOTE: this is the default, so a case for it is not needed
     default:
       return (
-        <p>
+        <p key={index}>
           {ipsum}
         </p>
       );
@@ -60,26 +64,26 @@ export class DabIpsum extends PureComponent<DabIpsumProps, {}> {
       case 'ul':
         return (
           <ul>
-            {items.map(() => ipsumItem(component))}
+            {items.map((value: void, index: number) => ipsumItem(component, index))}
           </ul>
         );
       case 'ol':
         return (
           <ol>
-            {items.map(() => ipsumItem(component))}
+            {items.map((value: void, index: number) => ipsumItem(component, index))}
           </ol>
         );
       case 'text':
         return (
           <span>
-            {ipsumItem(component)}
+            {ipsumItem(component, 0)}
           </span>
         );
       // case 'p'
       default:
         return (
           <div>
-            {items.map(() => ipsumItem(component))}
+            {items.map((value: void, index: number) => ipsumItem(component, index))}
           </div>
         );
     }
