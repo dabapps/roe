@@ -13,7 +13,7 @@ export interface FormGroupProps extends ComponentProps, HTMLProps<HTMLElement> {
 /**
  * Used to group a label & form input (or select).
  */
-export default class FormGroup extends PureComponent<FormGroupProps, {}> {
+export class FormGroup extends PureComponent<FormGroupProps, {}> {
   public render () {
     const {
       children,
@@ -36,3 +36,5 @@ export default class FormGroup extends PureComponent<FormGroupProps, {}> {
     );
   }
 }
+
+export default FormGroup;

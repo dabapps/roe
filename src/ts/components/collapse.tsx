@@ -51,7 +51,7 @@ export interface CollapseState { // tslint:disable-line:no-unused-variable
 /**
  * Component to expand and collapse content, optionally displaying a small preview.
  */
-export default class Collapse extends PureComponent<CollapseProps, CollapseState> {
+export class Collapse extends PureComponent<CollapseProps, CollapseState> {
   private element: Element;
   private timeout: number;
 
@@ -161,3 +161,5 @@ export default class Collapse extends PureComponent<CollapseProps, CollapseState
     );
   }
 }
+
+export default Collapse;

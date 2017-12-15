@@ -9,7 +9,7 @@ export type ContentBoxHeaderProps = ComponentProps & HTMLProps<HTMLElement>;
  * Footer for `ContentBox`s, used to display a content's title.
  * See the [ContentBox](#contentbox) section for a full example.
  */
-export default class ContentBoxHeader extends PureComponent<ContentBoxHeaderProps, {}> {
+export class ContentBoxHeader extends PureComponent<ContentBoxHeaderProps, {}> {
   public render () {
     const {
       className,
@@ -25,3 +25,5 @@ export default class ContentBoxHeader extends PureComponent<ContentBoxHeaderProp
     );
   }
 }
+
+export default ContentBoxHeader;

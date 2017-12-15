@@ -8,7 +8,7 @@ export type RowProps = ComponentProps & HTMLProps<HTMLElement>;
 /**
  * Used within a container, section, or column, to keep content on separate rows.
  */
-export default class Row extends PureComponent<RowProps, {}> {
+export class Row extends PureComponent<RowProps, {}> {
   public render () {
     const {
       children,
@@ -24,3 +24,5 @@ export default class Row extends PureComponent<RowProps, {}> {
     );
   }
 }
+
+export default Row;

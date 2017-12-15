@@ -9,7 +9,7 @@ export type ModalHeaderProps = ComponentProps & HTMLProps<HTMLElement>;
  * Header for `Modal`s to display a title.
  * See the [Modal](#modal) section for a full example.
  */
-export default class ModalHeader extends PureComponent<ModalHeaderProps, {}> {
+export class ModalHeader extends PureComponent<ModalHeaderProps, {}> {
   public render () {
     const {
       className,
@@ -25,3 +25,5 @@ export default class ModalHeader extends PureComponent<ModalHeaderProps, {}> {
     );
   }
 }
+
+export default ModalHeader;

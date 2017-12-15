@@ -28,7 +28,7 @@ export interface CodeBlockProps extends ComponentProps, HTMLProps<HTMLElement> {
 /**
  * Component to nicely highlight code inside a `pre` element.
  */
-export default class CodeBlock extends PureComponent<CodeBlockProps, {}> {
+export class CodeBlock extends PureComponent<CodeBlockProps, {}> {
   public element: HTMLPreElement;
 
   public constructor (props: CodeBlockProps) {
@@ -93,3 +93,5 @@ export default class CodeBlock extends PureComponent<CodeBlockProps, {}> {
     );
   }
 }
+
+export default CodeBlock;

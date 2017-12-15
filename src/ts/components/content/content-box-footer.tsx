@@ -9,7 +9,7 @@ export type ContentBoxFooterProps = ComponentProps & HTMLProps<HTMLElement>;
  * Footer for `ContentBox`s, ideal for submit buttons, links & sub-text.
  * See the [ContentBox](#contentbox) section for a full example.
  */
-export default class ContentBoxFooter extends PureComponent<ContentBoxFooterProps, {}> {
+export class ContentBoxFooter extends PureComponent<ContentBoxFooterProps, {}> {
   public render () {
     const {
       className,
@@ -25,3 +25,5 @@ export default class ContentBoxFooter extends PureComponent<ContentBoxFooterProp
     );
   }
 }
+
+export default ContentBoxFooter;

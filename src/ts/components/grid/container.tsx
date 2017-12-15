@@ -17,7 +17,7 @@ export interface ContainerProps extends ComponentProps, HTMLProps<HTMLElement> {
 /**
  * Used inside `NavBar`s or as the main wrapper for an application.
  */
-export default class Container extends PureComponent<ContainerProps, {}> {
+export class Container extends PureComponent<ContainerProps, {}> {
   public render () {
     const {
       children,
@@ -37,3 +37,5 @@ export default class Container extends PureComponent<ContainerProps, {}> {
     );
   }
 }
+
+export default Container;

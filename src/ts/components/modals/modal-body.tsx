@@ -9,7 +9,7 @@ export type ModalBodyProps = ComponentProps & HTMLProps<HTMLElement>;
  * Used within a `Modal` to contain the main content.
  * See the [Modal](#modal) section for a full example.
  */
-export default class ModalBody extends PureComponent<ModalBodyProps, {}> {
+export class ModalBody extends PureComponent<ModalBodyProps, {}> {
   public render () {
     const {
       className,
@@ -25,3 +25,5 @@ export default class ModalBody extends PureComponent<ModalBodyProps, {}> {
     );
   }
 }
+
+export default ModalBody;

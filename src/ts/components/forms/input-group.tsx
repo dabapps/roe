@@ -13,7 +13,7 @@ export interface InputGroupProps extends ComponentProps, HTMLProps<HTMLElement> 
 /**
  * Used to group inputs, selects, buttons, and `InputGroupAddon`s.
  */
-export default class InputGroup extends PureComponent<InputGroupProps, {}> {
+export class InputGroup extends PureComponent<InputGroupProps, {}> {
   public render () {
     const {
       children,
@@ -36,3 +36,5 @@ export default class InputGroup extends PureComponent<InputGroupProps, {}> {
     );
   }
 }
+
+export default InputGroup;

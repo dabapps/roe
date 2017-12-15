@@ -8,7 +8,7 @@ export type WellProps = ComponentProps & HTMLProps<HTMLElement>;
 /**
  * Stylistic content container.
  */
-export default class Well extends PureComponent<WellProps, {}> {
+export class Well extends PureComponent<WellProps, {}> {
   public render () {
     const {
       children,
@@ -24,3 +24,5 @@ export default class Well extends PureComponent<WellProps, {}> {
     );
   }
 }
+
+export default Well;

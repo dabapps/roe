@@ -7,7 +7,7 @@ export type AnchorProps = HTMLProps<HTMLElement>;
 /**
  * Link component that automatically creates an id and hash href that match, for linking to elements on a single page.
  */
-export default class Anchor extends PureComponent<AnchorProps, {}> {
+export class Anchor extends PureComponent<AnchorProps, {}> {
   public render () {
     const {
       children,
@@ -24,3 +24,5 @@ export default class Anchor extends PureComponent<AnchorProps, {}> {
     );
   }
 }
+
+export default Anchor;

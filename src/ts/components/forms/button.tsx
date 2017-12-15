@@ -21,7 +21,7 @@ export interface ButtonProps extends ComponentProps, HTMLProps<HTMLElement> {
 /**
  * Used in place of a standard `button` tag, this component adds additional styles and effects.
  */
-export default class Button extends PureComponent<ButtonProps, {}> {
+export class Button extends PureComponent<ButtonProps, {}> {
   public render () {
     const {
       children,
@@ -48,3 +48,5 @@ export default class Button extends PureComponent<ButtonProps, {}> {
     );
   }
 }
+
+export default Button;

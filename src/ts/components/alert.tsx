@@ -8,7 +8,7 @@ export type AlertProps = ComponentProps & HTMLProps<HTMLElement>;
 /**
  * A component for applying various styles to text, ideal for info, success, and error messages.
  */
-export default class Alert extends PureComponent<AlertProps, {}> {
+export class Alert extends PureComponent<AlertProps, {}> {
   public render () {
     const {
       children,
@@ -24,3 +24,5 @@ export default class Alert extends PureComponent<AlertProps, {}> {
     );
   }
 }
+
+export default Alert;

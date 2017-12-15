@@ -9,7 +9,7 @@ export type ModalFooterProps = ComponentProps & HTMLProps<HTMLElement>;
  * Footer for `Modal`s to contain submit buttons, link or sub-text.
  * See the [Modal](#modal) section for a full example.
  */
-export default class ModalFooter extends PureComponent<ModalFooterProps, {}> {
+export class ModalFooter extends PureComponent<ModalFooterProps, {}> {
   public render () {
     const {
       className,
@@ -25,3 +25,5 @@ export default class ModalFooter extends PureComponent<ModalFooterProps, {}> {
     );
   }
 }
+
+export default ModalFooter;

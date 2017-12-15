@@ -14,7 +14,7 @@ export interface ModalRendererProps extends HTMLProps<HTMLElement> {
  * Should be rendered in the root of your app.
  * See the [Modal](#modal) section for a full example.
  */
-export default class ModalRenderer extends PureComponent<ModalRendererProps, {}> {
+export class ModalRenderer extends PureComponent<ModalRendererProps, {}> {
   public render () {
     const {
       modals,
@@ -37,3 +37,5 @@ export default class ModalRenderer extends PureComponent<ModalRendererProps, {}>
     );
   }
 }
+
+export default ModalRenderer;

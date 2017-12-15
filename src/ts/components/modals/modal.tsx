@@ -29,7 +29,7 @@ export interface ModalProps extends ComponentProps, HTMLProps<HTMLElement> {
 /**
  * Component used to render a modal.
  */
-export default class Modal extends PureComponent<ModalProps, {}> {
+export class Modal extends PureComponent<ModalProps, {}> {
   public render () {
     const {
       className,
@@ -63,3 +63,5 @@ export default class Modal extends PureComponent<ModalProps, {}> {
     );
   }
 }
+
+export default Modal;

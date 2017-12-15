@@ -21,7 +21,7 @@ export interface SpacedGroupProps extends ComponentProps, HTMLProps<HTMLElement>
 /**
  * Component to contain & automatically add space between inline elements.
  */
-export default class SpacedGroup extends PureComponent<SpacedGroupProps, {}> {
+export class SpacedGroup extends PureComponent<SpacedGroupProps, {}> {
   public render () {
     const {
       children,
@@ -48,3 +48,5 @@ export default class SpacedGroup extends PureComponent<SpacedGroupProps, {}> {
     );
   }
 }
+
+export default SpacedGroup;

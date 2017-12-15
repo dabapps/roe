@@ -9,7 +9,7 @@ export type SectionProps = ComponentProps & HTMLProps<HTMLElement>;
  * Used to separate sections of content with a horizontal-rule-like style.
  * Should only be used inside `ContentBox`s or `Column`s.
  */
-export default class Section extends PureComponent<SectionProps, {}> {
+export class Section extends PureComponent<SectionProps, {}> {
   public render () {
     const {
       children,
@@ -25,3 +25,5 @@ export default class Section extends PureComponent<SectionProps, {}> {
     );
   }
 }
+
+export default Section;

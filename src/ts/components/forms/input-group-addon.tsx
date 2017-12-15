@@ -8,7 +8,7 @@ export type InputGroupAddonProps = ComponentProps & HTMLProps<HTMLElement>;
 /**
  * Used to display additional context within an `InputGroup`.
  */
-export default class InputGroupAddon extends PureComponent<InputGroupAddonProps, {}> {
+export class InputGroupAddon extends PureComponent<InputGroupAddonProps, {}> {
   public render () {
     const {
       children,
@@ -30,3 +30,5 @@ export default class InputGroupAddon extends PureComponent<InputGroupAddonProps,
     );
   }
 }
+
+export default InputGroupAddon;

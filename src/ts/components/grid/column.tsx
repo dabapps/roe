@@ -111,7 +111,7 @@ export interface ColumnProps extends ComponentProps, HTMLProps<HTMLElement> {
  * Placed inside rows to align content in columns.
  * The default grid has 12 divisions.
  */
-export default class Column extends PureComponent<ColumnProps, {}> {
+export class Column extends PureComponent<ColumnProps, {}> {
   public render () {
     const {
       children,
@@ -182,3 +182,5 @@ export default class Column extends PureComponent<ColumnProps, {}> {
     );
   }
 }
+
+export default Column;
