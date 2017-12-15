@@ -74,11 +74,7 @@ export class DabIpsum extends PureComponent<DabIpsumProps, {}> {
           </ol>
         );
       case 'text':
-        return (
-          <span>
-            {ipsumItem(component, 0)}
-          </span>
-        );
+        return ipsumItem(component, 0);
       // case 'p'
       default:
         return (
