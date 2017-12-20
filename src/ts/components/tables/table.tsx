@@ -101,9 +101,12 @@ export class Table extends PureComponent<TableProps, {}> {
     return (
       <div
         className={scrollable ? 'table-scroll-vertical' : undefined}
-        style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null, height}}
+        style={{height}}
       >
-        <div className={scrollable ? 'table-scroll-horizontal' : undefined}>
+        <div
+          className={scrollable ? 'table-scroll-horizontal' : undefined}
+          style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null}}
+        >
           <Component
             {...remainingProps}
             className={classNames(myClassNames)}
