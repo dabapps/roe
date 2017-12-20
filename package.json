@@ -36,8 +36,8 @@
   "dependencies": {
     "@types/classnames": "2.2.0",
     "@types/random-seed": "0.3.2",
-    "@types/react": "15.0.22",
-    "@types/react-dom": "15.5.0",
+    "@types/react": "15.6.10",
+    "@types/react-dom": "15.5.6",
     "@types/react-transition-group": "1.1.0",
     "autoprefixer": "6.7.7",
     "browserify": "14.3.0",
