@@ -7,6 +7,19 @@ const { TableRow } = require('./table-row');
 const { TableHeader } = require('./table-header');
 const { TableCell } = require('./table-cell');
 
+const ROW_HEADER_WIDTH = 200;
+
+const TABLE_DATA = [
+  [null, 'Header 1', 'Header 2', 'Header 3', 'Header 4', 'Header 5'],
+  ['Row 1', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5'],
+  ['Row 2', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5'],
+  ['Row 3', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5'],
+  ['Row 4', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5'],
+  ['Row 5', 'Cell 1', 'Cell 2', 'Cell 3', 'Cell 4', 'Cell 5']
+];
+
+const [HEADERS, ...ROWS] = TABLE_DATA;
+
 <div>
   <Table bordered condensed>
     <TableHead>
@@ -46,50 +59,32 @@ const { TableCell } = require('./table-cell');
     </TableBody>
   </Table>
 
-  <Table striped hover fill fixRowHeaders rowHeaderWidth={200}>
+  <Table striped hover fill fixRowHeaders rowHeaderWidth={ROW_HEADER_WIDTH}>
     <TableHead>
       <TableRow>
-        <TableHeader width={200} />
-        <TableHeader>
-          Header 1
-        </TableHeader>
-        <TableHeader>
-          Header 2
-        </TableHeader>
-        <TableHeader>
-          Header 3
-        </TableHeader>
+        {
+          HEADERS.map((header, index) => (
+            <TableHeader key={header} width={!index ? ROW_HEADER_WIDTH : null}>
+              {header}
+            </TableHeader>
+          ))
+        }
       </TableRow>
     </TableHead>
     <TableBody>
-      <TableRow>
-        <TableCell width={200}>
-          Row 1
-        </TableCell>
-        <TableCell>
-          Column 1
-        </TableCell>
-        <TableCell>
-          Column 2
-        </TableCell>
-        <TableCell>
-          Column 3
-        </TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell width={200}>
-          Row 2
-        </TableCell>
-        <TableCell>
-          Column 1
-        </TableCell>
-        <TableCell>
-          Column 2
-        </TableCell>
-        <TableCell>
-          Column 3
-        </TableCell>
-      </TableRow>
+      {
+        ROWS.map((row) => (
+          <TableRow key={row[0]}>
+            {
+              row.map((cell, index) => (
+                <TableCell width={!index ? ROW_HEADER_WIDTH : null} key={cell}>
+                  {cell}
+                </TableCell>
+              ))
+            }
+          </TableRow>
+        ))
+      }
     </TableBody>
   </Table>
 </div>
