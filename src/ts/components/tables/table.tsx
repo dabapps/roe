@@ -53,6 +53,10 @@ export interface BaseTableProps extends ComponentProps {
    * Applies `table-layout: fixed;` style so that all columns are the same width.
    */
   fixed?: boolean;
+  /**
+   * Sets a fixed height for the table
+   */
+  height?: number;
 }
 
 export type TableProps = (TableFixedRowHeaderProps | TableUnfixedRowHeaderProps) &
@@ -76,6 +80,7 @@ export class Table extends PureComponent<TableProps, {}> {
       condensed,
       fill,
       fixed,
+      height,
       component: Component = 'table',
       ...remainingProps
     } = this.props;
@@ -95,8 +100,11 @@ export class Table extends PureComponent<TableProps, {}> {
 
     return (
       <div className="table-wrapper">
-        <div style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null}}>
-          <div className={scrollable ? 'table-scroller' : undefined}>
+        <div
+          className={scrollable ? 'table-scroll-vertical' : undefined}
+          style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null, height}}
+        >
+          <div className={scrollable ? 'table-scroll-horizontal' : undefined}>
             <Component
               {...remainingProps}
               className={classNames(myClassNames)}

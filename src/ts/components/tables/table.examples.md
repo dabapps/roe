@@ -59,7 +59,7 @@ const [HEADERS, ...ROWS] = TABLE_DATA;
     </TableBody>
   </Table>
 
-  <Table striped hover fill fixRowHeaders rowHeaderWidth={ROW_HEADER_WIDTH}>
+  <Table striped hover fill fixRowHeaders height={100} rowHeaderWidth={ROW_HEADER_WIDTH}>
     <TableHead>
       <TableRow>
         {
