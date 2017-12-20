@@ -64,7 +64,7 @@ const less = [
 ];
 
 function sortByName (arr) {
-  return arr.sort((a, b) => {
+  return arr.sort(function (a, b) {
     if (a.name > b.name) {
       return 1;
     }
