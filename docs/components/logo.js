@@ -1,28 +1,32 @@
-import React from 'react';
-import Styled from 'rsg-components/Styled';
+var React = require('react');
+var Styled = require('rsg-components/Styled').default;
 
-const styles = ({fontFamily}) => ({
-  image: {
-    fontFamily: fontFamily.base,
-    width: 63,
-    height: 24,
-    display: 'block'
-  }
-});
-
-const Logo = ({classes}) => React.createElement(
-  'a',
-  {
-    href: '#'
-  },
-  React.createElement(
-    'img',
-    {
-      src: 'images/roe-logo-small.png',
-      alt: 'Roe Logo',
-      className: classes.image
+function styles (style) {
+  return {
+    image: {
+      fontFamily: style.fontFamily.base,
+      width: 63,
+      height: 24,
+      display: 'block'
     }
-  )
-);
+  };
+}
 
-export default Styled(styles)(Logo);
+function Logo (props) {
+  return React.createElement(
+    'a',
+    {
+      href: '#'
+    },
+    React.createElement(
+      'img',
+      {
+        src: 'images/roe-logo-small.png',
+        alt: 'Roe Logo',
+        className: props.classes.image
+      }
+    )
+  );
+}
+
+module.exports = Styled(styles)(Logo);
