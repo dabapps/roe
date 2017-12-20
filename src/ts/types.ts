@@ -1,8 +1,10 @@
+import * as React from 'react';
+
 export interface ComponentProps {
   /**
    * Set the component to render a different element type.
    */
-  component?: string;
+  component?: React.ReactType;
 }
 
 export interface BaseTableCellProps extends ComponentProps {
