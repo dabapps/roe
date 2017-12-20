@@ -99,19 +99,17 @@ export class Table extends PureComponent<TableProps, {}> {
     ];
 
     return (
-      <div className="table-wrapper">
-        <div
-          className={scrollable ? 'table-scroll-vertical' : undefined}
-          style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null, height}}
-        >
-          <div className={scrollable ? 'table-scroll-horizontal' : undefined}>
-            <Component
-              {...remainingProps}
-              className={classNames(myClassNames)}
-            >
-              {children}
-            </Component>
-          </div>
+      <div
+        className={scrollable ? 'table-scroll-vertical' : undefined}
+        style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null, height}}
+      >
+        <div className={scrollable ? 'table-scroll-horizontal' : undefined}>
+          <Component
+            {...remainingProps}
+            className={classNames(myClassNames)}
+          >
+            {children}
+          </Component>
         </div>
       </div>
     );

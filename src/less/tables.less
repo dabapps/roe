@@ -1,9 +1,25 @@
-.table-wrapper {
-  position: relative;
+.table-scroll-horizontal,
+.table-scroll-vertical {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background-color: @grey-lighter;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: @grey-light;
+  }
 }
 
-.table-scroller {
-  overflow: auto;
+.table-scroll-horizontal {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.table-scroll-vertical {
+  position: relative;
+  overflow-x: visible;
+  overflow-y: auto;
 }
 
 .table {
