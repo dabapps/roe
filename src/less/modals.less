@@ -2,7 +2,9 @@
 
 .modal-transition-enter,
 .modal-transition-appear {
-  opacity: 0.01;
+  &.modal-container {
+    opacity: 0.01;
+  }
 
   .modal {
     transform: translate3d(0, -50px, 0);
@@ -11,8 +13,10 @@
 
 .modal-transition-enter.modal-transition-enter-active,
 .modal-transition-appear.modal-transition-appear-active {
-  opacity: 1;
-  transition: opacity 0.3s ease-in;
+  &.modal-container {
+    opacity: 0.99;
+    transition: opacity 0.3s ease-in;
+  }
 
   .modal {
     transform: translate3d(0, 0, 0);
@@ -21,7 +25,9 @@
 }
 
 .modal-transition-leave {
-  opacity: 1;
+  &.modal-container {
+    opacity: 0.99;
+  }
 
   .modal {
     transform: translate3d(0, 0, 0);
@@ -29,8 +35,10 @@
 }
 
 .modal-transition-leave.modal-transition-leave-active {
-  opacity: 0.01;
-  transition: opacity 0.2s ease-in;
+  &.modal-container {
+    opacity: 0.01;
+    transition: opacity 0.2s ease-in;
+  }
 
   .modal {
     transform: translate3d(0, -50px, 0);
@@ -48,6 +56,7 @@
   width: 100%;
   height: 100%;
   z-index: 1001;
+  opacity: 1;
 }
 
 .modal-overlay {
