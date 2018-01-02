@@ -11,8 +11,8 @@ function styles (settings) {
       height: 24,
       display: 'block'
     }
-  }
-};
+  };
+}
 
 function Logo (props) {
   return React.createElement(
