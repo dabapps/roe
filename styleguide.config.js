@@ -130,7 +130,23 @@ const lessLoader = {
 
 const webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
 
+// const sourceMapLoader = webpackConfig.module.rules[1].loader;
+
+// const babelLoader = {
+//   test: /\.js$/,
+//   use: {
+//     loader: 'babel-loader',
+//     options: {
+//       presets: ['es2015'],
+//       plugins: []
+//     }
+//   }
+// };
+
+// webpackConfig.module.rules[1] = babelLoader;
 webpackConfig.module.rules[2].oneOf[2] = lessLoader;
+
+console.log(webpackConfig.module);
 
 module.exports = {
   require: [
