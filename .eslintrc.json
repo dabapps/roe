@@ -1,0 +1,6 @@
+{
+  "extends": [
+    "dabapps/base",
+    "dabapps/commonjs"
+  ]
+}

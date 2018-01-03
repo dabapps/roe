@@ -1,7 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+/* global __dirname */
+'use strict';
 
-const components = [
+var fs = require('fs');
+var path = require('path');
+
+var components = [
   {
     name: 'Content',
     components: 'src/ts/components/content/**/*.tsx'
@@ -36,7 +39,7 @@ const components = [
   }
 ];
 
-const less = [
+var less = [
   {
     name: 'Variables',
     content: 'src/less/variables.examples.md'
@@ -64,7 +67,7 @@ const less = [
 ];
 
 function sortByName (arr) {
-  return arr.sort((a, b) => {
+  return arr.sort(function (a, b) {
     if (a.name > b.name) {
       return 1;
     }
@@ -74,7 +77,7 @@ function sortByName (arr) {
     }
 
     return 0;
-  })
+  });
 }
 
 function getExampleFilename (componentPath) {
@@ -82,10 +85,11 @@ function getExampleFilename (componentPath) {
 }
 
 function updateExample (props, exampleFilePath) {
-  const { settings, lang } = props;
+  var settings = props.settings;
+  var lang = props.lang;
 
   if (typeof settings.file === 'string') {
-    const filepath = path.resolve(path.dirname(exampleFilePath), settings.file);
+    var filepath = path.resolve(path.dirname(exampleFilePath), settings.file);
 
     if (lang === 'less') {
       settings.static = true;
@@ -95,23 +99,15 @@ function updateExample (props, exampleFilePath) {
 
     return {
       content: fs.readFileSync(filepath, 'utf8'),
-      settings,
-      lang,
-    }
+      settings: settings,
+      lang: lang
+    };
   }
 
   return props;
 }
 
-function mergeWithArrays (objValue, srcValue, key, object, source, stack) {
-  if (Array.isArray(objValue) && Array.isArray(srcValue)) {
-    return objValue.concat(srcValue);
-  }
-
-  return;
-}
-
-const lessLoader = {
+var lessLoader = {
   test: /\.less$/,
   use: [
     'style-loader', // creates style nodes from JS strings
@@ -121,14 +117,14 @@ const lessLoader = {
       loader: 'less-loader', // compiles Less to CSS
       options: {
         paths: [
-            path.resolve(__dirname, 'node_modules')
+          path.resolve(__dirname, 'node_modules')
         ]
       }
     }
   ]
 };
 
-const webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
+var webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
 
 webpackConfig.module.rules[2].oneOf[2] = lessLoader;
 
@@ -140,9 +136,9 @@ module.exports = {
   components: 'src/ts/components/**/*.{ts,tsx}',
   ignore: [],
   propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
-  webpackConfig,
-  getExampleFilename,
-  updateExample,
+  webpackConfig: webpackConfig,
+  getExampleFilename: getExampleFilename,
+  updateExample: updateExample,
   assetsDir: path.join(__dirname, 'docs/static/'),
   template: path.join(__dirname, 'docs/templates/index.html'),
   styleguideComponents: {
