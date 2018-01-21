@@ -2,6 +2,7 @@
   "compilerOptions": {
     "strictNullChecks": true,
     "noImplicitAny": true,
+    "skipLibCheck": true,
     "pretty": true,
     "jsx": "react",
     "target": "es5",
