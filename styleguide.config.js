@@ -128,7 +128,7 @@ var webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
 
 webpackConfig.module.rules[2].oneOf[2] = lessLoader;
 
-var reactDocGenTypescriptOptions = {
+var reactDocGenTypescriptConfig = {
   propFilter: {
     skipPropsWithoutDoc: true
   }
@@ -142,7 +142,7 @@ module.exports = {
   components: 'src/ts/components/**/*.{ts,tsx}',
   ignore: [],
   propsParser: require('react-docgen-typescript')
-    .withCustomConfig('./tsconfig.json', reactDocGenTypescriptOptions).parse,
+    .withCustomConfig('./tsconfig.json', reactDocGenTypescriptConfig).parse,
   webpackConfig: webpackConfig,
   getExampleFilename: getExampleFilename,
   updateExample: updateExample,
