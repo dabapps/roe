@@ -128,6 +128,12 @@ var webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
 
 webpackConfig.module.rules[2].oneOf[2] = lessLoader;
 
+var reactDocGenTypescriptConfig = {
+  propFilter: {
+    skipPropsWithoutDoc: true
+  }
+};
+
 module.exports = {
   require: [
     path.join(__dirname, 'docs/less/index.less'),
@@ -135,7 +141,8 @@ module.exports = {
   title: 'Roe - DabApps\' Project Development Kit',
   components: 'src/ts/components/**/*.{ts,tsx}',
   ignore: [],
-  propsParser: require('react-docgen-typescript').withCustomConfig('./tsconfig.json').parse,
+  propsParser: require('react-docgen-typescript')
+    .withCustomConfig('./tsconfig.json', reactDocGenTypescriptConfig).parse,
   webpackConfig: webpackConfig,
   getExampleFilename: getExampleFilename,
   updateExample: updateExample,

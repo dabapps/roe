@@ -3,23 +3,7 @@ import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 
-export interface TableFixedRowHeaderProps {
-  fixRowHeaders: true;
-  rowHeaderWidth: number;
-}
-
-export interface TableUnfixedRowHeaderProps {
-  /**
-   * Fix the first cell of every row so they do not scroll.
-   */
-  fixRowHeaders?: false;
-  /**
-   * Set a width for the first column when fixed.
-   */
-  rowHeaderWidth?: never;
-}
-
-export interface BaseTableProps extends ComponentProps {
+export interface TableProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**
    * Currently unused.
    * @default "'sm'"
@@ -53,10 +37,15 @@ export interface BaseTableProps extends ComponentProps {
    * Applies `table-layout: fixed;` style so that all columns are the same width.
    */
   fixed?: boolean;
+  /**
+   * Fix the first cell of every row so they do not scroll.
+   */
+  fixRowHeaders?: boolean;
+  /**
+   * Set a width for the first column when fixed.
+   */
+  rowHeaderWidth?: number;
 }
-
-export type TableProps = (TableFixedRowHeaderProps | TableUnfixedRowHeaderProps) &
-  BaseTableProps & HTMLProps<HTMLElement>;
 
 /**
  * Table component with additional styles & functionality.
