@@ -5,7 +5,6 @@ import {
   MATCHES_BLANK_LAST_LINE,
   MATCHES_INITIAL_INDENTATION,
   MATCHES_LEADING_AND_TRAILING_HYPHENS,
-  MATCHES_LEADING_AND_TRAILING_WHITESPACE,
   MATCHES_NON_WORD_CHARACTERS,
   MATCHES_WHITESPACE,
 } from './constants';
@@ -61,7 +60,7 @@ export const isValidColumnNumber = (value?: number) => typeof value === 'number'
 
 export const addClassName = (element: HTMLElement, className: string) => {
   const myClassNames = element.className
-    .replace(MATCHES_LEADING_AND_TRAILING_WHITESPACE, '')
+    .trim()
     .split(MATCHES_WHITESPACE);
 
   if (myClassNames.indexOf(className) >= 0) {
@@ -73,7 +72,7 @@ export const addClassName = (element: HTMLElement, className: string) => {
 
 export const removeClassName = (element: HTMLElement, className: string) => {
   const myClassNames = element.className
-    .replace(MATCHES_LEADING_AND_TRAILING_WHITESPACE, '')
+    .trim()
     .split(MATCHES_WHITESPACE);
 
   const index = myClassNames.indexOf(className);
