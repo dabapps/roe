@@ -39,6 +39,7 @@ export class NavBar extends PureComponent<NavBarProps, {}> {
       fixed,
       shy,
       noShadow,
+      component: Component = 'div',
       ...remainingProps,
     } = this.props;
 
@@ -51,9 +52,9 @@ export class NavBar extends PureComponent<NavBarProps, {}> {
     ];
 
     return (
-      <div {...remainingProps} className={classNames(myClassNames)}>
+      <Component {...remainingProps} className={classNames(myClassNames)}>
         {children}
-      </div>
+      </Component>
     );
   }
 
