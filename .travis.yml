@@ -20,3 +20,12 @@ deploy:
   github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard
   on:
     branch: master
+
+deploy:
+  provider: npm
+  email: npm@dabapps.com
+  on:
+    tags: true
+  api_key:
+    secure: NiEYS2mfHM0O7HxZ+tLFe9YCjkaZB2cy2tHLGqGnWUdNM4CLRugbAreYRgewylbWoqwm3ge5G2PbDKpf19t6aB/RSDtjm4OcSfPZF2MM/s0K2Cnoh62TRbEnZHmaDF6v73GI1H6sxp3EQvHpGt3JyPblNelBkW1MbnlFPAmxiivRIBjEDPyCtwUE3SnnoTJM8ojmFOZL5sidXWH1S4iJslO3i4Y8LUISKOqr9etII9HuaxrIuf0H5rL8uWBnhw9A4y+dCRt6yBkfm4jTPg0s2T1oPQYLsu9OV2vmbmctu3D3qF2RG3k2m2NeWpIdicaEsLl2W9yBdXy1NRfNst85s40Gr5VW3DeHhC34In801rYHSSXcs/bMwXJ+pIFyAg/Q1BaJgbcLyXJghQznqXzWHyErmbi/0nnkVkny3QVajAZBialdNt+6Qh2bI7cDERkEA+ViOaRYoO48Xioxv8GqWPmdm1x/bsBU6CZlUgCd/7+Qdro9TFjAg/qPODpw8csORGWpFGDfk5z0r3Ki6XX6/ZunnMXZ88B91Hw+d29YlxuXOIljVZIWri1aVXymIa0OM6o+6lznIpJEBa73UiLdnafoY8ytxN0iWeQAET56WwfZepqgO2L+sRNiAWmnKOikJ3EmS7eGIXTgZ6X0pynLvLBDK/Wm2NCR1UiGKkzAiwo=
+  skip_cleanup: true
