@@ -1,5 +1,6 @@
 import * as enzyme from 'enzyme';
 import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
 import NavBar from '../src/ts/components/navigation/nav-bar';
 import * as utils from '../src/ts/utils';
@@ -93,6 +94,71 @@ describe('NavBar', () => {
     instance.unmount();
 
     expect(window.removeEventListener).toHaveBeenCalledTimes(2);
+  });
+
+  it('should hide or show the navbar when scrolled', () => {
+    const handlers: {[i: string]: (() => any) | undefined} = {};
+
+    jest.spyOn(window, 'addEventListener').mockImplementation((type: string, callback: () => any) => {
+      if (type === 'scroll') {
+        handlers[type] = callback;
+        jest.spyOn(handlers, type);
+      }
+    });
+    jest.spyOn(utils, 'getScrollOffset').mockReturnValue({x: 0, y: 0});
+    jest.spyOn(ReactDOM, 'findDOMNode').mockReturnValue({getBoundingClientRect: () => ({height: 20})});
+
+    const instance = enzyme.mount(<NavBar shy />);
+
+    const { scroll } = handlers;
+
+    if (!scroll) {
+      throw new Error('No scroll listener attached');
+    }
+
+    // Initial position
+    scroll();
+    expect(instance.state('hidden')).toBe(false);
+
+    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({x: 0, y: 10});
+
+    // Scrolled a little, but not farther than the NavBar height
+    scroll();
+    expect(instance.state('hidden')).toBe(false);
+
+    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({x: 0, y: 50});
+
+    // Scrolled past NavBar height
+    scroll();
+    expect(instance.state('hidden')).toBe(true);
+
+    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({x: 0, y: 40});
+
+    // Scrolled up
+    scroll();
+    expect(instance.state('hidden')).toBe(false);
+  });
+
+  it('should gracefully handle a missing element', () => {
+    const handlers: {[i: string]: (() => any) | undefined} = {};
+
+    jest.spyOn(window, 'addEventListener').mockImplementation((type: string, callback: () => any) => {
+      if (type === 'scroll') {
+        handlers[type] = callback;
+        jest.spyOn(handlers, type);
+      }
+    });
+    jest.spyOn(ReactDOM, 'findDOMNode').mockReturnValue(null);
+
+    enzyme.mount(<NavBar shy />);
+
+    const { scroll } = handlers;
+
+    if (!scroll) {
+      throw new Error('No scroll listener attached');
+    }
+
+    expect(scroll).not.toThrow();
   });
 
 });
