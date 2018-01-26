@@ -1,5 +1,5 @@
 {
-  "name": "roe",
+  "name": "@dabapps/roe",
   "version": "0.8.30",
   "description": "A Collection of React Components for Project Development",
   "main": "dist/js/index.js",
@@ -27,6 +27,9 @@
     "react",
     "components"
   ],
+  "publishConfig": {
+    "access": "restricted"
+  },
   "author": "DabApps",
   "license": "BSD-3-Clause",
   "bugs": {

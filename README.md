@@ -20,7 +20,15 @@ npm start
 You need to install Roe and its peer dependencies with npm. Npm should warn you if you haven't installed any peer dependencies.
 
 ```shell
-npm i dabapps/roe#vX.X.X
+npm i @dabapps/roe -SE
+```
+
+Note: `-SE` is shorthand for `--save` (to add to package.json) `--save-exact` (exact version).
+
+Install a specific version with
+
+```shell
+npm i @dabapps/roe@x.x.x -SE
 ```
 
 See [releases](https://github.com/dabapps/roe/releases) for a full list of versions.
@@ -30,7 +38,7 @@ See [releases](https://github.com/dabapps/roe/releases) for a full list of versi
 Include Roe in your main `index.less` file. Do not use `../` in the path.
 
 ```less
-@import 'node_modules/roe/src/less/index.less';
+@import 'node_modules/@dabapps/roe/src/less/index.less';
 ```
 
 ### Components
@@ -42,7 +50,7 @@ import {
   Column,
   Container,
   Row
-} from 'roe';
+} from '@dabapps/roe';
 ```
 
 ### Code Higlighting
