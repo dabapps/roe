@@ -2,6 +2,9 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
+import { addClassName, removeClassName } from '../../utils';
+
+const WITH_FIXED_NAV_BAR = 'with-fixed-nav-bar';
 
 export interface NavBarProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**
@@ -19,6 +22,16 @@ export interface NavBarProps extends ComponentProps, HTMLProps<HTMLElement> {
 }
 
 export class NavBar extends PureComponent<NavBarProps, {}> {
+  public componentWillMount () {
+    this.updateBodyClass(this.props);
+  }
+
+  public componentWillUpdate (nextProps: NavBarProps) {
+    if (this.props.fixed !== nextProps.fixed || this.props.shy !== nextProps.shy) {
+      this.updateBodyClass(nextProps);
+    }
+  }
+
   public render () {
     const {
       children,
@@ -42,6 +55,16 @@ export class NavBar extends PureComponent<NavBarProps, {}> {
         {children}
       </div>
     );
+  }
+
+  private updateBodyClass (props: NavBarProps) {
+    const { fixed, shy } = props;
+
+    if (fixed || shy) {
+      addClassName(document.body, WITH_FIXED_NAV_BAR);
+    } else {
+      removeClassName(document.body, WITH_FIXED_NAV_BAR)
+    }
   }
 }
 

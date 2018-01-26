@@ -5,7 +5,9 @@ import {
   MATCHES_BLANK_LAST_LINE,
   MATCHES_INITIAL_INDENTATION,
   MATCHES_LEADING_AND_TRAILING_HYPHENS,
+  MATCHES_LEADING_AND_TRAILING_WHITESPACE,
   MATCHES_NON_WORD_CHARACTERS,
+  MATCHES_WHITESPACE,
 } from './constants';
 
 export const formatCode = (code: string) => {
@@ -56,3 +58,31 @@ export const shouldNotBeRendered = (children: any) => {
 }
 
 export const isValidColumnNumber = (value?: number) => typeof value === 'number' && value === +value;
+
+export const addClassName = (element: HTMLElement, className: string) => {
+  const myClassNames = element.className
+    .replace(MATCHES_LEADING_AND_TRAILING_WHITESPACE, '')
+    .split(MATCHES_WHITESPACE);
+
+  if (myClassNames.indexOf(className) >= 0) {
+    return;
+  }
+
+  element.className = [...myClassNames, className].join(' ');
+};
+
+export const removeClassName = (element: HTMLElement, className: string) => {
+  const myClassNames = element.className
+    .replace(MATCHES_LEADING_AND_TRAILING_WHITESPACE, '')
+    .split(MATCHES_WHITESPACE);
+
+  const index = myClassNames.indexOf(className);
+
+  if (index < 0) {
+    return;
+  }
+
+  myClassNames.splice(index, 1);
+
+  element.className = myClassNames.join(' ');
+};
