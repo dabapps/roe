@@ -1,0 +1,30 @@
+body.with-fixed-nav-bar {
+  padding-top: @nav-bar-height;
+}
+
+.nav-bar {
+  .clearfix();
+  padding: @padding-base 0;
+  background-color: @nav-bar-background;
+  border-bottom: @nav-bar-border;
+  box-shadow: @shadow-hard;
+  height: @nav-bar-height;
+  transition: ease-in-out 0.2s transform, ease-in-out 0.2s box-shadow;
+
+  &.no-shaddow {
+    box-shadow: @shadow-none;
+  }
+
+  &.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 500;
+  }
+
+  &.shy.hidden {
+    transform: translate(0, -100%);
+    box-shadow: @shadow-none;
+  }
+}

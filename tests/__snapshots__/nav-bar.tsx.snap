@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar should apply fixed class 1`] = `
+<div
+  className="nav-bar fixed"
+/>
+`;
+
+exports[`NavBar should apply no shadow class 1`] = `
+<div
+  className="nav-bar no-shadow"
+/>
+`;
+
+exports[`NavBar should apply shy class 1`] = `
+<div
+  className="nav-bar fixed shy"
+/>
+`;
+
+exports[`NavBar should apply the hidden class 1`] = `
+<NavBar
+  shy={true}
+>
+  <div
+    className="nav-bar fixed shy hidden"
+  />
+</NavBar>
+`;
+
+exports[`NavBar should match snapshot 1`] = `
+<div
+  className="nav-bar"
+/>
+`;
+
+exports[`NavBar should take regular element attributes 1`] = `
+<div
+  className="nav-bar my-class"
+/>
+`;
