@@ -20,4 +20,20 @@ describe('NavBar', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should apply fixed class', () => {
+    const tree = renderer.create(
+      <NavBar fixed />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should apply shy class', () => {
+    const tree = renderer.create(
+      <NavBar shy />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
 });

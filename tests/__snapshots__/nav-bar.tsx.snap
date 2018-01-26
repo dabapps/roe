@@ -1,5 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`NavBar should apply fixed class 1`] = `
+<div
+  className="nav-bar fixed"
+/>
+`;
+
+exports[`NavBar should apply shy class 1`] = `
+<div
+  className="nav-bar fixed shy"
+/>
+`;
+
 exports[`NavBar should match snapshot 1`] = `
 <div
   className="nav-bar"
