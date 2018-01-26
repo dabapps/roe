@@ -4,7 +4,13 @@ import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 
 export interface NavBarProps extends ComponentProps, HTMLProps<HTMLElement> {
+  /**
+   * Fix the navbar to the top of the screen
+   */
   fixed?: boolean;
+  /**
+   * Hide the navbar when scrolling down, but display when scrolling up
+   */
   shy?: boolean;
 }
 
