@@ -26,7 +26,7 @@ var components = [
     components: 'src/ts/components/modals/**/*.tsx'
   },
   {
-    name:' Navigation',
+    name:'Navigation',
     components: 'src/ts/components/navigation/**/*.tsx'
   },
   {
