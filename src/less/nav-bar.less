@@ -9,6 +9,7 @@ body.with-fixed-nav-bar {
   border-bottom: @nav-bar-border;
   box-shadow: @shadow-hard;
   height: @nav-bar-height;
+  transition: ease-in-out 0.2s transform, ease-in-out 0.2s box-shadow;
 
   &.no-shaddow {
     box-shadow: none;
@@ -20,5 +21,10 @@ body.with-fixed-nav-bar {
     left: 0;
     width: 100%;
     z-index: 500;
+  }
+
+  &.shy.hidden {
+    transform: translate(0, -100%);
+    box-shadow: @shadow-none;
   }
 }

@@ -86,3 +86,14 @@ export const removeClassName = (element: HTMLElement, className: string) => {
 
   element.className = myClassNames.join(' ');
 };
+
+export const getScrollOffset = () => {
+  const doc = document.documentElement;
+  const left = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
+  const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+
+  return {
+    x: left,
+    y: top,
+  };
+}
