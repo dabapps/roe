@@ -12,6 +12,10 @@ export interface NavBarProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Hide the navbar when scrolling down, but display when scrolling up
    */
   shy?: boolean;
+  /**
+   * Remove NavBar shadow
+   */
+  noShadow?: boolean;
 }
 
 export class NavBar extends PureComponent<NavBarProps, {}> {
@@ -21,13 +25,15 @@ export class NavBar extends PureComponent<NavBarProps, {}> {
       className,
       fixed,
       shy,
+      noShadow,
       ...remainingProps,
     } = this.props;
 
     const myClassNames = [
       'nav-bar',
-      fixed ? 'fixed' : null,
+      fixed || shy ? 'fixed' : null,
       shy ? 'shy' : null,
+      noShadow ? 'no-shadow' : null,
       className
     ];
 

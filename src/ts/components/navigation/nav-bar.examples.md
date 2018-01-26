@@ -18,17 +18,19 @@ class NavBarExample extends React.Component {
     return (
       <div>
         <NavBar fixed={type === 'fixed'} shy={type === 'shy'}>
-          <SpacedGroup>
-            <Button>
-              Home
-            </Button>
-            <Button>
-              About
-            </Button>
-            <Button>
-              Contact
-            </Button>
-          </SpacedGroup>
+          <Column>
+            <SpacedGroup>
+              <Button>
+                Home
+              </Button>
+              <Button>
+                About
+              </Button>
+              <Button>
+                Contact
+              </Button>
+            </SpacedGroup>
+          </Column>
         </NavBar>
         <FormGroup block>
           <label>
