@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavBar should match snapshot 1`] = `
+<div
+  className="nav-bar"
+/>
+`;
+
+exports[`NavBar should take regular element attributes 1`] = `
+<div
+  className="nav-bar my-class"
+/>
+`;
