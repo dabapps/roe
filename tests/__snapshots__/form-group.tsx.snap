@@ -17,3 +17,9 @@ exports[`FormGroup should use a block prop (boolean) as a class name 1`] = `
   className="form-group block"
 />
 `;
+
+exports[`FormGroup should use a noLabel prop (boolean) as a class name 1`] = `
+<div
+  className="form-group no-label"
+/>
+`;
