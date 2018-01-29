@@ -82,12 +82,20 @@ textarea {
     }
   }
 
+  &.no-label > * { // lesshint universalSelector: false
+    margin-left: @no-label-offset;
+  }
+
   & > textarea {
     resize: vertical;
   }
 
   &.block {
     width: 100%;
+
+    &.no-label > * { // lesshint universalSelector: false
+      margin-left: 0;
+    }
 
     & > label,
     & > input,

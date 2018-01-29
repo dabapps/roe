@@ -1,4 +1,15 @@
-#### Example
+#### Inline
+
+```js
+<FormGroup>
+  <label>
+    Label
+  </label>
+  <input type="text" />
+</FormGroup>
+```
+
+#### No Label
 
 ```js
 <div>
@@ -8,18 +19,36 @@
     </label>
     <input type="text" />
   </FormGroup>
-
-  <FormGroup block>
-    <label>
-      Label
-    </label>
-    <select>
-      <option>
-        Option
-      </option>
-    </select>
+  <FormGroup noLabel>
+    <input type="text" />
   </FormGroup>
+  <FormGroup noLabel>
+    <p>
+      Info text
+    </p>
+  </FormGroup>
+</div>
+```
 
+#### Block
+
+```js
+<FormGroup block>
+  <label>
+    Label
+  </label>
+  <select>
+    <option>
+      Option
+    </option>
+  </select>
+</FormGroup>
+```
+
+#### Checkboxes and Radios
+
+```js
+<div>
   <FormGroup>
     <label>
       Label 1
@@ -47,6 +76,7 @@
 @input-width: 200px;
 @input-height: 32px;
 @label-width: 100px;
+@no-label-offset: @label-width + @margin-base;
 
 @textarea-width: @input-width;
 @textarea-height: @input-height * 2;

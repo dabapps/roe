@@ -21,6 +21,14 @@ describe('FormGroup', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should use a noLabel prop (boolean) as a class name', () => {
+    const tree = renderer.create(
+      <FormGroup noLabel />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('should take regular element attributes', () => {
     const tree = renderer.create(
       <FormGroup className="my-class" />
