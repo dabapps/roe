@@ -82,10 +82,8 @@ textarea {
     }
   }
 
-  &.no-label {
-    & > * { // lesshint universalSelector: false
-      margin-left: @no-label-offset;
-    }
+  &.no-label > * { // lesshint universalSelector: false
+    margin-left: @no-label-offset;
   }
 
   & > textarea {
@@ -94,6 +92,10 @@ textarea {
 
   &.block {
     width: 100%;
+
+    &.no-label > * {
+      margin-left: 0;
+    }
 
     & > label,
     & > input,
