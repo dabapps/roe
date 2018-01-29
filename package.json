@@ -12,7 +12,8 @@
     "lint-less": "lesshint 'src/less/' 'docs/less/'",
     "lint": "npm run lint-js && npm run lint-less",
     "tests": "jest",
-    "test": "npm run lint && npm run tests -- --coverage --runInBand"
+    "test": "npm run lint && npm run tests -- --coverage --runInBand",
+    "prepublish": "./scripts/dist"
   },
   "repository": {
     "type": "git",
