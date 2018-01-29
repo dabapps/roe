@@ -8,6 +8,10 @@ export interface FormGroupProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Set the style `display: block;` with label above input.
    */
   block?: boolean;
+  /**
+   * Offset the input, select, etc as if there was a label to the left of it
+   */
+  noLabel?: boolean;
 }
 
 /**
@@ -19,6 +23,7 @@ export class FormGroup extends PureComponent<FormGroupProps, {}> {
       children,
       className,
       block,
+      noLabel,
       component: Component = 'div',
       ...remainingProps
     } = this.props;
@@ -26,6 +31,7 @@ export class FormGroup extends PureComponent<FormGroupProps, {}> {
     const myClassNames = [
       'form-group',
       block ? 'block' : null,
+      noLabel ? 'no-label' : null,
       className
     ];
 

@@ -9,7 +9,7 @@
 </FormGroup>
 ```
 
-#### Inline without label
+#### No Label
 
 ```js
 <div>
@@ -23,7 +23,7 @@
     <input type="text" />
   </FormGroup>
   <FormGroup noLabel>
-    <p className="input">
+    <p>
       Info text
     </p>
   </FormGroup>

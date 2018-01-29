@@ -82,6 +82,20 @@ textarea {
     }
   }
 
+  &.no-label {
+    & > *:first-child:last-child,
+    & > input,
+    & > select,
+    & > button,
+    & > textarea,
+    & > .input-group,
+    & > .input,
+    & > .select,
+    & > .button {
+      margin-left: @label-width + @margin-base;
+    }
+  }
+
   & > textarea {
     resize: vertical;
   }
