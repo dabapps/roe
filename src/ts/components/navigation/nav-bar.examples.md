@@ -72,7 +72,10 @@ class NavBarExample extends React.Component {
 
 ```less
 @nav-bar-text-color: @font-color-base; // @grey-dark
-@nav-bar-link-color: @link-color;
+@nav-bar-link-color: @link-color; // @primary
+@nav-bar-link-color-hover: @link-color-hover; // darken(@primary, 15%)
+@nav-bar-link-text-decoration: @link-text-decoration; // none
+@nav-bar-link-text-decoration-hover: @link-text-decoration-hover; // none
 @nav-bar-background: @body-background; // @white;
 @nav-bar-border: @border-base;
 @nav-bar-height: @input-height + @padding-base * 2;
