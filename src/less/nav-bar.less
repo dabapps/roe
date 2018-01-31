@@ -23,6 +23,12 @@ body.with-fixed-nav-bar {
 
   a {
     color: @nav-bar-link-color;
+    text-decoration: @nav-bar-link-text-decoration;
+
+    &:hover {
+      color: @nav-bar-link-color-hover;
+      text-decoration: @nav-bar-link-text-decoration-hover;
+    }
   }
 
   &.no-shaddow {
