@@ -21,7 +21,8 @@ body.with-fixed-nav-bar {
     color: inherit; // lesshint variableValue: false
   }
 
-  a {
+  a:not([disabled]),
+  a:not(.disabled) {
     color: @nav-bar-link-color;
     text-decoration: @nav-bar-link-text-decoration;
 
