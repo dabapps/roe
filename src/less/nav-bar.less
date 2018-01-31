@@ -21,12 +21,12 @@ body.with-fixed-nav-bar {
     color: inherit; // lesshint variableValue: false
   }
 
-  a:not([disabled]),
-  a:not(.disabled) {
+  a {
     color: @nav-bar-link-color;
     text-decoration: @nav-bar-link-text-decoration;
 
-    &:hover {
+    &:hover:not([disabled]),
+    &:hover:not(.disabled) {
       color: @nav-bar-link-color-hover;
       text-decoration: @nav-bar-link-text-decoration-hover;
     }
