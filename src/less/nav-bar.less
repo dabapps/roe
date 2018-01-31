@@ -10,6 +10,11 @@ body.with-fixed-nav-bar {
   box-shadow: @shadow-hard;
   height: @nav-bar-height;
   transition: ease-in-out 0.2s transform, ease-in-out 0.2s box-shadow;
+  color: @nav-bar-text-color;
+
+  a {
+    color: @nav-bar-link-color;
+  }
 
   &.no-shaddow {
     box-shadow: @shadow-none;
