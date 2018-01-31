@@ -4,7 +4,8 @@
   background-color: @background;
   color: @color;
 
-  &:hover:not([disabled]) {
+  &:hover:not([disabled]),
+  &:hover:not(.disabled) {
     background-color: darken(@background, 5%);
     color: @color;
   }
@@ -36,15 +37,18 @@
   transition: ease-in-out 0.1s background-color, ease-in-out 0.1s box-shadow;
   box-shadow: @shadow-none;
 
-  &:hover:not([disabled]) {
+  &:hover:not([disabled]),
+  &:hover:not(.disabled) {
     box-shadow: @shadow-inset-subtle;
   }
 
-  &:active:not([disabled]) {
+  &:active:not([disabled]),
+  &:active:not(.disabled) {
     box-shadow: @shadow-inset-hard;
   }
 
-  &:focus:not([disabled]) {
+  &:focus:not([disabled]),
+  &:focus:not(.disabled) {
     &::before {
       content: ' ';
       position: absolute;
