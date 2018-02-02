@@ -6,6 +6,10 @@ var path = require('path');
 
 var components = [
   {
+    name: 'App',
+    components: 'src/ts/components/app/**/*.tsx'
+  },
+  {
     name: 'Content',
     components: 'src/ts/components/content/**/*.tsx'
   },
