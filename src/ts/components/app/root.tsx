@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
-import store from '../../store';
+import store, { StoreState } from '../../store';
 
-export type AppRootProps = HTMLProps<HTMLElement>;
+export type AppRootProps = HTMLProps<HTMLElement> & StoreState;
 
 /**
  * This is the most important part of your app.
