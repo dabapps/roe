@@ -9,13 +9,13 @@ export type StoreState = Partial<{
 
 export type StoreListener = (state: StoreState) => any;
 
-export const createConnectedComponent = <T extends {[i: string]: any}>
-  (store: Store, component: ComponentType<T & StoreState>): ComponentType<T & StoreState> => {
+export const createConnectedComponent = <OwnProps extends {[i: string]: any}>
+  (store: Store, component: ComponentType<StoreState & OwnProps>): ComponentType<OwnProps> => {
   const Component = component;
 
-  return class ConnectedComponent extends React.PureComponent<T, StoreState> {
+  return class ConnectedComponent extends React.PureComponent<OwnProps, StoreState> {
     private unsubscribe: () => void;
-    public constructor (props: T) {
+    public constructor (props: OwnProps) {
       super(props);
 
       this.state = store.getState();
@@ -71,8 +71,9 @@ export class Store {
     return {...this.state};
   }
 
-  public connect = <T extends {[i: string]: any}>(component: ComponentType<T & StoreState>) => {
-    return createConnectedComponent(this, component);
+  public connect = <OwnProps extends {[i: string]: any}>
+  (component: ComponentType<StoreState & OwnProps>): ComponentType<OwnProps> => {
+    return createConnectedComponent<OwnProps>(this, component);
   }
 
   public subscribe = (listener: StoreListener) => {
