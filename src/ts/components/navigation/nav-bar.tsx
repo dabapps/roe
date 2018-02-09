@@ -2,8 +2,9 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
+import store from '../../store';
 import { ComponentProps } from '../../types';
-import { addClassName, getScrollOffset, removeClassName } from '../../utils';
+import { getScrollOffset } from '../../utils';
 
 const WITH_FIXED_NAV_BAR = 'with-fixed-nav-bar';
 
@@ -40,7 +41,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
   }
 
   public componentWillMount () {
-    this.updateBodyClass(this.props);
+    this.notifyAppRoot(this.props);
     this.toggleShyListeners(this.props);
   }
 
@@ -50,13 +51,14 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     }
 
     if (this.props.fixed !== nextProps.fixed || this.props.shy !== nextProps.shy) {
-      this.updateBodyClass(nextProps);
+      this.notifyAppRoot(nextProps);
     }
   }
 
   public componentWillUnmount () {
     window.removeEventListener('scroll', this.hideOrShowNavBar);
     window.removeEventListener('resize', this.hideOrShowNavBar);
+    this.notifyAppRoot({fixed: false});
   }
 
   public render () {
@@ -90,14 +92,12 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     );
   }
 
-  private updateBodyClass (props: NavBarProps) {
+  private notifyAppRoot (props: NavBarProps) {
     const { fixed, shy } = props;
 
-    if (fixed || shy) {
-      addClassName(document.body, WITH_FIXED_NAV_BAR);
-    } else {
-      removeClassName(document.body, WITH_FIXED_NAV_BAR)
-    }
+    store.setState({
+      hasFixedNavbar: fixed || shy,
+    });
   }
 
   private toggleShyListeners (props: NavBarProps) {
