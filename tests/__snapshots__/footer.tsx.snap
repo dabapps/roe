@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should apply sticky class 1`] = `
+<div
+  className="footer sticky"
+/>
+`;
+
+exports[`Footer should match snapshot 1`] = `
+<div
+  className="footer"
+/>
+`;
+
+exports[`Footer should take regular element attributes 1`] = `
+<div
+  className="footer"
+/>
+`;

@@ -124,8 +124,6 @@ describe('NavBar', () => {
       }
     });
 
-    jest.spyOn(window, 'addEventListener');
-
     enzyme.mount(<NavBar fixed />);
 
     expect(window.addEventListener).toHaveBeenCalledTimes(1);
