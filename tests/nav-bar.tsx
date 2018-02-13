@@ -80,7 +80,7 @@ describe('NavBar', () => {
     expect(window.removeEventListener).toHaveBeenCalledTimes(3);
     (window.removeEventListener as jest.Mock<any>).mockClear();
     expect(store.setState).toHaveBeenCalledTimes(1);
-    expect(store.setState).toHaveBeenCalledWith({hasFixedNavBar: undefined, navBarHeight: undefined});
+    expect(store.setState).toHaveBeenCalledWith({hasFixedNavBar: false, navBarHeight: undefined});
     (store.setState as jest.Mock<any>).mockClear();
 
     instance.setProps({shy: true});

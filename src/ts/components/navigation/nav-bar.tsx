@@ -45,11 +45,11 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
   }
 
   public componentWillUpdate (nextProps: NavBarProps) {
-    if (this.props.shy !== nextProps.shy) {
+    if (Boolean(this.props.shy) !== Boolean(nextProps.shy)) {
       this.toggleShyListeners(nextProps);
     }
 
-    if (this.props.fixed !== nextProps.fixed || this.props.shy !== nextProps.shy) {
+    if (Boolean(this.props.fixed) !== Boolean(nextProps.fixed) || Boolean(this.props.shy) !== Boolean(nextProps.shy)) {
       this.notifyAppRoot(nextProps);
       this.toggleResizeListeners(nextProps);
     }
@@ -98,7 +98,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     const element = ReactDOM.findDOMNode(this);
 
     store.setState({
-      hasFixedNavBar: fixed || shy,
+      hasFixedNavBar: Boolean(fixed || shy),
       navBarHeight: element ? element.getBoundingClientRect().height : undefined,
     });
   }

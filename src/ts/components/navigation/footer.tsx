@@ -19,7 +19,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
   }
 
   public componentWillUpdate (nextProps: FooterProps) {
-    if (this.props.sticky !== nextProps.sticky) {
+    if (Boolean(this.props.sticky) !== Boolean(nextProps.sticky)) {
       this.notifyAppRoot(nextProps);
       this.toggleResizeListeners(nextProps);
     }
@@ -50,7 +50,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
     const element = ReactDOM.findDOMNode(this);
 
     store.setState({
-      hasFixedFooter: sticky,
+      hasFixedFooter: Boolean(sticky),
       footerHeight: element ? element.getBoundingClientRect().height : undefined,
     });
   }
