@@ -99,7 +99,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     const { fixed, shy } = props;
 
     store.setState({
-      hasFixedNavbar: fixed || shy,
+      hasFixedNavBar: fixed || shy,
       navBarHeight: ReactDOM.findDOMNode(this).getBoundingClientRect().height,
     });
   }

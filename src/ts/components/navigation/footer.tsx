@@ -2,6 +2,7 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
+import store from '../../store';
 
 export interface FooterProps extends HTMLProps<HTMLElement> {
   /**
@@ -11,6 +12,23 @@ export interface FooterProps extends HTMLProps<HTMLElement> {
 }
 
 export default class Footer extends PureComponent<FooterProps, {}> {
+  public componentDidMount () {
+    this.notifyAppRoot(this.props);
+    this.toggleResizeListeners(this.props);
+  }
+
+  public componentWillUpdate (nextProps: FooterProps) {
+    if (this.props.fixed !== nextProps.fixed) {
+      this.notifyAppRoot(nextProps);
+      this.toggleResizeListeners(nextProps);
+    }
+  }
+
+  public componentWillUnmount () {
+    window.removeEventListener('resize', this.updateAppRoot);
+    this.notifyAppRoot({fixed: false});
+  }
+
   public render () {
     const {
       fixed,
@@ -23,5 +41,28 @@ export default class Footer extends PureComponent<FooterProps, {}> {
         {children}
       </div>
     );
+  }
+
+  private notifyAppRoot (props: FooterProps) {
+    const { fixed } = props;
+
+    store.setState({
+      hasFixedFooter: fixed,
+      footerHeight: ReactDOM.findDOMNode(this).getBoundingClientRect().height,
+    });
+  }
+
+  private updateAppRoot = () => {
+    this.notifyAppRoot(this.props);
+  }
+
+  private toggleResizeListeners(props: FooterProps) {
+    const { fixed } = props;
+
+    if (fixed) {
+      window.addEventListener('resize', this.updateAppRoot);
+    } else {
+      window.removeEventListener('resize', this.updateAppRoot);
+    }
   }
 }

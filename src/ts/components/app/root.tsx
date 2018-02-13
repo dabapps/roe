@@ -15,19 +15,21 @@ export class AppRoot extends PureComponent<AppRootProps, {}> {
     const {
       children,
       hasFixedFooter,
-      hasFixedNavbar,
+      hasFixedNavBar,
       navBarHeight,
+      footerHeight,
       ...remainingProps,
     } = this.props;
 
     const myClassNames = [
       'app-root',
       hasFixedFooter && 'has-fixed-footer' || null,
-      hasFixedNavbar && 'has-fixed-nav-bar' || null,
+      hasFixedNavBar && 'has-fixed-nav-bar' || null,
     ];
 
     const style = {
-      paddingTop: hasFixedNavbar && navBarHeight,
+      paddingTop: hasFixedNavBar && navBarHeight,
+      paddingBottom: hasFixedFooter && footerHeight,
     };
 
     return (

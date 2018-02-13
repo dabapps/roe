@@ -3,9 +3,10 @@ import * as React from 'react';
 export type ComponentType<P> = React.ComponentClass<P> | React.StatelessComponent<P>;
 
 export type StoreState = Partial<{
-  hasFixedNavbar: boolean;
+  hasFixedNavBar: boolean;
   hasFixedFooter: boolean;
   navBarHeight: number;
+  footerHeight: number;
 }>;
 
 export type StoreListener = (state: StoreState) => any;
