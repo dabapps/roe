@@ -22,9 +22,17 @@ ReactDOM.render(
   (
     <AppRoot>
       <NavBar fixed>
-        <h1 className="display-inline font-size-large">
-          NavBar
-        </h1>
+        <Container>
+          <h1 className="display-inline font-size-large">
+            NavBar
+          </h1>
+
+          <SpacedGroup className="float-right">
+            <Button>
+              Login
+            </Button>
+          </SpacedGroup>
+        </Container>
       </NavBar>
 
       <Container>
