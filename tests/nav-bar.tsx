@@ -71,7 +71,7 @@ describe('NavBar', () => {
     expect(instance).toMatchSnapshot();
   });
 
-  it('should toggle shy listeners and update the body class on mount and props change', () => {
+  it('should toggle shy listeners and update the app root on mount and props change', () => {
     jest.spyOn(window, 'addEventListener');
     jest.spyOn(window, 'removeEventListener');
 
