@@ -6,8 +6,6 @@ import store from '../../store';
 import { ComponentProps } from '../../types';
 import { getScrollOffset } from '../../utils';
 
-const WITH_FIXED_NAV_BAR = 'with-fixed-nav-bar';
-
 export interface NavBarProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**
    * Fix the navbar to the top of the screen
