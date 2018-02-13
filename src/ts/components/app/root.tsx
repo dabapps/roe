@@ -25,11 +25,15 @@ export class AppRoot extends PureComponent<AppRootProps, {}> {
       hasFixedNavbar && 'has-fixed-nav-bar' || null,
     ];
 
+    const style = {
+      paddingTop: hasFixedNavbar && navBarHeight,
+    };
+
     return (
       <div
         {...remainingProps}
         className={classNames(myClassNames)}
-        style={{paddingTop: navBarHeight}}
+        style={style}
       >
         {children}
       </div>
