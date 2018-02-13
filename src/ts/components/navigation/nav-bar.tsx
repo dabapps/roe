@@ -95,10 +95,11 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
 
   private notifyAppRoot (props: NavBarProps) {
     const { fixed, shy } = props;
+    const element = ReactDOM.findDOMNode(this);
 
     store.setState({
       hasFixedNavBar: fixed || shy,
-      navBarHeight: ReactDOM.findDOMNode(this).getBoundingClientRect().height,
+      navBarHeight: element ? element.getBoundingClientRect().height : undefined,
     });
   }
 

@@ -47,10 +47,11 @@ export default class Footer extends PureComponent<FooterProps, {}> {
 
   private notifyAppRoot (props: FooterProps) {
     const { sticky } = props;
+    const element = ReactDOM.findDOMNode(this);
 
     store.setState({
       hasFixedFooter: sticky,
-      footerHeight: ReactDOM.findDOMNode(this).getBoundingClientRect().height,
+      footerHeight: element ? element.getBoundingClientRect().height : undefined,
     });
   }
 
