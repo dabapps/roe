@@ -21,6 +21,7 @@ export class AppRoot extends PureComponent<AppRootProps, {}> {
     } = this.props;
 
     const myClassNames = [
+      'app-root',
       hasFixedFooter && 'has-fixed-footer' || null,
       hasFixedNavbar && 'has-fixed-nav-bar' || null,
     ];

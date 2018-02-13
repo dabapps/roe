@@ -8,6 +8,8 @@ import {
   ContentBox,
   ContentBoxFooter,
   ContentBoxHeader,
+  DabIpsum,
+  Footer,
   NavBar,
   Row,
   Section,
@@ -36,11 +38,17 @@ ReactDOM.render(
       </NavBar>
 
       <Container>
+        <h1>
+          Example
+        </h1>
+
+        <DabIpsum />
+
         <ContentBox>
           <ContentBoxHeader>
-            <h1>
+            <h2>
               Example
-            </h1>
+            </h2>
           </ContentBoxHeader>
 
           <Section>
@@ -89,6 +97,14 @@ ReactDOM.render(
           </ContentBoxFooter>
         </ContentBox>
       </Container>
+
+      <Footer fixed>
+        <Container>
+          <p>
+            Footer
+          </p>
+        </Container>
+      </Footer>
     </AppRoot>
   ),
   app

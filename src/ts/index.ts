@@ -10,6 +10,7 @@ export { default as ContentBox } from './components/content/content-box';
 export { default as ContentBoxHeader } from './components/content/content-box-header';
 export { default as ContentBoxFooter } from './components/content/content-box-footer';
 export { default as DabIpsum } from './components/prototyping/dab-ipsum';
+export { default as Footer } from './components/navigation/footer';
 export { default as FormGroup } from './components/forms/form-group';
 export { default as InputGroup } from './components/forms/input-group';
 export { default as InputGroupAddon } from './components/forms/input-group-addon';
