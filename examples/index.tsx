@@ -98,7 +98,7 @@ ReactDOM.render(
         </ContentBox>
       </Container>
 
-      <Footer fixed>
+      <Footer sticky>
         <Container>
           <p>
             Footer

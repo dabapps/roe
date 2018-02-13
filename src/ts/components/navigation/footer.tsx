@@ -9,7 +9,7 @@ export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**
    * Fix the footer to the bottom of the window when there is not enough content to push it down.
    */
-  fixed?: boolean;
+  sticky?: boolean;
 }
 
 export default class Footer extends PureComponent<FooterProps, {}> {
@@ -19,7 +19,7 @@ export default class Footer extends PureComponent<FooterProps, {}> {
   }
 
   public componentWillUpdate (nextProps: FooterProps) {
-    if (this.props.fixed !== nextProps.fixed) {
+    if (this.props.sticky !== nextProps.sticky) {
       this.notifyAppRoot(nextProps);
       this.toggleResizeListeners(nextProps);
     }
@@ -27,29 +27,29 @@ export default class Footer extends PureComponent<FooterProps, {}> {
 
   public componentWillUnmount () {
     window.removeEventListener('resize', this.updateAppRoot);
-    this.notifyAppRoot({fixed: false});
+    this.notifyAppRoot({sticky: false});
   }
 
   public render () {
     const {
-      fixed,
+      sticky,
       component: Component = 'div',
       children,
       ...remainingProps,
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames('footer', fixed && 'fixed')}>
+      <Component {...remainingProps} className={classNames('footer', sticky && 'sticky')}>
         {children}
       </Component>
     );
   }
 
   private notifyAppRoot (props: FooterProps) {
-    const { fixed } = props;
+    const { sticky } = props;
 
     store.setState({
-      hasFixedFooter: fixed,
+      hasFixedFooter: sticky,
       footerHeight: ReactDOM.findDOMNode(this).getBoundingClientRect().height,
     });
   }
@@ -59,9 +59,9 @@ export default class Footer extends PureComponent<FooterProps, {}> {
   }
 
   private toggleResizeListeners(props: FooterProps) {
-    const { fixed } = props;
+    const { sticky } = props;
 
-    if (fixed) {
+    if (sticky) {
       window.addEventListener('resize', this.updateAppRoot);
     } else {
       window.removeEventListener('resize', this.updateAppRoot);
