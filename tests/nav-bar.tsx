@@ -114,6 +114,33 @@ describe('NavBar', () => {
     expect(window.removeEventListener).toHaveBeenCalledTimes(3);
   });
 
+  it('should update the app root when the window is resized', () => {
+    const handlers: {[i: string]: (() => any) | undefined} = {};
+
+    (window.addEventListener as jest.Mock<any>).mockImplementation((type: string, callback: () => any) => {
+      if (type === 'resize') {
+        handlers[type] = callback;
+        jest.spyOn(handlers, type);
+      }
+    });
+
+    jest.spyOn(window, 'addEventListener');
+
+    enzyme.mount(<NavBar fixed />);
+
+    expect(window.addEventListener).toHaveBeenCalledTimes(1);
+
+    (store.setState as jest.Mock<any>).mockClear();
+
+    const { resize } = handlers;
+
+    if (resize) {
+      resize();
+    }
+
+    expect(store.setState).toHaveBeenCalledTimes(1);
+  });
+
   it('should hide or show the navbar when scrolled', () => {
     const handlers: {[i: string]: (() => any) | undefined} = {};
 
