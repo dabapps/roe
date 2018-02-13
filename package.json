@@ -13,7 +13,7 @@
     "lint": "npm run lint-js && npm run lint-less",
     "tests": "jest",
     "test": "npm run lint && npm run tests -- --coverage --runInBand",
-    "budo": "budo examples/index.tsx src/less/index.less --live -- -t node-lessify -p [tsify -p examples/tsconfig.json]",
+    "budo": "budo src/less/index.less examples/index.tsx --live -- -t node-lessify -p [tsify -p examples/tsconfig.json]",
     "prepublish": "./scripts/dist"
   },
   "repository": {
