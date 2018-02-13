@@ -23,7 +23,7 @@ document.body.appendChild(app);
 ReactDOM.render(
   (
     <AppRoot>
-      <NavBar fixed>
+      <NavBar shy>
         <Container>
           <h1 className="display-inline font-size-large">
             NavBar
