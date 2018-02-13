@@ -9,7 +9,7 @@ export type AppRootProps = HTMLProps<HTMLElement> & ComponentProps & StoreState;
 /**
  * This is the most important part of your app.
  * This component interacts with other Roe components to adjust styles at the root level.
- * Your app must have an AppRoot if you wish to used a fixed NavBar or Footer.
+ * Your app must have an AppRoot if you wish to used a fixed / shy NavBar or sticky Footer.
  */
 export class AppRoot extends PureComponent<AppRootProps, {}> {
   public render () {
