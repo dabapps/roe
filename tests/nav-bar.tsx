@@ -5,6 +5,10 @@ import * as renderer from 'react-test-renderer';
 import NavBar from '../src/ts/components/navigation/nav-bar';
 import * as utils from '../src/ts/utils';
 
+jest.mock('react-dom', () => ({
+  findDOMNode: () => null,
+}));
+
 describe('NavBar', () => {
 
   it('should match snapshot', () => {
