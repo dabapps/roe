@@ -10,6 +10,10 @@ var components = [
     components: 'src/ts/components/app/**/*.tsx'
   },
   {
+    name:'Navigation',
+    components: 'src/ts/components/navigation/**/*.tsx'
+  },
+  {
     name: 'Content',
     components: 'src/ts/components/content/**/*.tsx'
   },
@@ -28,10 +32,6 @@ var components = [
   {
     name: 'Modals',
     components: 'src/ts/components/modals/**/*.tsx'
-  },
-  {
-    name:'Navigation',
-    components: 'src/ts/components/navigation/**/*.tsx'
   },
   {
     name: 'Forms',
