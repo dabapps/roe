@@ -23,7 +23,7 @@ export const createConnectedComponent = <OwnProps extends {[i: string]: any}>
       this.state = store.getState();
     }
 
-    public componentWillMount () {
+    public componentDidMount () {
       this.unsubscribe = store.subscribe((state) => {
         this.setState(state);
       });
