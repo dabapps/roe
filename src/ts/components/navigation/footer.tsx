@@ -12,7 +12,7 @@ export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
   sticky?: boolean;
 }
 
-export default class Footer extends PureComponent<FooterProps, {}> {
+export class Footer extends PureComponent<FooterProps, {}> {
   public componentDidMount () {
     this.notifyAppRoot(this.props);
     this.toggleResizeListeners(this.props);
@@ -69,3 +69,5 @@ export default class Footer extends PureComponent<FooterProps, {}> {
     }
   }
 }
+
+export default Footer;
