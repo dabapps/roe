@@ -107,7 +107,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     this.notifyAppRoot(this.props);
   }
 
-  private toggleResizeListeners(props: NavBarProps) {
+  private toggleResizeListeners (props: NavBarProps) {
     const { fixed, shy } = props;
 
     if (fixed || shy) {

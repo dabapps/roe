@@ -18,8 +18,15 @@ jest.mock('../src/ts/store', () => ({
 
 describe('NavBar', () => {
 
+  beforeAll(() => {
+    jest.spyOn(window, 'addEventListener');
+    jest.spyOn(window, 'removeEventListener');
+  });
+
   beforeEach(() => {
     (store.setState as jest.Mock<any>).mockClear();
+    (window.addEventListener as jest.Mock<any>).mockImplementation(jest.fn()).mockClear();
+    (window.removeEventListener as jest.Mock<any>).mockImplementation(jest.fn()).mockClear();
   });
 
   it('should match snapshot', () => {
@@ -72,9 +79,6 @@ describe('NavBar', () => {
   });
 
   it('should toggle shy listeners and update the app root on mount and props change', () => {
-    jest.spyOn(window, 'addEventListener');
-    jest.spyOn(window, 'removeEventListener');
-
     const instance = enzyme.mount(<NavBar />);
 
     expect(window.removeEventListener).toHaveBeenCalledTimes(3);
@@ -101,8 +105,6 @@ describe('NavBar', () => {
   });
 
   it('should remove listeners on unmount', () => {
-    jest.spyOn(window, 'removeEventListener');
-
     const instance = enzyme.mount(<NavBar />);
 
     (window.removeEventListener as jest.Mock<any>).mockClear();
@@ -115,7 +117,7 @@ describe('NavBar', () => {
   it('should hide or show the navbar when scrolled', () => {
     const handlers: {[i: string]: (() => any) | undefined} = {};
 
-    jest.spyOn(window, 'addEventListener').mockImplementation((type: string, callback: () => any) => {
+    (window.addEventListener as jest.Mock<any>).mockImplementation((type: string, callback: () => any) => {
       if (type === 'scroll') {
         handlers[type] = callback;
         jest.spyOn(handlers, type);
@@ -158,7 +160,7 @@ describe('NavBar', () => {
   it('should gracefully handle a missing element', () => {
     const handlers: {[i: string]: (() => any) | undefined} = {};
 
-    jest.spyOn(window, 'addEventListener').mockImplementation((type: string, callback: () => any) => {
+    (window.addEventListener as jest.Mock<any>).mockImplementation((type: string, callback: () => any) => {
       if (type === 'scroll') {
         handlers[type] = callback;
         jest.spyOn(handlers, type);
