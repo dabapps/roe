@@ -3,8 +3,9 @@ import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
 import store from '../../store';
+import { ComponentProps } from '../../types';
 
-export interface FooterProps extends HTMLProps<HTMLElement> {
+export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**
    * Fix the footer to the bottom of the window when there is not enough content to push it down.
    */
@@ -32,14 +33,15 @@ export default class Footer extends PureComponent<FooterProps, {}> {
   public render () {
     const {
       fixed,
+      component: Component = 'div',
       children,
       ...remainingProps,
     } = this.props;
 
     return (
-      <div {...remainingProps} className={classNames('footer', fixed && 'fixed')}>
+      <Component {...remainingProps} className={classNames('footer', fixed && 'fixed')}>
         {children}
-      </div>
+      </Component>
     );
   }
 

@@ -2,8 +2,9 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import store, { StoreState } from '../../store';
+import { ComponentProps } from '../../types';
 
-export type AppRootProps = HTMLProps<HTMLElement> & StoreState;
+export type AppRootProps = HTMLProps<HTMLElement> & ComponentProps & StoreState;
 
 /**
  * This is the most important part of your app.
@@ -13,6 +14,7 @@ export type AppRootProps = HTMLProps<HTMLElement> & StoreState;
 export class AppRoot extends PureComponent<AppRootProps, {}> {
   public render () {
     const {
+      component: Component = 'div',
       children,
       hasFixedFooter,
       hasFixedNavBar,
@@ -33,13 +35,13 @@ export class AppRoot extends PureComponent<AppRootProps, {}> {
     };
 
     return (
-      <div
+      <Component
         {...remainingProps}
         className={classNames(myClassNames)}
         style={style}
       >
         {children}
-      </div>
+      </Component>
     );
   }
 }
