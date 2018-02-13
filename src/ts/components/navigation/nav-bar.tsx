@@ -40,7 +40,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     };
   }
 
-  public componentWillMount () {
+  public componentDidMount () {
     this.notifyAppRoot(this.props);
     this.toggleShyListeners(this.props);
   }
@@ -97,6 +97,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
 
     store.setState({
       hasFixedNavbar: fixed || shy,
+      navBarHeight: ReactDOM.findDOMNode(this).getBoundingClientRect().height,
     });
   }
 

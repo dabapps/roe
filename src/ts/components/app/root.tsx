@@ -1,3 +1,4 @@
+import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import store, { StoreState } from '../../store';
@@ -13,11 +14,23 @@ export class AppRoot extends PureComponent<AppRootProps, {}> {
   public render () {
     const {
       children,
+      hasFixedFooter,
+      hasFixedNavbar,
+      navBarHeight,
       ...remainingProps,
     } = this.props;
 
+    const myClassNames = [
+      hasFixedFooter && 'has-fixed-footer' || null,
+      hasFixedNavbar && 'has-fixed-nav-bar' || null,
+    ];
+
     return (
-      <div {...remainingProps}>
+      <div
+        {...remainingProps}
+        className={classNames(myClassNames)}
+        style={{paddingTop: navBarHeight}}
+      >
         {children}
       </div>
     );
