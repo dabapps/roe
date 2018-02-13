@@ -43,6 +43,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
   public componentDidMount () {
     this.notifyAppRoot(this.props);
     this.toggleShyListeners(this.props);
+    this.toggleResizeListeners(this.props);
   }
 
   public componentWillUpdate (nextProps: NavBarProps) {
@@ -52,12 +53,14 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
 
     if (this.props.fixed !== nextProps.fixed || this.props.shy !== nextProps.shy) {
       this.notifyAppRoot(nextProps);
+      this.toggleResizeListeners(nextProps);
     }
   }
 
   public componentWillUnmount () {
     window.removeEventListener('scroll', this.hideOrShowNavBar);
     window.removeEventListener('resize', this.hideOrShowNavBar);
+    window.removeEventListener('resize', this.updateAppRoot);
     this.notifyAppRoot({fixed: false});
   }
 
@@ -99,6 +102,20 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
       hasFixedNavbar: fixed || shy,
       navBarHeight: ReactDOM.findDOMNode(this).getBoundingClientRect().height,
     });
+  }
+
+  private updateAppRoot = () => {
+    this.notifyAppRoot(this.props);
+  }
+
+  private toggleResizeListeners(props: NavBarProps) {
+    const { fixed, shy } = props;
+
+    if (fixed || shy) {
+      window.addEventListener('resize', this.updateAppRoot);
+    } else {
+      window.removeEventListener('resize', this.updateAppRoot);
+    }
   }
 
   private toggleShyListeners (props: NavBarProps) {
