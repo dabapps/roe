@@ -16,6 +16,7 @@ class AppRootUnconnected extends PureComponent<AppRootProps, {}> {
     const {
       component: Component = 'div',
       children,
+      className,
       hasStickyFooter,
       hasFixedNavBar,
       navBarHeight,
@@ -27,6 +28,7 @@ class AppRootUnconnected extends PureComponent<AppRootProps, {}> {
       'app-root',
       hasStickyFooter && 'has-sticky-footer' || null,
       hasFixedNavBar && 'has-fixed-nav-bar' || null,
+      className,
     ];
 
     const style = {

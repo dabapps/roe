@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppRoot should accept regular element attributes 1`] = `
+<div
+  className="app-root my-class"
+  style={
+    Object {
+      "paddingBottom": undefined,
+      "paddingTop": undefined,
+    }
+  }
+/>
+`;
+
+exports[`AppRoot should match snapshot 1`] = `
+<div
+  className="app-root"
+  style={
+    Object {
+      "paddingBottom": undefined,
+      "paddingTop": undefined,
+    }
+  }
+/>
+`;
