@@ -22,4 +22,17 @@ describe('AppRoot', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should apply padding for fixed nav bar and sticky footer', () => {
+    const tree = renderer.create(
+      <AppRootUnconnected
+        hasFixedNavBar
+        hasStickyFooter
+        navBarHeight={50}
+        footerHeight={100}
+      />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
 });

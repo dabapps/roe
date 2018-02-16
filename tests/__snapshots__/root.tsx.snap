@@ -24,6 +24,18 @@ exports[`AppRoot should apply classes for fixed nav bar and sticky footer 1`] = 
 />
 `;
 
+exports[`AppRoot should apply padding for fixed nav bar and sticky footer 1`] = `
+<div
+  className="app-root has-sticky-footer has-fixed-nav-bar"
+  style={
+    Object {
+      "paddingBottom": 100,
+      "paddingTop": 50,
+    }
+  }
+/>
+`;
+
 exports[`AppRoot should match snapshot 1`] = `
 <div
   className="app-root"
