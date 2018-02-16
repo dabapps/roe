@@ -4,7 +4,7 @@ export type ComponentType<P> = React.ComponentClass<P> | React.StatelessComponen
 
 export type StoreState = Partial<{
   hasFixedNavBar: boolean;
-  hasFixedFooter: boolean;
+  hasStickyFooter: boolean;
   navBarHeight: number;
   footerHeight: number;
 }>;

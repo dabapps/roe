@@ -50,7 +50,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
     const element = ReactDOM.findDOMNode(this);
 
     store.setState({
-      hasFixedFooter: Boolean(sticky),
+      hasStickyFooter: Boolean(sticky),
       footerHeight: element ? element.getBoundingClientRect().height : undefined,
     });
   }
