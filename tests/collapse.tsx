@@ -67,6 +67,16 @@ describe('Collapse', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should clear its timeout on unmount', () => {
+    jest.spyOn(window, 'clearTimeout');
+
+    const instance = enzyme.mount(<Collapse open={false} />);
+
+    instance.unmount();
+
+    expect(window.clearTimeout).toHaveBeenCalledTimes(1);
+  });
+
   it('should open from default height', () => {
     jest.useFakeTimers();
 

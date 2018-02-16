@@ -3,6 +3,10 @@ import { PureComponent } from 'react';
 import * as renderer from 'react-test-renderer';
 import * as index from '../src/ts/';
 
+jest.mock('react-dom', () => ({
+  findDOMNode: () => null,
+}));
+
 interface IHighlightJS {
   highlightBlock: jest.Mock<any>;
 }

@@ -44,10 +44,10 @@ describe('components', () => {
         throw new Error(`No default export in component at ${filePath}`);
       }
 
-      const classRegex = new RegExp(`^export class ${defaultExport[1]}`, 'm');
+      const classRegex = new RegExp(`^export (class|const) ${defaultExport[1]}`, 'm');
 
       if (!classRegex.test(content)) {
-        throw new Error(`Default export ${defaultExport[0]} is not exported as a named class at ${filePath}`);
+        throw new Error(`Default export ${defaultExport[0]} is not exported as a named class or const at ${filePath}`);
       }
     });
   });

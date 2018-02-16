@@ -13,6 +13,12 @@ npm install
 npm start
 ```
 
+Or run the examples directory with livereloading
+
+```shell
+npm run budo
+```
+
 ## Usage
 
 ### Install

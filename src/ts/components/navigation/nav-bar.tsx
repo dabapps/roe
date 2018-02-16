@@ -2,10 +2,9 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
+import store from '../../store';
 import { ComponentProps } from '../../types';
-import { addClassName, getScrollOffset, removeClassName } from '../../utils';
-
-const WITH_FIXED_NAV_BAR = 'with-fixed-nav-bar';
+import { getScrollOffset } from '../../utils';
 
 export interface NavBarProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**
@@ -39,24 +38,28 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     };
   }
 
-  public componentWillMount () {
-    this.updateBodyClass(this.props);
+  public componentDidMount () {
+    this.notifyAppRoot(this.props);
     this.toggleShyListeners(this.props);
+    this.toggleResizeListeners(this.props);
   }
 
   public componentWillUpdate (nextProps: NavBarProps) {
-    if (this.props.shy !== nextProps.shy) {
+    if (Boolean(this.props.shy) !== Boolean(nextProps.shy)) {
       this.toggleShyListeners(nextProps);
     }
 
-    if (this.props.fixed !== nextProps.fixed || this.props.shy !== nextProps.shy) {
-      this.updateBodyClass(nextProps);
+    if (Boolean(this.props.fixed) !== Boolean(nextProps.fixed) || Boolean(this.props.shy) !== Boolean(nextProps.shy)) {
+      this.notifyAppRoot(nextProps);
+      this.toggleResizeListeners(nextProps);
     }
   }
 
   public componentWillUnmount () {
     window.removeEventListener('scroll', this.hideOrShowNavBar);
     window.removeEventListener('resize', this.hideOrShowNavBar);
+    window.removeEventListener('resize', this.updateAppRoot);
+    this.notifyAppRoot({fixed: false});
   }
 
   public render () {
@@ -90,13 +93,27 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     );
   }
 
-  private updateBodyClass (props: NavBarProps) {
+  private notifyAppRoot (props: NavBarProps) {
+    const { fixed, shy } = props;
+    const element = ReactDOM.findDOMNode(this);
+
+    store.setState({
+      hasFixedNavBar: Boolean(fixed || shy),
+      navBarHeight: element ? element.getBoundingClientRect().height : undefined,
+    });
+  }
+
+  private updateAppRoot = () => {
+    this.notifyAppRoot(this.props);
+  }
+
+  private toggleResizeListeners (props: NavBarProps) {
     const { fixed, shy } = props;
 
     if (fixed || shy) {
-      addClassName(document.body, WITH_FIXED_NAV_BAR);
+      window.addEventListener('resize', this.updateAppRoot);
     } else {
-      removeClassName(document.body, WITH_FIXED_NAV_BAR)
+      window.removeEventListener('resize', this.updateAppRoot);
     }
   }
 

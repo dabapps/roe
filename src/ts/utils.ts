@@ -6,7 +6,6 @@ import {
   MATCHES_INITIAL_INDENTATION,
   MATCHES_LEADING_AND_TRAILING_HYPHENS,
   MATCHES_NON_WORD_CHARACTERS,
-  MATCHES_WHITESPACE,
 } from './constants';
 
 export const formatCode = (code: string) => {
@@ -57,34 +56,6 @@ export const shouldNotBeRendered = (children: any) => {
 }
 
 export const isValidColumnNumber = (value?: number) => typeof value === 'number' && value === +value;
-
-export const addClassName = (element: HTMLElement, className: string) => {
-  const myClassNames = element.className
-    .trim()
-    .split(MATCHES_WHITESPACE);
-
-  if (myClassNames.indexOf(className) >= 0) {
-    return;
-  }
-
-  element.className = [...myClassNames, className].join(' ');
-};
-
-export const removeClassName = (element: HTMLElement, className: string) => {
-  const myClassNames = element.className
-    .trim()
-    .split(MATCHES_WHITESPACE);
-
-  const index = myClassNames.indexOf(className);
-
-  if (index < 0) {
-    return;
-  }
-
-  myClassNames.splice(index, 1);
-
-  element.className = myClassNames.join(' ');
-};
 
 export const getScrollOffset = () => {
   const doc = document.documentElement;

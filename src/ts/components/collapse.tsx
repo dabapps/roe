@@ -104,7 +104,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
     });
   }
 
-  public componentWillMount () {
+  public componentWillUnmount () {
     window.clearTimeout(this.timeout);
   }
 

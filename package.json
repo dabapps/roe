@@ -1,6 +1,6 @@
 {
   "name": "@dabapps/roe",
-  "version": "0.8.36",
+  "version": "0.9.0",
   "description": "A Collection of React Components for Project Development",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
@@ -13,6 +13,7 @@
     "lint": "npm run lint-js && npm run lint-less",
     "tests": "jest",
     "test": "npm run lint && npm run tests -- --coverage --runInBand",
+    "budo": "budo src/less/index.less examples/index.tsx --live -- -t node-lessify -p [tsify -p examples/tsconfig.json]",
     "prepublish": "./scripts/dist"
   },
   "repository": {
@@ -49,7 +50,6 @@
     "less": "2.7.2",
     "normalize.css": "6.0.0",
     "postcss": "5.2.17",
-    "postcss-cli": "3.2.0",
     "random-seed": "0.3.0",
     "react": "15.5.4",
     "react-dom": "15.5.4",
@@ -64,7 +64,7 @@
     "@types/node": "7.0.13",
     "@types/react-test-renderer": "15.4.5",
     "brfs": "1.4.3",
-    "concurrently": "3.4.0",
+    "budo": "11.1.0",
     "css-loader": "0.28.7",
     "envify": "4.0.0",
     "enzyme": "3.2.0",
@@ -77,6 +77,7 @@
     "less-loader": "4.0.5",
     "lesshint": "3.3.1",
     "livereload": "0.6.2",
+    "node-lessify": "0.1.5",
     "postcss-loader": "2.0.7",
     "react-docgen-typescript": "1.2.2",
     "react-scripts-ts": "2.8.0",
@@ -86,8 +87,6 @@
     "ts-jest": "20.0.14",
     "tslint": "5.8.0",
     "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.3.1",
-    "watch-less-do-more": "0.2.0",
-    "watchify": "3.9.0",
     "webpack": "3.7.1"
   },
   "peerDependencies": {

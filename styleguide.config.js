@@ -6,6 +6,14 @@ var path = require('path');
 
 var components = [
   {
+    name: 'App',
+    components: 'src/ts/components/app/**/*.tsx'
+  },
+  {
+    name:'Navigation',
+    components: 'src/ts/components/navigation/**/*.tsx'
+  },
+  {
     name: 'Content',
     components: 'src/ts/components/content/**/*.tsx'
   },
@@ -26,10 +34,6 @@ var components = [
     components: 'src/ts/components/modals/**/*.tsx'
   },
   {
-    name:'Navigation',
-    components: 'src/ts/components/navigation/**/*.tsx'
-  },
-  {
     name: 'Forms',
     components: 'src/ts/components/forms/**/*.tsx'
   },
@@ -44,10 +48,6 @@ var components = [
 ];
 
 var less = [
-  {
-    name: 'Variables',
-    content: 'src/less/variables.examples.md'
-  },
   {
     name: 'Atomic float classes',
     content: 'src/less/float.examples.md'
@@ -67,22 +67,12 @@ var less = [
   {
     name: 'Atomic text align classes',
     content: 'src/less/text-align.examples.md'
+  },
+  {
+    name: 'Variables',
+    content: 'src/less/variables.examples.md'
   }
 ];
-
-function sortByName (arr) {
-  return arr.sort(function (a, b) {
-    if (a.name > b.name) {
-      return 1;
-    }
-
-    if (a.name < b.name) {
-      return -1;
-    }
-
-    return 0;
-  });
-}
 
 function getExampleFilename (componentPath) {
   return componentPath.replace(/\.tsx?$/, '.examples.md');
@@ -155,16 +145,16 @@ module.exports = {
   styleguideComponents: {
     Logo: path.join(__dirname, 'docs/components/logo'),
   },
-  sections: sortByName([
+  sections: [
     {
       name: 'Components',
-      sections: sortByName(components)
+      sections: components
     },
     {
       name: 'Less',
-      sections: sortByName(less)
+      sections: less
     }
-  ]),
+  ],
   styles: {
     /*
     Component: {

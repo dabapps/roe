@@ -3,9 +3,31 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
 import NavBar from '../src/ts/components/navigation/nav-bar';
+import store from '../src/ts/store';
 import * as utils from '../src/ts/utils';
 
+jest.mock('react-dom', () => ({
+  findDOMNode: () => null,
+}));
+
+jest.mock('../src/ts/store', () => ({
+  default: {
+    setState: jest.fn(),
+  }
+}));
+
 describe('NavBar', () => {
+
+  beforeAll(() => {
+    jest.spyOn(window, 'addEventListener');
+    jest.spyOn(window, 'removeEventListener');
+  });
+
+  beforeEach(() => {
+    (store.setState as jest.Mock<any>).mockClear();
+    (window.addEventListener as jest.Mock<any>).mockImplementation(jest.fn()).mockClear();
+    (window.removeEventListener as jest.Mock<any>).mockImplementation(jest.fn()).mockClear();
+  });
 
   it('should match snapshot', () => {
     const tree = renderer.create(
@@ -56,50 +78,78 @@ describe('NavBar', () => {
     expect(instance).toMatchSnapshot();
   });
 
-  it('should toggle shy listeners and update the body class on mount and props change', () => {
-    jest.spyOn(window, 'addEventListener');
-    jest.spyOn(window, 'removeEventListener');
-    jest.spyOn(utils, 'addClassName').mockImplementation(jest.fn());
-    jest.spyOn(utils, 'removeClassName').mockImplementation(jest.fn());
-
+  it('should toggle shy listeners and update the app root on mount and props change', () => {
     const instance = enzyme.mount(<NavBar />);
 
-    expect(window.removeEventListener).toHaveBeenCalledTimes(2);
+    expect(window.removeEventListener).toHaveBeenCalledTimes(3);
     (window.removeEventListener as jest.Mock<any>).mockClear();
-    expect(utils.removeClassName).toHaveBeenCalledTimes(1);
-    (utils.removeClassName as jest.Mock<any>).mockClear();
-
-    instance.setProps({shy: true});
-
-    expect(window.addEventListener).toHaveBeenCalledTimes(2);
-    (window.addEventListener as jest.Mock<any>).mockClear();
-    expect(utils.addClassName).toHaveBeenCalledTimes(1);
-    (utils.addClassName as jest.Mock<any>).mockClear();
+    expect(store.setState).toHaveBeenCalledTimes(1);
+    expect(store.setState).toHaveBeenCalledWith({hasFixedNavBar: false, navBarHeight: undefined});
+    (store.setState as jest.Mock<any>).mockClear();
 
     instance.setProps({shy: false});
 
-    expect(window.removeEventListener).toHaveBeenCalledTimes(2);
+    expect(window.removeEventListener).toHaveBeenCalledTimes(0);
     (window.removeEventListener as jest.Mock<any>).mockClear();
-    expect(utils.removeClassName).toHaveBeenCalledTimes(1);
-    (utils.removeClassName as jest.Mock<any>).mockClear();
+    expect(store.setState).toHaveBeenCalledTimes(0);
+    (store.setState as jest.Mock<any>).mockClear();
+
+    instance.setProps({shy: true});
+
+    expect(window.addEventListener).toHaveBeenCalledTimes(3);
+    (window.addEventListener as jest.Mock<any>).mockClear();
+    expect(store.setState).toHaveBeenCalledTimes(1);
+    expect(store.setState).toHaveBeenCalledWith({hasFixedNavBar: true, navBarHeight: undefined});
+    (store.setState as jest.Mock<any>).mockClear();
+
+    instance.setProps({shy: false});
+
+    expect(window.removeEventListener).toHaveBeenCalledTimes(3);
+    (window.removeEventListener as jest.Mock<any>).mockClear();
+    expect(store.setState).toHaveBeenCalledTimes(1);
+    expect(store.setState).toHaveBeenCalledWith({hasFixedNavBar: false, navBarHeight: undefined});
+    (store.setState as jest.Mock<any>).mockClear();
   });
 
   it('should remove listeners on unmount', () => {
-    jest.spyOn(window, 'removeEventListener');
-
     const instance = enzyme.mount(<NavBar />);
 
     (window.removeEventListener as jest.Mock<any>).mockClear();
 
     instance.unmount();
 
-    expect(window.removeEventListener).toHaveBeenCalledTimes(2);
+    expect(window.removeEventListener).toHaveBeenCalledTimes(3);
+  });
+
+  it('should update the app root when the window is resized', () => {
+    const handlers: {[i: string]: (() => any) | undefined} = {};
+
+    (window.addEventListener as jest.Mock<any>).mockImplementation((type: string, callback: () => any) => {
+      if (type === 'resize') {
+        handlers[type] = callback;
+        jest.spyOn(handlers, type);
+      }
+    });
+
+    enzyme.mount(<NavBar fixed />);
+
+    expect(window.addEventListener).toHaveBeenCalledTimes(1);
+
+    (store.setState as jest.Mock<any>).mockClear();
+
+    const { resize } = handlers;
+
+    if (resize) {
+      resize();
+    }
+
+    expect(store.setState).toHaveBeenCalledTimes(1);
   });
 
   it('should hide or show the navbar when scrolled', () => {
     const handlers: {[i: string]: (() => any) | undefined} = {};
 
-    jest.spyOn(window, 'addEventListener').mockImplementation((type: string, callback: () => any) => {
+    (window.addEventListener as jest.Mock<any>).mockImplementation((type: string, callback: () => any) => {
       if (type === 'scroll') {
         handlers[type] = callback;
         jest.spyOn(handlers, type);
@@ -142,7 +192,7 @@ describe('NavBar', () => {
   it('should gracefully handle a missing element', () => {
     const handlers: {[i: string]: (() => any) | undefined} = {};
 
-    jest.spyOn(window, 'addEventListener').mockImplementation((type: string, callback: () => any) => {
+    (window.addEventListener as jest.Mock<any>).mockImplementation((type: string, callback: () => any) => {
       if (type === 'scroll') {
         handlers[type] = callback;
         jest.spyOn(handlers, type);
