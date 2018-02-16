@@ -1,5 +1,6 @@
 import * as enzyme from 'enzyme';
 import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
 import Footer from '../src/ts/components/navigation/footer';
 import store from '../src/ts/store';
@@ -117,6 +118,36 @@ describe('Footer', () => {
     }
 
     expect(store.setState).toHaveBeenCalledTimes(1);
+  });
+
+  it('should notify about the element\'s height', () => {
+    const handlers: {[i: string]: (() => any) | undefined} = {};
+
+    (window.addEventListener as jest.Mock<any>).mockImplementation((type: string, callback: () => any) => {
+      if (type === 'resize') {
+        handlers[type] = callback;
+        jest.spyOn(handlers, type);
+      }
+    });
+    jest.spyOn(ReactDOM, 'findDOMNode').mockReturnValue({getBoundingClientRect: () => ({height: 20})});
+
+    enzyme.mount(<Footer sticky />);
+
+    expect(window.addEventListener).toHaveBeenCalledTimes(1);
+
+    (store.setState as jest.Mock<any>).mockClear();
+
+    const { resize } = handlers;
+
+    if (resize) {
+      resize();
+    }
+
+    expect(store.setState).toHaveBeenCalledTimes(1);
+    expect(store.setState).toHaveBeenCalledWith({
+      hasStickyFooter: true,
+      footerHeight: 20,
+    });
   });
 
 });
