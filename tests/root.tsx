@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import AppRoot from '../src/ts/components/app/root';
+import AppRoot, { AppRootUnconnected } from '../src/ts/components/app/root';
 
 describe('AppRoot', () => {
 
@@ -12,6 +12,12 @@ describe('AppRoot', () => {
 
   it('should accept regular element attributes', () => {
     const tree = renderer.create(<AppRoot className="my-class" />);
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should apply classes for fixed nav bar and sticky footer', () => {
+    const tree = renderer.create(<AppRootUnconnected hasFixedNavBar hasStickyFooter />);
 
     expect(tree).toMatchSnapshot();
   });

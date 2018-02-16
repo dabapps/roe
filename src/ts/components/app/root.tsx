@@ -11,7 +11,7 @@ export type AppRootProps = HTMLProps<HTMLElement> & ComponentProps & StoreState;
  * This component interacts with other Roe components to adjust styles at the root level.
  * Your app must have an AppRoot if you wish to used a fixed / shy NavBar or sticky Footer.
  */
-class AppRootUnconnected extends PureComponent<AppRootProps, {}> {
+export class AppRootUnconnected extends PureComponent<AppRootProps, {}> {
   public render () {
     const {
       component: Component = 'div',
