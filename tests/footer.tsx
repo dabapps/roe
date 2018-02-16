@@ -1,4 +1,4 @@
-// import * as enzyme from 'enzyme';
+import * as enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 import Footer from '../src/ts/components/navigation/footer';
@@ -51,6 +51,42 @@ describe('Footer', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should toggle sticky listeners and update the app root on mount and props change', () => {
+    const instance = enzyme.mount(<Footer />);
+
+    expect(window.removeEventListener).toHaveBeenCalledTimes(1);
+    (window.removeEventListener as jest.Mock<any>).mockClear();
+    expect(store.setState).toHaveBeenCalledTimes(1);
+    expect(store.setState).toHaveBeenCalledWith({hasStickyFooter: false, footerHeight: undefined});
+    (store.setState as jest.Mock<any>).mockClear();
+
+    instance.setProps({sticky: true});
+
+    expect(window.addEventListener).toHaveBeenCalledTimes(1);
+    (window.addEventListener as jest.Mock<any>).mockClear();
+    expect(store.setState).toHaveBeenCalledTimes(1);
+    expect(store.setState).toHaveBeenCalledWith({hasStickyFooter: true, footerHeight: undefined});
+    (store.setState as jest.Mock<any>).mockClear();
+
+    instance.setProps({sticky: false});
+
+    expect(window.removeEventListener).toHaveBeenCalledTimes(1);
+    (window.removeEventListener as jest.Mock<any>).mockClear();
+    expect(store.setState).toHaveBeenCalledTimes(1);
+    expect(store.setState).toHaveBeenCalledWith({hasStickyFooter: false, footerHeight: undefined});
+    (store.setState as jest.Mock<any>).mockClear();
+  });
+
+  it('should remove listeners on unmount', () => {
+    const instance = enzyme.mount(<Footer />);
+
+    (window.removeEventListener as jest.Mock<any>).mockClear();
+
+    instance.unmount();
+
+    expect(window.removeEventListener).toHaveBeenCalledTimes(1);
+  });
+
   it('should update the app root when the window is resized', () => {
     const handlers: {[i: string]: (() => any) | undefined} = {};
 
@@ -61,7 +97,7 @@ describe('Footer', () => {
       }
     });
 
-    renderer.create(<Footer sticky />);
+    enzyme.mount(<Footer sticky />);
 
     expect(window.addEventListener).toHaveBeenCalledTimes(1);
 
