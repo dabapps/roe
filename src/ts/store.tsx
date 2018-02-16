@@ -59,6 +59,7 @@ export class Store {
 
   public setState = (state: StoreState) => {
     for (const key in state) {
+      /* istanbul ignore else */
       if (Object.prototype.hasOwnProperty.call(state, key)) {
         this.state[key as keyof StoreState] = state[key as keyof StoreState];
       }
