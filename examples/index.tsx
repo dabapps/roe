@@ -16,7 +16,8 @@ import {
   SpacedGroup,
 } from '../src/ts';
 
-const app = document.createElement('app');
+const app = document.createElement('div');
+app.className = 'app';
 
 document.body.appendChild(app);
 
