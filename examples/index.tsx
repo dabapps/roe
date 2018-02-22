@@ -11,6 +11,8 @@ import {
   DabIpsum,
   Footer,
   FormGroup,
+  InputGroup,
+  InputGroupAddon,
   NavBar,
   Row,
   Section,
@@ -45,6 +47,17 @@ ReactDOM.render(
         </h1>
 
         <DabIpsum />
+
+        <Row>
+          <Column>
+            <InputGroup>
+              <InputGroupAddon>
+                £
+              </InputGroupAddon>
+              <input type="number" />
+            </InputGroup>
+          </Column>
+        </Row>
 
         <Row>
           <Column>
