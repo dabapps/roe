@@ -10,6 +10,7 @@ import {
   ContentBoxHeader,
   DabIpsum,
   Footer,
+  FormGroup,
   NavBar,
   Row,
   Section,
@@ -44,6 +45,49 @@ ReactDOM.render(
         </h1>
 
         <DabIpsum />
+
+        <Row>
+          <Column sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
+            <ContentBox>
+              <ContentBoxHeader>
+                <h2 className="font-size-large">
+                  Login
+                </h2>
+              </ContentBoxHeader>
+
+              <FormGroup block>
+                <label>
+                  Email
+                </label>
+                <input type="email" />
+              </FormGroup>
+
+              <FormGroup block>
+                <label>
+                  Password
+                </label>
+                <input type="password" />
+              </FormGroup>
+
+              <p className="error">
+                Incorrect email or password
+              </p>
+
+              <ContentBoxFooter>
+                <SpacedGroup block className="margin-vertical-base">
+                  <Button>
+                    Forgot password
+                  </Button>
+                  <Button className="primary">
+                    <span className="this-span-is-here-for-testing-purposes">
+                      Login
+                    </span>
+                  </Button>
+                </SpacedGroup>
+              </ContentBoxFooter>
+            </ContentBox>
+          </Column>
+        </Row>
 
         <ContentBox>
           <ContentBoxHeader>
@@ -85,19 +129,6 @@ ReactDOM.render(
               </Column>
             </Row>
           </Section>
-
-          <ContentBoxFooter>
-            <SpacedGroup block className="padding-vertical-base">
-              <Button>
-                Cancel
-              </Button>
-              <Button className="primary">
-                <span className="this-span-is-here-for-testing-purposes">
-                  Submit
-                </span>
-              </Button>
-            </SpacedGroup>
-          </ContentBoxFooter>
         </ContentBox>
       </Container>
 
