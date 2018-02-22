@@ -92,7 +92,9 @@ ReactDOM.render(
                 Cancel
               </Button>
               <Button className="primary">
-                Submit
+                <span className="this-span-is-here-for-testing-purposes">
+                  Submit
+                </span>
               </Button>
             </SpacedGroup>
           </ContentBoxFooter>
