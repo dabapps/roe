@@ -92,8 +92,7 @@
   "peerDependencies": {
     "react": ">= 15 < 16",
     "react-dom": ">= 15 < 16",
-    "react-transition-group": ">= 1 < 2",
-    "typescript": ">= 2.3.3 < 3"
+    "react-transition-group": ">= 1 < 2"
   },
   "jest": {
     "setupFiles": [
