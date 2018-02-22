@@ -47,6 +47,31 @@ ReactDOM.render(
         <DabIpsum />
 
         <Row>
+          <Column>
+            <h2>
+              Can't touch these
+            </h2>
+
+            <FormGroup block>
+              <label>
+                Nope
+              </label>
+              <input type="text" disabled />
+            </FormGroup>
+
+            <SpacedGroup>
+              <Button disabled>
+                Nope
+              </Button>
+
+              <Button className="disabled">
+                Also nope
+              </Button>
+            </SpacedGroup>
+          </Column>
+        </Row>
+
+        <Row>
           <Column sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
             <ContentBox>
               <ContentBoxHeader>
