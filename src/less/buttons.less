@@ -1,11 +1,44 @@
 /* @group Mixins */
 
+.create-button-pew () {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: transparent;
+  transition: ease-in-out 0.2s background-color;
+  border-radius: @border-radius-base;
+
+  &::before {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 0;
+    padding-bottom: 200%;
+    border-radius: 50%;
+    transition: 0.5s ease-out transform, 0.5s ease-out opacity;
+    transform: translate(-50%, -50%) scale(1, 1);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:active:not([disabled]):not(.disabled) {
+    &::before {
+      transition: none;
+      transform: translate(-50%, -50%) scale(0, 0);
+      opacity: 1;
+    }
+  }
+}
+
 .create-button-styles (@background: @button-background-default, @color: @button-text-color-dark) {
+  .create-button-pew();
   background-color: @background;
   color: @color;
 
-  &:hover:not([disabled]),
-  &:hover:not(.disabled) {
+  &:hover:not([disabled]):not(.disabled) {
     background-color: darken(@background, 5%);
     color: @color;
   }
@@ -37,32 +70,12 @@
   transition: ease-in-out 0.1s background-color, ease-in-out 0.1s box-shadow;
   box-shadow: @shadow-none;
 
-  &:hover:not([disabled]),
-  &:hover:not(.disabled) {
+  &:hover:not([disabled]):not(.disabled) {
     box-shadow: @shadow-inset-subtle;
   }
 
-  &:active:not([disabled]),
-  &:active:not(.disabled) {
+  &:active:not([disabled]):not(.disabled) {
     box-shadow: @shadow-inset-hard;
-  }
-
-  &:focus:not([disabled]),
-  &:focus:not(.disabled) {
-    &::before {
-      content: ' ';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transition: 0.2s opacity, 0.2s transform;
-      transform: translate(-50%, -50%) scale(0, 0);
-      opacity: 0;
-      width: 200%;
-      height: 0;
-      padding-bottom: 200%;
-      animation: 1s button-click linear forwards;
-      border-radius: 50%;
-    }
   }
 
   &.block + .button.block {
