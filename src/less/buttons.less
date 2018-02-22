@@ -24,7 +24,7 @@
     pointer-events: none;
   }
 
-  &:active {
+  &:active:not([disabled]):not(.disabled) {
     &::before {
       transition: none;
       transform: translate(-50%, -50%) scale(0, 0);
@@ -38,8 +38,7 @@
   background-color: @background;
   color: @color;
 
-  &:hover:not([disabled]),
-  &:hover:not(.disabled) {
+  &:hover:not([disabled]):not(.disabled) {
     background-color: darken(@background, 5%);
     color: @color;
   }
@@ -71,13 +70,11 @@
   transition: ease-in-out 0.1s background-color, ease-in-out 0.1s box-shadow;
   box-shadow: @shadow-none;
 
-  &:hover:not([disabled]),
-  &:hover:not(.disabled) {
+  &:hover:not([disabled]):not(.disabled) {
     box-shadow: @shadow-inset-subtle;
   }
 
-  &:active:not([disabled]),
-  &:active:not(.disabled) {
+  &:active:not([disabled]):not(.disabled) {
     box-shadow: @shadow-inset-hard;
   }
 
