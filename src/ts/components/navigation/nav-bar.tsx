@@ -27,6 +27,7 @@ export interface NavBarState {
 
 export class NavBar extends PureComponent<NavBarProps, NavBarState> {
   private previousScrollY: number;
+  private mountTime: number;
 
   public constructor (props: NavBarProps) {
     super(props);
@@ -42,6 +43,8 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     this.notifyAppRoot(this.props);
     this.toggleShyListeners(this.props);
     this.toggleResizeListeners(this.props);
+
+    this.mountTime = new Date().getTime();
   }
 
   public componentWillUpdate (nextProps: NavBarProps) {
@@ -131,6 +134,12 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
 
   private hideOrShowNavBar = () => {
     const { y } = getScrollOffset();
+
+    if (!this.mountTime || new Date().getTime() < this.mountTime + 250) {
+      this.previousScrollY = y;
+      return;
+    }
+
     const element = ReactDOM.findDOMNode(this);
 
     if (element) {
