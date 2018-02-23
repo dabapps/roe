@@ -38,20 +38,25 @@ describe('AppRoot', () => {
   });
 
   it('should apply classes for fixed nav bar and sticky footer', () => {
-    const tree = renderer.create(<AppRootUnconnected hasFixedNavBar hasStickyFooter />);
+    (store.getState as jest.Mock<any>).mockReturnValue({
+      hasFixedNavBar: true,
+      hasStickyFooter: true,
+    });
+
+    const tree = renderer.create(<AppRootUnconnected />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should apply padding for fixed nav bar and sticky footer', () => {
-    const tree = renderer.create(
-      <AppRootUnconnected
-        hasFixedNavBar
-        hasStickyFooter
-        navBarHeight={50}
-        footerHeight={100}
-      />
-    );
+    (store.getState as jest.Mock<any>).mockReturnValue({
+      hasFixedNavBar: true,
+      hasStickyFooter: true,
+      navBarHeight: 50,
+      footerHeight: 100,
+    });
+
+    const tree = renderer.create(<AppRootUnconnected />);
 
     expect(tree).toMatchSnapshot();
   });
