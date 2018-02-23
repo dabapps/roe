@@ -16,6 +16,10 @@ jest.mock('../src/ts/store', () => ({
   }
 }));
 
+const setTime = (time: number) => {
+  jest.spyOn(Date.prototype, 'getTime').mockReturnValue(time);
+};
+
 describe('NavBar', () => {
 
   beforeAll(() => {
@@ -147,6 +151,8 @@ describe('NavBar', () => {
   });
 
   it('should hide or show the navbar when scrolled', () => {
+    setTime(0);
+
     const handlers: {[i: string]: (() => any) | undefined} = {};
 
     (window.addEventListener as jest.Mock<any>).mockImplementation((type: string, callback: () => any) => {
@@ -178,7 +184,21 @@ describe('NavBar', () => {
 
     (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({x: 0, y: 50});
 
+    // Scrolled, but too soon after initial mount
+    scroll();
+    expect(instance.state('hidden')).toBe(false);
+
+    setTime(500);
+
+    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({x: 0, y: 100});
+
     // Scrolled past NavBar height
+    scroll();
+    expect(instance.state('hidden')).toBe(true);
+
+    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({x: 0, y: 95});
+
+    // Not scrolled far enough
     scroll();
     expect(instance.state('hidden')).toBe(true);
 

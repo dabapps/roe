@@ -27,7 +27,7 @@ export interface NavBarState {
 
 export class NavBar extends PureComponent<NavBarProps, NavBarState> {
   private previousScrollY: number;
-  private mountTime: number;
+  private mountTime: number | undefined;
 
   public constructor (props: NavBarProps) {
     super(props);
@@ -135,7 +135,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
   private hideOrShowNavBar = () => {
     const { y } = getScrollOffset();
 
-    if (!this.mountTime || new Date().getTime() < this.mountTime + 250) {
+    if (typeof this.mountTime === 'undefined' || new Date().getTime() < this.mountTime + 250) {
       this.previousScrollY = y;
       return;
     }
