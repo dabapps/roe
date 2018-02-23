@@ -136,18 +136,20 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     if (element) {
       const { height } = element.getBoundingClientRect();
 
-      if (y > this.previousScrollY && y > height) {
+      if (y > this.previousScrollY + height / 2 && y > height) {
         this.setState({
           hidden: true,
         });
-      } else if (y < this.previousScrollY) {
+
+        this.previousScrollY = y;
+      } else if (y < this.previousScrollY - height / 2) {
         this.setState({
           hidden: false,
         });
+
+        this.previousScrollY = y;
       }
     }
-
-    this.previousScrollY = y;
   }
 }
 
