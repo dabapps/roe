@@ -23,3 +23,5 @@ export class Nav extends PureComponent<NavProps, {}> {
     );
   }
 }
+
+export default Nav;
