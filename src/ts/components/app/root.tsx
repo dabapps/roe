@@ -16,7 +16,24 @@ export type AppRootProps = HTMLProps<HTMLElement> & ComponentProps & StoreState;
  *
  * The "app" class ensures that the AppRoot is not affected by the outer, non-react element.
  */
-export class AppRootUnconnected extends PureComponent<AppRootProps, {}> {
+export class AppRoot extends PureComponent<AppRootProps, {}> {
+  private unsubscribe: () => void;
+  public constructor (props: AppRootProps) {
+    super(props);
+
+    this.state = store.getState();
+  }
+
+  public componentWillMount () {
+    this.unsubscribe = store.subscribe((state) => {
+      this.setState(state);
+    });
+  }
+
+  public componentWillUnmount () {
+    this.unsubscribe();
+  }
+
   public render () {
     const {
       component: Component = 'div',
@@ -52,7 +69,5 @@ export class AppRootUnconnected extends PureComponent<AppRootProps, {}> {
     );
   }
 }
-
-export const AppRoot = store.connect(AppRootUnconnected);
 
 export default AppRoot;

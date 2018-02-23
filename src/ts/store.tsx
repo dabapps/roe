@@ -11,44 +11,6 @@ export type StoreState = Partial<{
 
 export type StoreListener = (state: StoreState) => any;
 
-export const createConnectedComponent = <OwnProps extends {[i: string]: any}>
-  (store: Store, component: ComponentType<StoreState & OwnProps>): ComponentType<OwnProps> => {
-  const Component = component;
-
-  return class ConnectedComponent extends React.PureComponent<OwnProps, StoreState> {
-    private unsubscribe: () => void;
-    public constructor (props: OwnProps) {
-      super(props);
-
-      this.state = store.getState();
-    }
-
-    public componentWillMount () {
-      this.unsubscribe = store.subscribe((state) => {
-        this.setState(state);
-      });
-    }
-
-    public componentWillUnmount () {
-      this.unsubscribe();
-    }
-
-    public render () {
-      const {
-        children,
-        ...remainingProps,
-      } = this.props as any;
-
-      return (
-        <Component {...this.state} {...remainingProps}>
-          {children}
-        </Component>
-      );
-    }
-  }
-};
-
-// tslint:disable-next-line:max-classes-per-file
 export class Store {
   private state: StoreState = {};
   private listeners: StoreListener[] = [];
@@ -72,11 +34,6 @@ export class Store {
 
   public getState = () => {
     return {...this.state};
-  }
-
-  public connect = <OwnProps extends {[i: string]: any}>
-  (component: ComponentType<StoreState & OwnProps>): ComponentType<OwnProps> => {
-    return createConnectedComponent<OwnProps>(this, component);
   }
 
   public subscribe = (listener: StoreListener) => {
