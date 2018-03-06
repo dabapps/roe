@@ -1,6 +1,7 @@
 export { default as Alert } from './components/alert';
 export { default as AppRoot } from './components/app/root';
 export { default as Anchor } from './components/anchor';
+export { default as Banner } from './components/banner';
 export { default as Button } from './components/forms/button';
 export { default as CodeBlock } from './components/code-block';
 export { default as Collapse } from './components/collapse';
