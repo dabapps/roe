@@ -2,12 +2,14 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {
   AppRoot,
+  Banner,
   Button,
   Column,
   Container,
   ContentBox,
   ContentBoxFooter,
   ContentBoxHeader,
+  CookieBanner,
   DabIpsum,
   Footer,
   FormGroup,
@@ -45,6 +47,19 @@ ReactDOM.render(
         <h1>
           Example
         </h1>
+
+        <CookieBanner
+          content={(dismiss: any) => (
+            <Banner
+              open
+            >
+              <p>Test Banner</p>
+              <Button onClick={dismiss}>
+                  Button
+              </Button>
+            </Banner>
+          )}
+        />
 
         <DabIpsum />
 
