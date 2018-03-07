@@ -1,15 +1,17 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import * as cookie from 'cookie';
-import { HTMLAttributes, PureComponent, ReactElement } from 'react';
+import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 import Banner from  '../banner';
 
-export interface CookieBannerProps extends ComponentProps, HTMLAttributes<HTMLDivElement> {
-  content?: any;
+export type Inner = (props: {dismiss: () => void}) => React.ReactElement<any>;
+
+export interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement> {
+  inner: Inner;
 }
 
-export interface CookieBannerState { // tslint:disable-line:no-unused-variable
+export interface CookieBannerState {
   dismissed: boolean;
 }
 
@@ -19,45 +21,39 @@ export class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerS
     super(props);
 
     this.state = {
-      dismissed: false
+      dismissed: Boolean(cookie.parse(document.cookie)['cookies-accepted'])
     };
-  }
-
-  public componentWillMount() {
-    this.getCookie();
   }
 
   public render () {
     const {
+      ref,
       className,
       children,
-      content,
+      inner,
       ...remainingProps
     } = this.props;
 
     const { dismissed } = this.state;
 
-    const isAccepted = this.getCookie().banner;
-
     return (
-      !isAccepted && !dismissed ?
-      <Banner
-        {...remainingProps}
-        className={classNames('cookie-banner', className)}
-      >
-        {content && content(this.setCookie)}
-      </Banner> : null
+      !dismissed ? (
+        <Banner
+          {...remainingProps}
+          className={classNames('cookie-banner', className)}
+        >
+          {inner && inner({dismiss: this.setCookie})}
+        </Banner>
+      ) : null
     )
   }
 
   private setCookie = () =>  {
-    document.cookie = cookie.serialize('banner', 'cookies-accepted');
+    document.cookie = cookie.serialize('cookies-accepted', 'true');
     this.setState({
       dismissed: true
     });
-  };
-
-  private getCookie = () => cookie.parse(document.cookie);
+  }
 }
 
 export default CookieBanner;

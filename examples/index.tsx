@@ -49,7 +49,7 @@ ReactDOM.render(
         </h1>
 
         <CookieBanner
-          content={(dismiss: any) => (
+          inner={({dismiss}) => (
             <div>
               <p>Test Banner</p>
               <Button
