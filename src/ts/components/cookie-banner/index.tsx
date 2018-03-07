@@ -1,17 +1,30 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import * as cookie from 'cookie';
-import { HTMLProps, PureComponent, ReactElement } from 'react';
+import { HTMLAttributes, PureComponent, ReactElement } from 'react';
 import { ComponentProps } from '../../types';
+import Banner from  '../banner';
 
-export interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement> {
+export interface CookieBannerProps extends ComponentProps, HTMLAttributes<HTMLDivElement> {
   content?: any;
 }
 
-export class CookieBanner extends PureComponent<CookieBannerProps, {}> {
+export interface CookieBannerState { // tslint:disable-line:no-unused-variable
+  dismissed: boolean;
+}
+
+export class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerState> {
+
+  public constructor(props: CookieBannerProps) {
+    super(props);
+
+    this.state = {
+      dismissed: false
+    };
+  }
+
   public componentWillMount() {
     this.getCookie();
-    console.log('cookies', cookie.parse(document.cookie))
   }
 
   public render () {
@@ -19,25 +32,32 @@ export class CookieBanner extends PureComponent<CookieBannerProps, {}> {
       className,
       children,
       content,
-      component: Component = 'div',
       ...remainingProps
     } = this.props;
 
+    const { dismissed } = this.state;
+
+    const isAccepted = this.getCookie().banner;
+
     return (
-      <Component {...remainingProps} className={classNames('cookie-banner', className)}>
+      !isAccepted && !dismissed ?
+      <Banner
+        {...remainingProps}
+        className={classNames('cookie-banner', className)}
+      >
         {content && content(this.setCookie)}
-      </Component>
-    );
+      </Banner> : null
+    )
   }
 
-  private setCookie = () => {
-    console.log('setCookie...')
-    document.cookie = cookie.serialize('Roe', 'Doe')
-  }
+  private setCookie = () =>  {
+    document.cookie = cookie.serialize('banner', 'cookies-accepted');
+    this.setState({
+      dismissed: true
+    });
+  };
 
-  private getCookie = () => {
-    console.log('getCookie...')
-  }
+  private getCookie = () => cookie.parse(document.cookie);
 }
 
 export default CookieBanner;

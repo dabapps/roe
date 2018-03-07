@@ -50,14 +50,15 @@ ReactDOM.render(
 
         <CookieBanner
           content={(dismiss: any) => (
-            <Banner
-              open
-            >
+            <div>
               <p>Test Banner</p>
-              <Button onClick={dismiss}>
-                  Button
+              <Button
+                onClick={dismiss}
+                className={'button-dismiss'}
+              >
+                Dismiss
               </Button>
-            </Banner>
+            </div>
           )}
         />
 
