@@ -5,10 +5,10 @@ import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 import Banner from  '../banner';
 
-export type Inner = (props: {dismiss: () => void}) => React.ReactElement<any>;
+export type IRender = (props: {dismiss: () => void}) => React.ReactElement<any>;
 
 export interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement> {
-  inner: Inner;
+  render: IRender;
 }
 
 export interface CookieBannerState {
@@ -30,21 +30,20 @@ export class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerS
       ref,
       className,
       children,
-      inner,
+      render,
       ...remainingProps
     } = this.props;
 
     const { dismissed } = this.state;
 
     return (
-      !dismissed ? (
-        <Banner
-          {...remainingProps}
-          className={classNames('cookie-banner', className)}
-        >
-          {inner && inner({dismiss: this.setCookie})}
-        </Banner>
-      ) : null
+      <Banner
+        {...remainingProps}
+        open={!dismissed}
+        className={classNames('cookie-banner', className)}
+      >
+        {render && render({dismiss: this.setCookie})}
+      </Banner>
     )
   }
 
