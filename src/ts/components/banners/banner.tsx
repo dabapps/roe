@@ -17,8 +17,8 @@ export interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
 }
 
 /**
- * Banner component which has fixed position and can take component as a child
- * See the [Banner](#Banner) section for a full example.
+ * Banner component which has fixed position and can take component as a child.
+ * See the [Banner](#Banners) section for a full example.
  */
 export class Banner extends PureComponent<BannerProps, {}> {
   public render() {

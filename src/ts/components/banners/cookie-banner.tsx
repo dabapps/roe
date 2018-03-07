@@ -20,8 +20,8 @@ export interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement
 }
 
 /**
- * Wrapper component for Banner which reads cookes and can be use to sets a cookie on click
- * See the [CookieBanner](#CookieBanner) section for a full example.
+ * Wrapper component for Banner which reads cookes and can be use to set a cookie on click.
+ * See the [CookieBanner](#Banners) section for a full example.
  */
 export interface CookieBannerState {
   dismissed: boolean;
