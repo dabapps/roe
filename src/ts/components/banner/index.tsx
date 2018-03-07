@@ -5,6 +5,7 @@ import { ComponentProps } from '../../types';
 
 interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
   open?: boolean;
+  top?: boolean;
 }
 
 class Banner extends PureComponent<BannerProps, {}> {
@@ -13,6 +14,7 @@ class Banner extends PureComponent<BannerProps, {}> {
       className,
       children,
       open = true,
+      top = false,
       component: Component = 'div',
       ...remainingProps
     } = this.props;
@@ -20,7 +22,7 @@ class Banner extends PureComponent<BannerProps, {}> {
     return (
       <Component
         {...remainingProps}
-        className={classNames('banner', open && 'open', className)}
+        className={classNames('banner', open && 'open', top && 'banner-top', className)}
       >
         {children}
       </Component>

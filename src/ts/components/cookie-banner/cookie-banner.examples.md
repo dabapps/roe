@@ -7,11 +7,12 @@ class CookieBannerExample extends React.Component {
 
     retrun (
       <CookieBanner
-        render={({dismiss}) => (
+        top
+        render={({ dismiss }) => (
           <Container>
             <Row>
               <Column xs={10}>
-                <p>Roe Cookie Banner</p>
+                <p>We use cookies! Roe is awesome</p>
               </Column>
               <Column xs={2}>
                 <Button
@@ -19,7 +20,7 @@ class CookieBannerExample extends React.Component {
                   className={'margin-top-base float-right'}
                 >
                   Accept
-                </Button>
+              </Button>
               </Column>
             </Row>
           </Container>

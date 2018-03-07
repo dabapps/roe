@@ -9,6 +9,7 @@ type IRender = (props: {dismiss: () => void}) => React.ReactElement<any>;
 
 interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement> {
   render: IRender;
+  top?: boolean;
 }
 
 interface CookieBannerState {
@@ -31,6 +32,7 @@ class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerState> {
       className,
       children,
       render,
+      top = false,
       ...remainingProps
     } = this.props;
 
@@ -39,6 +41,7 @@ class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerState> {
     return (
       <Banner
         {...remainingProps}
+        top={top}
         open={!dismissed}
         className={classNames('cookie-banner', className)}
       >

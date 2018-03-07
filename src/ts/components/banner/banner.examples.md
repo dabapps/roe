@@ -6,7 +6,7 @@ class BannerExample extends React.Component {
   render () {
 
     retrun (
-      <Banner open>
+      <Banner open top>
         <Container>
           <Row>
             <Column xs={10}>
@@ -17,7 +17,7 @@ class BannerExample extends React.Component {
                 className={'margin-top-base float-right'}
               >
                 Click
-              </Button>
+            </Button>
             </Column>
           </Row>
         </Container>
