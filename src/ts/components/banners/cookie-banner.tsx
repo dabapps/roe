@@ -1,22 +1,33 @@
 import * as classNames from 'classnames';
-import * as React from 'react';
 import * as cookie from 'cookie';
+import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
-import Banner from  '../banner';
+import Banner from './banner';
 
-type IRender = (props: {dismiss: () => void}) => React.ReactElement<any>;
+export type Render = (props: {dismiss: () => void}) => React.ReactElement<any>;
 
-interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement> {
-  render: IRender;
+export interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement> {
+  /**
+   * Takes a component as a function and renders as a child
+   */
+  render: Render;
+  /**
+   * If set, positions the component at the top
+   * @default false
+   */
   top?: boolean;
 }
 
-interface CookieBannerState {
+/**
+ * Wrapper component for Banner which reads cookes and can be use to sets a cookie on click
+ * See the [CookieBanner](#CookieBanner) section for a full example.
+ */
+export interface CookieBannerState {
   dismissed: boolean;
 }
 
-class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerState> {
+export class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerState> {
 
   public constructor(props: CookieBannerProps) {
     super(props);
@@ -50,7 +61,7 @@ class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerState> {
     )
   }
 
-  private setCookie = () =>  {
+  private setCookie = () => {
     document.cookie = cookie.serialize('cookies-accepted', 'true');
     this.setState({
       dismissed: true

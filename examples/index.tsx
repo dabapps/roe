@@ -59,7 +59,7 @@ ReactDOM.render(
                   className={'margin-top-base float-right'}
                 >
                   Click
-              </Button>
+                </Button>
               </Column>
             </Row>
           </Container>
@@ -79,7 +79,7 @@ ReactDOM.render(
                     className={'margin-top-base float-right'}
                   >
                     Accept
-                </Button>
+                  </Button>
                 </Column>
               </Row>
             </Container>

@@ -1,0 +1,29 @@
+.banner {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  top: auto;
+  height: @banner-height;
+  background-color: @banner-background;
+  border-top: @banner-border;
+  z-index: 1100;
+  transform: translate(0, 100%);
+  transition: transform 0.3s ease-in-out;
+
+  &.top {
+    bottom: auto;
+    top: 0;
+    transform: translate(0, -100%);
+    border-top: none;
+    border-bottom: @banner-border;
+  }
+
+  &.open {
+    transform: translate(0, 0);
+  }
+}
+
+.cookie-banner {
+  z-index: 1200;
+}

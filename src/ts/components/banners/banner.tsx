@@ -3,12 +3,24 @@ import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 
-interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
+export interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
+/**
+ * If set, displays the component, otherwise it is hidden
+ * @default true
+ */
   open?: boolean;
+/**
+ * If set, positions the component at the top
+ * @default false
+ */
   top?: boolean;
 }
 
-class Banner extends PureComponent<BannerProps, {}> {
+/**
+ * Banner component which has fixed position and can take component as a child
+ * See the [Banner](#Banner) section for a full example.
+ */
+export class Banner extends PureComponent<BannerProps, {}> {
   public render() {
     const {
       className,
@@ -22,7 +34,7 @@ class Banner extends PureComponent<BannerProps, {}> {
     return (
       <Component
         {...remainingProps}
-        className={classNames('banner', open && 'open', top && 'banner-top', className)}
+        className={classNames('banner', open && 'open', top && 'top', className)}
       >
         {children}
       </Component>
