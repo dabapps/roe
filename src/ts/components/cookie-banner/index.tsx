@@ -1,5 +1,6 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
+import * as cookie from 'cookie';
 import { HTMLProps, PureComponent, ReactElement } from 'react';
 import { ComponentProps } from '../../types';
 
@@ -10,6 +11,7 @@ export interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement
 export class CookieBanner extends PureComponent<CookieBannerProps, {}> {
   public componentWillMount() {
     this.getCookie();
+    console.log('cookies', cookie.parse(document.cookie))
   }
 
   public render () {
@@ -30,6 +32,7 @@ export class CookieBanner extends PureComponent<CookieBannerProps, {}> {
 
   private setCookie = () => {
     console.log('setCookie...')
+    document.cookie = cookie.serialize('Roe', 'Doe')
   }
 
   private getCookie = () => {
