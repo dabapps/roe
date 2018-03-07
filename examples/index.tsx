@@ -48,44 +48,6 @@ ReactDOM.render(
           Example
         </h1>
 
-        <Banner open top>
-          <Container>
-            <Row>
-              <Column xs={10}>
-                <p>Roe Banner</p>
-              </Column>
-              <Column xs={2}>
-                <Button
-                  className={'margin-top-base float-right'}
-                >
-                  Click
-                </Button>
-              </Column>
-            </Row>
-          </Container>
-        </Banner>
-
-        <CookieBanner
-          top
-          render={({ dismiss }) => (
-            <Container>
-              <Row>
-                <Column xs={10}>
-                  <p>We use cookies! Roe is awesome</p>
-                </Column>
-                <Column xs={2}>
-                  <Button
-                    onClick={dismiss}
-                    className={'margin-top-base float-right'}
-                  >
-                    Accept
-                  </Button>
-                </Column>
-              </Row>
-            </Container>
-          )}
-        />
-
         <DabIpsum />
 
         <Row>
