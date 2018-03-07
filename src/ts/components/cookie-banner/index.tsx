@@ -5,17 +5,17 @@ import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 import Banner from  '../banner';
 
-export type IRender = (props: {dismiss: () => void}) => React.ReactElement<any>;
+type IRender = (props: {dismiss: () => void}) => React.ReactElement<any>;
 
-export interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement> {
+interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement> {
   render: IRender;
 }
 
-export interface CookieBannerState {
+interface CookieBannerState {
   dismissed: boolean;
 }
 
-export class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerState> {
+class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerState> {
 
   public constructor(props: CookieBannerProps) {
     super(props);

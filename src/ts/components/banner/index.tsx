@@ -3,11 +3,11 @@ import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 
-export interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
+interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
   open?: boolean;
 }
 
-export class Banner extends PureComponent<BannerProps, {}> {
+class Banner extends PureComponent<BannerProps, {}> {
   public render() {
     const {
       className,
