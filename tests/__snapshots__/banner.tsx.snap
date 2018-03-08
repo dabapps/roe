@@ -2,13 +2,13 @@
 
 exports[`Banner should match snapshot 1`] = `
 <div
-  className="banner open"
+  className="banner open bottom"
 />
 `;
 
 exports[`Banner should take a child component 1`] = `
 <div
-  className="banner open"
+  className="banner open bottom"
 >
   <div
     className="container"
@@ -39,7 +39,7 @@ exports[`Banner should take a child component 1`] = `
 
 exports[`Banner should take an optional open prop 1`] = `
 <div
-  className="banner open"
+  className="banner open bottom"
 />
 `;
 
@@ -51,6 +51,6 @@ exports[`Banner should take an optional position prop 1`] = `
 
 exports[`Banner should take regular element attributes 1`] = `
 <div
-  className="banner open my-class"
+  className="banner open bottom my-class"
 />
 `;

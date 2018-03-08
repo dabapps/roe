@@ -32,7 +32,7 @@ exports[`CookieBanner should hide the banner on click 2`] = `
 
 exports[`CookieBanner should match snapshot and take required render prop 1`] = `
 <div
-  className="banner open cookie-banner"
+  className="banner open bottom cookie-banner"
 >
   <div
     className="container"
@@ -96,7 +96,7 @@ exports[`CookieBanner should take an optional position prop 1`] = `
 
 exports[`CookieBanner should take regular element attributes 1`] = `
 <div
-  className="banner open cookie-banner my-class"
+  className="banner open bottom cookie-banner my-class"
 >
   <div
     className="container"
