@@ -97,6 +97,20 @@
     font-size: @font-size-small;
     padding: @padding-small / 2 @padding-small;
   }
+
+  &.link {
+    background-color: transparent;
+    text-decoration: underline;
+
+    &:hover:not([disabled]):not(.disabled) {
+      box-shadow: none;
+      background-color: rgba(100, 100, 100, 0.05);
+    }
+  }
+
+  &.pill {
+    border-radius: @padding-base * 2;
+  }
 }
 
 /* @group Animations */

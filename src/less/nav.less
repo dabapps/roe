@@ -44,3 +44,27 @@
     box-shadow: @shadow-none;
   }
 }
+
+.nav {
+  .spaced-group();
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  .nav-item {
+    display: inline-block;
+    margin-top: 0;
+    margin-bottom: 0;
+
+    a {
+      color: inherit;
+
+      &:hover,
+      &:active {
+        &:not([disabled]):not(.disabled) {
+          color: inherit;
+        }
+      }
+    }
+  }
+}
