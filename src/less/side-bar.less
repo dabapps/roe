@@ -1,0 +1,73 @@
+/* @group Transition */
+
+.side-bar-transition-enter,
+.side-bar-transition-appear {
+  &.side-bar-overlay {
+    opacity: 0.01;
+  }
+}
+
+.side-bar-transition-enter.side-bar-transition-enter-active,
+.side-bar-transition-appear.side-bar-transition-appear-active {
+  &.side-bar-overlay {
+    opacity: 0.99;
+    transition: opacity 0.3s ease-in;
+  }
+}
+
+.side-bar-transition-leave {
+  &.side-bar-overlay {
+    opacity: 0.99;
+  }
+}
+
+.side-bar-transition-leave.side-bar-transition-leave-active {
+  &.side-bar-overlay {
+    opacity: 0.01;
+    transition: opacity 0.2s ease-in;
+  }
+}
+
+/* @end Transition */
+
+.side-bar-container {
+  position: absolute;
+  z-index: @side-bar-z-index;
+}
+
+.side-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: @side-bar-width;
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
+  border-right: @side-bar-border;
+  background-color: @side-bar-background;
+  transform: translate(-100%, 0);
+  transition: ease-in-out 0.2s transform;
+
+  &.right {
+    left: auto;
+    right: 0;
+    border-left: @side-bar-border;
+    transform: translate(100%, 0);
+  }
+
+  &.open {
+    transform: translate(0, 0);
+    transition: ease-in-out 0.3s transform;
+  }
+}
+
+.side-bar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: @overlay-background;
+  opacity: 1;
+}

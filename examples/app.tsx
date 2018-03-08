@@ -16,7 +16,7 @@ import {
   NavBar,
   Row,
   Section,
-  Sidebar,
+  SideBar,
   SpacedGroup,
 } from '../src/ts';
 import NavItems from './nav-items';
@@ -44,12 +44,26 @@ class App extends PureComponent<{}, AppState> {
             </h1>
 
             <NavItems className="float-right display-none md-display-block" />
+
+            <span className="float-right display-block md-display-none" onClick={this.showSidebar}>
+              Menu
+            </span>
           </Container>
         </NavBar>
 
-        <Sidebar open position="right">
+        <SideBar
+          open={this.state.sidebarOpen}
+          onClickOutside={this.hideSidebar}
+          position="right"
+          className="display-block md-display-none"
+        >
+          <div>
+            <span onClick={this.hideSidebar}>
+
+            </span>
+          </div>
           <NavItems />
-        </Sidebar>
+        </SideBar>
 
         <Container>
           <h1>
@@ -189,6 +203,18 @@ class App extends PureComponent<{}, AppState> {
         </Footer>
       </AppRoot>
     );
+  }
+
+  private showSidebar = () => {
+    this.setState({
+      sidebarOpen: true,
+    });
+  }
+
+  private hideSidebar = () => {
+    this.setState({
+      sidebarOpen: false,
+    });
   }
 }
 

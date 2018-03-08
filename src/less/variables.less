@@ -47,6 +47,7 @@
 
 /* Misc colors */
 @body-background: @white;
+@overlay-background: rgba(0, 0, 0, 0.2);
 
 /* @end Colors */
 
@@ -58,6 +59,14 @@
 @link-text-decoration-hover: none;
 
 /* @end Links */
+
+/* @group Z indices */
+
+@nav-bar-z-index: 500;
+@modal-z-index: 1100;
+@side-bar-z-index: 1200;
+
+/* @end Z indices */
 
 /* @group Component styles */
 
@@ -71,6 +80,10 @@
 @nav-bar-background: @body-background;
 @nav-bar-border: @border-base;
 @nav-bar-height: auto;
+
+@side-bar-background: @body-background;
+@side-bar-border: @border-base;
+@side-bar-width: 250px;
 
 @footer-background: @body-background;
 @footer-border: @border-base;
