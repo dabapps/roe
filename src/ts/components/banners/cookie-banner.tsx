@@ -13,10 +13,10 @@ export interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement
    */
   render: Render;
   /**
-   * If set, positions the component at the top
-   * @default false
+   * If set to 'top', positions the component at the top
+   * @default 'bottom'
    */
-  top?: boolean;
+  position?: 'top' | 'bottom';
 }
 
 /**
@@ -43,7 +43,7 @@ export class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerS
       className,
       children,
       render,
-      top = false,
+      position = 'bottom',
       ...remainingProps
     } = this.props;
 
@@ -52,7 +52,7 @@ export class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerS
     return (
       <Banner
         {...remainingProps}
-        top={top}
+        position={position}
         open={!dismissed}
         className={classNames('cookie-banner', className)}
       >

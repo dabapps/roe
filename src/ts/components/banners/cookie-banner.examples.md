@@ -2,7 +2,7 @@
 
 ```js static
 <CookieBanner
-  top
+  position={'top'}
   render={({ dismiss }) => (
     <Container>
       <Row>

@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner should match snapshot 1`] = `
+<div
+  className="banner open"
+/>
+`;
+
+exports[`Banner should take a child component 1`] = `
+<div
+  className="banner open"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="column xs-10"
+      >
+        <p>
+          Roe Banner
+        </p>
+      </div>
+      <div
+        className="column xs-2"
+      >
+        <button
+          className="button margin-top-base float-right"
+        >
+          Click
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Banner should take an optional open prop 1`] = `
+<div
+  className="banner open"
+/>
+`;
+
+exports[`Banner should take an optional position prop 1`] = `
+<div
+  className="banner open top"
+/>
+`;
+
+exports[`Banner should take regular element attributes 1`] = `
+<div
+  className="banner open my-class"
+/>
+`;

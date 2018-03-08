@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CookieBanner should hide the banner on click 1`] = `
+<Banner
+  className="cookie-banner"
+  open={true}
+  position="bottom"
+>
+  <Button
+    className="button"
+    onClick={[Function]}
+  >
+    Accept
+  </Button>
+</Banner>
+`;
+
+exports[`CookieBanner should hide the banner on click 2`] = `
+<Banner
+  className="cookie-banner"
+  open={false}
+  position="bottom"
+>
+  <Button
+    className="button"
+    onClick={[Function]}
+  >
+    Accept
+  </Button>
+</Banner>
+`;
+
+exports[`CookieBanner should match snapshot and take required render prop 1`] = `
+<div
+  className="banner open cookie-banner"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="column xs-10"
+      >
+        <p>
+          We use cookies! Roe is awesome
+        </p>
+      </div>
+      <div
+        className="column xs-2"
+      >
+        <button
+          className="button margin-top-base float-right"
+          onClick={[Function]}
+        >
+          Accept
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CookieBanner should take an optional position prop 1`] = `
+<div
+  className="banner open top cookie-banner"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="column xs-10"
+      >
+        <p>
+          We use cookies! Roe is awesome
+        </p>
+      </div>
+      <div
+        className="column xs-2"
+      >
+        <button
+          className="button margin-top-base float-right"
+          onClick={[Function]}
+        >
+          Accept
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`CookieBanner should take regular element attributes 1`] = `
+<div
+  className="banner open cookie-banner my-class"
+>
+  <div
+    className="container"
+  >
+    <div
+      className="row"
+    >
+      <div
+        className="column xs-10"
+      >
+        <p>
+          We use cookies! Roe is awesome
+        </p>
+      </div>
+      <div
+        className="column xs-2"
+      >
+        <button
+          className="button margin-top-base float-right"
+          onClick={[Function]}
+        >
+          Accept
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;

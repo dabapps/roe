@@ -1,7 +1,10 @@
 #### Example
 
 ```js static
-<Banner open top>
+<Banner
+  open
+  position={'top'}
+>
   <Container>
     <Row>
       <Column xs={10}>

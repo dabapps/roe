@@ -13,7 +13,7 @@ export interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
  * If set, positions the component at the top
  * @default false
  */
-  top?: boolean;
+  position?: 'top' | 'bottom';
 }
 
 /**
@@ -26,7 +26,7 @@ export class Banner extends PureComponent<BannerProps, {}> {
       className,
       children,
       open = true,
-      top = false,
+      position = false,
       component: Component = 'div',
       ...remainingProps
     } = this.props;
@@ -34,7 +34,7 @@ export class Banner extends PureComponent<BannerProps, {}> {
     return (
       <Component
         {...remainingProps}
-        className={classNames('banner', open && 'open', top && 'top', className)}
+        className={classNames('banner', open && 'open', position === 'top' && 'top', className)}
       >
         {children}
       </Component>
