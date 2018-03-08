@@ -33,7 +33,7 @@ export class Banner extends PureComponent<BannerProps, {}> {
     return (
       <Component
         {...remainingProps}
-        className={classNames('banner', open && 'open', position === 'top' && 'top', className)}
+        className={classNames('banner', open && 'open', position, className)}
       >
         {children}
       </Component>
