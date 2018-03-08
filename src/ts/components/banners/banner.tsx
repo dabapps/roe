@@ -10,8 +10,8 @@ export interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
  */
   open?: boolean;
 /**
- * If set, positions the component at the top
- * @default false
+ * If set to 'top', positions the component at the top
+ * @default 'bottom'
  */
   position?: 'top' | 'bottom';
 }
