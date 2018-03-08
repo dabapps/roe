@@ -53,6 +53,16 @@ const NavItems = () => (
         Five
       </a>
     </NavItem>
+    <NavItem className="button hollow">
+      <a href="#">
+        Six
+      </a>
+    </NavItem>
+    <NavItem className="button pill link hollow primary">
+      <a href="#">
+        Seven
+      </a>
+    </NavItem>
   </Nav>
 );
 

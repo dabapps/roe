@@ -38,16 +38,26 @@
   background-color: @background;
   color: @color;
 
-  &.link {
+  &.link,
+  &.hollow {
     color: @background;
+  }
+
+  &.hollow {
+    border: @button-border-width solid @background;
   }
 
   &:hover:not([disabled]):not(.disabled) {
     background-color: darken(@background, 5%);
     color: @color;
 
-    &.link {
+    &.link,
+    &.hollow {
       color: @background;
+    }
+
+    &.hollow {
+      border: @button-border-width solid @background;
     }
   }
 
@@ -107,7 +117,6 @@
   }
 
   &.link {
-    background-color: @button-link-background;
     color: @link-color;
     text-decoration: underline;
 
@@ -115,18 +124,36 @@
       text-decoration: underline;
     }
 
-    &::before {
-      background-color: @button-link-pew-color;
-    }
-
     &:hover:not([disabled]):not(.disabled) {
-      box-shadow: none;
-      background-color: @button-link-background-hover;
       color: @link-color-hover;
 
       a {
         text-decoration: underline;
       }
+    }
+  }
+
+  &.hollow,
+  &.link {
+    background-color: @button-transparent-background;
+
+    &::before {
+      background-color: @button-transparent-pew-color;
+    }
+
+    &:hover:not([disabled]):not(.disabled) {
+      background-color: @button-transparent-background-hover;
+      box-shadow: none;
+    }
+  }
+
+  &.hollow {
+    color: @button-text-color-dark;
+    border-color: @button-text-color-dark;
+
+    &:hover:not([disabled]):not(.disabled) {
+      color: @button-text-color-dark;
+      border-color: @button-text-color-dark;
     }
   }
 
