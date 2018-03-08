@@ -39,7 +39,7 @@
   "homepage": "https://github.com/dabapps/roe#readme",
   "dependencies": {
     "@types/classnames": "2.2.0",
-    "@types/cookie": "^0.3.1",
+    "@types/cookie": "0.3.1",
     "@types/random-seed": "0.3.2",
     "@types/react": "15.0.22",
     "@types/react-dom": "15.5.0",

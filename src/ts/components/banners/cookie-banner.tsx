@@ -13,15 +13,14 @@ export interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement
    */
   render: Render;
   /**
-   * If set to 'top', positions the component at the top
+   * Positions the element at the 'top' or 'bottom' of the screen
    * @default 'bottom'
    */
   position?: 'top' | 'bottom';
 }
 
 /**
- * Wrapper component for Banner which reads cookies and can be used to set a cookie on click.
- * See the [CookieBanner](#banners) section for a full example.
+ * Stores a cookie to permanently dismiss the banner
  */
 export interface CookieBannerState {
   dismissed: boolean;

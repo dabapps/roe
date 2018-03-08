@@ -10,7 +10,7 @@ export interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
  */
   open?: boolean;
 /**
- * If set to 'top', positions the component at the top
+ * Positions the element at the 'top' or 'bottom' of the screen
  * @default 'bottom'
  */
   position?: 'top' | 'bottom';
@@ -18,7 +18,6 @@ export interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
 
 /**
  * A Banner component which has fixed position and can take component as a child.
- * See the [Banner](#banners) section for a full example.
  */
 export class Banner extends PureComponent<BannerProps, {}> {
   public render() {
@@ -26,7 +25,7 @@ export class Banner extends PureComponent<BannerProps, {}> {
       className,
       children,
       open = true,
-      position = false,
+      position = 'bottom',
       component: Component = 'div',
       ...remainingProps
     } = this.props;
