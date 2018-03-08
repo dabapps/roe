@@ -13,7 +13,9 @@ import {
   FormGroup,
   InputGroup,
   InputGroupAddon,
+  Nav,
   NavBar,
+  NavItem,
   Row,
   Section,
   SpacedGroup,
@@ -24,6 +26,31 @@ app.className = 'app';
 
 document.body.appendChild(app);
 
+const NavItems = () => (
+  <Nav className="float-right">
+    <NavItem className="button">
+      <a href="#">
+        About
+      </a>
+    </NavItem>
+    <NavItem className="button link">
+      <a href="#">
+        Contact
+      </a>
+    </NavItem>
+    <NavItem className="button pill">
+      <a href="#">
+        Something
+      </a>
+    </NavItem>
+    <NavItem className="button link pill">
+      <a href="#">
+        Login
+      </a>
+    </NavItem>
+  </Nav>
+);
+
 ReactDOM.render(
   (
     <AppRoot>
@@ -33,11 +60,7 @@ ReactDOM.render(
             NavBar
           </h1>
 
-          <SpacedGroup className="float-right">
-            <Button>
-              Login
-            </Button>
-          </SpacedGroup>
+          <NavItems />
         </Container>
       </NavBar>
 
