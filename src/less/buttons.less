@@ -107,9 +107,13 @@
   }
 
   &.link {
-    text-decoration: underline;
     background-color: @button-link-background;
     color: @link-color;
+    text-decoration: underline;
+
+    a {
+      text-decoration: underline;
+    }
 
     &::before {
       background-color: @button-link-pew-color;
@@ -119,6 +123,10 @@
       box-shadow: none;
       background-color: @button-link-background-hover;
       color: @link-color-hover;
+
+      a {
+        text-decoration: underline;
+      }
     }
   }
 
