@@ -21,6 +21,9 @@ import {
 } from '../src/ts';
 import NavItems from './nav-items';
 
+const X_CHAR = String.fromCharCode(215);
+const MENU_CHAR = String.fromCharCode(9776);
+
 interface AppState {
   sidebarOpen: boolean;
 }
@@ -45,9 +48,9 @@ class App extends PureComponent<{}, AppState> {
 
             <NavItems className="float-right display-none md-display-block" />
 
-            <span className="float-right display-block md-display-none" onClick={this.showSidebar}>
-              Menu
-            </span>
+            <Button className="hollow float-right display-block md-display-none" onClick={this.showSidebar}>
+              {MENU_CHAR}
+            </Button>
           </Container>
         </NavBar>
 
@@ -58,9 +61,9 @@ class App extends PureComponent<{}, AppState> {
           className="display-block md-display-none"
         >
           <div>
-            <span onClick={this.hideSidebar}>
-
-            </span>
+            <Button className="hollow" onClick={this.hideSidebar}>
+              {X_CHAR}
+            </Button>
           </div>
           <NavItems />
         </SideBar>
