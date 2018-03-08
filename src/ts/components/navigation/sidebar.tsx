@@ -22,7 +22,7 @@ export class Sidebar extends PureComponent<SidebarProps, {}> {
     return (
       <Component
         {...remainingProps}
-        className={classNames('sidebar', position, open && 'open')}
+        className={classNames('sidebar', position, open && 'open', className)}
       >
         {children}
       </Component>
