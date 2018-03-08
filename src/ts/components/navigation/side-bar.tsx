@@ -35,7 +35,7 @@ export class SideBar extends PureComponent<SideBarProps, {}> {
     } = this.props;
 
     return (
-      <div className="side-bar-container">
+      <div className={classNames('side-bar-container', className)}>
         <CSSTransitionGroup
           transitionName="side-bar-transition"
           transitionEnterTimeout={300}
@@ -45,7 +45,7 @@ export class SideBar extends PureComponent<SideBarProps, {}> {
         </CSSTransitionGroup>
         <Component
           {...remainingProps}
-          className={classNames('side-bar', position, open && 'open', className)}
+          className={classNames('side-bar', position, open && 'open')}
         >
           {children}
         </Component>
