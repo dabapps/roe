@@ -28,24 +28,29 @@ document.body.appendChild(app);
 
 const NavItems = () => (
   <Nav className="float-right">
+    <NavItem>
+      <a href="#">
+        One
+      </a>
+    </NavItem>
     <NavItem className="button">
       <a href="#">
-        About
+        Two
       </a>
     </NavItem>
-    <NavItem className="button link">
+    <NavItem className="button link secondary">
       <a href="#">
-        Contact
+        Three
       </a>
     </NavItem>
-    <NavItem className="button pill">
+    <NavItem className="button pill tertiary">
       <a href="#">
-        Something
+        Four
       </a>
     </NavItem>
     <NavItem className="button link pill">
       <a href="#">
-        Login
+        Five
       </a>
     </NavItem>
   </Nav>

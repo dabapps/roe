@@ -38,9 +38,17 @@
   background-color: @background;
   color: @color;
 
+  &.link {
+    color: @background;
+  }
+
   &:hover:not([disabled]):not(.disabled) {
     background-color: darken(@background, 5%);
     color: @color;
+
+    &.link {
+      color: @background;
+    }
   }
 
   &::before {
@@ -99,17 +107,34 @@
   }
 
   &.link {
-    background-color: transparent;
     text-decoration: underline;
+    background-color: @button-link-background;
+    color: @link-color;
+
+    &::before {
+      background-color: @button-link-pew-color;
+    }
 
     &:hover:not([disabled]):not(.disabled) {
       box-shadow: none;
-      background-color: rgba(100, 100, 100, 0.05);
+      background-color: @button-link-background-hover;
+      color: @link-color-hover;
     }
   }
 
   &.pill {
     border-radius: @padding-base * 2;
+  }
+
+  a {
+    color: inherit;
+
+    &:hover,
+    &:active {
+      &:not([disabled]):not(.disabled) {
+        color: inherit;
+      }
+    }
   }
 }
 
