@@ -30,6 +30,24 @@
   </SpacedGroup>
 
   <SpacedGroup block className="margin-top-large">
+    <Button className="hollow">
+      Hollow
+    </Button>
+    <Button className="link">
+      Link
+    </Button>
+    <Button className="pill">
+      Pill
+    </Button>
+    <Button className="link pill">
+      Link pill
+    </Button>
+    <Button className="hollow pill">
+      Hollow pill
+    </Button>
+  </SpacedGroup>
+
+  <SpacedGroup block className="margin-top-large">
     <Button block>
       Block
     </Button>
