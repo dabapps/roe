@@ -6,11 +6,11 @@ import { ComponentProps } from '../../types';
 
 export interface SideBarProps extends HTMLProps<HTMLElement>, ComponentProps {
   /**
-   * Sidebar is hidden off screen if this is falsy.
+   * SideBar is hidden off screen if this is falsy.
    */
   open?: boolean;
   /**
-   * Position the Sidebar to the left or right of the screen.
+   * Position the SideBar to the left or right of the screen.
    */
   position: 'left' | 'right';
   /**
@@ -18,13 +18,13 @@ export interface SideBarProps extends HTMLProps<HTMLElement>, ComponentProps {
    */
   noShadow?: boolean;
   /**
-   * Callback to trigger when the user clicks outside of the `Sidebar`.
+   * Callback to trigger when the user clicks outside of the `SideBar`.
    */
   onClickOutside(event: React.MouseEvent<HTMLDivElement>): void;
 }
 
 /**
- * Sidebar navigation that opens over the content. Often used as the primary navigation on small devices.
+ * SideBar navigation that opens over the content. Often used as the primary navigation on small devices.
  * See the [Nav](#nav) section for more details.
  */
 export class SideBar extends PureComponent<SideBarProps, {}> {
