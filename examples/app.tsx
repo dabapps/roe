@@ -60,7 +60,7 @@ class App extends PureComponent<{}, AppState> {
           position="right"
           className="display-block md-display-none"
         >
-          <div>
+          <div className="margin-vertical-base">
             <Button className="hollow" onClick={this.hideSidebar}>
               {X_CHAR}
             </Button>
