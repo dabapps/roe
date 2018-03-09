@@ -43,8 +43,8 @@
     color: @background;
   }
 
-  &.hollow {
-    border: @button-border-width solid @background;
+  &.hollow::after {
+    border-color: @background;
   }
 
   &:hover:not([disabled]):not(.disabled) {
@@ -54,10 +54,6 @@
     &.link,
     &.hollow {
       color: @background;
-    }
-
-    &.hollow {
-      border: @button-border-width solid @background;
     }
   }
 
@@ -149,16 +145,31 @@
 
   &.hollow {
     color: @button-text-color-dark;
-    border-color: @button-text-color-dark;
+
+    &::after {
+      content: '';
+      box-sizing: border-box;
+      pointer-events: none;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: @button-border-width solid @button-text-color-dark;
+    }
 
     &:hover:not([disabled]):not(.disabled) {
       color: @button-text-color-dark;
-      border-color: @button-text-color-dark;
     }
   }
 
   &.pill {
     border-radius: @padding-base * 2;
+
+    &::after {
+      border-radius: @padding-base * 2;
+    }
   }
 
   a {
