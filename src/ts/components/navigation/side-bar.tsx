@@ -24,7 +24,8 @@ export interface SideBarProps extends HTMLProps<HTMLElement>, ComponentProps {
 }
 
 /**
- * Sidebar navigation that opens over the content.
+ * Sidebar navigation that opens over the content. Often used as the primary navigation on small devices.
+ * See the [Nav](#nav) section for more details.
  */
 export class SideBar extends PureComponent<SideBarProps, {}> {
   public render () {
