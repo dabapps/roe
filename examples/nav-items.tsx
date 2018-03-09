@@ -6,37 +6,37 @@ import {
 
 const NavItems = ({className}: {className?: string}) => (
   <Nav className={className}>
-    <NavItem>
+    <NavItem active>
       <a href="#">
         One
       </a>
     </NavItem>
-    <NavItem className="button">
+    <NavItem>
       <a href="#">
         Two
       </a>
     </NavItem>
-    <NavItem className="button link secondary">
+    <NavItem>
       <a href="#">
         Three
       </a>
     </NavItem>
-    <NavItem className="button pill tertiary">
+    <NavItem>
       <a href="#">
         Four
       </a>
     </NavItem>
-    <NavItem className="button link pill">
+    <NavItem>
       <a href="#">
         Five
       </a>
     </NavItem>
-    <NavItem className="button hollow">
+    <NavItem>
       <a href="#">
         Six
       </a>
     </NavItem>
-    <NavItem className="button pill link hollow primary">
+    <NavItem>
       <a href="#">
         Seven
       </a>

@@ -9,6 +9,15 @@
     padding: 0;
     margin-top: 0;
     margin-bottom: 0;
+    transition: ease-in-out 0.1s background-color;
+
+    &:hover {
+      background-color: @nav-item-background-hover;
+    }
+
+    &.active {
+      background-color: @nav-item-background-active;
+    }
 
     a {
       display: inline-block;
@@ -19,5 +28,15 @@
 
 .side-bar .nav .nav-item {
   display: block;
-  margin: @margin-base auto;
+  margin: 0;
+  border-bottom: @border-base;
+
+  a {
+    display: block;
+    padding: @padding-base;
+  }
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 }

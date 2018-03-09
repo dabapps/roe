@@ -4,6 +4,9 @@ import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 
 export interface NavItemProps extends ComponentProps, HTMLProps<HTMLElement> {
+  /**
+   * Apply an active class to the NavItem
+   */
   active?: boolean;
 }
 
