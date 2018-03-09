@@ -95,6 +95,7 @@ You can then use your custom buttons by supplying the name you provided the mixi
 #### Less variables
 
 ```less
+@button-border-width: 2px;
 @button-text-color-dark: @grey-dark;
 @button-text-color-light: @grey-lightest;
 @button-background-default: @grey-lighter;
