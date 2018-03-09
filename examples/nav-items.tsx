@@ -36,9 +36,9 @@ const NavItems = ({className}: {className?: string}) => (
         Six
       </a>
     </NavItem>
-    <NavItem>
+    <NavItem className="button hollow">
       <a href="#">
-        Seven
+        Logout
       </a>
     </NavItem>
   </Nav>
