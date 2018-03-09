@@ -31,11 +31,6 @@ const NavItems = ({className}: {className?: string}) => (
         Five
       </a>
     </NavItem>
-    <NavItem>
-      <a href="#">
-        Six
-      </a>
-    </NavItem>
     <NavItem className="button hollow">
       <a href="#">
         Logout
