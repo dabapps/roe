@@ -48,6 +48,11 @@
   background-color: @side-bar-background;
   transform: translate(-100%, 0);
   transition: ease-in-out 0.2s transform;
+  box-shadow: @shadow-subtle;
+
+  &.no-shadow {
+    box-shadow: @shadow-none;
+  }
 
   &.right {
     left: auto;

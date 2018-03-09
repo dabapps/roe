@@ -14,6 +14,10 @@ export interface SideBarProps extends HTMLProps<HTMLElement>, ComponentProps {
    */
   position: 'left' | 'right';
   /**
+   * Remove SideBar shadow
+   */
+  noShadow?: boolean;
+  /**
    * Callback to trigger when the user clicks outside of the `Sidebar`.
    */
   onClickOutside(event: React.MouseEvent<HTMLDivElement>): void;
@@ -30,6 +34,7 @@ export class SideBar extends PureComponent<SideBarProps, {}> {
       open,
       position,
       onClickOutside,
+      noShadow,
       component: Component = 'div',
       ...remainingProps
     } = this.props;
@@ -45,7 +50,7 @@ export class SideBar extends PureComponent<SideBarProps, {}> {
         </CSSTransitionGroup>
         <Component
           {...remainingProps}
-          className={classNames('side-bar', position, open && 'open')}
+          className={classNames('side-bar', noShadow && 'no-shadow', position, open && 'open')}
         >
           {children}
         </Component>
