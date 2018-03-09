@@ -48,7 +48,7 @@ class App extends PureComponent<{}, AppState> {
 
             <NavItems className="float-right display-none md-display-block" />
 
-            <Button className="hollow float-right display-block md-display-none" onClick={this.showSidebar}>
+            <Button className="primary float-right display-block md-display-none" onClick={this.showSidebar}>
               {MENU_CHAR}
             </Button>
           </Container>
@@ -61,7 +61,7 @@ class App extends PureComponent<{}, AppState> {
           className="display-block md-display-none"
         >
           <div className="margin-vertical-base">
-            <Button className="hollow" onClick={this.hideSidebar}>
+            <Button className="primary" onClick={this.hideSidebar}>
               {X_CHAR}
             </Button>
           </div>
