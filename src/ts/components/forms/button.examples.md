@@ -69,10 +69,16 @@
 
 #### Custom buttons
 
-A mixin is available that allows you to define custom buttons styles.
+A mixin is available that allows you to define custom button styles.
+This should be applied within the selector (element / class) that you want to apply the button styles to.
+
+Note: the background color is used for the text & border of hollow buttons.
 
 ```less
-.create-button(@name, @background, @color);
+button,
+.button {
+  .create-button(@name, @background, @color);
+}
 ```
 
 You can then use your custom buttons by supplying the name you provided the mixin as the class name.
