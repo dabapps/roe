@@ -154,11 +154,12 @@
       position: absolute;
       top: 0;
       left: 0;
-      // These are set to 99.99% to fix a Chrome rendering bug
-      width: 99.99%;
-      height: 99.99%;
       border: @button-border-width solid @button-text-color-dark;
       border-radius: @border-radius-base;
+      // Fixes a Chrome rendering bug
+      transform: translate3d(0, 0, 0); // DO NOT CHANGE
+      width: 99.99%; // DO NOT CHANGE
+      height: 99.99%; // DO NOT CHANGE
     }
 
     &:hover:not([disabled]):not(.disabled) {
