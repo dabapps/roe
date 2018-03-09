@@ -52,11 +52,9 @@ class SideBarExample extends React.Component {
               </a>
             </NavItem>
           </Nav>
-          <div className="margin-vertical-base">
-            <Button onClick={this.closeSideBar}>
-              Close SideBar
-            </Button>
-          </div>
+          <Button onClick={this.closeSideBar}>
+            Close SideBar
+          </Button>
         </SideBar>
       </div>
     );

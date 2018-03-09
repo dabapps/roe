@@ -26,28 +26,32 @@
   }
 }
 
-.side-bar .nav .nav-item {
-  display: block;
-  margin: 0;
+.side-bar .nav {
+  margin: @margin-base auto;
 
-  &.button,
-  & button {
-    margin: @margin-base 0;
-  }
+  .nav-item {
+    display: block;
+    margin: 0;
 
-  &:not(.button):not(button) {
-    border-bottom: @border-base;
+    &.button,
+    & button {
+      margin: @margin-base 0;
+    }
 
-    &:last-of-type {
-      border-bottom: none;
+    &:not(.button):not(button) {
+      border-bottom: @border-base;
+
+      &:last-of-type {
+        border-bottom: none;
+      }
+
+      a {
+        padding: @padding-base;
+      }
     }
 
     a {
-      padding: @padding-base;
+      display: block;
     }
-  }
-
-  a {
-    display: block;
   }
 }
