@@ -45,6 +45,9 @@
     <Button className="hollow pill">
       Hollow pill
     </Button>
+    <Button className="hollow link">
+      Hollow link
+    </Button>
   </SpacedGroup>
 
   <SpacedGroup block className="margin-top-large">
