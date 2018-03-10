@@ -139,7 +139,7 @@
 
     &:hover:not([disabled]):not(.disabled) {
       background-color: @button-transparent-background-hover;
-      box-shadow: none;
+      box-shadow: @shadow-none;
     }
   }
 
@@ -176,12 +176,12 @@
   }
 
   a {
-    color: inherit;
+    color: inherit; // lesshint variableValue: false
 
     &:hover,
     &:active {
       &:not([disabled]):not(.disabled) {
-        color: inherit;
+        color: inherit; // lesshint variableValue: false
       }
     }
   }
