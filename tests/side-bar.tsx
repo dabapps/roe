@@ -62,4 +62,16 @@ describe('SideBar', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should accept a component props', () => {
+    const tree = renderer.create(
+      <SideBar
+        component="ul"
+        position="left"
+        onClickOutside={jest.fn()}
+      />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
 });

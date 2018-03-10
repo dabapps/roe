@@ -1,5 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`SideBar should accept a component props 1`] = `
+<div
+  className="side-bar-container"
+>
+  <span />
+  <ul
+    className="side-bar left"
+  />
+</div>
+`;
+
 exports[`SideBar should accept regular element attributes 1`] = `
 <div
   className="side-bar-container my-class"
