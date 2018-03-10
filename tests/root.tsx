@@ -1,7 +1,7 @@
 import * as enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import AppRoot, { AppRoot as AppRootUnconnected } from '../src/ts/components/app/root';
+import AppRoot from '../src/ts/components/app/root';
 import store from '../src/ts/store';
 
 jest.mock('../src/ts/store', () => {
@@ -43,7 +43,7 @@ describe('AppRoot', () => {
       hasStickyFooter: true,
     });
 
-    const tree = renderer.create(<AppRootUnconnected />);
+    const tree = renderer.create(<AppRoot />);
 
     expect(tree).toMatchSnapshot();
   });
@@ -56,7 +56,7 @@ describe('AppRoot', () => {
       footerHeight: 100,
     });
 
-    const tree = renderer.create(<AppRootUnconnected />);
+    const tree = renderer.create(<AppRoot />);
 
     expect(tree).toMatchSnapshot();
   });
