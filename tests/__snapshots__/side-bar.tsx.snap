@@ -51,7 +51,7 @@ exports[`SideBar should match snapshot when open 1`] = `
   <span>
     <div
       className="side-bar-overlay"
-      onClick={[Function]}
+      onClick={[MockFunction]}
     />
   </span>
   <div

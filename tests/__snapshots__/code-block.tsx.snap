@@ -30,8 +30,8 @@ exports[`CodeBlock should remove weird indentation from multi line snippets 1`] 
     className="code-block"
   >
     &lt;p&gt;
-      Hello, World!
-    &lt;/p&gt;
+  Hello, World!
+&lt;/p&gt;
   </pre>
 </div>
 `;
@@ -44,8 +44,8 @@ exports[`CodeBlock should remove weird indentation from multi line snippets 2`] 
     className="code-block"
   >
     &lt;p&gt;
-      Hello, World!
-    &lt;/p&gt;
+  Hello, World!
+&lt;/p&gt;
   </pre>
 </div>
 `;
