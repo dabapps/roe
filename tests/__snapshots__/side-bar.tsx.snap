@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideBar should accept regular element attributes 1`] = `
+<div
+  className="side-bar-container my-class"
+>
+  <span />
+  <div
+    className="side-bar left"
+  />
+</div>
+`;
+
+exports[`SideBar should match snapshot 1`] = `
+<div
+  className="side-bar-container"
+>
+  <span />
+  <div
+    className="side-bar left"
+  />
+</div>
+`;
+
+exports[`SideBar should match snapshot when open 1`] = `
+<div
+  className="side-bar-container"
+>
+  <span>
+    <div
+      className="side-bar-overlay"
+      onClick={[Function]}
+    />
+  </span>
+  <div
+    className="side-bar left open"
+  />
+</div>
+`;
