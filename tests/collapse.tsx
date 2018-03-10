@@ -35,12 +35,26 @@ describe('Collapse', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should match snapshot with custom animation duration', () => {
-    const tree = renderer.create(
+  it('should accept custom duration', () => {
+    jest.useFakeTimers();
+
+    const instance = enzyme.mount(
       <Collapse open={false} animationDuration={100} />
     );
 
-    expect(tree).toMatchSnapshot();
+    expect(instance).toMatchSnapshot();
+
+    instance.setProps({
+      open: true
+    });
+
+    instance.update();
+
+    expect(instance).toMatchSnapshot();
+
+    jest.runOnlyPendingTimers();
+
+    expect(instance).toMatchSnapshot();
   });
 
   it('should match snapshot with fade out', () => {
@@ -68,6 +82,8 @@ describe('Collapse', () => {
   });
 
   it('should clear its timeout on unmount', () => {
+    jest.useRealTimers();
+
     jest.spyOn(window, 'clearTimeout');
 
     const instance = enzyme.mount(<Collapse open={false} />);

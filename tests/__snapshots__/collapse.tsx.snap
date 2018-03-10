@@ -1,5 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Collapse should accept custom duration 1`] = `
+<Collapse
+  animationDuration={100}
+  open={false}
+>
+  <div
+    className="clearfix collapse"
+    style={
+      Object {
+        "height": 0,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 100ms height",
+      }
+    }
+  />
+</Collapse>
+`;
+
+exports[`Collapse should accept custom duration 2`] = `
+<Collapse
+  animationDuration={100}
+  open={true}
+>
+  <div
+    className="clearfix collapse collapse-open"
+    style={
+      Object {
+        "height": 0,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 100ms height",
+      }
+    }
+  />
+</Collapse>
+`;
+
+exports[`Collapse should accept custom duration 3`] = `
+<Collapse
+  animationDuration={100}
+  open={true}
+>
+  <div
+    className="clearfix collapse collapse-open"
+    style={
+      Object {
+        "height": 0,
+        "overflow": "hidden",
+        "position": "relative",
+        "transition": "ease-in-out 100ms height",
+      }
+    }
+  />
+</Collapse>
+`;
+
 exports[`Collapse should close to custom height 1`] = `
 <Collapse
   fadeOut={true}
@@ -269,20 +326,6 @@ exports[`Collapse should match snapshot when expanded 1`] = `
       "overflow": "hidden",
       "position": "relative",
       "transition": "ease-in-out 200ms height",
-    }
-  }
-/>
-`;
-
-exports[`Collapse should match snapshot with custom animation duration 1`] = `
-<div
-  className="clearfix collapse"
-  style={
-    Object {
-      "height": 0,
-      "overflow": "hidden",
-      "position": "relative",
-      "transition": "ease-in-out 100ms height",
     }
   }
 />
