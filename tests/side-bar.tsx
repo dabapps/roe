@@ -39,4 +39,16 @@ describe('SideBar', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should apply no-shadow class', () => {
+    const tree = renderer.create(
+      <SideBar
+        noShadow
+        position="left"
+        onClickOutside={jest.fn()}
+      />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
 });
