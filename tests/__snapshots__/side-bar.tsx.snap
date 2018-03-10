@@ -33,6 +33,17 @@ exports[`SideBar should match snapshot 1`] = `
 </div>
 `;
 
+exports[`SideBar should match snapshot right 1`] = `
+<div
+  className="side-bar-container"
+>
+  <span />
+  <div
+    className="side-bar right"
+  />
+</div>
+`;
+
 exports[`SideBar should match snapshot when open 1`] = `
 <div
   className="side-bar-container"

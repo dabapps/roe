@@ -15,6 +15,17 @@ describe('SideBar', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should match snapshot right', () => {
+    const tree = renderer.create(
+      <SideBar
+        position="right"
+        onClickOutside={jest.fn()}
+      />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('should accept regular element attributes', () => {
     const tree = renderer.create(
       <SideBar
