@@ -229,6 +229,10 @@ describe('NavBar', () => {
     }
 
     expect(scroll).not.toThrow();
+
+    setTime(1000);
+
+    expect(scroll).not.toThrow();
   });
 
 });
