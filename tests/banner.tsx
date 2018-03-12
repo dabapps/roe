@@ -1,45 +1,31 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import {
-  Button,
-  Column,
-  Container,
-  Row
-} from '../src/ts';
+import { Button, Column, Container, Row } from '../src/ts';
 
 import { Banner } from '../src/ts/components/banners/banner';
 
 describe('Banner', () => {
-
   it('should match snapshot', () => {
-    const tree = renderer.create(
-      <Banner />
-    );
+    const tree = renderer.create(<Banner />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should take regular element attributes', () => {
-    const tree = renderer.create(
-      <Banner className="my-class" />
-    );
+    const tree = renderer.create(<Banner className="my-class" />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should take an optional position prop', () => {
-    const tree = renderer.create(
-      <Banner position="top" />
-    );
+    const tree = renderer.create(<Banner position="top" />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should take an optional open prop', () => {
-    const tree = renderer.create(
-      <Banner open />
-    );
+    const tree = renderer.create(<Banner open />);
 
     expect(tree).toMatchSnapshot();
   });
@@ -53,11 +39,7 @@ describe('Banner', () => {
               <p>Roe Banner</p>
             </Column>
             <Column xs={2}>
-              <Button
-                className={'margin-top-base float-right'}
-              >
-                Click
-              </Button>
+              <Button className={'margin-top-base float-right'}>Click</Button>
             </Column>
           </Row>
         </Container>
@@ -66,5 +48,4 @@ describe('Banner', () => {
 
     expect(tree).toMatchSnapshot();
   });
-
 });

@@ -2,17 +2,11 @@ import * as enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import {
-  Button,
-  Column,
-  Container,
-  Row
-} from '../src/ts';
+import { Button, Column, Container, Row } from '../src/ts';
 
 import { CookieBanner } from '../src/ts/components/banners/cookie-banner';
 
 describe('CookieBanner', () => {
-
   it('should match snapshot and take required render prop', () => {
     const tree = renderer.create(
       <CookieBanner
@@ -94,14 +88,10 @@ describe('CookieBanner', () => {
   });
 
   it('should hide the banner on click', () => {
-
     const instance = enzyme.shallow(
       <CookieBanner
         render={({ dismiss }) => (
-          <Button
-            onClick={dismiss}
-            className={'button'}
-          >
+          <Button onClick={dismiss} className={'button'}>
             Accept
           </Button>
         )}
@@ -113,5 +103,4 @@ describe('CookieBanner', () => {
     instance.find('.button').simulate('click');
     expect(instance).toMatchSnapshot();
   });
-
 });
