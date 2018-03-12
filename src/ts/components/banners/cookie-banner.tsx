@@ -32,8 +32,10 @@ export interface CookieBannerState {
  * This component takes a render prop, which can be a component or function, that is passed a dismiss prop
  * which you can then apply as an onClick prop to an element of your choice.
  */
-export class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerState> {
-
+export class CookieBanner extends PureComponent<
+  CookieBannerProps,
+  CookieBannerState
+> {
   public constructor(props: CookieBannerProps) {
     super(props);
 
