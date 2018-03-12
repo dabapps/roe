@@ -1,33 +1,121 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CookieBanner should hide the banner on click 1`] = `
-<Banner
-  className="cookie-banner"
-  open={true}
-  position="bottom"
+<CookieBanner
+  render={[Function]}
 >
-  <Button
-    className="button"
-    onClick={[Function]}
+  <Banner
+    className="cookie-banner"
+    open={true}
+    position="bottom"
   >
-    Accept
-  </Button>
-</Banner>
+    <div
+      className="banner open bottom cookie-banner"
+    >
+      <Container>
+        <div
+          className="container"
+        >
+          <Row>
+            <div
+              className="row"
+            >
+              <Column
+                xs={10}
+              >
+                <div
+                  className="column xs-10"
+                >
+                  <p>
+                    We use cookies! Roe is awesome
+                  </p>
+                </div>
+              </Column>
+              <Column
+                xs={2}
+              >
+                <div
+                  className="column xs-2"
+                >
+                  <Button
+                    className="margin-top-base float-right"
+                    onClick={[Function]}
+                  >
+                    <button
+                      className="button margin-top-base float-right"
+                      onClick={[Function]}
+                    >
+                      Accept
+                    </button>
+                  </Button>
+                </div>
+              </Column>
+            </div>
+          </Row>
+        </div>
+      </Container>
+    </div>
+  </Banner>
+</CookieBanner>
 `;
 
 exports[`CookieBanner should hide the banner on click 2`] = `
-<Banner
-  className="cookie-banner"
-  open={false}
-  position="bottom"
+<CookieBanner
+  render={[Function]}
 >
-  <Button
-    className="button"
-    onClick={[Function]}
+  <Banner
+    className="cookie-banner"
+    open={false}
+    position="bottom"
   >
-    Accept
-  </Button>
-</Banner>
+    <div
+      className="banner bottom cookie-banner"
+    >
+      <Container>
+        <div
+          className="container"
+        >
+          <Row>
+            <div
+              className="row"
+            >
+              <Column
+                xs={10}
+              >
+                <div
+                  className="column xs-10"
+                >
+                  <p>
+                    We use cookies! Roe is awesome
+                  </p>
+                </div>
+              </Column>
+              <Column
+                xs={2}
+              >
+                <div
+                  className="column xs-2"
+                >
+                  <Button
+                    className="margin-top-base float-right"
+                    onClick={[Function]}
+                  >
+                    <button
+                      className="button margin-top-base float-right"
+                      onClick={[Function]}
+                    >
+                      Accept
+                    </button>
+                  </Button>
+                </div>
+              </Column>
+            </div>
+          </Row>
+        </div>
+      </Container>
+    </div>
+  </Banner>
+</CookieBanner>
 `;
 
 exports[`CookieBanner should match snapshot and take required render prop 1`] = `
