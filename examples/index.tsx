@@ -2,8 +2,6 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import {
   AppRoot,
-  Banner,
-  CookieBanner,
   Button,
   Column,
   Container,
