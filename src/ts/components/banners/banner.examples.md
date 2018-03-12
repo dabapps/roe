@@ -12,7 +12,7 @@
       </Column>
       <Column xs={2}>
         <Button
-          className={'margin-top-base float-right'}
+          className="margin-top-base float-right"
         >
           Click
       </Button>
