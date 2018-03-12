@@ -19,13 +19,15 @@ export interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement
   position?: 'top' | 'bottom';
 }
 
-/**
- * Stores a cookie to permanently dismiss the banner
- */
 export interface CookieBannerState {
   dismissed: boolean;
 }
 
+/**
+ * A [Banner](#banner) component that is permanently dismissed after setting a cookie.
+ * This component takes a render prop, which can be a component or function, that is passed a dismiss prop
+ * which you can then apply as an onClick prop to an element of your choice.
+ */
 export class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerState> {
 
   public constructor(props: CookieBannerProps) {

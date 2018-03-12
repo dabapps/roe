@@ -12,10 +12,10 @@
         <Column xs={2}>
           <Button
             onClick={dismiss}
-            className={'margin-top-base float-right'}
+            className="margin-top-base float-right"
           >
             Accept
-        </Button>
+          </Button>
         </Column>
       </Row>
     </Container>
