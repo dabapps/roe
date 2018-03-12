@@ -1,6 +1,7 @@
 export { default as Alert } from './components/alert';
 export { default as AppRoot } from './components/app/root';
 export { default as Anchor } from './components/anchor';
+export { default as Banner } from './components/banners/banner';
 export { default as Button } from './components/forms/button';
 export { default as CodeBlock } from './components/code-block';
 export { default as Collapse } from './components/collapse';
@@ -9,6 +10,7 @@ export { default as Container } from './components/grid/container';
 export { default as ContentBox } from './components/content/content-box';
 export { default as ContentBoxHeader } from './components/content/content-box-header';
 export { default as ContentBoxFooter } from './components/content/content-box-footer';
+export { default as CookieBanner } from './components/banners/cookie-banner';
 export { default as DabIpsum } from './components/prototyping/dab-ipsum';
 export { default as Footer } from './components/navigation/footer';
 export { default as FormGroup } from './components/forms/form-group';
