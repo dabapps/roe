@@ -5,8 +5,12 @@ import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 import Banner from './banner';
 
+export interface CookieBannerRenderProps {
+  dismiss: () => void;
+}
+
 export type Render = (
-  props: { dismiss: () => void }
+  props: CookieBannerRenderProps
 ) => React.ReactElement<any>;
 
 export interface CookieBannerProps

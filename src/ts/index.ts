@@ -15,6 +15,7 @@ export {
   default as ContentBoxFooter,
 } from './components/content/content-box-footer';
 export { default as CookieBanner } from './components/banners/cookie-banner';
+export { CookieBannerRenderProps } from './components/banners/cookie-banner';
 export { default as DabIpsum } from './components/prototyping/dab-ipsum';
 export { default as Footer } from './components/navigation/footer';
 export { default as FormGroup } from './components/forms/form-group';
