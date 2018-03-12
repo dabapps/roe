@@ -19,16 +19,18 @@ export interface NavItemProps extends ComponentProps, HTMLProps<HTMLElement> {
  * See the [Nav](#nav) section for a full example.
  */
 export class NavItem extends PureComponent<NavItemProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
       active,
-      component: Component = 'li'
+      component: Component = 'li',
     } = this.props;
 
     return (
-      <Component className={classNames('nav-item', active && 'active', className)}>
+      <Component
+        className={classNames('nav-item', active && 'active', className)}
+      >
         {children}
       </Component>
     );

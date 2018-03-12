@@ -30,7 +30,7 @@ export interface ModalProps extends ComponentProps, HTMLProps<HTMLElement> {
  * Component used to render a modal.
  */
 export class Modal extends PureComponent<ModalProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -55,9 +55,7 @@ export class Modal extends PureComponent<ModalProps, {}> {
       <div>
         <div className="modal-overlay" onClick={onClickOutside} />
         <div {...remainingProps} className={classNames(myClassNames)}>
-          <Component className="modal">
-            {children}
-          </Component>
+          <Component className="modal">{children}</Component>
         </div>
       </div>
     );

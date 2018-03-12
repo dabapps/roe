@@ -10,7 +10,7 @@ export type ModalHeaderProps = ComponentProps & HTMLProps<HTMLElement>;
  * See the [Modal](#modal) section for a full example.
  */
 export class ModalHeader extends PureComponent<ModalHeaderProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -19,7 +19,10 @@ export class ModalHeader extends PureComponent<ModalHeaderProps, {}> {
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames('modal-header', className)}>
+      <Component
+        {...remainingProps}
+        className={classNames('modal-header', className)}
+      >
         {children}
       </Component>
     );

@@ -5,24 +5,18 @@ import * as renderer from 'react-test-renderer';
 import { Collapse } from '../src/ts/';
 
 describe('Collapse', () => {
-
   const createNodeMock = () => ({
-    scrollHeight: 500
+    scrollHeight: 500,
   });
 
   it('should match snapshot when collapsed', () => {
-    const tree = renderer.create(
-      <Collapse open={false} />
-    );
+    const tree = renderer.create(<Collapse open={false} />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should match snapshot when expanded', () => {
-    const tree = renderer.create(
-      <Collapse open />,
-      {createNodeMock}
-    );
+    const tree = renderer.create(<Collapse open />, { createNodeMock });
 
     expect(tree).toMatchSnapshot();
   });
@@ -45,7 +39,7 @@ describe('Collapse', () => {
     expect(instance).toMatchSnapshot();
 
     instance.setProps({
-      open: true
+      open: true,
     });
 
     instance.update();
@@ -58,9 +52,7 @@ describe('Collapse', () => {
   });
 
   it('should match snapshot with fade out', () => {
-    const tree = renderer.create(
-      <Collapse open={false} fadeOut />
-    );
+    const tree = renderer.create(<Collapse open={false} fadeOut />);
 
     expect(tree).toMatchSnapshot();
   });
@@ -101,7 +93,7 @@ describe('Collapse', () => {
 
     // Set a scrollHeight
     Object.defineProperty(node, 'scrollHeight', {
-      get: () => 500
+      get: () => 500,
     });
 
     // Initial state
@@ -109,7 +101,7 @@ describe('Collapse', () => {
     expect(instance).toMatchSnapshot();
 
     instance.setProps({
-      open: true
+      open: true,
     });
 
     // Prepare to open
@@ -132,12 +124,14 @@ describe('Collapse', () => {
   it('should open from custom height', () => {
     jest.useFakeTimers();
 
-    const instance = enzyme.mount(<Collapse open={false} maxCollapsedHeight={100} fadeOut />);
+    const instance = enzyme.mount(
+      <Collapse open={false} maxCollapsedHeight={100} fadeOut />
+    );
     const node = instance.getDOMNode();
 
     // Set a scrollHeight
     Object.defineProperty(node, 'scrollHeight', {
-      get: () => 500
+      get: () => 500,
     });
 
     // Initial state
@@ -145,7 +139,7 @@ describe('Collapse', () => {
     expect(instance).toMatchSnapshot();
 
     instance.setProps({
-      open: true
+      open: true,
     });
 
     // Prepare to open
@@ -168,12 +162,12 @@ describe('Collapse', () => {
   it('should close to default height', () => {
     jest.useFakeTimers();
 
-    const instance = enzyme.mount(<Collapse open={true} fadeOut />);
+    const instance = enzyme.mount(<Collapse open fadeOut />);
     const node = instance.getDOMNode();
 
     // Set a scrollHeight
     Object.defineProperty(node, 'scrollHeight', {
-      get: () => 500
+      get: () => 500,
     });
 
     // Initial state
@@ -181,7 +175,7 @@ describe('Collapse', () => {
     expect(instance).toMatchSnapshot();
 
     instance.setProps({
-      open: false
+      open: false,
     });
 
     // Prepare to close
@@ -204,12 +198,14 @@ describe('Collapse', () => {
   it('should close to custom height', () => {
     jest.useFakeTimers();
 
-    const instance = enzyme.mount(<Collapse open={true} maxCollapsedHeight={100} fadeOut />);
+    const instance = enzyme.mount(
+      <Collapse open maxCollapsedHeight={100} fadeOut />
+    );
     const node = instance.getDOMNode();
 
     // Set a scrollHeight
     Object.defineProperty(node, 'scrollHeight', {
-      get: () => 500
+      get: () => 500,
     });
 
     // Initial state
@@ -217,7 +213,7 @@ describe('Collapse', () => {
     expect(instance).toMatchSnapshot();
 
     instance.setProps({
-      open: false
+      open: false,
     });
 
     // Prepare to close
@@ -236,5 +232,4 @@ describe('Collapse', () => {
     instance.update();
     expect(instance).toMatchSnapshot();
   });
-
 });

@@ -28,7 +28,7 @@ export interface SideBarProps extends HTMLProps<HTMLElement>, ComponentProps {
  * See the [Nav](#nav) section for more details.
  */
 export class SideBar extends PureComponent<SideBarProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -47,11 +47,18 @@ export class SideBar extends PureComponent<SideBarProps, {}> {
           transitionEnterTimeout={300}
           transitionLeaveTimeout={200}
         >
-          {open && <div className="side-bar-overlay" onClick={onClickOutside} />}
+          {open && (
+            <div className="side-bar-overlay" onClick={onClickOutside} />
+          )}
         </CSSTransitionGroup>
         <Component
           {...remainingProps}
-          className={classNames('side-bar', noShadow && 'no-shadow', position, open && 'open')}
+          className={classNames(
+            'side-bar',
+            noShadow && 'no-shadow',
+            position,
+            open && 'open'
+          )}
         >
           {children}
         </Component>

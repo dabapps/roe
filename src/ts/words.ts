@@ -57,5 +57,5 @@ export const WORDS = [
   'toolkit',
   'training',
   'typescript',
-  'web'
+  'web',
 ];

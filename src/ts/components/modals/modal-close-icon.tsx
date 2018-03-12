@@ -10,7 +10,7 @@ export type ModalCloseIconProps = ComponentProps & HTMLProps<HTMLElement>;
  * See the [Modal](#modal) section for a full example.
  */
 export class ModalCloseIcon extends PureComponent<ModalCloseIconProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -19,7 +19,10 @@ export class ModalCloseIcon extends PureComponent<ModalCloseIconProps, {}> {
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames('modal-close-icon', className)}>
+      <Component
+        {...remainingProps}
+        className={classNames('modal-close-icon', className)}
+      >
         {children}
       </Component>
     );

@@ -14,12 +14,11 @@ jest.mock('../src/ts/store', () => {
       getState,
       subscribe,
       unsubscribe,
-    }
+    },
   };
 });
 
 describe('AppRoot', () => {
-
   beforeEach(() => {
     (store.subscribe as jest.Mock<any>).mockClear();
     ((store as any).unsubscribe as jest.Mock<any>).mockClear();
@@ -75,5 +74,4 @@ describe('AppRoot', () => {
     expect(store.subscribe).toHaveBeenCalledTimes(1);
     expect((store as any).unsubscribe).toHaveBeenCalledTimes(1);
   });
-
 });

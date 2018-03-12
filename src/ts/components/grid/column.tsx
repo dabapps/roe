@@ -112,7 +112,7 @@ export interface ColumnProps extends ComponentProps, HTMLProps<HTMLElement> {
  * The default grid has 12 divisions.
  */
 export class Column extends PureComponent<ColumnProps, {}> {
-  public render () {
+  public render() {
     const {
       children,
       className,
@@ -172,7 +172,7 @@ export class Column extends PureComponent<ColumnProps, {}> {
       isValidColumnNumber(mdPull) ? `md-pull-${mdPull}` : null,
       isValidColumnNumber(lgPull) ? `lg-pull-${lgPull}` : null,
       isValidColumnNumber(xlPull) ? `xl-pull-${xlPull}` : null,
-      className
+      className,
     ];
 
     return (

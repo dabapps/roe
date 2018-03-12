@@ -10,7 +10,7 @@ export type TableHeadProps = ComponentProps & HTMLProps<HTMLElement>;
  * See the [Table](#table) section for a full example.
  */
 export class TableHead extends PureComponent<TableHeadProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -19,7 +19,10 @@ export class TableHead extends PureComponent<TableHeadProps, {}> {
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames('table-head', className)}>
+      <Component
+        {...remainingProps}
+        className={classNames('table-head', className)}
+      >
         {children}
       </Component>
     );

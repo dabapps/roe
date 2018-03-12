@@ -29,26 +29,27 @@ interface AppState {
 }
 
 class App extends PureComponent<{}, AppState> {
-  public constructor (props: {}) {
+  public constructor(props: {}) {
     super(props);
 
     this.state = {
-      sidebarOpen: false
+      sidebarOpen: false,
     };
   }
 
-  public render () {
+  public render() {
     return (
       <AppRoot>
         <NavBar shy>
           <Container>
-            <h1 className="display-inline font-size-large">
-              NavBar
-            </h1>
+            <h1 className="display-inline font-size-large">NavBar</h1>
 
             <NavItems className="float-right display-none md-display-block" />
 
-            <Button className="primary float-right display-block md-display-none" onClick={this.showSidebar}>
+            <Button
+              className="primary float-right display-block md-display-none"
+              onClick={this.showSidebar}
+            >
               {MENU_CHAR}
             </Button>
           </Container>
@@ -69,18 +70,14 @@ class App extends PureComponent<{}, AppState> {
         </SideBar>
 
         <Container>
-          <h1>
-            Example
-          </h1>
+          <h1>Example</h1>
 
           <DabIpsum />
 
           <Row>
             <Column>
               <InputGroup>
-                <InputGroupAddon>
-                  £
-                </InputGroupAddon>
+                <InputGroupAddon>£</InputGroupAddon>
                 <input type="number" />
               </InputGroup>
             </Column>
@@ -88,25 +85,17 @@ class App extends PureComponent<{}, AppState> {
 
           <Row>
             <Column>
-              <h2>
-                Can't touch these
-              </h2>
+              <h2>Can't touch these</h2>
 
               <FormGroup block>
-                <label>
-                  Nope
-                </label>
+                <label>Nope</label>
                 <input type="text" disabled />
               </FormGroup>
 
               <SpacedGroup>
-                <Button disabled>
-                  Nope
-                </Button>
+                <Button disabled>Nope</Button>
 
-                <Button className="disabled">
-                  Also nope
-                </Button>
+                <Button className="disabled">Also nope</Button>
               </SpacedGroup>
             </Column>
           </Row>
@@ -115,34 +104,24 @@ class App extends PureComponent<{}, AppState> {
             <Column sm={8} smOffset={2} md={6} mdOffset={3} lg={4} lgOffset={4}>
               <ContentBox>
                 <ContentBoxHeader>
-                  <h2 className="font-size-large">
-                    Login
-                  </h2>
+                  <h2 className="font-size-large">Login</h2>
                 </ContentBoxHeader>
 
                 <FormGroup block>
-                  <label>
-                    Email
-                  </label>
+                  <label>Email</label>
                   <input type="email" />
                 </FormGroup>
 
                 <FormGroup block>
-                  <label>
-                    Password
-                  </label>
+                  <label>Password</label>
                   <input type="password" />
                 </FormGroup>
 
-                <p className="error">
-                  Incorrect email or password
-                </p>
+                <p className="error">Incorrect email or password</p>
 
                 <ContentBoxFooter>
                   <SpacedGroup block className="margin-vertical-base">
-                    <Button>
-                      Forgot password
-                    </Button>
+                    <Button>Forgot password</Button>
                     <Button className="primary">
                       <span className="this-span-is-here-for-testing-purposes">
                         Login
@@ -156,9 +135,7 @@ class App extends PureComponent<{}, AppState> {
 
           <ContentBox>
             <ContentBoxHeader>
-              <h2>
-                Example
-              </h2>
+              <h2>Example</h2>
             </ContentBoxHeader>
 
             <Section>
@@ -199,9 +176,7 @@ class App extends PureComponent<{}, AppState> {
 
         <Footer sticky>
           <Container>
-            <p>
-              Footer
-            </p>
+            <p>Footer</p>
           </Container>
         </Footer>
       </AppRoot>
@@ -212,13 +187,13 @@ class App extends PureComponent<{}, AppState> {
     this.setState({
       sidebarOpen: true,
     });
-  }
+  };
 
   private hideSidebar = () => {
     this.setState({
       sidebarOpen: false,
     });
-  }
+  };
 }
 
 export default App;

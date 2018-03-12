@@ -7,7 +7,7 @@ enzyme.configure({ adapter: new Adapter() });
 // This is intended to prevent React from adding window listeners when a component is mounted using enzyme.
 const originalCreateEvent = document.createEvent;
 
-document.createEvent = function (type: string): any {
+document.createEvent = function(type: string): any {
   const event = originalCreateEvent.call(this, type);
 
   if (type === 'MouseEvent') {

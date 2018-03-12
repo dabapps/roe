@@ -13,7 +13,7 @@ jest.mock('react-dom', () => ({
 jest.mock('../src/ts/store', () => ({
   default: {
     setState: jest.fn(),
-  }
+  },
 }));
 
 const setTime = (time: number) => {
@@ -21,7 +21,6 @@ const setTime = (time: number) => {
 };
 
 describe('NavBar', () => {
-
   beforeAll(() => {
     jest.spyOn(window, 'addEventListener');
     jest.spyOn(window, 'removeEventListener');
@@ -29,46 +28,40 @@ describe('NavBar', () => {
 
   beforeEach(() => {
     (store.setState as jest.Mock<any>).mockClear();
-    (window.addEventListener as jest.Mock<any>).mockImplementation(jest.fn()).mockClear();
-    (window.removeEventListener as jest.Mock<any>).mockImplementation(jest.fn()).mockClear();
+    (window.addEventListener as jest.Mock<any>)
+      .mockImplementation(jest.fn())
+      .mockClear();
+    (window.removeEventListener as jest.Mock<any>)
+      .mockImplementation(jest.fn())
+      .mockClear();
   });
 
   it('should match snapshot', () => {
-    const tree = renderer.create(
-      <NavBar />
-    );
+    const tree = renderer.create(<NavBar />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should take regular element attributes', () => {
-    const tree = renderer.create(
-      <NavBar className="my-class" />
-    );
+    const tree = renderer.create(<NavBar className="my-class" />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should apply fixed class', () => {
-    const tree = renderer.create(
-      <NavBar fixed />
-    );
+    const tree = renderer.create(<NavBar fixed />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should apply shy class', () => {
-    const tree = renderer.create(
-      <NavBar shy />
-    );
+    const tree = renderer.create(<NavBar shy />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should apply no shadow class', () => {
-    const tree = renderer.create(
-      <NavBar noShadow />
-    );
+    const tree = renderer.create(<NavBar noShadow />);
 
     expect(tree).toMatchSnapshot();
   });
@@ -76,7 +69,7 @@ describe('NavBar', () => {
   it('should apply the hidden class', () => {
     const instance = enzyme.mount(<NavBar shy />);
 
-    instance.setState({hidden: true});
+    instance.setState({ hidden: true });
     instance.update();
 
     expect(instance).toMatchSnapshot();
@@ -88,30 +81,39 @@ describe('NavBar', () => {
     expect(window.removeEventListener).toHaveBeenCalledTimes(3);
     (window.removeEventListener as jest.Mock<any>).mockClear();
     expect(store.setState).toHaveBeenCalledTimes(1);
-    expect(store.setState).toHaveBeenCalledWith({hasFixedNavBar: false, navBarHeight: undefined});
+    expect(store.setState).toHaveBeenCalledWith({
+      hasFixedNavBar: false,
+      navBarHeight: undefined,
+    });
     (store.setState as jest.Mock<any>).mockClear();
 
-    instance.setProps({shy: false});
+    instance.setProps({ shy: false });
 
     expect(window.removeEventListener).toHaveBeenCalledTimes(0);
     (window.removeEventListener as jest.Mock<any>).mockClear();
     expect(store.setState).toHaveBeenCalledTimes(0);
     (store.setState as jest.Mock<any>).mockClear();
 
-    instance.setProps({shy: true});
+    instance.setProps({ shy: true });
 
     expect(window.addEventListener).toHaveBeenCalledTimes(3);
     (window.addEventListener as jest.Mock<any>).mockClear();
     expect(store.setState).toHaveBeenCalledTimes(1);
-    expect(store.setState).toHaveBeenCalledWith({hasFixedNavBar: true, navBarHeight: undefined});
+    expect(store.setState).toHaveBeenCalledWith({
+      hasFixedNavBar: true,
+      navBarHeight: undefined,
+    });
     (store.setState as jest.Mock<any>).mockClear();
 
-    instance.setProps({shy: false});
+    instance.setProps({ shy: false });
 
     expect(window.removeEventListener).toHaveBeenCalledTimes(3);
     (window.removeEventListener as jest.Mock<any>).mockClear();
     expect(store.setState).toHaveBeenCalledTimes(1);
-    expect(store.setState).toHaveBeenCalledWith({hasFixedNavBar: false, navBarHeight: undefined});
+    expect(store.setState).toHaveBeenCalledWith({
+      hasFixedNavBar: false,
+      navBarHeight: undefined,
+    });
     (store.setState as jest.Mock<any>).mockClear();
   });
 
@@ -126,14 +128,16 @@ describe('NavBar', () => {
   });
 
   it('should update the app root when the window is resized', () => {
-    const handlers: {[i: string]: (() => any) | undefined} = {};
+    const handlers: { [i: string]: (() => any) | undefined } = {};
 
-    (window.addEventListener as jest.Mock<any>).mockImplementation((type: string, callback: () => any) => {
-      if (type === 'resize') {
-        handlers[type] = callback;
-        jest.spyOn(handlers, type);
+    (window.addEventListener as jest.Mock<any>).mockImplementation(
+      (type: string, callback: () => any) => {
+        if (type === 'resize') {
+          handlers[type] = callback;
+          jest.spyOn(handlers, type);
+        }
       }
-    });
+    );
 
     enzyme.mount(<NavBar fixed />);
 
@@ -153,16 +157,20 @@ describe('NavBar', () => {
   it('should hide or show the navbar when scrolled', () => {
     setTime(0);
 
-    const handlers: {[i: string]: (() => any) | undefined} = {};
+    const handlers: { [i: string]: (() => any) | undefined } = {};
 
-    (window.addEventListener as jest.Mock<any>).mockImplementation((type: string, callback: () => any) => {
-      if (type === 'scroll') {
-        handlers[type] = callback;
-        jest.spyOn(handlers, type);
+    (window.addEventListener as jest.Mock<any>).mockImplementation(
+      (type: string, callback: () => any) => {
+        if (type === 'scroll') {
+          handlers[type] = callback;
+          jest.spyOn(handlers, type);
+        }
       }
-    });
-    jest.spyOn(utils, 'getScrollOffset').mockReturnValue({x: 0, y: 0});
-    jest.spyOn(ReactDOM, 'findDOMNode').mockReturnValue({getBoundingClientRect: () => ({height: 20})});
+    );
+    jest.spyOn(utils, 'getScrollOffset').mockReturnValue({ x: 0, y: 0 });
+    jest
+      .spyOn(ReactDOM, 'findDOMNode')
+      .mockReturnValue({ getBoundingClientRect: () => ({ height: 20 }) });
 
     const instance = enzyme.mount(<NavBar shy />);
 
@@ -176,13 +184,13 @@ describe('NavBar', () => {
     scroll();
     expect(instance.state('hidden')).toBe(false);
 
-    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({x: 0, y: 10});
+    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({ x: 0, y: 10 });
 
     // Scrolled a little, but not farther than the NavBar height
     scroll();
     expect(instance.state('hidden')).toBe(false);
 
-    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({x: 0, y: 50});
+    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({ x: 0, y: 50 });
 
     // Scrolled, but too soon after initial mount
     scroll();
@@ -190,19 +198,19 @@ describe('NavBar', () => {
 
     setTime(500);
 
-    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({x: 0, y: 100});
+    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({ x: 0, y: 100 });
 
     // Scrolled past NavBar height
     scroll();
     expect(instance.state('hidden')).toBe(true);
 
-    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({x: 0, y: 95});
+    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({ x: 0, y: 95 });
 
     // Not scrolled far enough
     scroll();
     expect(instance.state('hidden')).toBe(true);
 
-    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({x: 0, y: 40});
+    (utils.getScrollOffset as jest.Mock<any>).mockReturnValue({ x: 0, y: 40 });
 
     // Scrolled up
     scroll();
@@ -210,14 +218,16 @@ describe('NavBar', () => {
   });
 
   it('should gracefully handle a missing element', () => {
-    const handlers: {[i: string]: (() => any) | undefined} = {};
+    const handlers: { [i: string]: (() => any) | undefined } = {};
 
-    (window.addEventListener as jest.Mock<any>).mockImplementation((type: string, callback: () => any) => {
-      if (type === 'scroll') {
-        handlers[type] = callback;
-        jest.spyOn(handlers, type);
+    (window.addEventListener as jest.Mock<any>).mockImplementation(
+      (type: string, callback: () => any) => {
+        if (type === 'scroll') {
+          handlers[type] = callback;
+          jest.spyOn(handlers, type);
+        }
       }
-    });
+    );
     jest.spyOn(ReactDOM, 'findDOMNode').mockReturnValue(null);
 
     enzyme.mount(<NavBar shy />);
@@ -234,5 +244,4 @@ describe('NavBar', () => {
 
     expect(scroll).not.toThrow();
   });
-
 });

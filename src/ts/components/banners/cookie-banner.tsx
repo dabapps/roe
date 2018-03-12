@@ -5,9 +5,17 @@ import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 import Banner from './banner';
 
-export type Render = (props: {dismiss: () => void}) => React.ReactElement<any>;
+export interface CookieBannerRenderProps {
+  dismiss: () => void;
+}
 
-export interface CookieBannerProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type Render = (
+  props: CookieBannerRenderProps
+) => React.ReactElement<any>;
+
+export interface CookieBannerProps
+  extends ComponentProps,
+    HTMLProps<HTMLElement> {
   /**
    * Takes a component as a function and renders as a child
    */
@@ -28,17 +36,19 @@ export interface CookieBannerState {
  * This component takes a render prop, which can be a component or function, that is passed a dismiss prop
  * which you can then apply as an onClick prop to an element of your choice.
  */
-export class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerState> {
-
+export class CookieBanner extends PureComponent<
+  CookieBannerProps,
+  CookieBannerState
+> {
   public constructor(props: CookieBannerProps) {
     super(props);
 
     this.state = {
-      dismissed: Boolean(cookie.parse(document.cookie)['cookies-accepted'])
+      dismissed: Boolean(cookie.parse(document.cookie)['cookies-accepted']),
     };
   }
 
-  public render () {
+  public render() {
     const {
       ref,
       className,
@@ -57,17 +67,17 @@ export class CookieBanner extends PureComponent<CookieBannerProps, CookieBannerS
         open={!dismissed}
         className={classNames('cookie-banner', className)}
       >
-        {render && render({dismiss: this.setCookie})}
+        {render && render({ dismiss: this.setCookie })}
       </Banner>
-    )
+    );
   }
 
   private setCookie = () => {
     document.cookie = cookie.serialize('cookies-accepted', 'true');
     this.setState({
-      dismissed: true
+      dismissed: true,
     });
-  }
+  };
 }
 
 export default CookieBanner;

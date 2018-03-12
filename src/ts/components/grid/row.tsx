@@ -14,7 +14,7 @@ export type RowProps = ComponentProps & HTMLProps<HTMLElement>;
  * without it collapsing.
  */
 export class Row extends PureComponent<RowProps, {}> {
-  public render () {
+  public render() {
     const {
       children,
       className,

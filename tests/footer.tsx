@@ -12,11 +12,10 @@ jest.mock('react-dom', () => ({
 jest.mock('../src/ts/store', () => ({
   default: {
     setState: jest.fn(),
-  }
+  },
 }));
 
 describe('Footer', () => {
-
   beforeAll(() => {
     jest.spyOn(window, 'addEventListener');
     jest.spyOn(window, 'removeEventListener');
@@ -24,30 +23,28 @@ describe('Footer', () => {
 
   beforeEach(() => {
     (store.setState as jest.Mock<any>).mockClear();
-    (window.addEventListener as jest.Mock<any>).mockImplementation(jest.fn()).mockClear();
-    (window.removeEventListener as jest.Mock<any>).mockImplementation(jest.fn()).mockClear();
+    (window.addEventListener as jest.Mock<any>)
+      .mockImplementation(jest.fn())
+      .mockClear();
+    (window.removeEventListener as jest.Mock<any>)
+      .mockImplementation(jest.fn())
+      .mockClear();
   });
 
   it('should match snapshot', () => {
-    const tree = renderer.create(
-      <Footer />
-    );
+    const tree = renderer.create(<Footer />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should take regular element attributes', () => {
-    const tree = renderer.create(
-      <Footer className="my-class" />
-    );
+    const tree = renderer.create(<Footer className="my-class" />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should apply sticky class', () => {
-    const tree = renderer.create(
-      <Footer sticky />
-    );
+    const tree = renderer.create(<Footer sticky />);
 
     expect(tree).toMatchSnapshot();
   });
@@ -58,30 +55,39 @@ describe('Footer', () => {
     expect(window.removeEventListener).toHaveBeenCalledTimes(1);
     (window.removeEventListener as jest.Mock<any>).mockClear();
     expect(store.setState).toHaveBeenCalledTimes(1);
-    expect(store.setState).toHaveBeenCalledWith({hasStickyFooter: false, footerHeight: undefined});
+    expect(store.setState).toHaveBeenCalledWith({
+      hasStickyFooter: false,
+      footerHeight: undefined,
+    });
     (store.setState as jest.Mock<any>).mockClear();
 
-    instance.setProps({sticky: false});
+    instance.setProps({ sticky: false });
 
     expect(window.removeEventListener).toHaveBeenCalledTimes(0);
     (window.removeEventListener as jest.Mock<any>).mockClear();
     expect(store.setState).toHaveBeenCalledTimes(0);
     (store.setState as jest.Mock<any>).mockClear();
 
-    instance.setProps({sticky: true});
+    instance.setProps({ sticky: true });
 
     expect(window.addEventListener).toHaveBeenCalledTimes(1);
     (window.addEventListener as jest.Mock<any>).mockClear();
     expect(store.setState).toHaveBeenCalledTimes(1);
-    expect(store.setState).toHaveBeenCalledWith({hasStickyFooter: true, footerHeight: undefined});
+    expect(store.setState).toHaveBeenCalledWith({
+      hasStickyFooter: true,
+      footerHeight: undefined,
+    });
     (store.setState as jest.Mock<any>).mockClear();
 
-    instance.setProps({sticky: false});
+    instance.setProps({ sticky: false });
 
     expect(window.removeEventListener).toHaveBeenCalledTimes(1);
     (window.removeEventListener as jest.Mock<any>).mockClear();
     expect(store.setState).toHaveBeenCalledTimes(1);
-    expect(store.setState).toHaveBeenCalledWith({hasStickyFooter: false, footerHeight: undefined});
+    expect(store.setState).toHaveBeenCalledWith({
+      hasStickyFooter: false,
+      footerHeight: undefined,
+    });
     (store.setState as jest.Mock<any>).mockClear();
   });
 
@@ -96,14 +102,16 @@ describe('Footer', () => {
   });
 
   it('should update the app root when the window is resized', () => {
-    const handlers: {[i: string]: (() => any) | undefined} = {};
+    const handlers: { [i: string]: (() => any) | undefined } = {};
 
-    (window.addEventListener as jest.Mock<any>).mockImplementation((type: string, callback: () => any) => {
-      if (type === 'resize') {
-        handlers[type] = callback;
-        jest.spyOn(handlers, type);
+    (window.addEventListener as jest.Mock<any>).mockImplementation(
+      (type: string, callback: () => any) => {
+        if (type === 'resize') {
+          handlers[type] = callback;
+          jest.spyOn(handlers, type);
+        }
       }
-    });
+    );
 
     enzyme.mount(<Footer sticky />);
 
@@ -120,16 +128,20 @@ describe('Footer', () => {
     expect(store.setState).toHaveBeenCalledTimes(1);
   });
 
-  it('should notify about the element\'s height', () => {
-    const handlers: {[i: string]: (() => any) | undefined} = {};
+  it("should notify about the element's height", () => {
+    const handlers: { [i: string]: (() => any) | undefined } = {};
 
-    (window.addEventListener as jest.Mock<any>).mockImplementation((type: string, callback: () => any) => {
-      if (type === 'resize') {
-        handlers[type] = callback;
-        jest.spyOn(handlers, type);
+    (window.addEventListener as jest.Mock<any>).mockImplementation(
+      (type: string, callback: () => any) => {
+        if (type === 'resize') {
+          handlers[type] = callback;
+          jest.spyOn(handlers, type);
+        }
       }
-    });
-    jest.spyOn(ReactDOM, 'findDOMNode').mockReturnValue({getBoundingClientRect: () => ({height: 20})});
+    );
+    jest
+      .spyOn(ReactDOM, 'findDOMNode')
+      .mockReturnValue({ getBoundingClientRect: () => ({ height: 20 }) });
 
     enzyme.mount(<Footer sticky />);
 
@@ -149,5 +161,4 @@ describe('Footer', () => {
       footerHeight: 20,
     });
   });
-
 });

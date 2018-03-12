@@ -12,7 +12,7 @@ export type TableCellProps = BaseTableCellProps & HTMLProps<HTMLElement>;
  * See the [Table](#table) section for a full example.
  */
 export class TableCell extends PureComponent<TableCellProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -26,7 +26,7 @@ export class TableCell extends PureComponent<TableCellProps, {}> {
       <Component
         {...remainingProps}
         className={classNames('table-cell', className)}
-        style={{width, maxWidth: width, minWidth: width, ...style}}
+        style={{ width, maxWidth: width, minWidth: width, ...style }}
       >
         {shouldNotBeRendered(children) ? NBSP : children}
       </Component>

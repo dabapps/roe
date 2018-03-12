@@ -20,11 +20,10 @@ declare global {
 }
 
 describe('index file', () => {
-
   beforeEach(() => {
     if (!window.hljs) {
       window.hljs = {
-        highlightBlock: jest.fn()
+        highlightBlock: jest.fn(),
       };
     }
   });
@@ -36,19 +35,30 @@ describe('index file', () => {
   });
 
   describe('components', () => {
-
     it('should all accept a component prop', () => {
-      const exceptions = ['Anchor', 'DabIpsum', 'ModalRenderer', 'Modal', 'Table', 'SideBar'];
+      const exceptions = [
+        'Anchor',
+        'DabIpsum',
+        'ModalRenderer',
+        'Modal',
+        'Table',
+        'SideBar',
+      ];
       type Keys = keyof typeof index;
 
       for (const key in index) {
         if (index.hasOwnProperty(key)) {
           const Component = index[key as Keys];
 
-          const instance = <Component component="p" />;
+          if (Component) {
+            const instance = <Component component="p" />;
 
-          if (exceptions.indexOf(key) < 0 && renderer.create(instance).toJSON().type !== 'p') {
-            throw new Error(`${key} cannot take a component prop. :\'(`);
+            if (
+              exceptions.indexOf(key) < 0 &&
+              renderer.create(instance).toJSON().type !== 'p'
+            ) {
+              throw new Error(`${key} cannot take a component prop. :\'(`);
+            }
           }
         }
       }
@@ -61,13 +71,11 @@ describe('index file', () => {
         if (index.hasOwnProperty(key)) {
           const Component = index[key as Keys];
 
-          if (!(Component.prototype instanceof PureComponent)) {
+          if (Component && !(Component.prototype instanceof PureComponent)) {
             throw new Error(`${key} does not extend PureComponent. :\'(`);
           }
         }
       }
     });
-
   });
-
 });

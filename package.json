@@ -8,11 +8,13 @@
     "start": "styleguidist server",
     "build": "styleguidist build",
     "dist": "./scripts/dist",
+    "prettier": "prettier --write '{src,tests,types,examples,docs}/**/*.ts?(x)'",
+    "prettier-check": "diffs=$(prettier --list-different '{src,tests,types,examples,docs}/**/*.ts?(x)'); if [ ! -z $diffs ]; then echo \"Run 'npm run prettier'\nThe following files need formatting:\n$diffs\" && exit 1; fi;",
     "lint-js": "eslint ./*.js docs/**/*.js && tslint --project tsconfig.json '@(src|tests|types|docs)/**/*.@(ts|tsx)'",
     "lint-less": "lesshint 'src/less/' 'docs/less/'",
     "lint": "npm run lint-js && npm run lint-less",
     "tests": "jest",
-    "test": "npm run lint && npm run tests -- --coverage --runInBand",
+    "test": "npm run prettier-check && npm run lint && npm run tests -- --coverage --runInBand",
     "budo": "budo src/less/index.less examples/index.tsx --live -- -t node-lessify -p [tsify -p examples/tsconfig.json]",
     "prepublish": "./scripts/dist"
   },
@@ -81,6 +83,7 @@
     "livereload": "0.6.2",
     "node-lessify": "0.1.5",
     "postcss-loader": "2.0.7",
+    "prettier": "1.11.1",
     "react-docgen-typescript": "1.2.2",
     "react-scripts-ts": "2.8.0",
     "react-styleguidist": "6.0.33",
@@ -88,7 +91,7 @@
     "style-loader": "0.19.0",
     "ts-jest": "22.4.1",
     "tslint": "5.8.0",
-    "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.3.1",
+    "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.5.1",
     "webpack": "3.7.1"
   },
   "peerDependencies": {

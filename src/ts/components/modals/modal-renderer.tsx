@@ -15,10 +15,8 @@ export interface ModalRendererProps extends HTMLProps<HTMLElement> {
  * See the [Modal](#modal) section for a full example.
  */
 export class ModalRenderer extends PureComponent<ModalRendererProps, {}> {
-  public render () {
-    const {
-      modals,
-    } = this.props;
+  public render() {
+    const { modals } = this.props;
 
     return (
       <CSSTransitionGroup
@@ -26,13 +24,12 @@ export class ModalRenderer extends PureComponent<ModalRendererProps, {}> {
         transitionEnterTimeout={300}
         transitionLeaveTimeout={200}
       >
-        {
-          modals && modals.map((modal, index) => (
+        {modals &&
+          modals.map((modal, index) => (
             <div key={index} className="modal-container">
               {modal}
             </div>
-          ))
-        }
+          ))}
       </CSSTransitionGroup>
     );
   }

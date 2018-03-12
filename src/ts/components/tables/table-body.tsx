@@ -10,7 +10,7 @@ export type TableBodyProps = ComponentProps & HTMLProps<HTMLElement>;
  * See the [Table](#table) section for a full example.
  */
 export class TableBody extends PureComponent<TableBodyProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -19,7 +19,10 @@ export class TableBody extends PureComponent<TableBodyProps, {}> {
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames('table-body', className)}>
+      <Component
+        {...remainingProps}
+        className={classNames('table-body', className)}
+      >
         {children}
       </Component>
     );

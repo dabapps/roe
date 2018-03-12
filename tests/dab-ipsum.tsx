@@ -6,47 +6,36 @@ import { generateIpsum, resetRandomSeed } from '../src/ts/utils';
 import { WORDS } from '../src/ts/words';
 
 describe('DabIpsum', () => {
-
   beforeEach(() => {
     resetRandomSeed();
-  })
+  });
 
   it('should render some paragraphs by default', () => {
-    const tree = renderer.create(
-      <DabIpsum />
-    );
+    const tree = renderer.create(<DabIpsum />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should allow setting how many items to render', () => {
-    const tree = renderer.create(
-      <DabIpsum count={3} />
-    );
+    const tree = renderer.create(<DabIpsum count={3} />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should allow rendering an unordered list', () => {
-    const tree = renderer.create(
-      <DabIpsum component="ul" />
-    );
+    const tree = renderer.create(<DabIpsum component="ul" />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should allow rendering an ordered list', () => {
-    const tree = renderer.create(
-      <DabIpsum component="ol" />
-    );
+    const tree = renderer.create(<DabIpsum component="ol" />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should allow rendering plain text (in a span)', () => {
-    const tree = renderer.create(
-      <DabIpsum component="text" />
-    );
+    const tree = renderer.create(<DabIpsum component="text" />);
 
     expect(tree).toMatchSnapshot();
   });
@@ -58,11 +47,16 @@ describe('DabIpsum', () => {
   });
 
   it('should only update if type or count changed', () => {
-    const instance = new DabIpsum({component: 'text', count: 1});
+    const instance = new DabIpsum({ component: 'text', count: 1 });
 
-    expect(instance.shouldComponentUpdate({component: 'text', count: 1})).toBe(false);
-    expect(instance.shouldComponentUpdate({component: 'p', count: 1})).toBe(true);
-    expect(instance.shouldComponentUpdate({component: 'text', count: 2})).toBe(true);
+    expect(
+      instance.shouldComponentUpdate({ component: 'text', count: 1 })
+    ).toBe(false);
+    expect(instance.shouldComponentUpdate({ component: 'p', count: 1 })).toBe(
+      true
+    );
+    expect(
+      instance.shouldComponentUpdate({ component: 'text', count: 2 })
+    ).toBe(true);
   });
-
 });

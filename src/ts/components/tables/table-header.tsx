@@ -12,7 +12,7 @@ export type TableHeaderProps = BaseTableCellProps & HTMLProps<HTMLElement>;
  * See the [Table](#table) section for a full example.
  */
 export class TableHeader extends PureComponent<TableHeaderProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -26,7 +26,7 @@ export class TableHeader extends PureComponent<TableHeaderProps, {}> {
       <Component
         {...remainingProps}
         className={classNames('table-header', className)}
-        style={{width, maxWidth: width, minWidth: width, ...style}}
+        style={{ width, maxWidth: width, minWidth: width, ...style }}
       >
         {shouldNotBeRendered(children) ? NBSP : children}
       </Component>

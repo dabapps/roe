@@ -4,18 +4,13 @@ import * as renderer from 'react-test-renderer';
 import { ContentBox, ContentBoxFooter, ContentBoxHeader } from '../src/ts/';
 
 describe('ContentBox', () => {
-
   it('should match snapshot', () => {
     const tree = renderer.create(
       <ContentBox>
         <ContentBoxHeader>
-          <h1>
-            Header
-          </h1>
+          <h1>Header</h1>
         </ContentBoxHeader>
-        <p>
-          Content
-        </p>
+        <p>Content</p>
       </ContentBox>
     );
 
@@ -23,35 +18,24 @@ describe('ContentBox', () => {
   });
 
   it('should take regular element attributes', () => {
-    const tree = renderer.create(
-      <ContentBox className="my-class" />
-    );
+    const tree = renderer.create(<ContentBox className="my-class" />);
 
     expect(tree).toMatchSnapshot();
   });
-
 });
 
 describe('ContentBoxHeader', () => {
-
   it('should take regular element attributes', () => {
-    const tree = renderer.create(
-      <ContentBoxHeader className="my-class" />
-    );
+    const tree = renderer.create(<ContentBoxHeader className="my-class" />);
 
     expect(tree).toMatchSnapshot();
   });
-
 });
 
 describe('ContentBoxFooter', () => {
-
   it('should take regular element attributes', () => {
-    const tree = renderer.create(
-      <ContentBoxFooter className="my-class" />
-    );
+    const tree = renderer.create(<ContentBoxFooter className="my-class" />);
 
     expect(tree).toMatchSnapshot();
   });
-
 });

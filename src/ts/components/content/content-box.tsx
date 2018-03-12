@@ -9,7 +9,7 @@ export type ContentBoxProps = ComponentProps & HTMLProps<HTMLElement>;
  * Box for displaying content within.
  */
 export class ContentBox extends PureComponent<ContentBoxProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -18,7 +18,10 @@ export class ContentBox extends PureComponent<ContentBoxProps, {}> {
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames('content-box', className)}>
+      <Component
+        {...remainingProps}
+        className={classNames('content-box', className)}
+      >
         {children}
       </Component>
     );

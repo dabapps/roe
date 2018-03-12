@@ -9,7 +9,7 @@ export type TabsProps = ComponentProps & HTMLProps<HTMLElement>;
  * Used to contain a set of `Tab` components.
  */
 export class Tabs extends PureComponent<TabsProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
