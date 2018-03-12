@@ -20,11 +20,10 @@ declare global {
 }
 
 describe('index file', () => {
-
   beforeEach(() => {
     if (!window.hljs) {
       window.hljs = {
-        highlightBlock: jest.fn()
+        highlightBlock: jest.fn(),
       };
     }
   });
@@ -36,9 +35,15 @@ describe('index file', () => {
   });
 
   describe('components', () => {
-
     it('should all accept a component prop', () => {
-      const exceptions = ['Anchor', 'DabIpsum', 'ModalRenderer', 'Modal', 'Table', 'SideBar'];
+      const exceptions = [
+        'Anchor',
+        'DabIpsum',
+        'ModalRenderer',
+        'Modal',
+        'Table',
+        'SideBar',
+      ];
       type Keys = keyof typeof index;
 
       for (const key in index) {
@@ -47,7 +52,10 @@ describe('index file', () => {
 
           const instance = <Component component="p" />;
 
-          if (exceptions.indexOf(key) < 0 && renderer.create(instance).toJSON().type !== 'p') {
+          if (
+            exceptions.indexOf(key) < 0 &&
+            renderer.create(instance).toJSON().type !== 'p'
+          ) {
             throw new Error(`${key} cannot take a component prop. :\'(`);
           }
         }
@@ -67,7 +75,5 @@ describe('index file', () => {
         }
       }
     });
-
   });
-
 });

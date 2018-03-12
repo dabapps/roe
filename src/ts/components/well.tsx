@@ -9,7 +9,7 @@ export type WellProps = ComponentProps & HTMLProps<HTMLElement>;
  * Stylistic content container.
  */
 export class Well extends PureComponent<WellProps, {}> {
-  public render () {
+  public render() {
     const {
       children,
       className,
@@ -18,7 +18,10 @@ export class Well extends PureComponent<WellProps, {}> {
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames(['well', className])}>
+      <Component
+        {...remainingProps}
+        className={classNames(['well', className])}
+      >
         {children}
       </Component>
     );

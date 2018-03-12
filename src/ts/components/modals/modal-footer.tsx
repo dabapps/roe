@@ -10,7 +10,7 @@ export type ModalFooterProps = ComponentProps & HTMLProps<HTMLElement>;
  * See the [Modal](#modal) section for a full example.
  */
 export class ModalFooter extends PureComponent<ModalFooterProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -19,7 +19,10 @@ export class ModalFooter extends PureComponent<ModalFooterProps, {}> {
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames('modal-footer', className)}>
+      <Component
+        {...remainingProps}
+        className={classNames('modal-footer', className)}
+      >
         {children}
       </Component>
     );

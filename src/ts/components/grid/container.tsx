@@ -18,7 +18,7 @@ export interface ContainerProps extends ComponentProps, HTMLProps<HTMLElement> {
  * Used inside `NavBar`s or as the main wrapper for an application.
  */
 export class Container extends PureComponent<ContainerProps, {}> {
-  public render () {
+  public render() {
     const {
       children,
       className,
@@ -31,7 +31,10 @@ export class Container extends PureComponent<ContainerProps, {}> {
     const solidClassName = solid && 'solid';
 
     return (
-      <Component {...remainingProps} className={classNames(fluidClassName, solidClassName, className)}>
+      <Component
+        {...remainingProps}
+        className={classNames(fluidClassName, solidClassName, className)}
+      >
         {children}
       </Component>
     );

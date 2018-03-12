@@ -51,7 +51,7 @@ export interface TableProps extends ComponentProps, HTMLProps<HTMLElement> {
  * Table component with additional styles & functionality.
  */
 export class Table extends PureComponent<TableProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -79,17 +79,14 @@ export class Table extends PureComponent<TableProps, {}> {
       condensed ? 'condensed' : null,
       fill ? 'fill' : null,
       fixed ? 'fixed' : null,
-      className
+      className,
     ];
 
     return (
       <div className="table-wrapper">
-        <div style={{paddingLeft: fixRowHeaders ? rowHeaderWidth : null}}>
+        <div style={{ paddingLeft: fixRowHeaders ? rowHeaderWidth : null }}>
           <div className={scrollable ? 'table-scroller' : undefined}>
-            <Component
-              {...remainingProps}
-              className={classNames(myClassNames)}
-            >
+            <Component {...remainingProps} className={classNames(myClassNames)}>
               {children}
             </Component>
           </div>

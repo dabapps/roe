@@ -10,7 +10,7 @@ export type ModalBodyProps = ComponentProps & HTMLProps<HTMLElement>;
  * See the [Modal](#modal) section for a full example.
  */
 export class ModalBody extends PureComponent<ModalBodyProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -19,7 +19,10 @@ export class ModalBody extends PureComponent<ModalBodyProps, {}> {
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames('modal-body', className)}>
+      <Component
+        {...remainingProps}
+        className={classNames('modal-body', className)}
+      >
         {children}
       </Component>
     );

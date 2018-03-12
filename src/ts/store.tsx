@@ -1,6 +1,8 @@
 import * as React from 'react';
 
-export type ComponentType<P> = React.ComponentClass<P> | React.StatelessComponent<P>;
+export type ComponentType<P> =
+  | React.ComponentClass<P>
+  | React.StatelessComponent<P>;
 
 export type StoreState = Partial<{
   hasFixedNavBar: boolean;
@@ -15,7 +17,7 @@ export class Store {
   private state: StoreState = {};
   private listeners: StoreListener[] = [];
 
-  public constructor (initialState: StoreState = {}) {
+  public constructor(initialState: StoreState = {}) {
     this.state = initialState;
   }
 
@@ -27,14 +29,14 @@ export class Store {
       }
     }
 
-    this.listeners.forEach((listener) => {
-      listener({...this.state});
+    this.listeners.forEach(listener => {
+      listener({ ...this.state });
     });
-  }
+  };
 
   public getState = () => {
-    return {...this.state};
-  }
+    return { ...this.state };
+  };
 
   public subscribe = (listener: StoreListener) => {
     if (this.listeners.indexOf(listener) < 0) {
@@ -42,7 +44,7 @@ export class Store {
     }
 
     return this.createUnsubscriber(listener);
-  }
+  };
 
   private createUnsubscriber = (listener: StoreListener) => () => {
     const index = this.listeners.indexOf(listener);
@@ -50,7 +52,7 @@ export class Store {
     if (index >= 0) {
       this.listeners.splice(index, 1);
     }
-  }
+  };
 }
 
 export default new Store();

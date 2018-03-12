@@ -13,15 +13,22 @@ export const formatCode = (code: string) => {
     .replace(MATCHES_BLANK_FIRST_LINE, '')
     .replace(MATCHES_BLANK_LAST_LINE, '');
 
-  const initialIndentation: RegExpExecArray | null =
-    MATCHES_INITIAL_INDENTATION.exec(codeWithoutLeadingOrTrailingEmptyLines);
+  const initialIndentation: RegExpExecArray | null = MATCHES_INITIAL_INDENTATION.exec(
+    codeWithoutLeadingOrTrailingEmptyLines
+  );
 
-  return initialIndentation ?
-    codeWithoutLeadingOrTrailingEmptyLines.replace(new RegExp(`^${initialIndentation[1]}`, 'gm'), '') :
-    codeWithoutLeadingOrTrailingEmptyLines;
-}
+  return initialIndentation
+    ? codeWithoutLeadingOrTrailingEmptyLines.replace(
+        new RegExp(`^${initialIndentation[1]}`, 'gm'),
+        ''
+      )
+    : codeWithoutLeadingOrTrailingEmptyLines;
+};
 
-export const getHref = (children?: React.ReactNode, href?: string): string | undefined => {
+export const getHref = (
+  children?: React.ReactNode,
+  href?: string
+): string | undefined => {
   if (href) {
     return href;
   }
@@ -35,27 +42,33 @@ export const getHref = (children?: React.ReactNode, href?: string): string | und
     .replace(MATCHES_NON_WORD_CHARACTERS, '-')
     .replace(MATCHES_LEADING_AND_TRAILING_HYPHENS, '')
     .toLowerCase();
-}
+};
 
 let rand = randomSeed.create('dabapps');
 
 export const resetRandomSeed = () => {
   rand = randomSeed.create('dabapps');
-}
+};
 
 export const generateIpsum = (words: string[]) => {
-  const ipsum = Array.apply(null, new Array(15)).map(() => (
-    words[Math.floor(rand.range(words.length))]
-  )).join(' ');
+  const ipsum = Array.apply(null, new Array(15))
+    .map(() => words[Math.floor(rand.range(words.length))])
+    .join(' ');
 
   return ipsum.charAt(0).toUpperCase() + ipsum.substring(1) + '.';
-}
+};
 
 export const shouldNotBeRendered = (children: any) => {
-  return children === false || children === null || children === undefined || children === '';
-}
+  return (
+    children === false ||
+    children === null ||
+    children === undefined ||
+    children === ''
+  );
+};
 
-export const isValidColumnNumber = (value?: number) => typeof value === 'number' && value === +value;
+export const isValidColumnNumber = (value?: number) =>
+  typeof value === 'number' && value === +value;
 
 export const getScrollOffset = () => {
   const doc = document.documentElement;
@@ -66,4 +79,4 @@ export const getScrollOffset = () => {
     x: left,
     y: top,
   };
-}
+};

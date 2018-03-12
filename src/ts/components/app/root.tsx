@@ -6,7 +6,10 @@ import { ComponentProps } from '../../types';
 
 export type AppRootProps = HTMLProps<HTMLElement> & ComponentProps;
 
-export type AppRootState = Pick<StoreState, 'hasStickyFooter' | 'hasFixedNavBar' | 'navBarHeight' | 'footerHeight'>
+export type AppRootState = Pick<
+  StoreState,
+  'hasStickyFooter' | 'hasFixedNavBar' | 'navBarHeight' | 'footerHeight'
+>;
 
 /**
  * This is the most important part of your app.
@@ -20,38 +23,35 @@ export type AppRootState = Pick<StoreState, 'hasStickyFooter' | 'hasFixedNavBar'
  */
 export class AppRoot extends PureComponent<AppRootProps, AppRootState> {
   private unsubscribe: () => void;
-  public constructor (props: AppRootProps) {
+  public constructor(props: AppRootProps) {
     super(props);
 
     this.state = store.getState();
   }
 
-  public componentWillMount () {
-    this.unsubscribe = store.subscribe(({
-      hasStickyFooter,
-      hasFixedNavBar,
-      navBarHeight,
-      footerHeight,
-    }) => {
-      this.setState({
-        hasStickyFooter,
-        hasFixedNavBar,
-        navBarHeight,
-        footerHeight,
-      });
-    });
+  public componentWillMount() {
+    this.unsubscribe = store.subscribe(
+      ({ hasStickyFooter, hasFixedNavBar, navBarHeight, footerHeight }) => {
+        this.setState({
+          hasStickyFooter,
+          hasFixedNavBar,
+          navBarHeight,
+          footerHeight,
+        });
+      }
+    );
   }
 
-  public componentWillUnmount () {
+  public componentWillUnmount() {
     this.unsubscribe();
   }
 
-  public render () {
+  public render() {
     const {
       component: Component = 'div',
       children,
       className,
-      ...remainingProps,
+      ...remainingProps
     } = this.props;
 
     const {
@@ -63,8 +63,8 @@ export class AppRoot extends PureComponent<AppRootProps, AppRootState> {
 
     const myClassNames = [
       'app-root',
-      hasStickyFooter && 'has-sticky-footer' || null,
-      hasFixedNavBar && 'has-fixed-nav-bar' || null,
+      (hasStickyFooter && 'has-sticky-footer') || null,
+      (hasFixedNavBar && 'has-fixed-nav-bar') || null,
       className,
     ];
 

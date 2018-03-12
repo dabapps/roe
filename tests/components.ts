@@ -15,27 +15,31 @@ const getAllComponents = (directory: string): string[] => {
 
   const files = fs.readdirSync(directory);
 
-  return files.reduce((memo, file) => {
-    const filePath = path.join(directory, file);
+  return files
+    .reduce(
+      (memo, file) => {
+        const filePath = path.join(directory, file);
 
-    if (fs.statSync(filePath).isDirectory()) {
-      return memo.concat(getAllComponents(filePath));
-    }
+        if (fs.statSync(filePath).isDirectory()) {
+          return memo.concat(getAllComponents(filePath));
+        }
 
-    if (MATCHES_COMPONENT.test(filePath)) {
-      return memo.concat(filePath);
-    }
+        if (MATCHES_COMPONENT.test(filePath)) {
+          return memo.concat(filePath);
+        }
 
-    return memo;
-  }, [] as string[]).sort();
+        return memo;
+      },
+      [] as string[]
+    )
+    .sort();
 };
 
 describe('components', () => {
-
   const components = getAllComponents(COMPONENTS_DIR);
 
   it('should all export a named class and the same class as default (for styleguidist)', () => {
-    components.forEach((filePath) => {
+    components.forEach(filePath => {
       const content = fs.readFileSync(filePath, UTF8);
 
       const defaultExport = MATCHES_DEFAULT_EXPORT.exec(content);
@@ -44,16 +48,23 @@ describe('components', () => {
         throw new Error(`No default export in component at ${filePath}`);
       }
 
-      const classRegex = new RegExp(`^export (class|const) ${defaultExport[1]}`, 'm');
+      const classRegex = new RegExp(
+        `^export (class|const) ${defaultExport[1]}`,
+        'm'
+      );
 
       if (!classRegex.test(content)) {
-        throw new Error(`Default export ${defaultExport[0]} is not exported as a named class or const at ${filePath}`);
+        throw new Error(
+          `Default export ${
+            defaultExport[0]
+          } is not exported as a named class or const at ${filePath}`
+        );
       }
     });
   });
 
   it('should all be exported from the index file', () => {
-    components.forEach((filePath) => {
+    components.forEach(filePath => {
       const content = fs.readFileSync(filePath, UTF8);
 
       const defaultExport = MATCHES_DEFAULT_EXPORT.exec(content);
@@ -68,13 +79,20 @@ describe('components', () => {
 
       const indexContent = fs.readFileSync(INDEX_FILE_PATH, UTF8);
 
-      const indexRegex =
-        new RegExp(`^export\\s{\\sdefault\\sas\\s${defaultExport[1]}\\s}\\sfrom\\s'[a-z/.-]+';$`, 'm');
+      const indexRegex = new RegExp(
+        `^export\\s{\\sdefault\\sas\\s${
+          defaultExport[1]
+        }\\s}\\sfrom\\s'[a-z/.-]+';$`,
+        'm'
+      );
 
       if (!indexRegex.test(indexContent)) {
-        throw new Error(`Component ${defaultExport[1]} is not exported from default at ${INDEX_FILE_PATH}`);
+        throw new Error(
+          `Component ${
+            defaultExport[1]
+          } is not exported from default at ${INDEX_FILE_PATH}`
+        );
       }
     });
   });
-
 });

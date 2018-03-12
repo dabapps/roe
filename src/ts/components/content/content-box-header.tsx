@@ -10,7 +10,7 @@ export type ContentBoxHeaderProps = ComponentProps & HTMLProps<HTMLElement>;
  * See the [ContentBox](#contentbox) section for a full example.
  */
 export class ContentBoxHeader extends PureComponent<ContentBoxHeaderProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -19,7 +19,10 @@ export class ContentBoxHeader extends PureComponent<ContentBoxHeaderProps, {}> {
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames('content-box-header', className)}>
+      <Component
+        {...remainingProps}
+        className={classNames('content-box-header', className)}
+      >
         {children}
       </Component>
     );

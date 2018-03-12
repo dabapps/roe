@@ -16,7 +16,7 @@ export interface TabProps extends ComponentProps, HTMLProps<HTMLElement> {
  * See the [Tabs](#tabs) section for a full example.
  */
 export class Tab extends PureComponent<TabProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -26,7 +26,10 @@ export class Tab extends PureComponent<TabProps, {}> {
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames('tab', active && 'active', className)}>
+      <Component
+        {...remainingProps}
+        className={classNames('tab', active && 'active', className)}
+      >
         {children}
       </Component>
     );

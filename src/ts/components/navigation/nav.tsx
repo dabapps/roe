@@ -12,12 +12,12 @@ export interface NavProps extends ComponentProps, HTMLProps<HTMLElement> {}
  * The same Nav can be used in both a NavBar and SideBar, and will automatically style itself sensibly.
  */
 export class Nav extends PureComponent<NavProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
       component: Component = 'ul',
-      ...remainingProps,
+      ...remainingProps
     } = this.props;
 
     return (

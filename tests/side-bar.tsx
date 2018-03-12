@@ -3,13 +3,9 @@ import * as renderer from 'react-test-renderer';
 import SideBar from '../src/ts/components/navigation/side-bar';
 
 describe('SideBar', () => {
-
   it('should match snapshot', () => {
     const tree = renderer.create(
-      <SideBar
-        position="left"
-        onClickOutside={jest.fn()}
-      />
+      <SideBar position="left" onClickOutside={jest.fn()} />
     );
 
     expect(tree).toMatchSnapshot();
@@ -17,10 +13,7 @@ describe('SideBar', () => {
 
   it('should match snapshot right', () => {
     const tree = renderer.create(
-      <SideBar
-        position="right"
-        onClickOutside={jest.fn()}
-      />
+      <SideBar position="right" onClickOutside={jest.fn()} />
     );
 
     expect(tree).toMatchSnapshot();
@@ -40,11 +33,7 @@ describe('SideBar', () => {
 
   it('should match snapshot when open', () => {
     const tree = renderer.create(
-      <SideBar
-        open
-        position="left"
-        onClickOutside={jest.fn()}
-      />
+      <SideBar open position="left" onClickOutside={jest.fn()} />
     );
 
     expect(tree).toMatchSnapshot();
@@ -52,11 +41,7 @@ describe('SideBar', () => {
 
   it('should apply no-shadow class', () => {
     const tree = renderer.create(
-      <SideBar
-        noShadow
-        position="left"
-        onClickOutside={jest.fn()}
-      />
+      <SideBar noShadow position="left" onClickOutside={jest.fn()} />
     );
 
     expect(tree).toMatchSnapshot();
@@ -64,14 +49,9 @@ describe('SideBar', () => {
 
   it('should accept a component props', () => {
     const tree = renderer.create(
-      <SideBar
-        component="ul"
-        position="left"
-        onClickOutside={jest.fn()}
-      />
+      <SideBar component="ul" position="left" onClickOutside={jest.fn()} />
     );
 
     expect(tree).toMatchSnapshot();
   });
-
 });

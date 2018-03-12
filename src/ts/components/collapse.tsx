@@ -9,7 +9,9 @@ const DEFAULT_DURATION = 200;
 const DEFAULT_FADE_HEIGHT = 50;
 const DEFAULT_FADE_COLOR = '#FFF';
 
-export interface CollapseProps extends ComponentProps, React.HTMLAttributes<HTMLDivElement> {
+export interface CollapseProps
+  extends ComponentProps,
+    React.HTMLAttributes<HTMLDivElement> {
   /**
    * Whether the collapse is open or not
    * @default false
@@ -42,7 +44,8 @@ export interface CollapseProps extends ComponentProps, React.HTMLAttributes<HTML
   fadeHeight?: number;
 }
 
-export interface CollapseState { // tslint:disable-line:no-unused-variable
+export interface CollapseState {
+  // tslint:disable-line:no-unused-variable
   height: number;
   opened: boolean;
   opening: boolean;
@@ -55,7 +58,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
   private element: Element;
   private timeout: number;
 
-  public constructor (props: CollapseProps) {
+  public constructor(props: CollapseProps) {
     super(props);
 
     const { maxCollapsedHeight = DEFAULT_HEIGHT, open } = props;
@@ -63,52 +66,59 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
     this.state = {
       height: maxCollapsedHeight,
       opening: false,
-      opened: open
+      opened: open,
     };
   }
 
-  public componentDidUpdate (previousProps: CollapseProps) {
+  public componentDidUpdate(previousProps: CollapseProps) {
     if (this.props.open !== previousProps.open) {
       window.clearTimeout(this.timeout);
 
-      const { maxCollapsedHeight = DEFAULT_HEIGHT, animationDuration = DEFAULT_DURATION } = this.props;
+      const {
+        maxCollapsedHeight = DEFAULT_HEIGHT,
+        animationDuration = DEFAULT_DURATION,
+      } = this.props;
 
       this.setState({
         opened: false,
         opening: previousProps.open,
-        height: this.props.open ? maxCollapsedHeight : this.element.scrollHeight
+        height: this.props.open
+          ? maxCollapsedHeight
+          : this.element.scrollHeight,
       });
 
       this.timeout = window.setTimeout(() => {
         this.setState({
           opened: false,
           opening: this.props.open,
-          height: this.props.open ? this.element.scrollHeight : maxCollapsedHeight
+          height: this.props.open
+            ? this.element.scrollHeight
+            : maxCollapsedHeight,
         });
 
         this.timeout = window.setTimeout(() => {
           this.setState({
             opened: this.props.open,
-            opening: this.props.open
+            opening: this.props.open,
           });
         }, animationDuration);
       }, ENOUGH_TIME_FOR_RERENDER);
     }
   }
 
-  public componentDidMount () {
+  public componentDidMount() {
     const { maxCollapsedHeight = DEFAULT_HEIGHT } = this.props;
 
     this.setState({
-      height: this.props.open ? this.element.scrollHeight : maxCollapsedHeight
+      height: this.props.open ? this.element.scrollHeight : maxCollapsedHeight,
     });
   }
 
-  public componentWillUnmount () {
+  public componentWillUnmount() {
     window.clearTimeout(this.timeout);
   }
 
-  public render () {
+  public render() {
     const {
       children,
       className,
@@ -128,7 +138,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       height: opened ? 'auto' : height,
       position: 'relative' as 'relative',
       overflow: 'hidden' as 'hidden',
-      transition: `ease-in-out ${animationDuration}ms height`
+      transition: `ease-in-out ${animationDuration}ms height`,
     };
 
     const fadeStyle = {
@@ -138,25 +148,23 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       bottom: 0,
       opacity: opening ? 0 : 1,
       background: `linear-gradient(transparent, ${fadeColor} 80%)`,
-      transition: `ease-in-out ${animationDuration}ms opacity`
+      transition: `ease-in-out ${animationDuration}ms opacity`,
     };
 
     return (
       <Component
-        ref={(element: HTMLDivElement) => this.element = element}
+        ref={(element: HTMLDivElement) => (this.element = element)}
         {...remainingProps}
-        className={classNames('clearfix collapse', open ? 'collapse-open' : null, className)}
+        className={classNames(
+          'clearfix collapse',
+          open ? 'collapse-open' : null,
+          className
+        )}
         style={collapseStyle}
       >
         {children}
-        {
-          fadeOut && !opened && (
-            <div
-              className="collapse-fade"
-              style={fadeStyle}
-            />
-          )
-        }
+        {fadeOut &&
+          !opened && <div className="collapse-fade" style={fadeStyle} />}
       </Component>
     );
   }

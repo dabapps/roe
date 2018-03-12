@@ -9,7 +9,7 @@ export type InputGroupAddonProps = ComponentProps & HTMLProps<HTMLElement>;
  * Used to display additional context within an `InputGroup`.
  */
 export class InputGroupAddon extends PureComponent<InputGroupAddonProps, {}> {
-  public render () {
+  public render() {
     const {
       children,
       className,
@@ -23,7 +23,7 @@ export class InputGroupAddon extends PureComponent<InputGroupAddonProps, {}> {
       <Component
         {...remainingProps}
         className={classNames('input-group-addon', className)}
-        style={{width, ...style}}
+        style={{ width, ...style }}
       >
         {children}
       </Component>

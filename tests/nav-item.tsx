@@ -3,7 +3,6 @@ import * as renderer from 'react-test-renderer';
 import NavItem from '../src/ts/components/navigation/nav-item';
 
 describe('NavItem', () => {
-
   it('should match snapshot', () => {
     const tree = renderer.create(<NavItem />);
 
@@ -21,5 +20,4 @@ describe('NavItem', () => {
 
     expect(tree).toMatchSnapshot();
   });
-
 });

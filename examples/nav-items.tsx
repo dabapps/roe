@@ -1,40 +1,25 @@
 import * as React from 'react';
-import {
-  Nav,
-  NavItem,
-} from '../src/ts/';
+import { Nav, NavItem } from '../src/ts/';
 
-const NavItems = ({className}: {className?: string}) => (
+const NavItems = ({ className }: { className?: string }) => (
   <Nav className={className}>
     <NavItem active>
-      <a href="#">
-        One
-      </a>
+      <a href="#">One</a>
     </NavItem>
     <NavItem>
-      <a href="#">
-        Two
-      </a>
+      <a href="#">Two</a>
     </NavItem>
     <NavItem>
-      <a href="#">
-        Three
-      </a>
+      <a href="#">Three</a>
     </NavItem>
     <NavItem>
-      <a href="#">
-        Four
-      </a>
+      <a href="#">Four</a>
     </NavItem>
     <NavItem>
-      <a href="#">
-        Five
-      </a>
+      <a href="#">Five</a>
     </NavItem>
     <NavItem className="button hollow">
-      <a href="#">
-        Logout
-      </a>
+      <a href="#">Logout</a>
     </NavItem>
   </Nav>
 );

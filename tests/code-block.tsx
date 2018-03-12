@@ -16,14 +16,13 @@ declare global {
 }
 
 describe('CodeBlock', () => {
-
   beforeEach(() => {
     if (!window.hljs) {
       window.hljs = {
-        highlightBlock: jest.fn()
+        highlightBlock: jest.fn(),
       };
     }
-  })
+  });
 
   afterEach(() => {
     if (window.hljs) {
@@ -32,17 +31,13 @@ describe('CodeBlock', () => {
   });
 
   it('should match snapshot', () => {
-    const tree = renderer.create(
-      <CodeBlock />
-    );
+    const tree = renderer.create(<CodeBlock />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should take an optional language prop', () => {
-    const tree = renderer.create(
-      <CodeBlock language="javascript" />
-    );
+    const tree = renderer.create(<CodeBlock language="javascript" />);
 
     expect(tree).toMatchSnapshot();
   });
@@ -57,9 +52,7 @@ describe('CodeBlock', () => {
 
   it('should handle empty code snippets', () => {
     const tree = renderer.create(
-      <CodeBlock language="javascript">
-        {''}
-      </CodeBlock>
+      <CodeBlock language="javascript">{''}</CodeBlock>
     );
 
     expect(tree).toMatchSnapshot();
@@ -69,7 +62,7 @@ describe('CodeBlock', () => {
     // Correct indentation
     let tree = renderer.create(
       <CodeBlock>
-{`<p>
+        {`<p>
   Hello, World!
 </p>`}
       </CodeBlock>
@@ -96,11 +89,7 @@ describe('CodeBlock', () => {
 
   it('should remove weird indentation from single line snippets', () => {
     // Correct indentation
-    let tree = renderer.create(
-      <CodeBlock>
-        {`console.log('test')`}
-      </CodeBlock>
-    );
+    let tree = renderer.create(<CodeBlock>{`console.log('test')`}</CodeBlock>);
 
     expect(tree).toMatchSnapshot();
 
@@ -125,12 +114,12 @@ describe('CodeBlock', () => {
       </p>
     `;
 
-    const instance = new CodeBlock({children});
+    const instance = new CodeBlock({ children });
     const element = document.createElement('pre');
 
     instance.highlightBlock(element);
-    instance.componentDidUpdate({children});
-    instance.componentDidUpdate({children: 'Different children'});
+    instance.componentDidUpdate({ children });
+    instance.componentDidUpdate({ children: 'Different children' });
   });
 
   it('should highlight its contents', () => {
@@ -140,14 +129,16 @@ describe('CodeBlock', () => {
       </p>
     `;
 
-    const instance = new CodeBlock({children});
+    const instance = new CodeBlock({ children });
     const element = document.createElement('pre');
 
     expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled();
 
     instance.highlightBlock(element);
 
-    expect(window.hljs && window.hljs.highlightBlock).toHaveBeenCalledWith(element);
+    expect(window.hljs && window.hljs.highlightBlock).toHaveBeenCalledWith(
+      element
+    );
   });
 
   it('should highlight its contents on update', () => {
@@ -157,20 +148,21 @@ describe('CodeBlock', () => {
       </p>
     `;
 
-    const instance = new CodeBlock({children});
+    const instance = new CodeBlock({ children });
     const element = document.createElement('pre');
 
-    expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled()
+    expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled();
 
     instance.element = element;
 
-    instance.componentDidUpdate({children});
+    instance.componentDidUpdate({ children });
 
-    expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled()
+    expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled();
 
-    instance.componentDidUpdate({children: 'Different children'});
+    instance.componentDidUpdate({ children: 'Different children' });
 
-    expect(window.hljs && window.hljs.highlightBlock).toHaveBeenCalledWith(element);
+    expect(window.hljs && window.hljs.highlightBlock).toHaveBeenCalledWith(
+      element
+    );
   });
-
 });

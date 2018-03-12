@@ -4,21 +4,15 @@ import * as renderer from 'react-test-renderer';
 import { Well } from '../src/ts/';
 
 describe('Well', () => {
-
   it('should match snapshot', () => {
-    const tree = renderer.create(
-      <Well />
-    );
+    const tree = renderer.create(<Well />);
 
     expect(tree).toMatchSnapshot();
   });
 
   it('should take regular element attributes', () => {
-    const tree = renderer.create(
-      <Well className="my-class" />
-    );
+    const tree = renderer.create(<Well className="my-class" />);
 
     expect(tree).toMatchSnapshot();
   });
-
 });

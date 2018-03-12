@@ -13,51 +13,56 @@ export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
 }
 
 export class Footer extends PureComponent<FooterProps, {}> {
-  public componentDidMount () {
+  public componentDidMount() {
     this.notifyAppRoot(this.props);
     this.toggleResizeListeners(this.props);
   }
 
-  public componentWillUpdate (nextProps: FooterProps) {
+  public componentWillUpdate(nextProps: FooterProps) {
     if (Boolean(this.props.sticky) !== Boolean(nextProps.sticky)) {
       this.notifyAppRoot(nextProps);
       this.toggleResizeListeners(nextProps);
     }
   }
 
-  public componentWillUnmount () {
+  public componentWillUnmount() {
     window.removeEventListener('resize', this.updateAppRoot);
-    this.notifyAppRoot({sticky: false});
+    this.notifyAppRoot({ sticky: false });
   }
 
-  public render () {
+  public render() {
     const {
       sticky,
       component: Component = 'div',
       children,
-      ...remainingProps,
+      ...remainingProps
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames('footer', sticky && 'sticky')}>
+      <Component
+        {...remainingProps}
+        className={classNames('footer', sticky && 'sticky')}
+      >
         {children}
       </Component>
     );
   }
 
-  private notifyAppRoot (props: FooterProps) {
+  private notifyAppRoot(props: FooterProps) {
     const { sticky } = props;
     const element = ReactDOM.findDOMNode(this);
 
     store.setState({
       hasStickyFooter: Boolean(sticky),
-      footerHeight: element ? element.getBoundingClientRect().height : undefined,
+      footerHeight: element
+        ? element.getBoundingClientRect().height
+        : undefined,
     });
   }
 
   private updateAppRoot = () => {
     this.notifyAppRoot(this.props);
-  }
+  };
 
   private toggleResizeListeners(props: FooterProps) {
     const { sticky } = props;

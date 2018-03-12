@@ -3,7 +3,9 @@ import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 
-export interface InputGroupProps extends ComponentProps, HTMLProps<HTMLElement> {
+export interface InputGroupProps
+  extends ComponentProps,
+    HTMLProps<HTMLElement> {
   /**
    * Set the style `display: block;` so the group fills its parent.
    */
@@ -14,7 +16,7 @@ export interface InputGroupProps extends ComponentProps, HTMLProps<HTMLElement> 
  * Used to group inputs, selects, buttons, and `InputGroupAddon`s.
  */
 export class InputGroup extends PureComponent<InputGroupProps, {}> {
-  public render () {
+  public render() {
     const {
       children,
       className,
@@ -23,11 +25,7 @@ export class InputGroup extends PureComponent<InputGroupProps, {}> {
       ...remainingProps
     } = this.props;
 
-    const myClassNames = [
-      'input-group',
-      block ? 'block' : null,
-      className
-    ];
+    const myClassNames = ['input-group', block ? 'block' : null, className];
 
     return (
       <Component {...remainingProps} className={classNames(myClassNames)}>

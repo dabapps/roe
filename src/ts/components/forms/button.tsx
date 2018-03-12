@@ -22,7 +22,7 @@ export interface ButtonProps extends ComponentProps, HTMLProps<HTMLElement> {
  * Used in place of a standard `button` tag, this component adds additional styles and effects.
  */
 export class Button extends PureComponent<ButtonProps, {}> {
-  public render () {
+  public render() {
     const {
       children,
       className,
@@ -38,7 +38,7 @@ export class Button extends PureComponent<ButtonProps, {}> {
       block ? 'block' : null,
       small ? 'small' : null,
       large ? 'large' : null,
-      className
+      className,
     ];
 
     return (

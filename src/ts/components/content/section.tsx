@@ -10,7 +10,7 @@ export type SectionProps = ComponentProps & HTMLProps<HTMLElement>;
  * Should only be used inside `ContentBox`s or `Column`s.
  */
 export class Section extends PureComponent<SectionProps, {}> {
-  public render () {
+  public render() {
     const {
       children,
       className,
@@ -19,7 +19,10 @@ export class Section extends PureComponent<SectionProps, {}> {
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames(['section', className])}>
+      <Component
+        {...remainingProps}
+        className={classNames(['section', className])}
+      >
         {children}
       </Component>
     );

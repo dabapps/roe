@@ -10,7 +10,7 @@ export type ContentBoxFooterProps = ComponentProps & HTMLProps<HTMLElement>;
  * See the [ContentBox](#contentbox) section for a full example.
  */
 export class ContentBoxFooter extends PureComponent<ContentBoxFooterProps, {}> {
-  public render () {
+  public render() {
     const {
       className,
       children,
@@ -19,7 +19,10 @@ export class ContentBoxFooter extends PureComponent<ContentBoxFooterProps, {}> {
     } = this.props;
 
     return (
-      <Component {...remainingProps} className={classNames('content-box-footer', className)}>
+      <Component
+        {...remainingProps}
+        className={classNames('content-box-footer', className)}
+      >
         {children}
       </Component>
     );
