@@ -162,7 +162,7 @@ describe('Collapse', () => {
   it('should close to default height', () => {
     jest.useFakeTimers();
 
-    const instance = enzyme.mount(<Collapse open={true} fadeOut />);
+    const instance = enzyme.mount(<Collapse open fadeOut />);
     const node = instance.getDOMNode();
 
     // Set a scrollHeight
@@ -199,7 +199,7 @@ describe('Collapse', () => {
     jest.useFakeTimers();
 
     const instance = enzyme.mount(
-      <Collapse open={true} maxCollapsedHeight={100} fadeOut />
+      <Collapse open maxCollapsedHeight={100} fadeOut />
     );
     const node = instance.getDOMNode();
 

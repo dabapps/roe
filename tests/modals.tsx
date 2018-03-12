@@ -106,7 +106,7 @@ describe('ModalFooter', () => {
 describe('ModalRenderer', () => {
   it('should render some modals', () => {
     const modals = [
-      <Modal onClickOutside={jest.fn()}>
+      <Modal key={0} onClickOutside={jest.fn()}>
         <p>Modal</p>
       </Modal>,
     ];

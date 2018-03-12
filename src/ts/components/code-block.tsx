@@ -40,6 +40,7 @@ export class CodeBlock extends PureComponent<CodeBlockProps, {}> {
   public highlightBlock(element: HTMLPreElement) {
     this.element = element;
 
+    // tslint:disable-next-line:strict-type-predicates
     if (typeof hljs === 'object' && typeof hljs.highlightBlock === 'function') {
       hljs.highlightBlock(this.element);
     }
@@ -48,6 +49,7 @@ export class CodeBlock extends PureComponent<CodeBlockProps, {}> {
   public componentDidUpdate(prevProps: CodeBlockProps) {
     if (
       typeof hljs === 'object' &&
+      // tslint:disable-next-line:strict-type-predicates
       typeof hljs.highlightBlock === 'function' &&
       prevProps.children !== this.props.children
     ) {
