@@ -69,7 +69,7 @@ describe('CookieBanner', () => {
   it('should take an optional position prop', () => {
     const tree = renderer.create(
       <CookieBanner
-        position={'top'}
+        position="top"
         render={({ dismiss }) => (
           <Container>
             <Row>

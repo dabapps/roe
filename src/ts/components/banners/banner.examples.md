@@ -3,7 +3,7 @@
 ```js static
 <Banner
   open
-  position={'top'}
+  position="top"
 >
   <Container>
     <Row>

@@ -30,7 +30,7 @@ describe('Banner', () => {
 
   it('should take an optional position prop', () => {
     const tree = renderer.create(
-      <Banner position={'top'} />
+      <Banner position="top" />
     );
 
     expect(tree).toMatchSnapshot();
