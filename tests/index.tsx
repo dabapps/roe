@@ -38,7 +38,7 @@ describe('index file', () => {
   describe('components', () => {
 
     it('should all accept a component prop', () => {
-      const exceptions = ['Anchor', 'DabIpsum', 'ModalRenderer', 'Modal', 'Table'];
+      const exceptions = ['Anchor', 'DabIpsum', 'ModalRenderer', 'Modal', 'Table', 'SideBar'];
       type Keys = keyof typeof index;
 
       for (const key in index) {

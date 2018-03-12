@@ -1,0 +1,72 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SideBar should accept a component props 1`] = `
+<div
+  className="side-bar-container"
+>
+  <span />
+  <ul
+    className="side-bar left"
+  />
+</div>
+`;
+
+exports[`SideBar should accept regular element attributes 1`] = `
+<div
+  className="side-bar-container my-class"
+>
+  <span />
+  <div
+    className="side-bar left"
+  />
+</div>
+`;
+
+exports[`SideBar should apply no-shadow class 1`] = `
+<div
+  className="side-bar-container"
+>
+  <span />
+  <div
+    className="side-bar no-shadow left"
+  />
+</div>
+`;
+
+exports[`SideBar should match snapshot 1`] = `
+<div
+  className="side-bar-container"
+>
+  <span />
+  <div
+    className="side-bar left"
+  />
+</div>
+`;
+
+exports[`SideBar should match snapshot right 1`] = `
+<div
+  className="side-bar-container"
+>
+  <span />
+  <div
+    className="side-bar right"
+  />
+</div>
+`;
+
+exports[`SideBar should match snapshot when open 1`] = `
+<div
+  className="side-bar-container"
+>
+  <span>
+    <div
+      className="side-bar-overlay"
+      onClick={[MockFunction]}
+    />
+  </span>
+  <div
+    className="side-bar left open"
+  />
+</div>
+`;

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavItem should accept regular element attributes 1`] = `
+<li
+  className="nav-item my-class"
+/>
+`;
+
+exports[`NavItem should apply an active class 1`] = `
+<li
+  className="nav-item active"
+/>
+`;
+
+exports[`NavItem should match snapshot 1`] = `
+<li
+  className="nav-item"
+/>
+`;

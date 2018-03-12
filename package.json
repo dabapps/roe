@@ -1,6 +1,6 @@
 {
   "name": "@dabapps/roe",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "A Collection of React Components for Project Development",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
@@ -62,7 +62,7 @@
   "devDependencies": {
     "@types/enzyme": "3.1.5",
     "@types/enzyme-adapter-react-15": "1.0.1",
-    "@types/jest": "19.2.3",
+    "@types/jest": "22.2.0",
     "@types/node": "7.0.13",
     "@types/react-test-renderer": "15.4.5",
     "brfs": "1.4.3",
@@ -75,7 +75,7 @@
     "eslint": "3.19.0",
     "eslint-config-dabapps": "github:dabapps/eslint-config-dabapps",
     "http-server": "0.9.0",
-    "jest": "20.0.3",
+    "jest": "22.4.2",
     "less-loader": "4.0.5",
     "lesshint": "3.3.1",
     "livereload": "0.6.2",
@@ -86,7 +86,7 @@
     "react-styleguidist": "6.0.33",
     "react-test-renderer": "15.5.4",
     "style-loader": "0.19.0",
-    "ts-jest": "20.0.14",
+    "ts-jest": "22.4.1",
     "tslint": "5.8.0",
     "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.3.1",
     "webpack": "3.7.1"
@@ -121,7 +121,6 @@
       "js",
       "jsx"
     ],
-    "mapCoverage": true,
     "snapshotSerializers": [
       "enzyme-to-json/serializer"
     ]

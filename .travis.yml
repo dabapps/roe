@@ -14,7 +14,9 @@ script:
   - npm run build
 
 deploy:
-  - provider: pages
+  - edge:
+      branch: v1.8.47 # Fixes Travis deployment bug - https://github.com/travis-ci/travis-ci/issues/9312
+    provider: pages
     local_dir: styleguide
     skip_cleanup: true
     github_token: $GITHUB_TOKEN # Set in travis-ci.org dashboard

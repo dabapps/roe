@@ -4,7 +4,9 @@ import { HTMLProps, PureComponent } from 'react';
 import store, { StoreState } from '../../store';
 import { ComponentProps } from '../../types';
 
-export type AppRootProps = HTMLProps<HTMLElement> & ComponentProps & StoreState;
+export type AppRootProps = HTMLProps<HTMLElement> & ComponentProps;
+
+export type AppRootState = Pick<StoreState, 'hasStickyFooter' | 'hasFixedNavBar' | 'navBarHeight' | 'footerHeight'>
 
 /**
  * This is the most important part of your app.
@@ -16,18 +18,48 @@ export type AppRootProps = HTMLProps<HTMLElement> & ComponentProps & StoreState;
  *
  * The "app" class ensures that the AppRoot is not affected by the outer, non-react element.
  */
-export class AppRootUnconnected extends PureComponent<AppRootProps, {}> {
+export class AppRoot extends PureComponent<AppRootProps, AppRootState> {
+  private unsubscribe: () => void;
+  public constructor (props: AppRootProps) {
+    super(props);
+
+    this.state = store.getState();
+  }
+
+  public componentWillMount () {
+    this.unsubscribe = store.subscribe(({
+      hasStickyFooter,
+      hasFixedNavBar,
+      navBarHeight,
+      footerHeight,
+    }) => {
+      this.setState({
+        hasStickyFooter,
+        hasFixedNavBar,
+        navBarHeight,
+        footerHeight,
+      });
+    });
+  }
+
+  public componentWillUnmount () {
+    this.unsubscribe();
+  }
+
   public render () {
     const {
       component: Component = 'div',
       children,
       className,
+      ...remainingProps,
+    } = this.props;
+
+    const {
       hasStickyFooter,
       hasFixedNavBar,
       navBarHeight,
       footerHeight,
-      ...remainingProps,
-    } = this.props;
+    } = this.state;
 
     const myClassNames = [
       'app-root',
@@ -52,7 +84,5 @@ export class AppRootUnconnected extends PureComponent<AppRootProps, {}> {
     );
   }
 }
-
-export const AppRoot = store.connect(AppRootUnconnected);
 
 export default AppRoot;

@@ -38,9 +38,23 @@
   background-color: @background;
   color: @color;
 
+  &.link,
+  &.hollow {
+    color: @background;
+  }
+
+  &.hollow::after {
+    border-color: @background;
+  }
+
   &:hover:not([disabled]):not(.disabled) {
     background-color: darken(@background, 5%);
     color: @color;
+
+    &.link,
+    &.hollow {
+      color: @background;
+    }
   }
 
   &::before {
@@ -96,6 +110,80 @@
   &.small {
     font-size: @font-size-small;
     padding: @padding-small / 2 @padding-small;
+  }
+
+  &.link {
+    color: @link-color;
+    text-decoration: underline;
+
+    a {
+      text-decoration: underline;
+    }
+
+    &:hover:not([disabled]):not(.disabled) {
+      color: @link-color-hover;
+
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.hollow,
+  &.link {
+    background-color: @button-transparent-background;
+
+    &::before {
+      background-color: @button-transparent-pew-color;
+    }
+
+    &:hover:not([disabled]):not(.disabled) {
+      background-color: @button-transparent-background-hover;
+      box-shadow: @shadow-none;
+    }
+  }
+
+  &.hollow {
+    color: @button-text-color-dark;
+
+    &::after {
+      content: '';
+      box-sizing: border-box;
+      pointer-events: none;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: @button-border-width solid @button-text-color-dark;
+      border-radius: @border-radius-base;
+      // Fixes a Chrome rendering bug
+      transform: translate3d(0, 0, 0); // DO NOT CHANGE
+      width: 99.99%; // DO NOT CHANGE
+      height: 99.99%; // DO NOT CHANGE
+    }
+
+    &:hover:not([disabled]):not(.disabled) {
+      color: @button-text-color-dark;
+    }
+  }
+
+  &.pill {
+    border-radius: @padding-base * 2;
+
+    &::after {
+      border-radius: @padding-base * 2;
+    }
+  }
+
+  a {
+    color: inherit; // lesshint variableValue: false
+
+    &:hover,
+    &:active {
+      &:not([disabled]):not(.disabled) {
+        color: inherit; // lesshint variableValue: false
+      }
+    }
   }
 }
 
