@@ -24,7 +24,7 @@ export interface CookieBannerState {
 }
 
 /**
- * A `Banner` component that is permanently dismissed after setting a cookie.
+ * A [Banner](#banner) component that is permanently dismissed after setting a cookie.
  * This component takes a render prop, which can be a component or function, that is passed a dismiss prop
  * which you can then apply as an onClick prop to an element of your choice.
  */
