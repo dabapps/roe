@@ -15,7 +15,7 @@
             className="margin-top-base float-right"
           >
             Accept
-        </Button>
+          </Button>
         </Column>
       </Row>
     </Container>
