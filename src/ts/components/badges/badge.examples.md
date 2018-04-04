@@ -4,36 +4,32 @@
 <div>
   <p>
     <SpacedGroup block>
-      <Badge small className="primary">
-        primary
+      <Badge>
+        1
       </Badge>
-      <Badge small className="secondary">
-        secondary
-      </Badge>
-      <Badge small className="tertiary">
-        tertiary
-      </Badge>
-      <Badge small className="info">
-        info
-      </Badge>
-      <Badge small className="success">
-        success
-      </Badge>
-      <Badge small className="warning">
-        warning
-      </Badge>
-      <Badge small className="error">
-        error
-      </Badge>
-    </SpacedGroup>
-  </p>
-  <p>
-    <SpacedGroup block>
-      <Badge small>
+      <Badge>
         default
       </Badge>
-      <Badge large>
-        large
+      <Badge className="primary">
+        primary
+      </Badge>
+      <Badge className="secondary">
+        secondary
+      </Badge>
+      <Badge className="tertiary">
+        tertiary
+      </Badge>
+      <Badge className="info">
+        info
+      </Badge>
+      <Badge className="success">
+        success
+      </Badge>
+      <Badge className="warning">
+        warning
+      </Badge>
+      <Badge className="error">
+        error
       </Badge>
     </SpacedGroup>
   </p>
@@ -44,7 +40,6 @@
 
 ```less
 @badge-border-radius: 22px;
-@badge-min-width: 20px;
 @badge-background-default: @grey-lighter;
 @badge-text-color-light: @grey-lightest;
 @badge-text-color-dark: @grey-dark;
