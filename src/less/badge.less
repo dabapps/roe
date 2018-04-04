@@ -1,0 +1,54 @@
+.badge-overrides() {
+  min-width: 1.7em;
+  text-align: center;
+  cursor: default!important;
+}
+
+.create-badge-pew {
+  display: inline-block;
+  height: auto;
+  padding: 5px 10px;
+  font-family: arial,helvetica,sans-serif;
+  font-size: 1em;
+  line-height: 1.3em;
+  font-weight: normal;
+  text-decoration: none;
+  border-radius: @badge-border-radius;
+}
+
+.create-badge-styles (
+  @background: @badge-background-default,
+  @color: @badge-text-color-dark,
+) {
+  .create-badge-pew();
+  background-color: @background;
+  color: @color;
+}
+
+.create-badge (@type, @background, @color) {
+  &.@{type} {
+    .create-badge-styles(@background, @color);
+  }
+}
+
+.badge {
+  .create-badge-styles();
+  .create-badge(primary, @primary, @badge-text-color-light);
+  .create-badge(secondary, @secondary, @badge-text-color-light);
+  .create-badge(tertiary, @tertiary, @badge-text-color-light);
+  .create-badge(info, @info, @badge-text-color-light);
+  .create-badge(success, @success, @badge-text-color-light);
+  .create-badge(warning, @warning, @badge-text-color-light);
+  .create-badge(error, @error, @badge-text-color-light);
+  .badge-overrides();
+
+  &.large {
+    font-size: @font-size-large;
+    padding: @padding-large / 2 @padding-large;
+  }
+
+  &.small {
+    font-size: @font-size-small;
+    padding: @padding-small / 2 @padding-small;
+  }
+}

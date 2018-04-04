@@ -2,6 +2,7 @@ import * as React from 'react';
 import { PureComponent } from 'react';
 import {
   AppRoot,
+  Badge,
   Button,
   Column,
   Container,
@@ -71,6 +72,14 @@ class App extends PureComponent<{}, AppState> {
 
         <Container>
           <h1>Example</h1>
+
+          <Badge small className={'info'}>
+            Niko is Awesome!!
+          </Badge>
+
+          <Badge small className={'primary'}>
+            5
+          </Badge>
 
           <DabIpsum />
 
