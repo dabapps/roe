@@ -18,18 +18,18 @@ export interface BadgeProps extends ComponentProps, HTMLProps<HTMLElement> {
  * Badge Component
  */
 export class Badge extends PureComponent<BadgeProps, {}> {
-	public render() {
-		const {
+  public render() {
+    const {
       className,
       small,
       large,
       children,
-			component: Component = 'div',
-			...remainingProps
+      component: Component = 'div',
+      ...remainingProps
     } = this.props;
 
-		return (
-			<Component
+    return (
+      <Component
         {...remainingProps}
         className={classNames(
           'badge',
@@ -37,11 +37,11 @@ export class Badge extends PureComponent<BadgeProps, {}> {
           large ? 'large' : null,
           className
         )}
-			>
-			  {children}
-			</Component>
+      >
+        {children}
+      </Component>
     );
-	}
+  }
 }
 
 export default Badge;

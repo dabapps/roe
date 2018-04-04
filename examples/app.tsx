@@ -73,11 +73,11 @@ class App extends PureComponent<{}, AppState> {
         <Container>
           <h1>Example</h1>
 
-          <Badge small className={'info'}>
+          <Badge small className="info">
             Niko is Awesome!!
           </Badge>
 
-          <Badge small className={'primary'}>
+          <Badge small className="primary">
             5
           </Badge>
 
