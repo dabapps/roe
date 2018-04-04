@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
 import { Collapse } from '../src/ts/';
+import { TRANSPARENT_BLACK } from '../src/ts/constants';
 
 describe('Collapse', () => {
   const createNodeMock = () => ({
@@ -59,7 +60,13 @@ describe('Collapse', () => {
 
   it('should match snapshot with customized fade out', () => {
     const tree = renderer.create(
-      <Collapse open={false} fadeOut fadeColor="red" fadeHeight={10} />
+      <Collapse
+        open={false}
+        fadeOut
+        fadeColor="red"
+        fadeHeight={10}
+        transparentColor={TRANSPARENT_BLACK}
+      />
     );
 
     expect(tree).toMatchSnapshot();
