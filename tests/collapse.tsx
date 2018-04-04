@@ -59,7 +59,13 @@ describe('Collapse', () => {
 
   it('should match snapshot with customized fade out', () => {
     const tree = renderer.create(
-      <Collapse open={false} fadeOut fadeColor="red" fadeHeight={10} />
+      <Collapse
+        open={false}
+        fadeOut
+        fadeColor="red"
+        fadeHeight={10}
+        transparentColor="rgba(0, 0, 0, 0)"
+      />
     );
 
     expect(tree).toMatchSnapshot();
