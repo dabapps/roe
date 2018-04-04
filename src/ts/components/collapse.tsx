@@ -7,7 +7,8 @@ const ENOUGH_TIME_FOR_RERENDER = 50;
 const DEFAULT_HEIGHT = 0;
 const DEFAULT_DURATION = 200;
 const DEFAULT_FADE_HEIGHT = 50;
-const DEFAULT_FADE_COLOR = '#FFF';
+const DEFAULT_TRANSPARENT_COLOR = 'rgba(255, 255, 255, 0)';
+const DEFAULT_FADE_COLOR = 'rgba(255, 255, 255, 1)';
 
 export interface CollapseProps
   extends ComponentProps,
@@ -34,9 +35,14 @@ export interface CollapseProps
   fadeOut?: boolean;
   /**
    * Color to fade to
-   * @default white
+   * @default rgba(255, 255, 255, 1)
    */
   fadeColor?: string;
+  /**
+   * Transparent color to fade from (this should be a transparent version of the fadeColor)
+   * @default rgba(255, 255, 255, 0)
+   */
+  transparentColor?: string;
   /**
    * Height of the faded area
    * @default 50
@@ -125,6 +131,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       fadeOut,
       fadeColor = DEFAULT_FADE_COLOR,
       fadeHeight = DEFAULT_FADE_HEIGHT,
+      transparentColor = DEFAULT_TRANSPARENT_COLOR,
       open,
       maxCollapsedHeight,
       animationDuration = DEFAULT_DURATION,
@@ -147,7 +154,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       position: 'absolute' as 'absolute',
       bottom: 0,
       opacity: opening ? 0 : 1,
-      background: `linear-gradient(transparent, ${fadeColor} 80%)`,
+      background: `linear-gradient(${transparentColor}, ${fadeColor} 80%)`,
       transition: `ease-in-out ${animationDuration}ms opacity`,
     };
 
