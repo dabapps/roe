@@ -7,6 +7,3 @@ export const MATCHES_BLANK_LAST_LINE = /\n\s*$/;
 export const MATCHES_AMPERSAND = /&/g;
 export const MATCHES_NON_WORD_CHARACTERS = /[\W_]+/gi;
 export const MATCHES_LEADING_AND_TRAILING_HYPHENS = /(^-+|-+$)/g;
-
-export const TRANSPARENT_WHITE = 'rgba(255, 255, 255, 0)';
-export const TRANSPARENT_BLACK = 'rgba(0, 0, 0, 0)';

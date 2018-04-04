@@ -3,7 +3,6 @@ import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
 import { Collapse } from '../src/ts/';
-import { TRANSPARENT_BLACK } from '../src/ts/constants';
 
 describe('Collapse', () => {
   const createNodeMock = () => ({
@@ -65,7 +64,7 @@ describe('Collapse', () => {
         fadeOut
         fadeColor="red"
         fadeHeight={10}
-        transparentColor={TRANSPARENT_BLACK}
+        transparentColor="rgba(0, 0, 0, 0)"
       />
     );
 
