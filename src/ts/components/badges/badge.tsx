@@ -24,7 +24,7 @@ export class Badge extends PureComponent<BadgeProps, {}> {
       small,
       large,
       children,
-      component: Component = 'div',
+      component: Component = 'span',
       ...remainingProps
     } = this.props;
 

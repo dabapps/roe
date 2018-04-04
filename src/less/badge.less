@@ -1,26 +1,18 @@
-.badge-overrides() {
-  min-width: 1.7em;
-  text-align: center;
-  cursor: default!important;
-}
-
-.create-badge-pew {
-  display: inline-block;
-  height: auto;
-  padding: 5px 10px;
-  font-family: arial,helvetica,sans-serif;
-  font-size: 1em;
-  line-height: 1.3em;
-  font-weight: normal;
-  text-decoration: none;
-  border-radius: @badge-border-radius;
-}
-
 .create-badge-styles (
   @background: @badge-background-default,
   @color: @badge-text-color-dark,
 ) {
-  .create-badge-pew();
+  display: inline-block;
+  height: auto;
+  min-width: 1.7em;
+  padding: 5px 10px;
+  font-family: arial,helvetica,sans-serif;
+  font-size: 1em;
+  line-height: 1.3em;
+  text-align: center;
+  font-weight: normal;
+  text-decoration: none;
+  border-radius: @badge-border-radius;
   background-color: @background;
   color: @color;
 }
@@ -40,7 +32,6 @@
   .create-badge(success, @success, @badge-text-color-light);
   .create-badge(warning, @warning, @badge-text-color-light);
   .create-badge(error, @error, @badge-text-color-light);
-  .badge-overrides();
 
   &.large {
     font-size: @font-size-large;
