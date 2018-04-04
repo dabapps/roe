@@ -2,7 +2,6 @@ import * as React from 'react';
 import { PureComponent } from 'react';
 import {
   AppRoot,
-  Badge,
   Button,
   Column,
   Container,
