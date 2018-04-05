@@ -1,10 +1,10 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Speech } from '../src/ts/components/speech/speech';
+import { Speech } from '../src/ts/components/speech';
 
 describe('Speech', () => {
-  it('should match snapshot', () => {
+  it('should match snapshot sent', () => {
     const tree = renderer.create(
       <Speech sent>
         <p>I love kittens!</p>
@@ -14,7 +14,7 @@ describe('Speech', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should match snapshot', () => {
+  it('should match snapshot received', () => {
     const tree = renderer.create(
       <Speech received>
         <p>I love puggs!</p>

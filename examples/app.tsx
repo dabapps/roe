@@ -4,7 +4,6 @@ import {
   AppRoot,
   Button,
   Column,
-  Speech,
   Container,
   ContentBox,
   ContentBoxFooter,
@@ -81,19 +80,6 @@ class App extends PureComponent<{}, AppState> {
                 <InputGroupAddon>£</InputGroupAddon>
                 <input type="number" />
               </InputGroup>
-            </Column>
-          </Row>
-
-          <Row>
-            <Column className="margin-bottom-base">
-              <Speech sent>
-                <p>Hello</p>
-              </Speech>
-            </Column>
-            <Column>
-              <Speech received>
-                <p>Hi</p>
-              </Speech>
             </Column>
           </Row>
 
