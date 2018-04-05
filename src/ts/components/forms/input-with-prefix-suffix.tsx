@@ -1,4 +1,3 @@
-import * as classNames from 'classnames';
 import * as React from 'react';
 import { PureComponent } from 'react';
 import { ComponentProps } from '../../types';
@@ -32,22 +31,22 @@ export interface InputWithPrefixSuffixProps extends ComponentProps {
   onChange(): void;
 }
 
-export class InputWithPrefixSuffix extends PureComponent<InputWithPrefixSuffixProps, {}> {
-
+export class InputWithPrefixSuffix extends PureComponent<
+  InputWithPrefixSuffixProps,
+  {}
+> {
   public render() {
-    const {
-      prefix,
-      suffix,
-      disabled,
-      type,
-      onChange,
-      value,
-    } = this.props;
+    const { prefix, suffix, disabled, type, onChange, value } = this.props;
 
     return (
       <InputGroup>
         {prefix && <InputGroupAddon>{prefix}</InputGroupAddon>}
-        <input onChange={onChange} value={value} disabled={disabled} type={type} />
+        <input
+          onChange={onChange}
+          value={value}
+          disabled={disabled}
+          type={type}
+        />
         {suffix && <InputGroupAddon>{suffix}</InputGroupAddon>}
       </InputGroup>
     );
