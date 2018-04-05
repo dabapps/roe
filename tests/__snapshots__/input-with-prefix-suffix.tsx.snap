@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputWithPrefixSuffix should match snapshot 1`] = `
+<div
+  className="input-group"
+>
+  <input
+    disabled={undefined}
+    onChange={[MockFunction]}
+    type={undefined}
+    value=""
+  />
+</div>
+`;
+
+exports[`InputWithPrefixSuffix should match snapshot with all props 1`] = `
+<div
+  className="input-group"
+>
+  <div
+    className="input-group-addon"
+    style={
+      Object {
+        "width": undefined,
+      }
+    }
+  >
+    £
+  </div>
+  <input
+    disabled={false}
+    onChange={[MockFunction]}
+    type="text"
+    value=""
+  />
+  <div
+    className="input-group-addon"
+    style={
+      Object {
+        "width": undefined,
+      }
+    }
+  >
+    %
+  </div>
+</div>
+`;
