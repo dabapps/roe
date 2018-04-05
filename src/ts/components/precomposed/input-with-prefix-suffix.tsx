@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { PureComponent } from 'react';
 import { ComponentProps } from '../../types';
-import InputGroup from './input-group';
-import InputGroupAddon from './input-group-addon';
+import InputGroup from '../forms/input-group';
+import InputGroupAddon from '../forms/input-group-addon';
 
 export interface InputWithPrefixSuffixProps extends ComponentProps {
   /**

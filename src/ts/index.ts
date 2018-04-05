@@ -25,7 +25,7 @@ export {
 } from './components/forms/input-group-addon';
 export {
   default as InputWithPrefixSuffix,
-} from './components/forms/input-with-prefix-suffix';
+} from './components/precomposed/input-with-prefix-suffix';
 export { default as Modal } from './components/modals/modal';
 export { default as ModalBody } from './components/modals/modal-body';
 export {

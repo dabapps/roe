@@ -48,7 +48,11 @@ var components = [
   {
     name: 'Misc',
     components: 'src/ts/components/*.tsx'
-  }
+  },
+  {
+    name: 'Precomposed',
+    components: 'src/ts/components/precomposed/*.tsx'
+  },
 ];
 
 var less = [
@@ -138,7 +142,7 @@ module.exports = {
   ],
   title: 'Roe - DabApps\' Project Development Kit',
   components: 'src/ts/components/**/*.{ts,tsx}',
-  ignore: [],
+  ignore: ['src/ts/precomposed/*.tsx'],
   propsParser: require('react-docgen-typescript')
     .withCustomConfig('./tsconfig.json', reactDocGenTypescriptConfig).parse,
   webpackConfig: webpackConfig,
