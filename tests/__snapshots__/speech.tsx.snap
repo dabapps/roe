@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Speech should match snapshot 1`] = `
+<div
+  className="speech sent"
+>
+  <div
+    className="bubble"
+  >
+    <p>
+      I love kittens!
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Speech should match snapshot 2`] = `
+<div
+  className="speech received"
+>
+  <div
+    className="bubble"
+  >
+    <p>
+      I love puggs!
+    </p>
+  </div>
+</div>
+`;

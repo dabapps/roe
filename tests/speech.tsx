@@ -7,7 +7,7 @@ describe('Speech', () => {
   it('should match snapshot', () => {
     const tree = renderer.create(
       <Speech sent>
-        I love kittens!
+        <p>I love kittens!</p>
       </Speech>
     );
 
@@ -17,7 +17,7 @@ describe('Speech', () => {
   it('should match snapshot', () => {
     const tree = renderer.create(
       <Speech received>
-        I love puggs!
+        <p>I love puggs!</p>
       </Speech>
     );
 

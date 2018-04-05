@@ -5,11 +5,11 @@ import { ComponentProps } from '../../types';
 
 export interface SpeechProps extends ComponentProps, HTMLProps<HTMLElement> {
 /**
- *
+ *  Position the speech bubble arrow thingy on the right
  */
   sent ?: boolean;
 /**
- *
+ * Position the speech bubble arrow thingy on the left
  */
   received ?: boolean;
 }

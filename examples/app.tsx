@@ -87,12 +87,12 @@ class App extends PureComponent<{}, AppState> {
           <Row>
             <Column className="margin-bottom-base">
               <Speech sent>
-                Hello
+                <p>Hello</p>
               </Speech>
             </Column>
             <Column>
               <Speech received>
-                Hi
+                <p>Hi</p>
               </Speech>
             </Column>
           </Row>
