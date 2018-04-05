@@ -23,6 +23,6 @@
 @speech-text-color-default: @grey-dark;
 @speech-border-default-received: @grey-light;
 @speech-background-default-received: @grey-lightest;
-@speech-border-default-sent: @grey-light;
-@speech-background-default-sent: @grey-lightest;
+@speech-border-default-sent: @success-light;
+@speech-background-default-sent: @success-lighter;
 ```
