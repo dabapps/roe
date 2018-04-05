@@ -1,0 +1,49 @@
+.create-speech-styles (@background: @grey-lightest, @color: @grey-light, @position: left) {
+  position: relative;
+  margin: 0 10px;
+  border-radius: 10px;
+  border-bottom-@{position}-radius: 0;
+  border: 1px solid @background;
+  background-color: @color;
+  // text-align: @position;
+  color: @speech-text-color-default;
+
+  &::before,
+  &::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+  }
+}
+
+.create-speech (@type, @speech-border-default: @grey-lightest, @speech-color-default: @grey-light, @position) {
+  &.@{type} {
+    .create-speech-styles(@speech-border-default, @speech-color-default, @position);
+
+    &::before {
+      left: inherit;
+      right: inherit;
+      @{position}: -11px;
+      bottom: -1px;
+      background: radial-gradient(circle at top @position, transparent 9px, @speech-border-default 10px);
+    }
+
+    &::after {
+      left: inherit;
+      right: inherit;
+      @{position}: -9px;
+      bottom: 0;
+      background: radial-gradient(circle at top @position, transparent 9px, @speech-color-default 10px);
+    }
+  }
+}
+
+.speech {
+  & .bubble {
+    padding: 10px;
+  }
+  .create-speech-styles();
+  .create-speech(received, @speech-border-default-received, @speech-background-default-received, left);
+  .create-speech(sent, @speech-border-default-sent, @speech-background-default-sent, right);
+}

@@ -46,6 +46,10 @@ var components = [
     components: 'src/ts/components/banners/**/*.tsx'
   },
   {
+    name: 'Speech Bubbles',
+    components: 'src/ts/components/speech/**/*.tsx'
+  },
+  {
     name: 'Misc',
     components: 'src/ts/components/*.tsx'
   }
