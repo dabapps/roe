@@ -142,7 +142,7 @@ module.exports = {
   ],
   title: 'Roe - DabApps\' Project Development Kit',
   components: 'src/ts/components/**/*.{ts,tsx}',
-  ignore: ['src/ts/precomposed/*.tsx'],
+  ignore: [],
   propsParser: require('react-docgen-typescript')
     .withCustomConfig('./tsconfig.json', reactDocGenTypescriptConfig).parse,
   webpackConfig: webpackConfig,

@@ -43,6 +43,7 @@ describe('index file', () => {
         'Modal',
         'Table',
         'SideBar',
+        'InputWithPrefixSuffix',
       ];
       type Keys = keyof typeof index;
 
