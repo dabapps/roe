@@ -1,0 +1,93 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Highlight should match snapshot 1`] = `
+<div
+  className="highlight"
+>
+  <div
+    className="content"
+    style={undefined}
+  >
+    <input
+      type="number"
+    />
+  </div>
+</div>
+`;
+
+exports[`Highlight should match snapshot with props (open) 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="column"
+  >
+    <div
+      className="highlight"
+    >
+      <div
+        className="overlay"
+      />
+      <div
+        className="content open"
+        style={undefined}
+      >
+        <div
+          className="input-group"
+        >
+          <input
+            type="number"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Highlight should match snapshot with props (open, disabled, backgroundColor) 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="column"
+  >
+    <div
+      className="highlight"
+    >
+      <div
+        className="overlay"
+      />
+      <div
+        className="overlay-disabled"
+      />
+      <div
+        className="content open"
+        style={
+          Object {
+            "backgroundColor": "white",
+          }
+        }
+      >
+        <div
+          className="input-group"
+        >
+          <div
+            className="input-group-addon"
+            style={
+              Object {
+                "width": undefined,
+              }
+            }
+          >
+            £
+          </div>
+          <input
+            type="number"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
