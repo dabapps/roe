@@ -9,6 +9,7 @@ import {
   ContentBoxFooter,
   ContentBoxHeader,
   DabIpsum,
+  Highlight,
   Footer,
   FormGroup,
   InputGroup,
@@ -80,6 +81,21 @@ class App extends PureComponent<{}, AppState> {
                 <InputGroupAddon>£</InputGroupAddon>
                 <input type="number" />
               </InputGroup>
+            </Column>
+          </Row>
+
+          <Row>
+            <Column>
+              <Highlight
+                open
+                // disabled
+                // backgroundColor="white"
+              >
+                <InputGroup>
+                  <InputGroupAddon>£</InputGroupAddon>
+                  <input type="number" />
+                </InputGroup>
+              </Highlight>
             </Column>
           </Row>
 

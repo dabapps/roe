@@ -9,8 +9,9 @@
   }
 
   .overlay {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: @highlight-background-color;
     z-index: @highlight-z-index;
+    animation: fadein @highlight-animation-speed linear 1 normal forwards;
   }
 
   .content {
@@ -22,5 +23,15 @@
 
   .overlay-disabled {
     z-index: @highlight-z-index + 2;
+  }
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
