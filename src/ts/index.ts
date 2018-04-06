@@ -37,6 +37,7 @@ export { default as NavItem } from './components/navigation/nav-item';
 export { default as Row } from './components/grid/row';
 export { default as Section } from './components/content/section';
 export { default as SideBar } from './components/navigation/side-bar';
+export { default as Slider } from './components/slider';
 export { default as SpacedGroup } from './components/spaced-group';
 export { default as Tabs } from './components/tabs/tabs';
 export { default as Tab } from './components/tabs/tab';

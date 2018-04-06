@@ -17,6 +17,7 @@ import {
   Row,
   Section,
   SideBar,
+  Slider,
   SpacedGroup,
 } from '../src/ts';
 import NavItems from './nav-items';
@@ -82,6 +83,8 @@ class App extends PureComponent<{}, AppState> {
               </InputGroup>
             </Column>
           </Row>
+
+          <Slider />
 
           <Row>
             <Column>
