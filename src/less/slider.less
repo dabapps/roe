@@ -34,4 +34,36 @@
     cursor: ew-resize;
     z-index: @roe-slider-handle-z-index;
   }
+
+  &.vertical {
+    width: @roe-slider-handle-thickness;
+    height: @roe-slider-vertical-default-height;
+    padding: 5px 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+
+    .roe-bar {
+      height: 100%;
+      width: @roe-slider-bar-thickness;
+      position: relative;
+      background-color: @roe-slider-bar-background;
+      margin: 0 auto;
+
+      &__min,
+      &__max {
+        left: 0;
+        right:0;
+      }
+
+      &__min {
+        top: 0;
+      }
+
+      &__max {
+        top: inherit;
+        bottom: 0;
+      }
+    }
+  }
 }

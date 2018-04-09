@@ -43,7 +43,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
       min,
       max,
       component: Component = 'div',
-      orientation = 'vertical',
+      orientation = 'horizontal',
       // ...remainingProps
     } = this.props;
 
@@ -57,13 +57,13 @@ export class Slider extends PureComponent<SliderProps, IState> {
         )}
       >
         <div className="roe-bar">
-          {min && <span className="roe-bar__min" style={{ width: `${min * 100}%`}} />}
+          {min && <span className="roe-bar__min" style={this.setMinMaxStyle('min')} />}
             <div
               className="roe-handle"
               style={{ left: `${this.state.value * 100}%` }}
               onMouseDown={this.onMouseDown}
             />
-            {max && <span className="roe-bar__max" style={{ width: `${100 - (max * 100)}%` }} />}
+          {max && <span className="roe-bar__max" style={this.setMinMaxStyle('max')} />}
         </div>
       </Component>
     );
@@ -124,6 +124,32 @@ export class Slider extends PureComponent<SliderProps, IState> {
     }
 
     return initialValue;
+  }
+
+  private setMinMaxStyle = (position: string) => {
+    const {
+      min = MIN,
+      max = MAX,
+      orientation = 'horizontal',
+    } = this.props;
+
+    if (orientation === 'horizontal') {
+
+      if (position == 'min') {
+        return { width: `${min * 100}%` }
+      } else if (position == 'max') {
+        return { width: `${100 - (max * 100)}%` }
+      }
+
+    } else if (orientation === 'vertical') {
+
+      if (position == 'min') {
+        return { height: `${min * 100}%` }
+      } else if (position == 'max') {
+        return { height: `${100 - (max * 100)}%` }
+      }
+
+    }
   }
 }
 
