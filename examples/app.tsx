@@ -84,7 +84,13 @@ class App extends PureComponent<{}, AppState> {
             </Column>
           </Row>
 
-          <Slider />
+          <Slider
+            initialValue={0.4}
+            min={0.2}
+            max={0.9}
+            onChange={(value: number) => console.log(value)}
+            orientation="vertical"
+          />
 
           <Row>
             <Column>

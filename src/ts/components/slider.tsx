@@ -1,11 +1,15 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 import { HTMLProps, PureComponent } from 'react';
+import * as ReactDOM from 'react-dom';
 import { ComponentProps } from '../types';
 
 export interface SliderProps extends ComponentProps, HTMLProps<HTMLElement> {
   initialValue?: number;
+  max?: number;
+  min?: number;
+  orientation?: 'horizontal' | 'vertical';
+  onChange: (value: any) => void;
 }
 
 export interface MousePosition {
@@ -18,13 +22,17 @@ export interface IState {
   mouseDown?: MousePosition;
 }
 
+const INITIAL_VALUE = 0;
+const MIN = 0;
+const MAX = 1;
+
 export class Slider extends PureComponent<SliderProps, IState> {
 
   public constructor(props: SliderProps) {
     super(props);
 
     this.state = {
-      value: props.initialValue || 0,
+      value: this.setInitialValue(),
     };
   }
 
@@ -32,21 +40,30 @@ export class Slider extends PureComponent<SliderProps, IState> {
     const {
       children,
       className,
+      min,
+      max,
       component: Component = 'div',
-      ...remainingProps
+      orientation = 'vertical',
+      // ...remainingProps
     } = this.props;
 
     return (
       <Component
-        {...remainingProps}
-        className={classNames('slider', className)}
+        // {...remainingProps}
+        className={classNames(
+          'roe-slider',
+          orientation,
+          className,
+        )}
       >
-        <div className="bar">
-          <div
-            className="dragger"
-            style={{ left: `${this.state.value * 100}%` }}
-            onMouseDown={this.onMouseDown}
-          />
+        <div className="roe-bar">
+          {min && <span className="roe-bar__min" style={{ width: `${min * 100}%`}} />}
+            <div
+              className="roe-handle"
+              style={{ left: `${this.state.value * 100}%` }}
+              onMouseDown={this.onMouseDown}
+            />
+            {max && <span className="roe-bar__max" style={{ width: `${100 - (max * 100)}%` }} />}
         </div>
       </Component>
     );
@@ -65,6 +82,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
   }
 
   private onMouseMove = (event: any) => {
+    const { min = MIN, max = MAX } = this.props;
     const { mouseDown } = this.state;
 
     const node = ReactDOM.findDOMNode(this);
@@ -72,8 +90,10 @@ export class Slider extends PureComponent<SliderProps, IState> {
 
     if (mouseDown) {
       this.setState({
-        value: Math.max(Math.min((event.pageX - left) / width, 1), 0),
+        value: Math.max(Math.min((event.pageX - left) / width, max), min),
       });
+
+      this.props.onChange(this.state.value);
     }
   }
 
@@ -88,8 +108,22 @@ export class Slider extends PureComponent<SliderProps, IState> {
     }
   }
 
-  private handleOnDragStart = (event: any) => {
-    console.log(event.target.offsetLeft);
+  private setInitialValue = () => {
+    const {
+      initialValue = INITIAL_VALUE,
+      min = MIN,
+      max = MAX,
+    } = this.props;
+
+    if (initialValue < min) {
+      return min;
+    }
+
+    if (initialValue > max) {
+      return max;
+    }
+
+    return initialValue;
   }
 }
 
