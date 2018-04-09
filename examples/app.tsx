@@ -88,8 +88,9 @@ class App extends PureComponent<{}, AppState> {
             initialValue={0.4}
             min={0.2}
             max={0.9}
-            onChange={(value: number) => console.log(value)}
-            // orientation="vertical"
+            onChange={(value: number) => null}
+            // orientation="horizontal"
+            orientation="vertical"
           />
 
           <Row>

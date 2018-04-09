@@ -60,7 +60,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
           {min && <span className="roe-bar__min" style={this.setMinMaxStyle('min')} />}
             <div
               className="roe-handle"
-              style={{ left: `${this.state.value * 100}%` }}
+              style={this.setHandleStyle()}
               onMouseDown={this.onMouseDown}
             />
           {max && <span className="roe-bar__max" style={this.setMinMaxStyle('max')} />}
@@ -86,13 +86,9 @@ export class Slider extends PureComponent<SliderProps, IState> {
     const { mouseDown } = this.state;
 
     const node = ReactDOM.findDOMNode(this);
-    const { left, width } = node.getBoundingClientRect();
 
     if (mouseDown) {
-      this.setState({
-        value: Math.max(Math.min((event.pageX - left) / width, max), min),
-      });
-
+      this.setState(() => this.setValueOnMove(event, node));
       this.props.onChange(this.state.value);
     }
   }
@@ -135,20 +131,51 @@ export class Slider extends PureComponent<SliderProps, IState> {
 
     if (orientation === 'horizontal') {
 
-      if (position == 'min') {
+      if (position === 'min') {
         return { width: `${min * 100}%` }
-      } else if (position == 'max') {
+      } else if (position === 'max') {
         return { width: `${100 - (max * 100)}%` }
       }
 
     } else if (orientation === 'vertical') {
 
-      if (position == 'min') {
+      if (position === 'min') {
         return { height: `${min * 100}%` }
-      } else if (position == 'max') {
+      } else if (position === 'max') {
         return { height: `${100 - (max * 100)}%` }
       }
 
+    }
+  }
+
+  private setHandleStyle = () => {
+    const { orientation = 'horizontal' } = this.props;
+    const { value } = this.state;
+
+    if (orientation === 'horizontal') {
+      return { left: `${value * 100}%` }
+    }
+
+    if (orientation === 'vertical') {
+      return { top: `${value * 100}%` }
+    }
+  }
+
+  private setValueOnMove = (event: any, node: any) => {
+    const {
+      min = MIN,
+      max = MAX,
+      orientation = 'horizontal',
+    } = this.props;
+
+    const { top, left, width, height } = node.getBoundingClientRect();
+
+    if (orientation === 'horizontal') {
+      return { value: Math.max(Math.min((event.pageX - left) / width, max), min),}
+    }
+
+    if (orientation === 'vertical') {
+      return { value: Math.max(Math.min((event.pageY - top - window.pageYOffset) / height, max), min)}
     }
   }
 }
