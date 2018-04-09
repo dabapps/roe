@@ -9,6 +9,7 @@ export interface SliderProps extends ComponentProps, HTMLProps<HTMLElement> {
   max?: number;
   min?: number;
   orientation?: 'horizontal' | 'vertical';
+  popover?: boolean;
   onChange: (value: any) => void;
 }
 
@@ -42,6 +43,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
       className,
       min,
       max,
+      popover,
       component: Component = 'div',
       orientation = 'horizontal',
       // ...remainingProps
@@ -62,7 +64,13 @@ export class Slider extends PureComponent<SliderProps, IState> {
               className="roe-handle"
               style={this.setHandleStyle()}
               onMouseDown={this.onMouseDown}
-            />
+            >
+              {popover &&
+                <span className="roe-handle__popover">
+                  {`${((this.state.value) * 100).toFixed(0)}`}
+                </span>
+              }
+            </div>
           {max && <span className="roe-bar__max" style={this.setMinMaxStyle('max')} />}
         </div>
       </Component>

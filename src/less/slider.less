@@ -33,6 +33,18 @@
     background-color: @roe-slider-handle-color;
     cursor: ew-resize;
     z-index: @roe-slider-handle-z-index;
+
+    &__popover {
+      position: absolute;
+      top: -150%;
+      width: 26px;
+      padding: 5px 0;
+      transform: translate(-34%, -50%);
+      text-align: center;
+      background-color: @roe-slider-handle-popover-background;
+      font-size: 11px;
+      border-radius: 5px;
+    }
   }
 
   &.vertical {
