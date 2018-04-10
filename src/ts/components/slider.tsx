@@ -5,12 +5,25 @@ import * as ReactDOM from 'react-dom';
 import { ComponentProps } from '../types';
 
 export interface SliderProps extends ComponentProps, HTMLProps<HTMLElement> {
-  initialValue?: number;
   max?: number;
   min?: number;
   orientation?: 'horizontal' | 'vertical';
   popover?: boolean;
-  onChange: (value: any) => void;
+  stepped?: boolean;
+  steps?: number;
+  value?: number;
+  from?: number;
+  to?: number;
+  initialValue?: number;
+  initialFrom?: number;
+  initialTo?: number;
+  range?: boolean;
+  onSlide: (value: any) => any;
+  onChange?: (value: any) => any;
+  onSlideFrom?: (value: any) => any;
+  onChangeFrom?: (value: any) => any;
+  onSlideTo?: (value: any) => any;
+  onChangeTo?: (value: any) => any;
 }
 
 export interface MousePosition {
@@ -20,6 +33,8 @@ export interface MousePosition {
 
 export interface IState {
   value: number;
+  from: number;
+  to: number;
   mouseDown?: MousePosition;
 }
 
@@ -27,14 +42,37 @@ const INITIAL_VALUE = 0;
 const MIN = 0;
 const MAX = 1;
 
-export class Slider extends PureComponent<SliderProps, IState> {
+export interface SyntheticEvent {
+  type: string;
+  clientX: number;
+  clientY: number;
+}
 
+export class Slider extends PureComponent<SliderProps, IState> {
+  private unsubscribers: Array<() => void> = [];
   public constructor(props: SliderProps) {
     super(props);
 
+    const {
+      min,
+      max,
+    } = props;
+
+    // TODO: Should handle initial values if defined
+    // TODO: Should handle limiting from / to, by from / to, if using ranged values
+    // (do not let to be after from or vice versa)
     this.state = {
-      value: this.setInitialValue(),
+      value: this.constrain(this.setInitialValue('single'), min, max),
+      from: this.constrain(this.setInitialValue('from'), min, max),
+      to: this.constrain(this.setInitialValue('to'), min, max),
     };
+
+    this.onHandle1Down = this.createMouseHandlers(this.onHandle1Down);
+    this.onHandle2Down = this.createMouseHandlers(this.onHandle2Down);
+  }
+
+  public componentWillUnmout () {
+    this.unsubscribers.forEach((unsubscriber) => unsubscriber());
   }
 
   public render() {
@@ -44,6 +82,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
       min,
       max,
       popover,
+      range,
       component: Component = 'div',
       orientation = 'horizontal',
       // ...remainingProps
@@ -60,74 +99,162 @@ export class Slider extends PureComponent<SliderProps, IState> {
       >
         <div className="roe-bar">
           {min && <span className="roe-bar__min" style={this.setMinMaxStyle('min')} />}
-            <div
-              className="roe-handle"
-              style={this.setHandleStyle()}
-              onMouseDown={this.onMouseDown}
-            >
-              {popover &&
-                <span className="roe-handle__popover">
-                  {`${((this.state.value) * 100).toFixed(0)}`}
-                </span>
-              }
-            </div>
+
+          <div
+            className="roe-handle"
+            style={this.setHandleStyle(range ? this.state.from : this.state.value)}
+            onMouseDown={this.onHandle1Down}
+          >
+            {popover &&
+              <span className="roe-handle__popover">
+                {`${((range ? this.state.from : this.state.value) * 100).toFixed(0)}`}
+              </span>
+            }
+          </div>
+
+          {
+            range && (
+              <div
+                className="roe-handle roe-handle__range"
+                style={this.setHandleStyle(this.state.to)}
+                onMouseDown={this.onHandle2Down}
+              >
+                {popover &&
+                  <span className="roe-handle__popover">
+                    {`${((this.state.to) * 100).toFixed(0)}`}
+                  </span>
+                }
+              </div>
+            )
+          }
+
+          {range && <span className="roe-bar__range" style={this.setMinMaxStyle('range')} />}
           {max && <span className="roe-bar__max" style={this.setMinMaxStyle('max')} />}
         </div>
       </Component>
     );
   }
 
-  private onMouseDown = (event: any) => {
-    window.addEventListener('mouseup', this.onMouseUp);
-    window.addEventListener('mousemove', this.onMouseMove);
+  private createMouseHandlers(callback: (event: SyntheticEvent) => any) {
+    function createSyntheticEvent(event: MouseEvent | React.MouseEvent<HTMLElement>): SyntheticEvent {
+      return {
+        type: event.type,
+        clientX: event.clientX,
+        clientY: event.clientY,
+      };
+    }
 
-    this.setState({
-      mouseDown: {
-        x: event.pageX,
-        y: event.pageY,
-      }
+    const onMouseMove = (event: MouseEvent) => {
+      callback(createSyntheticEvent(event));
+    };
+
+    const onMouseUp = (event: MouseEvent) => {
+      callback(createSyntheticEvent(event));
+
+      window.removeEventListener('mouseup', onMouseUp);
+      window.removeEventListener('mousemove', onMouseMove);
+    };
+
+    const onMouseDown = (event: React.MouseEvent<HTMLElement>) => {
+      event.preventDefault();
+
+      callback(createSyntheticEvent(event));
+
+      window.addEventListener('mouseup', onMouseUp);
+      window.addEventListener('mousemove', onMouseMove);
+    };
+
+    this.unsubscribers.push(() => {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseup', onMouseUp);
     });
+
+    return onMouseDown;
   }
 
-  private onMouseMove = (event: any) => {
-    const { min = MIN, max = MAX } = this.props;
-    const { mouseDown } = this.state;
-
-    const node = ReactDOM.findDOMNode(this);
-
-    if (mouseDown) {
-      this.setState(() => this.setValueOnMove(event, node));
-      this.props.onChange(this.state.value);
-    }
+  private constrain (
+    value: number | string | undefined,
+    min: number | string | undefined,
+    max: number | string | undefined,
+  ) {
+    return Math.min(
+      Math.max(
+        typeof value === 'undefined' ? MIN : parseFloat(value.toString()),
+        typeof min === 'undefined' ? MIN : parseFloat(min.toString())
+      ),
+      typeof max === 'undefined' ? MAX : parseFloat(max.toString())
+    );
   }
 
-  private onMouseUp = (event: any) => {
-    window.removeEventListener('mouseup', this.onMouseUp);
-    window.removeEventListener('mousemove', this.onMouseMove);
-
-    if (this.state.mouseDown) {
+  private onHandle1Down = (event: SyntheticEvent) => {
+    if (!this.props.range) {
       this.setState({
-        mouseDown: undefined,
+        value: this.getValueOnMove(event)
       });
+
+      if (event.type === 'mouseup') {
+        // TODO: Call change and slide
+        console.log('one up')
+      } else {
+        // TODO: Call slide
+        console.log('one down')
+      }
+    } else {
+      this.setState({
+        from: this.getValueOnMove(event)
+      });
+      // TODO: Call handler
     }
+
   }
 
-  private setInitialValue = () => {
+  private onHandle2Down = (event: SyntheticEvent) => {
+    this.setState({
+      to: this.getValueOnMove(event)
+    });
+    // TODO: Call handler
+  }
+
+  private setInitialValue = (pointer: string) => {
     const {
       initialValue = INITIAL_VALUE,
+      initialFrom = INITIAL_VALUE,
+      initialTo = INITIAL_VALUE,
       min = MIN,
       max = MAX,
+      range,
     } = this.props;
 
-    if (initialValue < min) {
-      return min;
+    if (range) {
+      if (pointer === 'from') {
+        if (initialFrom && initialFrom < min) {
+          return min;
+        }
+        if (initialFrom && initialFrom > max) {
+          return max;
+        }
+        return initialFrom;
+      }
+
+      if (pointer === 'to') {
+        if (initialTo && initialTo < min) {
+          return min;
+        } else if (initialTo && initialTo > max) {
+          return max;
+        }
+        return initialTo;
+      }
     }
 
-    if (initialValue > max) {
-      return max;
+    if (pointer === 'single' && !range) {
+      if (initialValue < min) {
+        return min;
+      }
+      if (initialValue > max) {
+        return max;
+      }
+      return initialValue;
     }
-
-    return initialValue;
   }
 
   private setMinMaxStyle = (position: string) => {
@@ -140,25 +267,24 @@ export class Slider extends PureComponent<SliderProps, IState> {
     if (orientation === 'horizontal') {
 
       if (position === 'min') {
-        return { width: `${min * 100}%` }
+        return { width: `${parseFloat(min.toString()) * 100}%` }
       } else if (position === 'max') {
-        return { width: `${100 - (max * 100)}%` }
+        return { width: `${100 - (parseFloat(max.toString()) * 100)}%` }
       }
 
     } else if (orientation === 'vertical') {
 
       if (position === 'min') {
-        return { height: `${min * 100}%` }
+        return { height: `${parseFloat(min.toString()) * 100}%` }
       } else if (position === 'max') {
-        return { height: `${100 - (max * 100)}%` }
+        return { height: `${100 - (parseFloat(max.toString()) * 100)}%` }
       }
 
     }
   }
 
-  private setHandleStyle = () => {
+  private setHandleStyle = (value: number) => {
     const { orientation = 'horizontal' } = this.props;
-    const { value } = this.state;
 
     if (orientation === 'horizontal') {
       return { left: `${value * 100}%` }
@@ -167,25 +293,30 @@ export class Slider extends PureComponent<SliderProps, IState> {
     if (orientation === 'vertical') {
       return { top: `${value * 100}%` }
     }
+
   }
 
-  private setValueOnMove = (event: any, node: any) => {
+  private getValueOnMove = (event: SyntheticEvent) => {
     const {
       min = MIN,
       max = MAX,
       orientation = 'horizontal',
     } = this.props;
 
+    const node = ReactDOM.findDOMNode(this);
     const { top, left, width, height } = node.getBoundingClientRect();
 
-    if (orientation === 'horizontal') {
-      return { value: Math.max(Math.min((event.pageX - left) / width, max), min),}
-    }
+    // TODO: Use smallest of min / from and max / to for contraining
 
     if (orientation === 'vertical') {
-      return { value: Math.max(Math.min((event.pageY - top - window.pageYOffset) / height, max), min)}
+      // return constrain((event.clientY - top - window.pageYOffset) / height, min, max);
+      return this.constrain((event.clientY - top) / height, min, max);
     }
+
+    return this.constrain((event.clientX - left) / width, min, max);
+
   }
+
 }
 
 export default Slider;
