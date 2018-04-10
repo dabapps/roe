@@ -189,28 +189,29 @@ export class Slider extends PureComponent<SliderProps, IState> {
   private onHandle1Down = (event: SyntheticEvent) => {
     if (!this.props.range) {
       this.setState({
-        value: this.getValueOnMove(event)
+        value: this.getValueOnMove(event, 'from')
       });
 
       if (event.type === 'mouseup') {
         // TODO: Call change and slide
-        console.log('one up')
+
       } else {
         // TODO: Call slide
-        console.log('one down')
+
       }
     } else {
       this.setState({
-        from: this.getValueOnMove(event)
+        from: this.getValueOnMove(event, 'from')
       });
       // TODO: Call handler
+
     }
 
   }
 
   private onHandle2Down = (event: SyntheticEvent) => {
     this.setState({
-      to: this.getValueOnMove(event)
+      to: this.getValueOnMove(event, 'to')
     });
     // TODO: Call handler
   }
@@ -296,24 +297,59 @@ export class Slider extends PureComponent<SliderProps, IState> {
 
   }
 
-  private getValueOnMove = (event: SyntheticEvent) => {
+  private setBoundaryValue (pointer: string, value: string) {
     const {
       min = MIN,
       max = MAX,
+    } = this.props;
+    const { from, to } = this.state;
+
+    if (pointer === 'from') {
+      if (value === 'max' && to <= max) {
+        return to;
+      } else if (value === 'max' && to >= max) {
+        return max;
+      }
+      if (value === 'min') {
+        return min;
+      }
+    }
+
+    if (pointer === 'to') {
+      if (value === 'min' && from >= min) {
+        return from;
+      } else if (value === 'min' && from <= min) {
+        return min;
+      }
+      if (value === 'max') {
+        return max;
+      }
+    }
+
+  }
+
+  private getValueOnMove = (event: SyntheticEvent, pointer: string) => {
+    const {
       orientation = 'horizontal',
+      min = MIN,
+      max = MAX,
+      range,
     } = this.props;
 
     const node = ReactDOM.findDOMNode(this);
     const { top, left, width, height } = node.getBoundingClientRect();
 
-    // TODO: Use smallest of min / from and max / to for contraining
-
     if (orientation === 'vertical') {
-      // return constrain((event.clientY - top - window.pageYOffset) / height, min, max);
-      return this.constrain((event.clientY - top) / height, min, max);
+      return this.constrain((event.clientY - top) / height,
+        range ? this.setBoundaryValue(pointer, 'min') : min,
+        range ? this.setBoundaryValue(pointer, 'max') : max,
+      );
     }
 
-    return this.constrain((event.clientX - left) / width, min, max);
+    return this.constrain((event.clientX - left) / width,
+      range ? this.setBoundaryValue(pointer, 'min') : min,
+      range ? this.setBoundaryValue(pointer, 'max') : max,
+    );
 
   }
 
