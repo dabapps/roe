@@ -84,7 +84,8 @@ export class Slider extends PureComponent<SliderProps, IState> {
       max,
       popover,
       range,
-      steps,
+      steps = STEPS,
+      stepped,
       component: Component = 'div',
       orientation = 'horizontal',
       // ...remainingProps
@@ -137,7 +138,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
           }
 
           {
-            steps && (
+            stepped && (
               Array.apply(null, { length: steps + 1 }).map((e: any, i: number) => (
                 <span
                   key={i}
