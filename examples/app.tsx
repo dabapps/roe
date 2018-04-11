@@ -94,7 +94,7 @@ class App extends PureComponent<{}, AppState> {
             onChange={(value: any) => console.log(value)}
             popover
             range
-            // orientation="vertical"
+            orientation="vertical"
             steps={3}
           />
 

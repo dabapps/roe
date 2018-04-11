@@ -128,7 +128,12 @@ export class Slider extends PureComponent<SliderProps, IState> {
             )
           }
 
-          {range && <span className="roe-bar__range" style={this.setMinMaxStyle('range')} />}
+          {
+            range && (
+              <span className="roe-bar__range" style={this.setMinMaxStyle('range')} />
+            )
+          }
+
           {max && <span className="roe-bar__max" style={this.setMinMaxStyle('max')} />}
         </div>
       </Component>
@@ -264,6 +269,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
       max = MAX,
       orientation = 'horizontal',
     } = this.props;
+    const { from, to } = this.state;
 
     if (orientation === 'horizontal') {
 
@@ -271,6 +277,11 @@ export class Slider extends PureComponent<SliderProps, IState> {
         return { width: `${parseFloat(min.toString()) * 100}%` }
       } else if (position === 'max') {
         return { width: `${100 - (parseFloat(max.toString()) * 100)}%` }
+      } else if (position === 'range') {
+        return {
+          left: `${(parseFloat(from.toString()) * 100)}%`,
+          right: `${100 - (parseFloat(to.toString()) * 100)}%`,
+        }
       }
 
     } else if (orientation === 'vertical') {
@@ -279,8 +290,12 @@ export class Slider extends PureComponent<SliderProps, IState> {
         return { height: `${parseFloat(min.toString()) * 100}%` }
       } else if (position === 'max') {
         return { height: `${100 - (parseFloat(max.toString()) * 100)}%` }
+      } else if (position === 'range') {
+        return {
+          top: `${(parseFloat(from.toString()) * 100)}%`,
+          bottom: `${100 - (parseFloat(to.toString()) * 100)}%`,
+        }
       }
-
     }
   }
 
