@@ -191,7 +191,23 @@ export class Slider extends PureComponent<SliderProps, IState> {
     );
   }
 
+  private arithmeticSeries = (start: number, end: number, steps: number) => {
+    // TODO: extend Array definition for 'fill'
+    return Array(steps + 1).fill().map((item: number, index: number) =>
+      start + (index) * ((end - start) / steps)
+    )
+  }
+
+  private getClosestValue = (value: number) => {
+    const result: Array<number> = [];
+    this.arithmeticSeries(0, 100, 5).forEach((curr: number, index: number) => {
+      result.push(Math.abs(curr - (value * 100)))
+    })
+    return this.arithmeticSeries(0, 100, 5)[result.indexOf(Math.min.apply(Math, result))] / 100;
+  }
+
   private onHandle1Down = (event: SyntheticEvent) => {
+
     if (!this.props.range) {
       this.setState({
         value: this.getValueOnMove(event, 'from')
@@ -199,6 +215,11 @@ export class Slider extends PureComponent<SliderProps, IState> {
 
       if (event.type === 'mouseup') {
         // TODO: Call change and slide
+        this.setState({
+          value: this.props.stepped
+            ? this.getClosestValue(this.getValueOnMove(event, 'from'))
+            : this.getValueOnMove(event, 'from')
+        });
 
       } else {
         // TODO: Call slide
