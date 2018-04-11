@@ -41,6 +41,7 @@ export interface IState {
 const INITIAL_VALUE = 0;
 const MIN = 0;
 const MAX = 1;
+const STEPS = 1;
 
 export interface SyntheticEvent {
   type: string;
@@ -137,11 +138,11 @@ export class Slider extends PureComponent<SliderProps, IState> {
 
           {
             steps && (
-              Array.apply(null, { length: steps }).map((e: any, i: number) => (
+              Array.apply(null, { length: steps + 1 }).map((e: any, i: number) => (
                 <span
                   key={i}
                   className="roe-bar__steps"
-                  style={{ left: `${this.arithmeticSeries(0, 100, 5)[i]}%` }}
+                  style={{ left: `${this.arithmeticSeries(0, 100, steps)[i]}%` }}
                 />)
               )
             )
@@ -215,14 +216,14 @@ export class Slider extends PureComponent<SliderProps, IState> {
     const {
       min,
       max,
-      steps,
+      steps = STEPS,
     } = this.props;
 
     const result: Array<number> = [];
-    this.arithmeticSeries(0, 100, 5).forEach((curr: number, index: number) => {
+    this.arithmeticSeries(0, 100, steps).forEach((curr: number, index: number) => {
       result.push(Math.abs(curr - (value * 100)))
     })
-    return this.arithmeticSeries(0, 100, 5)[result.indexOf(Math.min.apply(Math, result))] / 100;
+    return this.arithmeticSeries(0, 100, steps)[result.indexOf(Math.min.apply(Math, result))] / 100;
   }
 
   private onHandle1Down = (event: SyntheticEvent) => {
@@ -233,7 +234,6 @@ export class Slider extends PureComponent<SliderProps, IState> {
       });
 
       if (event.type === 'mouseup') {
-        // TODO: Call change and slide
         this.setState({
           value: this.props.stepped
             ? this.getClosestValue(this.getValueOnMove(event, 'from'))
@@ -248,6 +248,15 @@ export class Slider extends PureComponent<SliderProps, IState> {
       this.setState({
         from: this.getValueOnMove(event, 'from')
       });
+
+      if (event.type === 'mouseup') {
+        this.setState({
+          from: this.getClosestValue(this.getValueOnMove(event, 'from'))
+        });
+      } else {
+        // TODO: Call slide
+
+      }
       // TODO: Call handler
 
     }
@@ -258,7 +267,19 @@ export class Slider extends PureComponent<SliderProps, IState> {
     this.setState({
       to: this.getValueOnMove(event, 'to')
     });
-    // TODO: Call handler
+
+    if (event.type === 'mouseup') {
+
+      this.setState({
+        to: this.props.stepped
+          ? this.getClosestValue(this.getValueOnMove(event, 'to'))
+          : this.getValueOnMove(event, 'to')
+      });
+
+    } else {
+      // TODO: Call handler
+
+    }
   }
 
   private setInitialValue = (pointer: string) => {
