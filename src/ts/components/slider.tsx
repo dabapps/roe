@@ -83,6 +83,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
       max,
       popover,
       range,
+      steps,
       component: Component = 'div',
       orientation = 'horizontal',
       // ...remainingProps
@@ -131,6 +132,18 @@ export class Slider extends PureComponent<SliderProps, IState> {
           {
             range && (
               <span className="roe-bar__range" style={this.setMinMaxStyle('range')} />
+            )
+          }
+
+          {
+            steps && (
+              Array.apply(null, { length: steps }).map((e: any, i: number) => (
+                <span
+                  key={i}
+                  className="roe-bar__steps"
+                  style={{ left: `${this.arithmeticSeries(0, 100, 5)[i]}%` }}
+                />)
+              )
             )
           }
 
@@ -199,6 +212,12 @@ export class Slider extends PureComponent<SliderProps, IState> {
   }
 
   private getClosestValue = (value: number) => {
+    const {
+      min,
+      max,
+      steps,
+    } = this.props;
+
     const result: Array<number> = [];
     this.arithmeticSeries(0, 100, 5).forEach((curr: number, index: number) => {
       result.push(Math.abs(curr - (value * 100)))
