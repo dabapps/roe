@@ -1,6 +1,13 @@
 .roe-slider {
   padding: 0 5px;
 
+  &.stepped {
+    .roe-handle,
+    .roe-bar__range {
+      transition: all 0.2s ease-out;
+    }
+  }
+
   .roe-bar {
     height: @roe-slider-bar-thickness;
     position: relative;
@@ -33,7 +40,7 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 5px;
+      width: 3px;
       height: 5px;
       background-color: @roe-slider-steps-background;
       z-index: @roe-slider-handle-z-index - 1;
@@ -48,7 +55,6 @@
     left: 0;
     float: left;
     transform: translate(-50%, -50%);
-    transition: all 0.07s ease-out;
     background-color: @roe-slider-handle-color;
     cursor: ew-resize;
     z-index: @roe-slider-handle-z-index;

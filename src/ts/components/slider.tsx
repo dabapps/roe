@@ -3,7 +3,6 @@ import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
 import { ComponentProps } from '../types';
-// import * as fill from 'core-js/fn/array/fill';
 
 export interface SliderProps extends ComponentProps, HTMLProps<HTMLElement> {
   max?: number;
@@ -60,9 +59,6 @@ export class Slider extends PureComponent<SliderProps, IState> {
       max,
     } = props;
 
-    // TODO: Should handle initial values if defined
-    // TODO: Should handle limiting from / to, by from / to, if using ranged values
-    // (do not let to be after from or vice versa)
     this.state = {
       value: this.constrain(this.setInitialValue('single'), min, max),
       from: this.constrain(this.setInitialValue('from'), min, max),
@@ -99,6 +95,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
           'roe-slider',
           orientation,
           className,
+          stepped && 'stepped',
         )}
       >
         <div className="roe-bar">
@@ -181,6 +178,10 @@ export class Slider extends PureComponent<SliderProps, IState> {
     };
 
     const onMouseDown = (event: React.MouseEvent<HTMLElement>) => {
+      if (event.button === 2) {
+        return;
+      }
+
       event.preventDefault();
 
       callback(createSyntheticEvent(event));
@@ -212,8 +213,6 @@ export class Slider extends PureComponent<SliderProps, IState> {
   }
 
   private arithmeticSeries = (start: number, end: number, steps: number) => {
-    // TODO: extend Array definition for 'fill'
-    // Array(steps + 1).fill()
     return Array.apply(null, { length: steps + 1 }).map((item: number, index: number) =>
       start + (index) * ((end - start) / steps)
     );
@@ -284,7 +283,9 @@ export class Slider extends PureComponent<SliderProps, IState> {
     } = this.props;
 
     this.setState({
-      to: this.getValueOnMove(event, 'to')
+      to: stepped
+        ? this.getClosestValue(this.getValueOnMove(event, 'to'))
+        : this.getValueOnMove(event, 'to')
     });
 
     if (event.type === 'mouseup') {
