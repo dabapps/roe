@@ -85,18 +85,18 @@ class App extends PureComponent<{}, AppState> {
           </Row>
 
           <Slider
-            initialValue={0.4}
-            initialFrom={0.4}
-            initialTo={0.6}
-            min={0.2}
-            max={0.8}
+            initialValue={0.25}
+            initialFrom={0.25}
+            initialTo={0.5}
+            min={0.25}
+            max={0.75}
             onSlide={(value: any) => console.log(value)}
             onChange={(value: any) => console.log(value)}
             popover
             range
             // orientation="vertical"
             stepped
-            steps={5}
+            steps={4}
           />
 
           <Row>

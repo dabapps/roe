@@ -44,6 +44,10 @@
       height: 5px;
       background-color: @roe-slider-steps-background;
       z-index: @roe-slider-handle-z-index - 1;
+
+      &.fade {
+        background-color: lighten(@roe-slider-steps-background, 60%);
+      }
     }
   }
 
@@ -138,6 +142,8 @@
       }
 
       &__steps {
+        width: 5px;
+        height: 3px;
         left: 0;
         bottom: inherit;
       }
