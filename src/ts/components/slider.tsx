@@ -143,7 +143,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
                 <span
                   key={i}
                   className="roe-bar__steps"
-                  style={{ left: `${this.arithmeticSeries(0, 100, steps)[i]}%` }}
+                  style={{ left: `${this.partialArithmeticSeries(steps)[i]}%` }}
                 />)
               )
             )
@@ -213,6 +213,8 @@ export class Slider extends PureComponent<SliderProps, IState> {
     )
   }
 
+  private partialArithmeticSeries = (steps: number) => this.arithmeticSeries(0, 100, steps);
+
   private getClosestValue = (value: number) => {
     const {
       min,
@@ -221,10 +223,10 @@ export class Slider extends PureComponent<SliderProps, IState> {
     } = this.props;
 
     const result: Array<number> = [];
-    this.arithmeticSeries(0, 100, steps).forEach((curr: number, index: number) => {
+    this.partialArithmeticSeries(steps).forEach((curr: number, index: number) => {
       result.push(Math.abs(curr - (value * 100)))
     })
-    return this.arithmeticSeries(0, 100, steps)[result.indexOf(Math.min.apply(Math, result))] / 100;
+    return this.partialArithmeticSeries(steps)[result.indexOf(Math.min.apply(Math, result))] / 100;
   }
 
   private onHandle1Down = (event: SyntheticEvent) => {
