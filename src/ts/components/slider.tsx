@@ -3,6 +3,7 @@ import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
 import { ComponentProps } from '../types';
+// import * as fill from 'core-js/fn/array/fill';
 
 export interface SliderProps extends ComponentProps, HTMLProps<HTMLElement> {
   max?: number;
@@ -212,7 +213,8 @@ export class Slider extends PureComponent<SliderProps, IState> {
 
   private arithmeticSeries = (start: number, end: number, steps: number) => {
     // TODO: extend Array definition for 'fill'
-    return Array(steps + 1).fill().map((item: number, index: number) =>
+    // Array(steps + 1).fill()
+    return Array.apply(null, { length: steps + 1 }).map((item: number, index: number) =>
       start + (index) * ((end - start) / steps)
     );
   }
