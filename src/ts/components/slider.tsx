@@ -101,44 +101,45 @@ export class Slider extends PureComponent<SliderProps, IState> {
         )}
       >
         <div className="roe-bar">
-          {min && <span className="roe-bar__min" style={this.setMinMaxStyle('min')} />}
+          {min && (
+              <span className="roe-bar__min" style={this.setMinMaxStyle('min')} />
+            )
+          }
 
           <div
             className="roe-handle"
             style={this.setHandleStyle(range ? this.state.from : this.state.value)}
             onMouseDown={this.onHandle1Down}
           >
-            {popover &&
-              <span className="roe-handle__popover">
-                {`${((range ? this.state.from : this.state.value) * 100).toFixed(0)}`}
-              </span>
+            {popover && (
+                <span className="roe-handle__popover">
+                  {`${((range ? this.state.from : this.state.value) * 100).toFixed(0)}`}
+                </span>
+              )
             }
           </div>
 
-          {
-            range && (
+          {range && (
               <div
                 className="roe-handle roe-handle__range"
                 style={this.setHandleStyle(this.state.to)}
                 onMouseDown={this.onHandle2Down}
               >
-                {popover &&
+                {popover && (
                   <span className="roe-handle__popover">
                     {`${((this.state.to) * 100).toFixed(0)}`}
-                  </span>
+                  </span>)
                 }
               </div>
             )
           }
 
-          {
-            range && (
+          {range && (
               <span className="roe-bar__range" style={this.setMinMaxStyle('range')} />
             )
           }
 
-          {
-            stepped && (
+          {stepped && (
               Array.apply(null, { length: steps + 1 }).map((e: any, i: number) => (
                 <span
                   key={i}
@@ -149,7 +150,10 @@ export class Slider extends PureComponent<SliderProps, IState> {
             )
           }
 
-          {max && <span className="roe-bar__max" style={this.setMinMaxStyle('max')} />}
+          {max && (
+              <span className="roe-bar__max" style={this.setMinMaxStyle('max')} />
+            )
+          }
         </div>
       </Component>
     );
@@ -200,7 +204,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
     return Math.min(
       Math.max(
         typeof value === 'undefined' ? MIN : parseFloat(value.toString()),
-        typeof min === 'undefined' ? MIN : parseFloat(min.toString())
+        typeof min === 'undefined' ? MIN : parseFloat(min.toString()),
       ),
       typeof max === 'undefined' ? MAX : parseFloat(max.toString())
     );
@@ -210,7 +214,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
     // TODO: extend Array definition for 'fill'
     return Array(steps + 1).fill().map((item: number, index: number) =>
       start + (index) * ((end - start) / steps)
-    )
+    );
   }
 
   private partialArithmeticSeries = (steps: number) => this.arithmeticSeries(0, 100, steps);
@@ -223,30 +227,36 @@ export class Slider extends PureComponent<SliderProps, IState> {
     } = this.props;
 
     const result: Array<number> = [];
+
     this.partialArithmeticSeries(steps).forEach((curr: number, index: number) => {
       result.push(Math.abs(curr - (value * 100)))
-    })
+    });
+
     return this.partialArithmeticSeries(steps)[result.indexOf(Math.min.apply(Math, result))] / 100;
   }
 
   private onHandle1Down = (event: SyntheticEvent) => {
+    const {
+      stepped,
+      range,
+    } = this.props;
 
-    if (!this.props.range) {
+    if (!range) {
       this.setState({
         value: this.getValueOnMove(event, 'from')
       });
 
       if (event.type === 'mouseup') {
         this.setState({
-          value: this.props.stepped
+          value: stepped
             ? this.getClosestValue(this.getValueOnMove(event, 'from'))
             : this.getValueOnMove(event, 'from')
         });
 
       } else {
         // TODO: Call slide
-
       }
+
     } else {
       this.setState({
         from: this.getValueOnMove(event, 'from')
@@ -254,21 +264,23 @@ export class Slider extends PureComponent<SliderProps, IState> {
 
       if (event.type === 'mouseup') {
         this.setState({
-          from: this.props.stepped
+          from: stepped
             ? this.getClosestValue(this.getValueOnMove(event, 'from'))
             : this.getValueOnMove(event, 'from')
         });
       } else {
         // TODO: Call slide
-
       }
       // TODO: Call handler
-
     }
 
   }
 
   private onHandle2Down = (event: SyntheticEvent) => {
+    const {
+      stepped,
+    } = this.props;
+
     this.setState({
       to: this.getValueOnMove(event, 'to')
     });
@@ -276,14 +288,13 @@ export class Slider extends PureComponent<SliderProps, IState> {
     if (event.type === 'mouseup') {
 
       this.setState({
-        to: this.props.stepped
+        to: stepped
           ? this.getClosestValue(this.getValueOnMove(event, 'to'))
           : this.getValueOnMove(event, 'to')
       });
 
     } else {
       // TODO: Call handler
-
     }
   }
 
@@ -331,10 +342,11 @@ export class Slider extends PureComponent<SliderProps, IState> {
 
   private setMinMaxStyle = (position: string) => {
     const {
+      orientation = 'horizontal',
       min = MIN,
       max = MAX,
-      orientation = 'horizontal',
     } = this.props;
+
     const { from, to } = this.state;
 
     if (orientation === 'horizontal') {
@@ -375,7 +387,6 @@ export class Slider extends PureComponent<SliderProps, IState> {
     if (orientation === 'vertical') {
       return { top: `${value * 100}%` }
     }
-
   }
 
   private setBoundaryValue (pointer: string, value: string) {
@@ -383,6 +394,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
       min = MIN,
       max = MAX,
     } = this.props;
+
     const { from, to } = this.state;
 
     if (pointer === 'from') {
@@ -406,7 +418,6 @@ export class Slider extends PureComponent<SliderProps, IState> {
         return max;
       }
     }
-
   }
 
   private getValueOnMove = (event: SyntheticEvent, pointer: string) => {
@@ -431,7 +442,6 @@ export class Slider extends PureComponent<SliderProps, IState> {
       range ? this.setBoundaryValue(pointer, 'min') : min,
       range ? this.setBoundaryValue(pointer, 'max') : max,
     );
-
   }
 
 }
