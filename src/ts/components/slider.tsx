@@ -108,7 +108,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
 
           <div
             className="roe-handle"
-            style={this.setHandleStyle(range ? this.state.from : this.state.value)}
+            style={this.setOrientationStyle(range ? this.state.from : this.state.value)}
             onMouseDown={this.onHandle1Down}
           >
             {popover && (
@@ -122,7 +122,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
           {range && (
               <div
                 className="roe-handle roe-handle__range"
-                style={this.setHandleStyle(this.state.to)}
+                style={this.setOrientationStyle(this.state.to)}
                 onMouseDown={this.onHandle2Down}
               >
                 {popover && (
@@ -144,7 +144,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
                 <span
                   key={i}
                   className="roe-bar__steps"
-                  style={{ left: `${this.partialArithmeticSeries(steps)[i]}%` }}
+                  style={this.setOrientationStyle(this.partialArithmeticSeries(steps)[i] / 100)}
                 />)
               )
             )
@@ -377,7 +377,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
     }
   }
 
-  private setHandleStyle = (value: number) => {
+  private setOrientationStyle = (value: number) => {
     const { orientation = 'horizontal' } = this.props;
 
     if (orientation === 'horizontal') {
