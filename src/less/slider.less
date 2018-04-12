@@ -1,13 +1,6 @@
 .roe-slider {
   padding: 0 5px;
 
-  &.stepped {
-    .roe-handle,
-    .roe-bar__range {
-      transition: all 0.2s ease-out;
-    }
-  }
-
   .roe-bar {
     height: @roe-slider-bar-thickness;
     position: relative;
@@ -93,6 +86,41 @@
     &__range {
       transform: translate(-100%, -50%);
       background-color: @roe-slider-handle-range-color;
+    }
+  }
+
+  &.stepped {
+    .roe-handle,
+    .roe-bar__range {
+      transition: all 0.2s ease-out;
+    }
+  }
+
+  &.range {
+
+    .roe-handle {
+
+      &__popover {
+        transform: translate(-76%, -50%);
+
+        &::before {
+          bottom: 2px;
+          left: 11px;
+          transform: rotate(90deg);
+        }
+      }
+
+      &__range {
+
+        .roe-handle__popover {
+          transform: translate(18%, -50%);
+
+          &::before {
+            left: -16px;
+            transform: rotate(-90deg);
+          }
+        }
+      }
     }
   }
 

@@ -96,6 +96,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
           orientation,
           className,
           stepped && 'stepped',
+          range && 'range',
         )}
       >
         <div className="roe-bar">
