@@ -252,7 +252,9 @@ export class Slider extends PureComponent<SliderProps, IState> {
 
       if (event.type === 'mouseup') {
         this.setState({
-          from: this.getClosestValue(this.getValueOnMove(event, 'from'))
+          from: this.props.stepped
+            ? this.getClosestValue(this.getValueOnMove(event, 'from'))
+            : this.getValueOnMove(event, 'from')
         });
       } else {
         // TODO: Call slide

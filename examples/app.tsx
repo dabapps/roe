@@ -86,8 +86,8 @@ class App extends PureComponent<{}, AppState> {
 
           <Slider
             initialValue={0.4}
-            initialFrom={0.5}
-            initialTo={0.7}
+            initialFrom={0.4}
+            initialTo={0.6}
             min={0.2}
             max={0.8}
             onSlide={(value: any) => console.log(value)}
