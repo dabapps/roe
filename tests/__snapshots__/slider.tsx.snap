@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider should match snapshot 1`] = `
+<div
+  className="roe-slider horizontal"
+>
+  <div
+    className="roe-bar"
+  >
+    <div
+      className="roe-handle"
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "left": "0%",
+        }
+      }
+    />
+    <span
+      className="roe-bar__max"
+      style={
+        Object {
+          "width": "0%",
+        }
+      }
+    />
+  </div>
+</div>
+`;

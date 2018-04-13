@@ -136,7 +136,6 @@ export class Slider extends PureComponent<SliderProps, IState> {
 
   public render() {
     const {
-      children,
       className,
       min = MIN,
       max = MAX,
@@ -172,7 +171,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
             onMouseDown={this.onHandleDown}
           >
             {popover && (
-                <span className="roe-handle__popover">
+                <span className="roe-handle-popover">
                   <span>{`${((range ? this.state.from : this.state.value) * 100).toFixed(0)}`}</span>
                 </span>
               )
@@ -186,7 +185,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
                 onMouseDown={this.onHandleRangeDown}
               >
                 {popover && (
-                  <span className="roe-handle__popover">
+                  <span className="roe-handle-popover">
                     <span>{`${((this.state.to) * 100).toFixed(0)}`}</span>
                   </span>)
                 }
@@ -195,7 +194,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
           }
 
           {range && (
-              <span className="roe-bar__range" style={this.setMinMaxStyle('range')} />
+              <span className="roe-bar-range" style={this.setMinMaxStyle('range')} />
             )
           }
 
@@ -290,8 +289,6 @@ export class Slider extends PureComponent<SliderProps, IState> {
 
   private getClosestValue = (value: number) => {
     const {
-      min,
-      max,
       steps = STEPS,
     } = this.props;
 
@@ -323,9 +320,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
         }
       }
 
-      if (typeof this.props.onSlide === 'function') {
-        this.props.onSlide(this.state.value)
-      }
+      this.props.onSlide(this.state.value)
 
     } else {
       this.setState({
