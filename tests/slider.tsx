@@ -5,6 +5,20 @@ import * as renderer from 'react-test-renderer';
 import { Slider } from '../src/ts/components/slider';
 
 describe('Slider', () => {
+  beforeAll(() => {
+    jest.spyOn(window, 'addEventListener');
+    jest.spyOn(window, 'removeEventListener');
+  });
+
+  beforeEach(() => {
+    (window.addEventListener as jest.Mock<any>)
+      .mockImplementation(jest.fn())
+      .mockClear();
+    (window.removeEventListener as jest.Mock<any>)
+      .mockImplementation(jest.fn())
+      .mockClear();
+  });
+
   it('should match snapshot', () => {
     const tree = renderer.create(
       <Slider
@@ -85,13 +99,143 @@ describe('Slider', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should call mousedown, mousemove and mouseup', () => {
-    const tree = enzyme.mount(<Slider onSlide={jest.fn()} />);
+  it('should call mouse events on single slider', () => {
+    const tree = enzyme.mount(
+      <Slider
+        onChange={jest.fn()}
+        onSlide={jest.fn()}
+      />
+    );
+
+    tree.find('.roe-handle')
+      .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
+      .simulate('mouseMove', { clientX: 100, clientY: 0 })
+      .simulate('mouseUp');
+  });
+
+  it('should call mouse events on single slider (vertical)', () => {
+    const tree = enzyme.mount(
+      <Slider
+        onChange={jest.fn()}
+        onSlide={jest.fn()}
+        orientation="vertical"
+      />
+    );
 
     tree.find('.roe-handle')
       .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
       .simulate('mouseMove', { clientX: 0, clientY: 100 })
       .simulate('mouseUp');
+  });
+
+  it('should call mouse events on stepped single slider', () => {
+    const tree = enzyme.mount(
+      <Slider
+        stepped
+        steps={6}
+        onSlide={jest.fn()}
+      />
+    );
+
+    tree.find('.roe-handle')
+      .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
+      .simulate('mouseMove', { clientX: 100, clientY: 0 })
+      .simulate('mouseUp');
+  });
+
+  it('should call mouse events on single range slider', () => {
+    const tree = enzyme.mount(
+      <Slider
+        range
+        onSlide={jest.fn()}
+      />
+    );
+
+    tree.find('.roe-handle__range')
+      .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
+      .simulate('mouseMove', { clientX: 100, clientY: 0 })
+      .simulate('mouseUp');
+  });
+
+  it('should call mouse events on range stepped slider (first slide exceeded range position)', () => {
+    const tree = enzyme.mount(
+      <Slider
+        initialFrom={0.25}
+        initialTo={0.5}
+        min={0.125}
+        max={0.75}
+        range
+        stepped
+        steps={8}
+        popover
+        onSlide={jest.fn()}
+        onSlideFrom={jest.fn()}
+        onChangeFrom={jest.fn()}
+        onSlideTo={jest.fn()}
+        onChangeTo={jest.fn()}
+      />
+    );
+
+    tree.find('.roe-handle')
+      .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
+      .simulate('mouseMove', { clientX: 400, clientY: 0 })
+      .simulate('mouseUp');
+
+    tree.find('.roe-handle__range')
+      .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
+      .simulate('mouseMove', { clientX: 300, clientY: 0 })
+      .simulate('mouseUp');
+  });
+
+  it('should call mouse events on range stepped slider (vertical)', () => {
+    const tree = enzyme.mount(
+      <Slider
+        initialFrom={0.5}
+        initialTo={0.75}
+        min={0.125}
+        max={0.75}
+        range
+        stepped
+        steps={8}
+        popover
+        onSlide={jest.fn()}
+        onSlideFrom={jest.fn()}
+        onChangeFrom={jest.fn()}
+        onSlideTo={jest.fn()}
+        onChangeTo={jest.fn()}
+        orientation="vertical"
+      />
+    );
+
+    tree.find('.roe-handle')
+      .first().simulate('mouseDown', { clientX: 0, clientY: 500 })
+      .simulate('mouseMove', { clientX: 0, clientY: 600 })
+      .simulate('mouseUp');
+
+    tree.find('.roe-handle__range')
+      .first().simulate('mouseDown', { clientX: 0, clientY: 750 })
+      .simulate('mouseMove', { clientX: 0, clientY: 100 })
+      .simulate('mouseUp');
+  });
+
+
+  it('should remove listeners on unmount', () => {
+    const tree = enzyme.mount(
+      <Slider
+        onSlide={jest.fn()}
+      />
+    );
+
+    tree.find('.roe-handle')
+      .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
+      .simulate('mouseMove', { clientX: 100, clientY: 0 })
+      .simulate('mouseUp');
+
+    (window.removeEventListener as jest.Mock<any>).mockClear();
+
+    tree.unmount();
+
+    expect(window.removeEventListener).toHaveBeenCalledTimes(1);
   });
 
 });
