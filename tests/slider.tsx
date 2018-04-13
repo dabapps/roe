@@ -1,3 +1,4 @@
+import * as enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
@@ -82,6 +83,15 @@ describe('Slider', () => {
     );
 
     expect(tree).toMatchSnapshot();
+  });
+
+  it('should call mousedown, mousemove and mouseup', () => {
+    const tree = enzyme.mount(<Slider onSlide={jest.fn()} />);
+
+    tree.find('.roe-handle')
+      .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
+      .simulate('mouseMove', { clientX: 0, clientY: 100 })
+      .simulate('mouseUp');
   });
 
 });
