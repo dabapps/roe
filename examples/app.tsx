@@ -90,8 +90,12 @@ class App extends PureComponent<{}, AppState> {
             initialTo={0.5}
             min={0.25}
             max={0.75}
-            onSlide={(value) => console.log(value)}
-            onChange={(value) => console.log(value)}
+            onSlide={(value) => console.log('onSlide', value)}
+            onChange={(value) => console.log('onChange', value)}
+            onSlideFrom={(from) => console.log('onSlideFrom', from)}
+            onChangeFrom={(from) => console.log('onChangeFrom', from)}
+            onSlideTo={(to) => console.log('onSlideTo', to)}
+            onChangeTo={(to) => console.log('onChangeTo', to)}
             popover
             range
             // orientation="vertical"
@@ -198,6 +202,10 @@ class App extends PureComponent<{}, AppState> {
       </AppRoot>
     );
   }
+
+  private handle0nSlide = (value: number) => {
+    console.log(value)
+  };
 
   private showSidebar = () => {
     this.setState({

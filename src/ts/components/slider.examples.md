@@ -1,7 +1,48 @@
 #### Examples
 
 ```js
-class SliderExample extends React.Component {
+class SliderExamples extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: 0,
+      from: 0,
+      to: 0,
+    };
+
+    this.onSlide = this.onSlide.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.onSlideFrom = this.onSlideFrom.bind(this);
+    this.onChangeFrom = this.onChangeFrom.bind(this);
+    this.onSlideTo = this.onSlideTo.bind(this);
+    this.onChangeTo = this.onChangeTo.bind(this);
+  }
+
+  onSlide (value) {
+    this.setState({ value });
+  }
+
+  onChange (value) {
+    this.setState({ value });
+  }
+
+  onSlideFrom (value) {
+    this.setState({ from: value });
+  }
+
+  onChangeFrom (value) {
+    this.setState({ from: value });
+  }
+
+  onSlideTo (value) {
+    this.setState({ to: value });
+  }
+
+  onChangeTo (value) {
+    this.setState({ to: value });
+  }
+
   render () {
     return (
       <div
@@ -14,8 +55,12 @@ class SliderExample extends React.Component {
           initialTo={0.5}
           min={0.25}
           max={0.75}
-          onSlide={(value) => console.log(value)}
-          onChange={(value) => console.log(value)}
+          onSlide={(value) => this.onSlide(value)}
+          onChange={(value) => this.onChange(value)}
+          onSlideFrom={(from) => this.onSlideFrom(from)}
+          onChangeFrom={(from) => this.onChangeFrom(from)}
+          onSlideTo={(to) => this.onSlideTo(to)}
+          onChangeTo={(to) => this.onChangeTo(to)}
           popover
           range
           // orientation="vertical"
@@ -27,7 +72,7 @@ class SliderExample extends React.Component {
   }
 }
 
-<SliderExample />
+<SliderExamples />
 ```
 
 #### Less variables

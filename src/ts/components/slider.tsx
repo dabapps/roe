@@ -56,35 +56,35 @@ export interface SliderProps extends ComponentProps, HTMLProps<HTMLElement> {
    */
   range?: boolean;
   /**
-   * onSlide
+   * Exposes the value on slide
    * @default
    */
-  onSlide: (value: any) => any;
+  onSlide: (value: number) => any;
   /**
-   * onChange
+   * Exposes the value on mouse up
    * @default
    */
   onChange?: (value: any) => any;
   /**
-   * onSlideFrom
+   * Exposes the value of range (from)
    * @default
    */
-  onSlideFrom?: (value: any) => any;
+  onSlideFrom?: (value: number) => any;
   /**
-   * onChangeFrom
+   * Exposes the value of range (from) on mouse up
    * @default
    */
-  onChangeFrom?: (value: any) => any;
+  onChangeFrom?: (value: number) => any;
   /**
-   * onSlideTo
+   * Exposes the value of range (to)
    * @default
    */
-  onSlideTo?: (value: any) => any;
+  onSlideTo?: (value: number) => any;
   /**
-   * onChangeTo
+   * Exposes the value of range (to) on mouse up
    * @default
    */
-  onChangeTo?: (value: any) => any;
+  onChangeTo?: (value: number) => any;
 }
 
 export interface MousePosition {
@@ -318,9 +318,13 @@ export class Slider extends PureComponent<SliderProps, IState> {
       });
 
       if (event.type === 'mouseup') {
-        // TODO: Call slide
-      } else {
-        // TODO: Call slide
+        if (typeof this.props.onChange === 'function') {
+          this.props.onChange(this.state.value)
+        }
+      }
+
+      if (typeof this.props.onSlide === 'function') {
+        this.props.onSlide(this.state.value)
       }
 
     } else {
@@ -331,12 +335,14 @@ export class Slider extends PureComponent<SliderProps, IState> {
       });
 
       if (event.type === 'mouseup') {
-        // TODO: Call slide
-      } else {
-        // TODO: Call slide
+        if (typeof this.props.onChangeFrom === 'function') {
+          this.props.onChangeFrom(this.state.from)
+        }
       }
 
-      // TODO: Call handler
+      if (typeof this.props.onSlideFrom === 'function') {
+        this.props.onSlideFrom(this.state.from)
+      }
     }
 
   }
@@ -353,12 +359,15 @@ export class Slider extends PureComponent<SliderProps, IState> {
     });
 
     if (event.type === 'mouseup') {
-      // TODO: Call handler
-    } else {
-      // TODO: Call handler
+      if (typeof this.props.onChangeTo === 'function') {
+         this.props.onChangeTo(this.state.to)
+      }
     }
 
-    // TODO: Call handler
+    if (typeof this.props.onSlideTo === 'function') {
+      this.props.onSlideTo(this.state.to)
+    }
+
   }
 
   private setInitialValue = (pointer: string) => {
