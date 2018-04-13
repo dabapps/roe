@@ -183,10 +183,6 @@ class App extends PureComponent<{}, AppState> {
     );
   }
 
-  private handle0nSlide = (value: number) => {
-    console.log(value)
-  };
-
   private showSidebar = () => {
     this.setState({
       sidebarOpen: true,
