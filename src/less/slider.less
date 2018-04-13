@@ -51,21 +51,27 @@
     top: 50%;
     left: 0;
     float: left;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -56%);
     background-color: @roe-slider-handle-color;
     cursor: ew-resize;
     z-index: @roe-slider-handle-z-index;
 
     &__popover {
       position: absolute;
+      display: inline-table;
       top: -1.4em;
-      width: 2.4em;
-      padding: 5px 0;
-      transform: translate(-31%, -50%);
+      width: 2.5em;
+      height: 2em;
+      transform: translate(-30%, -58%);
       text-align: center;
       background-color: @roe-slider-handle-popover-background;
       font-size: 11px;
       border-radius: 5px;
+      z-index: @roe-slider-handle-z-index;
+
+      span {
+        display: table-row;
+      }
 
       &::before {
         content: '';
@@ -76,15 +82,16 @@
         right: 0;
         margin-left: auto;
         margin-right: auto;
-        bottom: -3px;
+        bottom: -4px;
         border-left: 10px solid transparent;
         border-right: 10px solid transparent;
         border-top: 10px solid @roe-slider-handle-popover-background;
+        z-index: -1;
       }
     }
 
     &__range {
-      transform: translate(-100%, -50%);
+      transform: translate(-100%, -56%);
       background-color: @roe-slider-handle-range-color;
     }
   }
@@ -97,27 +104,50 @@
   }
 
   &.range {
-
     .roe-handle {
-
       &__popover {
-        transform: translate(-76%, -50%);
+        transform: translate(-80%, -50%);
 
         &::before {
           bottom: 2px;
-          left: 11px;
+          left: 12px;
           transform: rotate(90deg);
         }
       }
 
       &__range {
-
         .roe-handle__popover {
           transform: translate(18%, -50%);
 
           &::before {
-            left: -16px;
+            left: -17px;
             transform: rotate(-90deg);
+          }
+        }
+      }
+    }
+
+    &.vertical {
+      .roe-handle {
+        &__popover {
+          transform: translate(66%, -3%);
+
+          &::before {
+            left: -16px;
+            bottom: 0px;
+            transform: rotate(-180deg);
+          }
+        }
+
+        &__range {
+          .roe-handle__popover {
+            transform: translate(66%, 92%);
+
+            &::before {
+              left: -16px;
+              bottom: 12px;
+              transform: rotate(0deg);
+            }
           }
         }
       }
@@ -136,6 +166,16 @@
       cursor: ns-resize;
       transform: translate(-30%, -@roe-slider-bar-thickness);
       left: inherit;
+
+      &__popover {
+        transform: translate(63%, 46%);
+
+        &::before {
+          transform: rotate(90deg);
+          left: -24px;
+          bottom: 6px;
+        }
+      }
 
       &__range {
         transform: translate(-30%, -100%);

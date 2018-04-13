@@ -112,7 +112,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
           >
             {popover && (
                 <span className="roe-handle__popover">
-                  {`${((range ? this.state.from : this.state.value) * 100).toFixed(0)}`}
+                  <span>{`${((range ? this.state.from : this.state.value) * 100).toFixed(0)}`}</span>
                 </span>
               )
             }
@@ -126,7 +126,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
               >
                 {popover && (
                   <span className="roe-handle__popover">
-                    {`${((this.state.to) * 100).toFixed(0)}`}
+                    <span>{`${((this.state.to) * 100).toFixed(0)}`}</span>
                   </span>)
                 }
               </div>
