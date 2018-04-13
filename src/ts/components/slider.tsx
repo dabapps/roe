@@ -6,15 +6,15 @@ import { ComponentProps } from '../types';
 
 export interface SliderProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**
-   * Max
-   * @default 1
-   */
-  max?: number;
-  /**
-   * Min
+   * Min value
    * @default 0
    */
   min?: number;
+  /**
+   * Max value
+   * @default 1
+   */
+  max?: number;
   /**
    * Orientation
    * @default 'horizontal'
@@ -36,18 +36,18 @@ export interface SliderProps extends ComponentProps, HTMLProps<HTMLElement> {
    */
   steps?: number;
   /**
-   * Initial Value
+   * Initial 'value'
    * @default 0
    */
   initialValue?: number;
   /**
-   * Initial From
+   * Initial 'from'
    * @default 0
    */
   initialFrom?: number;
   /**
-   * Initial To
-   * @default 1
+   * Initial 'to'
+   * @default 0
    */
   initialTo?: number;
   /**
@@ -56,12 +56,12 @@ export interface SliderProps extends ComponentProps, HTMLProps<HTMLElement> {
    */
   range?: boolean;
   /**
-   * Exposes the value on slide
+   * Exposes the 'value' on slide
    * @default
    */
   onSlide: (value: number) => any;
   /**
-   * Exposes the value on mouse up
+   * Exposes the 'value' on mouse up
    * @default
    */
   onChange?: (value: any) => any;

@@ -17,7 +17,6 @@ import {
   Row,
   Section,
   SideBar,
-  Slider,
   SpacedGroup,
 } from '../src/ts';
 import NavItems from './nav-items';
@@ -83,25 +82,6 @@ class App extends PureComponent<{}, AppState> {
               </InputGroup>
             </Column>
           </Row>
-
-          <Slider
-            initialValue={0.25}
-            initialFrom={0.25}
-            initialTo={0.5}
-            min={0.25}
-            max={0.75}
-            onSlide={(value) => console.log('onSlide', value)}
-            onChange={(value) => console.log('onChange', value)}
-            onSlideFrom={(from) => console.log('onSlideFrom', from)}
-            onChangeFrom={(from) => console.log('onChangeFrom', from)}
-            onSlideTo={(to) => console.log('onSlideTo', to)}
-            onChangeTo={(to) => console.log('onChangeTo', to)}
-            popover
-            range
-            // orientation="vertical"
-            stepped
-            steps={4}
-          />
 
           <Row>
             <Column>

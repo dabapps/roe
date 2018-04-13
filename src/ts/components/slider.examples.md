@@ -48,25 +48,77 @@ class SliderExamples extends React.Component {
       <div
         className="padding-top-large"
       >
-        <Slider
-          className="margin-top-base margin-bottom-base"
-          initialValue={0.25}
-          initialFrom={0.25}
-          initialTo={0.5}
-          min={0.25}
-          max={0.75}
-          onSlide={(value) => this.onSlide(value)}
-          onChange={(value) => this.onChange(value)}
-          onSlideFrom={(from) => this.onSlideFrom(from)}
-          onChangeFrom={(from) => this.onChangeFrom(from)}
-          onSlideTo={(to) => this.onSlideTo(to)}
-          onChangeTo={(to) => this.onChangeTo(to)}
-          popover
-          range
-          // orientation="vertical"
-          stepped
-          steps={4}
-        />
+        <Row>
+          <Column md={1}>
+            <Row>
+              <Column>
+                 <Slider
+                  min={0.25}
+                  max={0.75}
+                  popover
+                  stepped
+                  steps={4}
+                  onSlide={(value) => this.onSlide(value)}
+                  onChange={(value) => this.onChange(value)}
+                  orientation="vertical"
+                />
+              </Column>
+            </Row>
+          </Column>
+          <Column md={11}>
+            <Row>
+              <Column
+                className="margin-bottom-large"
+              >
+                <Slider
+                  onSlide={(value) => this.onSlide(value)}
+                />
+              </Column>
+              <Column
+                className="margin-top-large margin-bottom-large"
+              >
+                <Slider
+                  initialValue={0.3}
+                  min={0.2}
+                  max={0.8}
+                  onSlide={(value) => this.onSlide(value)}
+                />
+              </Column>
+              <Column
+                className="margin-top-large margin-bottom-large"
+              >
+                <Slider
+                  className="margin-top-large margin-bottom-large"
+                  initialFrom={0.25}
+                  initialTo={0.88}
+                  onChangeFrom={(from) => this.onChangeFrom(from)}
+                  onChangeTo={(to) => this.onChangeTo(to)}
+                  popover
+                  range
+                />
+              </Column>
+              <Column
+                className="margin-top-large margin-bottom-large"
+              >
+                <Slider
+                  className="margin-top-large margin-bottom-large"
+                  initialFrom={0.25}
+                  initialTo={0.5}
+                  min={0.125}
+                  max={0.75}
+                  onSlideFrom={(from) => this.onSlideFrom(from)}
+                  onChangeFrom={(from) => this.onChangeFrom(from)}
+                  onSlideTo={(to) => this.onSlideTo(to)}
+                  onChangeTo={(to) => this.onChangeTo(to)}
+                  popover
+                  range
+                  stepped
+                  steps={8}
+                />
+              </Column>
+            </Row>
+          </Column>
+        </Row>
       </div>
     );
   }
