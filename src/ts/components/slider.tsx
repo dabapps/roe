@@ -8,82 +8,82 @@ export interface SliderProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**
    * Max
    * @default 1
-  */
+   */
   max?: number;
   /**
    * Min
    * @default 0
-  */
+   */
   min?: number;
   /**
    * Orientation
    * @default 'horizontal'
-  */
+   */
   orientation?: 'horizontal' | 'vertical';
   /**
    * Popover
    * @default false
-  */
+   */
   popover?: boolean;
   /**
    * Stepped
    * @default false
-  */
+   */
   stepped?: boolean;
   /**
    * Steps
    * @default 1
-  */
+   */
   steps?: number;
   /**
    * Initial Value
    * @default 0
-  */
+   */
   initialValue?: number;
   /**
    * Initial From
    * @default 0
-  */
+   */
   initialFrom?: number;
   /**
    * Initial To
    * @default 1
-  */
+   */
   initialTo?: number;
   /**
    * Range
    * @default false
-  */
+   */
   range?: boolean;
   /**
    * onSlide
    * @default
-  */
+   */
   onSlide: (value: any) => any;
   /**
    * onChange
    * @default
-  */
+   */
   onChange?: (value: any) => any;
   /**
    * onSlideFrom
    * @default
-  */
+   */
   onSlideFrom?: (value: any) => any;
   /**
    * onChangeFrom
    * @default
-  */
+   */
   onChangeFrom?: (value: any) => any;
   /**
    * onSlideTo
    * @default
-  */
+   */
   onSlideTo?: (value: any) => any;
   /**
    * onChangeTo
    * @default
-  */
+   */
   onChangeTo?: (value: any) => any;
 }
 
@@ -295,7 +295,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
       steps = STEPS,
     } = this.props;
 
-    const result: Array<number> = [];
+    const result: number[] = [];
 
     this.partialArithmeticSeries(steps).forEach((curr: number, index: number) => {
       result.push(Math.abs(curr - (value * 100)))
@@ -331,7 +331,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
       });
 
       if (event.type === 'mouseup') {
-
+        // TODO: Call slide
       } else {
         // TODO: Call slide
       }
