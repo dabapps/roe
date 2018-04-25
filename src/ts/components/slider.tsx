@@ -130,7 +130,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
     this.onHandleRangeDown = this.createMouseHandlers(this.onHandleRangeDown);
   }
 
-  public componentWillUnmout () {
+  public componentWillUnmount () {
     this.unsubscribers.forEach((unsubscriber) => unsubscriber());
   }
 
