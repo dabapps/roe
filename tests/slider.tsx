@@ -229,4 +229,17 @@ describe('Slider', () => {
     wrapper.unmount();
   });
 
+  it('should avoid mouse right click', () => {
+
+    const wrapper = enzyme.mount(
+      <Slider
+        onSlide={jest.fn()}
+      />);
+
+    wrapper.find('.roe-handle')
+      .first().simulate('mouseDown', { button: 2 })
+      .simulate('mouseMove', { clientX: 100, clientY: 0 })
+      .simulate('mouseUp');
+  });
+
 });
