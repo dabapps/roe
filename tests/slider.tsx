@@ -10,15 +10,6 @@ describe('Slider', () => {
     jest.spyOn(window, 'removeEventListener');
   });
 
-  beforeEach(() => {
-    (window.addEventListener as jest.Mock<any>)
-      .mockImplementation(jest.fn())
-      .mockClear();
-    (window.removeEventListener as jest.Mock<any>)
-      .mockImplementation(jest.fn())
-      .mockClear();
-  });
-
   it('should match snapshot', () => {
     const tree = renderer.create(
       <Slider
@@ -26,7 +17,7 @@ describe('Slider', () => {
       />
     );
 
-    expect(tree).toMatchSnapshot();
+    expect(tree).toMatchSnapshot()
   });
 
   it('should match snapshot with props (min, max, initialValue)', () => {
@@ -100,21 +91,23 @@ describe('Slider', () => {
   });
 
   it('should call mouse events on single slider', () => {
-    const tree = enzyme.mount(
+    const instance = enzyme.mount(
       <Slider
         onChange={jest.fn()}
         onSlide={jest.fn()}
       />
     );
 
-    tree.find('.roe-handle')
+    instance.find('.roe-handle')
       .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
       .simulate('mouseMove', { clientX: 100, clientY: 0 })
       .simulate('mouseUp');
+
+    instance.unmount();
   });
 
   it('should call mouse events on single slider (vertical)', () => {
-    const tree = enzyme.mount(
+    const instance = enzyme.mount(
       <Slider
         onChange={jest.fn()}
         onSlide={jest.fn()}
@@ -122,14 +115,16 @@ describe('Slider', () => {
       />
     );
 
-    tree.find('.roe-handle')
+    instance.find('.roe-handle')
       .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
       .simulate('mouseMove', { clientX: 0, clientY: 100 })
       .simulate('mouseUp');
+
+    instance.unmount();
   });
 
   it('should call mouse events on stepped single slider', () => {
-    const tree = enzyme.mount(
+    const instance = enzyme.mount(
       <Slider
         stepped
         steps={6}
@@ -137,28 +132,32 @@ describe('Slider', () => {
       />
     );
 
-    tree.find('.roe-handle')
+    instance.find('.roe-handle')
       .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
       .simulate('mouseMove', { clientX: 100, clientY: 0 })
       .simulate('mouseUp');
+
+    instance.unmount();
   });
 
   it('should call mouse events on single range slider', () => {
-    const tree = enzyme.mount(
+    const instance = enzyme.mount(
       <Slider
         range
         onSlide={jest.fn()}
       />
     );
 
-    tree.find('.roe-handle__range')
+    instance.find('.roe-handle__range')
       .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
       .simulate('mouseMove', { clientX: 100, clientY: 0 })
       .simulate('mouseUp');
+
+    instance.unmount();
   });
 
   it('should call mouse events on range stepped slider (first slide exceeded range position)', () => {
-    const tree = enzyme.mount(
+    const instance = enzyme.mount(
       <Slider
         initialFrom={0.25}
         initialTo={0.5}
@@ -176,19 +175,21 @@ describe('Slider', () => {
       />
     );
 
-    tree.find('.roe-handle')
+    instance.find('.roe-handle')
       .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
       .simulate('mouseMove', { clientX: 400, clientY: 0 })
       .simulate('mouseUp');
 
-    tree.find('.roe-handle__range')
+    instance.find('.roe-handle__range')
       .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
       .simulate('mouseMove', { clientX: 300, clientY: 0 })
       .simulate('mouseUp');
+
+    instance.unmount();
   });
 
   it('should call mouse events on range stepped slider (vertical)', () => {
-    const tree = enzyme.mount(
+    const instance = enzyme.mount(
       <Slider
         initialFrom={0.5}
         initialTo={0.75}
@@ -207,15 +208,17 @@ describe('Slider', () => {
       />
     );
 
-    tree.find('.roe-handle')
+    instance.find('.roe-handle')
       .first().simulate('mouseDown', { clientX: 0, clientY: 500 })
       .simulate('mouseMove', { clientX: 0, clientY: 600 })
       .simulate('mouseUp');
 
-    tree.find('.roe-handle__range')
+    instance.find('.roe-handle__range')
       .first().simulate('mouseDown', { clientX: 0, clientY: 750 })
       .simulate('mouseMove', { clientX: 0, clientY: 100 })
       .simulate('mouseUp');
+
+    instance.unmount();
   });
 
 
@@ -240,6 +243,84 @@ describe('Slider', () => {
       .first().simulate('mouseDown', { button: 2 })
       .simulate('mouseMove', { clientX: 100, clientY: 0 })
       .simulate('mouseUp');
+  });
+
+  it('should call onChange on mouseup for single slider', () => {
+
+    const onSlide = jest.fn();
+    const onChange = jest.fn();
+
+    const wrapper = enzyme.mount(
+      <Slider
+        onSlide={onSlide}
+        onChange={onChange}
+      />
+    );
+
+    const handle = wrapper
+      .find('.roe-handle')
+      .first();
+
+    handle
+      .simulate('mousedown', { clientX: 0, clientY: 0 });
+
+    const mouseMove = new MouseEvent('mousemove', { clientX: 100, clientY: 0 });
+    const mouseUp = new MouseEvent('mouseup', { clientX: 100, clientY: 0 });
+
+    mouseMove.initEvent('mousemove', true, true);
+    mouseUp.initEvent('mouseup', true, true);
+
+    document.dispatchEvent(mouseMove);
+    document.dispatchEvent(mouseUp);
+
+    expect(onChange).toHaveBeenCalled();
+  });
+
+  it('should call (onChangeFrom, onChangeTo) on mouseup for ranged slider', () => {
+
+    const onSlide = jest.fn();
+    const onChangeFrom = jest.fn();
+    const onChangeTo = jest.fn();
+
+    const wrapper = enzyme.mount(
+      <Slider
+        onSlide={onSlide}
+        initialFrom={0}
+        initialTo={0}
+        onChangeFrom={onChangeFrom}
+        onChangeTo={onChangeTo}
+        range
+      />
+    );
+
+    const handle = wrapper
+      .find('.roe-handle')
+      .first();
+
+    handle
+      .simulate('mousedown', { clientX: 0, clientY: 0 });
+
+    const handleRange = wrapper
+      .find('.roe-handle__range')
+      .first();
+
+    handle
+      .simulate('mousedown', { clientX: 0, clientY: 0 });
+
+    handleRange
+      .simulate('mousedown', { clientX: 0, clientY: 0 });
+
+    const mouseMove = new MouseEvent('mousemove', { clientX: 100, clientY: 0 });
+    const mouseUp = new MouseEvent('mouseup', { clientX: 100, clientY: 0 });
+
+    mouseMove.initEvent('mousemove', true, true);
+    mouseUp.initEvent('mouseup', true, true);
+
+    document.dispatchEvent(mouseMove);
+    document.dispatchEvent(mouseUp);
+
+    expect(onChangeFrom).toHaveBeenCalled();
+    expect(onChangeTo).toHaveBeenCalled();
   });
 
 });
