@@ -351,3 +351,139 @@ exports[`Slider should match snapshot with props (range, stepped, steps) 1`] = `
   </div>
 </div>
 `;
+
+exports[`Slider should return max if initialValue is greater than max value for single slider 1`] = `
+<div
+  className="roe-slider horizontal"
+>
+  <div
+    className="roe-bar"
+  >
+    <div
+      className="roe-handle"
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "left": "80%",
+        }
+      }
+    />
+    <span
+      className="roe-bar__max"
+      style={
+        Object {
+          "width": "20%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Slider should return min and max values for ranged slider - initialFrom greater than max, initialTo less than min 1`] = `
+<div
+  className="roe-slider horizontal margin-top-large margin-bottom-large range"
+>
+  <div
+    className="roe-bar"
+  >
+    <span
+      className="roe-bar__min"
+      style={
+        Object {
+          "width": "12.5%",
+        }
+      }
+    />
+    <div
+      className="roe-handle"
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "left": "75%",
+        }
+      }
+    />
+    <div
+      className="roe-handle roe-handle__range"
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "left": "12.5%",
+        }
+      }
+    />
+    <span
+      className="roe-bar-range"
+      style={
+        Object {
+          "left": "75%",
+          "right": "87.5%",
+        }
+      }
+    />
+    <span
+      className="roe-bar__max"
+      style={
+        Object {
+          "width": "25%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Slider should return min and max values for ranged slider - initialFrom less than min, initialTo greater than max 1`] = `
+<div
+  className="roe-slider horizontal margin-top-large margin-bottom-large range"
+>
+  <div
+    className="roe-bar"
+  >
+    <span
+      className="roe-bar__min"
+      style={
+        Object {
+          "width": "12.5%",
+        }
+      }
+    />
+    <div
+      className="roe-handle"
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "left": "12.5%",
+        }
+      }
+    />
+    <div
+      className="roe-handle roe-handle__range"
+      onMouseDown={[Function]}
+      style={
+        Object {
+          "left": "75%",
+        }
+      }
+    />
+    <span
+      className="roe-bar-range"
+      style={
+        Object {
+          "left": "12.5%",
+          "right": "25%",
+        }
+      }
+    />
+    <span
+      className="roe-bar__max"
+      style={
+        Object {
+          "width": "25%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
