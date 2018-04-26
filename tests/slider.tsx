@@ -224,25 +224,27 @@ describe('Slider', () => {
 
   it('should remove listeners on unmount', () => {
 
-    const wrapper = enzyme.shallow(
+    const instance = enzyme.shallow(
       <Slider
         onSlide={jest.fn()}
       />);
 
-    wrapper.unmount();
+    instance.unmount();
   });
 
   it('should avoid mouse right click', () => {
 
-    const wrapper = enzyme.mount(
+    const instance = enzyme.mount(
       <Slider
         onSlide={jest.fn()}
       />);
 
-    wrapper.find('.roe-handle')
+    instance.find('.roe-handle')
       .first().simulate('mouseDown', { button: 2 })
       .simulate('mouseMove', { clientX: 100, clientY: 0 })
       .simulate('mouseUp');
+
+    instance.unmount();
   });
 
   it('should call onChange on mouseup for single slider', () => {
@@ -250,14 +252,14 @@ describe('Slider', () => {
     const onSlide = jest.fn();
     const onChange = jest.fn();
 
-    const wrapper = enzyme.mount(
+    const instance = enzyme.mount(
       <Slider
         onSlide={onSlide}
         onChange={onChange}
       />
     );
 
-    const handle = wrapper
+    const handle = instance
       .find('.roe-handle')
       .first();
 
@@ -274,6 +276,8 @@ describe('Slider', () => {
     document.dispatchEvent(mouseUp);
 
     expect(onChange).toHaveBeenCalled();
+
+    instance.unmount();
   });
 
   it('should call (onChangeFrom, onChangeTo) on mouseup for ranged slider', () => {
@@ -282,7 +286,7 @@ describe('Slider', () => {
     const onChangeFrom = jest.fn();
     const onChangeTo = jest.fn();
 
-    const wrapper = enzyme.mount(
+    const instance = enzyme.mount(
       <Slider
         onSlide={onSlide}
         initialFrom={0}
@@ -293,14 +297,14 @@ describe('Slider', () => {
       />
     );
 
-    const handle = wrapper
+    const handle = instance
       .find('.roe-handle')
       .first();
 
     handle
       .simulate('mousedown', { clientX: 0, clientY: 0 });
 
-    const handleRange = wrapper
+    const handleRange = instance
       .find('.roe-handle__range')
       .first();
 
@@ -321,6 +325,8 @@ describe('Slider', () => {
 
     expect(onChangeFrom).toHaveBeenCalled();
     expect(onChangeTo).toHaveBeenCalled();
+
+    instance.unmount();
   });
 
 });
