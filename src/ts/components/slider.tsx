@@ -314,10 +314,8 @@ export class Slider extends PureComponent<SliderProps, IState> {
           : this.getValueOnMove(event, 'from')
       });
 
-      if (event.type === 'mouseup') {
-        if (typeof this.props.onChange === 'function') {
-          this.props.onChange(this.state.value)
-        }
+      if (event.type === 'mouseup' && (typeof this.props.onChange === 'function')) {
+        this.props.onChange(this.state.value)
       }
 
       this.props.onSlide(this.state.value)
@@ -329,10 +327,8 @@ export class Slider extends PureComponent<SliderProps, IState> {
           : this.getValueOnMove(event, 'from')
       });
 
-      if (event.type === 'mouseup') {
-        if (typeof this.props.onChangeFrom === 'function') {
-          this.props.onChangeFrom(this.state.from)
-        }
+      if (event.type === 'mouseup' && (typeof this.props.onChangeFrom === 'function')) {
+        this.props.onChangeFrom(this.state.from)
       }
 
       if (typeof this.props.onSlideFrom === 'function') {
@@ -353,10 +349,8 @@ export class Slider extends PureComponent<SliderProps, IState> {
         : this.getValueOnMove(event, 'to')
     });
 
-    if (event.type === 'mouseup') {
-      if (typeof this.props.onChangeTo === 'function') {
-         this.props.onChangeTo(this.state.to)
-      }
+    if (event.type === 'mouseup' && (typeof this.props.onChangeTo === 'function')) {
+      this.props.onChangeTo(this.state.to)
     }
 
     if (typeof this.props.onSlideTo === 'function') {
@@ -422,38 +416,37 @@ export class Slider extends PureComponent<SliderProps, IState> {
         return { width: `${parseFloat(min.toString()) * 100}%` }
       } else if (position === 'max') {
         return { width: `${100 - (parseFloat(max.toString()) * 100)}%` }
-      } else if (position === 'range') {
-        return {
-          left: `${(parseFloat(from.toString()) * 100)}%`,
-          right: `${100 - (parseFloat(to.toString()) * 100)}%`,
-        }
       }
 
-    } else if (orientation === 'vertical') {
-
-      if (position === 'min') {
-        return { height: `${parseFloat(min.toString()) * 100}%` }
-      } else if (position === 'max') {
-        return { height: `${100 - (parseFloat(max.toString()) * 100)}%` }
-      } else if (position === 'range') {
-        return {
-          top: `${(parseFloat(from.toString()) * 100)}%`,
-          bottom: `${100 - (parseFloat(to.toString()) * 100)}%`,
-        }
+      // (position === 'range')
+      return {
+        left: `${(parseFloat(from.toString()) * 100)}%`,
+        right: `${100 - (parseFloat(to.toString()) * 100)}%`,
       }
+
+    }
+    // (orientation === 'vertical')
+    if (position === 'min') {
+      return { height: `${parseFloat(min.toString()) * 100}%` }
+    } else if (position === 'max') {
+      return { height: `${100 - (parseFloat(max.toString()) * 100)}%` }
+    }
+
+    // (position === 'range')
+    return {
+      top: `${(parseFloat(from.toString()) * 100)}%`,
+      bottom: `${100 - (parseFloat(to.toString()) * 100)}%`,
     }
   }
 
   private setOrientationStyle = (value: number) => {
     const { orientation = 'horizontal' } = this.props;
 
-    if (orientation === 'horizontal') {
-      return { left: `${value * 100}%` }
-    }
-
     if (orientation === 'vertical') {
       return { top: `${value * 100}%` }
     }
+
+    return { left: `${value * 100}%` }
   }
 
   private setBoundaryValue (pointer: string, value: string) {
@@ -464,27 +457,27 @@ export class Slider extends PureComponent<SliderProps, IState> {
 
     const { from, to } = this.state;
 
-    if (pointer === 'from') {
-      if (value === 'max' && to <= max) {
-        return to;
-      } else if (value === 'max' && to >= max) {
-        return max;
-      }
-      if (value === 'min') {
-        return min;
-      }
+    if (pointer === 'from' && (value === 'max' && to <= max)) {
+      return to;
     }
 
-    if (pointer === 'to') {
-      if (value === 'min' && from >= min) {
-        return from;
-      } else if (value === 'min' && from <= min) {
-        return min;
-      }
-      if (value === 'max') {
-        return max;
-      }
+    if (pointer === 'from' && (value === 'max')) {
+      return max;
     }
+
+    if (pointer === 'from' && (value === 'min')) {
+      return min;
+    }
+
+    if (pointer === 'to' && (value === 'min' && from >= min)) {
+      return from;
+    }
+
+    if (pointer === 'to' && (value === 'min')) {
+      return min;
+    }
+
+    return max;
   }
 
   private getValueOnMove = (event: SyntheticEvent, pointer: string) => {

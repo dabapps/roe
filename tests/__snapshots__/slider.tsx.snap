@@ -382,7 +382,7 @@ exports[`Slider should return max if initialValue is greater than max value for 
 
 exports[`Slider should return min and max values for ranged slider - initialFrom greater than max, initialTo less than min 1`] = `
 <div
-  className="roe-slider horizontal margin-top-large margin-bottom-large range"
+  className="roe-slider horizontal range"
 >
   <div
     className="roe-bar"
@@ -436,7 +436,7 @@ exports[`Slider should return min and max values for ranged slider - initialFrom
 
 exports[`Slider should return min and max values for ranged slider - initialFrom less than min, initialTo greater than max 1`] = `
 <div
-  className="roe-slider horizontal margin-top-large margin-bottom-large range"
+  className="roe-slider horizontal range"
 >
   <div
     className="roe-bar"

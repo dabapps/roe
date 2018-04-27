@@ -89,7 +89,6 @@ describe('Slider', () => {
   it('should return min and max values for ranged slider - initialFrom less than min, initialTo greater than max', () => {
     const instance = renderer.create(
       <Slider
-        className="margin-top-large margin-bottom-large"
         initialFrom={0.1}
         initialTo={0.9}
         min={0.125}
@@ -105,7 +104,6 @@ describe('Slider', () => {
   it('should return min and max values for ranged slider - initialFrom greater than max, initialTo less than min', () => {
     const instance = renderer.create(
       <Slider
-        className="margin-top-large margin-bottom-large"
         initialFrom={0.9}
         initialTo={0.1}
         min={0.125}
@@ -117,35 +115,6 @@ describe('Slider', () => {
 
     expect(instance).toMatchSnapshot();
   });
-
-  // it('should ', () => {
-  //   const instance = enzyme.mount(
-  //     <Slider
-  //       initialFrom={0}
-  //       initialTo={0.5}
-  //       min={0}
-  //       max={0.5}
-  //       stepped
-  //       steps={8}
-  //       onSlide={jest.fn()}
-  //       range
-  //     />
-  //   );
-
-  //   instance.find('.roe-handle')
-  //     .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
-
-  //   const mouseMove = new MouseEvent('mousemove', { clientX: 4000, clientY: 0 });
-  //   const mouseUp = new MouseEvent('mouseup', { clientX: 4000, clientY: 0 });
-
-  //   mouseMove.initEvent('mousemove', true, true);
-  //   mouseUp.initEvent('mouseup', true, true);
-
-  //   document.dispatchEvent(mouseMove);
-  //   document.dispatchEvent(mouseUp);
-
-  //   instance.unmount();
-  // });
 
   it('should match snapshot with props (orientation="vertical")', () => {
     const instance = renderer.create(
