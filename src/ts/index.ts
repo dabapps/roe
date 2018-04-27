@@ -35,6 +35,7 @@ export { default as Nav } from './components/navigation/nav';
 export { default as NavBar } from './components/navigation/nav-bar';
 export { default as NavItem } from './components/navigation/nav-item';
 export { default as Row } from './components/grid/row';
+export { default as Pagination } from './components/pagination';
 export { default as Section } from './components/content/section';
 export { default as SideBar } from './components/navigation/side-bar';
 export { default as SpacedGroup } from './components/spaced-group';
