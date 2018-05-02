@@ -7,7 +7,7 @@ class PaginationExample extends React.Component {
     super(props);
 
     this.state = {
-      page: 1,
+      page: 5,
     };
 
     this.changePage = this.changePage.bind(this);

@@ -7,4 +7,33 @@
         font-size: 14px;
         line-height: 16px;
     }
+
+    &__showing {
+        display: inline;
+    }
+
+    &__button-group {
+        float: right;
+    }
+
+    &__button {
+        color: @pagination-button-color;
+        background-color: @pagination-button-bg-color;
+    }
+
+    &__button--selected {
+        color: @pagination-selected-button-color;
+        background-color: @pagination-selected-button-bg-color;
+    }
+
+    &__button--dots {
+        color: @pagination-dots-color;
+        background-color: @pagination-dots-bg-color;
+    }
+
+    &__button--next,
+    &__button--prev {
+        color: @pagination-indicator-button-color;
+        background-color: @pagination-indicator-button-bg-color;
+    }
 }
