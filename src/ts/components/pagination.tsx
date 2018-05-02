@@ -1,7 +1,6 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { PureComponent } from 'react';
-import * as _ from 'underscore';
 import { ComponentProps } from '../types'
 import Button from './forms/button';
 import SpacedGroup from './spaced-group';
@@ -56,17 +55,9 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
     ...remainingProps,
   } = this.props;
 
-    const maxPages = Math.ceil(itemCount / pageSize);
-    const start = Math.max(
-      Math.min(
-        currentPage - LEFT_BUTTONS,
-        maxPages - LEFT_BUTTONS - RIGHT_BUTTONS
-      ),
-      1
-    );
-    const end = Math.min(start + MAX_BUTTONS, maxPages + 1);
     const showingLowerCount = ((currentPage - 1) * pageSize) || 1;
     const showingUpperCounter = pageSize * currentPage > itemCount ? itemCount : pageSize * currentPage;
+
     return (
       <div
         {...remainingProps}
@@ -85,55 +76,35 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
             &#60;
           </Button>
           {
-            // console.log(start, end)
-            console.log(this.arithmeticSeries(start, end, this.getRangeStaps()))
-            // console.log(_.range(start, end))
+            console.log(this.arithmeticSeries(this.getStart(), this.getEnd(), this.getRangeStaps()))
           }
           {
-            // _.range(start, end)
-            this.arithmeticSeries(start, end, this.getRangeStaps())
+            this.arithmeticSeries(this.getStart(), this.getEnd(), this.getRangeStaps())
               .map((page: number, index: number) => {
-              let buttonType = currentPage === page ? 'primary' : undefined;
-              let pageToGoTo = page;
-              const morePages = maxPages > MAX_BUTTONS;
 
               const displayDots =
-                morePages &&
+                this.getMorePages() &&
                 ((index === 1 && page > 2) ||
-                  (index === MAX_BUTTONS - 2 && page < maxPages - 1));
+                  (index === MAX_BUTTONS - 2 && page < this.getMaxPages() - 1));
 
               const onClickPage = () =>
-                currentPage !== page && !displayDots && changePage(pageToGoTo);
-
-              if (displayDots) {
-                buttonType = 'blank';
-              }
-
-              if (morePages && index === 0 && page > 1) {
-                pageToGoTo = 1;
-              } else if (
-                morePages &&
-                index === MAX_BUTTONS - 1 &&
-                page < maxPages
-              ) {
-                pageToGoTo = maxPages;
-              }
+                currentPage !== page && !displayDots && changePage(this.getPageToGoTo(page, index));
 
               return (
                 <Button
                   key={index}
-                  className={buttonType}
+                  className={this.getButtonType(page, displayDots)}
                   disabled={itemCount <= pageSize || disabled}
                   onClick={onClickPage}
                 >
-                  {displayDots ? '...' : pageToGoTo}
+                  {displayDots ? '...' : this.getPageToGoTo(page, index)}
                 </Button>
               );
             })
           }
 
           <Button
-            disabled={!maxPages || currentPage === maxPages || disabled}
+            disabled={!this.getMaxPages() || currentPage === this.getMaxPages() || disabled}
             onClick={this.incrementPage}
           >
             &#62;
@@ -151,6 +122,63 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
   private incrementPage = () => {
     const { currentPage, changePage } = this.props;
     return changePage(currentPage + 1);
+  }
+
+  private getButtonType = (page: number, displayDots: boolean) => {
+    const { currentPage } = this.props;
+
+    if (currentPage === page) {
+      return 'primary';
+    }
+
+    if (displayDots) {
+      return 'blank';
+    }
+
+    return undefined;
+  }
+
+  private getDisplayDots = () => {
+    const { currentPage } = this.props;
+  }
+
+  private getStart = () => {
+    const { currentPage } = this.props;
+    return Math.max(
+      Math.min(
+        currentPage - LEFT_BUTTONS,
+        this.getMaxPages() - LEFT_BUTTONS - RIGHT_BUTTONS
+      ),
+      1
+    );
+  }
+
+  private getEnd = () => {
+    const { currentPage } = this.props;
+    return Math.min(this.getStart() + MAX_BUTTONS, this.getMaxPages() + 1);
+  }
+
+  private getMorePages = () => this.getMaxPages() > MAX_BUTTONS;
+
+  private getMaxPages = () => {
+    const { itemCount, pageSize} = this.props;
+    return Math.ceil(itemCount / pageSize);
+  }
+
+  private getPageToGoTo = (page: number, index: number) => {
+    const { itemCount, pageSize } = this.props;
+
+    if ((this.getMaxPages() > MAX_BUTTONS) && index === 0 && page > 1) {
+      return 1;
+    } else if (
+      (this.getMaxPages() > MAX_BUTTONS) &&
+      index === MAX_BUTTONS - 1 &&
+      page < this.getMaxPages()
+    ) {
+      return this.getMaxPages();
+    }
+
+    return page;
   }
 
   private getRangeStaps = () => {

@@ -18,8 +18,8 @@ class PaginationExample extends React.Component {
   }
 
   render () {
-    const ITEM_COUNT = 33;
-    const PAGE_SIZE = 3;
+    const ITEM_COUNT = 15;
+    const PAGE_SIZE = 1;
     const { page } = this.state;
 
     return (
