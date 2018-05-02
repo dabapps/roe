@@ -81,9 +81,12 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
                 key={index}
                 className={classNames(
                   'pagination__button',
-                  this.getButtonType(page, index)
+                  this.getButtonType(page, index),
+                  {
+                    'pagination__button--disabled': this.isPageButtonDisabled(),
+                  }
                 )}
-                disabled={itemCount <= pageSize || disabled}
+                disabled={this.isPageButtonDisabled()}
                 onClick={this.onClickPageNumber(index, page)}
               >
                 {this.getDisplayDots(index, page)
@@ -127,13 +130,20 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
   };
 
   private isNextButtonDisabled = () => {
-    const { currentPage } = this.props;
-    return !this.getMaxPages() || currentPage === this.getMaxPages();
+    const { currentPage, disabled } = this.props;
+    return (
+      !this.getMaxPages() || currentPage === this.getMaxPages() || disabled
+    );
   };
 
   private isPrevButtonDisabled = () => {
-    const { currentPage } = this.props;
-    return currentPage === 1;
+    const { currentPage, disabled } = this.props;
+    return currentPage === 1 || disabled;
+  };
+
+  private isPageButtonDisabled = () => {
+    const { itemCount, pageSize, disabled } = this.props;
+    return itemCount <= pageSize || disabled;
   };
 
   private showingUpperCounter = () => {
