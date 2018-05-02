@@ -62,9 +62,11 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
 
         <SpacedGroup className="pagination__button-group" large>
           <Button
-            className={classNames('pagination__button', 'pagination__button--prev',
+            className={classNames(
+              'pagination__button',
+              'pagination__button--prev',
               {
-                'pagination__button--disabled': this.isPrevButtonDisabled()
+                'pagination__button--disabled': this.isPrevButtonDisabled(),
               }
             )}
             onClick={this.decrementPage}
@@ -77,7 +79,10 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
             return (
               <Button
                 key={index}
-                className={classNames('pagination__button', this.getButtonType(page, index))}
+                className={classNames(
+                  'pagination__button',
+                  this.getButtonType(page, index)
+                )}
                 disabled={itemCount <= pageSize || disabled}
                 onClick={this.onClickPageNumber(index, page)}
               >
@@ -89,9 +94,11 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
           })}
 
           <Button
-            className={classNames('pagination__button', 'pagination__button--next',
+            className={classNames(
+              'pagination__button',
+              'pagination__button--next',
               {
-                'pagination__button--disabled': this.isNextButtonDisabled()
+                'pagination__button--disabled': this.isNextButtonDisabled(),
               }
             )}
             disabled={this.isNextButtonDisabled()}
@@ -121,12 +128,12 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
 
   private isNextButtonDisabled = () => {
     const { currentPage } = this.props;
-    return !this.getMaxPages() || currentPage === this.getMaxPages()
+    return !this.getMaxPages() || currentPage === this.getMaxPages();
   };
 
   private isPrevButtonDisabled = () => {
     const { currentPage } = this.props;
-    return (currentPage === 1);
+    return currentPage === 1;
   };
 
   private showingUpperCounter = () => {
