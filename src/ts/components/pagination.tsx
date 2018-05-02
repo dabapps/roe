@@ -56,7 +56,7 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
     return (
       <div {...remainingProps} className={classNames('pagination', className)}>
         <p className="display-inline">
-          Showing {this.showingLowerCount}-{this.showingUpperCounter} of{' '}
+          Showing {this.showingLowerCount()}-{this.showingUpperCounter()} of{' '}
           {itemCount}
         </p>
 
@@ -193,7 +193,7 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
       return Math.floor(itemCount / pageSize) + 1;
     }
 
-    return 5;
+    return MAX_BUTTONS;
   };
 
   private paginationSeries = (start: number, end: number, steps: number) => {
