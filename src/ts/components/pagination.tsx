@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { PureComponent } from 'react';
+import * as _ from 'underscore';
 import { ComponentProps } from '../types'
 import Button from './forms/button';
 import SpacedGroup from './spaced-group';
@@ -66,7 +67,6 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
     const end = Math.min(start + MAX_BUTTONS, maxPages + 1);
     const showingLowerCount = ((currentPage - 1) * pageSize) || 1;
     const showingUpperCounter = pageSize * currentPage > itemCount ? itemCount : pageSize * currentPage;
-
     return (
       <div
         {...remainingProps}
@@ -84,13 +84,15 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
           >
             &#60;
           </Button>
-
           {
-            Array
-              .apply(null, { length: 1 })
-              .slice(start, end)
-              .map((page: any, index: number) => {
-
+            // console.log(start, end)
+            console.log(this.arithmeticSeries(start, end, 5))
+            // console.log(_.range(start, end))
+          }
+          {
+            // _.range(start, end)
+            this.arithmeticSeries(start, end, 5)
+              .map((page: number, index: number) => {
               let buttonType = currentPage === page ? 'primary' : undefined;
               let pageToGoTo = page;
               const morePages = maxPages > MAX_BUTTONS;
@@ -119,7 +121,7 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
 
               return (
                 <Button
-                  key={page}
+                  key={index}
                   className={buttonType}
                   disabled={itemCount <= pageSize || disabled}
                   onClick={onClickPage}
@@ -149,6 +151,12 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
   private incrementPage = () => {
     const { currentPage, changePage } = this.props;
     return changePage(currentPage + 1);
+  }
+
+  private arithmeticSeries = (start: number, end: number, steps: number) => {
+    return Array.apply(null, { length: steps }).map((item: number, index: number) =>
+      Math.floor(start + (index) * ((end - start) / steps))
+    );
   }
 
 }
