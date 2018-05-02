@@ -17,7 +17,6 @@ import {
   Row,
   Section,
   SideBar,
-  Pagination,
   SpacedGroup,
 } from '../src/ts';
 import NavItems from './nav-items';
@@ -74,14 +73,6 @@ class App extends PureComponent<{}, AppState> {
           <h1>Example</h1>
 
           <DabIpsum />
-
-          <Pagination
-            pageSize={1}
-            changePage={(number) => console.log(number)}
-            currentPage={2}
-            itemCount={10}
-            // disabled
-          />
 
           <Row>
             <Column>
