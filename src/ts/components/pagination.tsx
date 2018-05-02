@@ -86,12 +86,12 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
           </Button>
           {
             // console.log(start, end)
-            console.log(this.arithmeticSeries(start, end, 5))
+            console.log(this.arithmeticSeries(start, end, this.getRangeStaps()))
             // console.log(_.range(start, end))
           }
           {
             // _.range(start, end)
-            this.arithmeticSeries(start, end, 5)
+            this.arithmeticSeries(start, end, this.getRangeStaps())
               .map((page: number, index: number) => {
               let buttonType = currentPage === page ? 'primary' : undefined;
               let pageToGoTo = page;
@@ -151,6 +151,24 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
   private incrementPage = () => {
     const { currentPage, changePage } = this.props;
     return changePage(currentPage + 1);
+  }
+
+  private getRangeStaps = () => {
+    const { itemCount, pageSize } = this.props;
+
+    if ((itemCount % pageSize) === 0 && (itemCount / pageSize) < 5) {
+      console.log('YAY');
+
+      return Math.floor(itemCount / pageSize);
+    }
+
+    if ((itemCount % pageSize) !== 0 && (itemCount / pageSize) < 5) {
+      console.log('--------');
+
+      return Math.floor(itemCount / pageSize) + 1;
+    }
+    console.log('HAAAAA');
+    return 5;
   }
 
   private arithmeticSeries = (start: number, end: number, steps: number) => {
