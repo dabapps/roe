@@ -46,6 +46,10 @@ var components = [
     components: 'src/ts/components/banners/**/*.tsx'
   },
   {
+    name: 'Pagination',
+    components: 'src/ts/components/pagination/**/*.tsx'
+  },
+  {
     name: 'Misc',
     components: 'src/ts/components/*.tsx'
   }

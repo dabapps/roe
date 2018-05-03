@@ -1,9 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { PureComponent } from 'react';
-import { ComponentProps } from '../types';
-import Button from './forms/button';
-import SpacedGroup from './spaced-group';
+import { ComponentProps } from '../../types';
+import Button from '../forms/button';
+import SpacedGroup from '../spaced-group';
 
 export interface PaginationProps extends ComponentProps {
   /**
@@ -55,20 +55,11 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
 
     return (
       <div {...remainingProps} className={classNames('pagination', className)}>
-        <p className="pagination__showing">
-          Showing {this.showingLowerCount()}-{this.showingUpperCounter()} of{' '}
-          {itemCount}
-        </p>
-
-        <SpacedGroup className="pagination__button-group" large>
+        <SpacedGroup className="pagination-group" large>
           <Button
-            className={classNames(
-              'pagination__button',
-              'pagination__button--prev',
-              {
-                'pagination__button--disabled': this.isPrevButtonDisabled(),
-              }
-            )}
+            className={classNames('prev', {
+              disabled: this.isPrevButtonDisabled(),
+            })}
             onClick={this.decrementPage}
             disabled={this.isPrevButtonDisabled()}
           >
@@ -79,13 +70,9 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
             return (
               <Button
                 key={index}
-                className={classNames(
-                  'pagination__button',
-                  this.getButtonType(page, index),
-                  {
-                    'pagination__button--disabled': this.isPageButtonDisabled(),
-                  }
-                )}
+                className={classNames(this.getButtonType(page, index), {
+                  disabled: this.isPageButtonDisabled(),
+                })}
                 disabled={this.isPageButtonDisabled()}
                 onClick={this.onClickPageNumber(index, page)}
               >
@@ -97,13 +84,9 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
           })}
 
           <Button
-            className={classNames(
-              'pagination__button',
-              'pagination__button--next',
-              {
-                'pagination__button--disabled': this.isNextButtonDisabled(),
-              }
-            )}
+            className={classNames('next', {
+              disabled: this.isNextButtonDisabled(),
+            })}
             disabled={this.isNextButtonDisabled()}
             onClick={this.incrementPage}
           >
@@ -124,11 +107,6 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
     return changePage(currentPage + 1);
   };
 
-  private showingLowerCount = () => {
-    const { currentPage, pageSize } = this.props;
-    return (currentPage - 1) * pageSize || 1;
-  };
-
   private isNextButtonDisabled = () => {
     const { currentPage, disabled } = this.props;
     return (
@@ -146,21 +124,14 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
     return itemCount <= pageSize || disabled;
   };
 
-  private showingUpperCounter = () => {
-    const { pageSize, currentPage, itemCount } = this.props;
-    return pageSize * currentPage > itemCount
-      ? itemCount
-      : pageSize * currentPage;
-  };
-
   private getButtonType = (page: number, index: number) => {
     const { currentPage } = this.props;
 
     if (currentPage === page) {
-      return 'pagination__button--selected';
+      return 'selected';
     }
     if (this.getDisplayDots(index, page)) {
-      return 'pagination__button--dots';
+      return 'dots';
     }
 
     return undefined;

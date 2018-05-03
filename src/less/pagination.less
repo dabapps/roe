@@ -1,39 +1,25 @@
 
 .pagination {
-    margin-top: 10px;
 
-    span.link {
-        margin-top: 15px;
-        font-size: 14px;
-        line-height: 16px;
-    }
-
-    &__showing {
-        display: inline;
-    }
-
-    &__button-group {
-        float: right;
-    }
-
-    &__button {
+    .button {
         color: @pagination-button-color;
-        background-color: @pagination-button-bg-color;
+        background-color: @pagination-button-background;
     }
 
-    &__button--selected {
-        color: @pagination-selected-button-color;
-        background-color: @pagination-selected-button-bg-color;
+    .selected {
+        color: @pagination-selected-color;
+        background-color: @pagination-selected-background;
     }
 
-    &__button--dots {
+    .dots {
         color: @pagination-dots-color;
-        background-color: @pagination-dots-bg-color;
+        background-color: @pagination-dots-background;
     }
 
-    &__button--next,
-    &__button--prev {
-        color: @pagination-indicator-button-color;
-        background-color: @pagination-indicator-button-bg-color;
+    .next,
+    .prev {
+        color: @pagination-indicator-color;
+        background-color: @pagination-indicator-background;
     }
+
 }

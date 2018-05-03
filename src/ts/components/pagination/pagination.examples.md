@@ -25,8 +25,16 @@ class PaginationExample extends React.Component {
     return (
       <div>
         <Row>
-          <Column>
+          <Column xs={4}>
+            <PaginationDisplay
+              pageSize={PAGE_SIZE}
+              currentPage={page}
+              itemCount={ITEM_COUNT}
+            />
+          </Column>
+          <Column xs={8}>
             <Pagination
+              className="float-right margin-top-base"
               pageSize={PAGE_SIZE}
               changePage={(value) => this.changePage(value)}
               currentPage={page}
@@ -46,11 +54,11 @@ class PaginationExample extends React.Component {
 #### Less variables
 ```less
 @pagination-button-color: @grey-dark;
-@pagination-button-bg-color: @grey-lighter;
-@pagination-selected-button-color: @white;
-@pagination-selected-button-bg-color: @primary;
-@pagination-indicator-button-color: @grey-dark;
-@pagination-indicator-button-bg-color: @grey-lighter;
+@pagination-button-background: @grey-lighter;
+@pagination-selected-color: @white;
+@pagination-selected-background: @primary;
+@pagination-indicator-color: @grey-dark;
+@pagination-indicator-background: @grey-lighter;
 @pagination-dots-color: @grey-dark;
-@pagination-dots-bg-color: @grey-lighter;
+@pagination-dots-background: @grey-lighter;
 ```
