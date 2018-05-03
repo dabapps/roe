@@ -1,0 +1,266 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner should add extra button to cover remainder pages 1`] = `
+<div
+  className="pagination"
+>
+  <span
+    className="spaced-group large pagination-group"
+  >
+    <button
+      className="button prev disabled"
+      disabled={true}
+      onClick={[Function]}
+    >
+      &lt;
+    </button>
+    <button
+      className="button selected"
+      disabled={undefined}
+      onClick={undefined}
+    >
+      1
+    </button>
+    <button
+      className="button"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      2
+    </button>
+    <button
+      className="button"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      3
+    </button>
+    <button
+      className="button next"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      &gt;
+    </button>
+  </span>
+</div>
+`;
+
+exports[`Banner should disabled buttons 1`] = `
+<div
+  className="pagination"
+>
+  <span
+    className="spaced-group large pagination-group"
+  >
+    <button
+      className="button prev disabled"
+      disabled={true}
+      onClick={[Function]}
+    >
+      &lt;
+    </button>
+    <button
+      className="button selected disabled"
+      disabled={true}
+      onClick={undefined}
+    >
+      1
+    </button>
+    <button
+      className="button disabled"
+      disabled={true}
+      onClick={[Function]}
+    >
+      2
+    </button>
+    <button
+      className="button disabled"
+      disabled={true}
+      onClick={[Function]}
+    >
+      3
+    </button>
+    <button
+      className="button dots disabled"
+      disabled={true}
+      onClick={undefined}
+    >
+      ...
+    </button>
+    <button
+      className="button disabled"
+      disabled={true}
+      onClick={[Function]}
+    >
+      9
+    </button>
+    <button
+      className="button next disabled"
+      disabled={true}
+      onClick={[Function]}
+    >
+      &gt;
+    </button>
+  </span>
+</div>
+`;
+
+exports[`Banner should display less than 5 buttons for minimal page counts 1`] = `
+<div
+  className="pagination"
+>
+  <span
+    className="spaced-group large pagination-group"
+  >
+    <button
+      className="button prev disabled"
+      disabled={true}
+      onClick={[Function]}
+    >
+      &lt;
+    </button>
+    <button
+      className="button selected"
+      disabled={undefined}
+      onClick={undefined}
+    >
+      1
+    </button>
+    <button
+      className="button"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      2
+    </button>
+    <button
+      className="button next"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      &gt;
+    </button>
+  </span>
+</div>
+`;
+
+exports[`Banner should match snapshot 1`] = `
+<div
+  className="pagination float-right margin-top-base"
+>
+  <span
+    className="spaced-group large pagination-group"
+  >
+    <button
+      className="button prev disabled"
+      disabled={true}
+      onClick={[Function]}
+    >
+      &lt;
+    </button>
+    <button
+      className="button selected"
+      disabled={undefined}
+      onClick={undefined}
+    >
+      1
+    </button>
+    <button
+      className="button"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      2
+    </button>
+    <button
+      className="button"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      3
+    </button>
+    <button
+      className="button dots"
+      disabled={undefined}
+      onClick={undefined}
+    >
+      ...
+    </button>
+    <button
+      className="button"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      9
+    </button>
+    <button
+      className="button next"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      &gt;
+    </button>
+  </span>
+</div>
+`;
+
+exports[`Banner should render the first page link as an first option 1`] = `
+<div
+  className="pagination"
+>
+  <span
+    className="spaced-group large pagination-group"
+  >
+    <button
+      className="button prev"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      &lt;
+    </button>
+    <button
+      className="button"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      1
+    </button>
+    <button
+      className="button dots"
+      disabled={undefined}
+      onClick={undefined}
+    >
+      ...
+    </button>
+    <button
+      className="button selected"
+      disabled={undefined}
+      onClick={undefined}
+    >
+      5
+    </button>
+    <button
+      className="button dots"
+      disabled={undefined}
+      onClick={undefined}
+    >
+      ...
+    </button>
+    <button
+      className="button"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      24
+    </button>
+    <button
+      className="button next"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      &gt;
+    </button>
+  </span>
+</div>
+`;

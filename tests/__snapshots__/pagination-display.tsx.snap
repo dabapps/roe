@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Banner should match snapshot 1`] = `
+<p
+  className="pagination-display margin-top-base"
+>
+  Showing 
+  24
+  -
+  26
+   of
+   
+  26
+</p>
+`;

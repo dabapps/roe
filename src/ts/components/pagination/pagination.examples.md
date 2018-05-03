@@ -7,7 +7,7 @@ class PaginationExample extends React.Component {
     super(props);
 
     this.state = {
-      page: 2,
+      page: 1,
     };
 
     this.changePage = this.changePage.bind(this);
@@ -18,8 +18,8 @@ class PaginationExample extends React.Component {
   }
 
   render () {
-    const ITEM_COUNT = 26;
-    const PAGE_SIZE = 3;
+    const ITEM_COUNT = 7;
+    const PAGE_SIZE = 2;
     const { page } = this.state;
 
     return (
