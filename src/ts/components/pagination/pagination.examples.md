@@ -18,7 +18,7 @@ class PaginationExample extends React.Component {
   }
 
   render () {
-    const ITEM_COUNT = 7;
+    const ITEM_COUNT = 13;
     const PAGE_SIZE = 2;
     const { page } = this.state;
 
@@ -28,7 +28,7 @@ class PaginationExample extends React.Component {
           <Column xs={4}>
             <PaginationDisplay
               pageSize={PAGE_SIZE}
-              currentPage={page}
+              currentPageNumber={page}
               itemCount={ITEM_COUNT}
             />
           </Column>
@@ -37,7 +37,7 @@ class PaginationExample extends React.Component {
               className="float-right margin-top-base"
               pageSize={PAGE_SIZE}
               changePage={(value) => this.changePage(value)}
-              currentPage={page}
+              currentPageNumber={page}
               itemCount={ITEM_COUNT}
               disabled={false}
             />

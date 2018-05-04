@@ -4,14 +4,14 @@ import * as renderer from 'react-test-renderer';
 
 import { Pagination } from '../src/ts/components/pagination/pagination';
 
-describe('Banner', () => {
+describe('Pagination', () => {
   it('should match snapshot', () => {
     const instance = renderer.create(
       <Pagination
         className="float-right margin-top-base"
         pageSize={3}
         changePage={jest.fn()}
-        currentPage={1}
+        currentPageNumber={1}
         itemCount={26}
       />
     );
@@ -24,7 +24,7 @@ describe('Banner', () => {
       <Pagination
         pageSize={3}
         changePage={jest.fn()}
-        currentPage={1}
+        currentPageNumber={1}
         itemCount={26}
         disabled
       />
@@ -38,7 +38,7 @@ describe('Banner', () => {
       <Pagination
         pageSize={3}
         changePage={jest.fn()}
-        currentPage={5}
+        currentPageNumber={5}
         itemCount={70}
       />
     );
@@ -51,7 +51,7 @@ describe('Banner', () => {
       <Pagination
         pageSize={3}
         changePage={jest.fn()}
-        currentPage={1}
+        currentPageNumber={1}
         itemCount={6}
       />
     );
@@ -64,7 +64,7 @@ describe('Banner', () => {
       <Pagination
         pageSize={3}
         changePage={jest.fn()}
-        currentPage={1}
+        currentPageNumber={1}
         itemCount={7}
       />
     );
@@ -77,7 +77,7 @@ describe('Banner', () => {
       <Pagination
         pageSize={3}
         changePage={jest.fn()}
-        currentPage={1}
+        currentPageNumber={1}
         itemCount={7}
       />
     );
@@ -90,7 +90,7 @@ describe('Banner', () => {
       <Pagination
         pageSize={3}
         changePage={jest.fn()}
-        currentPage={2}
+        currentPageNumber={2}
         itemCount={7}
       />
     );
@@ -98,18 +98,18 @@ describe('Banner', () => {
     instance.find('.prev').simulate('click');
   });
 
-  it('should', () => {
+  it('should go the page by clicking the page number', () => {
     const instance = enzyme.mount(
       <Pagination
         pageSize={3}
         changePage={jest.fn()}
-        currentPage={2}
+        currentPageNumber={2}
         itemCount={7}
       />
     );
 
     instance
-      .find('.spaced-group')
+      .find('.spaced-group.pagination-group')
       .childAt(1)
       .simulate('click');
 

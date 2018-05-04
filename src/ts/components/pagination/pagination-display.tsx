@@ -18,7 +18,7 @@ export interface PaginationDisplayProps extends ComponentProps {
    * currentPage
    * @default
    */
-  currentPage: number;
+  currentPageNumber: number;
   /**
    * itemCount
    * @default
@@ -35,7 +35,7 @@ export class PaginationDisplay extends PureComponent<
       className,
       itemCount,
       pageSize,
-      currentPage,
+      currentPageNumber,
       ...remainingProps
     } = this.props;
 
@@ -44,22 +44,22 @@ export class PaginationDisplay extends PureComponent<
         {...remainingProps}
         className={classNames('pagination-display', className)}
       >
-        Showing {this.showingLowerCount()}-{this.showingUpperCounter()} of{' '}
+        Showing {this.showingLowerCount()}-{this.showingUpperCounte()} of{' '}
         {itemCount}
       </p>
     );
   }
 
   private showingLowerCount = () => {
-    const { currentPage, pageSize } = this.props;
-    return (currentPage - 1) * pageSize || 1;
+    const { currentPageNumber, pageSize } = this.props;
+    return (currentPageNumber - 1) * pageSize || 1;
   };
 
-  private showingUpperCounter = () => {
-    const { pageSize, currentPage, itemCount } = this.props;
-    return pageSize * currentPage > itemCount
+  private showingUpperCounte = () => {
+    const { pageSize, currentPageNumber, itemCount } = this.props;
+    return pageSize * currentPageNumber > itemCount
       ? itemCount
-      : pageSize * currentPage;
+      : pageSize * currentPageNumber;
   };
 }
 

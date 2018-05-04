@@ -9,7 +9,7 @@ describe('Banner', () => {
       <PaginationDisplay
         className="margin-top-base"
         pageSize={3}
-        currentPage={9}
+        currentPageNumber={9}
         itemCount={26}
       />
     );

@@ -22,10 +22,10 @@ export interface PaginationProps extends ComponentProps {
    */
   pageSize: number;
   /**
-   * currentPage
+   * currentPageNumber
    * @default
    */
-  currentPage: number;
+  currentPageNumber: number;
   /**
    * itemCount
    * @default
@@ -48,7 +48,7 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
       disabled,
       itemCount,
       pageSize,
-      currentPage,
+      currentPageNumber,
       changePage,
       ...remainingProps
     } = this.props;
@@ -98,25 +98,27 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
   }
 
   private decrementPage = () => {
-    const { currentPage, changePage } = this.props;
-    return changePage(currentPage - 1);
+    const { currentPageNumber, changePage } = this.props;
+    return changePage(currentPageNumber - 1);
   };
 
   private incrementPage = () => {
-    const { currentPage, changePage } = this.props;
-    return changePage(currentPage + 1);
+    const { currentPageNumber, changePage } = this.props;
+    return changePage(currentPageNumber + 1);
   };
 
   private isNextButtonDisabled = () => {
-    const { currentPage, disabled } = this.props;
+    const { currentPageNumber, disabled } = this.props;
     return (
-      !this.getMaxPages() || currentPage === this.getMaxPages() || disabled
+      !this.getMaxPages() ||
+      currentPageNumber === this.getMaxPages() ||
+      disabled
     );
   };
 
   private isPrevButtonDisabled = () => {
-    const { currentPage, disabled } = this.props;
-    return currentPage === 1 || disabled;
+    const { currentPageNumber, disabled } = this.props;
+    return currentPageNumber === 1 || disabled;
   };
 
   private isPageButtonDisabled = () => {
@@ -125,9 +127,9 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
   };
 
   private getButtonType = (page: number, index: number) => {
-    const { currentPage } = this.props;
+    const { currentPageNumber } = this.props;
 
-    if (currentPage === page) {
+    if (currentPageNumber === page) {
       return 'selected';
     }
     if (this.getDisplayDots(index, page)) {
@@ -139,11 +141,12 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
 
   private getMorePages = () => this.getMaxPages() > MAX_BUTTONS;
 
-  private getMaxPages = () => {
+  private numFullPages = () => {
     const { itemCount, pageSize } = this.props;
-
-    return Math.ceil(itemCount / pageSize);
+    return itemCount / pageSize;
   };
+
+  private getMaxPages = () => Math.ceil(this.numFullPages());
 
   private getDisplayDots = (index: number, page: number) =>
     this.getMorePages() &&
@@ -165,19 +168,19 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
   };
 
   private onClickPageNumber = (index: number, page: number) => {
-    const { currentPage, changePage } = this.props;
+    const { currentPageNumber, changePage } = this.props;
 
-    if (currentPage !== page && !this.getDisplayDots(index, page)) {
+    if (currentPageNumber !== page && !this.getDisplayDots(index, page)) {
       return () => changePage(this.getPageToGoTo(page, index));
     }
   };
 
   private getStart = () => {
-    const { currentPage } = this.props;
+    const { currentPageNumber } = this.props;
 
     return Math.max(
       Math.min(
-        currentPage - LEFT_BUTTONS,
+        currentPageNumber - LEFT_BUTTONS,
         this.getMaxPages() - LEFT_BUTTONS - RIGHT_BUTTONS
       ),
       1
@@ -187,28 +190,30 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
   private getEnd = () =>
     Math.min(this.getStart() + MAX_BUTTONS, this.getMaxPages() + 1);
 
-  private getRangeStaps = () => {
+  private getRange = () => {
     const { itemCount, pageSize } = this.props;
 
-    if (itemCount % pageSize === 0 && itemCount / pageSize < 5) {
-      return Math.floor(itemCount / pageSize);
+    const remainder = itemCount % pageSize;
+
+    if (remainder === 0 && this.numFullPages() < MAX_BUTTONS) {
+      return Math.floor(this.numFullPages());
     }
-    if (itemCount % pageSize !== 0 && itemCount / pageSize < 5) {
-      return Math.floor(itemCount / pageSize) + 1;
+    if (remainder !== 0 && this.numFullPages() < MAX_BUTTONS) {
+      return Math.floor(this.numFullPages()) + 1;
     }
 
     return MAX_BUTTONS;
   };
 
-  private paginationSeries = (start: number, end: number, steps: number) => {
-    return Array.apply(null, { length: steps }).map(
+  private paginationSeries = (start: number, end: number, range: number) => {
+    return Array.apply(null, { length: range }).map(
       (item: number, index: number) =>
-        Math.floor(start + index * ((end - start) / steps))
+        Math.floor(start + index * ((end - start) / range))
     );
   };
 
   private paginationButtonCount = () =>
-    this.paginationSeries(this.getStart(), this.getEnd(), this.getRangeStaps());
+    this.paginationSeries(this.getStart(), this.getEnd(), this.getRange());
 }
 
 export default Pagination;
