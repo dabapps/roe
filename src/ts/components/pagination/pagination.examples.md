@@ -18,8 +18,8 @@ class PaginationExample extends React.Component {
   }
 
   render () {
-    const ITEM_COUNT = 13;
-    const PAGE_SIZE = 2;
+    const ITEM_COUNT = 70;
+    const PAGE_SIZE = 3;
     const { page } = this.state;
 
     return (
@@ -59,6 +59,4 @@ class PaginationExample extends React.Component {
 @pagination-selected-background: @primary;
 @pagination-indicator-color: @grey-dark;
 @pagination-indicator-background: @grey-lighter;
-@pagination-dots-color: @grey-dark;
-@pagination-dots-background: @grey-lighter;
 ```

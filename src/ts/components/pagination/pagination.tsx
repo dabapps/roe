@@ -67,7 +67,14 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
           </Button>
 
           {this.paginationButtonCount().map((page: number, index: number) => {
-            return (
+            return this.getDisplayDots(index, page) ? (
+              <div
+                key={index}
+                className={classNames(this.getButtonType(page, index))}
+              >
+                ...
+              </div>
+            ) : (
               <Button
                 key={index}
                 className={classNames(this.getButtonType(page, index), {
@@ -76,9 +83,7 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
                 disabled={this.isPageButtonDisabled()}
                 onClick={this.onClickPageNumber(index, page)}
               >
-                {this.getDisplayDots(index, page)
-                  ? '...'
-                  : this.getPageToGoTo(page, index)}
+                {this.getPageToGoTo(page, index)}
               </Button>
             );
           })}
