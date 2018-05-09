@@ -17,13 +17,7 @@ export class Badge extends PureComponent<BadgeProps, {}> {
     } = this.props;
 
     return (
-      <Component
-        {...remainingProps}
-        className={classNames(
-          'badge',
-          className
-        )}
-      >
+      <Component {...remainingProps} className={classNames('badge', className)}>
         {children}
       </Component>
     );
