@@ -8,35 +8,33 @@ import SpacedGroup from '../spaced-group';
 export interface PaginationProps extends ComponentProps {
   /**
    * className
-   * @default
    */
   className?: string;
   /**
-   * disabled
-   * @default
+   * is disabled
+   * @default false
    */
   disabled?: boolean;
   /**
-   * pageSize
-   * @default
+   * items count per page
    */
   pageSize: number;
   /**
-   * currentPageNumber
-   * @default
+   * current page number
    */
   currentPageNumber: number;
   /**
-   * itemCount
-   * @default
+   * total number of items to display
    */
   itemCount: number;
   /**
-   * nextText
+   * next button text
+   * @default '>'
    */
   nextText?: string;
   /**
-   * prevText
+   * prev button text
+   * @default '<'
    */
   prevText?: string;
   /**

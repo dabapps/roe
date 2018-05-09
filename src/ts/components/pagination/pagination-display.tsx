@@ -6,22 +6,18 @@ import { ComponentProps } from '../../types';
 export interface PaginationDisplayProps extends ComponentProps {
   /**
    * className
-   * @default
    */
   className?: string;
   /**
-   * pageSize
-   * @default
+   * items count per page
    */
   pageSize: number;
   /**
-   * currentPage
-   * @default
+   * current page number
    */
   currentPageNumber: number;
   /**
-   * itemCount
-   * @default
+   * total number of items to display
    */
   itemCount: number;
 }
