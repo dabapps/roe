@@ -11,11 +11,7 @@ describe('Slider', () => {
   });
 
   it('should match snapshot', () => {
-    const instance = renderer.create(
-      <Slider
-        onSlide={jest.fn()}
-      />
-    );
+    const instance = renderer.create(<Slider onSlide={jest.fn()} />);
 
     expect(instance).toMatchSnapshot();
   });
@@ -135,14 +131,13 @@ describe('Slider', () => {
 
   it('should call mouse events on single slider', () => {
     const instance = enzyme.mount(
-      <Slider
-        onChange={jest.fn()}
-        onSlide={jest.fn()}
-      />
+      <Slider onChange={jest.fn()} onSlide={jest.fn()} />
     );
 
-    instance.find('.roe-handle')
-      .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
+    instance
+      .find('.roe-handle')
+      .first()
+      .simulate('mouseDown', { clientX: 0, clientY: 0 })
       .simulate('mouseMove', { clientX: 100, clientY: 0 })
       .simulate('mouseUp');
 
@@ -151,15 +146,13 @@ describe('Slider', () => {
 
   it('should call mouse events on single slider (vertical)', () => {
     const instance = enzyme.mount(
-      <Slider
-        onChange={jest.fn()}
-        onSlide={jest.fn()}
-        orientation="vertical"
-      />
+      <Slider onChange={jest.fn()} onSlide={jest.fn()} orientation="vertical" />
     );
 
-    instance.find('.roe-handle')
-      .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
+    instance
+      .find('.roe-handle')
+      .first()
+      .simulate('mouseDown', { clientX: 0, clientY: 0 })
       .simulate('mouseMove', { clientX: 0, clientY: 100 })
       .simulate('mouseUp');
 
@@ -167,15 +160,12 @@ describe('Slider', () => {
   });
 
   it('should call mouse events on stepped single slider', () => {
-    const instance = enzyme.mount(
-      <Slider
-        stepped
-        onSlide={jest.fn()}
-      />
-    );
+    const instance = enzyme.mount(<Slider stepped onSlide={jest.fn()} />);
 
-    instance.find('.roe-handle')
-      .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
+    instance
+      .find('.roe-handle')
+      .first()
+      .simulate('mouseDown', { clientX: 0, clientY: 0 })
       .simulate('mouseMove', { clientX: 500, clientY: 0 })
       .simulate('mouseUp');
 
@@ -183,15 +173,12 @@ describe('Slider', () => {
   });
 
   it('should call mouse events on single range slider', () => {
-    const instance = enzyme.mount(
-      <Slider
-        range
-        onSlide={jest.fn()}
-      />
-    );
+    const instance = enzyme.mount(<Slider range onSlide={jest.fn()} />);
 
-    instance.find('.roe-handle__range')
-      .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
+    instance
+      .find('.roe-handle__range')
+      .first()
+      .simulate('mouseDown', { clientX: 0, clientY: 0 })
       .simulate('mouseMove', { clientX: 100, clientY: 0 })
       .simulate('mouseUp');
 
@@ -217,11 +204,15 @@ describe('Slider', () => {
       />
     );
 
-    instance.find('.roe-handle')
-      .first().simulate('mouseDown', { clientX: 0, clientY: 0 })
+    instance
+      .find('.roe-handle')
+      .first()
+      .simulate('mouseDown', { clientX: 0, clientY: 0 });
 
-    instance.find('.roe-handle__range')
-      .first().simulate('mouseDown', { clientX: 100, clientY: 0 })
+    instance
+      .find('.roe-handle__range')
+      .first()
+      .simulate('mouseDown', { clientX: 100, clientY: 0 });
 
     const mouseMove = new MouseEvent('mousemove', { clientX: 400, clientY: 0 });
     const mouseUp = new MouseEvent('mouseup', { clientX: 300, clientY: 0 });
@@ -255,39 +246,36 @@ describe('Slider', () => {
       />
     );
 
-    instance.find('.roe-handle')
-      .first().simulate('mouseDown', { clientX: 0, clientY: 500 })
+    instance
+      .find('.roe-handle')
+      .first()
+      .simulate('mouseDown', { clientX: 0, clientY: 500 })
       .simulate('mouseMove', { clientX: 0, clientY: 600 })
       .simulate('mouseUp');
 
-    instance.find('.roe-handle__range')
-      .first().simulate('mouseDown', { clientX: 0, clientY: 750 })
+    instance
+      .find('.roe-handle__range')
+      .first()
+      .simulate('mouseDown', { clientX: 0, clientY: 750 })
       .simulate('mouseMove', { clientX: 0, clientY: 100 })
       .simulate('mouseUp');
 
     instance.unmount();
   });
 
-
   it('should remove listeners on unmount', () => {
-
-    const instance = enzyme.shallow(
-      <Slider
-        onSlide={jest.fn()}
-      />);
+    const instance = enzyme.shallow(<Slider onSlide={jest.fn()} />);
 
     instance.unmount();
   });
 
   it('should avoid mouse right click', () => {
+    const instance = enzyme.mount(<Slider onSlide={jest.fn()} />);
 
-    const instance = enzyme.mount(
-      <Slider
-        onSlide={jest.fn()}
-      />);
-
-    instance.find('.roe-handle')
-      .first().simulate('mouseDown', { button: 2 })
+    instance
+      .find('.roe-handle')
+      .first()
+      .simulate('mouseDown', { button: 2 })
       .simulate('mouseMove', { clientX: 100, clientY: 0 })
       .simulate('mouseUp');
 
@@ -295,23 +283,16 @@ describe('Slider', () => {
   });
 
   it('should call onChange on mouseup for single slider', () => {
-
     const onSlide = jest.fn();
     const onChange = jest.fn();
 
     const instance = enzyme.mount(
-      <Slider
-        onSlide={onSlide}
-        onChange={onChange}
-      />
+      <Slider onSlide={onSlide} onChange={onChange} />
     );
 
-    const handle = instance
-      .find('.roe-handle')
-      .first();
+    const handle = instance.find('.roe-handle').first();
 
-    handle
-      .simulate('mousedown', { clientX: 0, clientY: 0 });
+    handle.simulate('mousedown', { clientX: 0, clientY: 0 });
 
     const mouseMove = new MouseEvent('mousemove', { clientX: 100, clientY: 0 });
     const mouseUp = new MouseEvent('mouseup', { clientX: 100, clientY: 0 });
@@ -328,7 +309,6 @@ describe('Slider', () => {
   });
 
   it('should call (onChangeFrom, onChangeTo) on mouseup for ranged slider', () => {
-
     const onSlide = jest.fn();
     const onChangeFrom = jest.fn();
     const onChangeTo = jest.fn();
@@ -344,22 +324,15 @@ describe('Slider', () => {
       />
     );
 
-    const handle = instance
-      .find('.roe-handle')
-      .first();
+    const handle = instance.find('.roe-handle').first();
 
-    handle
-      .simulate('mousedown', { clientX: 0, clientY: 0 });
+    handle.simulate('mousedown', { clientX: 0, clientY: 0 });
 
-    const handleRange = instance
-      .find('.roe-handle__range')
-      .first();
+    const handleRange = instance.find('.roe-handle__range').first();
 
-    handle
-      .simulate('mousedown', { clientX: 0, clientY: 0 });
+    handle.simulate('mousedown', { clientX: 0, clientY: 0 });
 
-    handleRange
-      .simulate('mousedown', { clientX: 0, clientY: 0 });
+    handleRange.simulate('mousedown', { clientX: 0, clientY: 0 });
 
     const mouseMove = new MouseEvent('mousemove', { clientX: 100, clientY: 0 });
     const mouseUp = new MouseEvent('mouseup', { clientX: 100, clientY: 0 });
@@ -375,5 +348,4 @@ describe('Slider', () => {
 
     instance.unmount();
   });
-
 });

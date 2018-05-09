@@ -11,32 +11,17 @@ class SliderExamples extends React.Component {
       to: 0,
     };
 
-    this.onSlide = this.onSlide.bind(this);
     this.onChange = this.onChange.bind(this);
-    this.onSlideFrom = this.onSlideFrom.bind(this);
     this.onChangeFrom = this.onChangeFrom.bind(this);
-    this.onSlideTo = this.onSlideTo.bind(this);
     this.onChangeTo = this.onChangeTo.bind(this);
-  }
-
-  onSlide (value) {
-    this.setState({ value });
   }
 
   onChange (value) {
     this.setState({ value });
   }
 
-  onSlideFrom (value) {
-    this.setState({ from: value });
-  }
-
   onChangeFrom (value) {
     this.setState({ from: value });
-  }
-
-  onSlideTo (value) {
-    this.setState({ to: value });
   }
 
   onChangeTo (value) {
@@ -58,7 +43,7 @@ class SliderExamples extends React.Component {
                   popover
                   stepped
                   steps={4}
-                  onSlide={(value) => this.onSlide(value)}
+                  onSlide={(value) => this.onChange(value)}
                   onChange={(value) => this.onChange(value)}
                   orientation="vertical"
                 />
@@ -71,7 +56,7 @@ class SliderExamples extends React.Component {
                 className="margin-bottom-large"
               >
                 <Slider
-                  onSlide={(value) => this.onSlide(value)}
+                  onSlide={(value) => this.onChange(value)}
                 />
               </Column>
               <Column
@@ -81,7 +66,7 @@ class SliderExamples extends React.Component {
                   initialValue={0.3}
                   min={0.2}
                   max={0.8}
-                  onSlide={(value) => this.onSlide(value)}
+                  onSlide={(value) => this.onChange(value)}
                 />
               </Column>
               <Column
@@ -106,9 +91,9 @@ class SliderExamples extends React.Component {
                   initialTo={0.5}
                   min={0.125}
                   max={0.75}
-                  onSlideFrom={(from) => this.onSlideFrom(from)}
+                  onSlideFrom={(from) => this.onChangeFrom(from)}
                   onChangeFrom={(from) => this.onChangeFrom(from)}
-                  onSlideTo={(to) => this.onSlideTo(to)}
+                  onSlideTo={(to) => this.onChangeTo(to)}
                   onChangeTo={(to) => this.onChangeTo(to)}
                   popover
                   range

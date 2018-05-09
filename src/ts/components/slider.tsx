@@ -115,10 +115,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
   public constructor(props: SliderProps) {
     super(props);
 
-    const {
-      min,
-      max,
-    } = props;
+    const { min, max } = props;
 
     this.state = {
       value: this.constrain(this.setInitialValue('single'), min, max),
@@ -130,8 +127,8 @@ export class Slider extends PureComponent<SliderProps, IState> {
     this.onHandleRangeDown = this.createMouseHandlers(this.onHandleRangeDown);
   }
 
-  public componentWillUnmount () {
-    this.unsubscribers.forEach((unsubscriber) => unsubscriber());
+  public componentWillUnmount() {
+    this.unsubscribers.forEach(unsubscriber => unsubscriber());
   }
 
   public render() {
@@ -156,76 +153,80 @@ export class Slider extends PureComponent<SliderProps, IState> {
           orientation,
           className,
           stepped && 'stepped',
-          range && 'range',
+          range && 'range'
         )}
       >
         <div className="roe-bar">
           {min ? (
-              <span className="roe-bar__min" style={this.setMinMaxStyle('min')} />
-            ) : null
-          }
+            <span className="roe-bar__min" style={this.setMinMaxStyle('min')} />
+          ) : null}
 
           <div
             className="roe-handle"
-            style={this.setOrientationStyle(range ? this.state.from : this.state.value)}
+            style={this.setOrientationStyle(
+              range ? this.state.from : this.state.value
+            )}
             onMouseDown={this.onHandleDown}
           >
             {popover && (
-                <span className="roe-handle-popover">
-                  <span>{`${((range ? this.state.from : this.state.value) * 100).toFixed(0)}`}</span>
-                </span>
-              )
-            }
+              <span className="roe-handle-popover">
+                <span>{`${(
+                  (range ? this.state.from : this.state.value) * 100
+                ).toFixed(0)}`}</span>
+              </span>
+            )}
           </div>
 
           {range && (
-              <div
-                className="roe-handle roe-handle__range"
-                style={this.setOrientationStyle(this.state.to)}
-                onMouseDown={this.onHandleRangeDown}
-              >
-                {popover && (
-                  <span className="roe-handle-popover">
-                    <span>{`${((this.state.to) * 100).toFixed(0)}`}</span>
-                  </span>)
-                }
-              </div>
-            )
-          }
+            <div
+              className="roe-handle roe-handle__range"
+              style={this.setOrientationStyle(this.state.to)}
+              onMouseDown={this.onHandleRangeDown}
+            >
+              {popover && (
+                <span className="roe-handle-popover">
+                  <span>{`${(this.state.to * 100).toFixed(0)}`}</span>
+                </span>
+              )}
+            </div>
+          )}
 
           {range && (
-              <span className="roe-bar-range" style={this.setMinMaxStyle('range')} />
-            )
-          }
+            <span
+              className="roe-bar-range"
+              style={this.setMinMaxStyle('range')}
+            />
+          )}
 
-          {stepped && (
-              Array.apply(null, { length: steps + 1 }).map((e: any, i: number) => (
+          {stepped &&
+            Array.apply(null, { length: steps + 1 }).map(
+              (e: any, i: number) => (
                 <span
                   key={i}
-                  className={classNames(
-                    'roe-bar__steps',
-                    {
-                      'fade': ((this.partialArithmeticSeries(steps)[i] / 100) < min)
-                      || ((this.partialArithmeticSeries(steps)[i] / 100) > max)
-                    }
+                  className={classNames('roe-bar__steps', {
+                    fade:
+                      this.partialArithmeticSeries(steps)[i] / 100 < min ||
+                      this.partialArithmeticSeries(steps)[i] / 100 > max,
+                  })}
+                  style={this.setOrientationStyle(
+                    this.partialArithmeticSeries(steps)[i] / 100
                   )}
-                  style={this.setOrientationStyle(this.partialArithmeticSeries(steps)[i] / 100)}
-                />)
+                />
               )
-            )
-          }
+            )}
 
           {max && (
-              <span className="roe-bar__max" style={this.setMinMaxStyle('max')} />
-            )
-          }
+            <span className="roe-bar__max" style={this.setMinMaxStyle('max')} />
+          )}
         </div>
       </Component>
     );
   }
 
   private createMouseHandlers(callback: (event: SyntheticEvent) => any) {
-    function createSyntheticEvent(event: MouseEvent | React.MouseEvent<HTMLElement>): SyntheticEvent {
+    function createSyntheticEvent(
+      event: MouseEvent | React.MouseEvent<HTMLElement>
+    ): SyntheticEvent {
       return {
         type: event.type,
         clientX: event.clientX,
@@ -265,99 +266,105 @@ export class Slider extends PureComponent<SliderProps, IState> {
     return onMouseDown;
   }
 
-  private constrain (
+  private constrain(
     value: number | string | undefined,
     min: number | string | undefined,
-    max: number | string | undefined,
+    max: number | string | undefined
   ) {
     return Math.min(
       Math.max(
         typeof value === 'undefined' ? MIN : parseFloat(value.toString()),
-        typeof min === 'undefined' ? MIN : parseFloat(min.toString()),
+        typeof min === 'undefined' ? MIN : parseFloat(min.toString())
       ),
       typeof max === 'undefined' ? MAX : parseFloat(max.toString())
     );
   }
 
   private arithmeticSeries = (start: number, end: number, steps: number) => {
-    return Array.apply(null, { length: steps + 1 }).map((item: number, index: number) =>
-      start + (index) * ((end - start) / steps)
+    return Array.apply(null, { length: steps + 1 }).map(
+      (item: number, index: number) => start + index * ((end - start) / steps)
     );
-  }
+  };
 
-  private partialArithmeticSeries = (steps: number) => this.arithmeticSeries(0, 100, steps);
+  private partialArithmeticSeries = (steps: number) =>
+    this.arithmeticSeries(0, 100, steps);
 
   private getClosestValue = (value: number) => {
-    const {
-      steps = STEPS,
-    } = this.props;
+    const { steps = STEPS } = this.props;
 
     const result: number[] = [];
 
-    this.partialArithmeticSeries(steps).forEach((curr: number, index: number) => {
-      result.push(Math.abs(curr - (value * 100)))
-    });
+    this.partialArithmeticSeries(steps).forEach(
+      (curr: number, index: number) => {
+        result.push(Math.abs(curr - value * 100));
+      }
+    );
 
-    return this.partialArithmeticSeries(steps)[result.indexOf(Math.min.apply(Math, result))] / 100;
-  }
+    return (
+      this.partialArithmeticSeries(steps)[
+        result.indexOf(Math.min.apply(Math, result))
+      ] / 100
+    );
+  };
 
   private onHandleDown = (event: SyntheticEvent) => {
-    const {
-      stepped,
-      range,
-    } = this.props;
+    const { stepped, range } = this.props;
 
     if (!range) {
       this.setState({
         value: stepped
           ? this.getClosestValue(this.getValueOnMove(event, 'from'))
-          : this.getValueOnMove(event, 'from')
+          : this.getValueOnMove(event, 'from'),
       });
 
-      if (event.type === 'mouseup' && (typeof this.props.onChange === 'function')) {
-        this.props.onChange(this.state.value)
+      if (
+        event.type === 'mouseup' &&
+        typeof this.props.onChange === 'function'
+      ) {
+        this.props.onChange(this.state.value);
       }
 
-      this.props.onSlide(this.state.value)
-
+      this.props.onSlide(this.state.value);
     } else {
       this.setState({
         from: stepped
           ? this.getClosestValue(this.getValueOnMove(event, 'from'))
-          : this.getValueOnMove(event, 'from')
+          : this.getValueOnMove(event, 'from'),
       });
 
-      if (event.type === 'mouseup' && (typeof this.props.onChangeFrom === 'function')) {
-        this.props.onChangeFrom(this.state.from)
+      if (
+        event.type === 'mouseup' &&
+        typeof this.props.onChangeFrom === 'function'
+      ) {
+        this.props.onChangeFrom(this.state.from);
       }
 
       if (typeof this.props.onSlideFrom === 'function') {
-        this.props.onSlideFrom(this.state.from)
+        this.props.onSlideFrom(this.state.from);
       }
     }
-
-  }
+  };
 
   private onHandleRangeDown = (event: SyntheticEvent) => {
-    const {
-      stepped,
-    } = this.props;
+    const { stepped } = this.props;
 
     this.setState({
       to: stepped
         ? this.getClosestValue(this.getValueOnMove(event, 'to'))
-        : this.getValueOnMove(event, 'to')
+        : this.getValueOnMove(event, 'to'),
     });
 
-    if (event.type === 'mouseup' && (typeof this.props.onChangeTo === 'function')) {
-      this.props.onChangeTo(this.state.to)
+    if (
+      event.type === 'mouseup' &&
+      typeof this.props.onChangeTo === 'function'
+    ) {
+      this.props.onChangeTo(this.state.to);
     }
 
     if (typeof this.props.onSlideTo === 'function') {
-      this.props.onSlideTo(this.state.to)
+      this.props.onSlideTo(this.state.to);
     }
-
-  }
+  };
 
   private setInitialValue = (pointer: string) => {
     const {
@@ -399,61 +406,52 @@ export class Slider extends PureComponent<SliderProps, IState> {
       }
       return initialValue;
     }
-  }
+  };
 
   private setMinMaxStyle = (position: string) => {
-    const {
-      orientation = 'horizontal',
-      min = MIN,
-      max = MAX,
-    } = this.props;
+    const { orientation = 'horizontal', min = MIN, max = MAX } = this.props;
 
     const { from, to } = this.state;
 
     if (orientation === 'horizontal') {
-
       if (position === 'min') {
-        return { width: `${parseFloat(min.toString()) * 100}%` }
+        return { width: `${parseFloat(min.toString()) * 100}%` };
       } else if (position === 'max') {
-        return { width: `${100 - (parseFloat(max.toString()) * 100)}%` }
+        return { width: `${100 - parseFloat(max.toString()) * 100}%` };
       }
 
       // (position === 'range')
       return {
-        left: `${(parseFloat(from.toString()) * 100)}%`,
-        right: `${100 - (parseFloat(to.toString()) * 100)}%`,
-      }
-
+        left: `${parseFloat(from.toString()) * 100}%`,
+        right: `${100 - parseFloat(to.toString()) * 100}%`,
+      };
     }
     // (orientation === 'vertical')
     if (position === 'min') {
-      return { height: `${parseFloat(min.toString()) * 100}%` }
+      return { height: `${parseFloat(min.toString()) * 100}%` };
     } else if (position === 'max') {
-      return { height: `${100 - (parseFloat(max.toString()) * 100)}%` }
+      return { height: `${100 - parseFloat(max.toString()) * 100}%` };
     }
 
     // (position === 'range')
     return {
-      top: `${(parseFloat(from.toString()) * 100)}%`,
-      bottom: `${100 - (parseFloat(to.toString()) * 100)}%`,
-    }
-  }
+      top: `${parseFloat(from.toString()) * 100}%`,
+      bottom: `${100 - parseFloat(to.toString()) * 100}%`,
+    };
+  };
 
   private setOrientationStyle = (value: number) => {
     const { orientation = 'horizontal' } = this.props;
 
     if (orientation === 'vertical') {
-      return { top: `${value * 100}%` }
+      return { top: `${value * 100}%` };
     }
 
-    return { left: `${value * 100}%` }
-  }
+    return { left: `${value * 100}%` };
+  };
 
-  private setBoundaryValue (pointer: string, value: string) {
-    const {
-      min = MIN,
-      max = MAX,
-    } = this.props;
+  private setBoundaryValue(pointer: string, value: string) {
+    const { min = MIN, max = MAX } = this.props;
 
     const { from, to } = this.state;
 
@@ -461,11 +459,11 @@ export class Slider extends PureComponent<SliderProps, IState> {
       return to;
     }
 
-    if (pointer === 'from' && (value === 'max')) {
+    if (pointer === 'from' && value === 'max') {
       return max;
     }
 
-    if (pointer === 'from' && (value === 'min')) {
+    if (pointer === 'from' && value === 'min') {
       return min;
     }
 
@@ -473,7 +471,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
       return from;
     }
 
-    if (pointer === 'to' && (value === 'min')) {
+    if (pointer === 'to' && value === 'min') {
       return min;
     }
 
@@ -492,18 +490,19 @@ export class Slider extends PureComponent<SliderProps, IState> {
     const { top, left, width, height } = node.getBoundingClientRect();
 
     if (orientation === 'vertical') {
-      return this.constrain((event.clientY - top) / height,
+      return this.constrain(
+        (event.clientY - top) / height,
         range ? this.setBoundaryValue(pointer, 'min') : min,
-        range ? this.setBoundaryValue(pointer, 'max') : max,
+        range ? this.setBoundaryValue(pointer, 'max') : max
       );
     }
 
-    return this.constrain((event.clientX - left) / width,
+    return this.constrain(
+      (event.clientX - left) / width,
       range ? this.setBoundaryValue(pointer, 'min') : min,
-      range ? this.setBoundaryValue(pointer, 'max') : max,
+      range ? this.setBoundaryValue(pointer, 'max') : max
     );
-  }
-
+  };
 }
 
 export default Slider;
