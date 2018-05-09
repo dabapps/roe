@@ -40,14 +40,18 @@ export class InputWithPrefixSuffix extends PureComponent<
 
     return (
       <InputGroup>
-        {prefix && <InputGroupAddon>{prefix}</InputGroupAddon>}
+        {typeof prefix !== 'undefined' && (
+          <InputGroupAddon>{prefix}</InputGroupAddon>
+        )}
         <input
           onChange={onChange}
           value={value}
           disabled={disabled}
           type={type}
         />
-        {suffix && <InputGroupAddon>{suffix}</InputGroupAddon>}
+        {typeof suffix !== 'undefined' && (
+          <InputGroupAddon>{suffix}</InputGroupAddon>
+        )}
       </InputGroup>
     );
   }
