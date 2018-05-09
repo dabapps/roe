@@ -32,6 +32,14 @@ export interface PaginationProps extends ComponentProps {
    */
   itemCount: number;
   /**
+   * nextText
+   */
+  nextText?: string;
+  /**
+   * prevText
+   */
+  prevText?: string;
+  /**
    * changePage
    */
   changePage: (pageNumber: number) => void;
@@ -50,6 +58,8 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
       pageSize,
       currentPageNumber,
       changePage,
+      nextText,
+      prevText,
       ...remainingProps
     } = this.props;
 
@@ -63,7 +73,7 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
             onClick={this.decrementPage}
             disabled={this.isPrevButtonDisabled()}
           >
-            &#60;
+            {prevText ? <span className="prev-icon">{prevText}</span> : '<'}
           </Button>
 
           {this.paginationButtonCount().map((page: number, index: number) => {
@@ -95,7 +105,7 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
             disabled={this.isNextButtonDisabled()}
             onClick={this.incrementPage}
           >
-            &#62;
+            {nextText ? <span className="next-icon">{nextText}</span> : '>'}
           </Button>
         </SpacedGroup>
       </div>

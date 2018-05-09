@@ -143,6 +143,53 @@ exports[`Pagination should display less than 5 buttons for minimal page counts 1
 </div>
 `;
 
+exports[`Pagination should display next and previous text 1`] = `
+<div
+  className="pagination"
+>
+  <span
+    className="spaced-group large pagination-group"
+  >
+    <button
+      className="button prev disabled"
+      disabled={true}
+      onClick={[Function]}
+    >
+      <span
+        className="prev-icon"
+      >
+        Prev
+      </span>
+    </button>
+    <button
+      className="button selected"
+      disabled={undefined}
+      onClick={undefined}
+    >
+      1
+    </button>
+    <button
+      className="button"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      2
+    </button>
+    <button
+      className="button next"
+      disabled={undefined}
+      onClick={[Function]}
+    >
+      <span
+        className="next-icon"
+      >
+        Next
+      </span>
+    </button>
+  </span>
+</div>
+`;
+
 exports[`Pagination should match snapshot 1`] = `
 <div
   className="pagination float-right margin-top-base"

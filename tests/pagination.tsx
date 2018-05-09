@@ -59,6 +59,21 @@ describe('Pagination', () => {
     expect(instance).toMatchSnapshot();
   });
 
+  it('should display next and previous text', () => {
+    const instance = renderer.create(
+      <Pagination
+        pageSize={3}
+        changePage={jest.fn()}
+        currentPageNumber={1}
+        itemCount={6}
+        prevText="Prev"
+        nextText="Next"
+      />
+    );
+
+    expect(instance).toMatchSnapshot();
+  });
+
   it('should add extra button to cover remainder pages', () => {
     const instance = renderer.create(
       <Pagination

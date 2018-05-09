@@ -40,6 +40,8 @@ class PaginationExample extends React.Component {
               currentPageNumber={page}
               itemCount={ITEM_COUNT}
               disabled={false}
+              prevText="Prev"
+              nextText="Next"
             />
           </Column>
         </Row>
