@@ -142,12 +142,20 @@ export class Slider extends PureComponent<SliderProps, IState> {
       stepped,
       component: Component = 'div',
       orientation = 'horizontal',
-      // ...remainingProps
+      initialValue,
+      initialFrom,
+      initialTo,
+      onSlide,
+      onSlideFrom,
+      onSlideTo,
+      onChangeFrom,
+      onChangeTo,
+      ...remainingProps
     } = this.props;
 
     return (
       <Component
-        // {...remainingProps}
+        {...remainingProps}
         className={classNames(
           'roe-slider',
           orientation,

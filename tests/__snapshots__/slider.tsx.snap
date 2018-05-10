@@ -31,6 +31,7 @@ exports[`Slider should match snapshot 1`] = `
 exports[`Slider should match snapshot with props (min, max, initialValue) 1`] = `
 <div
   className="roe-slider horizontal"
+  onChange={[MockFunction]}
 >
   <div
     className="roe-bar"
@@ -67,6 +68,7 @@ exports[`Slider should match snapshot with props (min, max, initialValue) 1`] = 
 exports[`Slider should match snapshot with props (orientation="vertical") 1`] = `
 <div
   className="roe-slider vertical stepped"
+  onChange={[MockFunction]}
 >
   <div
     className="roe-bar"
@@ -355,6 +357,7 @@ exports[`Slider should match snapshot with props (range, stepped, steps) 1`] = `
 exports[`Slider should return max if initialValue is greater than max value for single slider 1`] = `
 <div
   className="roe-slider horizontal"
+  onChange={[MockFunction]}
 >
   <div
     className="roe-bar"

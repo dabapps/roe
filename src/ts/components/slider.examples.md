@@ -56,6 +56,7 @@ class SliderExamples extends React.Component {
                 className="margin-bottom-large"
               >
                 <Slider
+                  className={'custom-class'}
                   onSlide={(value) => this.onChange(value)}
                 />
               </Column>

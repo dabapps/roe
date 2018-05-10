@@ -129,9 +129,13 @@ describe('Slider', () => {
     expect(instance).toMatchSnapshot();
   });
 
-  it('should call mouse events on single slider', () => {
+  it('should call mouse events on single slider - accepts remainingProps (className)', () => {
     const instance = enzyme.mount(
-      <Slider onChange={jest.fn()} onSlide={jest.fn()} />
+      <Slider
+        className={'custom-class'}
+        onChange={jest.fn()}
+        onSlide={jest.fn()}
+      />
     );
 
     instance
