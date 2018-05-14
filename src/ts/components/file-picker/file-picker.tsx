@@ -17,6 +17,7 @@ export interface FileProps {
   size: number;
   type: string;
   webkitRelativePath: string;
+  data: any;
 }
 
 export type FileListProps = [FileProps];
@@ -27,17 +28,18 @@ export interface FilePickerState {
 
 export interface FilePickerProps
   extends ComponentProps,
-    HTMLProps<HTMLElement> {
+  HTMLProps<HTMLElement> {
   /**
    * Takes a component as a function and renders as a child
    */
-  render: Render;
+  onFilesChange: (value: any) => void;
+  // render: Render;
 }
 
 export class FilePicker extends PureComponent<
   FilePickerProps,
   FilePickerState
-> {
+  > {
   private constructor(props: FilePickerProps) {
     super(props);
 
@@ -50,8 +52,9 @@ export class FilePicker extends PureComponent<
     const {
       className,
       children,
-      render,
+      // render,
       component: Component = 'div',
+      onFilesChange,
       ...remainingProps
     } = this.props;
 
@@ -84,53 +87,61 @@ export class FilePicker extends PureComponent<
   };
 
   private onDrop = (event: React.DragEvent<HTMLElement>) => {
+    const { onFilesChange } = this.props;
     event.preventDefault();
 
     const files = event.dataTransfer.files;
 
     const output: any = [];
 
+    // console.log(files);
+
     Object.keys(files).map((index: any) => {
-      return output.push({
-        name: files[index].name,
-        size: files[index].size,
-        // lastModified: files[index].lastModified,
-        type: files[index].type,
-        data: this.handleUpload(files[index])
-      })
-      // return output.push(files[index])
+      // return output.push({
+      //   name: files[index].name,
+      //   size: files[index].size,
+      //   // lastModified: files[index].lastModified,
+      //   lastModifiedDate: files[index].lastModifiedDate,
+      //   type: files[index].type,
+      //   data: this.handleUpload(files[index]),
+      // })
+      return output.push(files[index])
     })
 
-    console.log('output', output)
+    // console.log('output', output)
 
-  };
-
-  private readUploadedFileDataURL = (inputFile: any) => {
-    const temporaryFileReader = new FileReader();
-
-    return new Promise((resolve: any, reject: any) => {
-      temporaryFileReader.onerror = () => {
-        temporaryFileReader.abort();
-        reject(new Error("Problem parsing input file."));
-      };
-
-      temporaryFileReader.onload = () => {
-        resolve(temporaryFileReader.result);
-      };
-      temporaryFileReader.readAsDataURL(inputFile);
-    });
-  };
-
-  private handleUpload = async (file: any) => {
-
-    try {
-      const fileContents = await this.readUploadedFileDataURL(file)
-      // console.log(fileContents);
-      return fileContents;
-    } catch (e) {
-      console.warn(e.message)
+    if (typeof onFilesChange === 'function') {
+      onFilesChange(output)
     }
-  }
+
+  };
+
+  // private readUploadedFileDataURL = (inputFile: any) => {
+  //   const temporaryFileReader = new FileReader();
+
+  //   return new Promise((resolve: any, reject: any) => {
+  //     temporaryFileReader.onerror = () => {
+  //       temporaryFileReader.abort();
+  //       reject(new Error("Problem parsing input file."));
+  //     };
+
+  //     temporaryFileReader.onload = () => {
+  //       resolve(temporaryFileReader.result);
+  //     };
+  //     temporaryFileReader.readAsDataURL(inputFile);
+  //   });
+  // };
+
+  // private handleUpload = async (file: any) => {
+
+  //   try {
+  //     const fileContents = await this.readUploadedFileDataURL(file);
+  //     // console.log(fileContents);
+  //     return fileContents;
+  //   } catch (e) {
+  //     console.warn(e.message)
+  //   }
+  // }
 
 }
 
