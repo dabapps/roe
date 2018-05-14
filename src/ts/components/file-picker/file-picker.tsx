@@ -10,12 +10,19 @@ export interface FilePickerRenderProps {
 
 export type Render = (props: FilePickerRenderProps) => React.ReactElement<any>;
 
-export interface SyntheticEvent {
+export interface FileProps {
+  lastModified: number;
+  lastModifiedDate: any;
+  name: string;
+  size: number;
   type: string;
+  webkitRelativePath: string;
 }
 
+export type FileListProps = [FileProps];
+
 export interface FilePickerState {
-  file: any;
+  files: FileListProps | null;
 }
 
 export interface FilePickerProps
@@ -35,7 +42,7 @@ export class FilePicker extends PureComponent<
     super(props);
 
     this.state = {
-      file: null,
+      files: null,
     };
   }
 
@@ -59,7 +66,10 @@ export class FilePicker extends PureComponent<
           onDrop={this.onDrop}
         />
 
-        {this.state.file && <img src={this.state.file} />}
+        {/* {this.state.file && <img src={this.state.file} />} */}
+        {
+          // console.log('FILES', this.state.files)
+        }
 
         {/* {render && render({ selectFile: this.onDrop })} */}
 
@@ -76,17 +86,52 @@ export class FilePicker extends PureComponent<
   private onDrop = (event: React.DragEvent<HTMLElement>) => {
     event.preventDefault();
 
-    const reader = new FileReader();
+    const files = event.dataTransfer.files;
 
-    Array(event.dataTransfer.files[0]).map((file: any) => {
-      reader.readAsDataURL(file);
-    });
+    const output: any = [];
 
-    reader.onload = (e: any) =>
-      this.setState({
-        file: e.target.result,
-      });
+    Object.keys(files).map((index: any) => {
+      return output.push({
+        name: files[index].name,
+        size: files[index].size,
+        // lastModified: files[index].lastModified,
+        type: files[index].type,
+        data: this.handleUpload(files[index])
+      })
+      // return output.push(files[index])
+    })
+
+    console.log('output', output)
+
   };
+
+  private readUploadedFileDataURL = (inputFile: any) => {
+    const temporaryFileReader = new FileReader();
+
+    return new Promise((resolve: any, reject: any) => {
+      temporaryFileReader.onerror = () => {
+        temporaryFileReader.abort();
+        reject(new Error("Problem parsing input file."));
+      };
+
+      temporaryFileReader.onload = () => {
+        resolve(temporaryFileReader.result);
+      };
+      temporaryFileReader.readAsDataURL(inputFile);
+    });
+  };
+
+  private handleUpload = async (file: any) => {
+
+    try {
+      const fileContents = await this.readUploadedFileDataURL(file)
+      // console.log(fileContents);
+      return fileContents;
+    } catch (e) {
+      console.warn(e.message)
+    }
+  }
+
 }
 
 export default FilePicker;
