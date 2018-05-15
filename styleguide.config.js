@@ -46,6 +46,10 @@ var components = [
     components: 'src/ts/components/banners/**/*.tsx'
   },
   {
+    name: 'File Picker',
+    components: 'src/ts/components/file-picker/**/*.tsx'
+  },
+  {
     name: 'Misc',
     components: 'src/ts/components/*.tsx'
   }
