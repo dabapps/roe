@@ -22,8 +22,8 @@ class FilePickerExample extends React.Component {
     const { files } = this.state;
     return (
       <FilePicker onFilesChange={(value) => this.onFilesChanged(value)}>
-        {files && files.map((file) => (
-          <FileThumbnail file={file} />
+        {files && files.map((file, index) => (
+          <FileThumbnail key={index} file={file} />
         ))}
         {files && files.map((file, index) => (
           <p key={index}>
