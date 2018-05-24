@@ -40,7 +40,7 @@ The `flex-grid` class can be added to a row to allow columns of varying heights 
   </Column>
   <Column xs={12} sm={6} md={4} lg={3}>
     <ContentBox>
-      <DabIpsum count={3} />
+      <DabIpsum count={1} />
     </ContentBox>
   </Column>
   <Column xs={12} sm={6} md={4} lg={3}>
