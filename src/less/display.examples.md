@@ -1,6 +1,6 @@
 Used to change the css `display` property of an element on different screen sizes.
 
-Available display types are: `none`, `block`, `inline`, and `inline-block`.
+Available display types are: `none`, `flex`, `block`, `inline`, and `inline-block`.
 
 Note: `display-none` is an alias for `xs-display-none`, and `display-block` an alias for `xs-display-block`, etc.
 
@@ -28,7 +28,7 @@ You can use `display-flex` to easily make a child component fill its parent, for
   </Column>
   <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
     <ContentBox>
-      <DabIpsum count={3} />
+      <DabIpsum count={1} />
     </ContentBox>
   </Column>
   <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
