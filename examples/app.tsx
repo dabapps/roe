@@ -83,6 +83,39 @@ class App extends PureComponent<{}, AppState> {
             </Column>
           </Row>
 
+          <Row className="flex-grid">
+            <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
+              <ContentBox>
+                <DabIpsum count={2} />
+              </ContentBox>
+            </Column>
+            <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
+              <ContentBox>
+                <DabIpsum count={3} />
+              </ContentBox>
+            </Column>
+            <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
+              <ContentBox>
+                <DabIpsum count={2} />
+              </ContentBox>
+            </Column>
+            <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
+              <ContentBox>
+                <DabIpsum count={1} />
+              </ContentBox>
+            </Column>
+            <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
+              <ContentBox>
+                <DabIpsum count={2} />
+              </ContentBox>
+            </Column>
+            <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
+              <ContentBox>
+                <DabIpsum count={2} />
+              </ContentBox>
+            </Column>
+          </Row>
+
           <Row>
             <Column>
               <h2>Can't touch these</h2>
