@@ -61,6 +61,10 @@ var less = [
     content: 'src/less/padding-and-margin.examples.md'
   },
   {
+    name: 'Atomic display classes',
+    content: 'src/less/display.examples.md'
+  },
+  {
     name: 'Atomic position classes',
     content: 'src/less/position.examples.md'
   },
