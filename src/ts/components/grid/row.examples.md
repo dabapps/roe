@@ -29,6 +29,43 @@
 </div>
 ```
 
+The `flex-grid` class can be added to a row to allow columns of varying heights to reflow nicely.
+
+```js
+<Row className="flex-grid">
+  <Column xs={12} sm={6} md={4} lg={3}>
+    <ContentBox>
+      <DabIpsum count={2} />
+    </ContentBox>
+  </Column>
+  <Column xs={12} sm={6} md={4} lg={3}>
+    <ContentBox>
+      <DabIpsum count={3} />
+    </ContentBox>
+  </Column>
+  <Column xs={12} sm={6} md={4} lg={3}>
+    <ContentBox>
+      <DabIpsum count={2} />
+    </ContentBox>
+  </Column>
+  <Column xs={12} sm={6} md={4} lg={3}>
+    <ContentBox>
+      <DabIpsum count={1} />
+    </ContentBox>
+  </Column>
+  <Column xs={12} sm={6} md={4} lg={3}>
+    <ContentBox>
+      <DabIpsum count={2} />
+    </ContentBox>
+  </Column>
+  <Column xs={12} sm={6} md={4} lg={3}>
+    <ContentBox>
+      <DabIpsum count={2} />
+    </ContentBox>
+  </Column>
+</Row>
+```
+
 #### Less variables
 
 ```less
