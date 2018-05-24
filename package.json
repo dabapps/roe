@@ -16,7 +16,7 @@
     "tests": "jest",
     "test": "npm run prettier-check && npm run lint && npm run tests -- --coverage --runInBand",
     "budo": "budo src/less/index.less examples/index.tsx --live -- -t node-lessify -p [tsify -p examples/tsconfig.json]",
-    "prepublish": "./scripts/dist"
+    "prepare": "./scripts/dist"
   },
   "repository": {
     "type": "git",
