@@ -1,6 +1,6 @@
 {
   "name": "@dabapps/roe",
-  "version": "0.9.6",
+  "version": "0.9.7",
   "description": "A Collection of React Components for Project Development",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
@@ -16,7 +16,7 @@
     "tests": "jest",
     "test": "npm run prettier-check && npm run lint && npm run tests -- --coverage --runInBand",
     "budo": "budo src/less/index.less examples/index.tsx --live -- -t node-lessify -p [tsify -p examples/tsconfig.json]",
-    "prepublish": "./scripts/dist"
+    "prepare": "./scripts/dist"
   },
   "repository": {
     "type": "git",
@@ -67,7 +67,7 @@
     "@types/jest": "22.2.0",
     "@types/node": "7.0.13",
     "@types/react-test-renderer": "15.4.5",
-    "brfs": "1.4.3",
+    "brfs": "1.6.1",
     "budo": "11.1.0",
     "css-loader": "0.28.7",
     "envify": "4.0.0",
@@ -76,7 +76,7 @@
     "enzyme-to-json": "3.2.2",
     "eslint": "3.19.0",
     "eslint-config-dabapps": "github:dabapps/eslint-config-dabapps",
-    "http-server": "0.9.0",
+    "http-server": "0.11.1",
     "jest": "22.4.2",
     "less-loader": "4.0.5",
     "lesshint": "3.3.1",
