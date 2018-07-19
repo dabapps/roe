@@ -68,7 +68,7 @@
     "@types/node": "^7.0.13",
     "@types/react-test-renderer": "^15.4.5",
     "brfs": "^1.6.1",
-    "budo": "^11.1.0",
+    "budo": "^11.3.2",
     "css-loader": "^0.28.7",
     "envify": "^4.0.0",
     "enzyme": "^3.2.0",
