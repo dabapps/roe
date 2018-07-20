@@ -17,6 +17,7 @@ class ModalExample extends React.Component {
 
     this.onClickOpenModal = this.onClickOpenModal.bind(this);
     this.onClickOpenScrollableModal = this.onClickOpenScrollableModal.bind(this);
+    this.onClickOpenSmallModal = this.onClickOpenSmallModal.bind(this);
     this.onClickCloseModal = this.onClickCloseModal.bind(this);
   }
 
@@ -88,17 +89,52 @@ class ModalExample extends React.Component {
     });
   }
 
+  onClickOpenSmallModal () {
+    this.setState({
+      modals: [
+        <Modal small scrollable onClickOutside={this.onClickCloseModal}>
+          <ModalHeader>
+            <ModalCloseIcon onClick={this.onClickCloseModal}>
+              {/* Replace this char with an icon */}
+              {X_CHAR}
+            </ModalCloseIcon>
+            <h5>
+              Header
+            </h5>
+          </ModalHeader>
+          <ModalBody>
+            <DabIpsum count={1} />
+          </ModalBody>
+          <ModalFooter>
+            <SpacedGroup block className="margin-vertical-base">
+              <Button onClick={this.onClickCloseModal}>
+                Cancel
+              </Button>
+              <Button className="primary" onClick={this.onClickCloseModal}>
+                Done
+              </Button>
+            </SpacedGroup>
+          </ModalFooter>
+        </Modal>
+      ]
+    });
+  }
+
   render () {
     const { modals } = this.state;
 
     return (
-      <div>
-        <Button onClick={this.onClickOpenModal}>
+    <div>
+        <Button block onClick={this.onClickOpenModal}>
           Open modal example
         </Button>
 
-        <Button onClick={this.onClickOpenScrollableModal}>
+        <Button block onClick={this.onClickOpenScrollableModal}>
           Open scrollable modal example
+        </Button>
+
+        <Button block onClick={this.onClickOpenSmallModal}>
+          Open small modal example
         </Button>
 
         <ModalRenderer modals={modals} />
