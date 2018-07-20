@@ -124,7 +124,7 @@ class ModalExample extends React.Component {
     const { modals } = this.state;
 
     return (
-    <div>
+      <div>
         <Button block onClick={this.onClickOpenModal}>
           Open modal example
         </Button>
