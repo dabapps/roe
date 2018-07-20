@@ -75,6 +75,7 @@ class ModalExample extends React.Component {
 ```
 
 #### Less variables
+```less
 @modal-background: @content-box-background;
 @modal-header-background: @content-box-header-background;
 @modal-header-border: @content-box-header-border;
@@ -83,6 +84,4 @@ class ModalExample extends React.Component {
 @modal-footer-border: @modal-header-border;
 
 @modal-z-index: 1100;
-```less
-
 ```
