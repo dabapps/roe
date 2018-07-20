@@ -16,6 +16,7 @@ class ModalExample extends React.Component {
     };
 
     this.onClickOpenModal = this.onClickOpenModal.bind(this);
+    this.onClickOpenScrollableModal = this.onClickOpenScrollableModal.bind(this);
     this.onClickCloseModal = this.onClickCloseModal.bind(this);
   }
 
@@ -56,6 +57,37 @@ class ModalExample extends React.Component {
     });
   }
 
+  onClickOpenScrollableModal () {
+    this.setState({
+      modals: [
+        <Modal scrollable onClickOutside={this.onClickCloseModal}>
+          <ModalHeader>
+            <ModalCloseIcon onClick={this.onClickCloseModal}>
+              {/* Replace this char with an icon */}
+              {X_CHAR}
+            </ModalCloseIcon>
+            <h5>
+              Header
+            </h5>
+          </ModalHeader>
+          <ModalBody>
+            <DabIpsum count={20} />
+          </ModalBody>
+          <ModalFooter>
+            <SpacedGroup block className="margin-vertical-base">
+              <Button onClick={this.onClickCloseModal}>
+                Cancel
+              </Button>
+              <Button className="primary" onClick={this.onClickCloseModal}>
+                Done
+              </Button>
+            </SpacedGroup>
+          </ModalFooter>
+        </Modal>
+      ]
+    });
+  }
+
   render () {
     const { modals } = this.state;
 
@@ -63,6 +95,10 @@ class ModalExample extends React.Component {
       <div>
         <Button onClick={this.onClickOpenModal}>
           Open modal example
+        </Button>
+
+        <Button onClick={this.onClickOpenScrollableModal}>
+          Open scrollable modal example
         </Button>
 
         <ModalRenderer modals={modals} />
