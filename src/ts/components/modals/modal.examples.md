@@ -155,5 +155,8 @@ class ModalExample extends React.Component {
 @modal-footer-background: @modal-header-background;
 @modal-footer-border: @modal-header-border;
 
+@modal-margin-vertical: @gutter-width / 2;
+@modal-margin-horizontal: @gutter-width / 2;
+
 @modal-z-index: 1100;
 ```
