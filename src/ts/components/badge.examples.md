@@ -5,31 +5,31 @@
   <p>
     <SpacedGroup block>
       <Badge>
-        1
+        1.00
       </Badge>
       <Badge>
-        default
+        Default
       </Badge>
       <Badge className="primary">
-        primary
+        Primary
       </Badge>
       <Badge className="secondary">
-        secondary
+        Secondary
       </Badge>
       <Badge className="tertiary">
-        tertiary
+        Tertiary
       </Badge>
       <Badge className="info">
-        info
+        Info
       </Badge>
       <Badge className="success">
-        success
+        Success
       </Badge>
       <Badge className="warning">
-        warning
+        Warning
       </Badge>
       <Badge className="error">
-        error
+        Error
       </Badge>
     </SpacedGroup>
   </p>
