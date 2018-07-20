@@ -1,7 +1,7 @@
 export { default as Alert } from './components/alert';
 export { default as AppRoot } from './components/app/root';
 export { default as Anchor } from './components/anchor';
-export { default as Badge } from './components/badges/badge';
+export { default as Badge } from './components/badge';
 export { default as Banner } from './components/banners/banner';
 export { default as Button } from './components/forms/button';
 export { default as CodeBlock } from './components/code-block';
