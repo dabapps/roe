@@ -39,7 +39,9 @@
 #### Less variables
 
 ```less
-@badge-border-radius: @font-size-base * 2;
+@badge-font-size: @font-size-small;
+@badge-line-height: 1.5;
+@badge-border-radius: unit(@badge-line-height / 2, em);
 @badge-background-default: @grey-lighter;
 @badge-text-color-light: @grey-lightest;
 @badge-text-color-dark: @grey-dark;
