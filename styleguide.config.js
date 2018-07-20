@@ -46,10 +46,6 @@ var components = [
     components: 'src/ts/components/banners/**/*.tsx'
   },
   {
-    name: 'Badges',
-    components: 'src/ts/components/badges/**/*.tsx'
-  },
-  {
     name: 'Misc',
     components: 'src/ts/components/*.tsx'
   }
