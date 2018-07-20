@@ -4,7 +4,7 @@ exports[`Badge should match snapshot 1`] = `
 <span
   className="badge"
 >
-  default
+  Default
 </span>
 `;
 
@@ -12,6 +12,6 @@ exports[`Badge should take regular element attributes 1`] = `
 <span
   className="badge primary"
 >
-  primary
+  Primary
 </span>
 `;
