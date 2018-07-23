@@ -33,14 +33,12 @@ export class Speech extends PureComponent<SpeechProps, {}> {
         {...remainingProps}
         className={classNames(
           'speech',
-          sent ? 'sent' : null,
-          received ? 'received' : null,
-          className,
+          sent && 'sent',
+          received && 'received',
+          className
         )}
       >
-        <div className="bubble">
-          {children}
-        </div>
+        <div className="bubble">{children}</div>
       </Component>
     );
   }
