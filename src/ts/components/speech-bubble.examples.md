@@ -4,21 +4,21 @@ Standard speech bubbles
 
 ```js
 <div>
-  <Speech tailPosition="right">
+  <SpeechBubble tailPosition="right">
     <p>Hello</p>
-  </Speech>
-  <Speech className="primary">
+  </SpeechBubble>
+  <SpeechBubble className="primary">
     <p>Hi...?</p>
-  </Speech>
-  <Speech className="secondary">
+  </SpeechBubble>
+  <SpeechBubble className="secondary">
     <p>Hey!</p>
-  </Speech>
-  <Speech tailPosition="right">
+  </SpeechBubble>
+  <SpeechBubble tailPosition="right">
     <DabIpsum count={1} />
-  </Speech>
-  <Speech tailPosition="tertiary">
+  </SpeechBubble>
+  <SpeechBubble tailPosition="tertiary">
     <p>Wat?</p>
-  </Speech>
+  </SpeechBubble>
 </div>
 ```
 
@@ -26,21 +26,21 @@ Block speech bubbles
 
 ```js
 <div>
-  <Speech block className="info" tailPosition="right">
+  <SpeechBubble block className="info" tailPosition="right">
     <p>Hello</p>
-  </Speech>
-  <Speech block className="success">
+  </SpeechBubble>
+  <SpeechBubble block className="success">
     <p>Hi...?</p>
-  </Speech>
-  <Speech block className="error">
+  </SpeechBubble>
+  <SpeechBubble block className="error">
     <p>Hey!</p>
-  </Speech>
-  <Speech block className="warning" tailPosition="right">
+  </SpeechBubble>
+  <SpeechBubble block className="warning" tailPosition="right">
     <DabIpsum count={1} />
-  </Speech>
-  <Speech block className="primary" tailPosition="primary">
+  </SpeechBubble>
+  <SpeechBubble block className="primary" tailPosition="primary">
     <p>Wat?</p>
-  </Speech>
+  </SpeechBubble>
 </div>
 ```
 
