@@ -129,7 +129,7 @@ exports[`Modal should take regular element attributes 1`] = `
     className="modal-position"
   >
     <div
-      className="modal"
+      className="modal my-class"
     />
   </div>
 </div>

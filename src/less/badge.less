@@ -1,0 +1,28 @@
+.create-badge-styles (@background: @badge-background-default, @color: @badge-text-color-dark) {
+  display: inline-block;
+  text-align: center;
+  border-radius: @badge-border-radius;
+  background-color: @background;
+  color: @color;
+  padding-left: @padding-base;
+  padding-right: @padding-base;
+  font-size: @badge-font-size;
+  line-height: @badge-line-height;
+}
+
+.create-badge (@type, @background, @color) {
+  &.@{type} {
+    .create-badge-styles(@background, @color);
+  }
+}
+
+.badge {
+  .create-badge-styles();
+  .create-badge(primary, @primary, @badge-text-color-light);
+  .create-badge(secondary, @secondary, @badge-text-color-light);
+  .create-badge(tertiary, @tertiary, @badge-text-color-light);
+  .create-badge(info, @info, @badge-text-color-light);
+  .create-badge(success, @success, @badge-text-color-light);
+  .create-badge(warning, @warning, @badge-text-color-light);
+  .create-badge(error, @error, @badge-text-color-light);
+}
