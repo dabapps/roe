@@ -44,6 +44,40 @@ Block speech bubbles
 </div>
 ```
 
+#### Custom speech bubbles
+
+A mixin is available that allows you to define custom speech bubble styles.
+This should be applied within the selector (element / class) that you want to apply the speech bubble styles to.
+
+```less
+.speech-bubble {
+  // You must use the mixin within the selectors you want the new class to apply to
+  // This example will generate selectors for: '.speech-bubble.custom-name'
+  .create-speech-bubble(custom-name, @background-color, @border-color, @text-color);
+}
+```
+
+You can then use your custom speech bubbles by supplying the name you provided to the mixin as the class name.
+
+```html
+JSX
+<SpeechBubble className="custom-name">
+  <p>
+    Custom
+  </p>
+</SpeechBubble>
+
+HTML
+<div class="speech-bubble custom-name left">
+  <div class="bubble">
+    <p>
+      Custom
+    </p>
+    <div class="tail"></div>
+  </div>
+</div>
+```
+
 #### Less variables
 
 ```less
