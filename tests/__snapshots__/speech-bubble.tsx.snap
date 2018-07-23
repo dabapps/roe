@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SpeechBubble accept regular attributes 1`] = `
+<div
+  className="speech-bubble left primary"
+>
+  <div
+    className="bubble"
+  >
+    <p>
+      I love puggs!
+    </p>
+    <div
+      className="tail"
+    />
+  </div>
+</div>
+`;
+
+exports[`SpeechBubble should add "block" class when block prop is true 1`] = `
+<div
+  className="speech-bubble left block"
+>
+  <div
+    className="bubble"
+  >
+    <p>
+      I love puggs!
+    </p>
+    <div
+      className="tail"
+    />
+  </div>
+</div>
+`;
+
+exports[`SpeechBubble should match snapshot 1`] = `
+<div
+  className="speech-bubble left"
+>
+  <div
+    className="bubble"
+  >
+    <p>
+      I love kittens!
+    </p>
+    <div
+      className="tail"
+    />
+  </div>
+</div>
+`;
+
+exports[`SpeechBubble should match snapshot with tailPosition="right" 1`] = `
+<div
+  className="speech-bubble right"
+>
+  <div
+    className="bubble"
+  >
+    <p>
+      I love puggs!
+    </p>
+    <div
+      className="tail"
+    />
+  </div>
+</div>
+`;
