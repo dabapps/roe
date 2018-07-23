@@ -23,5 +23,4 @@ describe('Speech', () => {
 
     expect(tree).toMatchSnapshot();
   });
-
 });
