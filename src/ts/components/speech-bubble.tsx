@@ -3,7 +3,9 @@ import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../types';
 
-export interface SpeechBubbleProps extends ComponentProps, HTMLProps<HTMLElement> {
+export interface SpeechBubbleProps
+  extends ComponentProps,
+    HTMLProps<HTMLElement> {
   /**
    * Set the style `display: block;`.
    */
