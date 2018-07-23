@@ -24,6 +24,16 @@ describe('SpeechBubble', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should add "block" class when block prop is true', () => {
+    const tree = renderer.create(
+      <SpeechBubble block>
+        <p>I love puggs!</p>
+      </SpeechBubble>
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('accept regular attributes', () => {
     const tree = renderer.create(
       <SpeechBubble className="primary">
