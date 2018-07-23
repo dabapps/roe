@@ -39,7 +39,7 @@ export { default as Row } from './components/grid/row';
 export { default as Section } from './components/content/section';
 export { default as SideBar } from './components/navigation/side-bar';
 export { default as SpacedGroup } from './components/spaced-group';
-export { default as Speech } from './components/speech';
+export { default as SpeechBubble } from './components/speech-bubble';
 export { default as Tabs } from './components/tabs/tabs';
 export { default as Tab } from './components/tabs/tab';
 export { default as Table } from './components/tables/table';

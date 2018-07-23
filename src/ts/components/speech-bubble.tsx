@@ -3,7 +3,7 @@ import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../types';
 
-export interface SpeechProps extends ComponentProps, HTMLProps<HTMLElement> {
+export interface SpeechBubbleProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**
    * Set the style `display: block;`.
    */
@@ -18,7 +18,7 @@ export interface SpeechProps extends ComponentProps, HTMLProps<HTMLElement> {
 /**
  * Speech bubble component for displaying conversations / messages.
  */
-export class Speech extends PureComponent<SpeechProps, {}> {
+export class SpeechBubble extends PureComponent<SpeechBubbleProps, {}> {
   public render() {
     const {
       className,
@@ -48,4 +48,4 @@ export class Speech extends PureComponent<SpeechProps, {}> {
   }
 }
 
-export default Speech;
+export default SpeechBubble;
