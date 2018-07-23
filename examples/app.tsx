@@ -18,6 +18,7 @@ import {
   Section,
   SideBar,
   SpacedGroup,
+  SpeechBubble,
 } from '../src/ts';
 import NavItems from './nav-items';
 
@@ -72,7 +73,22 @@ class App extends PureComponent<{}, AppState> {
         <Container>
           <h1>Example</h1>
 
-          <DabIpsum />
+          <Row>
+            <Column md={6}>
+              <DabIpsum />
+            </Column>
+            <Column md={6}>
+              <SpeechBubble className="info" tailPosition="right">
+                <p>Hello</p>
+              </SpeechBubble>
+              <SpeechBubble>
+                <DabIpsum count={1} />
+              </SpeechBubble>
+              <SpeechBubble className="info" tailPosition="right">
+                <DabIpsum count={1} />
+              </SpeechBubble>
+            </Column>
+          </Row>
 
           <Row>
             <Column>
