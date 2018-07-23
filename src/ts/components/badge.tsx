@@ -5,7 +5,7 @@ import { ComponentProps } from '../types';
 
 export type BadgeProps = ComponentProps & HTMLProps<HTMLElement>;
 /**
- * Badge Component
+ * A badge component for displaying small pieces of information such as counts and statuses.
  */
 export class Badge extends PureComponent<BadgeProps, {}> {
   public render() {
