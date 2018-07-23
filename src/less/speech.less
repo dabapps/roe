@@ -1,54 +1,68 @@
-.create-speech-styles (@color: @grey-lightest, @background: @grey-light, @position: left) {
-  position: relative;
-  margin: 0 @margin-base;
-  border-radius: @speech-border-radius;
-  border-bottom-@{position}-radius: 0;
-  border: @border-base;
-  border-color: @background;
-  background-color: @color;
-  color: @speech-text-color-default;
-  display: inline-block;
-  float: @position;
+.create-speech-bubble-styles (@background: @grey-lightest, @border-color: @grey-lighter, @color: @font-color-base) {
+  .clearfix();
+  margin: @margin-base @gutter-width / 2;
 
-  &.block {
+  &.block .bubble {
+    width: 100%;
     display: block;
-    float: none;
   }
 
-  &::before,
-  &::after {
-    content: '';
-    position: absolute;
-    width: @speech-arrow-size;
-    height: @speech-arrow-size;
-  }
-}
-
-.create-speech (@type, @speech-border-default: @grey-lightest, @speech-color-default: @grey-light, @position) {
-  &.@{type} {
-    .create-speech-styles(@speech-color-default, @speech-border-default, @position);
-
-    &::before {
-      @{position}: -(@speech-arrow-size + 1);
-      bottom: -1px;
-      background-image: radial-gradient(circle at top @position, transparent (@speech-arrow-size - 1), @speech-border-default @speech-arrow-size); // lesshint maxCharPerLine: false
-    }
-
-    &::after {
-      @{position}: -(@speech-arrow-size - 1);
-      bottom: 0;
-      background-image: radial-gradient(circle at top @position, transparent (@speech-arrow-size - 1), @speech-color-default @speech-arrow-size); // lesshint maxCharPerLine: false
-    }
-  }
-}
-
-.speech {
   .bubble {
     .clearfix();
+    position: relative;
+    float: left;
     padding: 0 @gutter-width / 2;
-    min-height: @speech-arrow-size + @speech-border-radius;
+    display: inline-block;
+    background-color: @background;
+    border: @border-base;
+    border-color: @border-color;
+    border-radius: @speech-bubble-border-radius;
+    border-bottom-left-radius: 0;
+    color: @color;
+    max-width: @speech-bubble-max-width;
   }
-  .create-speech-styles();
-  .create-speech(received, @speech-border-default-received, @speech-background-default-received, left);
-  .create-speech(sent, @speech-border-default-sent, @speech-background-default-sent, right);
+
+  .tail {
+    position: absolute;
+    bottom: -1px;
+    left: -@speech-bubble-arrow-size;
+    width: @speech-bubble-arrow-size;
+    height: @speech-bubble-arrow-size;
+    border-bottom: @border-base;
+    border-bottom-color: @border-color;
+    background-image: radial-gradient(circle at top left, transparent (@speech-bubble-arrow-size - 1), @border-color @speech-bubble-arrow-size, @background (@speech-bubble-arrow-size + 1)); // lesshint maxCharPerLine: false
+  }
+
+  &.right {
+    margin: @margin-base @gutter-width / 2;
+
+    .bubble {
+      float: right;
+      border-radius: @speech-bubble-border-radius;
+      border-bottom-right-radius: 0;
+    }
+
+    .tail {
+      left: auto;
+      right: -@speech-bubble-arrow-size;
+      background-image: radial-gradient(circle at top right, transparent (@speech-bubble-arrow-size - 1), @border-color @speech-bubble-arrow-size, @background (@speech-bubble-arrow-size + 1)); // lesshint maxCharPerLine: false
+    }
+  }
+}
+
+.create-speech-bubble (@type, @background: @grey-lightest, @border-color: @grey-lighter, @color: @font-color-base) {
+  &.@{type} {
+    .create-speech-bubble-styles(@background, @border-color, @color);
+  }
+}
+
+.speech-bubble {
+  .create-speech-bubble-styles();
+  .create-speech-bubble(primary, @primary-lighter, @primary-light);
+  .create-speech-bubble(secondary, @secondary-lighter, @secondary-light);
+  .create-speech-bubble(tertiary, @tertiary-lighter, @tertiary-light);
+  .create-speech-bubble(success, @success-lighter, @success-light);
+  .create-speech-bubble(info, @info-lighter, @info-light);
+  .create-speech-bubble(warning, @warning-lighter, @warning-light);
+  .create-speech-bubble(error, @error-lighter, @error-light);
 }

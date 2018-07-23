@@ -3,65 +3,54 @@
 Standard speech bubbles
 
 ```js
-<Row>
-  <Column className="margin-vertical-base">
-    <Speech sent>
-      <p>Hello</p>
-    </Speech>
-  </Column>
-  <Column className="margin-vertical-base">
-    <Speech received>
-      <p>Hi</p>
-    </Speech>
-  </Column>
-  <Column className="margin-vertical-base">
-    <Speech sent>
-      <DabIpsum count={2} />
-    </Speech>
-  </Column>
-  <Column className="margin-vertical-base">
-    <Speech received>
-      <DabIpsum count={1} />
-    </Speech>
-  </Column>
-</Row>
+<div>
+  <Speech tailPosition="right">
+    <p>Hello</p>
+  </Speech>
+  <Speech className="primary">
+    <p>Hi...?</p>
+  </Speech>
+  <Speech className="secondary">
+    <p>Hey!</p>
+  </Speech>
+  <Speech tailPosition="right">
+    <DabIpsum count={1} />
+  </Speech>
+  <Speech tailPosition="tertiary">
+    <p>Wat?</p>
+  </Speech>
+</div>
 ```
 
 Block speech bubbles
 
 ```js
-<Row>
-  <Column className="margin-vertical-base">
-    <Speech block sent>
-      <p>Hello</p>
-    </Speech>
-  </Column>
-  <Column className="margin-vertical-base">
-    <Speech block received>
-      <p>Hi</p>
-    </Speech>
-  </Column>
-  <Column className="margin-vertical-base">
-    <Speech block sent>
-      <DabIpsum count={2} />
-    </Speech>
-  </Column>
-  <Column className="margin-vertical-base">
-    <Speech block received>
-      <DabIpsum count={1} />
-    </Speech>
-  </Column>
-</Row>
+<div>
+  <Speech block className="info" tailPosition="right">
+    <p>Hello</p>
+  </Speech>
+  <Speech block className="success">
+    <p>Hi...?</p>
+  </Speech>
+  <Speech block className="error">
+    <p>Hey!</p>
+  </Speech>
+  <Speech block className="warning" tailPosition="right">
+    <DabIpsum count={1} />
+  </Speech>
+  <Speech block className="primary" tailPosition="primary">
+    <p>Wat?</p>
+  </Speech>
+</div>
 ```
 
 #### Less variables
 
 ```less
-@speech-arrow-size: 10px;
-@speech-border-radius: 10px;
-@speech-text-color-default: @grey-dark;
-@speech-border-default-received: @grey-light;
-@speech-background-default-received: @grey-lightest;
-@speech-border-default-sent: @success-light;
-@speech-background-default-sent: @success-lighter;
+@speech-bubble-arrow-size: 10px;
+@speech-bubble-border-radius: 10px;
+@speech-bubble-text-color-default: @font-color-base;
+@speech-bubble-background-default: @grey-lightest;
+@speech-bubble-border-color-default: @grey-lighter;
+@speech-bubble-max-width: 75%;
 ```

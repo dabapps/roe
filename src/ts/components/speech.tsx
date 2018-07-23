@@ -9,13 +9,10 @@ export interface SpeechProps extends ComponentProps, HTMLProps<HTMLElement> {
    */
   block?: boolean;
   /**
-   *  Position the speech bubble tail on the right
+   *  Display the tail on either the left or the right.
+   * @default 'left'
    */
-  sent?: boolean;
-  /**
-   * Position the speech bubble tail on the left
-   */
-  received?: boolean;
+  tailPosition?: 'left' | 'right';
 }
 
 /**
@@ -26,8 +23,7 @@ export class Speech extends PureComponent<SpeechProps, {}> {
     const {
       className,
       children,
-      sent,
-      received,
+      tailPosition = 'left',
       block,
       component: Component = 'div',
       ...remainingProps
@@ -37,14 +33,16 @@ export class Speech extends PureComponent<SpeechProps, {}> {
       <Component
         {...remainingProps}
         className={classNames(
-          'speech',
-          sent && 'sent',
-          received && 'received',
+          'speech-bubble',
+          tailPosition,
           block && 'block',
           className
         )}
       >
-        <div className="bubble">{children}</div>
+        <div className="bubble">
+          {children}
+          <div className="tail" />
+        </div>
       </Component>
     );
   }
