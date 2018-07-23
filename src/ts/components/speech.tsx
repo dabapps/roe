@@ -5,6 +5,10 @@ import { ComponentProps } from '../types';
 
 export interface SpeechProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**
+   * Set the style `display: block;`.
+   */
+  block?: boolean;
+  /**
    *  Position the speech bubble tail on the right
    */
   sent?: boolean;
@@ -24,6 +28,7 @@ export class Speech extends PureComponent<SpeechProps, {}> {
       children,
       sent,
       received,
+      block,
       component: Component = 'div',
       ...remainingProps
     } = this.props;
@@ -35,6 +40,7 @@ export class Speech extends PureComponent<SpeechProps, {}> {
           'speech',
           sent && 'sent',
           received && 'received',
+          block && 'block',
           className
         )}
       >

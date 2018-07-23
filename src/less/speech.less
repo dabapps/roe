@@ -7,6 +7,13 @@
   border-color: @background;
   background-color: @color;
   color: @speech-text-color-default;
+  display: inline-block;
+  float: @position;
+
+  &.block {
+    display: block;
+    float: none;
+  }
 
   &::before,
   &::after {
