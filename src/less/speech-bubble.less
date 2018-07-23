@@ -1,4 +1,8 @@
-.create-speech-bubble-styles (@background: @grey-lightest, @border-color: @grey-lighter, @color: @font-color-base) {
+.create-speech-bubble-styles (
+  @background: @speech-bubble-background-default,
+  @border-color: @speech-bubble-border-color-default,
+  @color: @speech-bubble-text-color-default
+) {
   .clearfix();
   margin: @margin-base @gutter-width / 2;
 
@@ -50,7 +54,12 @@
   }
 }
 
-.create-speech-bubble (@type, @background: @grey-lightest, @border-color: @grey-lighter, @color: @font-color-base) {
+.create-speech-bubble (
+  @type,
+  @background: @speech-bubble-background-default,
+  @border-color: @speech-bubble-border-color-default,
+  @color: @speech-bubble-text-color-default
+) {
   &.@{type} {
     .create-speech-bubble-styles(@background, @border-color, @color);
   }

@@ -83,8 +83,8 @@ HTML
 ```less
 @speech-bubble-arrow-size: 10px;
 @speech-bubble-border-radius: 10px;
-@speech-bubble-text-color-default: @font-color-base;
 @speech-bubble-background-default: @grey-lightest;
 @speech-bubble-border-color-default: @grey-lighter;
+@speech-bubble-text-color-default: @font-color-base;
 @speech-bubble-max-width: 75%;
 ```
