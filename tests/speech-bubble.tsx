@@ -14,7 +14,7 @@ describe('SpeechBubble', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should match snapshot tailPosition="right"', () => {
+  it('should match snapshot with tailPosition="right"', () => {
     const tree = renderer.create(
       <SpeechBubble tailPosition="right">
         <p>I love puggs!</p>
@@ -24,7 +24,7 @@ describe('SpeechBubble', () => {
     expect(tree).toMatchSnapshot();
   });
 
-  it('should match accept regular attributes', () => {
+  it('accept regular attributes', () => {
     const tree = renderer.create(
       <SpeechBubble className="primary">
         <p>I love puggs!</p>
