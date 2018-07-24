@@ -4,7 +4,7 @@ import { ComponentProps } from '../../types';
 import InputGroup from '../forms/input-group';
 import InputGroupAddon from '../forms/input-group-addon';
 
-export interface PrefixSuffixProps {
+export interface PrefixSuffixProps extends ComponentProps {
   /**
    * Content to display to the left of the input.
    */
@@ -49,11 +49,12 @@ export class InputWithPrefixSuffix extends PureComponent<
       inputClassName,
       prefixClassName,
       suffixClassName,
+      component,
       ...remainingProps
     } = this.props;
 
     return (
-      <InputGroup block={block} className={className}>
+      <InputGroup component={component} block={block} className={className}>
         {typeof prefix !== 'undefined' && (
           <InputGroupAddon className={prefixClassName}>
             {prefix}
