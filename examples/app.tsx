@@ -18,6 +18,7 @@ import {
   Section,
   SideBar,
   SpacedGroup,
+  SpeechBubble,
 } from '../src/ts';
 import NavItems from './nav-items';
 
@@ -72,7 +73,51 @@ class App extends PureComponent<{}, AppState> {
         <Container>
           <h1>Example</h1>
 
-          <DabIpsum />
+          <Row>
+            <Column md={6}>
+              <DabIpsum />
+            </Column>
+            <Column md={6}>
+              <SpeechBubble
+                header={<span className="info">5 minutes ago</span>}
+                className="info"
+                tailPosition="right"
+              >
+                <p>Hello</p>
+              </SpeechBubble>
+              <SpeechBubble
+                header={
+                  <span>
+                    <strong>Username 1</strong>{' '}
+                    <span className="info">2 minutes ago</span>
+                  </span>
+                }
+              >
+                <p>Question?</p>
+              </SpeechBubble>
+              <SpeechBubble>
+                <p>...yeah?</p>
+              </SpeechBubble>
+              <SpeechBubble
+                header={
+                  <span>
+                    <strong>Username 2</strong>{' '}
+                    <span className="info">1 minute ago</span>
+                  </span>
+                }
+              >
+                <p>Okay</p>
+              </SpeechBubble>
+              <SpeechBubble
+                header={<span className="info">Just now</span>}
+                footer={<span className="info italic">Seen</span>}
+                className="info"
+                tailPosition="right"
+              >
+                <DabIpsum count={1} />
+              </SpeechBubble>
+            </Column>
+          </Row>
 
           <Row>
             <Column>
@@ -80,6 +125,39 @@ class App extends PureComponent<{}, AppState> {
                 <InputGroupAddon>£</InputGroupAddon>
                 <input type="number" />
               </InputGroup>
+            </Column>
+          </Row>
+
+          <Row className="flex-grid">
+            <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
+              <ContentBox>
+                <DabIpsum count={2} />
+              </ContentBox>
+            </Column>
+            <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
+              <ContentBox>
+                <DabIpsum count={3} />
+              </ContentBox>
+            </Column>
+            <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
+              <ContentBox>
+                <DabIpsum count={2} />
+              </ContentBox>
+            </Column>
+            <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
+              <ContentBox>
+                <DabIpsum count={1} />
+              </ContentBox>
+            </Column>
+            <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
+              <ContentBox>
+                <DabIpsum count={2} />
+              </ContentBox>
+            </Column>
+            <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
+              <ContentBox>
+                <DabIpsum count={2} />
+              </ContentBox>
             </Column>
           </Row>
 

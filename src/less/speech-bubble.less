@@ -1,0 +1,84 @@
+.create-speech-bubble-styles (@background: @speech-bubble-background-default, @border-color: @speech-bubble-border-color-default, @color: @speech-bubble-text-color-default) { // lesshint maxCharPerLine: false
+  .clearfix();
+  margin: @margin-base @gutter-width / 2;
+
+  &.block .bubble {
+    width: 100%;
+    display: block;
+  }
+
+  .bubble,
+  .speech-bubble-header,
+  .speech-bubble-footer {
+    .clearfix();
+    clear: both;
+    float: left;
+    color: @color;
+  }
+
+  .speech-bubble-header,
+  .speech-bubble-footer {
+    margin-top: @margin-small;
+    margin-bottom: @margin-small;
+  }
+
+  .bubble {
+    position: relative;
+    padding-left: @padding-large;
+    padding-right: @padding-large;
+    display: inline-block;
+    background-color: @background;
+    border: @border-base;
+    border-color: @border-color;
+    border-radius: @speech-bubble-border-radius;
+    border-bottom-left-radius: 0;
+    max-width: @speech-bubble-max-width;
+  }
+
+  .tail {
+    position: absolute;
+    bottom: -1px;
+    left: -@speech-bubble-arrow-size;
+    width: @speech-bubble-arrow-size;
+    height: @speech-bubble-arrow-size;
+    border-bottom: @border-base;
+    border-bottom-color: @border-color;
+    background-image: radial-gradient(circle at top left, transparent (@speech-bubble-arrow-size - 1), @border-color @speech-bubble-arrow-size, @background (@speech-bubble-arrow-size + 1)); // lesshint maxCharPerLine: false
+  }
+
+  &.right {
+    .bubble {
+      border-radius: @speech-bubble-border-radius;
+      border-bottom-right-radius: 0;
+    }
+
+    .bubble,
+    .speech-bubble-header,
+    .speech-bubble-footer {
+      float: right;
+    }
+
+    .tail {
+      left: auto;
+      right: -@speech-bubble-arrow-size;
+      background-image: radial-gradient(circle at top right, transparent (@speech-bubble-arrow-size - 1), @border-color @speech-bubble-arrow-size, @background (@speech-bubble-arrow-size + 1)); // lesshint maxCharPerLine: false
+    }
+  }
+}
+
+.create-speech-bubble (@type, @background: @speech-bubble-background-default, @border-color: @speech-bubble-border-color-default, @color: @speech-bubble-text-color-default) { // lesshint maxCharPerLine: false
+  &.@{type} {
+    .create-speech-bubble-styles(@background, @border-color, @color);
+  }
+}
+
+.speech-bubble {
+  .create-speech-bubble-styles();
+  .create-speech-bubble(primary, @primary-lighter, @primary-light);
+  .create-speech-bubble(secondary, @secondary-lighter, @secondary-light);
+  .create-speech-bubble(tertiary, @tertiary-lighter, @tertiary-light);
+  .create-speech-bubble(success, @success-lighter, @success-light);
+  .create-speech-bubble(info, @info-lighter, @info-light);
+  .create-speech-bubble(warning, @warning-lighter, @warning-light);
+  .create-speech-bubble(error, @error-lighter, @error-light);
+}

@@ -55,7 +55,9 @@ export class Modal extends PureComponent<ModalProps, {}> {
       <div>
         <div className="modal-overlay" onClick={onClickOutside} />
         <div {...remainingProps} className={classNames(myClassNames)}>
-          <Component className="modal">{children}</Component>
+          <Component className={classNames('modal', className)}>
+            {children}
+          </Component>
         </div>
       </div>
     );

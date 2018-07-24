@@ -80,16 +80,24 @@ Note: the background color is used for the text & border of hollow buttons.
 ```less
 button,
 .button {
-  .create-button(@name, @background, @color);
+  // You must use the mixin within the selectors you want the new class to apply to
+  // This example will generate selectors for: 'button.custom-name' and '.button.custom-name'
+  .create-button(custom-name, @background-color, @text-color);
 }
 ```
 
-You can then use your custom buttons by supplying the name you provided the mixin as the class name.
+You can then use your custom buttons by supplying the name you provided to the mixin as the class name.
 
 ```html
-<Button className="custom">
+JSX
+<Button className="custom-name">
   Custom
 </Button>
+
+HTML
+<button class="custom-name">
+  Custom
+</button>
 ```
 
 #### Less variables
