@@ -4,23 +4,37 @@ import { InputWithPrefixSuffix } from '../src/ts/components/precomposed/input-wi
 
 describe('InputWithPrefixSuffix', () => {
   it('should match snapshot', () => {
+    const tree = renderer.create(<InputWithPrefixSuffix />);
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should apply class names to appropriate elements', () => {
     const tree = renderer.create(
-      <InputWithPrefixSuffix value="" onChange={jest.fn()} />
+      <InputWithPrefixSuffix
+        prefix="£"
+        suffix="%"
+        className="group"
+        inputClassName="input"
+        prefixClassName="prefix"
+        suffixClassName="suffix"
+      />
     );
 
     expect(tree).toMatchSnapshot();
   });
 
-  it('should match snapshot with all props', () => {
+  it('should add the "block" class name if this prop is true', () => {
     const tree = renderer.create(
-      <InputWithPrefixSuffix
-        prefix="£"
-        suffix="%"
-        value=""
-        onChange={jest.fn()}
-        type="text"
-        disabled={false}
-      />
+      <InputWithPrefixSuffix prefix="£" suffix="%" block />
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should pass props to the input', () => {
+    const tree = renderer.create(
+      <InputWithPrefixSuffix prefix="£" suffix="%" value="Value" />
     );
 
     expect(tree).toMatchSnapshot();
