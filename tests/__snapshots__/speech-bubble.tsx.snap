@@ -34,6 +34,64 @@ exports[`SpeechBubble should add "block" class when block prop is true 1`] = `
 </div>
 `;
 
+exports[`SpeechBubble should display footer content below the speech bubble 1`] = `
+<div
+  className="speech-bubble left"
+>
+  <div
+    className="bubble"
+  >
+    <p>
+      I love puggs!
+    </p>
+    <div
+      className="tail"
+    />
+  </div>
+  <span
+    className="speech-bubble-footer"
+  >
+    <span
+      className="info italic"
+    >
+      Seen
+    </span>
+  </span>
+</div>
+`;
+
+exports[`SpeechBubble should display header content above the speech bubble 1`] = `
+<div
+  className="speech-bubble left"
+>
+  <span
+    className="speech-bubble-header"
+  >
+    <span>
+      <strong>
+        Username
+      </strong>
+       
+      <span
+        className="info"
+      >
+        1 minute ago
+      </span>
+    </span>
+  </span>
+  <div
+    className="bubble"
+  >
+    <p>
+      I love puggs!
+    </p>
+    <div
+      className="tail"
+    />
+  </div>
+</div>
+`;
+
 exports[`SpeechBubble should match snapshot 1`] = `
 <div
   className="speech-bubble left"
