@@ -51,24 +51,16 @@ export class SpeechBubble extends PureComponent<SpeechBubbleProps, {}> {
           className
         )}
       >
-        {
-          typeof header !== 'undefined' && (
-            <span className="speech-bubble-header">
-              {header}
-            </span>
-          )
-        }
+        {typeof header !== 'undefined' && (
+          <span className="speech-bubble-header">{header}</span>
+        )}
         <div className="bubble">
           {children}
           <div className="tail" />
         </div>
-        {
-          typeof footer !== 'undefined' && (
-            <span className="speech-bubble-footer">
-              {footer}
-            </span>
-          )
-        }
+        {typeof footer !== 'undefined' && (
+          <span className="speech-bubble-footer">{footer}</span>
+        )}
       </Component>
     );
   }

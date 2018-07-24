@@ -86,7 +86,12 @@ class App extends PureComponent<{}, AppState> {
                 <p>Hello</p>
               </SpeechBubble>
               <SpeechBubble
-                header={<span><strong>Username 1</strong> <span className="info">2 minutes ago</span></span>}
+                header={
+                  <span>
+                    <strong>Username 1</strong>{' '}
+                    <span className="info">2 minutes ago</span>
+                  </span>
+                }
               >
                 <p>Question?</p>
               </SpeechBubble>
@@ -94,7 +99,12 @@ class App extends PureComponent<{}, AppState> {
                 <p>...yeah?</p>
               </SpeechBubble>
               <SpeechBubble
-                header={<span><strong>Username 2</strong> <span className="info">1 minute ago</span></span>}
+                header={
+                  <span>
+                    <strong>Username 2</strong>{' '}
+                    <span className="info">1 minute ago</span>
+                  </span>
+                }
               >
                 <p>Okay</p>
               </SpeechBubble>
