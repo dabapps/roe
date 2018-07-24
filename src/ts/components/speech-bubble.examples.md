@@ -4,20 +4,33 @@ Standard speech bubbles
 
 ```js
 <div>
-  <SpeechBubble tailPosition="right">
+  <SpeechBubble
+    header={<span className="info">5 minutes ago</span>}
+    className="info"
+    tailPosition="right"
+  >
     <p>Hello</p>
   </SpeechBubble>
-  <SpeechBubble className="primary">
-    <p>Hi...?</p>
+  <SpeechBubble
+    header={<span><strong>Username 1</strong> <span className="info">2 minutes ago</span></span>}
+  >
+    <p>Question?</p>
   </SpeechBubble>
-  <SpeechBubble className="secondary">
-    <p>Hey!</p>
+  <SpeechBubble>
+    <p>...yeah?</p>
   </SpeechBubble>
-  <SpeechBubble tailPosition="right">
+  <SpeechBubble
+    header={<span><strong>Username 2</strong> <span className="info">1 minute ago</span></span>}
+  >
+    <p>Okay</p>
+  </SpeechBubble>
+  <SpeechBubble
+    header={<span className="info">Just now</span>}
+    footer={<span className="info italic">Seen</span>}
+    className="info"
+    tailPosition="right"
+  >
     <DabIpsum count={1} />
-  </SpeechBubble>
-  <SpeechBubble tailPosition="tertiary">
-    <p>Wat?</p>
   </SpeechBubble>
 </div>
 ```
@@ -38,7 +51,7 @@ Block speech bubbles
   <SpeechBubble block className="warning" tailPosition="right">
     <DabIpsum count={1} />
   </SpeechBubble>
-  <SpeechBubble block className="primary" tailPosition="primary">
+  <SpeechBubble block className="primary">
     <p>Wat?</p>
   </SpeechBubble>
 </div>
