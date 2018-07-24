@@ -15,6 +15,14 @@ export interface SpeechBubbleProps
    * @default 'left'
    */
   tailPosition?: 'left' | 'right';
+  /**
+   * Elements to display above the speech bubble such as user name or time of post.
+   */
+  header?: React.ReactChild;
+  /**
+   * Elements to display below the speech bubble such as user name or time of post.
+   */
+  footer?: React.ReactChild;
 }
 
 /**
@@ -27,6 +35,8 @@ export class SpeechBubble extends PureComponent<SpeechBubbleProps, {}> {
       children,
       tailPosition = 'left',
       block,
+      header,
+      footer,
       component: Component = 'div',
       ...remainingProps
     } = this.props;
@@ -41,10 +51,24 @@ export class SpeechBubble extends PureComponent<SpeechBubbleProps, {}> {
           className
         )}
       >
+        {
+          typeof header !== 'undefined' && (
+            <span className="speech-bubble-header">
+              {header}
+            </span>
+          )
+        }
         <div className="bubble">
           {children}
           <div className="tail" />
         </div>
+        {
+          typeof footer !== 'undefined' && (
+            <span className="speech-bubble-footer">
+              {footer}
+            </span>
+          )
+        }
       </Component>
     );
   }
