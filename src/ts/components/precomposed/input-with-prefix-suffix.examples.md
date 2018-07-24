@@ -1,4 +1,4 @@
-#### Example
+#### Examples
 
 Example with class names
 
