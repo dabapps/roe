@@ -1,19 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`InputWithPrefixSuffix should add the "block" class name if this prop is true 1`] = `
+<div
+  className="input-group block"
+>
+  <div
+    className="input-group-addon"
+    style={
+      Object {
+        "width": undefined,
+      }
+    }
+  >
+    £
+  </div>
+  <input
+    className={undefined}
+  />
+  <div
+    className="input-group-addon"
+    style={
+      Object {
+        "width": undefined,
+      }
+    }
+  >
+    %
+  </div>
+</div>
+`;
+
+exports[`InputWithPrefixSuffix should apply class names to appropriate elements 1`] = `
+<div
+  className="input-group group"
+>
+  <div
+    className="input-group-addon prefix"
+    style={
+      Object {
+        "width": undefined,
+      }
+    }
+  >
+    £
+  </div>
+  <input
+    className="input"
+  />
+  <div
+    className="input-group-addon suffix"
+    style={
+      Object {
+        "width": undefined,
+      }
+    }
+  >
+    %
+  </div>
+</div>
+`;
+
 exports[`InputWithPrefixSuffix should match snapshot 1`] = `
 <div
   className="input-group"
 >
   <input
-    disabled={undefined}
-    onChange={[MockFunction]}
-    type={undefined}
-    value=""
+    className={undefined}
   />
 </div>
 `;
 
-exports[`InputWithPrefixSuffix should match snapshot with all props 1`] = `
+exports[`InputWithPrefixSuffix should pass props to the input 1`] = `
 <div
   className="input-group"
 >
@@ -28,10 +85,8 @@ exports[`InputWithPrefixSuffix should match snapshot with all props 1`] = `
     £
   </div>
   <input
-    disabled={false}
-    onChange={[MockFunction]}
-    type="text"
-    value=""
+    className={undefined}
+    value="Value"
   />
   <div
     className="input-group-addon"
