@@ -48,7 +48,11 @@ var components = [
   {
     name: 'Misc',
     components: 'src/ts/components/*.tsx'
-  }
+  },
+  {
+    name: 'Precomposed',
+    components: 'src/ts/components/precomposed/*.tsx'
+  },
 ];
 
 var less = [
