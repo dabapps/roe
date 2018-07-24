@@ -8,7 +8,7 @@ exports[`SpeechBubble accept regular attributes 1`] = `
     className="bubble"
   >
     <p>
-      I love puggs!
+      I love sloths!
     </p>
     <div
       className="tail"
@@ -25,7 +25,7 @@ exports[`SpeechBubble should add "block" class when block prop is true 1`] = `
     className="bubble"
   >
     <p>
-      I love puggs!
+      I love llamas!
     </p>
     <div
       className="tail"
@@ -42,7 +42,7 @@ exports[`SpeechBubble should display footer content below the speech bubble 1`] 
     className="bubble"
   >
     <p>
-      I love puggs!
+      I love stuff!
     </p>
     <div
       className="tail"
@@ -83,7 +83,7 @@ exports[`SpeechBubble should display header content above the speech bubble 1`] 
     className="bubble"
   >
     <p>
-      I love puggs!
+      I love things!
     </p>
     <div
       className="tail"
@@ -117,7 +117,7 @@ exports[`SpeechBubble should match snapshot with tailPosition="right" 1`] = `
     className="bubble"
   >
     <p>
-      I love puggs!
+      I love pugs!
     </p>
     <div
       className="tail"

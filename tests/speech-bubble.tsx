@@ -17,7 +17,7 @@ describe('SpeechBubble', () => {
   it('should match snapshot with tailPosition="right"', () => {
     const tree = renderer.create(
       <SpeechBubble tailPosition="right">
-        <p>I love puggs!</p>
+        <p>I love pugs!</p>
       </SpeechBubble>
     );
 
@@ -27,7 +27,7 @@ describe('SpeechBubble', () => {
   it('should add "block" class when block prop is true', () => {
     const tree = renderer.create(
       <SpeechBubble block>
-        <p>I love puggs!</p>
+        <p>I love llamas!</p>
       </SpeechBubble>
     );
 
@@ -37,7 +37,7 @@ describe('SpeechBubble', () => {
   it('accept regular attributes', () => {
     const tree = renderer.create(
       <SpeechBubble className="primary">
-        <p>I love puggs!</p>
+        <p>I love sloths!</p>
       </SpeechBubble>
     );
 
@@ -53,7 +53,7 @@ describe('SpeechBubble', () => {
           </span>
         }
       >
-        <p>I love puggs!</p>
+        <p>I love things!</p>
       </SpeechBubble>
     );
 
@@ -63,7 +63,7 @@ describe('SpeechBubble', () => {
   it('should display footer content below the speech bubble', () => {
     const tree = renderer.create(
       <SpeechBubble footer={<span className="info italic">Seen</span>}>
-        <p>I love puggs!</p>
+        <p>I love stuff!</p>
       </SpeechBubble>
     );
 
