@@ -36,6 +36,10 @@ export type InputWithPrefixSuffixProps = React.HTMLAttributes<
 > &
   PrefixSuffixProps;
 
+  /**
+ * A precomposed Input containing an optional prefix (InputGroupAddon), an input,
+ * and an optional suffix (InputGroupAddon).
+ */
 export class InputWithPrefixSuffix extends PureComponent<
   InputWithPrefixSuffixProps,
   {}
