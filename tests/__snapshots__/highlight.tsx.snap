@@ -4,90 +4,61 @@ exports[`Highlight should match snapshot 1`] = `
 <div
   className="highlight"
 >
+  <span />
   <div
-    className="content"
+    className="highlight-content"
     style={undefined}
   >
-    <input
-      type="number"
-    />
+    <p>
+      Hello, World!
+    </p>
   </div>
 </div>
 `;
 
 exports[`Highlight should match snapshot with props (open) 1`] = `
 <div
-  className="row"
+  className="highlight"
 >
-  <div
-    className="column"
-  >
+  <span>
     <div
-      className="highlight"
-    >
-      <div
-        className="overlay"
-      />
-      <div
-        className="content open"
-        style={undefined}
-      >
-        <div
-          className="input-group"
-        >
-          <input
-            type="number"
-          />
-        </div>
-      </div>
-    </div>
+      className="highlight-overlay"
+    />
+  </span>
+  <div
+    className="highlight-content open"
+    style={undefined}
+  >
+    <p>
+      Hello, World!
+    </p>
   </div>
 </div>
 `;
 
 exports[`Highlight should match snapshot with props (open, disabled, backgroundColor) 1`] = `
 <div
-  className="row"
+  className="highlight"
 >
-  <div
-    className="column"
-  >
+  <span>
     <div
-      className="highlight"
-    >
-      <div
-        className="overlay"
-      />
-      <div
-        className="overlay-disabled"
-      />
-      <div
-        className="content open"
-        style={
-          Object {
-            "backgroundColor": "white",
-          }
-        }
-      >
-        <div
-          className="input-group"
-        >
-          <div
-            className="input-group-addon"
-            style={
-              Object {
-                "width": undefined,
-              }
-            }
-          >
-            £
-          </div>
-          <input
-            type="number"
-          />
-        </div>
-      </div>
-    </div>
+      className="highlight-overlay"
+    />
+  </span>
+  <div
+    className="highlight-content open"
+    style={
+      Object {
+        "backgroundColor": "white",
+      }
+    }
+  >
+    <p>
+      Hello, World!
+    </p>
+    <div
+      className="highlight-overlay-disabled"
+    />
   </div>
 </div>
 `;
