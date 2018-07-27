@@ -52,7 +52,11 @@ var components = [
   {
     name: 'Misc',
     components: 'src/ts/components/*.tsx'
-  }
+  },
+  {
+    name: 'Precomposed',
+    components: 'src/ts/components/precomposed/*.tsx'
+  },
 ];
 
 var less = [
@@ -63,6 +67,10 @@ var less = [
   {
     name: 'Atomic padding & margin classes',
     content: 'src/less/padding-and-margin.examples.md'
+  },
+  {
+    name: 'Atomic display classes',
+    content: 'src/less/display.examples.md'
   },
   {
     name: 'Atomic position classes',
