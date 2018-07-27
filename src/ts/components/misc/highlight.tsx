@@ -49,12 +49,12 @@ export class Highlight extends PureComponent<HighlightProps, {}> {
         >
           {open && <div className="highlight-overlay" />}
         </CSSTransitionGroup>
-        {disabled && <div className="highlight-overlay-disabled" />}
         <div
           className={classNames('highlight-content', open && 'open')}
           style={backgroundColor ? { backgroundColor } : undefined}
         >
           {children}
+          {open && disabled && <div className="highlight-overlay-disabled" />}
         </div>
       </Component>
     );
