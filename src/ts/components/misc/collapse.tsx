@@ -1,7 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { PureComponent } from 'react';
-import { ComponentProps } from '../types';
+import { ComponentProps } from '../../types';
 
 const ENOUGH_TIME_FOR_RERENDER = 50;
 const DEFAULT_HEIGHT = 0;

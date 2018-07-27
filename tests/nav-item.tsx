@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import NavItem from '../src/ts/components/navigation/nav-item';
+
+import { NavItem } from '../src/ts/';
 
 describe('NavItem', () => {
   it('should match snapshot', () => {

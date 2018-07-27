@@ -1,11 +1,13 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { InputGroup } from '../src/ts/components/forms/input-group';
-import { InputGroupAddon } from '../src/ts/components/forms/input-group-addon';
-import { Column } from '../src/ts/components/grid/column';
-import { Row } from '../src/ts/components/grid/row';
-import { Highlight } from '../src/ts/components/highlight/highlight';
+import {
+  Column,
+  Highlight,
+  InputGroup,
+  InputGroupAddon,
+  Row,
+} from '../src/ts/';
 
 describe('Highlight', () => {
   it('should match snapshot', () => {

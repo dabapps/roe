@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
-import { getHref } from '../utils';
+import { getHref } from '../../utils';
 
 export type AnchorProps = HTMLProps<HTMLElement>;
 
