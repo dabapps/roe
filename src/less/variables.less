@@ -48,6 +48,7 @@
 /* Misc colors */
 @body-background: @white;
 @overlay-background: rgba(0, 0, 0, 0.2);
+@overlay-background-dark: rgba(0, 0, 0, 0.5);
 
 /* @end Colors */
 
@@ -85,6 +86,7 @@
 @nav-item-background-hover: @grey-lightest;
 @nav-item-background-active: @grey-lighter;
 
+@side-bar-overlay-background: @overlay-background;
 @side-bar-background: @body-background;
 @side-bar-border: @border-base;
 @side-bar-width: 250px;
@@ -130,9 +132,9 @@
 @content-box-footer-background: @content-box-header-background;
 @content-box-footer-border: @content-box-header-border;
 
-@highlight-animation-speed: 0.4s;
-@highlight-background-color: rgba(0, 0, 0, 0.5);
+@highlight-overlay-background: @overlay-background-dark;
 
+@modal-overlay-background: @overlay-background;
 @modal-background: @content-box-background;
 @modal-header-background: @content-box-header-background;
 @modal-header-border: @content-box-header-border;

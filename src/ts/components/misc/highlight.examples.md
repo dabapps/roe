@@ -45,7 +45,7 @@ class HighlightExample extends React.Component {
 #### Less variables
 
 ```less
+@highlight-overlay-background: @overlay-background-dark;
+
 @highlight-z-index: 1300;
-@highlight-animation-speed: 0.4s;
-@highlight-background-color: rgba(0, 0, 0, 0.5);
 ```

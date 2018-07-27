@@ -1,6 +1,38 @@
+/* @group Transition */
+
+.highlight-transition-enter,
+.highlight-transition-appear {
+  &.highlight-overlay {
+    opacity: 0.01;
+  }
+}
+
+.highlight-transition-enter.highlight-transition-enter-active,
+.highlight-transition-appear.highlight-transition-appear-active {
+  &.highlight-overlay {
+    opacity: 0.99;
+    transition: opacity 0.3s ease-in;
+  }
+}
+
+.highlight-transition-leave {
+  &.highlight-overlay {
+    opacity: 0.99;
+  }
+}
+
+.highlight-transition-leave.highlight-transition-leave-active {
+  &.highlight-overlay {
+    opacity: 0.01;
+    transition: opacity 0.2s ease-in;
+  }
+}
+
+/* @end Transition */
+
 .highlight {
-  .overlay,
-  .overlay-disabled {
+  .highlight-overlay,
+  .highlight-overlay-disabled {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,30 +40,19 @@
     height: 100%;
   }
 
-  .overlay {
-    background-color: @highlight-background-color;
+  .highlight-overlay {
+    background-color: @highlight-overlay-background;
     z-index: @highlight-z-index;
-    animation: fadein @highlight-animation-speed linear 1 normal forwards;
   }
 
-  .content {
+  .highlight-content {
     &.open {
       position: relative;
       z-index: @highlight-z-index + 1;
     }
   }
 
-  .overlay-disabled {
+  .highlight-overlay-disabled {
     z-index: @highlight-z-index + 2;
-  }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-
-  to {
-    opacity: 1;
   }
 }
