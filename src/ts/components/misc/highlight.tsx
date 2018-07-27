@@ -22,7 +22,7 @@ export interface HighlightProps extends ComponentProps, HTMLProps<HTMLElement> {
 }
 
 /**
- * Highlight Component
+ * This highlight component it used to display a single element while shading everything else out.
  */
 export class Highlight extends PureComponent<HighlightProps, {}> {
   public render() {
