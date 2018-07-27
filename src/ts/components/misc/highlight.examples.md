@@ -46,6 +46,7 @@ class HighlightExample extends React.Component {
 
 ```less
 @highlight-overlay-background: @overlay-background-dark;
+@highlight-border-radius: @border-radius-base;
 
 @highlight-z-index: 1300;
 ```
