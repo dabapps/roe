@@ -46,12 +46,8 @@ var components = [
     components: 'src/ts/components/banners/**/*.tsx'
   },
   {
-    name: 'Highlight',
-    components: 'src/ts/components/highlight/**/*.tsx'
-  },
-  {
     name: 'Misc',
-    components: 'src/ts/components/*.tsx'
+    components: 'src/ts/components/misc/**/*.tsx'
   },
   {
     name: 'Precomposed',
