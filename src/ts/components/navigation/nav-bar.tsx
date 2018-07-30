@@ -1,7 +1,6 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
-import * as ReactDOM from 'react-dom';
 import store from '../../store';
 import { ComponentProps } from '../../types';
 import { getScrollOffset } from '../../utils';
@@ -28,6 +27,7 @@ export interface NavBarState {
 export class NavBar extends PureComponent<NavBarProps, NavBarState> {
   private previousScrollY: number;
   private mountTime: number | undefined;
+  private element?: HTMLElement;
 
   public constructor(props: NavBarProps) {
     super(props);
@@ -91,7 +91,11 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     ];
 
     return (
-      <Component {...remainingProps} className={classNames(myClassNames)}>
+      <Component
+        {...remainingProps}
+        ref={this.getRef}
+        className={classNames(myClassNames)}
+      >
         {children}
       </Component>
     );
@@ -99,7 +103,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
 
   private notifyAppRoot(props: NavBarProps) {
     const { fixed, shy } = props;
-    const element = ReactDOM.findDOMNode(this);
+    const { element } = this;
 
     store.setState({
       hasFixedNavBar: Boolean(fixed || shy),
@@ -146,7 +150,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
       return;
     }
 
-    const element = ReactDOM.findDOMNode(this);
+    const { element } = this;
 
     if (element) {
       const { height } = element.getBoundingClientRect();
@@ -165,7 +169,11 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
         this.previousScrollY = y;
       }
     }
-  };
+  }
+
+  private getRef = (element: HTMLElement) => {
+    this.element = element;
+  }
 }
 
 export default NavBar;

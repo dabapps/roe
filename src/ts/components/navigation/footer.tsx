@@ -1,7 +1,6 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
-import * as ReactDOM from 'react-dom';
 import store from '../../store';
 import { ComponentProps } from '../../types';
 
@@ -13,6 +12,8 @@ export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
 }
 
 export class Footer extends PureComponent<FooterProps, {}> {
+  private element?: HTMLElement;
+
   public componentDidMount() {
     this.notifyAppRoot(this.props);
     this.toggleResizeListeners(this.props);
@@ -41,6 +42,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
     return (
       <Component
         {...remainingProps}
+        ref={this.getRef}
         className={classNames('footer', sticky && 'sticky')}
       >
         {children}
@@ -50,7 +52,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
 
   private notifyAppRoot(props: FooterProps) {
     const { sticky } = props;
-    const element = ReactDOM.findDOMNode(this);
+    const { element } = this;
 
     store.setState({
       hasStickyFooter: Boolean(sticky),
@@ -72,6 +74,10 @@ export class Footer extends PureComponent<FooterProps, {}> {
     } else {
       window.removeEventListener('resize', this.updateAppRoot);
     }
+  }
+
+  private getRef = (element: HTMLElement) => {
+    this.element = element;
   }
 }
 
