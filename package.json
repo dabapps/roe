@@ -100,6 +100,9 @@
     "react-transition-group": ">= 1 < 2"
   },
   "jest": {
+    "collectCoverageFrom": [
+      "src/ts/**/*.(js|jsx|ts|tsx)"
+    ],
     "setupFiles": [
       "<rootDir>/tests/helpers/setup.ts"
     ],
