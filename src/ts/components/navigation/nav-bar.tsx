@@ -103,9 +103,10 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
 
     store.setState({
       hasFixedNavBar: Boolean(fixed || shy),
-      navBarHeight: element && element instanceof HTMLElement
-        ? element.getBoundingClientRect().height
-        : undefined,
+      navBarHeight:
+        element && element instanceof HTMLElement
+          ? element.getBoundingClientRect().height
+          : undefined,
     });
   }
 
