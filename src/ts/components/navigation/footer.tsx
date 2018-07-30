@@ -12,7 +12,7 @@ export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
 }
 
 export class Footer extends PureComponent<FooterProps, {}> {
-  private element?: HTMLElement;
+  private element?: HTMLElement | null;
 
   public componentDidMount() {
     this.notifyAppRoot(this.props);
@@ -76,7 +76,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
     }
   }
 
-  private getRef = (element: HTMLElement) => {
+  private getRef = (element?: HTMLElement | null) => {
     this.element = element;
   };
 }

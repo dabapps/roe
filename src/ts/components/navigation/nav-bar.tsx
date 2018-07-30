@@ -27,7 +27,7 @@ export interface NavBarState {
 export class NavBar extends PureComponent<NavBarProps, NavBarState> {
   private previousScrollY: number;
   private mountTime: number | undefined;
-  private element?: HTMLElement;
+  private element?: HTMLElement | null;
 
   public constructor(props: NavBarProps) {
     super(props);
@@ -171,7 +171,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     }
   };
 
-  private getRef = (element: HTMLElement) => {
+  private getRef = (element?: HTMLElement | null) => {
     this.element = element;
   };
 }
