@@ -7,7 +7,7 @@ exports[`Tables Table should allow disabling scrolling 1`] = `
   <div
     style={
       Object {
-        "paddingLeft": null,
+        "paddingLeft": undefined,
       }
     }
   >
@@ -29,7 +29,7 @@ exports[`Tables Table should apply some boolean classes 1`] = `
   <div
     style={
       Object {
-        "paddingLeft": null,
+        "paddingLeft": undefined,
       }
     }
   >
@@ -51,7 +51,7 @@ exports[`Tables Table should apply table styles classes 1`] = `
   <div
     style={
       Object {
-        "paddingLeft": null,
+        "paddingLeft": undefined,
       }
     }
   >
@@ -136,7 +136,7 @@ exports[`Tables Table should set the collapse size 1`] = `
   <div
     style={
       Object {
-        "paddingLeft": null,
+        "paddingLeft": undefined,
       }
     }
   >
@@ -158,7 +158,7 @@ exports[`Tables Table should use a component prop as the table component 1`] = `
   <div
     style={
       Object {
-        "paddingLeft": null,
+        "paddingLeft": undefined,
       }
     }
   >
@@ -360,7 +360,7 @@ exports[`Tables should match snapshot 1`] = `
   <div
     style={
       Object {
-        "paddingLeft": null,
+        "paddingLeft": undefined,
       }
     }
   >
