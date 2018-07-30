@@ -78,7 +78,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
 
   private getRef = (element: HTMLElement) => {
     this.element = element;
-  }
+  };
 }
 
 export default Footer;

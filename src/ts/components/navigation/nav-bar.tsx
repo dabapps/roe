@@ -169,11 +169,11 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
         this.previousScrollY = y;
       }
     }
-  }
+  };
 
   private getRef = (element: HTMLElement) => {
     this.element = element;
-  }
+  };
 }
 
 export default NavBar;
