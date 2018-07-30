@@ -95,7 +95,7 @@
     "webpack": "3.7.1"
   },
   "peerDependencies": {
-    "react": ">= 15 < 16",
+    "react": ">= 15",
     "react-transition-group": ">= 1 < 2"
   },
   "jest": {
