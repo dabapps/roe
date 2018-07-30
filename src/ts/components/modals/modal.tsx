@@ -3,7 +3,7 @@ import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 
-export interface ModalProps extends ComponentProps, HTMLProps<HTMLElement> {
+export interface ModalProps extends ComponentProps, HTMLProps<HTMLDivElement> {
   /**
    * Allows the `ModalBody` to be scrolled, rather than page.
    */
