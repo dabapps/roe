@@ -7,7 +7,7 @@ install:
 
 script:
   - npm test
-  - npm i
+  - npm ci
   - npm run dist
   - npm run build
 
