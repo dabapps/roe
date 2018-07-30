@@ -103,7 +103,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
 
     store.setState({
       hasFixedNavBar: Boolean(fixed || shy),
-      navBarHeight: element
+      navBarHeight: element && element instanceof HTMLElement
         ? element.getBoundingClientRect().height
         : undefined,
     });
@@ -148,7 +148,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
 
     const element = ReactDOM.findDOMNode(this);
 
-    if (element) {
+    if (element && element instanceof HTMLElement) {
       const { height } = element.getBoundingClientRect();
 
       if (y > this.previousScrollY + height / 2 && y > height) {
