@@ -33,7 +33,7 @@
   }
 }
 
-.create-button-styles (@background: @button-background-default, @color: @button-text-color-dark) {
+.create-button-styles (@background: @button-background-default, @color: @button-text-color-light) {
   .create-button-pew();
   background-color: @background;
   color: @color;
@@ -60,26 +60,6 @@
   &::before {
     background-color: contrast(@background, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
   }
-}
-
-.create-button (@type, @background, @color) {
-  &.@{type} {
-    .create-button-styles(@background, @color);
-  }
-}
-
-/* @end Mixins */
-
-.button {
-  .button-overrides();
-  .create-button-styles();
-  .create-button(primary, @primary, @button-text-color-light);
-  .create-button(secondary, @secondary, @button-text-color-light);
-  .create-button(tertiary, @tertiary, @button-text-color-light);
-  .create-button(info, @info, @button-text-color-light);
-  .create-button(success, @success, @button-text-color-light);
-  .create-button(warning, @warning, @button-text-color-light);
-  .create-button(error, @error, @button-text-color-light);
 
   transition: ease-in-out 0.1s background-color, ease-in-out 0.1s box-shadow;
   box-shadow: @shadow-none;
@@ -134,17 +114,17 @@
     background-color: @button-transparent-background;
 
     &::before {
-      background-color: @button-transparent-pew-color;
+      background-color: contrast(@color, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
     }
 
     &:hover:not([disabled]):not(.disabled) {
-      background-color: @button-transparent-background-hover;
+      background-color: darken(contrast(@color, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1)), 5%);
       box-shadow: @shadow-none;
     }
   }
 
   &.hollow {
-    color: @button-text-color-dark;
+    color: @background;
 
     &::after {
       content: '';
@@ -154,7 +134,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      border: @button-border-width solid @button-text-color-dark;
+      border: @button-border-width solid @background;
       border-radius: @border-radius-base;
       // Fixes a Chrome rendering bug
       transform: translate3d(0, 0, 0); // DO NOT CHANGE
@@ -163,7 +143,7 @@
     }
 
     &:hover:not([disabled]):not(.disabled) {
-      color: @button-text-color-dark;
+      color: @background;
     }
   }
 
@@ -185,6 +165,26 @@
       }
     }
   }
+}
+
+.create-button (@type, @background, @color) {
+  &.@{type} {
+    .create-button-styles(@background, @color);
+  }
+}
+
+/* @end Mixins */
+
+.button {
+  .button-overrides();
+  .create-button-styles();
+  .create-button(primary, @primary, @button-text-color-light);
+  .create-button(secondary, @secondary, @button-text-color-light);
+  .create-button(tertiary, @tertiary, @button-text-color-light);
+  .create-button(info, @info, @button-text-color-light);
+  .create-button(success, @success, @button-text-color-light);
+  .create-button(warning, @warning, @button-text-color-light);
+  .create-button(error, @error, @button-text-color-light);
 }
 
 /* @group Animations */
