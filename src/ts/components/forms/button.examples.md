@@ -89,7 +89,7 @@ button {
 You can then use your custom buttons by supplying the name you provided to the mixin as the class name.
 
 ```js
-<ContentBox className="dark-background">
+<ContentBox className="grey-background">
   <SpacedGroup block className="margin-vertical-base">
     <Button className="custom-light">
       Custom light
@@ -108,7 +108,7 @@ You can then use your custom buttons by supplying the name you provided to the m
 @button-border-width: 2px;
 @button-text-color-dark: @grey-dark;
 @button-text-color-light: @grey-lightest;
-@button-background-default: @grey-lighter;
+@button-background-default: @grey-medium;
 @button-transparent-background: transparent;
 
 @font-size-button: 1em;
