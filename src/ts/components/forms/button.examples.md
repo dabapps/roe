@@ -109,7 +109,7 @@ You can then use your custom buttons by supplying the name you provided to the m
 @button-text-color-dark: @grey-dark;
 @button-text-color-light: @grey-lightest;
 @button-background-default: @grey-medium;
-@button-transparent-background: transparent;
+@button-background-hollow: transparent;
 
 @font-size-button: 1em;
 @line-height-button: 1.3em;
