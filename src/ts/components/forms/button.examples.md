@@ -78,26 +78,28 @@ This should be applied within the selector (element / class) that you want to ap
 Note: the background color is used for the text & border of hollow buttons.
 
 ```less
-button,
-.button {
+.button,
+button {
   // You must use the mixin within the selectors you want the new class to apply to
-  // This example will generate selectors for: 'button.custom-name' and '.button.custom-name'
-  .create-button(custom-name, @background-color, @text-color);
+  // This example will generate selectors for: '.button.custom-light' and 'button.custom-light'
+  .create-button(custom-light, @white, @black);
 }
 ```
 
 You can then use your custom buttons by supplying the name you provided to the mixin as the class name.
 
-```html
-JSX
-<Button className="custom-name">
-  Custom
-</Button>
+```js
+<ContentBox className="grey-background">
+  <SpacedGroup block className="margin-vertical-base">
+    <Button className="custom-light">
+      Custom light
+    </Button>
 
-HTML
-<button class="custom-name">
-  Custom
-</button>
+    <button className="custom-light hollow">
+      Custom light hollow
+    </button>
+  </SpacedGroup>
+</ContentBox>
 ```
 
 #### Less variables
@@ -106,7 +108,8 @@ HTML
 @button-border-width: 2px;
 @button-text-color-dark: @grey-dark;
 @button-text-color-light: @grey-lightest;
-@button-background-default: @grey-lighter;
+@button-background-default: @grey-medium;
+@button-background-hollow: transparent;
 
 @font-size-button: 1em;
 @line-height-button: 1.3em;
