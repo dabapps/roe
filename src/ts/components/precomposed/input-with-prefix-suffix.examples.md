@@ -7,6 +7,7 @@ Example with class names
   prefix="£"
   suffix="%"
   value="Example"
+  onChange={() => null}
   className="applied-to-input-group"
   inputClassName="applied-to-input"
   prefixClassName="primary"
@@ -21,5 +22,6 @@ Display block with React element prefix
   block
   prefix={<strong>Strong</strong>}
   value="Example"
+  onChange={() => null}
 />
 ```
