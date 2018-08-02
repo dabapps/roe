@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PureComponent } from 'react';
+import { Component } from 'react';
 import { generateIpsum } from '../../utils';
 import { WORDS } from '../../words';
 
@@ -34,7 +34,7 @@ const ipsumItem = (component: DabIpsumProps['component'], index: number) => {
 /**
  * Custom Ipsum component, useful for rendering placeholder text when prototyping.
  */
-export class DabIpsum extends PureComponent<DabIpsumProps, {}> {
+export class DabIpsum extends Component<DabIpsumProps, {}> {
   public shouldComponentUpdate(prevProps: DabIpsumProps) {
     return (
       prevProps.component !== this.props.component ||

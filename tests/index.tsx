@@ -66,13 +66,19 @@ describe('index file', () => {
     });
 
     it('should all extend PureComponent', () => {
+      const exceptions = ['DabIpsum'];
+
       type Keys = keyof typeof index;
 
       for (const key in index) {
         if (index.hasOwnProperty(key)) {
           const Component = index[key as Keys];
 
-          if (Component && !(Component.prototype instanceof PureComponent)) {
+          if (
+            exceptions.indexOf(key) < 0 &&
+            Component &&
+            !(Component.prototype instanceof PureComponent)
+          ) {
             throw new Error(`${key} does not extend PureComponent. :\'(`);
           }
         }

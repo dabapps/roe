@@ -54,9 +54,10 @@ export class Footer extends PureComponent<FooterProps, {}> {
 
     store.setState({
       hasStickyFooter: Boolean(sticky),
-      footerHeight: element
-        ? element.getBoundingClientRect().height
-        : undefined,
+      footerHeight:
+        element && element instanceof HTMLElement
+          ? element.getBoundingClientRect().height
+          : undefined,
     });
   }
 
