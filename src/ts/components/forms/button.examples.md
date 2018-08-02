@@ -81,7 +81,7 @@ Note: the background color is used for the text & border of hollow buttons.
 .button,
 button {
   // You must use the mixin within the selectors you want the new class to apply to
-  // This example will generate selectors for: 'button.custom-name' and '.button.custom-name'
+  // This example will generate selectors for: '.button.custom-light' and 'button.custom-light'
   .create-button(custom-light, @white, @black);
 }
 ```
