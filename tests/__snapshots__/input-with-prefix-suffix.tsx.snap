@@ -86,6 +86,7 @@ exports[`InputWithPrefixSuffix should pass props to the input 1`] = `
   </div>
   <input
     className={undefined}
+    onChange={[Function]}
     value="Value"
   />
   <div
