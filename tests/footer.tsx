@@ -139,9 +139,18 @@ describe('Footer', () => {
         }
       }
     );
-    jest
-      .spyOn(ReactDOM, 'findDOMNode')
-      .mockReturnValue({ getBoundingClientRect: () => ({ height: 20 }) });
+
+    const fakeElement = document.createElement('div');
+    fakeElement.getBoundingClientRect = () => ({
+      height: 20,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      width: 0,
+      top: 0,
+    });
+
+    jest.spyOn(ReactDOM, 'findDOMNode').mockReturnValue(fakeElement);
 
     enzyme.mount(<Footer sticky />);
 

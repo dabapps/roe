@@ -3,7 +3,7 @@ import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 
-export interface ModalProps extends ComponentProps, HTMLProps<HTMLElement> {
+export interface ModalProps extends ComponentProps, HTMLProps<HTMLDivElement> {
   /**
    * Allows the `ModalBody` to be scrolled, rather than page.
    */
@@ -55,7 +55,9 @@ export class Modal extends PureComponent<ModalProps, {}> {
       <div>
         <div className="modal-overlay" onClick={onClickOutside} />
         <div {...remainingProps} className={classNames(myClassNames)}>
-          <Component className="modal">{children}</Component>
+          <Component className={classNames('modal', className)}>
+            {children}
+          </Component>
         </div>
       </div>
     );
