@@ -114,7 +114,7 @@ function updateExample (props, exampleFilePath) {
 }
 
 var lessLoader = {
-  test: /\.less$/,
+  test: /\.(?:less|css)$/,
   use: [
     'style-loader', // creates style nodes from JS strings
     'css-loader', // translates CSS into CommonJS
@@ -132,7 +132,8 @@ var lessLoader = {
 
 var webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
 
-webpackConfig.module.rules.push(lessLoader);
+webpackConfig.module.rules[1].oneOf[3] = lessLoader;
+
 
 var reactDocGenTypescriptConfig = {
   propFilter: function (prop/*, component*/) {
