@@ -135,8 +135,12 @@ var webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
 webpackConfig.module.rules.push(lessLoader);
 
 var reactDocGenTypescriptConfig = {
-  propFilter: {
-    skipPropsWithoutDoc: true
+  propFilter: function (prop/*, component*/) {
+    if (prop.description && prop.name.indexOf('aria-') !== 0) {
+      return true;
+    }
+
+    return false;
   }
 };
 
