@@ -114,7 +114,7 @@ function updateExample (props, exampleFilePath) {
 }
 
 var lessLoader = {
-  test: /\.less$/,
+  test: /\.(?:less|css)$/,
   use: [
     'style-loader', // creates style nodes from JS strings
     'css-loader', // translates CSS into CommonJS
@@ -132,11 +132,16 @@ var lessLoader = {
 
 var webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
 
-webpackConfig.module.rules[2].oneOf[2] = lessLoader;
+webpackConfig.module.rules[1].oneOf[3] = lessLoader;
+
 
 var reactDocGenTypescriptConfig = {
-  propFilter: {
-    skipPropsWithoutDoc: true
+  propFilter: function (prop/*, component*/) {
+    if (prop.description && prop.name.indexOf('aria-') !== 0) {
+      return true;
+    }
+
+    return false;
   }
 };
 
@@ -153,7 +158,9 @@ module.exports = {
   getExampleFilename: getExampleFilename,
   updateExample: updateExample,
   assetsDir: path.join(__dirname, 'docs/static/'),
-  template: path.join(__dirname, 'docs/templates/index.html'),
+  template: {
+    favicon: 'images/roe-favicon.png'
+  },
   styleguideComponents: {
     Logo: path.join(__dirname, 'docs/components/logo'),
   },

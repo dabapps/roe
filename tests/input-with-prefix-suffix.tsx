@@ -34,8 +34,15 @@ describe('InputWithPrefixSuffix', () => {
   });
 
   it('should pass props to the input', () => {
+    const onChange = () => null;
+
     const tree = renderer.create(
-      <InputWithPrefixSuffix prefix="£" suffix="%" value="Value" />
+      <InputWithPrefixSuffix
+        prefix="£"
+        suffix="%"
+        value="Value"
+        onChange={onChange}
+      />
     );
 
     expect(tree).toMatchSnapshot();

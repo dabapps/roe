@@ -29,6 +29,7 @@ export interface PrefixSuffixProps extends ComponentProps {
    * Class name to apply to the suffix.
    */
   suffixClassName?: string;
+  value?: string | string[] | number; // Adds compatibility with React 15 and 16 types
 }
 
 export type InputWithPrefixSuffixProps = React.HTMLAttributes<
