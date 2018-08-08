@@ -47,7 +47,7 @@ var components = [
   },
   {
     name: 'Misc',
-    components: 'src/ts/components/*.tsx'
+    components: 'src/ts/components/misc/**/*.tsx'
   },
   {
     name: 'Precomposed',

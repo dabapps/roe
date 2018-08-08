@@ -6,11 +6,10 @@ import {
   Button,
   Column,
   Container,
+  CookieBanner,
   CookieBannerRenderProps,
   Row,
 } from '../src/ts';
-
-import { CookieBanner } from '../src/ts/components/banners/cookie-banner';
 
 describe('CookieBanner', () => {
   const TestComponent = ({ dismiss }: CookieBannerRenderProps) => (

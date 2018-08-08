@@ -1,0 +1,61 @@
+/* @group Transition */
+
+.highlight-transition-enter,
+.highlight-transition-appear {
+  &.highlight-overlay {
+    opacity: 0.01;
+  }
+}
+
+.highlight-transition-enter.highlight-transition-enter-active,
+.highlight-transition-appear.highlight-transition-appear-active {
+  &.highlight-overlay {
+    opacity: 0.99;
+    transition: opacity 0.3s ease-in;
+  }
+}
+
+.highlight-transition-leave {
+  &.highlight-overlay {
+    opacity: 0.99;
+  }
+}
+
+.highlight-transition-leave.highlight-transition-leave-active {
+  &.highlight-overlay {
+    opacity: 0.01;
+    transition: opacity 0.2s ease-in;
+  }
+}
+
+/* @end Transition */
+
+.highlight {
+  .highlight-overlay,
+  .highlight-overlay-disabled {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .highlight-overlay {
+    position: fixed;
+    background-color: @highlight-overlay-background;
+    z-index: @highlight-z-index;
+  }
+
+  .highlight-content {
+    border-radius: @highlight-border-radius;
+
+    &.open {
+      position: relative;
+      z-index: @highlight-z-index + 1;
+    }
+  }
+
+  .highlight-overlay-disabled {
+    position: absolute;
+    z-index: @highlight-z-index + 2;
+  }
+}

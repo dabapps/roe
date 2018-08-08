@@ -1,9 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Button, Column, Container, Row } from '../src/ts';
-
-import { Banner } from '../src/ts/components/banners/banner';
+import { Banner, Button, Column, Container, Row } from '../src/ts/';
 
 describe('Banner', () => {
   it('should match snapshot', () => {

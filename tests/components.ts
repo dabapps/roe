@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 const UTF8 = 'utf8';
-const MATCHES_COMPONENT = /\.tsx?/i;
+const MATCHES_TS_FILE = /\.tsx?/i;
 const MATCHES_DEFAULT_EXPORT = /^export\sdefault\s([^;]+).*$/im;
 const TS_SOURCE_DIR = 'src/ts';
 const COMPONENTS_DIR = path.join(process.cwd(), TS_SOURCE_DIR, 'components');
@@ -24,7 +24,7 @@ const getAllComponents = (directory: string): string[] => {
           return memo.concat(getAllComponents(filePath));
         }
 
-        if (MATCHES_COMPONENT.test(filePath)) {
+        if (MATCHES_TS_FILE.test(filePath)) {
           return memo.concat(filePath);
         }
 

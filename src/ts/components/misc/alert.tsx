@@ -1,14 +1,14 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
-import { ComponentProps } from '../types';
+import { ComponentProps } from '../../types';
 
-export type WellProps = ComponentProps & HTMLProps<HTMLElement>;
+export type AlertProps = ComponentProps & HTMLProps<HTMLElement>;
 
 /**
- * Stylistic content container.
+ * A component for applying various styles to text, ideal for info, success, and error messages.
  */
-export class Well extends PureComponent<WellProps, {}> {
+export class Alert extends PureComponent<AlertProps, {}> {
   public render() {
     const {
       children,
@@ -20,7 +20,7 @@ export class Well extends PureComponent<WellProps, {}> {
     return (
       <Component
         {...remainingProps}
-        className={classNames(['well', className])}
+        className={classNames(['alert', className])}
       >
         {children}
       </Component>
@@ -28,4 +28,4 @@ export class Well extends PureComponent<WellProps, {}> {
   }
 }
 
-export default Well;
+export default Alert;
