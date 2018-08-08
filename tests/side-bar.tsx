@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
-import SideBar from '../src/ts/components/navigation/side-bar';
+
+import { SideBar } from '../src/ts/';
 
 describe('SideBar', () => {
   it('should match snapshot', () => {

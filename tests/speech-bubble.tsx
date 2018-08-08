@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { SpeechBubble } from '../src/ts/components/speech-bubble';
+import { SpeechBubble } from '../src/ts/';
 
 describe('SpeechBubble', () => {
   it('should match snapshot', () => {
