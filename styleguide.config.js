@@ -132,7 +132,7 @@ var lessLoader = {
 
 var webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
 
-webpackConfig.module.rules[2].oneOf[2] = lessLoader;
+webpackConfig.module.rules.push(lessLoader);
 
 var reactDocGenTypescriptConfig = {
   propFilter: {

@@ -10,7 +10,8 @@
     "typeRoots": [
       "node_modules/@types/",
       "types/"
-    ]
+    ],
+    "baseUrl": "./src/ts/"
   },
   "exclude": [
     "node_modules/*",
