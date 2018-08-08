@@ -3,7 +3,6 @@ sudo: false
 language: node_js
 
 install:
-  - npm i npm@6 -g
   - npm ci
 
 script:
