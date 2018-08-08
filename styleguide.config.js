@@ -153,7 +153,9 @@ module.exports = {
   getExampleFilename: getExampleFilename,
   updateExample: updateExample,
   assetsDir: path.join(__dirname, 'docs/static/'),
-  template: path.join(__dirname, 'docs/templates/index.html'),
+  template: {
+    favicon: 'images/roe-favicon.png'
+  },
   styleguideComponents: {
     Logo: path.join(__dirname, 'docs/components/logo'),
   },
