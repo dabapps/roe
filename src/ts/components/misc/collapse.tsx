@@ -27,7 +27,12 @@ export interface CollapseProps
    * Maximum height when collapsed
    * @default 0
    */
-  maxCollapsedHeight?: number;
+  maxCollapsedHeight?: number | string;
+  /**
+   * Minimum height
+   * @default auto
+   */
+  minHeight?: number | string;
   /**
    * Whether to fade out the content
    * @default false
@@ -52,7 +57,7 @@ export interface CollapseProps
 
 export interface CollapseState {
   // tslint:disable-line:no-unused-variable
-  height: number;
+  height: number | string;
   opened: boolean;
   opening: boolean;
 }
@@ -134,6 +139,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       transparentColor = DEFAULT_TRANSPARENT_COLOR,
       open,
       maxCollapsedHeight,
+      minHeight = 'auto',
       animationDuration = DEFAULT_DURATION,
       component: Component = 'div',
       ...remainingProps
@@ -142,10 +148,11 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
     const { opening, opened, height } = this.state;
 
     const collapseStyle = {
-      height: opened ? 'auto' : height,
+      minHeight,
+      maxHeight: opened ? 'auto' : height,
       position: 'relative' as 'relative',
       overflow: 'hidden' as 'hidden',
-      transition: `ease-in-out ${animationDuration}ms height`,
+      transition: `ease-in-out ${animationDuration}ms max-height`,
     };
 
     const fadeStyle = {
