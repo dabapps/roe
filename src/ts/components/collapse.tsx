@@ -26,6 +26,11 @@ export interface CollapseProps extends ComponentProps, React.HTMLAttributes<HTML
    */
   maxCollapsedHeight?: number;
   /**
+   * Minimum height
+   * @default auto
+   */
+  minHeight?: number;
+  /**
    * Whether to fade out the content
    * @default false
    */
@@ -117,6 +122,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       fadeHeight = DEFAULT_FADE_HEIGHT,
       open,
       maxCollapsedHeight,
+      minHeight = 'auto',
       animationDuration = DEFAULT_DURATION,
       component: Component = 'div',
       ...remainingProps
@@ -125,6 +131,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
     const { opening, opened, height } = this.state;
 
     const collapseStyle = {
+      minHeight,
       maxHeight: opened ? 'auto' : height,
       position: 'relative' as 'relative',
       overflow: 'hidden' as 'hidden',
