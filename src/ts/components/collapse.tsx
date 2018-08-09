@@ -24,12 +24,12 @@ export interface CollapseProps extends ComponentProps, React.HTMLAttributes<HTML
    * Maximum height when collapsed
    * @default 0
    */
-  maxCollapsedHeight?: number;
+  maxCollapsedHeight?: number | string;
   /**
    * Minimum height
    * @default auto
    */
-  minHeight?: number;
+  minHeight?: number | string;
   /**
    * Whether to fade out the content
    * @default false
@@ -48,7 +48,7 @@ export interface CollapseProps extends ComponentProps, React.HTMLAttributes<HTML
 }
 
 export interface CollapseState { // tslint:disable-line:no-unused-variable
-  height: number;
+  height: number | string;
   opened: boolean;
   opening: boolean;
 }
