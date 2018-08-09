@@ -125,10 +125,10 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
     const { opening, opened, height } = this.state;
 
     const collapseStyle = {
-      height: opened ? 'auto' : height,
+      maxHeight: opened ? 'auto' : height,
       position: 'relative' as 'relative',
       overflow: 'hidden' as 'hidden',
-      transition: `ease-in-out ${animationDuration}ms height`
+      transition: `ease-in-out ${animationDuration}ms max-height`
     };
 
     const fadeStyle = {
