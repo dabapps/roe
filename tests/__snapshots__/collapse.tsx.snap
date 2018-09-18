@@ -10,8 +10,8 @@ exports[`Collapse should close to custom height 1`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "maxHeight": "auto",
-        "minHeight": "auto",
+        "maxHeight": null,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -32,7 +32,7 @@ exports[`Collapse should close to custom height 2`] = `
     style={
       Object {
         "maxHeight": 500,
-        "minHeight": "auto",
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -68,7 +68,7 @@ exports[`Collapse should close to custom height 3`] = `
     style={
       Object {
         "maxHeight": 100,
-        "minHeight": "auto",
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -104,7 +104,7 @@ exports[`Collapse should close to custom height 4`] = `
     style={
       Object {
         "maxHeight": 100,
-        "minHeight": "auto",
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -138,8 +138,8 @@ exports[`Collapse should close to default height 1`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "maxHeight": "auto",
-        "minHeight": "auto",
+        "maxHeight": null,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -159,7 +159,7 @@ exports[`Collapse should close to default height 2`] = `
     style={
       Object {
         "maxHeight": 500,
-        "minHeight": "auto",
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -194,7 +194,7 @@ exports[`Collapse should close to default height 3`] = `
     style={
       Object {
         "maxHeight": 0,
-        "minHeight": "auto",
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -229,7 +229,7 @@ exports[`Collapse should close to default height 4`] = `
     style={
       Object {
         "maxHeight": 0,
-        "minHeight": "auto",
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -260,7 +260,7 @@ exports[`Collapse should match snapshot when collapsed 1`] = `
   style={
     Object {
       "maxHeight": 0,
-      "minHeight": "auto",
+      "minHeight": null,
       "overflow": "hidden",
       "position": "relative",
       "transition": "ease-in-out 200ms max-height",
@@ -274,8 +274,8 @@ exports[`Collapse should match snapshot when expanded 1`] = `
   className="clearfix collapse collapse-open"
   style={
     Object {
-      "maxHeight": "auto",
-      "minHeight": "auto",
+      "maxHeight": null,
+      "minHeight": null,
       "overflow": "hidden",
       "position": "relative",
       "transition": "ease-in-out 200ms max-height",
@@ -290,7 +290,7 @@ exports[`Collapse should match snapshot with custom animation duration 1`] = `
   style={
     Object {
       "maxHeight": 0,
-      "minHeight": "auto",
+      "minHeight": null,
       "overflow": "hidden",
       "position": "relative",
       "transition": "ease-in-out 100ms max-height",
@@ -305,7 +305,7 @@ exports[`Collapse should match snapshot with custom collapsed height 1`] = `
   style={
     Object {
       "maxHeight": 100,
-      "minHeight": "auto",
+      "minHeight": null,
       "overflow": "hidden",
       "position": "relative",
       "transition": "ease-in-out 200ms max-height",
@@ -335,7 +335,7 @@ exports[`Collapse should match snapshot with customized fade out 1`] = `
   style={
     Object {
       "maxHeight": 0,
-      "minHeight": "auto",
+      "minHeight": null,
       "overflow": "hidden",
       "position": "relative",
       "transition": "ease-in-out 200ms max-height",
@@ -365,7 +365,7 @@ exports[`Collapse should match snapshot with fade out 1`] = `
   style={
     Object {
       "maxHeight": 0,
-      "minHeight": "auto",
+      "minHeight": null,
       "overflow": "hidden",
       "position": "relative",
       "transition": "ease-in-out 200ms max-height",
@@ -400,7 +400,7 @@ exports[`Collapse should open from custom height 1`] = `
     style={
       Object {
         "maxHeight": 100,
-        "minHeight": "auto",
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -436,7 +436,7 @@ exports[`Collapse should open from custom height 2`] = `
     style={
       Object {
         "maxHeight": 100,
-        "minHeight": "auto",
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -472,7 +472,7 @@ exports[`Collapse should open from custom height 3`] = `
     style={
       Object {
         "maxHeight": 500,
-        "minHeight": "auto",
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -507,8 +507,8 @@ exports[`Collapse should open from custom height 4`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "maxHeight": "auto",
-        "minHeight": "auto",
+        "maxHeight": null,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -528,7 +528,7 @@ exports[`Collapse should open from default height 1`] = `
     style={
       Object {
         "maxHeight": 0,
-        "minHeight": "auto",
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -563,7 +563,7 @@ exports[`Collapse should open from default height 2`] = `
     style={
       Object {
         "maxHeight": 0,
-        "minHeight": "auto",
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -598,7 +598,7 @@ exports[`Collapse should open from default height 3`] = `
     style={
       Object {
         "maxHeight": 500,
-        "minHeight": "auto",
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -632,8 +632,8 @@ exports[`Collapse should open from default height 4`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "maxHeight": "auto",
-        "minHeight": "auto",
+        "maxHeight": null,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
@@ -649,7 +649,7 @@ exports[`Collapse should take regular element attributes 1`] = `
   style={
     Object {
       "maxHeight": 0,
-      "minHeight": "auto",
+      "minHeight": null,
       "overflow": "hidden",
       "position": "relative",
       "transition": "ease-in-out 200ms max-height",
