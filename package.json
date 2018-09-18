@@ -1,6 +1,6 @@
 {
   "name": "@dabapps/roe",
-  "version": "0.9.19",
+  "version": "0.9.20",
   "description": "A Collection of React Components for Project Development",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
@@ -78,7 +78,7 @@
     "enzyme-adapter-react-15": "^1.0.5",
     "enzyme-to-json": "^3.2.2",
     "eslint": "^3.19.0",
-    "eslint-config-dabapps": "github:dabapps/eslint-config-dabapps",
+    "eslint-config-dabapps": "github:dabapps/eslint-config-dabapps#v4.0.0",
     "http-server": "^0.11.1",
     "jest": "^22.4.2",
     "less-loader": "^4.0.5",

@@ -139,7 +139,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       transparentColor = DEFAULT_TRANSPARENT_COLOR,
       open,
       maxCollapsedHeight,
-      minHeight = 'auto',
+      minHeight = null,
       animationDuration = DEFAULT_DURATION,
       component: Component = 'div',
       ...remainingProps
@@ -149,7 +149,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
 
     const collapseStyle = {
       minHeight,
-      maxHeight: opened ? 'auto' : height,
+      maxHeight: opened ? null : height,
       position: 'relative' as 'relative',
       overflow: 'hidden' as 'hidden',
       transition: `ease-in-out ${animationDuration}ms max-height`,
