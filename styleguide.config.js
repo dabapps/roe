@@ -18,6 +18,10 @@ var introduction = [
     content: 'docs/introduction/installation.md'
   },
   {
+    name: 'Getting started',
+    content: 'docs/introduction/getting-started.md'
+  },
+  {
     name: 'Contributing',
     content: 'docs/introduction/contributing.md'
   }
