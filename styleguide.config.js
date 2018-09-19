@@ -16,6 +16,10 @@ var introduction = [
   {
     name: 'Installation',
     content: 'docs/introduction/installation.md'
+  },
+  {
+    name: 'Contributing',
+    content: 'docs/introduction/contributing.md'
   }
 ];
 
