@@ -1,10 +1,18 @@
 ### Less
 
+#### Import Roe styles
+
 Include Roe in your main `index.less` file. Do not use `./` or `../` in the path.
 
 ```less
 @import 'node_modules/@dabapps/roe/src/less/index.less';
 ```
+
+#### Initial styling
+
+A good place to start when customizing Roe, rather than layering styles on top of the existing ones, is to create a variables.less file, import this from your main LESS file, copy the variables from [the variables section of the documentation](#variables), and tweak them as desired.
+
+This will help avoid writing lots of custom LESS to override existing Roe styles, and there are a lot of existing variables to play around with.
 
 ### Components
 
