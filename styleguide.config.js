@@ -207,10 +207,14 @@ module.exports = {
         overflow: 'auto'
       }
     },
+    Pre: {
+      pre: {
+        overflow: 'auto'
+      }
+    },
     Code: {
       code: {
         border: 'none',
-        display: 'block',
         margin: 0,
         padding: 0
       }
