@@ -24,7 +24,7 @@ const App = () => (
         Column 1
       </Column>
       <Column md={6}>
-        Column 1
+        Column 2
       </Column>
     </Row>
   </Container>
