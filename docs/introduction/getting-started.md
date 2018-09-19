@@ -41,7 +41,7 @@ const App = () => (
 
 ### Code Highlighting
 
-If you want to use the `CodeBlock` component with code highlighting you will need to include `highlight.js` in your index.html (or bundle the styles if you prefer, the javascript must be globally available).
+If you want to use the `CodeBlock` component with code highlighting you will need to include `highlight.js` in your index.html (or bundle the styles if you prefer, but the javascript must be globally available).
 
 Highlight.js recommends this CDN.
 
