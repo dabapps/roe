@@ -4,6 +4,21 @@
 var fs = require('fs');
 var path = require('path');
 
+var introduction = [
+  {
+    name: 'About',
+    content: 'docs/introduction/about.md'
+  },
+  {
+    name: 'Browser support',
+    content: 'docs/introduction/browser-support.md'
+  },
+  {
+    name: 'Installation',
+    content: 'docs/introduction/installation.md'
+  }
+];
+
 var components = [
   {
     name: 'App',
@@ -165,6 +180,11 @@ module.exports = {
     Logo: path.join(__dirname, 'docs/components/logo'),
   },
   sections: [
+    {
+      name: 'Introduction',
+      content: 'docs/introduction/description.md',
+      sections: introduction
+    },
     {
       name: 'Components',
       sections: components
