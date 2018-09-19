@@ -10,8 +10,8 @@ var introduction = [
     content: 'docs/introduction/about.md'
   },
   {
-    name: 'Browser support',
-    content: 'docs/introduction/browser-support.md'
+    name: 'Development status',
+    content: 'docs/introduction/development-status.md'
   },
   {
     name: 'Installation',
