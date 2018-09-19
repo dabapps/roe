@@ -22,6 +22,18 @@ You can run all the type checking, linting and tests with the following:
 npm test
 ```
 
+To run the tests alone you can run:
+
+```shell
+npm run tests
+```
+
+And you can update test snapshots with:
+
+```shell
+npm run tests -- -u
+```
+
 To run prettier on all TypeScript files (enforced by the linting stage), run the following:
 
 ```shell
