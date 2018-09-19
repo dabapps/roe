@@ -1,4 +1,4 @@
-Fork the repository and run the following to install dependencies:
+Fork [the repository](https://github.com/dabapps/roe) and run the following to install dependencies:
 
 ```shell
 npm i
