@@ -1,6 +1,6 @@
 {
   "name": "@dabapps/roe",
-  "version": "0.9.21",
+  "version": "0.9.22",
   "description": "A Collection of React Components for Project Development",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
@@ -34,7 +34,7 @@
     "components"
   ],
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "author": "DabApps",
   "license": "BSD-3-Clause",
