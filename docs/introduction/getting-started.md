@@ -39,6 +39,10 @@ const App = () => (
 );
 ```
 
+### Important structural components and classes
+
+You should read the [AppRoot section](#root) before beginning development of other components, as this highlights some important setup steps regarding the underlying structure of your app, to allow Roe to function correctly.
+
 ### Code Highlighting
 
 If you want to use the `CodeBlock` component with code highlighting you will need to include `highlight.js` in your index.html (or bundle the styles if you prefer, but the javascript must be globally available).
