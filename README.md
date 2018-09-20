@@ -6,7 +6,8 @@
 
 ## About
 
-Roe is DabApps' custom project development kit. It is a collection of React components, styles, mixins, and atomic CSS classes to aid with the development of web applications.
+Roe is a project development kit developed by [DabApps](https://www.dabapps.com).
+It is a collection of React components, styles, mixins, and atomic CSS classes to aid with the development of web applications.
 
 ## Documentation
 

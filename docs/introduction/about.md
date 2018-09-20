@@ -1,4 +1,4 @@
-Roe is [DabApps](https://www.dabapps.com)' custom project development kit.
+Roe is a project development kit developed by [DabApps](https://www.dabapps.com).
 It is a collection of React components, styles, mixins, and atomic CSS classes to aid with the development of web applications.
 
 Written with TypeScript and LESS, it has a fairly flexible API based around component composition, and does not assume anything about the projects' data storage solution, and thus can be integrated with any existing application (though, this may have naming conflicts, and therefore it is recommended that Roe only be used when creating an application from scratch).
