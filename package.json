@@ -1,7 +1,7 @@
 {
   "name": "@dabapps/roe",
   "version": "0.9.23",
-  "description": "A Collection of React Components for Project Development",
+  "description": "A collection of React components, styles, mixins, and atomic CSS classes to aid with the development of web applications.",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
   "scripts": {
@@ -31,7 +31,11 @@
     "development",
     "kit",
     "react",
-    "components"
+    "components",
+    "less",
+    "atomic",
+    "classes",
+    "styles"
   ],
   "publishConfig": {
     "access": "public"
