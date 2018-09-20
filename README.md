@@ -10,4 +10,4 @@ Roe is DabApps' custom project development kit. It is a collection of React comp
 
 ## Documentation
 
-[Full documentation, examples, and installation / contribution instructions can be found here.](http://dabapps.github.io/roe)
+Full documentation, examples, and installation / contribution instructions can be found [here](http://dabapps.github.io/roe).
