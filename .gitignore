@@ -1,9 +1,9 @@
-/node_modules/**
-/coverage/**
-/.nyc_output/**
-/dist/**
-/docs/build/**
-/styleguide/**
+/node_modules/*
+/coverage/*
+/.nyc_output/*
+/dist/*
+/docs/build/*
+/styleguide/*
 .vscode/*
 
 .DS_Store
