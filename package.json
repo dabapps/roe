@@ -34,7 +34,7 @@
     "components"
   ],
   "publishConfig": {
-    "access": "restricted"
+    "access": "public"
   },
   "author": "DabApps",
   "license": "BSD-3-Clause",
