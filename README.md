@@ -1,4 +1,4 @@
-# ![roe](docs/static/images/roe-logo-small.png)
+# ![roe](https://raw.githubusercontent.com/dabapps/roe/master/docs/static/images/roe-logo-small.png)
 
 **DabApps' Project Development Kit**
 
