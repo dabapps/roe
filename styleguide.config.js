@@ -4,6 +4,29 @@
 var fs = require('fs');
 var path = require('path');
 
+var introduction = [
+  {
+    name: 'About',
+    content: 'docs/introduction/about.md'
+  },
+  {
+    name: 'Development status',
+    content: 'docs/introduction/development-status.md'
+  },
+  {
+    name: 'Installation',
+    content: 'docs/introduction/installation.md'
+  },
+  {
+    name: 'Getting started',
+    content: 'docs/introduction/getting-started.md'
+  },
+  {
+    name: 'Contributing',
+    content: 'docs/introduction/contributing.md'
+  }
+];
+
 var components = [
   {
     name: 'App',
@@ -166,6 +189,11 @@ module.exports = {
   },
   sections: [
     {
+      name: 'Introduction',
+      content: 'docs/introduction/description.md',
+      sections: introduction
+    },
+    {
       name: 'Components',
       sections: components
     },
@@ -187,10 +215,14 @@ module.exports = {
         overflow: 'auto'
       }
     },
+    Pre: {
+      pre: {
+        overflow: 'auto'
+      }
+    },
     Code: {
       code: {
         border: 'none',
-        display: 'block',
         margin: 0,
         padding: 0
       }
