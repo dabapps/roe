@@ -31,7 +31,11 @@
     "development",
     "kit",
     "react",
-    "components"
+    "components",
+    "less",
+    "atomic",
+    "classes",
+    "styles"
   ],
   "publishConfig": {
     "access": "public"
