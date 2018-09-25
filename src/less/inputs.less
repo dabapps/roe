@@ -139,26 +139,32 @@ textarea {
 
   input,
   button,
+  .button,
   .input-group-addon {
     border: @input-border;
-    border-left: none;
+    border-left-width: 0;
+    min-height: @input-height;
   }
 
-  & > *:first-child {
+  /* IE10 layout fix */
+  div.button {
+    overflow: inherit;
+  }
+
+  & > *:first-child { // lesshint universalSelector: false
     border-left: @input-border;
     border-top-left-radius: @border-radius-base;
     border-bottom-left-radius: @border-radius-base;
   }
 
-  & > *:last-child {
+  & > *:last-child { // lesshint universalSelector: false
     border-top-right-radius: @border-radius-base;
     border-bottom-right-radius: @border-radius-base;
   }
 
-  & > * {
-    display: inline-flex;
-    height: auto;
-    border-left: none;
+  & > * { // lesshint universalSelector: false
+    display: inline-block;
+    border-left-width: none;
     border-radius: 0;
   }
 
@@ -168,8 +174,8 @@ textarea {
   }
 
   .input-group-addon {
-    display: inline-flex;
-    padding: 0 10px;
+    height: @input-height;
+    padding: 5px 10px;
     align-items: center;
   }
 
