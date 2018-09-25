@@ -120,10 +120,46 @@ class App extends PureComponent<{}, AppState> {
           </Row>
 
           <Row>
-            <Column>
+            <Column xs={12} sm={6}>
+                <h3>Using DIVs as Buttons</h3>
+              <InputGroup>
+                <input type="number" />
+                <Button component="div" tabIndex={0}>Done</Button>
+              </InputGroup>
+
+              <InputGroup block>
+                <InputGroupAddon>$</InputGroupAddon>
+                <input type="number" />
+                <Button component="div" tabIndex={0}>Done</Button>
+              </InputGroup>
+
+              <InputGroup>
+                <Button component="div" tabIndex={0}>1</Button>
+                <Button component="div" tabIndex={0}>2</Button>
+                <Button component="div" tabIndex={0}>3</Button>
+                <Button component="div" tabIndex={0}>4</Button>
+              </InputGroup>
+            </Column>
+            <Column xs={12} sm={6}>
+                <h3>Using Buttons (IE 10 = issues)</h3>
               <InputGroup>
                 <InputGroupAddon>£</InputGroupAddon>
                 <input type="number" />
+              </InputGroup>
+              <InputGroup block>
+                <InputGroupAddon>£</InputGroupAddon>
+                <input type="number" />
+                <Button>I'm a button!</Button>
+              </InputGroup>
+              <InputGroup>
+                <input type="number" />
+                <Button>Send Button</Button>
+              </InputGroup>
+              <InputGroup block>
+                <Button>Button 1</Button>
+                <Button>Button 2</Button>
+                <Button>Button 3</Button>
+                <Button>Button 4</Button>
               </InputGroup>
             </Column>
           </Row>

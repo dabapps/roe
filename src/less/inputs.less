@@ -131,66 +131,54 @@ textarea {
 }
 
 .input-group {
-  display: inline-table !important; // lesshint importantRule: false
+  display: inline-flex;
   width: auto;
-  margin-top: @margin-large;
-  margin-bottom: @margin-large;
+  margin: @margin-large auto;
   border-collapse: separate;
   border-spacing: 0;
 
-  &.block {
-    display: table;
-    width: 100%;
-  }
-
-  & > * { // lesshint universalSelector: false
-    width: 1px;
-  }
-
-  & > label,
-  & > input,
-  & > select,
-  & > button,
-  & > .input-group-addon,
-  & > .input,
-  & > .select,
-  & > .label,
-  & > .button {
-    display: table-cell;
-    margin-top: 0;
-    margin-bottom: 0;
+  input,
+  button,
+  .input-group-addon {
     border: @input-border;
-    border-right: @border-none;
-
-    &:first-child {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    &:last-child {
-      border: @input-border;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-
-    &:not(:last-child):not(:first-child) {
-      border-radius: 0;
-    }
+    border-left: none;
   }
 
-  & > input,
-  & > select,
-  & > .input,
-  & > .select {
+  & > *:first-child {
+    border-left: @input-border;
+    border-top-left-radius: @border-radius-base;
+    border-bottom-left-radius: @border-radius-base;
+  }
+
+  & > *:last-child {
+    border-top-right-radius: @border-radius-base;
+    border-bottom-right-radius: @border-radius-base;
+  }
+
+  & > * {
+    display: inline-flex;
+    height: auto;
+    border-left: none;
+    border-radius: 0;
+  }
+
+  &.block {
+    display: flex;
     width: 100%;
   }
 
-  & > .input-group-addon {
-    vertical-align: middle;
-    height: @input-height;
-    padding: @padding-base / 2 @padding-base;
-    border-radius: @border-radius-base;
-    background-color: @input-group-addon-background;
-    line-height: 1em;
+  .input-group-addon {
+    display: inline-flex;
+    padding: 0 10px;
+    align-items: center;
+  }
+
+  & > input,
+  & > .input,
+  & > select,
+  & > .select {
+    flex-grow: 1;
+    justify-self: stretch;
+    height: auto;
   }
 }
