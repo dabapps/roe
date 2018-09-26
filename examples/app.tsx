@@ -138,7 +138,9 @@ class App extends PureComponent<{}, AppState> {
               </InputGroup>
 
               <InputGroup block>
-                <InputGroupAddon><span>$</span></InputGroupAddon>
+                <InputGroupAddon>
+                  <span>$</span>
+                </InputGroupAddon>
                 <input type="number" />
                 <Button component="div" tabIndex={0}>
                   Done
