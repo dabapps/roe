@@ -131,11 +131,31 @@ textarea {
 }
 
 .input-group {
-  display: inline-flex;
+  display: inline-table;
   width: auto;
   margin: @margin-large auto;
   border-collapse: separate;
   border-spacing: 0;
+
+  &.block {
+    display: table;
+    width: 100%;
+
+    button,
+    .button,
+    .input-group-addon {
+      width: 1%;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+
+    & > input,
+    & > .input,
+    & > select,
+    & > .select {
+      width: 100%;
+    }
+  }
 
   input,
   button,
@@ -162,30 +182,50 @@ textarea {
   }
 
   & > * { // lesshint universalSelector: false
-    display: inline-block;
+    display: table-cell;
     min-height: @input-height;
     border-left-width: none;
     border-radius: 0;
-    vertical-align: top;
-  }
-
-  &.block {
-    display: flex;
-    width: 100%;
+    vertical-align: middle;
+    white-space: nowrap;
   }
 
   .input-group-addon {
-    display: inline-flex;
     padding: @padding-base / 2 @padding-base;
-    align-items: center;
   }
+}
 
-  & > input,
-  & > .input,
-  & > select,
-  & > .select {
-    flex-grow: 1;
-    justify-self: stretch;
-    height: auto;
+@supports (display: flex) {
+  .input-group {
+    display: inline-flex;
+
+    &.block {
+      display: flex;
+
+      & > input,
+      & > .input,
+      & > select,
+      & > .select {
+        flex-grow: 1;
+        justify-self: stretch;
+        width: auto;
+      }
+
+      button,
+      .button,
+      .input-group-addon {
+        width: auto;
+      }
+     }
+
+     button,
+      .button,
+      .input-group-addon {
+        display: inline-flex;
+      }
+
+    .input-group-addon {
+      align-items: center;
+    }
   }
 }
