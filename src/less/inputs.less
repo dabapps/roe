@@ -143,7 +143,6 @@ textarea {
   .input-group-addon {
     border: @input-border;
     border-left-width: 0;
-    min-height: @input-height;
   }
 
   /* IE10 layout fix */
@@ -164,8 +163,10 @@ textarea {
 
   & > * { // lesshint universalSelector: false
     display: inline-block;
+    min-height: @input-height;
     border-left-width: none;
     border-radius: 0;
+    vertical-align: top;
   }
 
   &.block {
@@ -175,7 +176,6 @@ textarea {
 
   .input-group-addon {
     display: inline-flex;
-    height: @input-height;
     padding: @padding-base / 2 @padding-base;
     align-items: center;
   }
