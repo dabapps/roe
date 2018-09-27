@@ -47,6 +47,42 @@ describe('MediaFigure', () => {
   });
 });
 
+describe('MediaFigure', () => {
+  it('should take regular element attributes', () => {
+    const tree = renderer.create(
+      <MediaFigure large>
+        <img src="/images/sample-image.png" />
+      </MediaFigure>
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+});
+
+describe('MediaFigure', () => {
+  it('should take regular element attributes', () => {
+    const tree = renderer.create(
+      <MediaFigure centered>
+        <img src="/images/sample-image.png" />
+      </MediaFigure>
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+});
+
+describe('MediaFigure', () => {
+  it('should take regular element attributes', () => {
+    const tree = renderer.create(
+      <MediaFigure small>
+        <img src="/images/sample-image.png" />
+      </MediaFigure>
+    );
+
+    expect(tree).toMatchSnapshot();
+  });
+});
+
 describe('MediaBody', () => {
   it('should take regular element attributes', () => {
     const tree = renderer.create(<MediaBody>Something</MediaBody>);
