@@ -1,0 +1,74 @@
+.example-image {
+  max-width: 75px;
+}
+
+/* older floated non-flexbox media object */
+.media {
+  overflow: hidden;
+  margin: @media-padding 0;
+}
+
+.media-figure {
+  width: 75px;
+  float: left;
+}
+
+.media-body {
+  width: ~"calc(100% - 75px - "@gutter-width / 2 ~")";
+  float: right;
+}
+
+.media.media-centered {
+  position: relative;
+
+  .media-figure {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.media.media-reversed {
+  .media-figure {
+    float: right;
+  }
+  .media-body {
+    float: left;
+  }
+}
+
+
+/* flexbox media object */
+@supports (display: flex) {
+  .media {
+  display: flex;
+  align-items: flex-start;
+  overflow: inherit;
+}
+
+.media-figure {
+  margin-right: @gutter-width / 2;
+  float: none;
+}
+
+.media-body {
+  flex: 1;
+  float: none;
+  width: auto;
+}
+
+.media.media-centered {
+  align-items: center;
+  /* reset non-float method */
+  .media-figure {
+    position: static;
+    top: 0;
+    transform: translateY(0);
+  }
+}
+
+.media.media-reversed > .media-figure {
+  order: 1;
+  margin: 0 0 0 @gutter-width;
+}
+}

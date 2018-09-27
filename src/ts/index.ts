@@ -15,6 +15,12 @@ export {
 export {
   default as ContentBoxFooter,
 } from './components/content/content-box-footer';
+export {
+  default as Media,
+} from './components/content/media';
+export {
+  default as MediaBody,
+} from './components/content/media-body';
 export { default as CookieBanner } from './components/banners/cookie-banner';
 export { CookieBannerRenderProps } from './components/banners/cookie-banner';
 export { default as DabIpsum } from './components/prototyping/dab-ipsum';
