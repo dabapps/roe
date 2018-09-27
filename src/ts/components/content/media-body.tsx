@@ -6,7 +6,7 @@ import { ComponentProps } from '../../types';
 export type MediaBodyProps = ComponentProps & HTMLProps<HTMLElement>;
 
 /**
- * Box for displaying content within.
+ * Media Body tag used within a Media Object. See `Media` Object examples for usage.
  */
 export class MediaBody extends PureComponent<MediaBodyProps, {}> {
   public render() {

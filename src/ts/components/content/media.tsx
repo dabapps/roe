@@ -3,20 +3,15 @@ import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 
-export interface MediaProps
-  extends ComponentProps,
-  HTMLProps<HTMLElement> {
+export interface MediaProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**
-   * Set the group to `display: block;` so it fills its parent.
+   * flip the order of the Media Object R-T-L
    */
   reversed?: boolean;
-  /**
-   * Reduced spacing between items.
-   */
-  centered?: boolean;
 }
+
 /**
- * Box for displaying content within.
+ * Box for displaying an image and aligned content in - can be used for profile cards, listing cards, anywhere you display an image next to some elements.
  */
 export class Media extends PureComponent<MediaProps, {}> {
   public render() {
@@ -24,7 +19,6 @@ export class Media extends PureComponent<MediaProps, {}> {
       className,
       children,
       reversed,
-      centered,
       component: Component = 'div',
       ...remainingProps
     } = this.props;
@@ -32,15 +26,11 @@ export class Media extends PureComponent<MediaProps, {}> {
     const myClassNames = [
       'media',
       reversed ? 'media-reversed' : null,
-      centered ? 'media-centered' : null,
       className,
     ];
 
     return (
-      <Component
-        {...remainingProps}
-        className={classNames(myClassNames)}
-      >
+      <Component {...remainingProps} className={classNames(myClassNames)}>
         {children}
       </Component>
     );
