@@ -59,3 +59,33 @@ exports[`MediaFigure should take regular element attributes 1`] = `
   />
 </div>
 `;
+
+exports[`MediaFigure should take regular element attributes 2`] = `
+<div
+  className="media-figure media-figure-large"
+>
+  <img
+    src="/images/sample-image.png"
+  />
+</div>
+`;
+
+exports[`MediaFigure should take regular element attributes 3`] = `
+<div
+  className="media-figure media-figure-centered"
+>
+  <img
+    src="/images/sample-image.png"
+  />
+</div>
+`;
+
+exports[`MediaFigure should take regular element attributes 4`] = `
+<div
+  className="media-figure media-figure-small"
+>
+  <img
+    src="/images/sample-image.png"
+  />
+</div>
+`;
