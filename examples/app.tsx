@@ -212,31 +212,30 @@ class App extends PureComponent<{}, AppState> {
                     <dt>Felines</dt>
                     <dd>Tabby</dd>
                     <dd>Ginger</dd>
-                    <dd className="last">Persian</dd>
+                    <dd>Persian</dd>
+                  </dl>
+                  <dl className="inline">
                     <dt>
                       I'm a really really long label that probably will wrap
                     </dt>
                     <dd>
                       <DabIpsum component="text" />
                     </dd>
-                    <dd className="last">
+                    <dd>
                       <DabIpsum component="text" />
                     </dd>
+                  </dl>
+                  <dl className="inline">
                     <dt>Dogs</dt>
                     <dd>Lhasa Apso</dd>
                     <dd>Dalmation</dd>
-                    <dd className="last">Labrador</dd>
+                    <dd>Labrador</dd>
                   </dl>
                   <Alert className="info">
                     <p>
-                      <strong>note:</strong> to use the inline style, you have
-                      to add a <em>last</em> class to the final dd element
-                      before a dt.
-                    </p>
-                    <p>
                       DL lists are notoriously hard to style, so this is the
-                      best you can do really, so only use for lists with limited
-                      things in.
+                      best you can do really, so assuming you have markup
+                      control, use seperate DL lists for each group of DT/DDs
                     </p>
                   </Alert>
                 </Column>

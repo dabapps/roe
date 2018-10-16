@@ -105,10 +105,16 @@
   color: @error;
 }
 
+dl {
+  margin: 0;
+  padding: 0;
+}
+
+dl + dl {
+margin-top: @padding-base;
+}
 
 dl.list {
-  padding: @padding-base;
-
   dt {
     float: left;
     clear: left;
@@ -129,7 +135,6 @@ dl.list {
 }
 
 dl.stacked {
-  padding: @padding-base;
 
   dt {
     font-weight: @font-weight-bold;
@@ -150,7 +155,6 @@ dl.stacked {
 }
 
 dl.inline {
-   padding: @padding-base;
 
   dt,
   dd {
@@ -173,9 +177,7 @@ dl.inline {
     content: ', ';
   }
 
-  dd.last:after {
-    content: '\A';
-    white-space: pre;
+  dd:last-child:after {
+    content: '';
   }
-
 }

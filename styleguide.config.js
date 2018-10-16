@@ -104,6 +104,10 @@ var less = [
     content: 'src/less/text-align.examples.md'
   },
   {
+    name: 'Definition Lists',
+    content: 'src/less/definition-list.examples.md'
+  },
+  {
     name: 'Variables',
     content: 'src/less/variables.examples.md'
   }
