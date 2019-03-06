@@ -134,8 +134,8 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       minHeight,
       maxHeight: opened ? 'auto' : height,
       position: 'relative' as 'relative',
-      overflow: 'hidden' as 'hidden',
-      transition: `ease-in-out ${animationDuration}ms max-height`
+      overflow: (!opened ? 'hidden' : 'initial') as 'hidden' | 'initial',
+      transition: `ease-in-out ${animationDuration}ms max-height`,
     };
 
     const fadeStyle = {
