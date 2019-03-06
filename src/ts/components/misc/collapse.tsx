@@ -151,7 +151,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       minHeight,
       maxHeight: opened ? null : height,
       position: 'relative' as 'relative',
-      overflow: 'hidden' as 'hidden',
+      overflow: (!opened ? 'hidden' : 'initial') as 'hidden' | 'initial',
       transition: `ease-in-out ${animationDuration}ms max-height`,
     };
 
