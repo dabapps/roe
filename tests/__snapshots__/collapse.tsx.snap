@@ -10,9 +10,9 @@ exports[`Collapse should close to custom height 1`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "maxHeight": "auto",
-        "minHeight": "auto",
-        "overflow": "hidden",
+        "maxHeight": null,
+        "minHeight": null,
+        "overflow": "initial",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
       }
@@ -138,9 +138,9 @@ exports[`Collapse should close to default height 1`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "maxHeight": "auto",
-        "minHeight": "auto",
-        "overflow": "hidden",
+        "maxHeight": null,
+        "minHeight": null,
+        "overflow": "initial",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
       }
@@ -274,9 +274,9 @@ exports[`Collapse should match snapshot when expanded 1`] = `
   className="clearfix collapse collapse-open"
   style={
     Object {
-      "maxHeight": "auto",
-      "minHeight": "auto",
-      "overflow": "hidden",
+      "maxHeight": null,
+      "minHeight": null,
+      "overflow": "initial",
       "position": "relative",
       "transition": "ease-in-out 200ms max-height",
     }
@@ -507,9 +507,9 @@ exports[`Collapse should open from custom height 4`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "maxHeight": "auto",
-        "minHeight": "auto",
-        "overflow": "hidden",
+        "maxHeight": null,
+        "minHeight": null,
+        "overflow": "initial",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
       }
@@ -632,9 +632,9 @@ exports[`Collapse should open from default height 4`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "maxHeight": "auto",
-        "minHeight": "auto",
-        "overflow": "hidden",
+        "maxHeight": null,
+        "minHeight": null,
+        "overflow": "initial",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
       }
