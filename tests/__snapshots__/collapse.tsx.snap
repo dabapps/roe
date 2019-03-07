@@ -1,65 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Collapse should accept custom duration 1`] = `
-<Collapse
-  animationDuration={100}
-  open={false}
->
-  <div
-    className="clearfix collapse"
-    style={
-      Object {
-        "maxHeight": 0,
-        "minHeight": null,
-        "overflow": "hidden",
-        "position": "relative",
-        "transition": "ease-in-out 100ms max-height",
-      }
-    }
-  />
-</Collapse>
-`;
-
-exports[`Collapse should accept custom duration 2`] = `
-<Collapse
-  animationDuration={100}
-  open={true}
->
-  <div
-    className="clearfix collapse collapse-open"
-    style={
-      Object {
-        "maxHeight": 0,
-        "minHeight": null,
-        "overflow": "hidden",
-        "position": "relative",
-        "transition": "ease-in-out 100ms max-height",
-      }
-    }
-  />
-</Collapse>
-`;
-
-exports[`Collapse should accept custom duration 3`] = `
-<Collapse
-  animationDuration={100}
-  open={true}
->
-  <div
-    className="clearfix collapse collapse-open"
-    style={
-      Object {
-        "maxHeight": 0,
-        "minHeight": null,
-        "overflow": "hidden",
-        "position": "relative",
-        "transition": "ease-in-out 100ms max-height",
-      }
-    }
-  />
-</Collapse>
-`;
-
 exports[`Collapse should close to custom height 1`] = `
 <Collapse
   fadeOut={true}
@@ -72,7 +12,7 @@ exports[`Collapse should close to custom height 1`] = `
       Object {
         "maxHeight": null,
         "minHeight": null,
-        "overflow": "hidden",
+        "overflow": "initial",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
       }
@@ -200,7 +140,7 @@ exports[`Collapse should close to default height 1`] = `
       Object {
         "maxHeight": null,
         "minHeight": null,
-        "overflow": "hidden",
+        "overflow": "initial",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
       }
@@ -335,6 +275,21 @@ exports[`Collapse should match snapshot when expanded 1`] = `
   style={
     Object {
       "maxHeight": null,
+      "minHeight": null,
+      "overflow": "initial",
+      "position": "relative",
+      "transition": "ease-in-out 200ms max-height",
+    }
+  }
+/>
+`;
+
+exports[`Collapse should match snapshot with custom animation duration 1`] = `
+<div
+  className="clearfix collapse"
+  style={
+    Object {
+      "maxHeight": 0,
       "minHeight": null,
       "overflow": "hidden",
       "position": "relative",
@@ -554,7 +509,7 @@ exports[`Collapse should open from custom height 4`] = `
       Object {
         "maxHeight": null,
         "minHeight": null,
-        "overflow": "hidden",
+        "overflow": "initial",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
       }
@@ -679,7 +634,7 @@ exports[`Collapse should open from default height 4`] = `
       Object {
         "maxHeight": null,
         "minHeight": null,
-        "overflow": "hidden",
+        "overflow": "initial",
         "position": "relative",
         "transition": "ease-in-out 200ms max-height",
       }
