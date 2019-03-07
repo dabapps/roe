@@ -71,7 +71,7 @@
     "enzyme-adapter-react-15": "1.0.5",
     "enzyme-to-json": "3.2.2",
     "eslint": "3.19.0",
-    "eslint-config-dabapps": "github:dabapps/eslint-config-dabapps",
+    "eslint-config-dabapps": "github:dabapps/eslint-config-dabapps#v3.1.1",
     "http-server": "0.9.0",
     "jest": "20.0.3",
     "less-loader": "4.0.5",
