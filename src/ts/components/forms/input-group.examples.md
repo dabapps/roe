@@ -11,6 +11,13 @@ Note: for buttons to render correctly you must set their `component` prop to som
     </Button>
   </InputGroup>
 
+  <InputGroup>
+    <input type="number" />
+    <Button component="div" type="submit" tabIndex={0}>
+      Done
+    </Button>
+  </InputGroup>
+
   <InputGroup block>
     <InputGroupAddon>
       $
