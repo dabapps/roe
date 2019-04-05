@@ -6,7 +6,7 @@
   cursor: pointer;
   background-color: transparent;
   transition: ease-in-out 0.2s background-color;
-  border-radius: @border-radius-base;
+  border-radius: @button-border-radius;
 
   &::before {
     content: '';
@@ -43,7 +43,7 @@
     color: @background;
   }
 
-  &.hollow::after {
+  &.hollow {
     border-color: @background;
   }
 
@@ -83,13 +83,15 @@
   }
 
   &.large {
-    font-size: @font-size-large;
-    padding: @padding-large / 2 @padding-large;
+    font-size: @font-size-button-large;
+    line-height: @line-height-button-large;
+    padding: @button-padding-vertical-large @button-padding-horizontal-large;
   }
 
   &.small {
-    font-size: @font-size-small;
-    padding: @padding-small / 2 @padding-small;
+    font-size: @font-size-button-small;
+    line-height: @line-height-button-small;
+    padding: @button-padding-vertical-small @button-padding-horizontal-small;
   }
 
   &.link {
@@ -125,21 +127,18 @@
 
   &.hollow {
     color: @background;
+    border: @button-border-width solid @background;
+    padding: @button-padding-vertical-base - @button-border-width
+      @button-padding-horizontal-base - @button-border-width;
 
-    &::after {
-      content: '';
-      box-sizing: border-box;
-      pointer-events: none;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border: @button-border-width solid @background;
-      border-radius: @border-radius-base;
-      // Fixes a Chrome rendering bug
-      transform: translate3d(0, 0, 0); // DO NOT CHANGE
-      width: 99.99%; // DO NOT CHANGE
-      height: 99.99%; // DO NOT CHANGE
+    &.large {
+      padding: @button-padding-vertical-large - @button-border-width
+      @button-padding-horizontal-large - @button-border-width;
+    }
+
+    &.small {
+      padding: @button-padding-vertical-small - @button-border-width
+      @button-padding-horizontal-small - @button-border-width;
     }
 
     &:hover:not([disabled]):not(.disabled) {
@@ -148,11 +147,7 @@
   }
 
   &.pill {
-    border-radius: @padding-base * 2;
-
-    &::after {
-      border-radius: @padding-base * 2;
-    }
+    border-radius: @button-border-radius-pill;
   }
 
   a {
