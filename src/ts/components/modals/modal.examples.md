@@ -199,7 +199,7 @@ class ModalExample extends React.Component {
 @modal-width-base-md: @screen-md;
 @modal-width-small-md: @screen-sm;
 @modal-width-large-lg: @screen-lg;
-@modal-w-dth-large-xl: @screen-xl;
+@modal-width-large-xl: @screen-xl;
 
 @modal-z-index: 1100;
 ```
