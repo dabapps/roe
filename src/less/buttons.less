@@ -130,16 +130,14 @@
       content: '';
       box-sizing: border-box;
       pointer-events: none;
-      display: block;
+      display: table;
       position: absolute;
       top: 0;
       left: 0;
       border: @button-border-width solid @background;
       border-radius: @border-radius-base;
-      // Fixes a Chrome rendering bug
-      transform: translate3d(0, 0, 0); // DO NOT CHANGE
-      width: 99.99%; // DO NOT CHANGE
-      height: 99.99%; // DO NOT CHANGE
+      width: 100%;
+      height: 100%;
     }
 
     &:hover:not([disabled]):not(.disabled) {
