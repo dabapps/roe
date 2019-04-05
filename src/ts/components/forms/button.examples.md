@@ -110,7 +110,19 @@ You can then use your custom buttons by supplying the name you provided to the m
 @button-text-color-light: @grey-lightest;
 @button-background-default: @grey-medium;
 @button-background-hollow: transparent;
+@button-border-radius: @border-radius-base;
+@button-border-radius-pill: 100px;
+@button-padding-vertical-base: @padding-base / 2;
+@button-padding-vertical-large: @padding-large / 2;
+@button-padding-vertical-small: @padding-small / 2;
+@button-padding-horizontal-base: @padding-base;
+@button-padding-horizontal-large: @padding-large;
+@button-padding-horizontal-small: @padding-small;
 
 @font-size-button: 1em;
 @line-height-button: 1.3em;
+@font-size-button-large: @font-size-large;
+@line-height-button-large: @line-height-button;
+@font-size-button-small: @font-size-small;
+@line-height-button-small: @line-height-button;
 ```
