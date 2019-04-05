@@ -74,15 +74,35 @@ class App extends PureComponent<{}, AppState> {
           <h1>Example</h1>
 
           <Row>
-            <Column className="display-flex">
-              <Button block className="pill">
-                Pill
+            <Column>
+              <Button className="pill">Pill</Button>
+              <Button className="hollow">Hollow</Button>
+              <Button className="hollow pill">Hollow pill</Button>
+              <Button className="hollow primary">Hollow primary</Button>
+              <Button className="hollow pill secondary">
+                Hollow pill secondary
               </Button>
-              <Button block className="hollow">
-                Hollow
+            </Column>
+            <Column>
+              <Button className="small pill">Small pill</Button>
+              <Button className="small hollow">Small hollow</Button>
+              <Button className="small hollow pill">Small hollow pill</Button>
+              <Button className="small hollow primary">
+                Small hollow primary
               </Button>
-              <Button block className="hollow pill">
-                Hollow pill
+              <Button className="small hollow pill secondary">
+                Small hollow pill secondary
+              </Button>
+            </Column>
+            <Column>
+              <Button className="large pill">Large pill</Button>
+              <Button className="large hollow">Large hollow</Button>
+              <Button className="large hollow pill">Large hollow pill</Button>
+              <Button className="large hollow primary">
+                Large hollow primary
+              </Button>
+              <Button className="large hollow pill secondary">
+                Large hollow pill secondary
               </Button>
             </Column>
           </Row>

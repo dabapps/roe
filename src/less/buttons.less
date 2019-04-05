@@ -43,7 +43,7 @@
     color: @background;
   }
 
-  &.hollow::after {
+  &.hollow {
     border-color: @background;
   }
 
@@ -127,19 +127,15 @@
 
   &.hollow {
     color: @background;
+    border: @button-border-width solid @background;
+    padding: @button-padding-vertical-base - @button-border-width @button-padding-horizontal-base - @button-border-width;
 
-    &::after {
-      content: '';
-      box-sizing: border-box;
-      pointer-events: none;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border: @button-border-width solid @background;
-      border-radius: @button-border-radius;
-      width: 100%;
-      height: 100%;
+    &.large {
+      padding: @button-padding-vertical-large - @button-border-width @button-padding-horizontal-large - @button-border-width;
+    }
+
+    &.small {
+      padding: @button-padding-vertical-small - @button-border-width @button-padding-horizontal-small - @button-border-width;
     }
 
     &:hover:not([disabled]):not(.disabled) {
@@ -149,10 +145,6 @@
 
   &.pill {
     border-radius: @button-border-radius-pill;
-
-    &::after {
-      border-radius: @button-border-radius-pill;
-    }
   }
 
   a {
