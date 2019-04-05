@@ -74,6 +74,21 @@ class App extends PureComponent<{}, AppState> {
           <h1>Example</h1>
 
           <Row>
+            <Column className="display-flex">
+              <Button block className="pill">
+                Pill
+              </Button>
+              <Button block className="hollow">
+                Hollow
+              </Button>
+              <Button block className="hollow pill">
+                Hollow pill
+              </Button>
+            </Column>
+          </Row>
+
+
+          <Row>
             <Column md={6}>
               <DabIpsum />
             </Column>
