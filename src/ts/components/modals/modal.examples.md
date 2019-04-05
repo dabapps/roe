@@ -135,7 +135,7 @@ class ModalExample extends React.Component {
             </h5>
           </ModalHeader>
           <ModalBody>
-            <DabIpsum />
+            <DabIpsum count={30} />
           </ModalBody>
           <ModalFooter>
             <SpacedGroup block className="margin-vertical-base">
