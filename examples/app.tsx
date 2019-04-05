@@ -87,7 +87,6 @@ class App extends PureComponent<{}, AppState> {
             </Column>
           </Row>
 
-
           <Row>
             <Column md={6}>
               <DabIpsum />
