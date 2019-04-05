@@ -18,6 +18,7 @@ class ModalExample extends React.Component {
     this.onClickOpenModal = this.onClickOpenModal.bind(this);
     this.onClickOpenScrollableModal = this.onClickOpenScrollableModal.bind(this);
     this.onClickOpenSmallModal = this.onClickOpenSmallModal.bind(this);
+    this.onClickOpenLargeModal = this.onClickOpenLargeModal.bind(this);
     this.onClickCloseModal = this.onClickCloseModal.bind(this);
   }
 
@@ -120,6 +121,37 @@ class ModalExample extends React.Component {
     });
   }
 
+  onClickOpenLargeModal () {
+    this.setState({
+      modals: [
+        <Modal large scrollable onClickOutside={this.onClickCloseModal}>
+          <ModalHeader>
+            <ModalCloseIcon onClick={this.onClickCloseModal}>
+              {/* Replace this char with an icon */}
+              {X_CHAR}
+            </ModalCloseIcon>
+            <h5>
+              Header
+            </h5>
+          </ModalHeader>
+          <ModalBody>
+            <DabIpsum count={30} />
+          </ModalBody>
+          <ModalFooter>
+            <SpacedGroup block className="margin-vertical-base">
+              <Button onClick={this.onClickCloseModal}>
+                Cancel
+              </Button>
+              <Button className="primary" onClick={this.onClickCloseModal}>
+                Done
+              </Button>
+            </SpacedGroup>
+          </ModalFooter>
+        </Modal>
+      ]
+    });
+  }
+
   render () {
     const { modals } = this.state;
 
@@ -135,6 +167,10 @@ class ModalExample extends React.Component {
 
         <Button block onClick={this.onClickOpenSmallModal}>
           Open small modal example
+        </Button>
+
+        <Button block onClick={this.onClickOpenLargeModal}>
+          Open large modal example
         </Button>
 
         <ModalRenderer modals={modals} />
@@ -158,6 +194,12 @@ class ModalExample extends React.Component {
 
 @modal-margin-vertical: @gutter-width / 2;
 @modal-margin-horizontal: @gutter-width / 2;
+
+@modal-width-base-sm: @screen-sm;
+@modal-width-base-md: @screen-md;
+@modal-width-small-md: @screen-sm;
+@modal-width-large-lg: @screen-lg;
+@modal-width-large-xl: @screen-xl;
 
 @modal-z-index: 1100;
 ```
