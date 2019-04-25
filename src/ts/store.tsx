@@ -1,9 +1,11 @@
 import * as React from 'react';
 
+/** @internal */
 export type ComponentType<P> =
   | React.ComponentClass<P>
   | React.StatelessComponent<P>;
 
+/** @internal */
 export type StoreState = Partial<{
   hasFixedNavBar: boolean;
   hasStickyFooter: boolean;
@@ -11,8 +13,10 @@ export type StoreState = Partial<{
   footerHeight: number;
 }>;
 
+/** @internal */
 export type StoreListener = (state: StoreState) => any;
 
+/** @internal */
 export class Store {
   private state: StoreState = {};
   private listeners: StoreListener[] = [];
@@ -55,4 +59,5 @@ export class Store {
   };
 }
 
+/** @internal */
 export default new Store();
