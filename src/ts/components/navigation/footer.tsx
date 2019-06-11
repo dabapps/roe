@@ -10,10 +10,10 @@ export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Fix the footer to the bottom of the window when there is not enough content to push it down.
    */
   sticky?: boolean;
-  fixed?: boolean;
   /**
    * Fix the footer to the bottom of the screen always
    */
+  fixed?: boolean;
 }
 
 export class Footer extends PureComponent<FooterProps, {}> {
