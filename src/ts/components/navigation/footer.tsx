@@ -25,7 +25,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
   public componentWillUpdate(nextProps: FooterProps) {
     if (
       Boolean(this.props.sticky || this.props.fixed) !==
-      Boolean(nextProps.sticky || this.props.fixed)
+      Boolean(nextProps.sticky || nextProps.fixed)
     ) {
       this.notifyAppRoot(nextProps);
       this.toggleResizeListeners(nextProps);
