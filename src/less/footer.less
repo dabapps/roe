@@ -3,17 +3,18 @@
   background-color: @footer-background;
   border-top: @footer-border;
 
-  &.sticky {
-    position: absolute;
+  &.sticky,
+  &.fixed {
     left: 0;
     bottom: 0;
     width: 100%;
   }
 
+  &.sticky {
+    position: absolute;
+  }
+
   &.fixed {
     position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
   }
 }
