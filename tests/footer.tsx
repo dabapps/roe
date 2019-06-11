@@ -152,7 +152,9 @@ describe('Footer', () => {
         top: 0,
       });
 
-      jest.spyOn(ReactDOM, 'findDOMNode').mockReturnValue(fakeElement);
+      const findDOMNodeSpy = jest
+        .spyOn(ReactDOM, 'findDOMNode')
+        .mockReturnValue(fakeElement);
 
       enzyme.mount(<Footer sticky />);
 
@@ -171,6 +173,8 @@ describe('Footer', () => {
         hasStickyFooter: true,
         footerHeight: 20,
       });
+
+      findDOMNodeSpy.mockReset();
     });
   });
 
@@ -282,7 +286,9 @@ describe('Footer', () => {
         top: 0,
       });
 
-      jest.spyOn(ReactDOM, 'findDOMNode').mockReturnValue(fakeElement);
+      const findDOMNodeSpy = jest
+        .spyOn(ReactDOM, 'findDOMNode')
+        .mockReturnValue(fakeElement);
 
       enzyme.mount(<Footer fixed />);
 
@@ -301,6 +307,8 @@ describe('Footer', () => {
         hasStickyFooter: true,
         footerHeight: 20,
       });
+
+      findDOMNodeSpy.mockReset();
     });
   });
 });
