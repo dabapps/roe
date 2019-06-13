@@ -6,5 +6,8 @@
     "listEmittedFiles": true,
     "rootDir": "./src/ts/",
     "outDir": "./dist/js/"
-  }
+  },
+  "include": [
+    "./src/ts/"
+  ]
 }
