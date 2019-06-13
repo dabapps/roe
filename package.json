@@ -125,7 +125,7 @@
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "testRegex": "(/tests/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",
+    "testRegex": "tests/.+\\.(ts|tsx|js|jsx)$",
     "testPathIgnorePatterns": [
       "<rootDir>/tests/helpers/"
     ],
