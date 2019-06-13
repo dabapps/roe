@@ -8,15 +8,15 @@
     "target": "es5",
     "module": "commonjs",
     "typeRoots": [
-      "node_modules/@types/",
-      "types/"
+      "./node_modules/@types/",
+      "./@types/"
     ],
     "baseUrl": "./src/ts/"
   },
-  "exclude": [
-    "node_modules/*",
-    "dist/*",
-    "docs/*",
-    "styleguide/*"
+  "include": [
+    "./src/ts/",
+    "./tests/",
+    "./@types/",
+    "./examples/"
   ]
 }

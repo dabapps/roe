@@ -18,7 +18,7 @@
     "test-dist": "npm run test-dist-react-15 && npm run test-dist-react-16",
     "tests": "jest",
     "test": "npm run prettier-check && npm run lint && npm run tests -- --coverage --runInBand && npm run test-dist",
-    "budo": "budo src/less/index.less examples/index.tsx --live -- -t node-lessify -p [tsify -p examples/tsconfig.json]",
+    "budo": "budo src/less/index.less examples/index.tsx --live -- -t node-lessify -p [tsify -p tsconfig.examples.json]",
     "prepublishOnly": "./scripts/dist"
   },
   "repository": {
@@ -126,7 +126,7 @@
     "transform": {
       "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
     },
-    "testRegex": "(/tests/.*|\\.(test|spec))\\.(ts|tsx|js|jsx)$",
+    "testRegex": "tests/.+\\.(ts|tsx|js|jsx)$",
     "testPathIgnorePatterns": [
       "<rootDir>/tests/helpers/"
     ],
