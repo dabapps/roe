@@ -3,7 +3,7 @@
   "compilerOptions": {
     "declaration": true,
     "sourceMap": true,
-    "listFiles": true,
+    "listEmittedFiles": true,
     "rootDir": "./src/ts/",
     "outDir": "./dist/js/"
   }
