@@ -1,1 +1,17 @@
+/node_modules/*
+/coverage/*
+/.nyc_output/*
 !/dist/*
+/docs/build/*
+/styleguide/*
+.vscode/*
+
+.DS_Store
+npm-debug.log*
+
+# Ignored from pacakge, but not git
+/docs/*
+/examples/*
+/scripts/*
+/styleguide/*
+/tests/*
