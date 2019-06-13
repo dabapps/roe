@@ -103,6 +103,7 @@
   },
   "peerDependencies": {
     "less": "^2.7.3",
+    "normalize.css": "^6.0.0",
     "react": ">= 15",
     "react-dom": ">= 15",
     "react-transition-group": ">= 1 < 2"
