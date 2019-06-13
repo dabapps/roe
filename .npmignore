@@ -8,3 +8,10 @@
 
 .DS_Store
 npm-debug.log*
+
+# Ignored from pacakge, but not git
+/docs/*
+/examples/*
+/scripts/*
+/styleguide/*
+/tests/*
