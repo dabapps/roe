@@ -6,7 +6,7 @@ import { ComponentProps } from '../../types';
 export type ContentBoxHeaderProps = ComponentProps & HTMLProps<HTMLElement>;
 
 /**
- * Footer for `ContentBox`s, used to display a content's title.
+ * Header for `ContentBox`s, used to display a content's title.
  * See the [ContentBox](#contentbox) section for a full example.
  */
 export class ContentBoxHeader extends PureComponent<ContentBoxHeaderProps, {}> {
