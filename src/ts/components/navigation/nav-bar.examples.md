@@ -17,6 +17,37 @@ class NavBarExample extends React.Component {
 
     return (
       <div>
+        <NavBar fixed={type === 'fixed'} shy={type === 'shy'} dark>
+          <Column>
+            <h1 className="font-size-large display-inline-block margin-bottom-none margin-top-small">
+              Title
+            </h1>
+
+            <Nav className="float-right">
+              <NavItem active>
+                <a>
+                  One
+                </a>
+              </NavItem>
+              <NavItem>
+                <a>
+                  Two
+                </a>
+              </NavItem>
+              <NavItem>
+                <a>
+                  Three
+                </a>
+              </NavItem>
+              <NavItem className="button hollow primary">
+                <a>
+                  Logout
+                </a>
+              </NavItem>
+            </Nav>
+          </Column>
+        </NavBar>
+
         <NavBar fixed={type === 'fixed'} shy={type === 'shy'}>
           <Column>
             <h1 className="font-size-large display-inline-block margin-bottom-none margin-top-small">
