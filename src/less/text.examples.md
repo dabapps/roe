@@ -30,6 +30,9 @@
     <span className="bold italic">
       bold italic
     </span>
+    <span className="underlined">
+      underlined
+    </span>
   </SpacedGroup>
 
   <SpacedGroup block className="margin-vertical-base">
