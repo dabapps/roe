@@ -26,5 +26,8 @@ Note: `text-align-left` is an alias for `xs-text-align-left`, same for `right` a
       xs-text-align-center sm-text-align-left
     </strong> - centered on mobile, and left on larger screens
   </p>
+  <p className="text-align-justify">
+    <strong>text-align-justify</strong> - I'm justified. I fill the space exactly (except on the last line), even if I have to stretch a bit at times. Content spaces out such that as many blocks fit onto one line as possible.
+  </p>
 </div>
 ```
