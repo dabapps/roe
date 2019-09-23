@@ -20,6 +20,7 @@ export interface NavBarProps extends ComponentProps, HTMLProps<HTMLElement> {
    */
   noShadow?: boolean;
   dark?: boolean;
+  light?: boolean;
 }
 
 export interface NavBarState {
@@ -76,6 +77,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
       fixed,
       shy,
       dark,
+      light,
       noShadow,
       component: Component = 'div',
       ...remainingProps
@@ -89,7 +91,8 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
       shy ? 'shy' : null,
       hidden ? 'hidden' : null,
       noShadow ? 'no-shadow' : null,
-      dark ? 'dark' : 'light',
+      dark ? 'dark' : null,
+      light ? 'light' : null,
       className,
     ];
 

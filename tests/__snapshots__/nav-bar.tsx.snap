@@ -34,6 +34,12 @@ exports[`NavBar should apply the hidden class 1`] = `
 </NavBar>
 `;
 
+exports[`NavBar should apply the light class 1`] = `
+<div
+  className="nav-bar light"
+/>
+`;
+
 exports[`NavBar should match snapshot 1`] = `
 <div
   className="nav-bar"

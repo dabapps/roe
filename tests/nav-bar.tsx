@@ -44,7 +44,7 @@ describe('NavBar', () => {
   });
 
   it('should take regular element attributes', () => {
-    const tree = renderer.create(<NavBar dark className="my-class" />);
+    const tree = renderer.create(<NavBar className="my-class" />);
 
     expect(tree).toMatchSnapshot();
   });
@@ -69,6 +69,12 @@ describe('NavBar', () => {
 
   it('should apply the dark class', () => {
     const tree = renderer.create(<NavBar dark />);
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should apply the light class', () => {
+    const tree = renderer.create(<NavBar light />);
 
     expect(tree).toMatchSnapshot();
   });
