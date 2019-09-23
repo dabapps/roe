@@ -18,6 +18,12 @@ exports[`NavBar should apply shy class 1`] = `
 />
 `;
 
+exports[`NavBar should apply the dark class 1`] = `
+<div
+  className="nav-bar dark"
+/>
+`;
+
 exports[`NavBar should apply the hidden class 1`] = `
 <NavBar
   shy={true}
