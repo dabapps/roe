@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
-import { getHref } from '../utils';
+import { getHref } from '../../utils';
 
-export type AnchorProps = HTMLProps<HTMLElement>;
+export type AnchorProps = HTMLProps<HTMLAnchorElement>;
 
 /**
  * Link component that automatically creates an id and hash href that match, for linking to elements on a single page.

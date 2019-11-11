@@ -21,6 +21,10 @@
     .spacing-styles(@style, 0);
   }
 
+  .@{prefix}-@{style}-auto {
+    .spacing-styles(@style, auto);
+  }
+
   .@{prefix}-@{style}-base {
     .spacing-styles(@style, @value-base);
   }
@@ -35,6 +39,10 @@
 
   .@{prefix}-@{style}-vertical-none {
     .spacing-vertical-styles(@style, 0);
+  }
+
+  .@{prefix}-@{style}-vertical-auto {
+    .spacing-vertical-styles(@style, auto);
   }
 
   .@{prefix}-@{style}-vertical-base {
@@ -53,6 +61,10 @@
     .spacing-horizontal-styles(@style, 0);
   }
 
+  .@{prefix}-@{style}-horizontal-auto {
+    .spacing-horizontal-styles(@style, auto);
+  }
+
   .@{prefix}-@{style}-horizontal-base {
     .spacing-horizontal-styles(@style, @value-base);
   }
@@ -67,6 +79,10 @@
 
   .@{prefix}-@{style}-top-none {
     .spacing-directional-styles(@style, 0, top);
+  }
+
+  .@{prefix}-@{style}-top-auto {
+    .spacing-directional-styles(@style, 0, toauto);
   }
 
   .@{prefix}-@{style}-top-base {
@@ -85,6 +101,10 @@
     .spacing-directional-styles(@style, 0, right);
   }
 
+  .@{prefix}-@{style}-right-auto {
+    .spacing-directional-styles(@style, 0, righauto);
+  }
+
   .@{prefix}-@{style}-right-base {
     .spacing-directional-styles(@style, @value-base, right);
   }
@@ -101,6 +121,10 @@
     .spacing-directional-styles(@style, 0, bottom);
   }
 
+  .@{prefix}-@{style}-bottom-auto {
+    .spacing-directional-styles(@style, 0, bottoauto);
+  }
+
   .@{prefix}-@{style}-bottom-base {
     .spacing-directional-styles(@style, @value-base, bottom);
   }
@@ -115,6 +139,10 @@
 
   .@{prefix}-@{style}-left-none {
     .spacing-directional-styles(@style, 0, left);
+  }
+
+  .@{prefix}-@{style}-left-auto {
+    .spacing-directional-styles(@style, 0, lefauto);
   }
 
   .@{prefix}-@{style}-left-base {
@@ -134,6 +162,10 @@
       .spacing-styles(@style, 0);
     }
 
+    .@{style}-auto {
+      .spacing-styles(@style, auto);
+    }
+
     .@{style}-base {
       .spacing-styles(@style, @value-base);
     }
@@ -148,6 +180,10 @@
 
     .@{style}-vertical-none {
       .spacing-vertical-styles(@style, 0);
+    }
+
+    .@{style}-vertical-auto {
+      .spacing-vertical-styles(@style, auto);
     }
 
     .@{style}-vertical-base {
@@ -166,6 +202,10 @@
       .spacing-horizontal-styles(@style, 0);
     }
 
+    .@{style}-horizontal-auto {
+      .spacing-horizontal-styles(@style, auto);
+    }
+
     .@{style}-horizontal-base {
       .spacing-horizontal-styles(@style, @value-base);
     }
@@ -180,6 +220,10 @@
 
     .@{style}-top-none {
       .spacing-directional-styles(@style, 0, top);
+    }
+
+    .@{style}-top-auto {
+      .spacing-directional-styles(@style, 0, toauto);
     }
 
     .@{style}-top-base {
@@ -202,6 +246,10 @@
       .spacing-directional-styles(@style, 0, right);
     }
 
+    .@{style}-right-auto {
+      .spacing-directional-styles(@style, 0, righauto);
+    }
+
     .@{style}-right-small {
       .spacing-directional-styles(@style, @value-small, right);
     }
@@ -212,6 +260,10 @@
 
     .@{style}-bottom-none {
       .spacing-directional-styles(@style, 0, bottom);
+    }
+
+    .@{style}-bottom-auto {
+      .spacing-directional-styles(@style, 0, bottoauto);
     }
 
     .@{style}-bottom-base {
@@ -228,6 +280,10 @@
 
     .@{style}-left-none {
       .spacing-directional-styles(@style, 0, left);
+    }
+
+    .@{style}-left-auto {
+      .spacing-directional-styles(@style, 0, lefauto);
     }
 
     .@{style}-left-base {

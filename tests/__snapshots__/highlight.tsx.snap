@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Highlight should match snapshot 1`] = `
+<div
+  className="highlight"
+>
+  <span />
+  <div
+    className="highlight-content"
+    style={undefined}
+  >
+    <p>
+      Hello, World!
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Highlight should match snapshot with props (open) 1`] = `
+<div
+  className="highlight"
+>
+  <span>
+    <div
+      className="highlight-overlay"
+    />
+  </span>
+  <div
+    className="highlight-content open"
+    style={undefined}
+  >
+    <p>
+      Hello, World!
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Highlight should match snapshot with props (open, disabled, backgroundColor) 1`] = `
+<div
+  className="highlight"
+>
+  <span>
+    <div
+      className="highlight-overlay"
+    />
+  </span>
+  <div
+    className="highlight-content open"
+    style={
+      Object {
+        "backgroundColor": "white",
+      }
+    }
+  >
+    <p>
+      Hello, World!
+    </p>
+    <div
+      className="highlight-overlay-disabled"
+    />
+  </div>
+</div>
+`;

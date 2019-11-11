@@ -88,4 +88,6 @@ class NavBarExample extends React.Component {
 @nav-bar-background: @body-background; // @white;
 @nav-bar-border: @border-base;
 @nav-bar-height: @input-height + @padding-base * 2;
+
+@nav-bar-z-index: 500;
 ```

@@ -4,6 +4,29 @@
 var fs = require('fs');
 var path = require('path');
 
+var introduction = [
+  {
+    name: 'About',
+    content: 'docs/introduction/about.md'
+  },
+  {
+    name: 'Development status',
+    content: 'docs/introduction/development-status.md'
+  },
+  {
+    name: 'Installation',
+    content: 'docs/introduction/installation.md'
+  },
+  {
+    name: 'Getting started',
+    content: 'docs/introduction/getting-started.md'
+  },
+  {
+    name: 'Contributing',
+    content: 'docs/introduction/contributing.md'
+  }
+];
+
 var components = [
   {
     name: 'App',
@@ -47,8 +70,12 @@ var components = [
   },
   {
     name: 'Misc',
-    components: 'src/ts/components/*.tsx'
-  }
+    components: 'src/ts/components/misc/**/*.tsx'
+  },
+  {
+    name: 'Precomposed',
+    components: 'src/ts/components/precomposed/*.tsx'
+  },
 ];
 
 var less = [
@@ -59,6 +86,10 @@ var less = [
   {
     name: 'Atomic padding & margin classes',
     content: 'src/less/padding-and-margin.examples.md'
+  },
+  {
+    name: 'Atomic display classes',
+    content: 'src/less/display.examples.md'
   },
   {
     name: 'Atomic position classes',
@@ -106,7 +137,7 @@ function updateExample (props, exampleFilePath) {
 }
 
 var lessLoader = {
-  test: /\.less$/,
+  test: /\.(?:less|css)$/,
   use: [
     'style-loader', // creates style nodes from JS strings
     'css-loader', // translates CSS into CommonJS
@@ -124,11 +155,16 @@ var lessLoader = {
 
 var webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
 
-webpackConfig.module.rules[2].oneOf[2] = lessLoader;
+webpackConfig.module.rules[1].oneOf[3] = lessLoader;
+
 
 var reactDocGenTypescriptConfig = {
-  propFilter: {
-    skipPropsWithoutDoc: true
+  propFilter: function (prop/*, component*/) {
+    if (prop.description && prop.name.indexOf('aria-') !== 0) {
+      return true;
+    }
+
+    return false;
   }
 };
 
@@ -145,11 +181,18 @@ module.exports = {
   getExampleFilename: getExampleFilename,
   updateExample: updateExample,
   assetsDir: path.join(__dirname, 'docs/static/'),
-  template: path.join(__dirname, 'docs/templates/index.html'),
+  template: {
+    favicon: 'images/roe-favicon.png'
+  },
   styleguideComponents: {
     Logo: path.join(__dirname, 'docs/components/logo'),
   },
   sections: [
+    {
+      name: 'Introduction',
+      content: 'docs/introduction/description.md',
+      sections: introduction
+    },
     {
       name: 'Components',
       sections: components
@@ -172,10 +215,14 @@ module.exports = {
         overflow: 'auto'
       }
     },
+    Pre: {
+      pre: {
+        overflow: 'auto'
+      }
+    },
     Code: {
       code: {
         border: 'none',
-        display: 'block',
         margin: 0,
         padding: 0
       }

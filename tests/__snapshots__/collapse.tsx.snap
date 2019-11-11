@@ -9,10 +9,11 @@ exports[`Collapse should accept custom duration 1`] = `
     className="clearfix collapse"
     style={
       Object {
-        "height": 0,
+        "maxHeight": 0,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 100ms height",
+        "transition": "ease-in-out 100ms max-height",
       }
     }
   />
@@ -28,10 +29,11 @@ exports[`Collapse should accept custom duration 2`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "height": 0,
+        "maxHeight": 0,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 100ms height",
+        "transition": "ease-in-out 100ms max-height",
       }
     }
   />
@@ -47,10 +49,11 @@ exports[`Collapse should accept custom duration 3`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "height": 0,
+        "maxHeight": 0,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 100ms height",
+        "transition": "ease-in-out 100ms max-height",
       }
     }
   />
@@ -67,10 +70,11 @@ exports[`Collapse should close to custom height 1`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "height": "auto",
-        "overflow": "hidden",
+        "maxHeight": null,
+        "minHeight": null,
+        "overflow": null,
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   />
@@ -87,10 +91,11 @@ exports[`Collapse should close to custom height 2`] = `
     className="clearfix collapse"
     style={
       Object {
-        "height": 500,
+        "maxHeight": 500,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   >
@@ -122,10 +127,11 @@ exports[`Collapse should close to custom height 3`] = `
     className="clearfix collapse"
     style={
       Object {
-        "height": 100,
+        "maxHeight": 100,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   >
@@ -157,10 +163,11 @@ exports[`Collapse should close to custom height 4`] = `
     className="clearfix collapse"
     style={
       Object {
-        "height": 100,
+        "maxHeight": 100,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   >
@@ -191,10 +198,11 @@ exports[`Collapse should close to default height 1`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "height": "auto",
-        "overflow": "hidden",
+        "maxHeight": null,
+        "minHeight": null,
+        "overflow": null,
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   />
@@ -210,10 +218,11 @@ exports[`Collapse should close to default height 2`] = `
     className="clearfix collapse"
     style={
       Object {
-        "height": 500,
+        "maxHeight": 500,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   >
@@ -244,10 +253,11 @@ exports[`Collapse should close to default height 3`] = `
     className="clearfix collapse"
     style={
       Object {
-        "height": 0,
+        "maxHeight": 0,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   >
@@ -278,10 +288,11 @@ exports[`Collapse should close to default height 4`] = `
     className="clearfix collapse"
     style={
       Object {
-        "height": 0,
+        "maxHeight": 0,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   >
@@ -308,10 +319,11 @@ exports[`Collapse should match snapshot when collapsed 1`] = `
   className="clearfix collapse"
   style={
     Object {
-      "height": 0,
+      "maxHeight": 0,
+      "minHeight": null,
       "overflow": "hidden",
       "position": "relative",
-      "transition": "ease-in-out 200ms height",
+      "transition": "ease-in-out 200ms max-height",
     }
   }
 />
@@ -322,10 +334,11 @@ exports[`Collapse should match snapshot when expanded 1`] = `
   className="clearfix collapse collapse-open"
   style={
     Object {
-      "height": "auto",
-      "overflow": "hidden",
+      "maxHeight": null,
+      "minHeight": null,
+      "overflow": null,
       "position": "relative",
-      "transition": "ease-in-out 200ms height",
+      "transition": "ease-in-out 200ms max-height",
     }
   }
 />
@@ -336,10 +349,26 @@ exports[`Collapse should match snapshot with custom collapsed height 1`] = `
   className="clearfix collapse"
   style={
     Object {
-      "height": 100,
+      "maxHeight": 100,
+      "minHeight": null,
       "overflow": "hidden",
       "position": "relative",
-      "transition": "ease-in-out 200ms height",
+      "transition": "ease-in-out 200ms max-height",
+    }
+  }
+/>
+`;
+
+exports[`Collapse should match snapshot with custom min height 1`] = `
+<div
+  className="clearfix collapse"
+  style={
+    Object {
+      "maxHeight": 0,
+      "minHeight": 100,
+      "overflow": "hidden",
+      "position": "relative",
+      "transition": "ease-in-out 200ms max-height",
     }
   }
 />
@@ -350,10 +379,11 @@ exports[`Collapse should match snapshot with customized fade out 1`] = `
   className="clearfix collapse"
   style={
     Object {
-      "height": 0,
+      "maxHeight": 0,
+      "minHeight": null,
       "overflow": "hidden",
       "position": "relative",
-      "transition": "ease-in-out 200ms height",
+      "transition": "ease-in-out 200ms max-height",
     }
   }
 >
@@ -379,10 +409,11 @@ exports[`Collapse should match snapshot with fade out 1`] = `
   className="clearfix collapse"
   style={
     Object {
-      "height": 0,
+      "maxHeight": 0,
+      "minHeight": null,
       "overflow": "hidden",
       "position": "relative",
-      "transition": "ease-in-out 200ms height",
+      "transition": "ease-in-out 200ms max-height",
     }
   }
 >
@@ -413,10 +444,11 @@ exports[`Collapse should open from custom height 1`] = `
     className="clearfix collapse"
     style={
       Object {
-        "height": 100,
+        "maxHeight": 100,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   >
@@ -448,10 +480,11 @@ exports[`Collapse should open from custom height 2`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "height": 100,
+        "maxHeight": 100,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   >
@@ -483,10 +516,11 @@ exports[`Collapse should open from custom height 3`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "height": 500,
+        "maxHeight": 500,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   >
@@ -518,10 +552,11 @@ exports[`Collapse should open from custom height 4`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "height": "auto",
-        "overflow": "hidden",
+        "maxHeight": null,
+        "minHeight": null,
+        "overflow": null,
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   />
@@ -537,10 +572,11 @@ exports[`Collapse should open from default height 1`] = `
     className="clearfix collapse"
     style={
       Object {
-        "height": 0,
+        "maxHeight": 0,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   >
@@ -571,10 +607,11 @@ exports[`Collapse should open from default height 2`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "height": 0,
+        "maxHeight": 0,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   >
@@ -605,10 +642,11 @@ exports[`Collapse should open from default height 3`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "height": 500,
+        "maxHeight": 500,
+        "minHeight": null,
         "overflow": "hidden",
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   >
@@ -639,10 +677,11 @@ exports[`Collapse should open from default height 4`] = `
     className="clearfix collapse collapse-open"
     style={
       Object {
-        "height": "auto",
-        "overflow": "hidden",
+        "maxHeight": null,
+        "minHeight": null,
+        "overflow": null,
         "position": "relative",
-        "transition": "ease-in-out 200ms height",
+        "transition": "ease-in-out 200ms max-height",
       }
     }
   />
@@ -654,10 +693,11 @@ exports[`Collapse should take regular element attributes 1`] = `
   className="clearfix collapse my-class"
   style={
     Object {
-      "height": 0,
+      "maxHeight": 0,
+      "minHeight": null,
       "overflow": "hidden",
       "position": "relative",
-      "transition": "ease-in-out 200ms height",
+      "transition": "ease-in-out 200ms max-height",
     }
   }
 />

@@ -10,6 +10,10 @@ export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Fix the footer to the bottom of the window when there is not enough content to push it down.
    */
   sticky?: boolean;
+  /**
+   * Fix the footer to the bottom of the screen always
+   */
+  fixed?: boolean;
 }
 
 export class Footer extends PureComponent<FooterProps, {}> {
@@ -19,7 +23,10 @@ export class Footer extends PureComponent<FooterProps, {}> {
   }
 
   public componentWillUpdate(nextProps: FooterProps) {
-    if (Boolean(this.props.sticky) !== Boolean(nextProps.sticky)) {
+    if (
+      Boolean(this.props.sticky || this.props.fixed) !==
+      Boolean(nextProps.sticky || nextProps.fixed)
+    ) {
       this.notifyAppRoot(nextProps);
       this.toggleResizeListeners(nextProps);
     }
@@ -33,15 +40,17 @@ export class Footer extends PureComponent<FooterProps, {}> {
   public render() {
     const {
       sticky,
+      fixed,
       component: Component = 'div',
       children,
+      className,
       ...remainingProps
     } = this.props;
 
     return (
       <Component
         {...remainingProps}
-        className={classNames('footer', sticky && 'sticky')}
+        className={classNames('footer', { sticky, fixed }, className)}
       >
         {children}
       </Component>
@@ -49,14 +58,15 @@ export class Footer extends PureComponent<FooterProps, {}> {
   }
 
   private notifyAppRoot(props: FooterProps) {
-    const { sticky } = props;
+    const { sticky, fixed } = props;
     const element = ReactDOM.findDOMNode(this);
 
     store.setState({
-      hasStickyFooter: Boolean(sticky),
-      footerHeight: element
-        ? element.getBoundingClientRect().height
-        : undefined,
+      hasStickyFooter: Boolean(sticky || fixed),
+      footerHeight:
+        element && element instanceof HTMLElement
+          ? element.getBoundingClientRect().height
+          : undefined,
     });
   }
 
@@ -65,9 +75,9 @@ export class Footer extends PureComponent<FooterProps, {}> {
   };
 
   private toggleResizeListeners(props: FooterProps) {
-    const { sticky } = props;
+    const { sticky, fixed } = props;
 
-    if (sticky) {
+    if (sticky || fixed) {
       window.addEventListener('resize', this.updateAppRoot);
     } else {
       window.removeEventListener('resize', this.updateAppRoot);

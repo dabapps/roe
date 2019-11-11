@@ -50,7 +50,7 @@ export const resetRandomSeed = () => {
   rand = randomSeed.create('dabapps');
 };
 
-export const generateIpsum = (words: string[]) => {
+export const generateIpsum = (words: ReadonlyArray<string>) => {
   const ipsum = Array.apply(null, new Array(15))
     .map(() => words[Math.floor(rand.range(words.length))])
     .join(' ');

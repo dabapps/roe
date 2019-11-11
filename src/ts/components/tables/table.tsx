@@ -84,7 +84,9 @@ export class Table extends PureComponent<TableProps, {}> {
 
     return (
       <div className="table-wrapper">
-        <div style={{ paddingLeft: fixRowHeaders ? rowHeaderWidth : null }}>
+        <div
+          style={{ paddingLeft: fixRowHeaders ? rowHeaderWidth : undefined }}
+        >
           <div className={scrollable ? 'table-scroller' : undefined}>
             <Component {...remainingProps} className={classNames(myClassNames)}>
               {children}

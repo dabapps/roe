@@ -31,5 +31,8 @@ You can set padding for all sides; `left`, `right`, `top`, or `bottom`; or all `
       margin-horizontal-large
     </strong>
   </div>
+  <div style={{width: 300}} className="margin-vertical-none margin-horizontal-auto">
+    margin-vertical-none margin-horizontal-auto
+  </div>
 </div>
 ```
