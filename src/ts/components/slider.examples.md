@@ -16,18 +16,6 @@ class SliderExamples extends React.Component {
     this.onChangeTo = this.onChangeTo.bind(this);
   }
 
-  onChange (value) {
-    this.setState({ value });
-  }
-
-  onChangeFrom (value) {
-    this.setState({ from: value });
-  }
-
-  onChangeTo (value) {
-    this.setState({ to: value });
-  }
-
   render () {
     return (
       <div
@@ -43,8 +31,8 @@ class SliderExamples extends React.Component {
                   popover
                   stepped
                   steps={4}
-                  onSlide={(value) => this.onChange(value)}
-                  onChange={(value) => this.onChange(value)}
+                  onSlide={this.onChange}
+                  onChange={this.onChange}
                   orientation="vertical"
                 />
               </Column>
@@ -57,7 +45,7 @@ class SliderExamples extends React.Component {
               >
                 <Slider
                   className={'custom-class'}
-                  onSlide={(value) => this.onChange(value)}
+                  onSlide={this.onChange}
                 />
               </Column>
               <Column
@@ -67,7 +55,7 @@ class SliderExamples extends React.Component {
                   initialValue={0.3}
                   min={0.2}
                   max={0.8}
-                  onSlide={(value) => this.onChange(value)}
+                  onSlide={this.onChange}
                 />
               </Column>
               <Column
@@ -77,8 +65,8 @@ class SliderExamples extends React.Component {
                   className="margin-top-large margin-bottom-large"
                   initialFrom={0.25}
                   initialTo={0.88}
-                  onChangeFrom={(from) => this.onChangeFrom(from)}
-                  onChangeTo={(to) => this.onChangeTo(to)}
+                  onChangeFrom={this.onChangeFrom}
+                  onChangeTo={this.onChangeTo}
                   popover
                   range
                 />
@@ -92,10 +80,10 @@ class SliderExamples extends React.Component {
                   initialTo={0.5}
                   min={0.125}
                   max={0.75}
-                  onSlideFrom={(from) => this.onChangeFrom(from)}
-                  onChangeFrom={(from) => this.onChangeFrom(from)}
-                  onSlideTo={(to) => this.onChangeTo(to)}
-                  onChangeTo={(to) => this.onChangeTo(to)}
+                  onSlideFrom={this.onChangeFrom}
+                  onChangeFrom={this.onChangeFrom}
+                  onSlideTo={this.onChangeTo}
+                  onChangeTo={this.onChangeTo}
                   popover
                   range
                   stepped
@@ -107,6 +95,18 @@ class SliderExamples extends React.Component {
         </Row>
       </div>
     );
+  }
+
+  private onChange = (value: number) => {
+    this.setState({ value });
+  }
+
+  private onChangeFrom = (value: number) => {
+    this.setState({ from: value });
+  }
+
+  private onChangeTo = (value: number) => {
+    this.setState({ to: value });
   }
 }
 
