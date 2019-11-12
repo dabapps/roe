@@ -494,7 +494,7 @@ export class Slider extends PureComponent<SliderProps, IState> {
       range,
     } = this.props;
 
-    const node = ReactDOM.findDOMNode(this);
+    const node = ReactDOM.findDOMNode(this) as Element;
     const { top, left, width, height } = node.getBoundingClientRect();
 
     if (orientation === 'vertical') {
