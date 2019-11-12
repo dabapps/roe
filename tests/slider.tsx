@@ -2,7 +2,7 @@ import * as enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Slider } from '../src/ts/components/slider';
+import { Slider } from '../src/ts/';
 
 describe('Slider', () => {
   beforeAll(() => {
