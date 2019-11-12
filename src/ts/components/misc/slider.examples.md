@@ -97,15 +97,15 @@ class SliderExamples extends React.Component {
     );
   }
 
-  private onChange = (value: number) => {
+  onChange(value) {
     this.setState({ value });
   }
 
-  private onChangeFrom = (value: number) => {
+  onChangeFrom(value) {
     this.setState({ from: value });
   }
 
-  private onChangeTo = (value: number) => {
+  onChangeTo(value) {
     this.setState({ to: value });
   }
 }

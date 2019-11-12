@@ -2,7 +2,7 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
-import { ComponentProps } from '../types';
+import { ComponentProps } from '../../types';
 
 export interface SliderProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**

@@ -42,7 +42,7 @@ export { default as NavItem } from './components/navigation/nav-item';
 export { default as Row } from './components/grid/row';
 export { default as Section } from './components/content/section';
 export { default as SideBar } from './components/navigation/side-bar';
-export { default as Slider } from './components/slider';
+export { default as Slider } from './components/misc/slider';
 export { default as SpacedGroup } from './components/misc/spaced-group';
 export { default as SpeechBubble } from './components/misc/speech-bubble';
 export { default as Tabs } from './components/tabs/tabs';
