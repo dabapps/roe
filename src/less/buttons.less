@@ -6,7 +6,7 @@
   cursor: pointer;
   background-color: transparent;
   transition: ease-in-out 0.2s background-color;
-  border-radius: @border-radius-base;
+  border-radius: @button-border-radius;
 
   &::before {
     content: '';
@@ -33,7 +33,7 @@
   }
 }
 
-.create-button-styles (@background: @button-background-default, @color: @button-text-color-dark) {
+.create-button-styles (@background: @button-background-default, @color: @button-text-color-light) {
   .create-button-pew();
   background-color: @background;
   color: @color;
@@ -43,7 +43,7 @@
     color: @background;
   }
 
-  &.hollow::after {
+  &.hollow {
     border-color: @background;
   }
 
@@ -60,26 +60,6 @@
   &::before {
     background-color: contrast(@background, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
   }
-}
-
-.create-button (@type, @background, @color) {
-  &.@{type} {
-    .create-button-styles(@background, @color);
-  }
-}
-
-/* @end Mixins */
-
-.button {
-  .button-overrides();
-  .create-button-styles();
-  .create-button(primary, @primary, @button-text-color-light);
-  .create-button(secondary, @secondary, @button-text-color-light);
-  .create-button(tertiary, @tertiary, @button-text-color-light);
-  .create-button(info, @info, @button-text-color-light);
-  .create-button(success, @success, @button-text-color-light);
-  .create-button(warning, @warning, @button-text-color-light);
-  .create-button(error, @error, @button-text-color-light);
 
   transition: ease-in-out 0.1s background-color, ease-in-out 0.1s box-shadow;
   box-shadow: @shadow-none;
@@ -103,13 +83,15 @@
   }
 
   &.large {
-    font-size: @font-size-large;
-    padding: @padding-large / 2 @padding-large;
+    font-size: @font-size-button-large;
+    line-height: @line-height-button-large;
+    padding: @button-padding-vertical-large @button-padding-horizontal-large;
   }
 
   &.small {
-    font-size: @font-size-small;
-    padding: @padding-small / 2 @padding-small;
+    font-size: @font-size-button-small;
+    line-height: @line-height-button-small;
+    padding: @button-padding-vertical-small @button-padding-horizontal-small;
   }
 
   &.link {
@@ -131,48 +113,41 @@
 
   &.hollow,
   &.link {
-    background-color: @button-transparent-background;
+    background-color: @button-background-hollow;
 
     &::before {
-      background-color: @button-transparent-pew-color;
+      background-color: contrast(@color, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
     }
 
     &:hover:not([disabled]):not(.disabled) {
-      background-color: @button-transparent-background-hover;
+      background-color: darken(contrast(@color, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1)), 5%);
       box-shadow: @shadow-none;
     }
   }
 
   &.hollow {
-    color: @button-text-color-dark;
+    color: @background;
+    border: @button-border-width solid @background;
+    padding: @button-padding-vertical-base - @button-border-width
+      @button-padding-horizontal-base - @button-border-width;
 
-    &::after {
-      content: '';
-      box-sizing: border-box;
-      pointer-events: none;
-      display: block;
-      position: absolute;
-      top: 0;
-      left: 0;
-      border: @button-border-width solid @button-text-color-dark;
-      border-radius: @border-radius-base;
-      // Fixes a Chrome rendering bug
-      transform: translate3d(0, 0, 0); // DO NOT CHANGE
-      width: 99.99%; // DO NOT CHANGE
-      height: 99.99%; // DO NOT CHANGE
+    &.large {
+      padding: @button-padding-vertical-large - @button-border-width
+      @button-padding-horizontal-large - @button-border-width;
+    }
+
+    &.small {
+      padding: @button-padding-vertical-small - @button-border-width
+      @button-padding-horizontal-small - @button-border-width;
     }
 
     &:hover:not([disabled]):not(.disabled) {
-      color: @button-text-color-dark;
+      color: @background;
     }
   }
 
   &.pill {
-    border-radius: @padding-base * 2;
-
-    &::after {
-      border-radius: @padding-base * 2;
-    }
+    border-radius: @button-border-radius-pill;
   }
 
   a {
@@ -185,6 +160,26 @@
       }
     }
   }
+}
+
+.create-button (@type, @background, @color) {
+  &.@{type} {
+    .create-button-styles(@background, @color);
+  }
+}
+
+/* @end Mixins */
+
+.button {
+  .button-overrides();
+  .create-button-styles();
+  .create-button(primary, @primary, @button-text-color-light);
+  .create-button(secondary, @secondary, @button-text-color-light);
+  .create-button(tertiary, @tertiary, @button-text-color-light);
+  .create-button(info, @info, @button-text-color-light);
+  .create-button(success, @success, @button-text-color-light);
+  .create-button(warning, @warning, @button-text-color-light);
+  .create-button(error, @error, @button-text-color-light);
 }
 
 /* @group Animations */

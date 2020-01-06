@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { PaginationDisplay } from '../src/ts/components/pagination/pagination-display';
+import { PaginationDisplay } from '../src/ts';
 
 describe('Banner', () => {
   it('should match snapshot', () => {

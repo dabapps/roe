@@ -29,6 +29,12 @@ describe('Collapse', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should match snapshot with custom min height', () => {
+    const tree = renderer.create(<Collapse open={false} minHeight={100} />);
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('should accept custom duration', () => {
     jest.useFakeTimers();
 

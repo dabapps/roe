@@ -3,7 +3,7 @@ import * as React from 'react';
 import { PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 import Button from '../forms/button';
-import SpacedGroup from '../spaced-group';
+import SpacedGroup from '../misc/spaced-group';
 
 export interface PaginationProps extends ComponentProps {
   /**

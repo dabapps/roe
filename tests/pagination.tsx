@@ -2,7 +2,7 @@ import * as enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Pagination } from '../src/ts/components/pagination/pagination';
+import { Pagination } from '../src/ts';
 
 describe('Pagination', () => {
   it('should match snapshot', () => {

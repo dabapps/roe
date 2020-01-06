@@ -60,7 +60,7 @@
 }
 
 .modal-overlay {
-  background-color: @overlay-background;
+  background-color: @modal-overlay-background;
   z-index: 0;
 }
 
@@ -69,42 +69,45 @@
 }
 
 .modal-position {
-  padding: 0 @gutter-width / 2;
+  padding: @modal-margin-vertical @modal-margin-horizontal;
   margin: 0 auto;
 
-  @modal-margins: @margin-large * 2;
-  @modal-header-and-footer-margins: (@margin-large * 2) * 2;
-  @modal-header-and-footer-content: 50px * 2; // Magic number to allow slightly larger content
-  @modal-header-and-footer-space: @modal-margins + @modal-header-and-footer-margins + @modal-header-and-footer-content;
+  // For internal use only
+  @modal-margin-vertical-double: @modal-margin-vertical * 2;
 
   &.scrollable {
+    .modal {
+      display: flex;
+      flex-direction: column;
+      max-height: ~'calc(100vh - @{modal-margin-vertical-double})';
+    }
+
     .modal-body {
-      max-height: ~'calc(100vh - @{modal-header-and-footer-space})';
       overflow: auto;
     }
   }
 
   @media all and (min-width: @screen-sm) {
-    width: @screen-sm;
+    width: @modal-width-base-sm;
   }
 
   @media all and (min-width: @screen-md) {
-    width: @screen-md;
+    width: @modal-width-base-md;
   }
 
   &.small {
     @media all and (min-width: @screen-md) {
-      width: @screen-sm;
+      width: @modal-width-small-md;
     }
   }
 
   &.large {
     @media all and (min-width: @screen-lg) {
-      width: @screen-lg;
+      width: @modal-width-large-lg;
     }
 
     @media all and (min-width: @screen-xl) {
-      width: @screen-xl;
+      width: @modal-width-large-xl;
     }
   }
 
@@ -115,6 +118,7 @@
 
 .modal {
   .content-box();
+  margin: 0;
   position: relative;
   z-index: 1;
   transform: translate3d(0, 0, 0);

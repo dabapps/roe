@@ -2,7 +2,8 @@ import * as enzyme from 'enzyme';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
-import NavBar from '../src/ts/components/navigation/nav-bar';
+
+import { NavBar } from '../src/ts/';
 import store from '../src/ts/store';
 import * as utils from '../src/ts/utils';
 
@@ -168,9 +169,18 @@ describe('NavBar', () => {
       }
     );
     jest.spyOn(utils, 'getScrollOffset').mockReturnValue({ x: 0, y: 0 });
-    jest
-      .spyOn(ReactDOM, 'findDOMNode')
-      .mockReturnValue({ getBoundingClientRect: () => ({ height: 20 }) });
+
+    const fakeElement = document.createElement('div');
+    fakeElement.getBoundingClientRect = () => ({
+      height: 20,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      width: 0,
+      top: 0,
+    });
+
+    jest.spyOn(ReactDOM, 'findDOMNode').mockReturnValue(fakeElement);
 
     const instance = enzyme.mount(<NavBar shy />);
 
