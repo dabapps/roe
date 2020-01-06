@@ -40,7 +40,7 @@ export class PaginationDisplay extends PureComponent<
         {...remainingProps}
         className={classNames('pagination-display', className)}
       >
-        Showing {this.showingLowerCount()}-{this.showingUpperCounte()} of{' '}
+        Showing {this.showingLowerCount()}-{this.showingUpperCount()} of{' '}
         {itemCount}
       </p>
     );
@@ -51,7 +51,7 @@ export class PaginationDisplay extends PureComponent<
     return (currentPageNumber - 1) * pageSize || 1;
   };
 
-  private showingUpperCounte = () => {
+  private showingUpperCount = () => {
     const { pageSize, currentPageNumber, itemCount } = this.props;
     return pageSize * currentPageNumber > itemCount
       ? itemCount
