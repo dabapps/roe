@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider should match snapshot 1`] = `
+<div
+  className="roe-slider stepped range"
+  step={5}
+>
+  <div
+    className="roe-bar"
+  >
+    <span
+      className="roe-bar__min"
+      style={
+        Object {
+          "width": "0%",
+        }
+      }
+    />
+    <div
+      className="roe-handle"
+      onMouseDown={[Function]}
+      onTouchMove={[Function]}
+      style={
+        Object {
+          "left": "0%",
+        }
+      }
+    />
+    <div
+      className="roe-handle roe-handle__range"
+      onMouseDown={[Function]}
+      onTouchMove={[Function]}
+      style={
+        Object {
+          "left": "100%",
+        }
+      }
+    />
+    <span
+      className="roe-bar-range"
+      style={
+        Object {
+          "left": "0%",
+          "right": "0%",
+        }
+      }
+    />
+    <span
+      className="roe-bar__max"
+      style={
+        Object {
+          "width": "100%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
