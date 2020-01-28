@@ -1,13 +1,13 @@
 /* @group Colors */
 
 /* Base colors */
-@primary: #EF592B;
-@secondary: #7B2240;
-@tertiary: #2E253F;
-@info: #2D87A3;
-@success: #2FA34F;
-@warning: #D6982F;
-@error: #CD3B3B;
+@primary: #ef592b;
+@secondary: #7b2240;
+@tertiary: #2e253f;
+@info: #2d87a3;
+@success: #2fa34f;
+@warning: #d6982f;
+@error: #cd3b3b;
 
 /* Light colors */
 @primary-light: lighten(@primary, 30%);
@@ -40,10 +40,10 @@
 @black: #000000;
 @grey-dark: #333333;
 @grey-medium: #555555;
-@grey-light: #AAAAAA;
-@grey-lighter: #DDDDDD;
-@grey-lightest: #F8F8F8;
-@white: #FFFFFF;
+@grey-light: #aaaaaa;
+@grey-lighter: #dddddd;
+@grey-lightest: #f8f8f8;
+@white: #ffffff;
 
 /* Misc colors */
 @body-background: @white;
@@ -162,7 +162,11 @@
 @tab-border: @border-base;
 
 @code-block-background: @grey-lightest;
-@code-block-name-background: contrast(@code-block-background, darken(@code-block-background, 5%), lighten(@code-block-background, 5%)); // lesshint maxCharPerLine: false
+@code-block-name-background: contrast(
+  @code-block-background,
+  darken(@code-block-background, 5%),
+  lighten(@code-block-background, 5%)
+); // lesshint maxCharPerLine: false
 @code-block-border: @border-base;
 
 @input-group-addon-background: @grey-lightest;

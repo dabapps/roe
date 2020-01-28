@@ -1,5 +1,6 @@
 .text-align-styles (@text-align) {
-  text-align: @text-align !important; // lesshint importantRule: false
+  /* stylelint-disable-next-line declaration-no-important*/
+  text-align: @text-align !important;
 }
 
 .create-text-align (@prefix, @name, @text-align, @alias) {

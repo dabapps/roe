@@ -1,8 +1,10 @@
 .spaced-group {
-  & > * { // lesshint universalSelector: false
+  /* stylelint-disable-next-line selector-max-universal */
+  & > * {
     margin-right: @margin-base;
     vertical-align: middle;
 
+    /* stylelint-disable-next-line selector-max-universal */
     &:last-child {
       margin-right: 0;
     }
@@ -12,17 +14,21 @@
     display: block;
   }
 
-  &.small > * { // lesshint universalSelector: false
+  /* stylelint-disable-next-line selector-max-universal */
+  &.small > * {
     margin-right: @margin-small;
 
+    /* stylelint-disable-next-line selector-max-universal */
     &:last-child {
       margin-right: 0;
     }
   }
 
-  &.large > * { // lesshint universalSelector: false
+  /* stylelint-disable-next-line selector-max-universal */
+  &.large > * {
     margin-right: @margin-large;
 
+    /* stylelint-disable-next-line selector-max-universal */
     &:last-child {
       margin-right: 0;
     }

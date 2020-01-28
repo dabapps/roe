@@ -1,0 +1,6 @@
+{
+  "extends": "stylelint-config-dabapps",
+  "rules": {
+    "selector-max-specificity": "0,5,2"
+  }
+}

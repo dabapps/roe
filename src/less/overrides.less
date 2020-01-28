@@ -1,4 +1,5 @@
-* { // lesshint universalSelector: false
+/* stylelint-disable-next-line selector-max-universal */
+* {
   box-sizing: border-box;
 }
 
@@ -150,14 +151,18 @@ textarea {
   height: @textarea-height;
 }
 
+/* stylelint-disable selector-no-qualifying-type */
 input[type='submit'],
 input[type='button'] {
+  /* stylelint-enable selector-no-qualifying-type */
   width: auto;
   cursor: pointer;
 }
 
+/* stylelint-disable selector-no-qualifying-type */
 input[type='checkbox'],
 input[type='radio'] {
+  /* stylelint-enable selector-no-qualifying-type */
   position: relative;
   padding: 0;
   width: @checkbox-size;
@@ -185,7 +190,9 @@ input[type='radio'] {
   }
 }
 
+/* stylelint-disable selector-no-qualifying-type */
 input[type='checkbox'] {
+  /* stylelint-enable selector-no-qualifying-type */
   border-radius: @border-radius-base * 2;
 
   &:checked {
@@ -201,7 +208,9 @@ input[type='checkbox'] {
   }
 }
 
+/* stylelint-disable selector-no-qualifying-type */
 input[type='radio'] {
+  /* stylelint-enable selector-no-qualifying-type */
   border-radius: 50%;
 
   &:checked {
@@ -228,8 +237,6 @@ input[type='radio'] {
 @select-arrows-background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI4IiBoZWlnaHQ9IjE0IiB2aWV3Qm94PSIwIDAgOCAxNCI+PHBhdGggZD0iTSA0IDAgOCA1IDAgNSB6Ii8+PHBhdGggZD0iTSAwIDkgOCA5IDQgMTQgeiIvPjwvc3ZnPgo='); // lesshint maxCharPerLine: false
 @select-arrows-position: ~'calc(100% - @{select-arrows-offset})' 50%;
 
-
-
 select {
   background-color: transparent;
   padding-right: @padding-base * 2;
@@ -251,8 +258,10 @@ select,
 textarea,
 datalist,
 keygen {
+  /* stylelint-disable selector-no-qualifying-type */
   &[disabled],
   &.disabled {
+    /* stylelint-enable selector-no-qualifying-type */
     cursor: not-allowed;
     outline: none;
   }
@@ -310,14 +319,21 @@ hr {
   background-color: @grey-lighter;
   margin: @margin-base 0;
 
+  /* stylelint-disable-next-line selector-no-qualifying-type */
   &.fade {
     background-color: @grey-lightest;
   }
 }
 
 @supports (background-image: linear-gradient(transparent, transparent)) {
+  /* stylelint-disable-next-line selector-no-qualifying-type */
   hr.fade {
     background-color: transparent;
-    background-image: linear-gradient(to right, transparent, fade(@grey-lighter, 100%), transparent);
+    background-image: linear-gradient(
+      to right,
+      transparent,
+      fade(@grey-lighter, 100%),
+      transparent
+    );
   }
 }
