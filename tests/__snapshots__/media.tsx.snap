@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Media should match snapshot 1`] = `
+<div
+  className="media"
+>
+  <div
+    className="media-figure"
+  >
+    <img
+      src="/images/sample-image.png"
+    />
+  </div>
+  <div
+    className="media-body"
+  >
+    <p>
+      Content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`Media should take regular element attributes 1`] = `
+<div
+  className="media media-reversed"
+>
+  <div
+    className="media-figure"
+  >
+    <img
+      src="/images/sample-image.png"
+    />
+  </div>
+  <div
+    className="media-body"
+  >
+    <p>
+      Content
+    </p>
+  </div>
+</div>
+`;
+
+exports[`MediaBody should take regular element attributes 1`] = `
+<div
+  className="media-body"
+>
+  Something
+</div>
+`;
+
+exports[`MediaFigure should take regular element attributes 1`] = `
+<div
+  className="media-figure"
+>
+  <img
+    src="/images/sample-image.png"
+  />
+</div>
+`;
+
+exports[`MediaFigure should take regular element attributes 2`] = `
+<div
+  className="media-figure media-figure-large"
+>
+  <img
+    src="/images/sample-image.png"
+  />
+</div>
+`;
+
+exports[`MediaFigure should take regular element attributes 3`] = `
+<div
+  className="media-figure media-figure-centered"
+>
+  <img
+    src="/images/sample-image.png"
+  />
+</div>
+`;
+
+exports[`MediaFigure should take regular element attributes 4`] = `
+<div
+  className="media-figure media-figure-small"
+>
+  <img
+    src="/images/sample-image.png"
+  />
+</div>
+`;

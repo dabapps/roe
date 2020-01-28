@@ -13,6 +13,9 @@ import {
   FormGroup,
   InputGroup,
   InputGroupAddon,
+  Media,
+  MediaBody,
+  MediaFigure,
   NavBar,
   Row,
   Section,
@@ -283,6 +286,131 @@ class App extends PureComponent<{}, AppState> {
                 </Column>
               </Row>
             </Section>
+          </ContentBox>
+
+          <h1>Media Objects</h1>
+          <h2>Standard Media Object</h2>
+          <ContentBox>
+            <Media>
+              <MediaFigure>
+                <img
+                  className="example-image"
+                  src="/examples/images/sample-image.png"
+                />
+              </MediaFigure>
+              <MediaBody>
+                <h5 className="margin-top-none">Header</h5>
+                <DabIpsum count={2} />
+              </MediaBody>
+            </Media>
+          </ContentBox>
+
+          <h2>Small Media Object</h2>
+          <ContentBox>
+            <Media>
+              <MediaFigure small>
+                <img
+                  className="example-image"
+                  src="/examples/images/sample-image.png"
+                />
+              </MediaFigure>
+              <MediaBody>
+                <h5 className="margin-top-none">Header</h5>
+                <DabIpsum count={2} />
+              </MediaBody>
+            </Media>
+          </ContentBox>
+
+          <h2>Large Media Object</h2>
+          <ContentBox>
+            <Media>
+              <MediaFigure large>
+                <img
+                  className="example-image"
+                  src="/examples/images/sample-image.png"
+                />
+              </MediaFigure>
+              <MediaBody>
+                <h5 className="margin-top-none">Header</h5>
+                <DabIpsum count={2} />
+              </MediaBody>
+            </Media>
+          </ContentBox>
+
+          <h2>Reversed Media Object</h2>
+          <ContentBox>
+            <Media reversed>
+              <MediaFigure>
+                <img
+                  className="example-image"
+                  src="/examples/images/sample-image.png"
+                />
+              </MediaFigure>
+              <MediaBody>
+                <h5 className="margin-top-none">Header</h5>
+                <DabIpsum count={2} />
+              </MediaBody>
+            </Media>
+          </ContentBox>
+
+          <h2>Centred Media Object</h2>
+          <ContentBox>
+            <Media>
+              <MediaFigure centered>
+                <img
+                  className="example-image"
+                  src="/examples/images/sample-image.png"
+                />
+              </MediaFigure>
+              <MediaBody>
+                <h5 className="margin-top-none">Header</h5>
+                <DabIpsum count={8} />
+              </MediaBody>
+            </Media>
+          </ContentBox>
+
+          <h2>Nested Media Objects</h2>
+          <ContentBox>
+            <Media>
+              <MediaFigure>
+                <img
+                  className="example-image"
+                  src="/examples/images/sample-image.png"
+                />
+              </MediaFigure>
+              <MediaBody>
+                <h5 className="margin-top-none">Header</h5>
+                <DabIpsum count={2} />
+                <ContentBox>
+                  <Media>
+                    <MediaFigure>
+                      <img
+                        className="example-image"
+                        src="/examples/images/sample-image.png"
+                      />
+                    </MediaFigure>
+                    <MediaBody>
+                      <h5 className="margin-top-none">Header</h5>
+                      <DabIpsum count={2} />
+                      <ContentBox>
+                        <Media>
+                          <MediaFigure>
+                            <img
+                              className="example-image"
+                              src="/examples/images/sample-image.png"
+                            />
+                          </MediaFigure>
+                          <MediaBody>
+                            <h5 className="margin-top-none">Header</h5>
+                            <DabIpsum count={2} />
+                          </MediaBody>
+                        </Media>
+                      </ContentBox>
+                    </MediaBody>
+                  </Media>
+                </ContentBox>
+              </MediaBody>
+            </Media>
           </ContentBox>
         </Container>
 

@@ -1,0 +1,93 @@
+/* older floated non-flexbox media object */
+.media {
+  overflow: hidden;
+  margin: @media-padding 0;
+  position: relative;
+}
+
+.media-figure {
+  float: left;
+  max-width: @media-size;
+
+  &.media-figure-small {
+    max-width: @media-size-small;
+  }
+
+  &.media-figure-large {
+    max-width: @media-size-large;
+  }
+
+  & > * { // lesshint universalSelector: false
+    max-width: 100%;
+  }
+}
+
+.media-body {
+  float: right;
+  width: ~'calc(100% - '@media-size~' - '@gutter-width / 2 ~')';
+
+  .media-figure-small & {
+    width: ~'calc(100% - '@media-size-small~' - '@gutter-width / 2 ~')';
+  }
+
+  .media-figure-large & {
+    width: ~'calc(100% - '@media-size-large~' - '@gutter-width / 2 ~')';
+  }
+}
+
+.media {
+  position: relative;
+
+  .media-figure.media-figure-centered {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+.media.media-reversed {
+
+  .media-figure {
+    float: right;
+  }
+
+  .media-body {
+    float: left;
+  }
+}
+
+
+/* flexbox media object */
+@supports (display: flex) {
+  .media {
+    display: flex;
+    align-items: flex-start;
+    overflow: inherit;
+  }
+
+  .media-figure {
+    margin-right: @gutter-width / 2;
+    float: none;
+  }
+
+  .media-body {
+    flex: 1;
+    float: none;
+    width: auto;
+  }
+
+  .media {
+    /* reset non-float method */
+    .media-figure.media-figure-centered {
+      position: static;
+      top: 0;
+      transform: translateY(0);
+      align-self: center;
+    }
+  }
+
+  .media.media-reversed > .media-figure {
+    order: 1;
+    margin: 0 0 0 @gutter-width;
+  }
+}
