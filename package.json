@@ -8,7 +8,7 @@
     "start": "styleguidist server",
     "build": "styleguidist build",
     "dist": "./scripts/dist",
-    "prettier": "prettier --write '{src,tests,types,examples,docs}/**/*.{ts?(x),js,json,less,css}'",
+    "prettier": "prettier --write '{src,tests,types,examples,docs}/**/*.{ts,tsx,js,jsx,json,less,css}'",
     "prettier-check": "diffs=$(prettier --list-different '{src,tests,types,examples,docs}/**/*.{ts?(x),js,json,less,css}'); if [ ! -z $diffs ]; then echo \"Run 'npm run prettier'\nThe following files need formatting:\n$diffs\" && exit 1; fi;",
     "lint-js": "eslint ./*.js docs/**/*.js && tslint --project tsconfig.json '@(src|tests|types|docs)/**/*.@(ts|tsx)'",
     "lint-less": "stylelint 'src/less/**/*.less'",
