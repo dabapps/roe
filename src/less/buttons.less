@@ -33,23 +33,16 @@
   }
 }
 
-.create-button-styles (@background: @button-background-default, @color: @button-text-color-light) {
+.create-button-styles
+  (@background: @button-background-default, @color: @button-text-color-light) {
   .create-button-pew();
   background-color: @background;
   color: @color;
 
-  &.link,
-  &.hollow {
-    color: @background;
-  }
-
-  &.hollow {
-    border-color: @background;
-  }
-
   &:hover:not([disabled]):not(.disabled) {
     background-color: darken(@background, 5%);
     color: @color;
+    box-shadow: @shadow-inset-subtle;
 
     &.link,
     &.hollow {
@@ -58,15 +51,15 @@
   }
 
   &::before {
-    background-color: contrast(@background, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
+    background-color: contrast(
+      @background,
+      rgba(255, 255, 255, 0.2),
+      rgba(0, 0, 0, 0.1)
+    );
   }
 
   transition: ease-in-out 0.1s background-color, ease-in-out 0.1s box-shadow;
   box-shadow: @shadow-none;
-
-  &:hover:not([disabled]):not(.disabled) {
-    box-shadow: @shadow-inset-subtle;
-  }
 
   &:active:not([disabled]):not(.disabled) {
     box-shadow: @shadow-inset-hard;
@@ -113,19 +106,28 @@
 
   &.hollow,
   &.link {
+    color: @background;
     background-color: @button-background-hollow;
 
     &::before {
-      background-color: contrast(@color, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1));
+      background-color: contrast(
+        @color,
+        rgba(255, 255, 255, 0.2),
+        rgba(0, 0, 0, 0.1)
+      );
     }
 
     &:hover:not([disabled]):not(.disabled) {
-      background-color: darken(contrast(@color, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1)), 5%);
+      background-color: darken(
+        contrast(@color, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.1)),
+        5%
+      );
       box-shadow: @shadow-none;
     }
   }
 
   &.hollow {
+    border-color: @background;
     color: @background;
     border: @button-border-width solid @background;
     padding: @button-padding-vertical-base - @button-border-width
@@ -133,12 +135,12 @@
 
     &.large {
       padding: @button-padding-vertical-large - @button-border-width
-      @button-padding-horizontal-large - @button-border-width;
+        @button-padding-horizontal-large - @button-border-width;
     }
 
     &.small {
       padding: @button-padding-vertical-small - @button-border-width
-      @button-padding-horizontal-small - @button-border-width;
+        @button-padding-horizontal-small - @button-border-width;
     }
 
     &:hover:not([disabled]):not(.disabled) {

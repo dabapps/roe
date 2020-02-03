@@ -1,6 +1,7 @@
 input,
 select,
 textarea {
+  /* stylelint-disable-next-line selector-no-qualifying-type */
   &.error {
     color: @font-color-base;
     border-color: @error;
@@ -25,18 +26,6 @@ textarea {
   & > .button {
     display: inline-block;
     vertical-align: middle;
-  }
-
-  & > label,
-  & > input,
-  & > select,
-  & > button,
-  & > textarea,
-  & > .input-group,
-  & > .input,
-  & > .select,
-  & > .label,
-  & > .button {
     margin-top: 0;
     margin-bottom: 0;
 
@@ -54,8 +43,10 @@ textarea {
     }
   }
 
+  /* stylelint-disable selector-no-qualifying-type */
   & > input[type='checkbox'],
   & > input[type='radio'] {
+    /* stylelint-enable selector-no-qualifying-type */
     width: @checkbox-size;
 
     &:first-child {
@@ -65,8 +56,10 @@ textarea {
       margin-top: -@checkbox-size / 2;
     }
 
+    /* stylelint-disable selector-no-qualifying-type */
     & + label,
     & + .label {
+      /* stylelint-enable selector-no-qualifying-type */
       margin-left: @margin-base + @checkbox-size;
       text-align: left;
     }
@@ -82,7 +75,8 @@ textarea {
     }
   }
 
-  &.no-label > * { // lesshint universalSelector: false
+  /* stylelint-disable-next-line selector-max-universal */
+  &.no-label > * {
     margin-left: @no-label-offset;
   }
 
@@ -93,7 +87,8 @@ textarea {
   &.block {
     width: 100%;
 
-    &.no-label > * { // lesshint universalSelector: false
+    /* stylelint-disable-next-line selector-max-universal */
+    &.no-label > * {
       margin-left: 0;
     }
 
@@ -113,9 +108,10 @@ textarea {
       width: 100%;
     }
 
+    /* stylelint-disable-next-line selector-no-qualifying-type */
     & > input[type='checkbox'],
     & > input[type='radio'] {
-      display: inline-block;
+      display: inline-block; // stylelint-disable-line selector-no-qualifying-type
       width: @checkbox-size;
     }
 
@@ -131,7 +127,7 @@ textarea {
 }
 
 .input-group {
-  display: inline-table !important; // lesshint importantRule: false
+  display: inline-table !important; // stylelint-disable-line declaration-no-important
   width: auto;
   margin-top: @margin-large;
   margin-bottom: @margin-large;
@@ -143,7 +139,8 @@ textarea {
     width: 100%;
   }
 
-  & > * { // lesshint universalSelector: false
+  /* stylelint-disable-next-line selector-max-universal */
+  & > * {
     width: 1px;
   }
 
@@ -191,6 +188,6 @@ textarea {
     padding: @padding-base / 2 @padding-base;
     border-radius: @border-radius-base;
     background-color: @input-group-addon-background;
-    line-height: 1em;
+    line-height: 1em; // stylelint-disable-line unit-blacklist
   }
 }

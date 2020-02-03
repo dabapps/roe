@@ -1,4 +1,6 @@
-.create-speech-bubble-styles (@background: @speech-bubble-background-default, @border-color: @speech-bubble-border-color-default, @color: @speech-bubble-text-color-default) { // lesshint maxCharPerLine: false
+.create-speech-bubble-styles
+  (@background: @speech-bubble-background-default, @border-color: @speech-bubble-border-color-default, @color: @speech-bubble-text-color-default) {
+  // lesshint maxCharPerLine: false
   .clearfix();
   margin: @margin-base @gutter-width / 2;
 
@@ -43,7 +45,12 @@
     height: @speech-bubble-arrow-size;
     border-bottom: @border-base;
     border-bottom-color: @border-color;
-    background-image: radial-gradient(circle at top left, transparent (@speech-bubble-arrow-size - 1), @border-color @speech-bubble-arrow-size, @background (@speech-bubble-arrow-size + 1)); // lesshint maxCharPerLine: false
+    background-image: radial-gradient(
+      circle at top left,
+      transparent (@speech-bubble-arrow-size - 1),
+      @border-color @speech-bubble-arrow-size,
+      @background (@speech-bubble-arrow-size + 1)
+    ); // lesshint maxCharPerLine: false
   }
 
   &.right {
@@ -61,12 +68,19 @@
     .tail {
       left: auto;
       right: -@speech-bubble-arrow-size;
-      background-image: radial-gradient(circle at top right, transparent (@speech-bubble-arrow-size - 1), @border-color @speech-bubble-arrow-size, @background (@speech-bubble-arrow-size + 1)); // lesshint maxCharPerLine: false
+      background-image: radial-gradient(
+        circle at top right,
+        transparent (@speech-bubble-arrow-size - 1),
+        @border-color @speech-bubble-arrow-size,
+        @background (@speech-bubble-arrow-size + 1)
+      ); // lesshint maxCharPerLine: false
     }
   }
 }
 
-.create-speech-bubble (@type, @background: @speech-bubble-background-default, @border-color: @speech-bubble-border-color-default, @color: @speech-bubble-text-color-default) { // lesshint maxCharPerLine: false
+.create-speech-bubble
+  (@type, @background: @speech-bubble-background-default, @border-color: @speech-bubble-border-color-default, @color: @speech-bubble-text-color-default) {
+  // lesshint maxCharPerLine: false
   &.@{type} {
     .create-speech-bubble-styles(@background, @border-color, @color);
   }

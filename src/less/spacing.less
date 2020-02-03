@@ -1,9 +1,9 @@
 .spacing-styles (@style, @size) {
-  @{style}: @size !important; // lesshint importantRule: false
+  @{style}: @size !important; /* stylelint-disable-line declaration-no-important*/
 }
 
 .spacing-directional-styles (@style, @size, @direction) {
-  @{style}-@{direction}: @size !important; // lesshint importantRule: false
+  @{style}-@{direction}: @size !important; /* stylelint-disable-line declaration-no-important*/
 }
 
 .spacing-vertical-styles (@style, @size) {
@@ -16,7 +16,8 @@
   .spacing-directional-styles(@style, @size, right);
 }
 
-.create-spacing (@prefix, @alias, @style, @value-base, @value-small, @value-large) {
+.create-spacing
+  (@prefix, @alias, @style, @value-base, @value-small, @value-large) {
   .@{prefix}-@{style}-none {
     .spacing-styles(@style, 0);
   }
