@@ -128,6 +128,8 @@ describe('Pagination', () => {
       .childAt(1)
       .simulate('click');
 
+    expect(instance.instance().props.changePage).toHaveBeenCalled();
+
     instance.unmount();
   });
 });
