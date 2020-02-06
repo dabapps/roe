@@ -19,7 +19,7 @@ describe('Pagination', () => {
     expect(instance).toMatchSnapshot();
   });
 
-  it('should disabled buttons', () => {
+  it('should disable buttons when disabled is true', () => {
     const instance = renderer.create(
       <Pagination
         pageSize={3}
@@ -59,7 +59,7 @@ describe('Pagination', () => {
     expect(instance).toMatchSnapshot();
   });
 
-  it('should display next and previous text', () => {
+  it('should display custom next and previous text', () => {
     const instance = renderer.create(
       <Pagination
         pageSize={3}
@@ -74,7 +74,7 @@ describe('Pagination', () => {
     expect(instance).toMatchSnapshot();
   });
 
-  it('should add extra button to cover remainder pages', () => {
+  it('should add an extra button to cover remainder page', () => {
     const instance = renderer.create(
       <Pagination
         pageSize={3}
