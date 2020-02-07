@@ -190,7 +190,7 @@ exports[`Pagination should display less than 5 buttons for minimal page counts 1
 </div>
 `;
 
-exports[`Pagination should match snapshot 1`] = `
+exports[`Pagination should match snapshot with current page button highlighted 1`] = `
 <div
   className="pagination float-right margin-top-base"
 >

@@ -5,7 +5,7 @@ import * as renderer from 'react-test-renderer';
 import { Pagination } from '../src/ts';
 
 describe('Pagination', () => {
-  it('should match snapshot', () => {
+  it('should match snapshot with current page button highlighted', () => {
     const instance = renderer.create(
       <Pagination
         className="float-right margin-top-base"
