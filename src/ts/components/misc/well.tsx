@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export type WellProps = ComponentProps & HTMLProps<HTMLElement>;
@@ -13,7 +14,7 @@ export class Well extends PureComponent<WellProps, {}> {
     const {
       children,
       className,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
 

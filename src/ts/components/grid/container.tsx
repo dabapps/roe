@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export interface ContainerProps extends ComponentProps, HTMLProps<HTMLElement> {
@@ -24,7 +25,7 @@ export class Container extends PureComponent<ContainerProps, {}> {
       className,
       fluid,
       solid,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
     const fluidClassName = fluid ? 'container-fluid' : 'container';

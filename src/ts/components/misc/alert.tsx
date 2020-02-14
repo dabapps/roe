@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export type AlertProps = ComponentProps & HTMLProps<HTMLElement>;
@@ -13,7 +14,7 @@ export class Alert extends PureComponent<AlertProps, {}> {
     const {
       children,
       className,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
 

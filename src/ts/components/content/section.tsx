@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export type SectionProps = ComponentProps & HTMLProps<HTMLElement>;
@@ -14,7 +15,7 @@ export class Section extends PureComponent<SectionProps, {}> {
     const {
       children,
       className,
-      component: Component = 'section',
+      component: Component = 'section' as any,
       ...remainingProps
     } = this.props;
 

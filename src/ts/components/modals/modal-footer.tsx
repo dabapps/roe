@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export type ModalFooterProps = ComponentProps & HTMLProps<HTMLElement>;
@@ -14,7 +15,7 @@ export class ModalFooter extends PureComponent<ModalFooterProps, {}> {
     const {
       className,
       children,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
 

@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export interface NavItemProps extends ComponentProps, HTMLProps<HTMLElement> {
@@ -24,7 +25,7 @@ export class NavItem extends PureComponent<NavItemProps, {}> {
       className,
       children,
       active,
-      component: Component = 'li',
+      component: Component = 'li' as any,
     } = this.props;
 
     return (

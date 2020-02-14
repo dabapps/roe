@@ -2,6 +2,7 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
+
 import store from '../../store';
 import { ComponentProps } from '../../types';
 
@@ -41,7 +42,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
     const {
       sticky,
       fixed,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       children,
       className,
       ...remainingProps

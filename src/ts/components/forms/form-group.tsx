@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export interface FormGroupProps extends ComponentProps, HTMLProps<HTMLElement> {
@@ -24,7 +25,7 @@ export class FormGroup extends PureComponent<FormGroupProps, {}> {
       className,
       block,
       noLabel,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
 

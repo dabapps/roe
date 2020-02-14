@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export interface TableProps extends ComponentProps, HTMLProps<HTMLElement> {
@@ -65,7 +66,7 @@ export class Table extends PureComponent<TableProps, {}> {
       condensed,
       fill,
       fixed,
-      component: Component = 'table',
+      component: Component = 'table' as any,
       ...remainingProps
     } = this.props;
 

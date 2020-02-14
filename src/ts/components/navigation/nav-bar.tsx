@@ -2,6 +2,7 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
+
 import store from '../../store';
 import { ComponentProps } from '../../types';
 import { getScrollOffset } from '../../utils';
@@ -75,7 +76,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
       fixed,
       shy,
       noShadow,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
 

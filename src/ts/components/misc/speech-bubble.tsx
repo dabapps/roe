@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export interface SpeechBubbleProps
@@ -37,7 +38,7 @@ export class SpeechBubble extends PureComponent<SpeechBubbleProps, {}> {
       block,
       header,
       footer,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
 

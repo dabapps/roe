@@ -1,7 +1,8 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
-import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import * as CSSTransitionGroup from 'react-transition-group';
+
 import { ComponentProps } from '../../types';
 
 export interface HighlightProps extends ComponentProps, HTMLProps<HTMLElement> {
@@ -33,7 +34,7 @@ export class Highlight extends PureComponent<HighlightProps, {}> {
       open = false,
       disabled = false,
       backgroundColor = null,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
 
@@ -42,13 +43,13 @@ export class Highlight extends PureComponent<HighlightProps, {}> {
         {...remainingProps}
         className={classNames('highlight', className)}
       >
-        <CSSTransitionGroup
+        {/* <CSSTransitionGroup
           transitionName="highlight-transition"
           transitionEnterTimeout={300}
           transitionLeaveTimeout={200}
         >
           {open && <div className="highlight-overlay" />}
-        </CSSTransitionGroup>
+        </CSSTransitionGroup> */}
         <div
           className={classNames('highlight-content', open && 'open')}
           style={backgroundColor ? { backgroundColor } : undefined}

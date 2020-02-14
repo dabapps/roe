@@ -1,7 +1,7 @@
-import * as classNames from 'classnames';
+import * as classnames from 'classnames';
 import * as cookie from 'cookie';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 import Banner from './banner';
 
@@ -15,7 +15,7 @@ export type Render = (
 
 export interface CookieBannerProps
   extends ComponentProps,
-    HTMLProps<HTMLElement> {
+    React.HTMLProps<HTMLElement> {
   /**
    * Takes a component as a function and renders as a child
    */
@@ -36,7 +36,7 @@ export interface CookieBannerState {
  * This component takes a render prop, which can be a component or function, that is passed a dismiss prop
  * which you can then apply as an onClick prop to an element of your choice.
  */
-export class CookieBanner extends PureComponent<
+export class CookieBanner extends React.PureComponent<
   CookieBannerProps,
   CookieBannerState
 > {
@@ -65,7 +65,7 @@ export class CookieBanner extends PureComponent<
         {...remainingProps}
         position={position}
         open={!dismissed}
-        className={classNames('cookie-banner', className)}
+        className={classnames('cookie-banner', className)}
       >
         {render && render({ dismiss: this.setCookie })}
       </Banner>

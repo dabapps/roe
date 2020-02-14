@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export type TabsProps = ComponentProps & HTMLProps<HTMLElement>;
@@ -13,7 +14,7 @@ export class Tabs extends PureComponent<TabsProps, {}> {
     const {
       className,
       children,
-      component: Component = 'ul',
+      component: Component = 'ul' as any,
       ...remainingProps
     } = this.props;
 

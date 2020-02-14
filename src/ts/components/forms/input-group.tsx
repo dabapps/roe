@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export interface InputGroupProps
@@ -21,7 +22,7 @@ export class InputGroup extends PureComponent<InputGroupProps, {}> {
       children,
       className,
       block,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
 

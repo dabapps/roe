@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export type TableRowProps = ComponentProps & HTMLProps<HTMLElement>;
@@ -14,7 +15,7 @@ export class TableRow extends PureComponent<TableRowProps, {}> {
     const {
       className,
       children,
-      component: Component = 'tr',
+      component: Component = 'tr' as any,
       ...remainingProps
     } = this.props;
 

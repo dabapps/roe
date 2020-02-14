@@ -1,4 +1,5 @@
 import * as randomSeed from 'random-seed';
+
 import {
   MATCHES_AMPERSAND,
   MATCHES_BLANK_FIRST_LINE,

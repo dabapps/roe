@@ -7,6 +7,7 @@ declare const hljs: void | IHighlightJS;
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 import { formatCode } from '../../utils';
 
@@ -63,7 +64,7 @@ export class CodeBlock extends PureComponent<CodeBlockProps, {}> {
       className,
       language,
       codeBlockName,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
     const languageClassName = language && `language-${language}`;

@@ -110,7 +110,7 @@ describe('Footer', () => {
         (type: string, callback: () => any) => {
           if (type === 'resize') {
             handlers[type] = callback;
-            jest.spyOn(handlers, type);
+            jest.spyOn(handlers, type as never);
           }
         }
       );
@@ -137,20 +137,21 @@ describe('Footer', () => {
         (type: string, callback: () => any) => {
           if (type === 'resize') {
             handlers[type] = callback;
-            jest.spyOn(handlers, type);
+            jest.spyOn(handlers, type as never);
           }
         }
       );
 
       const fakeElement = document.createElement('div');
-      fakeElement.getBoundingClientRect = () => ({
-        height: 20,
-        bottom: 0,
-        left: 0,
-        right: 0,
-        width: 0,
-        top: 0,
-      });
+      fakeElement.getBoundingClientRect = () =>
+        ({
+          height: 20,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          width: 0,
+          top: 0,
+        } as never);
 
       const findDOMNodeSpy = jest
         .spyOn(ReactDOM, 'findDOMNode')
@@ -244,7 +245,7 @@ describe('Footer', () => {
         (type: string, callback: () => any) => {
           if (type === 'resize') {
             handlers[type] = callback;
-            jest.spyOn(handlers, type);
+            jest.spyOn(handlers, type as never);
           }
         }
       );
@@ -271,20 +272,21 @@ describe('Footer', () => {
         (type: string, callback: () => any) => {
           if (type === 'resize') {
             handlers[type] = callback;
-            jest.spyOn(handlers, type);
+            jest.spyOn(handlers, type as never);
           }
         }
       );
 
       const fakeElement = document.createElement('div');
-      fakeElement.getBoundingClientRect = () => ({
-        height: 20,
-        bottom: 0,
-        left: 0,
-        right: 0,
-        width: 0,
-        top: 0,
-      });
+      fakeElement.getBoundingClientRect = () =>
+        ({
+          height: 20,
+          bottom: 0,
+          left: 0,
+          right: 0,
+          width: 0,
+          top: 0,
+        } as never);
 
       const findDOMNodeSpy = jest
         .spyOn(ReactDOM, 'findDOMNode')

@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export type InputGroupAddonProps = ComponentProps & HTMLProps<HTMLElement>;
@@ -15,7 +16,7 @@ export class InputGroupAddon extends PureComponent<InputGroupAddonProps, {}> {
       className,
       width,
       style,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
 

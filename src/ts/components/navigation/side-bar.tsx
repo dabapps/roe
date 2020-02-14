@@ -1,7 +1,8 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
-import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import * as CSSTransitionGroup from 'react-transition-group';
+
 import { ComponentProps } from '../../types';
 
 export interface SideBarProps extends HTMLProps<HTMLElement>, ComponentProps {
@@ -36,13 +37,13 @@ export class SideBar extends PureComponent<SideBarProps, {}> {
       position,
       onClickOutside,
       noShadow,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
 
     return (
       <div className={classNames('side-bar-container', className)}>
-        <CSSTransitionGroup
+        {/* <CSSTransitionGroup
           transitionName="side-bar-transition"
           transitionEnterTimeout={300}
           transitionLeaveTimeout={200}
@@ -50,7 +51,7 @@ export class SideBar extends PureComponent<SideBarProps, {}> {
           {open && (
             <div className="side-bar-overlay" onClick={onClickOutside} />
           )}
-        </CSSTransitionGroup>
+        </CSSTransitionGroup> */}
         <Component
           {...remainingProps}
           className={classNames(

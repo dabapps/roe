@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PureComponent } from 'react';
+
 import {
   AppRoot,
   Button,
@@ -29,7 +29,7 @@ interface AppState {
   sidebarOpen: boolean;
 }
 
-class App extends PureComponent<{}, AppState> {
+class App extends React.PureComponent<{}, AppState> {
   public constructor(props: {}) {
     super(props);
 

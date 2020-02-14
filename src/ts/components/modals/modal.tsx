@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export interface ModalProps extends ComponentProps, HTMLProps<HTMLDivElement> {
@@ -39,7 +40,7 @@ export class Modal extends PureComponent<ModalProps, {}> {
       small,
       large,
       fill,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
 

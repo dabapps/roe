@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { NBSP } from '../../constants';
 import { BaseTableCellProps } from '../../types';
 import { shouldNotBeRendered } from '../../utils';
@@ -18,7 +19,7 @@ export class TableCell extends PureComponent<TableCellProps, {}> {
       children,
       style,
       width,
-      component: Component = 'td',
+      component: Component = 'td' as any,
       ...remainingProps
     } = this.props;
 

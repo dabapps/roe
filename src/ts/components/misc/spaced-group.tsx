@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export interface SpacedGroupProps
@@ -31,7 +32,7 @@ export class SpacedGroup extends PureComponent<SpacedGroupProps, {}> {
       block,
       small,
       large,
-      component: Component = 'span',
+      component: Component = 'span' as any,
       ...remainingProps
     } = this.props;
 

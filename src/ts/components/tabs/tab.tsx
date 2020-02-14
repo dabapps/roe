@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export interface TabProps extends ComponentProps, HTMLProps<HTMLElement> {
@@ -21,7 +22,7 @@ export class Tab extends PureComponent<TabProps, {}> {
       className,
       children,
       active,
-      component: Component = 'li',
+      component: Component = 'li' as any,
       ...remainingProps
     } = this.props;
 

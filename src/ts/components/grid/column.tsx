@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 import { isValidColumnNumber } from '../../utils';
 
@@ -116,7 +117,7 @@ export class Column extends PureComponent<ColumnProps, {}> {
     const {
       children,
       className,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       xs,
       sm,
       md,

@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 const ENOUGH_TIME_FOR_RERENDER = 50;
@@ -141,7 +142,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       maxCollapsedHeight,
       minHeight = null,
       animationDuration = DEFAULT_DURATION,
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
 
@@ -177,8 +178,9 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
         style={collapseStyle}
       >
         {children}
-        {fadeOut &&
-          !opened && <div className="collapse-fade" style={fadeStyle} />}
+        {fadeOut && !opened && (
+          <div className="collapse-fade" style={fadeStyle} />
+        )}
       </Component>
     );
   }

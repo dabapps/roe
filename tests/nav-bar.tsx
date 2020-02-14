@@ -135,7 +135,7 @@ describe('NavBar', () => {
       (type: string, callback: () => any) => {
         if (type === 'resize') {
           handlers[type] = callback;
-          jest.spyOn(handlers, type);
+          jest.spyOn(handlers, type as never);
         }
       }
     );
@@ -164,21 +164,22 @@ describe('NavBar', () => {
       (type: string, callback: () => any) => {
         if (type === 'scroll') {
           handlers[type] = callback;
-          jest.spyOn(handlers, type);
+          jest.spyOn(handlers, type as never);
         }
       }
     );
     jest.spyOn(utils, 'getScrollOffset').mockReturnValue({ x: 0, y: 0 });
 
     const fakeElement = document.createElement('div');
-    fakeElement.getBoundingClientRect = () => ({
-      height: 20,
-      bottom: 0,
-      left: 0,
-      right: 0,
-      width: 0,
-      top: 0,
-    });
+    fakeElement.getBoundingClientRect = () =>
+      ({
+        height: 20,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        width: 0,
+        top: 0,
+      } as any);
 
     jest.spyOn(ReactDOM, 'findDOMNode').mockReturnValue(fakeElement);
 
@@ -234,7 +235,7 @@ describe('NavBar', () => {
       (type: string, callback: () => any) => {
         if (type === 'scroll') {
           handlers[type] = callback;
-          jest.spyOn(handlers, type);
+          jest.spyOn(handlers, type as never);
         }
       }
     );

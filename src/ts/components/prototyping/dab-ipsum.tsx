@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Component } from 'react';
+
 import { generateIpsum } from '../../utils';
 import { WORDS } from '../../words';
 

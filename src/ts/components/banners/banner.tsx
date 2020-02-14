@@ -1,9 +1,11 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
-export interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
+export interface BannerProps
+  extends ComponentProps,
+    React.HTMLProps<HTMLElement> {
   /**
    * If set, displays the component, otherwise it is hidden
    * @default true
@@ -19,14 +21,14 @@ export interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
 /**
  * A Banner component that displays fixed to the top or bottom of the screen.
  */
-export class Banner extends PureComponent<BannerProps, {}> {
+export class Banner extends React.PureComponent<BannerProps> {
   public render() {
     const {
       className,
       children,
       open = true,
       position = 'bottom',
-      component: Component = 'div',
+      component: Component = 'div' as any,
       ...remainingProps
     } = this.props;
 
