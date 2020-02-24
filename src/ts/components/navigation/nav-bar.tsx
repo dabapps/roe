@@ -56,9 +56,10 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
       Boolean(this.props.fixed) !== Boolean(prevProps.fixed) ||
       Boolean(this.props.shy) !== Boolean(prevProps.shy)
     ) {
-      this.notifyAppRoot(this.props);
       this.toggleResizeListeners(this.props);
     }
+
+    this.notifyAppRoot(this.props);
   }
 
   public componentWillUnmount() {
