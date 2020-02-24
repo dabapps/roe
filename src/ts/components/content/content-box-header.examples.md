@@ -3,13 +3,9 @@
 ```js
 <ContentBox>
   <ContentBoxHeader>
-    <h5>
-      Header
-    </h5>
+    <h5>Header</h5>
   </ContentBoxHeader>
-  <p>
-    Content
-  </p>
+  <p>Content</p>
 </ContentBox>
 ```
 

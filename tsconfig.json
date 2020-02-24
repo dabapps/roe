@@ -7,16 +7,8 @@
     "jsx": "react",
     "target": "es5",
     "module": "commonjs",
-    "typeRoots": [
-      "./node_modules/@types/",
-      "./@types/"
-    ],
+    "typeRoots": ["./node_modules/@types/", "./@types/"],
     "baseUrl": "./src/ts/"
   },
-  "include": [
-    "./src/ts/",
-    "./tests/",
-    "./@types/",
-    "./examples/"
-  ]
+  "include": ["./src/ts/", "./tests/", "./@types/", "./examples/"]
 }

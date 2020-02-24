@@ -3,9 +3,7 @@
 ```js
 <div>
   <p>
-    <Anchor>
-      Anchor example: automatically generated href
-    </Anchor>
+    <Anchor>Anchor example: automatically generated href</Anchor>
   </p>
   <p>
     <Anchor href="anchor-example-custom-href">
