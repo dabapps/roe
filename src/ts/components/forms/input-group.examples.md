@@ -12,9 +12,7 @@ Note: for buttons to render correctly you must set their `component` prop to som
   </InputGroup>
 
   <InputGroup block>
-    <InputGroupAddon>
-      $
-    </InputGroupAddon>
+    <InputGroupAddon>$</InputGroupAddon>
     <input type="number" />
     <Button component="div" tabIndex={0}>
       Done

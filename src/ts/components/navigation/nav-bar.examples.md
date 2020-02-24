@@ -2,7 +2,7 @@
 
 ```js
 class NavBarExample extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {};
@@ -10,10 +10,8 @@ class NavBarExample extends React.Component {
     this.onChange = this.onChange.bind(this);
   }
 
-  render () {
-    const {
-      type
-    } = this.state;
+  render() {
+    const { type } = this.state;
 
     return (
       <div>
@@ -25,56 +23,40 @@ class NavBarExample extends React.Component {
 
             <Nav className="float-right">
               <NavItem active>
-                <a>
-                  One
-                </a>
+                <a>One</a>
               </NavItem>
               <NavItem>
-                <a>
-                  Two
-                </a>
+                <a>Two</a>
               </NavItem>
               <NavItem>
-                <a>
-                  Three
-                </a>
+                <a>Three</a>
               </NavItem>
               <NavItem className="button hollow primary">
-                <a>
-                  Logout
-                </a>
+                <a>Logout</a>
               </NavItem>
             </Nav>
           </Column>
         </NavBar>
         <FormGroup block>
-          <label>
-            NavBar type
-          </label>
+          <label>NavBar type</label>
           <select onChange={this.onChange}>
-            <option value="static">
-              Static
-            </option>
-            <option value="fixed">
-              Fixed
-            </option>
-            <option value="shy">
-              Shy
-            </option>
+            <option value="static">Static</option>
+            <option value="fixed">Fixed</option>
+            <option value="shy">Shy</option>
           </select>
         </FormGroup>
       </div>
     );
   }
 
-  onChange (event) {
+  onChange(event) {
     this.setState({
-      type: event.target.value
+      type: event.target.value,
     });
   }
 }
 
-<NavBarExample />
+<NavBarExample />;
 ```
 
 #### Less variables

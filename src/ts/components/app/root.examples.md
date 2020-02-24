@@ -14,21 +14,15 @@ Note: you **MUST** apply the "app" class to the element where your AppRoot will 
 ReactDOM.render(
   <AppRoot>
     <NavBar shy>
-      <Container>
-        NavBar
-      </Container>
+      <Container>NavBar</Container>
     </NavBar>
 
     <Container>
-      <h1>
-        Content
-      </h1>
+      <h1>Content</h1>
     </Container>
 
     <Footer sticky>
-      <Container>
-        Footer
-      </Container>
+      <Container>Footer</Container>
     </Footer>
   </AppRoot>,
   document.getElementById('app')

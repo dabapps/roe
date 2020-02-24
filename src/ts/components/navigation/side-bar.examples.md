@@ -2,66 +2,54 @@
 
 ```js
 class SideBarExample extends React.Component {
-  constructor () {
+  constructor() {
     this.state = {
-      sideBarOpen: false
+      sideBarOpen: false,
     };
 
     this.openSideBar = () => {
       this.setState({
-        sideBarOpen: true
+        sideBarOpen: true,
       });
     };
 
     this.closeSideBar = () => {
       this.setState({
-        sideBarOpen: false
+        sideBarOpen: false,
       });
     };
   }
 
-  render () {
+  render() {
     const { sideBarOpen } = this.state;
 
     return (
       <div>
-        <Button onClick={this.openSideBar}>
-          Open SideBar
-        </Button>
+        <Button onClick={this.openSideBar}>Open SideBar</Button>
 
         <SideBar onClickOutside={this.closeSideBar} open={sideBarOpen}>
           <Nav>
             <NavItem active>
-              <a>
-                One
-              </a>
+              <a>One</a>
             </NavItem>
             <NavItem>
-              <a>
-                Two
-              </a>
+              <a>Two</a>
             </NavItem>
             <NavItem>
-              <a>
-                Three
-              </a>
+              <a>Three</a>
             </NavItem>
             <NavItem className="button hollow primary">
-              <a>
-                Logout
-              </a>
+              <a>Logout</a>
             </NavItem>
           </Nav>
-          <Button onClick={this.closeSideBar}>
-            Close SideBar
-          </Button>
+          <Button onClick={this.closeSideBar}>Close SideBar</Button>
         </SideBar>
       </div>
     );
   }
 }
 
-<SideBarExample />
+<SideBarExample />;
 ```
 
 #### Less variables
