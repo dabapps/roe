@@ -74,7 +74,7 @@ describe('Pagination', () => {
     expect(instance).toMatchSnapshot();
   });
 
-  it('should add an extra button to cover remainder page', () => {
+  it('should add an extra button to cover remainder pages', () => {
     const instance = renderer.create(
       <Pagination
         pageSize={3}
