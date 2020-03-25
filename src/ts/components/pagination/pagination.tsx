@@ -1,6 +1,7 @@
-import * as React from 'react';
 import * as classNames from 'classnames';
 import { PureComponent } from 'react';
+import * as React from 'react';
+
 import { ComponentProps } from '../../types';
 import Button from '../forms/button';
 import SpacedGroup from '../misc/spaced-group';
