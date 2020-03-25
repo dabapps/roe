@@ -1,5 +1,5 @@
-import * as classNames from 'classnames';
 import * as React from 'react';
+import * as classNames from 'classnames';
 import { PureComponent } from 'react';
 import { ComponentProps } from '../../types';
 import Button from '../forms/button';
@@ -20,7 +20,7 @@ export interface PaginationProps extends ComponentProps {
    */
   pageSize: number;
   /**
-   * current page number - 1 indexed
+   * current page number (1 indexed)
    */
   currentPageNumber: number;
   /**
