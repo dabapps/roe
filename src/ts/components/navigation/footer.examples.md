@@ -2,9 +2,7 @@
 
 ```js
 <Footer>
-  <p>
-    Footer
-  </p>
+  <p>Footer</p>
 </Footer>
 ```
 

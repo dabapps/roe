@@ -13,7 +13,7 @@ const { Tab } = require('./tab');
   <Tab>
     <a>Tab 3</a>
   </Tab>
-</Tabs>
+</Tabs>;
 ```
 
 #### Less variables

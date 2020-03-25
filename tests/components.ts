@@ -16,22 +16,19 @@ const getAllComponents = (directory: string): string[] => {
   const files = fs.readdirSync(directory);
 
   return files
-    .reduce(
-      (memo, file) => {
-        const filePath = path.join(directory, file);
+    .reduce((memo, file) => {
+      const filePath = path.join(directory, file);
 
-        if (fs.statSync(filePath).isDirectory()) {
-          return memo.concat(getAllComponents(filePath));
-        }
+      if (fs.statSync(filePath).isDirectory()) {
+        return memo.concat(getAllComponents(filePath));
+      }
 
-        if (MATCHES_TS_FILE.test(filePath)) {
-          return memo.concat(filePath);
-        }
+      if (MATCHES_TS_FILE.test(filePath)) {
+        return memo.concat(filePath);
+      }
 
-        return memo;
-      },
-      [] as string[]
-    )
+      return memo;
+    }, [] as string[])
     .sort();
 };
 
@@ -55,9 +52,7 @@ describe('components', () => {
 
       if (!classRegex.test(content)) {
         throw new Error(
-          `Default export ${
-            defaultExport[0]
-          } is not exported as a named class or const at ${filePath}`
+          `Default export ${defaultExport[0]} is not exported as a named class or const at ${filePath}`
         );
       }
     });
@@ -80,17 +75,13 @@ describe('components', () => {
       const indexContent = fs.readFileSync(INDEX_FILE_PATH, UTF8);
 
       const indexRegex = new RegExp(
-        `^export\\s+{\\s+default\\s+as\\s+${
-          defaultExport[1]
-        },?\\s+}\\s+from\\s+'[a-z/.-]+';$`,
+        `^export\\s+{\\s+default\\s+as\\s+${defaultExport[1]},?\\s+}\\s+from\\s+'[a-z/.-]+';$`,
         'm'
       );
 
       if (!indexRegex.test(indexContent)) {
         throw new Error(
-          `Component ${
-            defaultExport[1]
-          } is not exported from default at ${INDEX_FILE_PATH}`
+          `Component ${defaultExport[1]} is not exported from default at ${INDEX_FILE_PATH}`
         );
       }
     });

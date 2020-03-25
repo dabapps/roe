@@ -12,7 +12,11 @@ Standard speech bubbles
     <p>Hello</p>
   </SpeechBubble>
   <SpeechBubble
-    header={<span><strong>Username 1</strong> <span className="info">2 minutes ago</span></span>}
+    header={
+      <span>
+        <strong>Username 1</strong> <span className="info">2 minutes ago</span>
+      </span>
+    }
   >
     <p>Question?</p>
   </SpeechBubble>
@@ -20,7 +24,11 @@ Standard speech bubbles
     <p>...yeah?</p>
   </SpeechBubble>
   <SpeechBubble
-    header={<span><strong>Username 2</strong> <span className="info">1 minute ago</span></span>}
+    header={
+      <span>
+        <strong>Username 2</strong> <span className="info">1 minute ago</span>
+      </span>
+    }
   >
     <p>Okay</p>
   </SpeechBubble>
@@ -66,7 +74,12 @@ This should be applied within the selector (element / class) that you want to ap
 .speech-bubble {
   // You must use the mixin within the selectors you want the new class to apply to
   // This example will generate selectors for: '.speech-bubble.custom-name'
-  .create-speech-bubble(custom-name, @background-color, @border-color, @text-color);
+  .create-speech-bubble(
+    custom-name,
+    @background-color,
+    @border-color,
+    @text-color
+  );
 }
 ```
 

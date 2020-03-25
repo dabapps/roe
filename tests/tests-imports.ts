@@ -14,22 +14,19 @@ const getAllTests = (directory: string): string[] => {
   const files = fs.readdirSync(directory);
 
   return files
-    .reduce(
-      (memo, file) => {
-        const filePath = path.join(directory, file);
+    .reduce((memo, file) => {
+      const filePath = path.join(directory, file);
 
-        if (fs.statSync(filePath).isDirectory()) {
-          return memo.concat(getAllTests(filePath));
-        }
+      if (fs.statSync(filePath).isDirectory()) {
+        return memo.concat(getAllTests(filePath));
+      }
 
-        if (MATCHES_TS_FILE.test(filePath)) {
-          return memo.concat(filePath);
-        }
+      if (MATCHES_TS_FILE.test(filePath)) {
+        return memo.concat(filePath);
+      }
 
-        return memo;
-      },
-      [] as string[]
-    )
+      return memo;
+    }, [] as string[])
     .sort();
 };
 

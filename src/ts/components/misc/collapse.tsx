@@ -177,8 +177,9 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
         style={collapseStyle}
       >
         {children}
-        {fadeOut &&
-          !opened && <div className="collapse-fade" style={fadeStyle} />}
+        {fadeOut && !opened && (
+          <div className="collapse-fade" style={fadeStyle} />
+        )}
       </Component>
     );
   }

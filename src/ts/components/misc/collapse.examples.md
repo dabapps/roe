@@ -4,25 +4,25 @@ With lots of content:
 
 ```js
 class CollapseExample extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
-      open: false
+      open: false,
     };
 
     this.onClickToggleCollapse = this.onClickToggleCollapse.bind(this);
   }
 
-  onClickToggleCollapse () {
+  onClickToggleCollapse() {
     const { open } = this.state;
 
     this.setState({
-      open: !open
+      open: !open,
     });
   }
 
-  render () {
+  render() {
     const { open } = this.state;
 
     return (
@@ -37,7 +37,10 @@ class CollapseExample extends React.Component {
         >
           <DabIpsum count={10} />
         </Collapse>
-        <Button className="primary margin-top-base" onClick={this.onClickToggleCollapse}>
+        <Button
+          className="primary margin-top-base"
+          onClick={this.onClickToggleCollapse}
+        >
           {open ? 'Collapse' : 'Expand'}
         </Button>
       </div>
@@ -45,32 +48,32 @@ class CollapseExample extends React.Component {
   }
 }
 
-<CollapseExample />
+<CollapseExample />;
 ```
 
 With small content:
 
 ```js
 class CollapseExample extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
-      open: false
+      open: false,
     };
 
     this.onClickToggleCollapse = this.onClickToggleCollapse.bind(this);
   }
 
-  onClickToggleCollapse () {
+  onClickToggleCollapse() {
     const { open } = this.state;
 
     this.setState({
-      open: !open
+      open: !open,
     });
   }
 
-  render () {
+  render() {
     const { open } = this.state;
 
     return (
@@ -85,7 +88,10 @@ class CollapseExample extends React.Component {
         >
           <DabIpsum count={1} />
         </Collapse>
-        <Button className="primary margin-top-base" onClick={this.onClickToggleCollapse}>
+        <Button
+          className="primary margin-top-base"
+          onClick={this.onClickToggleCollapse}
+        >
           {open ? 'Collapse' : 'Expand'}
         </Button>
       </div>
@@ -93,32 +99,32 @@ class CollapseExample extends React.Component {
   }
 }
 
-<CollapseExample />
+<CollapseExample />;
 ```
 
 With minimum height:
 
 ```js
 class CollapseExample extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
-      open: false
+      open: false,
     };
 
     this.onClickToggleCollapse = this.onClickToggleCollapse.bind(this);
   }
 
-  onClickToggleCollapse () {
+  onClickToggleCollapse() {
     const { open } = this.state;
 
     this.setState({
-      open: !open
+      open: !open,
     });
   }
 
-  render () {
+  render() {
     const { open } = this.state;
 
     return (
@@ -134,7 +140,10 @@ class CollapseExample extends React.Component {
         >
           <DabIpsum count={1} />
         </Collapse>
-        <Button className="primary margin-top-base" onClick={this.onClickToggleCollapse}>
+        <Button
+          className="primary margin-top-base"
+          onClick={this.onClickToggleCollapse}
+        >
           {open ? 'Collapse' : 'Expand'}
         </Button>
       </div>
@@ -142,5 +151,5 @@ class CollapseExample extends React.Component {
   }
 }
 
-<CollapseExample />
+<CollapseExample />;
 ```

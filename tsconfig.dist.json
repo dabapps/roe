@@ -7,7 +7,5 @@
     "rootDir": "./src/ts/",
     "outDir": "./dist/js/"
   },
-  "include": [
-    "./src/ts/"
-  ]
+  "include": ["./src/ts/"]
 }

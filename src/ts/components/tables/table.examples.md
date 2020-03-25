@@ -12,36 +12,20 @@ const { TableCell } = require('./table-cell');
     <TableHead>
       <TableRow>
         <TableHeader />
-        <TableHeader>
-          Header 1
-        </TableHeader>
-        <TableHeader>
-          Header 2
-        </TableHeader>
+        <TableHeader>Header 1</TableHeader>
+        <TableHeader>Header 2</TableHeader>
       </TableRow>
     </TableHead>
     <TableBody>
       <TableRow>
-        <TableCell>
-          Row 1
-        </TableCell>
-        <TableCell>
-          Column 1
-        </TableCell>
-        <TableCell>
-          Column 2
-        </TableCell>
+        <TableCell>Row 1</TableCell>
+        <TableCell>Column 1</TableCell>
+        <TableCell>Column 2</TableCell>
       </TableRow>
       <TableRow>
-        <TableCell>
-          Row 2
-        </TableCell>
-        <TableCell>
-          Column 1
-        </TableCell>
-        <TableCell>
-          Column 2
-        </TableCell>
+        <TableCell>Row 2</TableCell>
+        <TableCell>Column 1</TableCell>
+        <TableCell>Column 2</TableCell>
       </TableRow>
     </TableBody>
   </Table>
@@ -50,49 +34,27 @@ const { TableCell } = require('./table-cell');
     <TableHead>
       <TableRow>
         <TableHeader width={200} />
-        <TableHeader>
-          Header 1
-        </TableHeader>
-        <TableHeader>
-          Header 2
-        </TableHeader>
-        <TableHeader>
-          Header 3
-        </TableHeader>
+        <TableHeader>Header 1</TableHeader>
+        <TableHeader>Header 2</TableHeader>
+        <TableHeader>Header 3</TableHeader>
       </TableRow>
     </TableHead>
     <TableBody>
       <TableRow>
-        <TableCell width={200}>
-          Row 1
-        </TableCell>
-        <TableCell>
-          Column 1
-        </TableCell>
-        <TableCell>
-          Column 2
-        </TableCell>
-        <TableCell>
-          Column 3
-        </TableCell>
+        <TableCell width={200}>Row 1</TableCell>
+        <TableCell>Column 1</TableCell>
+        <TableCell>Column 2</TableCell>
+        <TableCell>Column 3</TableCell>
       </TableRow>
       <TableRow>
-        <TableCell width={200}>
-          Row 2
-        </TableCell>
-        <TableCell>
-          Column 1
-        </TableCell>
-        <TableCell>
-          Column 2
-        </TableCell>
-        <TableCell>
-          Column 3
-        </TableCell>
+        <TableCell width={200}>Row 2</TableCell>
+        <TableCell>Column 1</TableCell>
+        <TableCell>Column 2</TableCell>
+        <TableCell>Column 3</TableCell>
       </TableRow>
     </TableBody>
   </Table>
-</div>
+</div>;
 ```
 
 #### Less variables

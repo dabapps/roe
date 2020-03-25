@@ -19,21 +19,13 @@ This will help avoid writing lots of custom LESS to override existing Roe styles
 All components are exported, named, at the root level.
 
 ```javascript static
-import {
-  Column,
-  Container,
-  Row
-} from '@dabapps/roe';
+import { Column, Container, Row } from '@dabapps/roe';
 
 const App = () => (
   <Container>
     <Row>
-      <Column md={6}>
-        Column 1
-      </Column>
-      <Column md={6}>
-        Column 2
-      </Column>
+      <Column md={6}>Column 1</Column>
+      <Column md={6}>Column 2</Column>
     </Row>
   </Container>
 );
@@ -51,7 +43,10 @@ Highlight.js recommends this CDN.
 
 ```html static
 <!-- Include this in your head tag -->
-<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-gist.min.css">
+<link
+  rel="stylesheet"
+  href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-gist.min.css"
+/>
 
 <!-- Include this anywhere before your main javascript file -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>

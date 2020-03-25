@@ -10,10 +10,7 @@
           <p>We use cookies! Roe is awesome</p>
         </Column>
         <Column xs={2}>
-          <Button
-            onClick={dismiss}
-            className="margin-top-base float-right"
-          >
+          <Button onClick={dismiss} className="margin-top-base float-right">
             Accept
           </Button>
         </Column>
