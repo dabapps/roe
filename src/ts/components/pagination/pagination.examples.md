@@ -2,7 +2,6 @@
 
 ```js
 class PaginationExample extends React.Component {
-
   constructor(props) {
     super(props);
 
@@ -13,11 +12,11 @@ class PaginationExample extends React.Component {
     this.changePage = this.changePage.bind(this);
   }
 
-  changePage (value) {
+  changePage(value) {
     this.setState({ page: value });
   }
 
-  render () {
+  render() {
     const ITEM_COUNT = 22;
     const PAGE_SIZE = 3;
     const { page } = this.state;
@@ -36,7 +35,7 @@ class PaginationExample extends React.Component {
             <Pagination
               className="float-right margin-top-base"
               pageSize={PAGE_SIZE}
-              changePage={(value) => this.changePage(value)}
+              changePage={value => this.changePage(value)}
               currentPageNumber={page}
               itemCount={ITEM_COUNT}
             />
@@ -47,10 +46,11 @@ class PaginationExample extends React.Component {
   }
 }
 
-<PaginationExample />
+<PaginationExample />;
 ```
 
 #### Less variables
+
 ```less
 @pagination-button-color: @grey-dark;
 @pagination-button-background: @grey-lighter;

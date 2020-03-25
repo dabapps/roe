@@ -219,9 +219,10 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
   };
 
   private paginationSeries = (start: number, end: number, range: number) => {
-    return Array.apply(null, { length: range }).map(
-      (item: number, index: number) =>
-        Math.floor(start + index * ((end - start) / range))
+    return Array.apply(null, {
+      length: range,
+    }).map((item: number, index: number) =>
+      Math.floor(start + index * ((end - start) / range))
     );
   };
 

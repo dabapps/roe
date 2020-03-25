@@ -70,7 +70,7 @@ var components = [
   },
   {
     name: 'Pagination',
-    components: 'src/ts/components/pagination/**/*.tsx'
+    components: 'src/ts/components/pagination/**/*.tsx',
   },
   {
     name: 'Misc',
