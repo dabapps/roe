@@ -53,12 +53,12 @@ class SliderExamples extends React.Component {
 #### Less variables
 
 ```less
-@roe-slider-bar-background: @grey-lighter;
-@roe-slider-bar-min-max-background: lighten(@grey-lighter, 8%);
-@roe-slider-bar-thickness: 5px;
-@roe-slider-handle-width: 15px;
-@roe-slider-handle-height: 15px;
-@roe-slider-handle-color: @primary;
-@roe-slider-range-bar-background: lighten(@success, 30%);
-@roe-slider-handle-z-index: 100;
+@slider-bar-background: @grey-lighter;
+@slider-bar-min-max-background: lighten(@grey-lighter, 8%);
+@slider-bar-thickness: 5px;
+@slider-handle-width: 15px;
+@slider-handle-height: 15px;
+@slider-handle-color: @primary;
+@slider-range-bar-background: lighten(@success, 30%);
+@slider-handle-z-index: 100;
 ```

@@ -1,58 +1,58 @@
-.roe-slider {
+.slider {
   padding: 0 5px;
 
-  .roe-bar {
-    height: @roe-slider-bar-thickness;
+  .bar {
+    height: @slider-bar-thickness;
     position: relative;
-    background-color: @roe-slider-bar-background;
+    background-color: @slider-bar-background;
 
-    &__min,
-    &__max {
+    &-min,
+    &-max {
       position: absolute;
       top: 0;
       bottom: 0;
-      background-color: @roe-slider-bar-min-max-background;
+      background-color: @slider-bar-min-max-background;
     }
 
-    &__min {
+    &-min {
       left: 0;
     }
 
-    &__max {
+    &-max {
       right: 0;
     }
 
-    .roe-bar-range {
+    .bar-range {
       position: absolute;
       top: 0;
       bottom: 0;
-      background-color: @roe-slider-range-bar-background;
-      z-index: @roe-slider-handle-z-index - 1;
+      background-color: @slider-range-bar-background;
+      z-index: @slider-handle-z-index - 1;
     }
   }
 
-  .roe-handle {
+  .handle {
     position: relative;
-    width: @roe-slider-handle-width;
-    height: @roe-slider-handle-height;
+    width: @slider-handle-width;
+    height: @slider-handle-height;
     top: 50%;
     left: 0;
     float: left;
     transform: translate(-50%, -50%);
-    background-color: @roe-slider-handle-color;
+    background-color: @slider-handle-color;
     cursor: ew-resize;
     border-radius: 50%;
-    z-index: @roe-slider-handle-z-index;
+    z-index: @slider-handle-z-index;
 
-    &__range {
+    &-range {
       transform: translate(-100%, -50%);
-      background-color: @roe-slider-handle-color;
+      background-color: @slider-handle-color;
     }
   }
 
   &.stepped {
-    .roe-handle,
-    .roe-bar-range {
+    .handle,
+    .bar-range {
       transition: all 0.2s ease-out;
     }
   }

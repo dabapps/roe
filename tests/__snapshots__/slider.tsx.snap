@@ -2,14 +2,14 @@
 
 exports[`Slider should match snapshot 1`] = `
 <div
-  className="roe-slider stepped range"
+  className="slider stepped range"
   step={5}
 >
   <div
-    className="roe-bar"
+    className="bar"
   >
     <span
-      className="roe-bar__min"
+      className="bar-min"
       style={
         Object {
           "width": "0%",
@@ -17,7 +17,7 @@ exports[`Slider should match snapshot 1`] = `
       }
     />
     <div
-      className="roe-handle"
+      className="handle"
       onMouseDown={[Function]}
       onTouchMove={[Function]}
       style={
@@ -27,7 +27,7 @@ exports[`Slider should match snapshot 1`] = `
       }
     />
     <div
-      className="roe-handle roe-handle__range"
+      className="handle handle-range"
       onMouseDown={[Function]}
       onTouchMove={[Function]}
       style={
@@ -37,7 +37,7 @@ exports[`Slider should match snapshot 1`] = `
       }
     />
     <span
-      className="roe-bar-range"
+      className="bar-range"
       style={
         Object {
           "left": "0%",
@@ -46,7 +46,7 @@ exports[`Slider should match snapshot 1`] = `
       }
     />
     <span
-      className="roe-bar__max"
+      className="bar-max"
       style={
         Object {
           "width": "100%",

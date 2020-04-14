@@ -105,31 +105,31 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
     return (
       <Component
         {...remainingProps}
-        className={classnames('roe-slider', 'stepped', 'range')}
+        className={classnames('slider', 'stepped', 'range')}
       >
-        <div className="roe-bar">
-          <span className="roe-bar__min" style={this.setMinMaxStyle('min')} />
+        <div className="bar">
+          <span className="bar-min" style={this.setMinMaxStyle('min')} />
 
           <div
-            className="roe-handle"
+            className="handle"
             style={this.setOrientationStyle(this.state.from)}
             onMouseDown={this.onHandleMouseFrom}
             onTouchMove={this.onHandleTouchFrom}
           />
 
           <div
-            className="roe-handle roe-handle__range"
+            className="handle handle-range"
             style={this.setOrientationStyle(this.state.to)}
             onMouseDown={this.onHandleMouseTo}
             onTouchMove={this.onHandleTouchTo}
           />
 
           <span
-            className="roe-bar-range"
+            className="bar-range"
             style={this.setMinMaxStyle('range')}
           />
 
-          <span className="roe-bar__max" style={this.setMinMaxStyle('max')} />
+          <span className="bar-max" style={this.setMinMaxStyle('max')} />
         </div>
       </Component>
     );
