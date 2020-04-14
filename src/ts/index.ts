@@ -16,7 +16,7 @@ export { CookieBannerRenderProps } from './components/banners/cookie-banner';
 export { default as DabIpsum } from './components/prototyping/dab-ipsum';
 export { default as Footer } from './components/navigation/footer';
 export { default as FormGroup } from './components/forms/form-group';
-export { default as Slider } from './components/misc/slider';
+export { default as Slider } from './components/forms/slider';
 export { default as Highlight } from './components/misc/highlight';
 export { default as InputGroup } from './components/forms/input-group';
 export { default as InputGroupAddon } from './components/forms/input-group-addon';
