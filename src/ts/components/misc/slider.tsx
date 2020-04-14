@@ -44,7 +44,7 @@ const isSyntheticMouseEvent = (
   event: SyntheticMouseEvent | SyntheticTouchEvent
 ): event is SyntheticMouseEvent => event.hasOwnProperty('clientX');
 
-export class Slider extends React.Component<Props, StateProps> {
+export class Slider extends React.PureComponent<SliderProps, StateProps> {
   private unsubscribers: Array<() => void> = [];
   private stepSeries: ReadonlyArray<number>;
   private percentageStepSeries: ReadonlyArray<number>;
