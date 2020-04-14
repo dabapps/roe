@@ -26,21 +26,13 @@ class SliderExamples extends React.Component {
 
   render () {
     return (
-      <div
-        className="padding-top-large"
-      >
-        <Row>
-          <Column>
-            <Slider
-              onChange={this.onChange(this.Input)}
-              initialValue={this.INITIAL}
-              min={this.RANGE.MIN}
-              max={this.RANGE.MAX}
-              step={this.STEP}
-            />
-          </Column>
-        </Row>
-      </div>
+      <Slider
+        onChange={this.onChange(this.Input)}
+        initialValue={this.INITIAL}
+        min={this.RANGE.MIN}
+        max={this.RANGE.MAX}
+        step={this.STEP}
+      />
     );
   }
   onChange(input) {
