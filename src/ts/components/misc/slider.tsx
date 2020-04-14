@@ -2,6 +2,7 @@ import * as classnames from 'classnames';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
+import { ComponentProps } from '../../types';
 import { PERCENTAGE_MAX, PERCENTAGE_MIN } from './slider/constants';
 import { Range } from './slider/types';
 import {
@@ -11,7 +12,7 @@ import {
   getStepSeries,
 } from './slider/utils';
 
-interface Props {
+interface SliderProps extends ComponentProps {
   min: number;
   max: number;
   step: number;
@@ -53,7 +54,7 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
   private onHandleTouchFrom: (event: SyntheticTouchEvent) => void;
   private onHandleTouchTo: (event: SyntheticTouchEvent) => void;
 
-  public constructor(props: Props) {
+  public constructor(props: SliderProps) {
     super(props);
 
     const { min, max, step } = props;
@@ -92,10 +93,17 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
   }
 
   public render() {
-    const { min, max, initialValue, onChange, ...remainingProps } = this.props;
+    const {
+      min,
+      max,
+      initialValue,
+      onChange,
+      component: Component = 'div',
+      ...remainingProps
+    } = this.props;
 
     return (
-      <div
+      <Component
         {...remainingProps}
         className={classnames('roe-slider', 'stepped', 'range')}
       >
@@ -123,7 +131,7 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
 
           <span className="roe-bar__max" style={this.setMinMaxStyle('max')} />
         </div>
-      </div>
+      </Component>
     );
   }
 
