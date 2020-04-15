@@ -9,15 +9,15 @@ import {
   getStepSeries,
 } from '../../utils/slider';
 
-const PERCENTAGE_MIN = 0;
-const PERCENTAGE_MAX = 1;
+export const PERCENTAGE_MIN = 0;
+export const PERCENTAGE_MAX = 1;
 
-type Range = Readonly<{
+export type Range = Readonly<{
   from: number;
   to: number;
 }>;
 
-interface SliderProps extends ComponentProps {
+export interface SliderProps extends ComponentProps {
   min: number;
   max: number;
   step: number;
@@ -25,23 +25,23 @@ interface SliderProps extends ComponentProps {
   onChange: (value: Range) => void;
 }
 
-interface MousePosition {
+export interface MousePosition {
   x: number;
   y: number;
 }
 
-interface StateProps {
+export interface StateProps {
   from: number;
   to: number;
   mouseDown?: MousePosition;
 }
 
-interface SyntheticMouseEvent {
+export interface SyntheticMouseEvent {
   type: string;
   clientX: number;
 }
 
-interface SyntheticTouchEvent {
+export interface SyntheticTouchEvent {
   type: string;
   targetTouches: TouchList | React.TouchList;
 }
