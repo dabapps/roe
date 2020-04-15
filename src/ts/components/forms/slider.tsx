@@ -7,7 +7,7 @@ import {
   convertStepToPercentageStep,
   getClosestValue,
   getStepSeries,
-} from './slider/utils';
+} from '../../utils/slider';
 
 const PERCENTAGE_MIN = 0;
 const PERCENTAGE_MAX = 1;

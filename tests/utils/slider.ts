@@ -4,7 +4,7 @@ import {
   getClosestValue,
   getNumberOfSteps,
   getStepSeries,
-} from './utils';
+} from '../../src/ts/utils/slider';
 
 describe('slider utils', () => {
   describe('getStepSeries', () => {
