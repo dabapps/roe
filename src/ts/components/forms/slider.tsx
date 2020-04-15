@@ -2,14 +2,20 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import { ComponentProps } from '../../types';
-import { PERCENTAGE_MAX, PERCENTAGE_MIN } from './slider/constants';
-import { Range } from './slider/types';
 import {
   convertPercentageStepToStep,
   convertStepToPercentageStep,
   getClosestValue,
   getStepSeries,
 } from './slider/utils';
+
+const PERCENTAGE_MIN = 0;
+const PERCENTAGE_MAX = 1;
+
+type Range = Readonly<{
+  from: number;
+  to: number;
+}>;
 
 interface SliderProps extends ComponentProps {
   min: number;
