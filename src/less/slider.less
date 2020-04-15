@@ -1,59 +1,47 @@
 .slider {
-  padding: @padding-large @padding-small;
+  padding: @padding-small;
 
   .bar {
     height: @slider-bar-thickness;
     position: relative;
-    background-color: @slider-bar-background;
 
-    &-min,
-    &-max {
+    .default {
       position: absolute;
       top: 0;
       bottom: 0;
-      background-color: @slider-bar-min-max-background;
+      background-color: @slider-bar-background;
+
+      &:last-of-type {
+        right: 0;
+        width: 100%;
+      }
     }
 
-    &-min {
-      left: 0;
-    }
-
-    &-max {
-      right: 0;
-    }
-
-    .bar-range {
+    .range {
       position: absolute;
       top: 0;
       bottom: 0;
-      background-color: @slider-range-bar-background;
-      z-index: @slider-handle-z-index - 1;
+      background-color: @slider-range-color;
+      z-index: @slider-z-index - 1;
     }
   }
 
-  .handle {
+  .control {
     position: relative;
-    width: @slider-handle-width;
-    height: @slider-handle-height;
+    width: @slider-control-width;
+    height: @slider-control-height;
     top: 50%;
     left: 0;
     float: left;
-    transform: translate(-50%, -50%);
-    background-color: @slider-handle-color;
+    transform: translate(-100%, -50%);
+    background-color: @slider-control-color;
     cursor: ew-resize;
-    border-radius: 50%;
-    z-index: @slider-handle-z-index;
-
-    &-range {
-      transform: translate(-100%, -50%);
-      background-color: @slider-handle-color;
-    }
+    border-radius: 4px;
+    z-index: @slider-z-index;
   }
 
-  &.stepped {
-    .handle,
-    .bar-range {
-      transition: all 0.2s ease-out;
-    }
+  .control,
+  .range {
+    transition: all 0.2s ease-out;
   }
 }

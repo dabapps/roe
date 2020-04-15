@@ -1,4 +1,3 @@
-import * as classnames from 'classnames';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
@@ -103,34 +102,44 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
     } = this.props;
 
     return (
-      <Component
-        {...remainingProps}
-        className={classnames('slider', 'stepped', 'range')}
-      >
+      <Component {...remainingProps} className="slider">
         <div className="bar">
-          <span className="bar-min" style={this.setMinMaxStyle('min')} />
+          <span className="default" />
 
           <div
-            className="handle"
-            style={this.setOrientationStyle(this.state.from)}
+            className="control"
+            style={this.getControlStyle(this.state.from)}
             onMouseDown={this.onHandleMouseFrom}
             onTouchMove={this.onHandleTouchFrom}
           />
 
+          <span className="range" style={this.getRangeStyle()} />
+
           <div
-            className="handle handle-range"
-            style={this.setOrientationStyle(this.state.to)}
+            className="control"
+            style={this.getControlStyle(this.state.to)}
             onMouseDown={this.onHandleMouseTo}
             onTouchMove={this.onHandleTouchTo}
           />
 
-          <span className="bar-range" style={this.setMinMaxStyle('range')} />
-
-          <span className="bar-max" style={this.setMinMaxStyle('max')} />
+          <span className="default" />
         </div>
       </Component>
     );
   }
+
+  private getControlStyle = (value: number) => {
+    return { left: `${value * 100}%` };
+  };
+
+  private getRangeStyle = () => {
+    const { from, to } = this.state;
+
+    return {
+      left: `${from * 100}%`,
+      right: `${100 - to * 100}%`,
+    };
+  };
 
   private convertRangeToPercentageRange(range: Range) {
     const { min, max } = this.props;
@@ -268,21 +277,6 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
     }
   };
 
-  private setMinMaxStyle = (position: 'min' | 'max' | 'range') => {
-    const { from, to } = this.state;
-
-    if (position === 'min') {
-      return { width: `0%` };
-    } else if (position === 'max') {
-      return { width: `100%` };
-    }
-
-    return {
-      left: `${parseFloat(from.toString()) * 100}%`,
-      right: `${100 - parseFloat(to.toString()) * 100}%`,
-    };
-  };
-
   private constrain(
     value: number | string | undefined,
     min: number | string | undefined,
@@ -298,10 +292,6 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
       typeof max === 'undefined' ? PERCENTAGE_MAX : parseFloat(max.toString())
     );
   }
-
-  private setOrientationStyle = (value: number) => {
-    return { left: `${value * 100}%` };
-  };
 
   private getBoundaryValue(pointer: 'from' | 'to', value: 'min' | 'max') {
     const { from, to } = this.state;
