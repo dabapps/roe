@@ -18,10 +18,25 @@ export type Range = Readonly<{
 }>;
 
 export interface SliderProps extends ComponentProps {
+  /**
+   * Minimum value allowed to be selected in range
+   */
   min: number;
+  /**
+   * Minimum value allowed to be selected in range
+   */
   max: number;
+  /**
+   * Stepsize for increasing/decreasing range
+   */
   step: number;
+  /**
+   * Initial values for from and to value
+   */
   initialValue?: Range;
+  /**
+   * What should happen to range value on change?
+   */
   onChange: (value: Range) => void;
 }
 
