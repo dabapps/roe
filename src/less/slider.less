@@ -24,24 +24,24 @@
       background-color: @slider-range-color;
       z-index: @slider-z-index - 1;
     }
-  }
 
-  .control {
-    position: relative;
-    width: @slider-control-width;
-    height: @slider-control-height;
-    top: 50%;
-    left: 0;
-    float: left;
-    transform: translate(-100%, -50%);
-    background-color: @slider-control-color;
-    cursor: ew-resize;
-    border-radius: 4px;
-    z-index: @slider-z-index;
-  }
+    .control {
+      position: relative;
+      width: @slider-control-width;
+      height: @slider-control-height;
+      top: 50%;
+      left: 0;
+      float: left;
+      transform: translate(-100%, -50%);
+      background-color: @slider-control-color;
+      cursor: ew-resize;
+      border-radius: 4px;
+      z-index: @slider-z-index;
+    }
 
-  .control,
-  .range {
-    transition: all 0.2s ease-out;
+    .range,
+    .control {
+      transition: all 0.2s ease-out;
+    }
   }
 }
