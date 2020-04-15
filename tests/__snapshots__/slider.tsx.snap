@@ -2,22 +2,17 @@
 
 exports[`Slider should match snapshot 1`] = `
 <div
-  className="slider stepped range"
+  className="slider"
   step={5}
 >
   <div
     className="bar"
   >
     <span
-      className="bar-min"
-      style={
-        Object {
-          "width": "0%",
-        }
-      }
+      className="default"
     />
     <div
-      className="handle"
+      className="control"
       onMouseDown={[Function]}
       onTouchMove={[Function]}
       style={
@@ -26,8 +21,17 @@ exports[`Slider should match snapshot 1`] = `
         }
       }
     />
+    <span
+      className="range"
+      style={
+        Object {
+          "left": "0%",
+          "right": "0%",
+        }
+      }
+    />
     <div
-      className="handle handle-range"
+      className="control"
       onMouseDown={[Function]}
       onTouchMove={[Function]}
       style={
@@ -37,21 +41,7 @@ exports[`Slider should match snapshot 1`] = `
       }
     />
     <span
-      className="bar-range"
-      style={
-        Object {
-          "left": "0%",
-          "right": "0%",
-        }
-      }
-    />
-    <span
-      className="bar-max"
-      style={
-        Object {
-          "width": "100%",
-        }
-      }
+      className="default"
     />
   </div>
 </div>
