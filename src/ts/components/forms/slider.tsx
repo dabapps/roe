@@ -283,43 +283,26 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
     }
   };
 
-  private constrain(
-    value: number | string | undefined,
-    min: number | string | undefined,
-    max: number | string | undefined
-  ) {
-    return Math.min(
-      Math.max(
-        typeof value === 'undefined'
-          ? PERCENTAGE_MIN
-          : parseFloat(value.toString()),
-        typeof min === 'undefined' ? PERCENTAGE_MIN : parseFloat(min.toString())
-      ),
-      typeof max === 'undefined' ? PERCENTAGE_MAX : parseFloat(max.toString())
-    );
+  private constrain(value: number, min: number, max: number) {
+    return Math.min(Math.max(value, min), max);
   }
 
-  private getBoundaryValue(pointer: 'from' | 'to', value: 'min' | 'max') {
+  private getBoundaryValue(
+    pointer: 'from' | 'to',
+    value: 'min' | 'max'
+  ): number {
     const { from, to } = this.state;
 
-    if (pointer === 'from' && value === 'max' && to <= PERCENTAGE_MAX) {
-      return to;
-    }
-
     if (pointer === 'from' && value === 'max') {
-      return PERCENTAGE_MAX;
+      return Math.min(to, PERCENTAGE_MAX);
     }
 
     if (pointer === 'from' && value === 'min') {
       return PERCENTAGE_MIN;
     }
 
-    if (pointer === 'to' && value === 'min' && from >= PERCENTAGE_MIN) {
-      return from;
-    }
-
     if (pointer === 'to' && value === 'min') {
-      return PERCENTAGE_MIN;
+      return Math.max(from, PERCENTAGE_MIN);
     }
 
     return PERCENTAGE_MAX;
@@ -327,7 +310,7 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
 
   private getXCoordinateFromEvent = (
     event: SyntheticMouseEvent | SyntheticTouchEvent
-  ) => {
+  ): number | null => {
     if (isSyntheticMouseEvent(event)) {
       return event.clientX;
     }
