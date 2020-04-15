@@ -38,14 +38,14 @@ describe('Slider', () => {
     const instance = enzyme.mount(<Slider {...props} />);
 
     instance
-      .find('.handle')
+      .find('.control')
       .first()
       .simulate('mouseDown', { clientX: 20, clientY: 0 })
       .simulate('mouseup');
 
     instance
-      .find('.handle-range')
-      .first()
+      .find('.control')
+      .last()
       .simulate('mouseDown', { clientX: 80, clientY: 0 })
       .simulate('mouseup');
 
@@ -68,14 +68,14 @@ describe('Slider', () => {
     const instance = enzyme.mount(<Slider {...props} />);
 
     instance
-      .find('.handle')
+      .find('.control')
       .first()
       .simulate('touchmove', { targetTouches: [{ clientX: 10 }] })
       .simulate('touchend');
 
     instance
-      .find('.handle-range')
-      .first()
+      .find('.control')
+      .last()
       .simulate('touchmove', { targetTouches: [{ clientX: 10 }] })
       .simulate('touchend');
 
@@ -106,7 +106,7 @@ describe('Slider', () => {
     const instance = enzyme.mount(<Slider {...props} />);
 
     instance
-      .find('.handle')
+      .find('.control')
       .first()
       .simulate('mouseDown', { button: 2 })
       .simulate('mouseMove', { clientX: 100, clientY: 0 })
