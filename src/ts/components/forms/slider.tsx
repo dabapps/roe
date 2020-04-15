@@ -124,10 +124,7 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
             onTouchMove={this.onHandleTouchTo}
           />
 
-          <span
-            className="bar-range"
-            style={this.setMinMaxStyle('range')}
-          />
+          <span className="bar-range" style={this.setMinMaxStyle('range')} />
 
           <span className="bar-max" style={this.setMinMaxStyle('max')} />
         </div>

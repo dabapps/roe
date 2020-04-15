@@ -9,7 +9,7 @@ class SliderExamples extends React.Component {
     };
     this.INITIAL = {
       from: 500,
-      to: 700
+      to: 700,
     };
     this.STEP = 10;
     this.Input = {
@@ -20,11 +20,11 @@ class SliderExamples extends React.Component {
       onDragStart: () => null,
       onDrop: () => null,
       onFocus: () => null,
-    }
+    };
     this.onChange = this.onChange.bind(this);
   }
 
-  render () {
+  render() {
     return (
       <Slider
         onChange={this.onChange(this.Input)}
@@ -39,7 +39,7 @@ class SliderExamples extends React.Component {
     return newValue => input.onChange(newValue);
   }
 }
-<SliderExamples />
+<SliderExamples />;
 ```
 
 #### Less variables
