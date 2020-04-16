@@ -15,7 +15,7 @@ export class TableRow extends PureComponent<TableRowProps, {}> {
     const {
       className,
       children,
-      component: Component = 'tr' as any,
+      component: Component = 'tr',
       ...remainingProps
     } = this.props;
 

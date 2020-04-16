@@ -19,7 +19,7 @@ export class TableCell extends PureComponent<TableCellProps, {}> {
       children,
       style,
       width,
-      component: Component = 'td' as any,
+      component: Component = 'td',
       ...remainingProps
     } = this.props;
 

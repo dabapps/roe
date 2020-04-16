@@ -46,7 +46,7 @@ export class AppRoot extends PureComponent<AppRootProps, AppRootState> {
 
   public render() {
     const {
-      component: Component = 'div' as any,
+      component: Component = 'div',
       children,
       className,
       ...remainingProps

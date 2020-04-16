@@ -16,7 +16,7 @@ export class InputGroupAddon extends PureComponent<InputGroupAddonProps, {}> {
       className,
       width,
       style,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

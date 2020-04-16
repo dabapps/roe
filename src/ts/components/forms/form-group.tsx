@@ -25,7 +25,7 @@ export class FormGroup extends PureComponent<FormGroupProps, {}> {
       className,
       block,
       noLabel,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

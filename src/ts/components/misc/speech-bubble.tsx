@@ -38,7 +38,7 @@ export class SpeechBubble extends PureComponent<SpeechBubbleProps, {}> {
       block,
       header,
       footer,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

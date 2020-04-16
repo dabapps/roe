@@ -32,7 +32,7 @@ export class SpacedGroup extends PureComponent<SpacedGroupProps, {}> {
       block,
       small,
       large,
-      component: Component = 'span' as any,
+      component: Component = 'span',
       ...remainingProps
     } = this.props;
 

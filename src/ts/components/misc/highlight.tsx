@@ -34,7 +34,7 @@ export class Highlight extends PureComponent<HighlightProps, {}> {
       open = false,
       disabled = false,
       backgroundColor = null,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

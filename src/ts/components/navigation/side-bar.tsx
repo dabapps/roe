@@ -37,7 +37,7 @@ export class SideBar extends PureComponent<SideBarProps, {}> {
       position,
       onClickOutside,
       noShadow,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

@@ -17,7 +17,7 @@ export class Nav extends PureComponent<NavProps, {}> {
     const {
       className,
       children,
-      component: Component = 'ul' as any,
+      component: Component = 'ul',
       ...remainingProps
     } = this.props;
 

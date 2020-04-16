@@ -15,7 +15,7 @@ export class ContentBoxFooter extends PureComponent<ContentBoxFooterProps, {}> {
     const {
       className,
       children,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

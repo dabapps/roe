@@ -15,7 +15,7 @@ export class Section extends PureComponent<SectionProps, {}> {
     const {
       children,
       className,
-      component: Component = 'section' as any,
+      component: Component = 'section',
       ...remainingProps
     } = this.props;
 

@@ -77,7 +77,7 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
       fixed,
       shy,
       noShadow,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

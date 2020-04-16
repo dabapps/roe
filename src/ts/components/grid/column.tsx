@@ -117,7 +117,7 @@ export class Column extends PureComponent<ColumnProps, {}> {
     const {
       children,
       className,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       xs,
       sm,
       md,

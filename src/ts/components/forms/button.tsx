@@ -30,7 +30,7 @@ export class Button extends PureComponent<ButtonProps, {}> {
       block,
       large,
       small,
-      component: Component = 'button' as any,
+      component: Component = 'button',
       ...remainingProps
     } = this.props;
 

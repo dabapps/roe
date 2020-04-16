@@ -15,7 +15,7 @@ export class ModalHeader extends PureComponent<ModalHeaderProps, {}> {
     const {
       className,
       children,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

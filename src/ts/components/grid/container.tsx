@@ -25,7 +25,7 @@ export class Container extends PureComponent<ContainerProps, {}> {
       className,
       fluid,
       solid,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
     const fluidClassName = fluid ? 'container-fluid' : 'container';

@@ -142,7 +142,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       maxCollapsedHeight,
       minHeight = null,
       animationDuration = DEFAULT_DURATION,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

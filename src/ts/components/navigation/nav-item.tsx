@@ -25,7 +25,7 @@ export class NavItem extends PureComponent<NavItemProps, {}> {
       className,
       children,
       active,
-      component: Component = 'li' as any,
+      component: Component = 'li',
     } = this.props;
 
     return (

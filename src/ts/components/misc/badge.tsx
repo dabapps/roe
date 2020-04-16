@@ -13,7 +13,7 @@ export class Badge extends PureComponent<BadgeProps, {}> {
     const {
       className,
       children,
-      component: Component = 'span' as any,
+      component: Component = 'span',
       ...remainingProps
     } = this.props;
 

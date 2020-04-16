@@ -40,7 +40,7 @@ export class Modal extends PureComponent<ModalProps, {}> {
       small,
       large,
       fill,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

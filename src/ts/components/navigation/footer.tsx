@@ -43,7 +43,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
     const {
       sticky,
       fixed,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       children,
       className,
       ...remainingProps

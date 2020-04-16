@@ -27,7 +27,7 @@ export class Banner extends PureComponent<BannerProps> {
       children,
       open = true,
       position = 'bottom',
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

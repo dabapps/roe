@@ -64,7 +64,7 @@ export class CodeBlock extends PureComponent<CodeBlockProps, {}> {
       className,
       language,
       codeBlockName,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
     const languageClassName = language && `language-${language}`;

@@ -14,7 +14,7 @@ export class Tabs extends PureComponent<TabsProps, {}> {
     const {
       className,
       children,
-      component: Component = 'ul' as any,
+      component: Component = 'ul',
       ...remainingProps
     } = this.props;
 

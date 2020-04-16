@@ -66,7 +66,7 @@ export class Table extends PureComponent<TableProps, {}> {
       condensed,
       fill,
       fixed,
-      component: Component = 'table' as any,
+      component: Component = 'table',
       ...remainingProps
     } = this.props;
 

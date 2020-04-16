@@ -14,7 +14,7 @@ export class Alert extends PureComponent<AlertProps, {}> {
     const {
       children,
       className,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

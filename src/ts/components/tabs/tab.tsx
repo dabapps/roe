@@ -22,7 +22,7 @@ export class Tab extends PureComponent<TabProps, {}> {
       className,
       children,
       active,
-      component: Component = 'li' as any,
+      component: Component = 'li',
       ...remainingProps
     } = this.props;
 

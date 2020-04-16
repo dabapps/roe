@@ -15,7 +15,7 @@ export class TableHead extends PureComponent<TableHeadProps, {}> {
     const {
       className,
       children,
-      component: Component = 'thead' as any,
+      component: Component = 'thead',
       ...remainingProps
     } = this.props;
 

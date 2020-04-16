@@ -19,7 +19,7 @@ export class TableHeader extends PureComponent<TableHeaderProps, {}> {
       children,
       style,
       width,
-      component: Component = 'th' as any,
+      component: Component = 'th',
       ...remainingProps
     } = this.props;
 

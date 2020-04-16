@@ -15,7 +15,7 @@ export class TableBody extends PureComponent<TableBodyProps, {}> {
     const {
       className,
       children,
-      component: Component = 'tbody' as any,
+      component: Component = 'tbody',
       ...remainingProps
     } = this.props;
 

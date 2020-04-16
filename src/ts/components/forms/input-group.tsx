@@ -22,7 +22,7 @@ export class InputGroup extends PureComponent<InputGroupProps, {}> {
       children,
       className,
       block,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

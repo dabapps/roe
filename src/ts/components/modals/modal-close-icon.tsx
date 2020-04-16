@@ -15,7 +15,7 @@ export class ModalCloseIcon extends PureComponent<ModalCloseIconProps, {}> {
     const {
       className,
       children,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

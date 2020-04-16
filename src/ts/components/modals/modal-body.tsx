@@ -15,7 +15,7 @@ export class ModalBody extends PureComponent<ModalBodyProps, {}> {
     const {
       className,
       children,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 

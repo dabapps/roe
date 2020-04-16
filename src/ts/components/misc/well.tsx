@@ -14,7 +14,7 @@ export class Well extends PureComponent<WellProps, {}> {
     const {
       children,
       className,
-      component: Component = 'div' as any,
+      component: Component = 'div',
       ...remainingProps
     } = this.props;
 
