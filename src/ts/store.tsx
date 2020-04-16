@@ -22,17 +22,12 @@ export class Store {
   }
 
   public setState = (state: StoreState) => {
-    // for (const key in state) {
-    //   /* istanbul ignore else */
-    //   if (Object.prototype.hasOwnProperty.call(state, key)) {
-    //     const stateKey = key as keyof StoreState;
-    //     this.state[stateKey] = state[stateKey] as StoreState[stateKey];
-    //   }
-    // }
-    this.state = {
-      ...this.state,
-      ...state,
-    };
+    for (const key in state) {
+      /* istanbul ignore else */
+      if (Object.prototype.hasOwnProperty.call(state, key)) {
+        this.state[key as keyof StoreState] = state[key as keyof StoreState];
+      }
+    }
 
     this.listeners.forEach(listener => {
       listener({ ...this.state });
