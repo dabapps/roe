@@ -171,15 +171,14 @@ describe('NavBar', () => {
     jest.spyOn(utils, 'getScrollOffset').mockReturnValue({ x: 0, y: 0 });
 
     const fakeElement = document.createElement('div');
-    fakeElement.getBoundingClientRect = () =>
-      ({
-        height: 20,
-        bottom: 0,
-        left: 0,
-        right: 0,
-        width: 0,
-        top: 0,
-      } as any);
+    fakeElement.getBoundingClientRect = () => ({
+      height: 20,
+      bottom: 0,
+      left: 0,
+      right: 0,
+      width: 0,
+      top: 0,
+    });
 
     jest.spyOn(ReactDOM, 'findDOMNode').mockReturnValue(fakeElement);
 
