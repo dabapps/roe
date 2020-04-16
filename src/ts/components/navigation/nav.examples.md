@@ -3,24 +3,16 @@
 ```js
 <Nav>
   <NavItem active>
-    <a>
-      One
-    </a>
+    <a>One</a>
   </NavItem>
   <NavItem>
-    <a>
-      Two
-    </a>
+    <a>Two</a>
   </NavItem>
   <NavItem>
-    <a>
-      Three
-    </a>
+    <a>Three</a>
   </NavItem>
   <NavItem className="button hollow primary">
-    <a>
-      Logout
-    </a>
+    <a>Logout</a>
   </NavItem>
 </Nav>
 ```

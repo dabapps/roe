@@ -2,9 +2,7 @@
 
 ```js
 <FormGroup>
-  <label>
-    Label
-  </label>
+  <label>Label</label>
   <input type="text" />
 </FormGroup>
 ```
@@ -14,18 +12,14 @@
 ```js
 <div>
   <FormGroup>
-    <label>
-      Label
-    </label>
+    <label>Label</label>
     <input type="text" />
   </FormGroup>
   <FormGroup noLabel>
     <input type="text" />
   </FormGroup>
   <FormGroup noLabel>
-    <p>
-      Info text
-    </p>
+    <p>Info text</p>
   </FormGroup>
 </div>
 ```
@@ -34,13 +28,9 @@
 
 ```js
 <FormGroup block>
-  <label>
-    Label
-  </label>
+  <label>Label</label>
   <select>
-    <option>
-      Option
-    </option>
+    <option>Option</option>
   </select>
 </FormGroup>
 ```
@@ -50,21 +40,15 @@
 ```js
 <div>
   <FormGroup>
-    <label>
-      Label 1
-    </label>
+    <label>Label 1</label>
     <input type="radio" />
-    <label>
-      Label 2
-    </label>
+    <label>Label 2</label>
     <input type="radio" />
   </FormGroup>
 
   <FormGroup>
     <input type="checkbox" />
-    <label>
-      Label
-    </label>
+    <label>Label</label>
   </FormGroup>
 </div>
 ```

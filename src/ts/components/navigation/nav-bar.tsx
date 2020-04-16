@@ -48,18 +48,19 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     this.mountTime = new Date().getTime();
   }
 
-  public componentWillUpdate(nextProps: NavBarProps) {
-    if (Boolean(this.props.shy) !== Boolean(nextProps.shy)) {
-      this.toggleShyListeners(nextProps);
+  public componentDidUpdate(prevProps: NavBarProps) {
+    if (Boolean(this.props.shy) !== Boolean(prevProps.shy)) {
+      this.toggleShyListeners(this.props);
     }
 
     if (
-      Boolean(this.props.fixed) !== Boolean(nextProps.fixed) ||
-      Boolean(this.props.shy) !== Boolean(nextProps.shy)
+      Boolean(this.props.fixed) !== Boolean(prevProps.fixed) ||
+      Boolean(this.props.shy) !== Boolean(prevProps.shy)
     ) {
-      this.notifyAppRoot(nextProps);
-      this.toggleResizeListeners(nextProps);
+      this.toggleResizeListeners(this.props);
     }
+
+    this.notifyAppRoot(this.props);
   }
 
   public componentWillUnmount() {

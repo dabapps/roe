@@ -3,9 +3,7 @@
 ```js
 <Container fluid>
   <Row>
-    <Column>
-      Content
-    </Column>
+    <Column>Content</Column>
   </Row>
 </Container>
 ```

@@ -23,14 +23,15 @@ export class Footer extends PureComponent<FooterProps, {}> {
     this.toggleResizeListeners(this.props);
   }
 
-  public componentWillUpdate(nextProps: FooterProps) {
+  public componentDidUpdate(prevProps: FooterProps) {
     if (
       Boolean(this.props.sticky || this.props.fixed) !==
-      Boolean(nextProps.sticky || nextProps.fixed)
+      Boolean(prevProps.sticky || prevProps.fixed)
     ) {
-      this.notifyAppRoot(nextProps);
-      this.toggleResizeListeners(nextProps);
+      this.toggleResizeListeners(this.props);
     }
+
+    this.notifyAppRoot(this.props);
   }
 
   public componentWillUnmount() {

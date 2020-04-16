@@ -7,113 +7,113 @@ var path = require('path');
 var introduction = [
   {
     name: 'About',
-    content: 'docs/introduction/about.md'
+    content: 'docs/introduction/about.md',
   },
   {
     name: 'Development status',
-    content: 'docs/introduction/development-status.md'
+    content: 'docs/introduction/development-status.md',
   },
   {
     name: 'Installation',
-    content: 'docs/introduction/installation.md'
+    content: 'docs/introduction/installation.md',
   },
   {
     name: 'Getting started',
-    content: 'docs/introduction/getting-started.md'
+    content: 'docs/introduction/getting-started.md',
   },
   {
     name: 'Contributing',
-    content: 'docs/introduction/contributing.md'
-  }
+    content: 'docs/introduction/contributing.md',
+  },
 ];
 
 var components = [
   {
     name: 'App',
-    components: 'src/ts/components/app/**/*.tsx'
+    components: 'src/ts/components/app/**/*.tsx',
   },
   {
-    name:'Navigation',
-    components: 'src/ts/components/navigation/**/*.tsx'
+    name: 'Navigation',
+    components: 'src/ts/components/navigation/**/*.tsx',
   },
   {
     name: 'Content',
-    components: 'src/ts/components/content/**/*.tsx'
+    components: 'src/ts/components/content/**/*.tsx',
   },
   {
     name: 'Grid',
-    components: 'src/ts/components/grid/**/*.tsx'
+    components: 'src/ts/components/grid/**/*.tsx',
   },
   {
     name: 'Tabs',
-    components: 'src/ts/components/tabs/**/*.tsx'
+    components: 'src/ts/components/tabs/**/*.tsx',
   },
   {
     name: 'Tables',
-    components: 'src/ts/components/tables/**/*.tsx'
+    components: 'src/ts/components/tables/**/*.tsx',
   },
   {
     name: 'Modals',
-    components: 'src/ts/components/modals/**/*.tsx'
+    components: 'src/ts/components/modals/**/*.tsx',
   },
   {
     name: 'Forms',
-    components: 'src/ts/components/forms/**/*.tsx'
+    components: 'src/ts/components/forms/**/*.tsx',
   },
   {
     name: 'Prototyping',
-    components: 'src/ts/components/prototyping/**/*.tsx'
+    components: 'src/ts/components/prototyping/**/*.tsx',
   },
   {
     name: 'Banners',
-    components: 'src/ts/components/banners/**/*.tsx'
+    components: 'src/ts/components/banners/**/*.tsx',
   },
   {
     name: 'Misc',
-    components: 'src/ts/components/misc/**/*.tsx'
+    components: 'src/ts/components/misc/**/*.tsx',
   },
   {
     name: 'Precomposed',
-    components: 'src/ts/components/precomposed/*.tsx'
+    components: 'src/ts/components/precomposed/*.tsx',
   },
 ];
 
 var less = [
   {
     name: 'Atomic float classes',
-    content: 'src/less/float.examples.md'
+    content: 'src/less/float.examples.md',
   },
   {
     name: 'Atomic padding & margin classes',
-    content: 'src/less/padding-and-margin.examples.md'
+    content: 'src/less/padding-and-margin.examples.md',
   },
   {
     name: 'Atomic display classes',
-    content: 'src/less/display.examples.md'
+    content: 'src/less/display.examples.md',
   },
   {
     name: 'Atomic position classes',
-    content: 'src/less/position.examples.md'
+    content: 'src/less/position.examples.md',
   },
   {
     name: 'Atomic text classes',
-    content: 'src/less/text.examples.md'
+    content: 'src/less/text.examples.md',
   },
   {
     name: 'Atomic text align classes',
-    content: 'src/less/text-align.examples.md'
+    content: 'src/less/text-align.examples.md',
   },
   {
     name: 'Variables',
-    content: 'src/less/variables.examples.md'
-  }
+    content: 'src/less/variables.examples.md',
+  },
 ];
 
-function getExampleFilename (componentPath) {
+function getExampleFilename(componentPath) {
   return componentPath.replace(/\.tsx?$/, '.examples.md');
 }
 
-function updateExample (props, exampleFilePath) {
+function updateExample(props, exampleFilePath) {
   var settings = props.settings;
   var lang = props.lang;
 
@@ -129,7 +129,7 @@ function updateExample (props, exampleFilePath) {
     return {
       content: fs.readFileSync(filepath, 'utf8'),
       settings: settings,
-      lang: lang
+      lang: lang,
     };
   }
 
@@ -145,44 +145,41 @@ var lessLoader = {
     {
       loader: 'less-loader', // compiles Less to CSS
       options: {
-        paths: [
-          path.resolve(__dirname, 'node_modules')
-        ]
-      }
-    }
-  ]
+        paths: [path.resolve(__dirname, 'node_modules')],
+      },
+    },
+  ],
 };
 
 var webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
 
 webpackConfig.module.rules[1].oneOf[3] = lessLoader;
 
-
 var reactDocGenTypescriptConfig = {
-  propFilter: function (prop/*, component*/) {
+  propFilter: function(prop /*, component*/) {
     if (prop.description && prop.name.indexOf('aria-') !== 0) {
       return true;
     }
 
     return false;
-  }
+  },
 };
 
 module.exports = {
-  require: [
-    path.join(__dirname, 'docs/less/index.less'),
-  ],
-  title: 'Roe - DabApps\' Project Development Kit',
+  require: [path.join(__dirname, 'docs/less/index.less')],
+  title: "Roe - DabApps' Project Development Kit",
   components: 'src/ts/components/**/*.{ts,tsx}',
   ignore: [],
-  propsParser: require('react-docgen-typescript')
-    .withCustomConfig('./tsconfig.json', reactDocGenTypescriptConfig).parse,
+  propsParser: require('react-docgen-typescript').withCustomConfig(
+    './tsconfig.json',
+    reactDocGenTypescriptConfig
+  ).parse,
   webpackConfig: webpackConfig,
   getExampleFilename: getExampleFilename,
   updateExample: updateExample,
   assetsDir: path.join(__dirname, 'docs/static/'),
   template: {
-    favicon: 'images/roe-favicon.png'
+    favicon: 'images/roe-favicon.png',
   },
   styleguideComponents: {
     Logo: path.join(__dirname, 'docs/components/logo'),
@@ -191,16 +188,16 @@ module.exports = {
     {
       name: 'Introduction',
       content: 'docs/introduction/description.md',
-      sections: introduction
+      sections: introduction,
     },
     {
       name: 'Components',
-      sections: components
+      sections: components,
     },
     {
       name: 'Less',
-      sections: less
-    }
+      sections: less,
+    },
   ],
   styles: {
     /*
@@ -212,30 +209,30 @@ module.exports = {
     */
     Markdown: {
       pre: {
-        overflow: 'auto'
-      }
+        overflow: 'auto',
+      },
     },
     Pre: {
       pre: {
-        overflow: 'auto'
-      }
+        overflow: 'auto',
+      },
     },
     Code: {
       code: {
         border: 'none',
         margin: 0,
-        padding: 0
-      }
+        padding: 0,
+      },
     },
     Type: {
       type: {
-        whiteSpace: 'normal'
-      }
-    }
+        whiteSpace: 'normal',
+      },
+    },
   },
   theme: {
     color: {
-      linkHover: '#EF592B'
-    }
-  }
+      linkHover: '#EF592B',
+    },
+  },
 };

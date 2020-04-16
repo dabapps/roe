@@ -11,16 +11,16 @@ const closeTextStyles = {
   padding: 10,
   cursor: 'pointer',
   color: '#FFFFFF',
-  transform: 'translate(-50%, 100%)'
+  transform: 'translate(-50%, 100%)',
 };
 
 const closeIconStyles = {
   fontSize: 20,
-  verticalAlign: 'middle'
+  verticalAlign: 'middle',
 };
 
 class HighlightExample extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props);
 
     this.state = {
@@ -32,58 +32,52 @@ class HighlightExample extends React.Component {
     this.onToggleHighlight2 = this.onToggleHighlight2.bind(this);
   }
 
-  onToggleHighlight1 () {
+  onToggleHighlight1() {
     this.setState({
-      open1: !this.state.open1
+      open1: !this.state.open1,
     });
   }
 
-  onToggleHighlight2 () {
+  onToggleHighlight2() {
     this.setState({
-      open2: !this.state.open2
+      open2: !this.state.open2,
     });
   }
 
-  render () {
+  render() {
     const { open1, open2 } = this.state;
 
     return (
       <div>
-        <Highlight
-          open={open1}
-          backgroundColor="white"
-        >
+        <Highlight open={open1} backgroundColor="white">
           <ContentBox className="text-align-center">
-            <p>
-              This content box can be highlighted.
-            </p>
-            <Button className="primary margin-vertical-large" onClick={this.onToggleHighlight1}>
-              {open1 ? 'Okay I\'m done' : 'Highlight it!'}
+            <p>This content box can be highlighted.</p>
+            <Button
+              className="primary margin-vertical-large"
+              onClick={this.onToggleHighlight1}
+            >
+              {open1 ? "Okay I'm done" : 'Highlight it!'}
             </Button>
           </ContentBox>
         </Highlight>
-        <Highlight
-          open={open2}
-          disabled
-          backgroundColor="white"
-        >
+        <Highlight open={open2} disabled backgroundColor="white">
           <ContentBox className="text-align-center">
             <p>
-              This content box can be highlighted, but its content will be disabled.
+              This content box can be highlighted, but its content will be
+              disabled.
             </p>
-            <Button className="primary margin-vertical-large" onClick={this.onToggleHighlight2}>
-              {open2 ? 'Okay I\'m done' : 'Highlight it!'}
+            <Button
+              className="primary margin-vertical-large"
+              onClick={this.onToggleHighlight2}
+            >
+              {open2 ? "Okay I'm done" : 'Highlight it!'}
             </Button>
-            {
-              open2 && (
-                <span
-                  onClick={this.onToggleHighlight2}
-                  style={closeTextStyles}
-                >
-                  This is the only way to close it now <span style={closeIconStyles}>{X_CHAR}</span>
-                </span>
-              )
-            }
+            {open2 && (
+              <span onClick={this.onToggleHighlight2} style={closeTextStyles}>
+                This is the only way to close it now{' '}
+                <span style={closeIconStyles}>{X_CHAR}</span>
+              </span>
+            )}
           </ContentBox>
         </Highlight>
       </div>
@@ -91,7 +85,7 @@ class HighlightExample extends React.Component {
   }
 }
 
-<HighlightExample />
+<HighlightExample />;
 ```
 
 #### Less variables

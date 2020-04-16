@@ -28,9 +28,6 @@ export class AppRoot extends PureComponent<AppRootProps, AppRootState> {
     super(props);
 
     this.state = store.getState();
-  }
-
-  public componentWillMount() {
     this.unsubscribe = store.subscribe(
       ({ hasStickyFooter, hasFixedNavBar, navBarHeight, footerHeight }) => {
         this.setState({

@@ -3,69 +3,35 @@
 ```js
 <div>
   <SpacedGroup block>
-    <Button>
-      Default
-    </Button>
-    <Button className="primary">
-      Primary
-    </Button>
-    <Button className="secondary">
-      Secondary
-    </Button>
-    <Button className="tertiary">
-      Tertiary
-    </Button>
-    <Button className="success">
-      Success
-    </Button>
-    <Button className="warning">
-      Warning
-    </Button>
-    <Button className="error">
-      Error
-    </Button>
-    <Button className="info">
-      Info
-    </Button>
+    <Button>Default</Button>
+    <Button className="primary">Primary</Button>
+    <Button className="secondary">Secondary</Button>
+    <Button className="tertiary">Tertiary</Button>
+    <Button className="success">Success</Button>
+    <Button className="warning">Warning</Button>
+    <Button className="error">Error</Button>
+    <Button className="info">Info</Button>
   </SpacedGroup>
 
   <SpacedGroup block className="margin-top-large">
-    <Button className="hollow">
-      Hollow
-    </Button>
-    <Button className="link">
-      Link
-    </Button>
-    <Button className="pill">
-      Pill
-    </Button>
-    <Button className="link pill">
-      Link pill
-    </Button>
-    <Button className="hollow pill">
-      Hollow pill
-    </Button>
-    <Button className="hollow link">
-      Hollow link
-    </Button>
+    <Button className="hollow">Hollow</Button>
+    <Button className="link">Link</Button>
+    <Button className="pill">Pill</Button>
+    <Button className="link pill">Link pill</Button>
+    <Button className="hollow pill">Hollow pill</Button>
+    <Button className="hollow link">Hollow link</Button>
     <Button className="hollow link pill secondary">
       Hollow link pill secondary
     </Button>
   </SpacedGroup>
 
   <SpacedGroup block className="margin-top-large">
-    <Button block>
-      Block
-    </Button>
+    <Button block>Block</Button>
   </SpacedGroup>
 
   <SpacedGroup block className="margin-top-large">
-    <Button small>
-      Small
-    </Button>
-    <Button large>
-      Large
-    </Button>
+    <Button small>Small</Button>
+    <Button large>Large</Button>
   </SpacedGroup>
 </div>
 ```
@@ -91,13 +57,9 @@ You can then use your custom buttons by supplying the name you provided to the m
 ```js
 <ContentBox className="grey-background">
   <SpacedGroup block className="margin-vertical-base">
-    <Button className="custom-light">
-      Custom light
-    </Button>
+    <Button className="custom-light">Custom light</Button>
 
-    <button className="custom-light hollow">
-      Custom light hollow
-    </button>
+    <button className="custom-light hollow">Custom light hollow</button>
   </SpacedGroup>
 </ContentBox>
 ```

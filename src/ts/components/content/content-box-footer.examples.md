@@ -2,17 +2,11 @@
 
 ```js
 <ContentBox>
-  <p>
-    Content
-  </p>
+  <p>Content</p>
   <ContentBoxFooter>
     <SpacedGroup block className="margin-vertical-large">
-      <Button>
-        Cancel
-      </Button>
-      <Button className="primary">
-        Done
-      </Button>
+      <Button>Cancel</Button>
+      <Button className="primary">Done</Button>
     </SpacedGroup>
   </ContentBoxFooter>
 </ContentBox>

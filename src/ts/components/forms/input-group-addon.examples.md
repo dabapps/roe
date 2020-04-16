@@ -3,20 +3,14 @@
 ```js
 <div>
   <InputGroup>
-    <InputGroupAddon>
-      $
-    </InputGroupAddon>
+    <InputGroupAddon>$</InputGroupAddon>
     <input type="number" />
   </InputGroup>
 
   <InputGroup block>
-    <InputGroupAddon>
-      Prefix:
-    </InputGroupAddon>
+    <InputGroupAddon>Prefix:</InputGroupAddon>
     <input type="number" />
-    <InputGroupAddon>
-      %
-    </InputGroupAddon>
+    <InputGroupAddon>%</InputGroupAddon>
   </InputGroup>
 </div>
 ```
