@@ -1,10 +1,10 @@
-import { PureComponent } from 'react';
+import { ReactType } from 'react';
 
 export interface ComponentProps {
   /**
    * Set the component to render a different element type.
    */
-  component?: typeof PureComponent | string;
+  component?: ReactType;
 }
 
 export interface BaseTableCellProps extends ComponentProps {
