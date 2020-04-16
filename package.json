@@ -47,19 +47,19 @@
   },
   "homepage": "https://github.com/dabapps/roe#readme",
   "dependencies": {
-    "@types/classnames": "^2.2.9",
-    "@types/cookie": "^0.3.3",
-    "@types/random-seed": "^0.3.3",
-    "@types/react": "^16.9.19",
-    "@types/react-dom": "^16.9.5",
-    "@types/react-transition-group": "^4.2.3",
-    "classnames": "^2.2.6",
+    "@types/classnames": "^2.2.0",
+    "@types/cookie": "^0.3.1",
+    "@types/random-seed": "^0.3.2",
+    "@types/react": ">= 15",
+    "@types/react-dom": ">= 15",
+    "@types/react-transition-group": "^1.1.4",
+    "classnames": "^2.2.5",
     "cookie": "^0.3.1",
     "normalize.css": "^8.0.1",
     "random-seed": "^0.3.0",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-transition-group": "^4.3.0"
+    "react": ">= 15",
+    "react-dom": ">= 15",
+    "react-transition-group": "^1.2.1"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.5",
@@ -82,7 +82,7 @@
     "http-server": "^0.11.1",
     "jest": "^22.4.2",
     "less": "^2.7.3",
-    "less-loader": "^4.1.0",
+    "less-loader": "^4.0.5",
     "lesshint": "^3.3.1",
     "livereload": "^0.8.2",
     "node-lessify": "^0.1.5",
@@ -97,17 +97,17 @@
     "style-loader": "^0.19.0",
     "ts-jest": "^22.4.1",
     "tsify": "^3.0.4",
-    "tslint": "^6.0.0",
-    "tslint-config-dabapps": "^0.6.2",
-    "typescript": "^3.7.5",
-    "webpack": "^3.12.0"
+    "tslint": "^5.8.0",
+    "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.5.1",
+    "typescript": "^2.3.3",
+    "webpack": "^3.7.1"
   },
   "peerDependencies": {
     "less": "^2.7.3",
     "normalize.css": "^8.0.1",
     "react": ">= 15",
     "react-dom": ">= 15",
-    "react-transition-group": ">= 4"
+    "react-transition-group": ">= 1 < 2"
   },
   "jest": {
     "collectCoverageFrom": [
