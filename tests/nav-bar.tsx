@@ -135,7 +135,7 @@ describe('NavBar', () => {
       (type: string, callback: () => any) => {
         if (type === 'resize') {
           handlers[type] = callback;
-          jest.spyOn(handlers, type as never);
+          jest.spyOn(handlers, type);
         }
       }
     );
@@ -164,7 +164,7 @@ describe('NavBar', () => {
       (type: string, callback: () => any) => {
         if (type === 'scroll') {
           handlers[type] = callback;
-          jest.spyOn(handlers, type as never);
+          jest.spyOn(handlers, type);
         }
       }
     );
@@ -235,7 +235,7 @@ describe('NavBar', () => {
       (type: string, callback: () => any) => {
         if (type === 'scroll') {
           handlers[type] = callback;
-          jest.spyOn(handlers, type as never);
+          jest.spyOn(handlers, type);
         }
       }
     );
