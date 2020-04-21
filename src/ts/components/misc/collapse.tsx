@@ -177,7 +177,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
 
     return (
       <Component
-        ref={(element: HTMLDivElement) => (this.element = element)}
+        ref={this.storeRef}
         {...remainingProps}
         className={classNames(
           'clearfix collapse',
@@ -193,6 +193,10 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       </Component>
     );
   }
+
+  private storeRef = (element: HTMLElement) => {
+    this.element = element;
+  };
 }
 
 export default Collapse;
