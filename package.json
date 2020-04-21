@@ -50,15 +50,15 @@
     "@types/classnames": "^2.2.0",
     "@types/cookie": "^0.3.1",
     "@types/random-seed": "^0.3.2",
-    "@types/react": ">= 15",
-    "@types/react-dom": ">= 15",
+    "@types/react": ">= 15.6.28",
+    "@types/react-dom": ">= 15.5.11",
     "@types/react-transition-group": "^1.1.4",
     "classnames": "^2.2.5",
     "cookie": "^0.3.1",
     "normalize.css": "^8.0.1",
     "random-seed": "^0.3.0",
-    "react": ">= 15",
-    "react-dom": ">= 15",
+    "react": ">= 15.6.2",
+    "react-dom": ">= 15.6.2",
     "react-transition-group": "^1.2.1"
   },
   "devDependencies": {
@@ -105,8 +105,8 @@
   "peerDependencies": {
     "less": "^2.7.3",
     "normalize.css": "^8.0.1",
-    "react": ">= 15",
-    "react-dom": ">= 15",
+    "react": ">= 15.6.2",
+    "react-dom": ">= 15.6.2",
     "react-transition-group": ">= 1 < 2"
   },
   "jest": {
