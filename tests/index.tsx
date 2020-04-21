@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PureComponent, ReactType } from 'react';
+import { PureComponent } from 'react';
 import * as renderer from 'react-test-renderer';
 
 import * as index from '../src/ts/';
@@ -49,7 +49,9 @@ describe('index file', () => {
 
       for (const key in index) {
         if (index.hasOwnProperty(key)) {
-          const Component = index[key as Keys] as ReactType;
+          const Component = index[key as Keys] as React.ComponentType<{
+            component: 'p';
+          }>;
 
           if (Component) {
             const instance = <Component component="p" />;
