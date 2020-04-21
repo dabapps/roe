@@ -157,18 +157,18 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
 
     const { opening, opened, height } = this.state;
 
-    const collapseStyle = {
+    const collapseStyle: React.CSSProperties = {
       minHeight,
       maxHeight: opened ? null : height,
       position: 'relative' as 'relative',
-      overflow: (opened ? null : 'hidden') as 'hidden' | null,
       transition: `ease-in-out ${animationDuration}ms max-height`,
+      ...(opened ? { overflow: 'hidden' } : undefined),
     };
 
-    const fadeStyle = {
+    const fadeStyle: React.CSSProperties = {
       height: fadeHeight,
       width: '100%',
-      position: 'absolute' as 'absolute',
+      position: 'absolute',
       bottom: 0,
       opacity: opening ? 0 : 1,
       background: `linear-gradient(${transparentColor}, ${fadeColor} 80%)`,
