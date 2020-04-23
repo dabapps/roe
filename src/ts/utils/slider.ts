@@ -37,7 +37,7 @@ export const convertStepToPercentageStep = (
   step: number
 ) => {
   const totalRange = Math.abs(max - min);
-  return (step - min) / totalRange;
+  return totalRange === 0 ? 0 : (step - min) / totalRange;
 };
 
 export const getClosestValue = (

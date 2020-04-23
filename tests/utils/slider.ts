@@ -78,5 +78,9 @@ describe('slider utils', () => {
     it('converts a value step to a percentage step', () => {
       expect(convertStepToPercentageStep(0, 10, 1)).toBe(0.1);
     });
+
+    it('should not blow up if range is 0', () => {
+      expect(convertStepToPercentageStep(0, 0, 1)).toBe(0);
+    });
   });
 });
