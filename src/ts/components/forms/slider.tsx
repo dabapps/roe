@@ -8,15 +8,13 @@ import {
   convertStepToPercentageStep,
   getClosestValue,
   getStepSeries,
+  isValidInitialValue,
+  isWithinRange,
+  Range,
 } from '../../utils/slider';
 
 export const PERCENTAGE_MIN = 0;
 export const PERCENTAGE_MAX = 1;
-
-export type Range = Readonly<{
-  from: number;
-  to: number;
-}>;
 
 export interface SliderProps extends ComponentProps {
   /**
@@ -86,8 +84,18 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
     );
 
     const initialValue = {
-      from: props.initialValue ? props.initialValue.from : min,
-      to: props.initialValue ? props.initialValue.to : max,
+      from:
+        props.initialValue &&
+        isValidInitialValue(props.initialValue) &&
+        isWithinRange(min, max, props.initialValue.from)
+          ? props.initialValue.from
+          : min,
+      to:
+        props.initialValue &&
+        isValidInitialValue(props.initialValue) &&
+        isWithinRange(min, max, props.initialValue.to)
+          ? props.initialValue.to
+          : max,
     };
 
     this.state = this.convertRangeToPercentageRange(initialValue);

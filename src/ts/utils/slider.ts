@@ -1,5 +1,10 @@
 import { range } from 'lodash';
 
+export type Range = Readonly<{
+  from: number;
+  to: number;
+}>;
+
 export const constrain = (value: number, min: number, max: number) => {
   return Math.min(Math.max(value, min), max);
 };
@@ -47,4 +52,16 @@ export const getClosestValue = (
   const differences = series.map(step => Math.abs(step - value));
   const smallestDifference = Math.min.apply(Math, differences);
   return series[differences.indexOf(smallestDifference)];
+};
+
+export const isWithinRange = (
+  min: number,
+  max: number,
+  value: number
+): boolean => {
+  return value >= min && value <= max;
+};
+
+export const isValidInitialValue = (initialValue: Range): boolean => {
+  return initialValue.from <= initialValue.to;
 };

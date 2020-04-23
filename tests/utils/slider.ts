@@ -5,6 +5,8 @@ import {
   getClosestValue,
   getNumberOfSteps,
   getStepSeries,
+  isValidInitialValue,
+  isWithinRange,
 } from '../../src/ts/utils/slider';
 
 describe('slider utils', () => {
@@ -81,6 +83,26 @@ describe('slider utils', () => {
 
     it('should not blow up if range is 0', () => {
       expect(convertStepToPercentageStep(0, 0, 1)).toBe(0);
+    });
+  });
+
+  describe('isWithinRange', () => {
+    it('should return true if within range', () => {
+      expect(isWithinRange(-10, 10, 1)).toBeTruthy();
+    });
+
+    it('should return false if not within range', () => {
+      expect(isWithinRange(-10, 10, 100)).toBeFalsy();
+    });
+  });
+
+  describe('isValidInitialValue', () => {
+    it('should return true if initialValue is valid', () => {
+      expect(isValidInitialValue({ from: 0, to: 10 })).toBeTruthy();
+    });
+
+    it('should return false if initialValue is not valid', () => {
+      expect(isValidInitialValue({ from: 10, to: 0 })).toBeFalsy();
     });
   });
 });
