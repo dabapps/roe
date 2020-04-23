@@ -1,3 +1,5 @@
+import { HTMLProps } from 'react';
+
 type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
 export type ComponentElement =
@@ -22,8 +24,9 @@ export type ComponentElement =
   | 'th'
   | 'td';
 
-export type ComponentAndHTMLProps<T extends ComponentElement> = Partial<
-  Omit<JSX.IntrinsicElements[T], 'ref'>
+export type ComponentAndHTMLProps<T extends ComponentElement> = Omit<
+  HTMLProps<HTMLElement>,
+  'ref'
 > & {
   /**
    * Set the component to render a different element type.
