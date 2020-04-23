@@ -1,5 +1,9 @@
 import { range } from 'lodash';
 
+export const constrain = (value: number, min: number, max: number) => {
+  return Math.min(Math.max(value, min), max);
+};
+
 export const getNumberOfSteps = (step: number, min: number, max: number) => {
   const totalRange = Math.abs(max - min);
   return Math.floor(totalRange / step) + 1;

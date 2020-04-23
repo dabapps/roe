@@ -3,6 +3,7 @@ import * as ReactDOM from 'react-dom';
 
 import { ComponentProps } from '../../types';
 import {
+  constrain,
   convertPercentageStepToStep,
   convertStepToPercentageStep,
   getClosestValue,
@@ -287,10 +288,6 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
     }
   };
 
-  private constrain(value: number, min: number, max: number) {
-    return Math.min(Math.max(value, min), max);
-  }
-
   private getBoundaryValue(
     pointer: 'from' | 'to',
     value: 'min' | 'max'
@@ -336,7 +333,7 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
       return this.state[pointer];
     }
 
-    return this.constrain(
+    return constrain(
       (x - left) / width,
       this.getBoundaryValue(pointer, 'min'),
       this.getBoundaryValue(pointer, 'max')

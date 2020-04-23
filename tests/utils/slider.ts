@@ -1,4 +1,5 @@
 import {
+  constrain,
   convertPercentageStepToStep,
   convertStepToPercentageStep,
   getClosestValue,
@@ -7,6 +8,20 @@ import {
 } from '../../src/ts/utils/slider';
 
 describe('slider utils', () => {
+  describe('constrain', () => {
+    it('should return value if value within range', () => {
+      expect(constrain(70, 50, 100)).toEqual(70);
+    });
+
+    it('should return min if value smaller than min', () => {
+      expect(constrain(20, 50, 100)).toEqual(50);
+    });
+
+    it('should return max if value bigger than max', () => {
+      expect(constrain(120, 50, 100)).toEqual(100);
+    });
+  });
+
   describe('getStepSeries', () => {
     it('should return steps as a series between 0 and 100', () => {
       expect(getStepSeries(10, 0, 100)).toEqual([
