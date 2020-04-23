@@ -1,7 +1,6 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { PureComponent } from 'react';
-import { ComponentProps } from '../../types';
 
 const ENOUGH_TIME_FOR_RERENDER = 50;
 const DEFAULT_HEIGHT = 0;
@@ -10,9 +9,20 @@ const DEFAULT_FADE_HEIGHT = 50;
 const DEFAULT_TRANSPARENT_COLOR = 'rgba(255, 255, 255, 0)';
 const DEFAULT_FADE_COLOR = 'rgba(255, 255, 255, 1)';
 
-export interface CollapseProps
-  extends ComponentProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export interface CollapseProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Set the component to render a different element type.
+   * @default 'div'
+   */
+  component?:
+    | 'div'
+    | 'span'
+    | 'p'
+    | 'ul'
+    | 'main'
+    | 'section'
+    | 'aside'
+    | 'strong';
   /**
    * Whether the collapse is open or not
    * @default false
@@ -66,7 +76,7 @@ export interface CollapseState {
  * Component to expand and collapse content, optionally displaying a small preview.
  */
 export class Collapse extends PureComponent<CollapseProps, CollapseState> {
-  private element: Element;
+  private element: HTMLElement;
   private timeout: number;
 
   public constructor(props: CollapseProps) {
@@ -147,18 +157,18 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
 
     const { opening, opened, height } = this.state;
 
-    const collapseStyle = {
-      minHeight,
-      maxHeight: opened ? null : height,
+    const collapseStyle: React.CSSProperties = {
+      minHeight: minHeight === null ? undefined : minHeight,
+      maxHeight: opened ? undefined : height,
       position: 'relative' as 'relative',
-      overflow: (opened ? null : 'hidden') as 'hidden' | null,
       transition: `ease-in-out ${animationDuration}ms max-height`,
+      ...(opened ? { overflow: 'hidden' } : undefined),
     };
 
-    const fadeStyle = {
+    const fadeStyle: React.CSSProperties = {
       height: fadeHeight,
       width: '100%',
-      position: 'absolute' as 'absolute',
+      position: 'absolute',
       bottom: 0,
       opacity: opening ? 0 : 1,
       background: `linear-gradient(${transparentColor}, ${fadeColor} 80%)`,
@@ -167,7 +177,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
 
     return (
       <Component
-        ref={(element: HTMLDivElement) => (this.element = element)}
+        ref={this.storeRef}
         {...remainingProps}
         className={classNames(
           'clearfix collapse',
@@ -183,6 +193,10 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       </Component>
     );
   }
+
+  private storeRef = (element: HTMLElement) => {
+    this.element = element;
+  };
 }
 
 export default Collapse;

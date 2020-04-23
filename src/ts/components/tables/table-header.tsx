@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { NBSP } from '../../constants';
 import { BaseTableCellProps } from '../../types';
 import { shouldNotBeRendered } from '../../utils';

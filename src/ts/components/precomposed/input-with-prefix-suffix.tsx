@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 import InputGroup from '../forms/input-group';
 import InputGroupAddon from '../forms/input-group-addon';

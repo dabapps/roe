@@ -49,7 +49,9 @@ describe('index file', () => {
 
       for (const key in index) {
         if (index.hasOwnProperty(key)) {
-          const Component = index[key as Keys];
+          const Component = index[key as Keys] as React.ComponentType<{
+            component: 'p';
+          }>;
 
           if (Component) {
             const instance = <Component component="p" />;

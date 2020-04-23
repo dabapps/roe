@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import store, { StoreState } from '../../store';
 import { ComponentProps } from '../../types';
 
@@ -65,9 +66,9 @@ export class AppRoot extends PureComponent<AppRootProps, AppRootState> {
       className,
     ];
 
-    const style = {
-      paddingTop: hasFixedNavBar && navBarHeight,
-      paddingBottom: hasStickyFooter && footerHeight,
+    const style: React.CSSProperties = {
+      ...(hasFixedNavBar && { paddingTop: navBarHeight }),
+      ...(hasStickyFooter && { paddingBottom: footerHeight }),
     };
 
     return (

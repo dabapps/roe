@@ -7,6 +7,7 @@ declare const hljs: void | IHighlightJS;
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 import { formatCode } from '../../utils';
 
