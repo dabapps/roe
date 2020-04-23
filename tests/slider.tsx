@@ -97,9 +97,13 @@ describe('Slider', () => {
   });
 
   it('should remove listeners on unmount', () => {
-    const instance = enzyme.shallow(<Slider {...props} />);
+    const instance = enzyme.mount(<Slider {...props} />);
+
+    (window.removeEventListener as jest.Mock<any>).mockClear();
 
     instance.unmount();
+
+    expect(window.removeEventListener).toHaveBeenCalledTimes(8);
   });
 
   it('should avoid mouse right click', () => {
