@@ -4,6 +4,7 @@ export type ComponentElement =
   | 'div'
   | 'span'
   | 'strong'
+  | 'p'
   | 'ul'
   | 'ol'
   | 'li'
