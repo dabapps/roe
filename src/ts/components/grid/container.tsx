@@ -1,10 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface ContainerProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type ContainerProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * Fill parent with no media queries to affect width.
    */
@@ -13,12 +15,14 @@ export interface ContainerProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Allows applying a background color with `@container-background` variable.
    */
   solid?: boolean;
-}
+};
 
 /**
  * Used inside `NavBar`s or as the main wrapper for an application.
  */
-export class Container extends PureComponent<ContainerProps, {}> {
+export class Container<
+  T extends ComponentElement = 'div'
+> extends PureComponent<ContainerProps<T>, {}> {
   public render() {
     const {
       children,

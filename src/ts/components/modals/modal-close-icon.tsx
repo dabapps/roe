@@ -1,16 +1,20 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export type ModalCloseIconProps = ComponentProps & HTMLProps<HTMLElement>;
+export type ModalCloseIconProps<
+  T extends ComponentElement
+> = ComponentAndHTMLProps<T>;
 
 /**
  * Used within a `ModalHeader` to add a close icon in the top right.
  * See the [Modal](#modal) section for a full example.
  */
-export class ModalCloseIcon extends PureComponent<ModalCloseIconProps, {}> {
+export class ModalCloseIcon<
+  T extends ComponentElement = 'div'
+> extends PureComponent<ModalCloseIconProps<T>, {}> {
   public render() {
     const {
       className,

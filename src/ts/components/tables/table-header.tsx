@@ -1,18 +1,22 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
 import { NBSP } from '../../constants';
-import { BaseTableCellProps } from '../../types';
+import { BaseTableCellProps, ComponentElement } from '../../types';
 import { shouldNotBeRendered } from '../../utils';
 
-export type TableHeaderProps = BaseTableCellProps & HTMLProps<HTMLElement>;
+export type TableHeaderProps<T extends ComponentElement> = BaseTableCellProps<
+  T
+>;
 
 /**
  * Table header component with additional styles & functionality, used to style and or fix table headers.
  * See the [Table](#table) section for a full example.
  */
-export class TableHeader extends PureComponent<TableHeaderProps, {}> {
+export class TableHeader<
+  T extends ComponentElement = 'th'
+> extends PureComponent<TableHeaderProps<T>, {}> {
   public render() {
     const {
       className,

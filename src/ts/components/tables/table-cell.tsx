@@ -1,18 +1,21 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
 import { NBSP } from '../../constants';
-import { BaseTableCellProps } from '../../types';
+import { BaseTableCellProps, ComponentElement } from '../../types';
 import { shouldNotBeRendered } from '../../utils';
 
-export type TableCellProps = BaseTableCellProps & HTMLProps<HTMLElement>;
+export type TableCellProps<T extends ComponentElement> = BaseTableCellProps<T>;
 
 /**
  * Table cell component with additional styles & functionality, used within table rows.
  * See the [Table](#table) section for a full example.
  */
-export class TableCell extends PureComponent<TableCellProps, {}> {
+export class TableCell<T extends ComponentElement = 'td'> extends PureComponent<
+  TableCellProps<T>,
+  {}
+> {
   public render() {
     const {
       className,

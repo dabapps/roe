@@ -1,12 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface SpeechBubbleProps
-  extends ComponentProps,
-    HTMLProps<HTMLElement> {
+export type SpeechBubbleProps<
+  T extends ComponentElement
+> = ComponentAndHTMLProps<T> & {
   /**
    * Set the style `display: block;`.
    */
@@ -24,12 +24,14 @@ export interface SpeechBubbleProps
    * Elements to display below the speech bubble such as user name or time of post.
    */
   footer?: React.ReactChild;
-}
+};
 
 /**
  * Speech bubble component for displaying conversations / messages.
  */
-export class SpeechBubble extends PureComponent<SpeechBubbleProps, {}> {
+export class SpeechBubble<
+  T extends ComponentElement = 'div'
+> extends PureComponent<SpeechBubbleProps<T>, {}> {
   public render() {
     const {
       className,

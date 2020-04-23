@@ -1,10 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface FormGroupProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type FormGroupProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * Set the style `display: block;` with label above input.
    */
@@ -13,12 +15,14 @@ export interface FormGroupProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Offset the input, select, etc as if there was a label to the left of it
    */
   noLabel?: boolean;
-}
+};
 
 /**
  * Used to group a label & form input (or select).
  */
-export class FormGroup extends PureComponent<FormGroupProps, {}> {
+export class FormGroup<
+  T extends ComponentElement = 'div'
+> extends PureComponent<FormGroupProps<T>, {}> {
   public render() {
     const {
       children,

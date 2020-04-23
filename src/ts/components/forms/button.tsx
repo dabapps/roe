@@ -1,10 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface ButtonProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type ButtonProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * Set the style `display: block;`.
    */
@@ -17,12 +19,14 @@ export interface ButtonProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Make the button small
    */
   small?: boolean;
-}
+};
 
 /**
  * Used in place of a standard `button` tag, this component adds additional styles and effects.
  */
-export class Button extends PureComponent<ButtonProps, {}> {
+export class Button<
+  T extends ComponentElement = 'button'
+> extends PureComponent<ButtonProps<T>, {}> {
   public render() {
     const {
       children,

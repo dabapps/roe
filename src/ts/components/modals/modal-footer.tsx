@@ -1,16 +1,20 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export type ModalFooterProps = ComponentProps & HTMLProps<HTMLElement>;
+export type ModalFooterProps<
+  T extends ComponentElement
+> = ComponentAndHTMLProps<T>;
 
 /**
  * Footer for `Modal`s to contain submit buttons, link or sub-text.
  * See the [Modal](#modal) section for a full example.
  */
-export class ModalFooter extends PureComponent<ModalFooterProps, {}> {
+export class ModalFooter<
+  T extends ComponentElement = 'div'
+> extends PureComponent<ModalFooterProps<T>, {}> {
   public render() {
     const {
       className,

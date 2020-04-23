@@ -1,14 +1,17 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export type BadgeProps = ComponentProps & HTMLProps<HTMLElement>;
+export type BadgeProps<T extends ComponentElement> = ComponentAndHTMLProps<T>;
 /**
  * A badge component for displaying small pieces of information such as counts and statuses.
  */
-export class Badge extends PureComponent<BadgeProps, {}> {
+export class Badge<T extends ComponentElement = 'span'> extends PureComponent<
+  BadgeProps<T>,
+  {}
+> {
   public render() {
     const {
       className,

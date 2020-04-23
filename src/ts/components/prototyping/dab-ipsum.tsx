@@ -46,35 +46,19 @@ export class DabIpsum extends Component<DabIpsumProps, {}> {
   public render() {
     const { component = 'p', count = 5 } = this.props;
 
-    const items = Array.apply(null, new Array(count));
+    const items: undefined[] = Array.apply(null, new Array(count));
 
     switch (component) {
       case 'ul':
-        return (
-          <ul>
-            {items.map((value: void, index: number) =>
-              ipsumItem(component, index)
-            )}
-          </ul>
-        );
+        return <ul>{items.map((_, index) => ipsumItem(component, index))}</ul>;
       case 'ol':
-        return (
-          <ol>
-            {items.map((value: void, index: number) =>
-              ipsumItem(component, index)
-            )}
-          </ol>
-        );
+        return <ol>{items.map((_, index) => ipsumItem(component, index))}</ol>;
       case 'text':
         return ipsumItem(component, 0);
       // case 'p'
       default:
         return (
-          <div>
-            {items.map((value: void, index: number) =>
-              ipsumItem(component, index)
-            )}
-          </div>
+          <div>{items.map((_, index) => ipsumItem(component, index))}</div>
         );
     }
   }

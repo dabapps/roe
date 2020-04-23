@@ -1,10 +1,10 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface NavProps extends ComponentProps, HTMLProps<HTMLElement> {}
+export type NavProps<T extends ComponentElement> = ComponentAndHTMLProps<T>;
 
 /**
  * Used to group NavItems inside a NavBar or SideBar.
@@ -12,7 +12,10 @@ export interface NavProps extends ComponentProps, HTMLProps<HTMLElement> {}
  * to hide the nav and replace it with a menu button (for controlling the SideBar) on smaller screens.
  * The same Nav can be used in both a NavBar and SideBar, and will automatically style itself sensibly.
  */
-export class Nav extends PureComponent<NavProps, {}> {
+export class Nav<T extends ComponentElement = 'ul'> extends PureComponent<
+  NavProps<T>,
+  {}
+> {
   public render() {
     const {
       className,

@@ -1,16 +1,20 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export type TableHeadProps = ComponentProps & HTMLProps<HTMLElement>;
+export type TableHeadProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+>;
 
 /**
  * Table head component with additional styles & functionality, used to contain table headers.
  * See the [Table](#table) section for a full example.
  */
-export class TableHead extends PureComponent<TableHeadProps, {}> {
+export class TableHead<
+  T extends ComponentElement = 'thead'
+> extends PureComponent<TableHeadProps<T>, {}> {
   public render() {
     const {
       className,

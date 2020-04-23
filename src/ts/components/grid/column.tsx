@@ -1,11 +1,13 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 import { isValidColumnNumber } from '../../utils';
 
-export interface ColumnProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type ColumnProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * Columns to occupy on extra small screens
    */
@@ -106,13 +108,16 @@ export interface ColumnProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Columns to be pulled left by, with `left`, on on extra large screens
    */
   xlPull?: number;
-}
+};
 
 /**
  * Placed inside rows to align content in columns.
  * The default grid has 12 divisions.
  */
-export class Column extends PureComponent<ColumnProps, {}> {
+export class Column<T extends ComponentElement = 'div'> extends PureComponent<
+  ColumnProps<T>,
+  {}
+> {
   public render() {
     const {
       children,

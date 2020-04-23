@@ -2,6 +2,8 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 import { PureComponent } from 'react';
 
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
+
 const ENOUGH_TIME_FOR_RERENDER = 50;
 const DEFAULT_HEIGHT = 0;
 const DEFAULT_DURATION = 200;
@@ -9,20 +11,9 @@ const DEFAULT_FADE_HEIGHT = 50;
 const DEFAULT_TRANSPARENT_COLOR = 'rgba(255, 255, 255, 0)';
 const DEFAULT_FADE_COLOR = 'rgba(255, 255, 255, 1)';
 
-export interface CollapseProps extends React.HTMLAttributes<HTMLDivElement> {
-  /**
-   * Set the component to render a different element type.
-   * @default 'div'
-   */
-  component?:
-    | 'div'
-    | 'span'
-    | 'p'
-    | 'ul'
-    | 'main'
-    | 'section'
-    | 'aside'
-    | 'strong';
+export type CollapseProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * Whether the collapse is open or not
    * @default false
@@ -63,7 +54,7 @@ export interface CollapseProps extends React.HTMLAttributes<HTMLDivElement> {
    * @default 50
    */
   fadeHeight?: number;
-}
+};
 
 export interface CollapseState {
   // tslint:disable-line:no-unused-variable
@@ -75,11 +66,14 @@ export interface CollapseState {
 /**
  * Component to expand and collapse content, optionally displaying a small preview.
  */
-export class Collapse extends PureComponent<CollapseProps, CollapseState> {
-  private element: HTMLElement;
+export class Collapse<T extends ComponentElement = 'div'> extends PureComponent<
+  CollapseProps<T>,
+  CollapseState
+> {
+  private element: HTMLElement | null = null;
   private timeout: number;
 
-  public constructor(props: CollapseProps) {
+  public constructor(props: CollapseProps<T>) {
     super(props);
 
     const { maxCollapsedHeight = DEFAULT_HEIGHT, open } = props;
@@ -91,8 +85,10 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
     };
   }
 
-  public componentDidUpdate(previousProps: CollapseProps) {
-    if (this.props.open !== previousProps.open) {
+  public componentDidUpdate(previousProps: CollapseProps<T>) {
+    const { element } = this;
+
+    if (element && this.props.open !== previousProps.open) {
       window.clearTimeout(this.timeout);
 
       const {
@@ -103,18 +99,14 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
       this.setState({
         opened: false,
         opening: previousProps.open,
-        height: this.props.open
-          ? maxCollapsedHeight
-          : this.element.scrollHeight,
+        height: this.props.open ? maxCollapsedHeight : element.scrollHeight,
       });
 
       this.timeout = window.setTimeout(() => {
         this.setState({
           opened: false,
           opening: this.props.open,
-          height: this.props.open
-            ? this.element.scrollHeight
-            : maxCollapsedHeight,
+          height: this.props.open ? element.scrollHeight : maxCollapsedHeight,
         });
 
         this.timeout = window.setTimeout(() => {
@@ -130,8 +122,10 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
   public componentDidMount() {
     const { maxCollapsedHeight = DEFAULT_HEIGHT } = this.props;
 
+    const scrollHeight = this.element ? this.element.scrollHeight : 0;
+
     this.setState({
-      height: this.props.open ? this.element.scrollHeight : maxCollapsedHeight,
+      height: this.props.open ? scrollHeight : maxCollapsedHeight,
     });
   }
 
@@ -194,7 +188,7 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
     );
   }
 
-  private storeRef = (element: HTMLElement) => {
+  private storeRef = (element: HTMLElement | null) => {
     this.element = element;
   };
 }

@@ -1,12 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface SpacedGroupProps
-  extends ComponentProps,
-    HTMLProps<HTMLElement> {
+export type SpacedGroupProps<
+  T extends ComponentElement
+> = ComponentAndHTMLProps<T> & {
   /**
    * Set the group to `display: block;` so it fills its parent.
    */
@@ -19,12 +19,14 @@ export interface SpacedGroupProps
    * Increased spacing between items.
    */
   large?: boolean;
-}
+};
 
 /**
  * Component to contain & automatically add space between inline elements.
  */
-export class SpacedGroup extends PureComponent<SpacedGroupProps, {}> {
+export class SpacedGroup<
+  T extends ComponentElement = 'span'
+> extends PureComponent<SpacedGroupProps<T>, {}> {
   public render() {
     const {
       children,

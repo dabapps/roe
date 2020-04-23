@@ -1,11 +1,13 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface HighlightProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type HighlightProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * Displays the overlay
    * @default false
@@ -21,12 +23,14 @@ export interface HighlightProps extends ComponentProps, HTMLProps<HTMLElement> {
    * @default undefined
    */
   backgroundColor?: string | undefined;
-}
+};
 
 /**
  * This highlight component is used to display a single element while shading everything else out.
  */
-export class Highlight extends PureComponent<HighlightProps, {}> {
+export class Highlight<
+  T extends ComponentElement = 'div'
+> extends PureComponent<HighlightProps<T>, {}> {
   public render() {
     const {
       className,

@@ -1,15 +1,17 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface NavItemProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type NavItemProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * Apply an active class to the NavItem
    */
   active?: boolean;
-}
+};
 
 /**
  * NavItems are used inside of a Nav. These already have basic hover styles applied.
@@ -19,7 +21,10 @@ export interface NavItemProps extends ComponentProps, HTMLProps<HTMLElement> {
  * You may apply `button` and related classes to a NavItem e.g. for a logout button.
  * See the [Nav](#nav) section for a full example.
  */
-export class NavItem extends PureComponent<NavItemProps, {}> {
+export class NavItem<T extends ComponentElement = 'li'> extends PureComponent<
+  NavItemProps<T>,
+  {}
+> {
   public render() {
     const {
       className,

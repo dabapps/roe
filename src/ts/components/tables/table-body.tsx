@@ -1,16 +1,20 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export type TableBodyProps = ComponentProps & HTMLProps<HTMLElement>;
+export type TableBodyProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+>;
 
 /**
  * Table body component with additional styles & functionality, used to contain main table content.
  * See the [Table](#table) section for a full example.
  */
-export class TableBody extends PureComponent<TableBodyProps, {}> {
+export class TableBody<
+  T extends ComponentElement = 'tbody'
+> extends PureComponent<TableBodyProps<T>, {}> {
   public render() {
     const {
       className,

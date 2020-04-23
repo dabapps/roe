@@ -1,10 +1,10 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export type RowProps = ComponentProps & HTMLProps<HTMLElement>;
+export type RowProps<T extends ComponentElement> = ComponentAndHTMLProps<T>;
 
 /**
  * Used within a container, section, or column, to keep content on separate rows.
@@ -14,7 +14,10 @@ export type RowProps = ComponentProps & HTMLProps<HTMLElement>;
  * a clearfix applied which allows floated elements to be placed inside it
  * without it collapsing.
  */
-export class Row extends PureComponent<RowProps, {}> {
+export class Row<T extends ComponentElement = 'div'> extends PureComponent<
+  RowProps<T>,
+  {}
+> {
   public render() {
     const {
       children,

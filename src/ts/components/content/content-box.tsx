@@ -1,15 +1,19 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export type ContentBoxProps = ComponentProps & HTMLProps<HTMLElement>;
+export type ContentBoxProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+>;
 
 /**
  * Box for displaying content within.
  */
-export class ContentBox extends PureComponent<ContentBoxProps, {}> {
+export class ContentBox<
+  T extends ComponentElement = 'div'
+> extends PureComponent<ContentBoxProps<T>, {}> {
   public render() {
     const {
       className,

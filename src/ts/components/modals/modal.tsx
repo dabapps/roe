@@ -1,10 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface ModalProps extends ComponentProps, HTMLProps<HTMLDivElement> {
+export type ModalProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * Allows the `ModalBody` to be scrolled, rather than page.
    */
@@ -25,12 +27,15 @@ export interface ModalProps extends ComponentProps, HTMLProps<HTMLDivElement> {
    * Callback to trigger when the user clicks outside of the `Modal`.
    */
   onClickOutside(event: React.MouseEvent<HTMLDivElement>): void;
-}
+};
 
 /**
  * Component used to render a modal.
  */
-export class Modal extends PureComponent<ModalProps, {}> {
+export class Modal<T extends ComponentElement = 'div'> extends PureComponent<
+  ModalProps<T>,
+  {}
+> {
   public render() {
     const {
       className,

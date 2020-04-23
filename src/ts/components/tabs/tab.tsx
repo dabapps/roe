@@ -1,22 +1,25 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface TabProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type TabProps<T extends ComponentElement> = ComponentAndHTMLProps<T> & {
   /**
    * Apply active `Tab` styles.
    */
   active?: boolean;
-}
+};
 
 /**
  * Tab component for use within the `Tabs` component.
  * Easily style active tabs with the `active` prop.
  * See the [Tabs](#tabs) section for a full example.
  */
-export class Tab extends PureComponent<TabProps, {}> {
+export class Tab<T extends ComponentElement = 'li'> extends PureComponent<
+  TabProps<T>,
+  {}
+> {
   public render() {
     const {
       className,

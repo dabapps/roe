@@ -1,13 +1,15 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
 
 import store from '../../store';
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 import { getScrollOffset } from '../../utils';
 
-export interface NavBarProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type NavBarProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * Fix the navbar to the top of the screen
    */
@@ -20,17 +22,20 @@ export interface NavBarProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Remove NavBar shadow
    */
   noShadow?: boolean;
-}
+};
 
 export interface NavBarState {
   hidden: boolean;
 }
 
-export class NavBar extends PureComponent<NavBarProps, NavBarState> {
+export class NavBar<T extends ComponentElement = 'div'> extends PureComponent<
+  NavBarProps<T>,
+  NavBarState
+> {
   private previousScrollY: number;
   private mountTime: number | undefined;
 
-  public constructor(props: NavBarProps) {
+  public constructor(props: NavBarProps<T>) {
     super(props);
 
     this.previousScrollY = getScrollOffset().y;

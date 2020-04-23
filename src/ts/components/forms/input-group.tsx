@@ -1,22 +1,24 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface InputGroupProps
-  extends ComponentProps,
-    HTMLProps<HTMLElement> {
+export type InputGroupProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * Set the style `display: block;` so the group fills its parent.
    */
   block?: boolean;
-}
+};
 
 /**
  * Used to group inputs, selects, buttons, and `InputGroupAddon`s.
  */
-export class InputGroup extends PureComponent<InputGroupProps, {}> {
+export class InputGroup<
+  T extends ComponentElement = 'div'
+> extends PureComponent<InputGroupProps<T>, {}> {
   public render() {
     const {
       children,

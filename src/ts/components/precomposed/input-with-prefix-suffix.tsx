@@ -1,11 +1,17 @@
 import * as React from 'react';
 import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentElement } from '../../types';
 import InputGroup from '../forms/input-group';
 import InputGroupAddon from '../forms/input-group-addon';
 
-export interface PrefixSuffixProps extends ComponentProps {
+export type InputWithPrefixSuffixProps<
+  T extends ComponentElement
+> = JSX.IntrinsicElements['input'] & {
+  /**
+   * Set the component to render a different element type.
+   */
+  component?: T;
   /**
    * Content to display to the left of the input.
    */
@@ -31,21 +37,15 @@ export interface PrefixSuffixProps extends ComponentProps {
    */
   suffixClassName?: string;
   value?: string | string[] | number; // Adds compatibility with React 15 and 16 types
-}
-
-export type InputWithPrefixSuffixProps = React.HTMLAttributes<
-  HTMLInputElement
-> &
-  PrefixSuffixProps;
+};
 
 /**
  * A precomposed Input containing an optional prefix (InputGroupAddon), an input,
  * and an optional suffix (InputGroupAddon).
  */
-export class InputWithPrefixSuffix extends PureComponent<
-  InputWithPrefixSuffixProps,
-  {}
-> {
+export class InputWithPrefixSuffix<
+  T extends ComponentElement = 'div'
+> extends PureComponent<InputWithPrefixSuffixProps<T>, {}> {
   public render() {
     const {
       prefix,

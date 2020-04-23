@@ -1,11 +1,11 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
 import store, { StoreState } from '../../store';
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export type AppRootProps = HTMLProps<HTMLElement> & ComponentProps;
+export type AppRootProps<T extends ComponentElement> = ComponentAndHTMLProps<T>;
 
 export type AppRootState = Pick<
   StoreState,
@@ -22,9 +22,12 @@ export type AppRootState = Pick<
  *
  * The "app" class ensures that the AppRoot is not affected by the outer, non-react element.
  */
-export class AppRoot extends PureComponent<AppRootProps, AppRootState> {
+export class AppRoot<T extends ComponentElement = 'div'> extends PureComponent<
+  AppRootProps<T>,
+  AppRootState
+> {
   private unsubscribe: () => void;
-  public constructor(props: AppRootProps) {
+  public constructor(props: AppRootProps<T>) {
     super(props);
 
     this.state = store.getState();

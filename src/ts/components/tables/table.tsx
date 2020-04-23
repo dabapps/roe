@@ -1,10 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface TableProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type TableProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * Currently unused.
    * @default "'sm'"
@@ -46,12 +48,15 @@ export interface TableProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Set a width for the first column when fixed.
    */
   rowHeaderWidth?: number;
-}
+};
 
 /**
  * Table component with additional styles & functionality.
  */
-export class Table extends PureComponent<TableProps, {}> {
+export class Table<T extends ComponentElement> extends PureComponent<
+  TableProps<T>,
+  {}
+> {
   public render() {
     const {
       className,

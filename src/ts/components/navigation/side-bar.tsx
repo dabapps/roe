@@ -1,11 +1,13 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface SideBarProps extends HTMLProps<HTMLElement>, ComponentProps {
+export type SideBarProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * SideBar is hidden off screen if this is falsy.
    */
@@ -22,13 +24,16 @@ export interface SideBarProps extends HTMLProps<HTMLElement>, ComponentProps {
    * Callback to trigger when the user clicks outside of the `SideBar`.
    */
   onClickOutside(event: React.MouseEvent<HTMLDivElement>): void;
-}
+};
 
 /**
  * SideBar navigation that opens over the content. Often used as the primary navigation on small devices.
  * See the [Nav](#nav) section for more details.
  */
-export class SideBar extends PureComponent<SideBarProps, {}> {
+export class SideBar<T extends ComponentElement = 'div'> extends PureComponent<
+  SideBarProps<T>,
+  {}
+> {
   public render() {
     const {
       className,

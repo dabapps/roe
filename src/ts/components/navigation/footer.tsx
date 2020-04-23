@@ -1,12 +1,14 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
 
 import store from '../../store';
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type FooterProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * Fix the footer to the bottom of the window when there is not enough content to push it down.
    */
@@ -15,15 +17,18 @@ export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Fix the footer to the bottom of the screen always
    */
   fixed?: boolean;
-}
+};
 
-export class Footer extends PureComponent<FooterProps, {}> {
+export class Footer<T extends ComponentElement = 'div'> extends PureComponent<
+  FooterProps<T>,
+  {}
+> {
   public componentDidMount() {
     this.notifyAppRoot(this.props);
     this.toggleResizeListeners(this.props);
   }
 
-  public componentDidUpdate(prevProps: FooterProps) {
+  public componentDidUpdate(prevProps: FooterProps<T>) {
     if (
       Boolean(this.props.sticky || this.props.fixed) !==
       Boolean(prevProps.sticky || prevProps.fixed)

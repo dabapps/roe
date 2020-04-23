@@ -1,16 +1,19 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export type SectionProps = ComponentProps & HTMLProps<HTMLElement>;
+export type SectionProps<T extends ComponentElement> = ComponentAndHTMLProps<T>;
 
 /**
  * Used to separate sections of content with a horizontal-rule-like style.
  * Should only be used inside `ContentBox`s or `Column`s.
  */
-export class Section extends PureComponent<SectionProps, {}> {
+export class Section<T extends ComponentElement = 'div'> extends PureComponent<
+  SectionProps<T>,
+  {}
+> {
   public render() {
     const {
       children,

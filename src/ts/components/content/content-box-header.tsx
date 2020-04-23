@@ -1,16 +1,20 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 
-export type ContentBoxHeaderProps = ComponentProps & HTMLProps<HTMLElement>;
+export type ContentBoxHeaderProps<
+  T extends ComponentElement
+> = ComponentAndHTMLProps<T>;
 
 /**
  * Header for `ContentBox`s, used to display a content's title.
  * See the [ContentBox](#contentbox) section for a full example.
  */
-export class ContentBoxHeader extends PureComponent<ContentBoxHeaderProps, {}> {
+export class ContentBoxHeader<
+  T extends ComponentElement = 'div'
+> extends PureComponent<ContentBoxHeaderProps<T>, {}> {
   public render() {
     const {
       className,

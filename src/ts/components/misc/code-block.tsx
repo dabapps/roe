@@ -6,12 +6,14 @@ declare const hljs: void | IHighlightJS;
 
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { PureComponent } from 'react';
 
-import { ComponentProps } from '../../types';
+import { ComponentAndHTMLProps, ComponentElement } from '../../types';
 import { formatCode } from '../../utils';
 
-export interface CodeBlockProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type CodeBlockProps<T extends ComponentElement> = ComponentAndHTMLProps<
+  T
+> & {
   /**
    * Code to display.
    */
@@ -24,15 +26,17 @@ export interface CodeBlockProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Name of the code block e.g. "index.js".
    */
   codeBlockName?: string;
-}
+};
 
 /**
  * Component to nicely highlight code inside a `pre` element.
  */
-export class CodeBlock extends PureComponent<CodeBlockProps, {}> {
+export class CodeBlock<
+  T extends ComponentElement = 'div'
+> extends PureComponent<CodeBlockProps<T>, {}> {
   public element: HTMLPreElement;
 
-  public constructor(props: CodeBlockProps) {
+  public constructor(props: CodeBlockProps<T>) {
     super(props);
 
     this.highlightBlock = this.highlightBlock.bind(this);
@@ -47,7 +51,7 @@ export class CodeBlock extends PureComponent<CodeBlockProps, {}> {
     }
   }
 
-  public componentDidUpdate(prevProps: CodeBlockProps) {
+  public componentDidUpdate(prevProps: CodeBlockProps<T>) {
     if (
       typeof hljs === 'object' &&
       // tslint:disable-next-line:strict-type-predicates
