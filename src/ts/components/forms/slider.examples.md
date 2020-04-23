@@ -19,6 +19,6 @@
 @slider-range-color: @info;
 @slider-control-width: 15px;
 @slider-control-height: 15px;
-@slider-control-color: @info;
+@slider-control-background: @info;
 @slider-control-border-radius: @border-radius-base;
 ```
