@@ -66,9 +66,9 @@ export class AppRoot extends PureComponent<AppRootProps, AppRootState> {
       className,
     ];
 
-    const style = {
-      paddingTop: hasFixedNavBar && navBarHeight,
-      paddingBottom: hasStickyFooter && footerHeight,
+    const style: React.CSSProperties = {
+      ...(hasFixedNavBar && { paddingTop: navBarHeight }),
+      ...(hasStickyFooter && { paddingBottom: footerHeight }),
     };
 
     return (
