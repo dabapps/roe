@@ -1,6 +1,4 @@
-import { HTMLProps } from 'react';
-
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
+import { HTMLAttributes } from 'react';
 
 export type ComponentElement =
   | 'div'
@@ -24,9 +22,8 @@ export type ComponentElement =
   | 'th'
   | 'td';
 
-export type ComponentAndHTMLProps<T extends ComponentElement> = Omit<
-  HTMLProps<HTMLElement>,
-  'ref'
+export type ComponentAndHTMLProps<T extends ComponentElement> = HTMLAttributes<
+  HTMLElement
 > & {
   /**
    * Set the component to render a different element type.

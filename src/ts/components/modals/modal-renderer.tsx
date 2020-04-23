@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+import { HTMLAttributes, PureComponent } from 'react';
 import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
-export interface ModalRendererProps extends HTMLProps<HTMLElement> {
+export interface ModalRendererProps extends HTMLAttributes<HTMLElement> {
   /**
    * Array of modals to be rendered.
    */
