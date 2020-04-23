@@ -1,6 +1,6 @@
 export const getNumberOfSteps = (step: number, min: number, max: number) => {
   const totalRange = Math.abs(max - min);
-  return Math.ceil(totalRange / step);
+  return Math.floor(totalRange / step) + 1;
 };
 
 export const getStepSeries = (
