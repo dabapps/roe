@@ -158,8 +158,8 @@ export class Collapse extends PureComponent<CollapseProps, CollapseState> {
     const { opening, opened, height } = this.state;
 
     const collapseStyle: React.CSSProperties = {
-      minHeight,
-      maxHeight: opened ? null : height,
+      minHeight: minHeight === null ? undefined : minHeight,
+      maxHeight: opened ? undefined : height,
       position: 'relative' as 'relative',
       transition: `ease-in-out ${animationDuration}ms max-height`,
       ...(opened ? { overflow: 'hidden' } : undefined),
