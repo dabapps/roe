@@ -252,14 +252,7 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
     return onMouseDown;
   }
 
-  private onHandleFrom = (event: SyntheticMouseEvent | SyntheticTouchEvent) => {
-    this.setState({
-      from: getClosestValue(
-        this.percentageStepSeries,
-        this.getValueOnMove(event, 'from')
-      ),
-    });
-
+  private callOnChange = (event: SyntheticMouseEvent | SyntheticTouchEvent) => {
     if (event.type === 'mouseup' || event.type === 'touchend') {
       this.props.onChange(
         this.convertPercentageRangeToRange({
@@ -270,6 +263,17 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
     }
   };
 
+  private onHandleFrom = (event: SyntheticMouseEvent | SyntheticTouchEvent) => {
+    this.setState({
+      from: getClosestValue(
+        this.percentageStepSeries,
+        this.getValueOnMove(event, 'from')
+      ),
+    });
+
+    this.callOnChange(event);
+  };
+
   private onHandleTo = (event: SyntheticMouseEvent | SyntheticTouchEvent) => {
     this.setState({
       to: getClosestValue(
@@ -278,14 +282,7 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
       ),
     });
 
-    if (event.type === 'mouseup' || event.type === 'touchend') {
-      this.props.onChange(
-        this.convertPercentageRangeToRange({
-          from: this.state.from,
-          to: this.state.to,
-        })
-      );
-    }
+    this.callOnChange(event);
   };
 
   private getBoundaryValue(
