@@ -70,8 +70,8 @@ export class AppRoot<T extends ComponentElement = 'div'> extends PureComponent<
     ];
 
     const style: React.CSSProperties = {
-      ...(hasFixedNavBar && { paddingTop: navBarHeight }),
-      ...(hasStickyFooter && { paddingBottom: footerHeight }),
+      paddingTop: hasFixedNavBar ? navBarHeight : undefined,
+      paddingBottom: hasStickyFooter ? footerHeight : undefined,
     };
 
     return (
