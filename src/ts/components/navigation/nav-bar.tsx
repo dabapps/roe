@@ -53,7 +53,7 @@ export class NavBar<T extends ComponentElement = 'div'> extends PureComponent<
     this.mountTime = new Date().getTime();
   }
 
-  public componentDidUpdate(prevProps: NavBarProps) {
+  public componentDidUpdate(prevProps: NavBarProps<T>) {
     if (Boolean(this.props.shy) !== Boolean(prevProps.shy)) {
       this.toggleShyListeners(this.props);
     }
@@ -104,7 +104,7 @@ export class NavBar<T extends ComponentElement = 'div'> extends PureComponent<
     );
   }
 
-  private notifyAppRoot(props: NavBarProps) {
+  private notifyAppRoot(props: NavBarProps<T>) {
     const { fixed, shy } = props;
     const element = ReactDOM.findDOMNode(this);
 
@@ -121,7 +121,7 @@ export class NavBar<T extends ComponentElement = 'div'> extends PureComponent<
     this.notifyAppRoot(this.props);
   };
 
-  private toggleResizeListeners(props: NavBarProps) {
+  private toggleResizeListeners(props: NavBarProps<T>) {
     const { fixed, shy } = props;
 
     if (fixed || shy) {
@@ -131,7 +131,7 @@ export class NavBar<T extends ComponentElement = 'div'> extends PureComponent<
     }
   }
 
-  private toggleShyListeners(props: NavBarProps) {
+  private toggleShyListeners(props: NavBarProps<T>) {
     const { shy } = props;
 
     if (shy) {

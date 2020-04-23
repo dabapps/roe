@@ -64,7 +64,7 @@ export class Footer<T extends ComponentElement = 'div'> extends PureComponent<
     );
   }
 
-  private notifyAppRoot(props: FooterProps) {
+  private notifyAppRoot(props: FooterProps<T>) {
     const { sticky, fixed } = props;
     const element = ReactDOM.findDOMNode(this);
 
@@ -81,7 +81,7 @@ export class Footer<T extends ComponentElement = 'div'> extends PureComponent<
     this.notifyAppRoot(this.props);
   };
 
-  private toggleResizeListeners(props: FooterProps) {
+  private toggleResizeListeners(props: FooterProps<T>) {
     const { sticky, fixed } = props;
 
     if (sticky || fixed) {
