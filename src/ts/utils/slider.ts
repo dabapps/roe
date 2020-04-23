@@ -8,9 +8,8 @@ export const getStepSeries = (
   min: number,
   max: number
 ): ReadonlyArray<number> => {
-  const series = Array.apply(null, {
-    length: getNumberOfSteps(step, min, max),
-  }).map((_ITEM: number, index: number) => min + index * step);
+  const stepCount = getNumberOfSteps(step, min, max);
+  const series = [...Array(stepCount)].map((_value: number, index: number) => min + index * step);
   // NOTE: if the last value in the series is less than the max we need another step in order to be able to select it
   return series[series.length - 1] < max ? [...series, max] : series;
 };
