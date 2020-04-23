@@ -91,21 +91,10 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
 
     this.state = this.convertRangeToPercentageRange(initialValue);
 
-    this.onHandleMouseFrom = this.createMouseHandlers(this.onHandleFrom) as (
-      event: SyntheticMouseEvent
-    ) => void;
-
-    this.onHandleMouseTo = this.createMouseHandlers(this.onHandleTo) as (
-      event: SyntheticMouseEvent
-    ) => void;
-
-    this.onHandleTouchFrom = this.createTouchHandlers(this.onHandleFrom) as (
-      event: SyntheticTouchEvent
-    ) => void;
-
-    this.onHandleTouchTo = this.createTouchHandlers(this.onHandleTo) as (
-      event: SyntheticTouchEvent
-    ) => void;
+    this.onHandleMouseFrom = this.createMouseHandlers(this.onHandleFrom);
+    this.onHandleMouseTo = this.createMouseHandlers(this.onHandleTo);
+    this.onHandleTouchFrom = this.createTouchHandlers(this.onHandleFrom);
+    this.onHandleTouchTo = this.createTouchHandlers(this.onHandleTo);
   }
 
   public componentWillUnmount() {
