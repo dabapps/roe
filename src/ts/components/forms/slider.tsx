@@ -23,7 +23,7 @@ export interface SliderProps extends ComponentProps {
    */
   min: number;
   /**
-   * Minimum value allowed to be selected in range
+   * Maximum value allowed to be selected in range
    */
   max: number;
   /**
