@@ -4,6 +4,8 @@
     "noImplicitAny": true,
     "skipLibCheck": true,
     "pretty": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "jsx": "react",
     "target": "es5",
     "module": "commonjs",
