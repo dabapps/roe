@@ -1,6 +1,6 @@
 export const getNumberOfSteps = (step: number, min: number, max: number) => {
-  const totalRange = max - min;
-  return Math.floor(totalRange / step) + 1;
+  const totalRange = Math.abs(max - min);
+  return Math.ceil(totalRange / step);
 };
 
 export const getStepSeries = (
@@ -20,7 +20,7 @@ export const convertPercentageStepToStep = (
   max: number,
   percentageStep: number
 ) => {
-  const totalRange = max - min;
+  const totalRange = Math.abs(max - min);
   return min + percentageStep * totalRange;
 };
 
@@ -29,7 +29,7 @@ export const convertStepToPercentageStep = (
   max: number,
   step: number
 ) => {
-  const totalRange = max - min;
+  const totalRange = Math.abs(max - min);
   return (step - min) / totalRange;
 };
 
