@@ -123,7 +123,6 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
     return (
       <Component {...remainingProps} className="slider">
         <div className="bar">
-          <span className="default" />
 
           <div
             className="control"
@@ -141,7 +140,8 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
             onTouchMove={this.onHandleTouchTo}
           />
 
-          <span className="default" />
+          <span className="background" />
+          <span className="background" />
         </div>
       </Component>
     );
