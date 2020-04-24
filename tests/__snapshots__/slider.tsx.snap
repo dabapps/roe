@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Slider should match snapshot 1`] = `
+<div
+  step={5}
+>
+  <div
+    className="slider"
+  >
+    <div
+      className="bar"
+    >
+      <span
+        className="background"
+      />
+      <div
+        className="control"
+        onMouseDown={[Function]}
+        onTouchMove={[Function]}
+        style={
+          Object {
+            "left": "0%",
+          }
+        }
+      >
+        <span
+          className="control-popover"
+        >
+          <span>
+            10
+          </span>
+        </span>
+      </div>
+      <span
+        className="range"
+        style={
+          Object {
+            "left": "0%",
+            "right": "0%",
+          }
+        }
+      />
+      <div
+        className="control"
+        onMouseDown={[Function]}
+        onTouchMove={[Function]}
+        style={
+          Object {
+            "left": "100%",
+          }
+        }
+      >
+        <span
+          className="control-popover"
+        >
+          <span>
+            333
+          </span>
+        </span>
+      </div>
+      <span
+        className="background"
+      />
+    </div>
+  </div>
+  <p
+    className="margin-vertical-small"
+  >
+    <span>
+      10
+    </span>
+    <span
+      className="float-right"
+    >
+      333
+    </span>
+  </p>
+</div>
+`;

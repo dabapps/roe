@@ -1,0 +1,108 @@
+import {
+  constrain,
+  convertPercentageStepToStep,
+  convertStepToPercentageStep,
+  getClosestValue,
+  getNumberOfSteps,
+  getStepSeries,
+  isValidInitialValue,
+  isWithinRange,
+} from '../../src/ts/utils/slider';
+
+describe('slider utils', () => {
+  describe('constrain', () => {
+    it('should return value if value within range', () => {
+      expect(constrain(70, 50, 100)).toEqual(70);
+    });
+
+    it('should return min if value smaller than min', () => {
+      expect(constrain(20, 50, 100)).toEqual(50);
+    });
+
+    it('should return max if value bigger than max', () => {
+      expect(constrain(120, 50, 100)).toEqual(100);
+    });
+  });
+
+  describe('getStepSeries', () => {
+    it('should return steps as a series between 0 and 100', () => {
+      expect(getStepSeries(10, 0, 100)).toEqual([
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100,
+      ]);
+    });
+
+    it('should return steps as a series even when the steps dont fit the range exactly', () => {
+      expect(getStepSeries(15, 0, 125)).toEqual([
+        0,
+        15,
+        30,
+        45,
+        60,
+        75,
+        90,
+        105,
+        120,
+        125,
+      ]);
+    });
+  });
+
+  describe('getNumberOfSteps', () => {
+    it('should give back the number of steps', () => {
+      expect(getNumberOfSteps(1, 0, 50)).toBe(51);
+    });
+  });
+
+  describe('getClosestValue', () => {
+    it('should find the closest value in the series', () => {
+      expect(getClosestValue([45, 67, 86, 90, 100], 83)).toBe(86);
+      expect(getClosestValue([0.45, 0.67, 0.86, 0.9, 0.1], 0.83)).toBe(0.86);
+    });
+  });
+
+  describe('convertPercentageStepToStep', () => {
+    it('converts a percentage step to a value step', () => {
+      expect(convertPercentageStepToStep(0, 10, 0.1)).toBe(1);
+    });
+  });
+
+  describe('convertStepToPercentageStep', () => {
+    it('converts a value step to a percentage step', () => {
+      expect(convertStepToPercentageStep(0, 10, 1)).toBe(0.1);
+    });
+
+    it('should not blow up if range is 0', () => {
+      expect(convertStepToPercentageStep(0, 0, 1)).toBe(0);
+    });
+  });
+
+  describe('isWithinRange', () => {
+    it('should return true if within range', () => {
+      expect(isWithinRange(-10, 10, 1)).toBeTruthy();
+    });
+
+    it('should return false if not within range', () => {
+      expect(isWithinRange(-10, 10, 100)).toBeFalsy();
+    });
+  });
+
+  describe('isValidInitialValue', () => {
+    it('should return true if initialValue is valid', () => {
+      expect(isValidInitialValue({ from: 0, to: 10 })).toBeTruthy();
+    });
+
+    it('should return false if initialValue is not valid', () => {
+      expect(isValidInitialValue({ from: 10, to: 0 })).toBeFalsy();
+    });
+  });
+});

@@ -6,7 +6,7 @@ import {
   MATCHES_INITIAL_INDENTATION,
   MATCHES_LEADING_AND_TRAILING_HYPHENS,
   MATCHES_NON_WORD_CHARACTERS,
-} from './constants';
+} from '../constants';
 
 export const formatCode = (code: string) => {
   const codeWithoutLeadingOrTrailingEmptyLines = code

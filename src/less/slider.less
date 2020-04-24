@@ -1,0 +1,80 @@
+.slider {
+  padding: @padding-large;
+  padding-top: @padding-large * 2;
+
+  .bar {
+    height: @slider-bar-thickness;
+    position: relative;
+
+    .background {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background-color: @slider-bar-background;
+
+      &:last-of-type {
+        right: 0;
+        width: 100%;
+      }
+    }
+
+    .range {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      background-color: @slider-range-color;
+      z-index: @slider-z-index - 1;
+    }
+
+    .control {
+      position: relative;
+      width: @slider-control-width;
+      height: @slider-control-height;
+      top: 50%;
+      left: 0;
+      float: left;
+      transform: translate(-100%, -50%);
+      background-color: @slider-control-background;
+      cursor: ew-resize;
+      border-radius: @slider-control-border-radius;
+      z-index: @slider-z-index;
+
+      .control-popover {
+        position: absolute;
+        display: inline-table;
+        top: -1.4em;
+        width: 2.5em;
+        height: 2em;
+        transform: translate(-30%, -50%);
+        text-align: center;
+        background-color: @slider-control-popover-background;
+        font-size: 11px;
+        border-radius: @border-radius-base;
+
+        span {
+          display: table-row;
+        }
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 0;
+          height: 0;
+          left: 0;
+          right: 0;
+          margin-left: auto;
+          margin-right: auto;
+          bottom: -4px;
+          border-left: 10px solid transparent; // lesshint variableValue: false
+          border-right: 10px solid transparent; // lesshint variableValue: false
+          border-top: 10px solid @slider-control-popover-background; // lesshint variableValue: false
+        }
+      }
+    }
+
+    .range,
+    .control {
+      transition: all 0.2s ease-out;
+    }
+  }
+}
