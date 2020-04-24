@@ -1,13 +1,22 @@
-#### Example
+#### Examples
+
+With initial values set and values displayed:
 
 ```js
 <Slider
+  displayPopover
   onSlide={value => console.log(value)}
   initialValue={{ from: 0, to: 700 }}
   min={0}
   max={1000}
   step={10}
 />
+```
+
+Without initial values and without values displayed:
+
+```js
+<Slider onSlide={value => console.log(value)} min={-100} max={100} step={1} />
 ```
 
 #### Less variables
