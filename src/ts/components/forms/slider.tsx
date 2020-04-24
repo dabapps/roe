@@ -34,7 +34,11 @@ export interface SliderProps extends ComponentProps {
    */
   initialValue?: Range;
   /**
-   * What should happen to range value on change?
+   * Do you want the values to be displayed in a popover?
+   */
+  displayPopover?: boolean;
+  /**
+   * What should happen to range value on slide?
    */
   onSlide: (value: Range) => void;
 }
@@ -116,33 +120,57 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
       max,
       initialValue,
       onSlide,
+      displayPopover,
       component: Component = 'div',
       ...remainingProps
     } = this.props;
 
+    const { from, to } = this.convertPercentageRangeToRange({
+      from: this.state.from,
+      to: this.state.to,
+    });
+
     return (
-      <Component {...remainingProps} className="slider">
-        <div className="bar">
+      <Component {...remainingProps}>
+        <div className="slider">
+          <div className="bar">
+            <span className="background" />
 
-          <div
-            className="control"
-            style={this.getControlStyle(this.state.from)}
-            onMouseDown={this.onHandleMouseFrom}
-            onTouchMove={this.onHandleTouchFrom}
-          />
+            <div
+              className="control"
+              style={this.getControlStyle(this.state.from)}
+              onMouseDown={this.onHandleMouseFrom}
+              onTouchMove={this.onHandleTouchFrom}
+            >
+              {displayPopover && (
+                <span className="control-popover">
+                  <span>{from}</span>
+                </span>
+              )}
+            </div>
 
-          <span className="range" style={this.getRangeStyle()} />
+            <span className="range" style={this.getRangeStyle()} />
 
-          <div
-            className="control"
-            style={this.getControlStyle(this.state.to)}
-            onMouseDown={this.onHandleMouseTo}
-            onTouchMove={this.onHandleTouchTo}
-          />
+            <div
+              className="control"
+              style={this.getControlStyle(this.state.to)}
+              onMouseDown={this.onHandleMouseTo}
+              onTouchMove={this.onHandleTouchTo}
+            >
+              {displayPopover && (
+                <span className="control-popover">
+                  <span>{to}</span>
+                </span>
+              )}
+            </div>
 
-          <span className="background" />
-          <span className="background" />
+            <span className="background" />
+          </div>
         </div>
+        <p className="margin-vertical-small">
+          <span>{min}</span>
+          <span className="float-right">{max}</span>
+        </p>
       </Component>
     );
   }

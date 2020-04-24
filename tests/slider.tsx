@@ -13,6 +13,7 @@ const props = {
     to: 333,
   },
   step: 5,
+  displayPopover: true,
 };
 
 describe('Slider', () => {

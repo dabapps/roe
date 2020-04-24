@@ -21,4 +21,5 @@
 @slider-control-height: 15px;
 @slider-control-background: @info;
 @slider-control-border-radius: 20px;
+@slider-control-popover-background: lighten(@info, 25%);
 ```
