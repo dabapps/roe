@@ -1,6 +1,6 @@
 #### Examples
 
-With initial values set and values displayed:
+With initial values set and popover displayed:
 
 ```js
 <Slider
@@ -13,7 +13,7 @@ With initial values set and values displayed:
 />
 ```
 
-Without initial values and without values displayed:
+Without initial values and without popover displayed:
 
 ```js
 <Slider onSlide={value => console.log(value)} min={-100} max={100} step={1} />
