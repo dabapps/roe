@@ -20,5 +20,5 @@
 @slider-control-width: 15px;
 @slider-control-height: 15px;
 @slider-control-background: @info;
-@slider-control-border-radius: @border-radius-base;
+@slider-control-border-radius: 20px;
 ```
