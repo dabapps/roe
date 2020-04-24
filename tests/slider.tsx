@@ -5,7 +5,7 @@ import * as renderer from 'react-test-renderer';
 import { Slider } from '../src/ts/';
 
 const props = {
-  onChange: jest.fn(),
+  onSlide: jest.fn(),
   min: 10,
   max: 333,
   initialValue: {
@@ -25,7 +25,7 @@ describe('Slider', () => {
   });
 
   beforeEach(() => {
-    props.onChange.mockClear();
+    props.onSlide.mockClear();
   });
 
   it('should match snapshot', () => {
@@ -59,9 +59,9 @@ describe('Slider', () => {
     document.dispatchEvent(mouseUp);
 
     instance.unmount();
-    expect(props.onChange).toHaveBeenCalledTimes(2);
-    expect(props.onChange).toHaveBeenCalledWith({ from: 75, to: 75 });
-    expect(props.onChange).toHaveBeenCalledWith({ from: 75, to: 270 });
+    expect(props.onSlide).toHaveBeenCalledTimes(6);
+    expect(props.onSlide).toHaveBeenCalledWith({ from: 75, to: 75 });
+    expect(props.onSlide).toHaveBeenCalledWith({ from: 75, to: 270 });
   });
 
   it('should call touch events on range stepped slider (first slide exceeded range position)', () => {
@@ -91,9 +91,9 @@ describe('Slider', () => {
     document.dispatchEvent(touchEnd);
 
     instance.unmount();
-    expect(props.onChange).toHaveBeenCalledTimes(2);
-    expect(props.onChange).toHaveBeenCalledWith({ from: 40, to: 333 });
-    expect(props.onChange).toHaveBeenCalledWith({ from: 40, to: 333 });
+    expect(props.onSlide).toHaveBeenCalledTimes(6);
+    expect(props.onSlide).toHaveBeenCalledWith({ from: 40, to: 333 });
+    expect(props.onSlide).toHaveBeenCalledWith({ from: 40, to: 333 });
   });
 
   it('should remove listeners on unmount', () => {
@@ -117,6 +117,6 @@ describe('Slider', () => {
       .simulate('mouseUp');
 
     instance.unmount();
-    expect(props.onChange).not.toHaveBeenCalled();
+    expect(props.onSlide).not.toHaveBeenCalled();
   });
 });

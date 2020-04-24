@@ -36,7 +36,7 @@ export interface SliderProps extends ComponentProps {
   /**
    * What should happen to range value on change?
    */
-  onChange: (value: Range) => void;
+  onSlide: (value: Range) => void;
 }
 
 export interface MousePosition {
@@ -115,7 +115,7 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
       min,
       max,
       initialValue,
-      onChange,
+      onSlide,
       component: Component = 'div',
       ...remainingProps
     } = this.props;
@@ -260,15 +260,13 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
     return onMouseDown;
   }
 
-  private callOnChange = (event: SyntheticMouseEvent | SyntheticTouchEvent) => {
-    if (event.type === 'mouseup' || event.type === 'touchend') {
-      this.props.onChange(
-        this.convertPercentageRangeToRange({
-          from: this.state.from,
-          to: this.state.to,
-        })
-      );
-    }
+  private callOnSlide = (event: SyntheticMouseEvent | SyntheticTouchEvent) => {
+    this.props.onSlide(
+      this.convertPercentageRangeToRange({
+        from: this.state.from,
+        to: this.state.to,
+      })
+    );
   };
 
   private onHandleFrom = (event: SyntheticMouseEvent | SyntheticTouchEvent) => {
@@ -279,7 +277,7 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
       ),
     });
 
-    this.callOnChange(event);
+    this.callOnSlide(event);
   };
 
   private onHandleTo = (event: SyntheticMouseEvent | SyntheticTouchEvent) => {
@@ -290,7 +288,7 @@ export class Slider extends React.PureComponent<SliderProps, StateProps> {
       ),
     });
 
-    this.callOnChange(event);
+    this.callOnSlide(event);
   };
 
   private getBoundaryValue(

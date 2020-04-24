@@ -2,7 +2,7 @@
 
 ```js
 <Slider
-  onChange={value => console.log(value)}
+  onSlide={value => console.log(value)}
   initialValue={{ from: 0, to: 700 }}
   min={0}
   max={1000}
