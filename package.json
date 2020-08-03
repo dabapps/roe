@@ -110,6 +110,7 @@
     "react-transition-group": "1"
   },
   "jest": {
+    "testURL": "http://localhost/",
     "collectCoverageFrom": [
       "src/ts/**/*.(js|jsx|ts|tsx)"
     ],
