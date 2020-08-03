@@ -103,11 +103,11 @@
     "webpack": "^3.7.1"
   },
   "peerDependencies": {
-    "less": "^3.12.2",
-    "normalize.css": "^8.0.1",
+    "less": "3",
+    "normalize.css": "8",
     "react": ">= 15",
     "react-dom": ">= 15",
-    "react-transition-group": ">= 1 < 2"
+    "react-transition-group": "1"
   },
   "jest": {
     "collectCoverageFrom": [
