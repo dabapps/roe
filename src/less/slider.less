@@ -1,0 +1,220 @@
+.roe-slider {
+  padding: 0 5px;
+
+  .roe-bar {
+    height: @roe-slider-bar-thickness;
+    position: relative;
+    background-color: @roe-slider-bar-background;
+
+    &__min,
+    &__max {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background-color: @roe-slider-bar-min-max-background;
+    }
+
+    &__min {
+      left: 0;
+    }
+
+    &__max {
+      right: 0;
+    }
+
+    .roe-bar-range {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background-color: @roe-slider-range-bar-background;
+    }
+
+    &__steps {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      height: 5px;
+      background-color: @roe-slider-steps-background;
+      z-index: @roe-slider-handle-z-index - 1;
+
+      &.fade {
+        background-color: lighten(@roe-slider-steps-background, 60%);
+      }
+    }
+  }
+
+  .roe-handle {
+    position: relative;
+    width: @roe-slider-handle-thickness;
+    height: @roe-slider-handle-thickness;
+    top: 50%;
+    left: 0;
+    float: left;
+    transform: translate(-50%, -56%);
+    background-color: @roe-slider-handle-color;
+    cursor: ew-resize;
+    z-index: @roe-slider-handle-z-index;
+
+    .roe-handle-popover {
+      position: absolute;
+      display: inline-table;
+      top: -1.4em;
+      width: 2.5em;
+      height: 2em;
+      transform: translate(-30%, -58%);
+      text-align: center;
+      background-color: @roe-slider-handle-popover-background;
+      font-size: 11px;
+      border-radius: 5px;
+      z-index: @roe-slider-handle-z-index;
+
+      span {
+        display: table-row;
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 0;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        bottom: -4px;
+        border-left: 10px solid transparent; // lesshint variableValue: false
+        border-right: 10px solid transparent; // lesshint variableValue: false
+        border-top: 10px solid @roe-slider-handle-popover-background; // lesshint variableValue: false
+        z-index: -1;
+      }
+    }
+
+    &__range {
+      transform: translate(-100%, -56%);
+      background-color: @roe-slider-handle-range-color;
+    }
+  }
+
+  &.stepped {
+    .roe-handle,
+    .roe-bar-range {
+      transition: all 0.2s ease-out;
+    }
+  }
+
+  &.range {
+    .roe-handle {
+      .roe-handle-popover {
+        transform: translate(-80%, -50%);
+
+        &::before {
+          bottom: 2px;
+          left: 12px;
+          transform: rotate(90deg);
+        }
+      }
+
+      &__range {
+        .roe-handle-popover {
+          transform: translate(18%, -50%);
+
+          &::before {
+            left: -17px;
+            transform: rotate(-90deg);
+          }
+        }
+      }
+    }
+
+    &.vertical {
+      .roe-handle {
+        .roe-handle-popover {
+          transform: translate(66%, -3%);
+
+          &::before {
+            left: -16px;
+            bottom: 0;
+            transform: rotate(-180deg);
+          }
+        }
+
+        &__range {
+          .roe-handle-popover {
+            transform: translate(66%, 92%);
+
+            &::before {
+              left: -16px;
+              bottom: 12px;
+              transform: rotate(0deg);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.vertical {
+    width: @roe-slider-handle-thickness;
+    height: @roe-slider-vertical-default-height;
+    padding: 5px 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+
+    .roe-handle {
+      cursor: ns-resize;
+      transform: translate(-30%, -@roe-slider-bar-thickness);
+      left: inherit;
+
+      .roe-handle-popover {
+        transform: translate(63%, 46%);
+
+        &::before {
+          transform: rotate(90deg);
+          left: -24px;
+          bottom: 6px;
+        }
+      }
+
+      &__range {
+        transform: translate(-30%, -100%);
+      }
+    }
+
+    .roe-bar {
+      height: 100%;
+      width: @roe-slider-bar-thickness;
+      position: relative;
+      background-color: @roe-slider-bar-background;
+      margin: 0 auto;
+
+      &__min,
+      &__max {
+        left: 0;
+        right: 0;
+      }
+
+      &__min {
+        top: 0;
+      }
+
+      &__max {
+        top: inherit;
+        bottom: 0;
+      }
+
+      .roe-bar-range {
+        left: 0;
+        right: 0;
+      }
+
+      &__steps {
+        width: 5px;
+        height: 3px;
+        left: 0;
+        bottom: inherit;
+      }
+    }
+  }
+}
