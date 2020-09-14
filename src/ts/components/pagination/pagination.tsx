@@ -75,7 +75,11 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
             {prevText ? <span className="prev-icon">{prevText}</span> : '<'}
           </Button>
 
-          {this.paginationButtonCount().map((page: number, index: number) => {
+          {this.paginationSeries(
+            this.getStart(),
+            this.getEnd(),
+            this.getRange()
+          ).map((page: number, index: number) => {
             return this.getDisplayDots(index, page) ? (
               <div
                 key={index}
@@ -153,7 +157,7 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
     return undefined;
   };
 
-  private getMorePages = () => this.getMaxPages() > MAX_BUTTONS;
+  private shouldGetMorePages = () => this.getMaxPages() > MAX_BUTTONS;
 
   private numFullPages = () => {
     const { itemCount, pageSize } = this.props;
@@ -163,7 +167,7 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
   private getMaxPages = () => Math.ceil(this.numFullPages());
 
   private getDisplayDots = (index: number, page: number) =>
-    this.getMorePages() &&
+    this.shouldGetMorePages() &&
     ((index === 1 && page > 2) ||
       (index === MAX_BUTTONS - 2 && page < this.getMaxPages() - 1));
 
@@ -226,9 +230,6 @@ export class Pagination extends PureComponent<PaginationProps, {}> {
       Math.floor(start + index * ((end - start) / range))
     );
   };
-
-  private paginationButtonCount = () =>
-    this.paginationSeries(this.getStart(), this.getEnd(), this.getRange());
 }
 
 export default Pagination;
