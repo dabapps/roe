@@ -123,10 +123,11 @@ describe('Pagination', () => {
       />
     );
 
-    instance
+    const previousButton = instance
       .find('.spaced-group.pagination-group')
-      .childAt(1)
-      .simulate('click');
+      .childAt(1);
+
+    previousButton.simulate('click');
 
     expect(instance.instance().props.changePage).toHaveBeenCalled();
 
