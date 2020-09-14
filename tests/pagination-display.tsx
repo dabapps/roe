@@ -4,7 +4,7 @@ import * as renderer from 'react-test-renderer';
 import { PaginationDisplay } from '../src/ts';
 
 describe('PaginationDisplay', () => {
-  it('should match snapshot with a text (Showing), item count and indication of diplaying 3 items', () => {
+  it('should render the text "Showing 24-26 of 26"', () => {
     const tree = renderer.create(
       <PaginationDisplay
         className="margin-top-base"
