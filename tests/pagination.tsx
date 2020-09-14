@@ -129,7 +129,8 @@ describe('Pagination', () => {
 
     previousButton.simulate('click');
 
-    expect(instance.instance().props.changePage).toHaveBeenCalled();
+    expect(instance.instance().props.changePage).toHaveBeenCalledTimes(1);
+    expect(instance.instance().props.changePage).toHaveBeenCalledWith(1);
 
     instance.unmount();
   });
