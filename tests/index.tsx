@@ -44,6 +44,7 @@ describe('index file', () => {
         'Modal',
         'Table',
         'SideBar',
+        'Pagination',
       ];
       type Keys = keyof typeof index;
 
