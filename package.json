@@ -1,6 +1,6 @@
 {
   "name": "@dabapps/roe",
-  "version": "0.10.4",
+  "version": "0.11.0",
   "description": "A collection of React components, styles, mixins, and atomic CSS classes to aid with the development of web applications.",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
@@ -67,7 +67,7 @@
     "@types/jest": "^22.2.0",
     "@types/node": "^7.0.13",
     "@types/react-test-renderer": "^15.4.5",
-    "acorn": "^6.4.0",
+    "acorn": "^6.4.1",
     "autoprefixer": "^6.7.7",
     "brfs": "^1.6.1",
     "browserify": "^14.5.0",
@@ -79,12 +79,12 @@
     "enzyme-to-json": "^3.2.2",
     "eslint": "^6.8.0",
     "eslint-config-dabapps": "^5.0.0",
-    "http-server": "^0.11.1",
+    "http-server": "^0.12.3",
     "jest": "^22.4.2",
-    "less": "^2.7.3",
-    "less-loader": "^4.0.5",
+    "less": "^3.12.2",
+    "less-loader": "^4.1.0",
     "lesshint": "^3.3.1",
-    "livereload": "^0.8.2",
+    "livereload": "^0.9.1",
     "node-lessify": "^0.1.5",
     "postcss": "^5.2.18",
     "postcss-loader": "^2.0.7",
@@ -103,13 +103,14 @@
     "webpack": "^3.7.1"
   },
   "peerDependencies": {
-    "less": "^2.7.3",
-    "normalize.css": "^8.0.1",
+    "less": "3",
+    "normalize.css": "8",
     "react": ">= 15",
     "react-dom": ">= 15",
-    "react-transition-group": ">= 1 < 2"
+    "react-transition-group": "1"
   },
   "jest": {
+    "testURL": "http://localhost/",
     "collectCoverageFrom": [
       "src/ts/**/*.(js|jsx|ts|tsx)"
     ],
