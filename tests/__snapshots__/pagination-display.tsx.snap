@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`PaginationDisplay should match snapshot with a text (Showing), item count and indication of diplaying 3 items 1`] = `
+exports[`PaginationDisplay should render the text "Showing 24-26 of 26" 1`] = `
 <p
   className="pagination-display margin-top-base"
 >

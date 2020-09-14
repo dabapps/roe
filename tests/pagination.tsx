@@ -5,7 +5,7 @@ import * as renderer from 'react-test-renderer';
 import { Pagination } from '../src/ts';
 
 describe('Pagination', () => {
-  it('should match snapshot with current page button highlighted', () => {
+  it('should render the button for page 1 as selected when the currentPageNumber is 1', () => {
     const instance = renderer.create(
       <Pagination
         className="float-right margin-top-base"
@@ -33,7 +33,7 @@ describe('Pagination', () => {
     expect(instance).toMatchSnapshot();
   });
 
-  it('should render the first page link as an first option', () => {
+  it('should render page 1 as the first option, followed by an ellipse and further pages, when the current page is greater than 3', () => {
     const instance = renderer.create(
       <Pagination
         pageSize={3}
