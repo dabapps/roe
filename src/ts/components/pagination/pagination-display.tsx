@@ -13,7 +13,7 @@ export interface PaginationDisplayProps extends ComponentProps {
    */
   pageSize: number;
   /**
-   * current page number
+   * current page number (1 indexed)
    */
   currentPageNumber: number;
   /**

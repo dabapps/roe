@@ -35,7 +35,7 @@ class PaginationExample extends React.Component {
             <Pagination
               className="float-right margin-top-base"
               pageSize={PAGE_SIZE}
-              changePage={value => this.changePage(value)}
+              changePage={this.changePage}
               currentPageNumber={page}
               itemCount={ITEM_COUNT}
             />
