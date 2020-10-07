@@ -56,6 +56,9 @@
 #### Less variables
 
 ```less
+@form-group-margin: @margin-large;
+@form-group-label-margin: @margin-base;
+
 @input-border: @border-dark;
 @input-width: 200px;
 @input-height: 32px;
