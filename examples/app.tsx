@@ -19,6 +19,7 @@ import {
   SideBar,
   SpacedGroup,
   SpeechBubble,
+  Highlight,
   Modal,
   ModalHeader,
   ModalBody,
@@ -33,6 +34,7 @@ const MENU_CHAR = String.fromCharCode(9776);
 
 interface AppState {
   sidebarOpen: boolean;
+  highlightActive: boolean;
   modals: ReadonlyArray<ReactElement<{}>>;
 }
 
@@ -70,6 +72,7 @@ class App extends PureComponent<{}, AppState> {
 
     this.state = {
       sidebarOpen: false,
+      highlightActive: false,
       modals: [],
     };
   }
@@ -331,6 +334,20 @@ class App extends PureComponent<{}, AppState> {
 
             <ModalRenderer modals={this.state.modals} />
           </ContentBox>
+
+          <Highlight open={this.state.highlightActive}>
+            <ContentBox>
+              <Button
+                className="margin-vertical-large primary"
+                onClick={this.onClickToggleHighlight}
+              >
+                {this.state.highlightActive ? 'Un-highlight' : 'Highlight'}
+                {' this box'}
+              </Button>
+
+              <ModalRenderer modals={this.state.modals} />
+            </ContentBox>
+          </Highlight>
         </Container>
 
         <Footer fixed>
@@ -352,6 +369,13 @@ class App extends PureComponent<{}, AppState> {
     this.setState({
       sidebarOpen: false,
     });
+  };
+
+  private onClickToggleHighlight = () => {
+    this.setState(state => ({
+      ...state,
+      highlightActive: !state.highlightActive,
+    }));
   };
 
   private onClickOpenModal = () => {
