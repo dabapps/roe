@@ -52,14 +52,14 @@
     "@types/random-seed": "^0.3.2",
     "@types/react": ">= 15",
     "@types/react-dom": ">= 15",
-    "@types/react-transition-group": "^1.1.4",
+    "@types/react-transition-group": "^2.9.2",
     "classnames": "^2.2.5",
     "cookie": "^0.3.1",
     "normalize.css": "^8.0.1",
     "random-seed": "^0.3.0",
     "react": ">= 15",
     "react-dom": ">= 15",
-    "react-transition-group": "^1.2.1"
+    "react-transition-group": "^2.9.0"
   },
   "devDependencies": {
     "@types/enzyme": "^3.1.5",
@@ -107,7 +107,7 @@
     "normalize.css": "8",
     "react": ">= 15",
     "react-dom": ">= 15",
-    "react-transition-group": "1"
+    "react-transition-group": "2"
   },
   "jest": {
     "testURL": "http://localhost/",
