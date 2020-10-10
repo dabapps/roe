@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PureComponent } from 'react';
+import { PureComponent, ReactElement } from 'react';
 import {
   AppRoot,
   Button,
@@ -19,6 +19,12 @@ import {
   SideBar,
   SpacedGroup,
   SpeechBubble,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  ModalCloseIcon,
+  ModalRenderer,
 } from '../src/ts';
 import NavItems from './nav-items';
 
@@ -27,6 +33,35 @@ const MENU_CHAR = String.fromCharCode(9776);
 
 interface AppState {
   sidebarOpen: boolean;
+  modals: ReadonlyArray<ReactElement<{}>>;
+}
+
+interface ExampleModalProps {
+  onClickClose: () => void;
+}
+
+class ExampleModal extends PureComponent<ExampleModalProps> {
+  public render() {
+    return (
+      <Modal onClickOutside={this.props.onClickClose}>
+        <ModalHeader>
+          <ModalCloseIcon />
+          <h1>Hello</h1>
+        </ModalHeader>
+        <ModalBody>
+          <p>I am a modal!</p>
+        </ModalBody>
+        <ModalFooter>
+          <SpacedGroup block className="margin-vertical-large">
+            <Button onClick={this.props.onClickClose}>Cancel</Button>
+            <Button onClick={this.props.onClickClose} className="primary">
+              Done
+            </Button>
+          </SpacedGroup>
+        </ModalFooter>
+      </Modal>
+    );
+  }
 }
 
 class App extends PureComponent<{}, AppState> {
@@ -35,6 +70,7 @@ class App extends PureComponent<{}, AppState> {
 
     this.state = {
       sidebarOpen: false,
+      modals: [],
     };
   }
 
@@ -284,6 +320,17 @@ class App extends PureComponent<{}, AppState> {
               </Row>
             </Section>
           </ContentBox>
+
+          <ContentBox>
+            <Button
+              className="margin-vertical-large primary"
+              onClick={this.onClickOpenModal}
+            >
+              Open example modal
+            </Button>
+
+            <ModalRenderer modals={this.state.modals} />
+          </ContentBox>
         </Container>
 
         <Footer fixed>
@@ -304,6 +351,28 @@ class App extends PureComponent<{}, AppState> {
   private hideSidebar = () => {
     this.setState({
       sidebarOpen: false,
+    });
+  };
+
+  private onClickOpenModal = () => {
+    this.setState(state => ({
+      ...state,
+      modals: [
+        ...state.modals,
+        <ExampleModal onClickClose={this.onClickCloseModal} />,
+      ],
+    }));
+  };
+
+  private onClickCloseModal = () => {
+    this.setState(state => {
+      const modalsCopy = [...state.modals];
+      modalsCopy.pop();
+
+      return {
+        ...state,
+        modals: modalsCopy,
+      };
     });
   };
 }
