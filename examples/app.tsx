@@ -11,22 +11,18 @@ import {
   DabIpsum,
   Footer,
   FormGroup,
+  Highlight,
   InputGroup,
   InputGroupAddon,
+  ModalRenderer,
   NavBar,
   Row,
   Section,
   SideBar,
   SpacedGroup,
   SpeechBubble,
-  Highlight,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  ModalCloseIcon,
-  ModalRenderer,
 } from '../src/ts';
+import ExampleModal from './modal';
 import NavItems from './nav-items';
 
 const X_CHAR = String.fromCharCode(215);
@@ -36,34 +32,6 @@ interface AppState {
   sidebarOpen: boolean;
   highlightActive: boolean;
   modals: ReadonlyArray<ReactElement<{}>>;
-}
-
-interface ExampleModalProps {
-  onClickClose: () => void;
-}
-
-class ExampleModal extends PureComponent<ExampleModalProps> {
-  public render() {
-    return (
-      <Modal onClickOutside={this.props.onClickClose}>
-        <ModalHeader>
-          <ModalCloseIcon />
-          <h1>Hello</h1>
-        </ModalHeader>
-        <ModalBody>
-          <p>I am a modal!</p>
-        </ModalBody>
-        <ModalFooter>
-          <SpacedGroup block className="margin-vertical-large">
-            <Button onClick={this.props.onClickClose}>Cancel</Button>
-            <Button onClick={this.props.onClickClose} className="primary">
-              Done
-            </Button>
-          </SpacedGroup>
-        </ModalFooter>
-      </Modal>
-    );
-  }
 }
 
 class App extends PureComponent<{}, AppState> {
@@ -383,7 +351,10 @@ class App extends PureComponent<{}, AppState> {
       ...state,
       modals: [
         ...state.modals,
-        <ExampleModal onClickClose={this.onClickCloseModal} />,
+        <ExampleModal
+          key={state.modals.length}
+          onClickClose={this.onClickCloseModal}
+        />,
       ],
     }));
   };
