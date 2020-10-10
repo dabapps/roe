@@ -10,7 +10,7 @@
     "dist": "./scripts/dist",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json,md}'",
     "prettier-check": "prettier --check '**/*.{ts,tsx,js,jsx,json,md}'",
-    "lint-js": "eslint ./*.js docs/**/*.js && tslint --project tsconfig.json '@(src|tests|types|docs)/**/*.@(ts|tsx)'",
+    "lint-js": "eslint ./*.js docs/**/*.js && tslint --project tsconfig.json '@(src|tests|types|docs|examples)/**/*.@(ts|tsx)'",
     "lint-less": "lesshint 'src/less/' 'docs/less/'",
     "lint": "npm run lint-js && npm run lint-less",
     "test-dist-react-16": "npm i @types/react@16.4.7 @types/react-dom@16.0.6 --no-save && tsc --project 'tsconfig.json' --noEmit && npm run dist",
