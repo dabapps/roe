@@ -7,24 +7,37 @@
   }
 }
 
-.highlight-transition-enter.highlight-transition-enter-active,
-.highlight-transition-appear.highlight-transition-appear-active {
+.highlight-transition-enter-active,
+.highlight-transition-appear-active {
   &.highlight-overlay {
     opacity: 0.99;
     transition: opacity 0.3s ease-in;
   }
 }
 
-.highlight-transition-leave {
+.highlight-transition-enter-done,
+.highlight-transition-appear-done {
+  &.highlight-overlay {
+    opacity: 1;
+  }
+}
+
+.highlight-transition-exit {
   &.highlight-overlay {
     opacity: 0.99;
   }
 }
 
-.highlight-transition-leave.highlight-transition-leave-active {
+.highlight-transition-exit-active {
   &.highlight-overlay {
     opacity: 0.01;
     transition: opacity 0.2s ease-in;
+  }
+}
+
+.highlight-transition-exit-done {
+  &.highlight-overlay {
+    opacity: 0;
   }
 }
 

@@ -4,7 +4,7 @@ exports[`Highlight should match snapshot 1`] = `
 <div
   className="highlight"
 >
-  <span />
+  <div />
   <div
     className="highlight-content"
     style={undefined}
@@ -20,11 +20,11 @@ exports[`Highlight should match snapshot with props (open) 1`] = `
 <div
   className="highlight"
 >
-  <span>
+  <div>
     <div
       className="highlight-overlay"
     />
-  </span>
+  </div>
   <div
     className="highlight-content open"
     style={undefined}
@@ -40,11 +40,11 @@ exports[`Highlight should match snapshot with props (open, disabled, backgroundC
 <div
   className="highlight"
 >
-  <span>
+  <div>
     <div
       className="highlight-overlay"
     />
-  </span>
+  </div>
   <div
     className="highlight-content open"
     style={

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PureComponent } from 'react';
+import { PureComponent, ReactElement } from 'react';
 import {
   AppRoot,
   Button,
@@ -11,8 +11,10 @@ import {
   DabIpsum,
   Footer,
   FormGroup,
+  Highlight,
   InputGroup,
   InputGroupAddon,
+  ModalRenderer,
   NavBar,
   Row,
   Section,
@@ -20,6 +22,7 @@ import {
   SpacedGroup,
   SpeechBubble,
 } from '../src/ts';
+import ExampleModal from './modal';
 import NavItems from './nav-items';
 
 const X_CHAR = String.fromCharCode(215);
@@ -27,6 +30,8 @@ const MENU_CHAR = String.fromCharCode(9776);
 
 interface AppState {
   sidebarOpen: boolean;
+  highlightActive: boolean;
+  modals: ReadonlyArray<ReactElement<{}>>;
 }
 
 class App extends PureComponent<{}, AppState> {
@@ -35,6 +40,8 @@ class App extends PureComponent<{}, AppState> {
 
     this.state = {
       sidebarOpen: false,
+      highlightActive: false,
+      modals: [],
     };
   }
 
@@ -284,6 +291,31 @@ class App extends PureComponent<{}, AppState> {
               </Row>
             </Section>
           </ContentBox>
+
+          <ContentBox>
+            <Button
+              className="margin-vertical-large primary"
+              onClick={this.onClickOpenModal}
+            >
+              Open example modal
+            </Button>
+
+            <ModalRenderer modals={this.state.modals} />
+          </ContentBox>
+
+          <Highlight open={this.state.highlightActive}>
+            <ContentBox>
+              <Button
+                className="margin-vertical-large primary"
+                onClick={this.onClickToggleHighlight}
+              >
+                {this.state.highlightActive ? 'Un-highlight' : 'Highlight'}
+                {' this box'}
+              </Button>
+
+              <ModalRenderer modals={this.state.modals} />
+            </ContentBox>
+          </Highlight>
         </Container>
 
         <Footer fixed>
@@ -304,6 +336,38 @@ class App extends PureComponent<{}, AppState> {
   private hideSidebar = () => {
     this.setState({
       sidebarOpen: false,
+    });
+  };
+
+  private onClickToggleHighlight = () => {
+    this.setState(state => ({
+      ...state,
+      highlightActive: !state.highlightActive,
+    }));
+  };
+
+  private onClickOpenModal = () => {
+    this.setState(state => ({
+      ...state,
+      modals: [
+        ...state.modals,
+        <ExampleModal
+          key={state.modals.length}
+          onClickClose={this.onClickCloseModal}
+        />,
+      ],
+    }));
+  };
+
+  private onClickCloseModal = () => {
+    this.setState(state => {
+      const modalsCopy = [...state.modals];
+      modalsCopy.pop();
+
+      return {
+        ...state,
+        modals: modalsCopy,
+      };
     });
   };
 }

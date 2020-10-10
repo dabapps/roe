@@ -11,8 +11,8 @@
   }
 }
 
-.modal-transition-enter.modal-transition-enter-active,
-.modal-transition-appear.modal-transition-appear-active {
+.modal-transition-enter-active,
+.modal-transition-appear-active {
   &.modal-container {
     opacity: 0.99;
     transition: opacity 0.3s ease-in;
@@ -24,7 +24,18 @@
   }
 }
 
-.modal-transition-leave {
+.modal-transition-enter-done,
+.modal-transition-appear-done {
+  &.modal-container {
+    opacity: 1;
+  }
+
+  .modal {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.modal-transition-exit {
   &.modal-container {
     opacity: 0.99;
   }
@@ -34,7 +45,7 @@
   }
 }
 
-.modal-transition-leave.modal-transition-leave-active {
+.modal-transition-exit-active {
   &.modal-container {
     opacity: 0.01;
     transition: opacity 0.2s ease-in;
@@ -43,6 +54,16 @@
   .modal {
     transform: translate3d(0, -50px, 0);
     transition: transform 0.2s ease-in-out;
+  }
+}
+
+.modal-transition-exit-done {
+  &.modal-container {
+    opacity: 0;
+  }
+
+  .modal {
+    transform: translate3d(0, -50px, 0);
   }
 }
 

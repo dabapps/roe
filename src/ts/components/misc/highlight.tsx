@@ -1,7 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
-import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { ComponentProps } from '../../types';
 
 export interface HighlightProps extends ComponentProps, HTMLProps<HTMLElement> {
@@ -21,6 +21,12 @@ export interface HighlightProps extends ComponentProps, HTMLProps<HTMLElement> {
    */
   backgroundColor?: string | undefined;
 }
+
+const TIMEOUT = {
+  appear: 300,
+  enter: 300,
+  exit: 200,
+};
 
 /**
  * This highlight component is used to display a single element while shading everything else out.
@@ -42,13 +48,13 @@ export class Highlight extends PureComponent<HighlightProps, {}> {
         {...remainingProps}
         className={classNames('highlight', className)}
       >
-        <CSSTransitionGroup
-          transitionName="highlight-transition"
-          transitionEnterTimeout={300}
-          transitionLeaveTimeout={200}
-        >
-          {open && <div className="highlight-overlay" />}
-        </CSSTransitionGroup>
+        <TransitionGroup>
+          {open && (
+            <CSSTransition classNames="highlight-transition" timeout={TIMEOUT}>
+              <div className="highlight-overlay" />
+            </CSSTransition>
+          )}
+        </TransitionGroup>
         <div
           className={classNames('highlight-content', open && 'open')}
           style={backgroundColor ? { backgroundColor } : undefined}

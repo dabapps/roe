@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
-import * as CSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 export interface ModalRendererProps extends HTMLProps<HTMLElement> {
   /**
@@ -8,6 +8,12 @@ export interface ModalRendererProps extends HTMLProps<HTMLElement> {
    */
   modals: ReadonlyArray<React.ReactNode>;
 }
+
+const TIMEOUT = {
+  appear: 300,
+  enter: 300,
+  exit: 200,
+};
 
 /**
  * Required to render modals.
@@ -19,18 +25,18 @@ export class ModalRenderer extends PureComponent<ModalRendererProps, {}> {
     const { modals } = this.props;
 
     return (
-      <CSSTransitionGroup
-        transitionName="modal-transition"
-        transitionEnterTimeout={300}
-        transitionLeaveTimeout={200}
-      >
+      <TransitionGroup>
         {modals &&
           modals.map((modal, index) => (
-            <div key={index} className="modal-container">
-              {modal}
-            </div>
+            <CSSTransition
+              key={index}
+              classNames="modal-transition"
+              timeout={TIMEOUT}
+            >
+              <div className="modal-container">{modal}</div>
+            </CSSTransition>
           ))}
-      </CSSTransitionGroup>
+      </TransitionGroup>
     );
   }
 }

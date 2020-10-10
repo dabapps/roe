@@ -160,7 +160,7 @@ exports[`ModalHeader should take regular element attributes 1`] = `
 `;
 
 exports[`ModalRenderer should render some modals 1`] = `
-<span>
+<div>
   <div
     className="modal-container"
   >
@@ -182,5 +182,5 @@ exports[`ModalRenderer should render some modals 1`] = `
       </div>
     </div>
   </div>
-</span>
+</div>
 `;
