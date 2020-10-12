@@ -58,27 +58,21 @@ describe('components', () => {
     });
   });
 
-  it('should all be exported from the index file', () => {
+  it('should all be exported from the index file with their props', () => {
     components.forEach(filePath => {
       const content = fs.readFileSync(filePath, UTF8);
-
       const defaultExport = MATCHES_DEFAULT_EXPORT.exec(content);
-
       if (!defaultExport) {
         throw new Error(`No default export in component at ${filePath}`);
       }
-
       if (!fs.existsSync(INDEX_FILE_PATH)) {
         throw new Error(`Could not find index file at ${INDEX_FILE_PATH}`);
       }
-
       const indexContent = fs.readFileSync(INDEX_FILE_PATH, UTF8);
-
       const indexRegex = new RegExp(
-        `^export\\s+{\\s+default\\s+as\\s+${defaultExport[1]},?\\s+}\\s+from\\s+'[a-z/.-]+';$`,
+        `^export\\s+{\\s+default\\s+as\\s+${defaultExport[1]},?\\s+${defaultExport[1]}Props,?\\s+}\\s+from\\s+'[a-z/.-]+';$`,
         'm'
       );
-
       if (!indexRegex.test(indexContent)) {
         throw new Error(
           `Component ${defaultExport[1]} is not exported from default at ${INDEX_FILE_PATH}`
