@@ -4,6 +4,9 @@ export type ComponentType<P> =
   | React.ComponentClass<P>
   | React.StatelessComponent<P>;
 
+/**
+ * @internal
+ */
 export type StoreState = Partial<{
   hasFixedNavBar: boolean;
   hasStickyFooter: boolean;

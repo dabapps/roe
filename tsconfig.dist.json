@@ -4,6 +4,7 @@
     "declaration": true,
     "sourceMap": true,
     "listEmittedFiles": true,
+    "stripInternal": true,
     "rootDir": "./src/ts/",
     "outDir": "./dist/js/"
   },
