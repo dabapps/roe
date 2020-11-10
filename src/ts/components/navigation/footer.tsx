@@ -5,6 +5,8 @@ import * as ReactDOM from 'react-dom';
 import store from '../../store';
 import { ComponentProps } from '../../types';
 
+import { ResizeObserver } from '@juggle/resize-observer';
+
 export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
   /**
    * Fix the footer to the bottom of the window when there is not enough content to push it down.
@@ -58,17 +60,30 @@ export class Footer extends PureComponent<FooterProps, {}> {
     );
   }
 
-  private notifyAppRoot(props: FooterProps) {
+  private observer = (props: FooterProps) => new ResizeObserver((entries, observer) => {
     const { sticky, fixed } = props;
     const element = ReactDOM.findDOMNode(this);
 
-    store.setState({
-      hasStickyFooter: Boolean(sticky || fixed),
-      footerHeight:
-        element && element instanceof HTMLElement
-          ? element.getBoundingClientRect().height
-          : undefined,
-    });
+      for (const entry of entries) {
+        const {height} = entry.contentRect;
+
+        // console.log('Element:', entry.target);
+        // console.log(`Element's size: ${ width }px x ${ height }px`);
+
+        store.setState({
+          hasStickyFooter: Boolean(sticky || fixed),
+          footerHeight:
+            element && element instanceof HTMLElement
+              ? height
+              : undefined,
+        });
+      }
+    }
+  );
+
+  private notifyAppRoot(props: FooterProps) {
+    const element = ReactDOM.findDOMNode(this);
+    this.observer(this.props).observe(element);
   }
 
   private updateAppRoot = () => {

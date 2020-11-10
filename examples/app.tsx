@@ -318,7 +318,7 @@ class App extends PureComponent<{}, AppState> {
           </Highlight>
         </Container>
 
-        <Footer fixed>
+        <Footer sticky>
           <Container>
             <p>Footer</p>
           </Container>
