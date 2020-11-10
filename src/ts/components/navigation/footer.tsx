@@ -59,6 +59,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
     return (
       <Component
         {...remainingProps}
+        ref={this.storeRef}
         className={classNames('footer', { sticky, fixed }, className)}
       >
         {children}
@@ -85,6 +86,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
       for (const entry of entries) {
         const { height } = entry.contentRect;
         console.log(height);
+        this.notifyAppRoot(this.props)
       }
     }
   );
