@@ -26,7 +26,8 @@ export class Footer extends PureComponent<FooterProps, {}> {
   }
 
   public componentDidMount() {
-    this.element && this.observer.observe(this.element);
+    this.notifyAppRoot(this.props);
+    this.toggleResizeListeners(this.props);
   }
 
   public componentDidUpdate(prevProps: FooterProps) {
@@ -34,12 +35,15 @@ export class Footer extends PureComponent<FooterProps, {}> {
       Boolean(this.props.sticky || this.props.fixed) !==
       Boolean(prevProps.sticky || prevProps.fixed)
     ) {
-      this.element && this.observer.observe(this.element);;
+      this.toggleResizeListeners(this.props);
     }
+
+    this.notifyAppRoot(this.props);
   }
 
   public componentWillUnmount() {
-    this.observer.disconnect();
+    window.removeEventListener('resize', this.updateAppRoot);
+    this.notifyAppRoot({ sticky: false });
   }
 
   public render() {
@@ -55,7 +59,6 @@ export class Footer extends PureComponent<FooterProps, {}> {
     return (
       <Component
         {...remainingProps}
-        ref={this.storeRef}
         className={classNames('footer', { sticky, fixed }, className)}
       >
         {children}
@@ -63,22 +66,42 @@ export class Footer extends PureComponent<FooterProps, {}> {
     );
   }
 
+  private notifyAppRoot(props: FooterProps) {
+    const { sticky, fixed } = props;
+    const element = ReactDOM.findDOMNode(this);
+
+    store.setState({
+      hasStickyFooter: Boolean(sticky || fixed),
+      footerHeight:
+        element && element instanceof HTMLElement
+          ? element.getBoundingClientRect().height
+          : undefined,
+    });
+  }
+
   private observer = new ResizeObserver((entries, observer) => {
     const { sticky, fixed } = this.props;
 
       for (const entry of entries) {
         const { height } = entry.contentRect;
-
-        store.setState({
-          hasStickyFooter: Boolean(sticky || fixed),
-          footerHeight:
-            this.element && this.element instanceof HTMLDivElement
-              ? height
-              : undefined,
-        });
+        console.log(height);
       }
     }
   );
+
+  private updateAppRoot = () => {
+    this.notifyAppRoot(this.props);
+  };
+
+  private toggleResizeListeners(props: FooterProps) {
+    const { sticky, fixed } = props;
+
+    if (sticky || fixed) {
+      this.element && this.observer.observe(this.element)
+    } else {
+      window.removeEventListener('resize', this.updateAppRoot);
+    }
+  }
 }
 
 export default Footer;
