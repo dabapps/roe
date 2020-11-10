@@ -33,7 +33,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
   }
 
   public componentWillUnmount() {
-    this.observer(this.props).disconnect();
+    this.observer.disconnect();
   }
 
   public render() {
@@ -56,8 +56,8 @@ export class Footer extends PureComponent<FooterProps, {}> {
     );
   }
 
-  private observer = (props: FooterProps) => new ResizeObserver((entries, observer) => {
-    const { sticky, fixed } = props;
+  private observer = new ResizeObserver((entries, observer) => {
+    const { sticky, fixed } = this.props;
     const element = ReactDOM.findDOMNode(this);
 
       for (const entry of entries) {
@@ -78,9 +78,9 @@ export class Footer extends PureComponent<FooterProps, {}> {
     const { sticky, fixed } = props;
 
     if (sticky || fixed) {
-      this.observer(this.props).observe(ReactDOM.findDOMNode(this));
+      this.observer.observe(ReactDOM.findDOMNode(this));
     } else {
-      this.observer(this.props).disconnect();
+      this.observer.disconnect();
     }
   }
 }
