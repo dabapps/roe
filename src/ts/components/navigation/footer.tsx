@@ -19,8 +19,14 @@ export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
 }
 
 export class Footer extends PureComponent<FooterProps, {}> {
+  private element: HTMLDivElement | null = null;
+
+  private storeRef = (element: HTMLDivElement | null) => {
+    this.element = element;
+  }
+
   public componentDidMount() {
-    this.toggleResizeListeners(this.props);
+    this.element && this.observer.observe(this.element);
   }
 
   public componentDidUpdate(prevProps: FooterProps) {
@@ -28,7 +34,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
       Boolean(this.props.sticky || this.props.fixed) !==
       Boolean(prevProps.sticky || prevProps.fixed)
     ) {
-      this.toggleResizeListeners(this.props);
+      this.element && this.observer.observe(this.element);;
     }
   }
 
@@ -49,6 +55,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
     return (
       <Component
         {...remainingProps}
+        ref={this.storeRef}
         className={classNames('footer', { sticky, fixed }, className)}
       >
         {children}
@@ -58,31 +65,20 @@ export class Footer extends PureComponent<FooterProps, {}> {
 
   private observer = new ResizeObserver((entries, observer) => {
     const { sticky, fixed } = this.props;
-    const element = ReactDOM.findDOMNode(this);
 
       for (const entry of entries) {
-        const {height} = entry.contentRect;
+        const { height } = entry.contentRect;
 
         store.setState({
           hasStickyFooter: Boolean(sticky || fixed),
           footerHeight:
-            element && element instanceof HTMLElement
+            this.element && this.element instanceof HTMLDivElement
               ? height
               : undefined,
         });
       }
     }
   );
-
-  private toggleResizeListeners(props: FooterProps) {
-    const { sticky, fixed } = props;
-
-    if (sticky || fixed) {
-      this.observer.observe(ReactDOM.findDOMNode(this));
-    } else {
-      this.observer.disconnect();
-    }
-  }
 }
 
 export default Footer;
