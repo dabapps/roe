@@ -57,6 +57,14 @@ describe('Footer', () => {
       expect(tree).toMatchSnapshot();
     });
 
+    it('should observe the element when no element is found', () => {
+      (ReactDOM.findDOMNode as jest.Mock<any>).mockReturnValue(null);
+
+      enzyme.mount(<Footer fixed />);
+
+      expect(mockObserve).toHaveBeenCalledTimes(0);
+    });
+
     it('should toggle sticky listeners and update the app root on mount and props change', () => {
       const instance = enzyme.mount(<Footer />);
 
