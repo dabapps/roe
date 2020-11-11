@@ -1,6 +1,6 @@
 {
   "name": "@dabapps/roe",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "description": "A collection of React components, styles, mixins, and atomic CSS classes to aid with the development of web applications.",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
@@ -16,8 +16,9 @@
     "test-dist-react-16": "npm i @types/react@16.4.7 @types/react-dom@16.0.6 --no-save && tsc --project 'tsconfig.json' --noEmit && npm run dist",
     "test-dist-react-15": "npm i @types/react@15.6.18 @types/react-dom@15.5.7 --no-save && tsc --project 'tsconfig.json' --noEmit && npm run dist",
     "test-dist": "npm run test-dist-react-15 && npm run test-dist-react-16",
+    "typecheck": "tsc --project tsconfig.json --noEmit",
     "tests": "jest",
-    "test": "npm run prettier-check && npm run lint && npm run tests -- --coverage --runInBand && npm run test-dist",
+    "test": "npm run prettier-check && npm run lint && npm run typecheck && npm run tests -- --coverage --runInBand && npm run test-dist",
     "budo": "budo src/less/index.less examples/index.tsx --live -- -t node-lessify -p [tsify -p tsconfig.examples.json]",
     "prepublishOnly": "./scripts/dist"
   },
@@ -47,6 +48,7 @@
   },
   "homepage": "https://github.com/dabapps/roe#readme",
   "dependencies": {
+    "@juggle/resize-observer": "^3.2.0",
     "@types/classnames": "^2.2.0",
     "@types/cookie": "^0.3.1",
     "@types/random-seed": "^0.3.2",
@@ -130,6 +132,7 @@
     },
     "testRegex": "tests/.+\\.(ts|tsx|js|jsx)$",
     "testPathIgnorePatterns": [
+      "<rootDir>/tests/__mocks__/",
       "<rootDir>/tests/helpers/"
     ],
     "moduleFileExtensions": [

@@ -1,3 +1,4 @@
+import { ResizeObserver } from '@juggle/resize-observer';
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
@@ -34,7 +35,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
   }
 
   public componentWillUnmount() {
-    window.removeEventListener('resize', this.updateAppRoot);
+    this.resizeObserver.disconnect();
     this.notifyAppRoot({ sticky: false });
   }
 
@@ -79,11 +80,17 @@ export class Footer extends PureComponent<FooterProps, {}> {
     const { sticky, fixed } = props;
 
     if (sticky || fixed) {
-      window.addEventListener('resize', this.updateAppRoot);
+      const element = ReactDOM.findDOMNode(this);
+      if (element instanceof HTMLElement) {
+        this.resizeObserver.observe(element);
+      }
     } else {
-      window.removeEventListener('resize', this.updateAppRoot);
+      this.resizeObserver.disconnect();
     }
   }
+
+  // tslint:disable-next-line:member-ordering
+  private resizeObserver = new ResizeObserver(this.updateAppRoot);
 }
 
 export default Footer;

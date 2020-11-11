@@ -321,6 +321,10 @@ class App extends PureComponent<{}, AppState> {
         <Footer fixed>
           <Container>
             <p>Footer</p>
+            <p>
+              This is a really long sentence that should wrap onto multiple
+              lines when the page is resized.
+            </p>
           </Container>
         </Footer>
       </AppRoot>
