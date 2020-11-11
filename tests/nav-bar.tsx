@@ -93,7 +93,7 @@ describe('NavBar', () => {
     expect(instance).toMatchSnapshot();
   });
 
-  it('should observe the element when no element is found', () => {
+  it('should not observe the element when no element is found', () => {
     (ReactDOM.findDOMNode as jest.Mock<any>).mockReturnValue(null);
 
     enzyme.mount(<NavBar fixed />);
