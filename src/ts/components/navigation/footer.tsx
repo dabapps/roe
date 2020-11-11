@@ -1,8 +1,8 @@
+import { ResizeObserver } from '@juggle/resize-observer';
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
-import { ResizeObserver } from '@juggle/resize-observer';
 import store from '../../store';
 import { ComponentProps } from '../../types';
 
@@ -80,7 +80,10 @@ export class Footer extends PureComponent<FooterProps, {}> {
     const { sticky, fixed } = props;
 
     if (sticky || fixed) {
-      this.resizeObserver.observe(ReactDOM.findDOMNode(this));
+      const element = ReactDOM.findDOMNode(this);
+      if (element instanceof HTMLElement) {
+        this.resizeObserver.observe(element);
+      }
     } else {
       this.resizeObserver.disconnect();
     }

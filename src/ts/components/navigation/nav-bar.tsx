@@ -1,8 +1,8 @@
+import { ResizeObserver } from '@juggle/resize-observer';
 import * as classNames from 'classnames';
 import * as React from 'react';
 import { HTMLProps, PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
-import { ResizeObserver } from '@juggle/resize-observer';
 import store from '../../store';
 import { ComponentProps } from '../../types';
 import { getScrollOffset } from '../../utils';
@@ -120,7 +120,10 @@ export class NavBar extends PureComponent<NavBarProps, NavBarState> {
     const { fixed, shy } = props;
 
     if (fixed || shy) {
-      this.resizeObserver.observe(ReactDOM.findDOMNode(this));
+      const element = ReactDOM.findDOMNode(this);
+      if (element instanceof HTMLElement) {
+        this.resizeObserver.observe(element);
+      }
     } else {
       this.resizeObserver.disconnect();
     }
