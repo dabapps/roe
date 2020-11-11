@@ -23,7 +23,7 @@ export class Footer extends PureComponent<FooterProps, {}> {
 
   private storeRef = (element: HTMLDivElement | null) => {
     this.element = element;
-  };
+  }
 
   public componentDidMount() {
     this.notifyAppRoot(this.props);
@@ -32,8 +32,8 @@ export class Footer extends PureComponent<FooterProps, {}> {
 
   public componentDidUpdate(prevProps: FooterProps) {
     if (
-      Boolean(this.props.sticky || this.props.fixed || this.props.height) !==
-      Boolean(prevProps.sticky || prevProps.fixed || prevProps.height)
+      Boolean(this.props.sticky || this.props.fixed) !==
+      Boolean(prevProps.sticky || prevProps.fixed)
     ) {
       this.toggleResizeListeners(this.props);
     }
@@ -68,23 +68,27 @@ export class Footer extends PureComponent<FooterProps, {}> {
   }
 
   private notifyAppRoot(props: FooterProps) {
-    const { sticky, fixed, height } = props;
+    const { sticky, fixed } = props;
+    const element = ReactDOM.findDOMNode(this);
 
     store.setState({
       hasStickyFooter: Boolean(sticky || fixed),
-      footerHeight: Number(height),
+      footerHeight:
+        element && element instanceof HTMLElement
+          ? element.getBoundingClientRect().height
+          : undefined,
     });
   }
 
   private observer = new ResizeObserver((entries, observer) => {
     const { sticky, fixed } = this.props;
 
-    for (const entry of entries) {
-      const { height } = entry.contentRect;
-
-      this.notifyAppRoot({ ...this.props, height });
+      for (const entry of entries) {
+        const { height } = entry.contentRect;
+        console.log(height);
+      }
     }
-  });
+  );
 
   private updateAppRoot = () => {
     this.notifyAppRoot(this.props);
