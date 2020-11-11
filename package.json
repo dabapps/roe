@@ -132,6 +132,7 @@
     },
     "testRegex": "tests/.+\\.(ts|tsx|js|jsx)$",
     "testPathIgnorePatterns": [
+      "<rootDir>/tests/__mocks__/",
       "<rootDir>/tests/helpers/"
     ],
     "moduleFileExtensions": [

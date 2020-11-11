@@ -5,9 +5,16 @@ import * as renderer from 'react-test-renderer';
 
 import { Footer } from '../src/ts/';
 import store from '../src/ts/store';
+import {
+  mockConstructor,
+  mockDisconnect,
+  mockObserve,
+} from './__mocks__/@juggle/resize-observer';
+
+const mockElement = document.createElement('div');
 
 jest.mock('react-dom', () => ({
-  findDOMNode: () => null,
+  findDOMNode: jest.fn(),
 }));
 
 jest.mock('../src/ts/store', () => ({
@@ -16,20 +23,19 @@ jest.mock('../src/ts/store', () => ({
   },
 }));
 
-describe('Footer', () => {
-  beforeAll(() => {
-    jest.spyOn(window, 'addEventListener');
-    jest.spyOn(window, 'removeEventListener');
-  });
+jest.mock('@juggle/resize-observer');
 
+describe('Footer', () => {
   beforeEach(() => {
+    mockConstructor.mockClear();
+    mockDisconnect.mockClear();
+    mockObserve.mockClear();
+
+    (ReactDOM.findDOMNode as jest.Mock<any>).mockImplementation(
+      () => mockElement
+    );
+
     (store.setState as jest.Mock<any>).mockClear();
-    (window.addEventListener as jest.Mock<any>)
-      .mockImplementation(jest.fn())
-      .mockClear();
-    (window.removeEventListener as jest.Mock<any>)
-      .mockImplementation(jest.fn())
-      .mockClear();
   });
 
   it('should match snapshot', () => {
@@ -54,41 +60,41 @@ describe('Footer', () => {
     it('should toggle sticky listeners and update the app root on mount and props change', () => {
       const instance = enzyme.mount(<Footer />);
 
-      expect(window.removeEventListener).toHaveBeenCalledTimes(1);
-      (window.removeEventListener as jest.Mock<any>).mockClear();
+      expect(mockDisconnect).toHaveBeenCalledTimes(1);
+      mockDisconnect.mockClear();
       expect(store.setState).toHaveBeenCalledTimes(1);
       expect(store.setState).toHaveBeenCalledWith({
         hasStickyFooter: false,
-        footerHeight: undefined,
+        footerHeight: 0,
       });
       (store.setState as jest.Mock<any>).mockClear();
 
       instance.setProps({ sticky: false });
 
-      expect(window.removeEventListener).toHaveBeenCalledTimes(0);
-      (window.removeEventListener as jest.Mock<any>).mockClear();
+      expect(mockDisconnect).toHaveBeenCalledTimes(0);
+      mockDisconnect.mockClear();
       expect(store.setState).toHaveBeenCalledTimes(1);
       (store.setState as jest.Mock<any>).mockClear();
 
       instance.setProps({ sticky: true });
 
-      expect(window.addEventListener).toHaveBeenCalledTimes(1);
-      (window.addEventListener as jest.Mock<any>).mockClear();
+      expect(mockObserve).toHaveBeenCalledTimes(1);
+      mockObserve.mockClear();
       expect(store.setState).toHaveBeenCalledTimes(1);
       expect(store.setState).toHaveBeenCalledWith({
         hasStickyFooter: true,
-        footerHeight: undefined,
+        footerHeight: 0,
       });
       (store.setState as jest.Mock<any>).mockClear();
 
       instance.setProps({ sticky: false });
 
-      expect(window.removeEventListener).toHaveBeenCalledTimes(1);
-      (window.removeEventListener as jest.Mock<any>).mockClear();
+      expect(mockDisconnect).toHaveBeenCalledTimes(1);
+      mockDisconnect.mockClear();
       expect(store.setState).toHaveBeenCalledTimes(1);
       expect(store.setState).toHaveBeenCalledWith({
         hasStickyFooter: false,
-        footerHeight: undefined,
+        footerHeight: 0,
       });
       (store.setState as jest.Mock<any>).mockClear();
     });
@@ -96,52 +102,30 @@ describe('Footer', () => {
     it('should remove listeners on unmount', () => {
       const instance = enzyme.mount(<Footer />);
 
-      (window.removeEventListener as jest.Mock<any>).mockClear();
+      mockDisconnect.mockClear();
 
       instance.unmount();
 
-      expect(window.removeEventListener).toHaveBeenCalledTimes(1);
+      expect(mockDisconnect).toHaveBeenCalledTimes(1);
     });
 
-    it('should update the app root when the window is resized', () => {
-      const handlers: { [i: string]: (() => any) | undefined } = {};
+    it('should update the app root when the element is resized', () => {
+      const instance = enzyme.mount(<Footer sticky />).instance() as Footer;
 
-      (window.addEventListener as jest.Mock<any>).mockImplementation(
-        (type: string, callback: () => any) => {
-          if (type === 'resize') {
-            handlers[type] = callback;
-            jest.spyOn(handlers, type);
-          }
-        }
-      );
-
-      enzyme.mount(<Footer sticky />);
-
-      expect(window.addEventListener).toHaveBeenCalledTimes(1);
+      expect(mockObserve).toHaveBeenCalledTimes(1);
+      expect(mockConstructor).toHaveBeenCalledTimes(1);
+      // tslint:disable-next-line:no-string-literal
+      expect(mockConstructor).toHaveBeenCalledWith(instance['updateAppRoot']);
 
       (store.setState as jest.Mock<any>).mockClear();
 
-      const { resize } = handlers;
-
-      if (resize) {
-        resize();
-      }
+      // tslint:disable-next-line:no-string-literal
+      instance['updateAppRoot']();
 
       expect(store.setState).toHaveBeenCalledTimes(1);
     });
 
     it("should notify about the element's height", () => {
-      const handlers: { [i: string]: (() => any) | undefined } = {};
-
-      (window.addEventListener as jest.Mock<any>).mockImplementation(
-        (type: string, callback: () => any) => {
-          if (type === 'resize') {
-            handlers[type] = callback;
-            jest.spyOn(handlers, type);
-          }
-        }
-      );
-
       const fakeElement = document.createElement('div');
       fakeElement.getBoundingClientRect = () => ({
         height: 20,
@@ -156,17 +140,17 @@ describe('Footer', () => {
         .spyOn(ReactDOM, 'findDOMNode')
         .mockReturnValue(fakeElement);
 
-      enzyme.mount(<Footer sticky />);
+      const instance = enzyme.mount(<Footer sticky />).instance() as Footer;
 
-      expect(window.addEventListener).toHaveBeenCalledTimes(1);
+      expect(mockObserve).toHaveBeenCalledTimes(1);
+      expect(mockConstructor).toHaveBeenCalledTimes(1);
+      // tslint:disable-next-line:no-string-literal
+      expect(mockConstructor).toHaveBeenCalledWith(instance['updateAppRoot']);
 
       (store.setState as jest.Mock<any>).mockClear();
 
-      const { resize } = handlers;
-
-      if (resize) {
-        resize();
-      }
+      // tslint:disable-next-line:no-string-literal
+      instance['updateAppRoot']();
 
       expect(store.setState).toHaveBeenCalledTimes(1);
       expect(store.setState).toHaveBeenCalledWith({
@@ -188,41 +172,41 @@ describe('Footer', () => {
     it('should toggle fixed listeners and update the app root on mount and props change', () => {
       const instance = enzyme.mount(<Footer />);
 
-      expect(window.removeEventListener).toHaveBeenCalledTimes(1);
-      (window.removeEventListener as jest.Mock<any>).mockClear();
+      expect(mockDisconnect).toHaveBeenCalledTimes(1);
+      mockDisconnect.mockClear();
       expect(store.setState).toHaveBeenCalledTimes(1);
       expect(store.setState).toHaveBeenCalledWith({
         hasStickyFooter: false,
-        footerHeight: undefined,
+        footerHeight: 0,
       });
       (store.setState as jest.Mock<any>).mockClear();
 
       instance.setProps({ fixed: false });
 
-      expect(window.removeEventListener).toHaveBeenCalledTimes(0);
-      (window.removeEventListener as jest.Mock<any>).mockClear();
+      expect(mockDisconnect).toHaveBeenCalledTimes(0);
+      mockDisconnect.mockClear();
       expect(store.setState).toHaveBeenCalledTimes(1);
       (store.setState as jest.Mock<any>).mockClear();
 
       instance.setProps({ fixed: true });
 
-      expect(window.addEventListener).toHaveBeenCalledTimes(1);
-      (window.addEventListener as jest.Mock<any>).mockClear();
+      expect(mockObserve).toHaveBeenCalledTimes(1);
+      mockObserve.mockClear();
       expect(store.setState).toHaveBeenCalledTimes(1);
       expect(store.setState).toHaveBeenCalledWith({
         hasStickyFooter: true,
-        footerHeight: undefined,
+        footerHeight: 0,
       });
       (store.setState as jest.Mock<any>).mockClear();
 
       instance.setProps({ fixed: false });
 
-      expect(window.removeEventListener).toHaveBeenCalledTimes(1);
-      (window.removeEventListener as jest.Mock<any>).mockClear();
+      expect(mockDisconnect).toHaveBeenCalledTimes(1);
+      mockDisconnect.mockClear();
       expect(store.setState).toHaveBeenCalledTimes(1);
       expect(store.setState).toHaveBeenCalledWith({
         hasStickyFooter: false,
-        footerHeight: undefined,
+        footerHeight: 0,
       });
       (store.setState as jest.Mock<any>).mockClear();
     });
@@ -230,52 +214,30 @@ describe('Footer', () => {
     it('should remove listeners on unmount', () => {
       const instance = enzyme.mount(<Footer />);
 
-      (window.removeEventListener as jest.Mock<any>).mockClear();
+      mockDisconnect.mockClear();
 
       instance.unmount();
 
-      expect(window.removeEventListener).toHaveBeenCalledTimes(1);
+      expect(mockDisconnect).toHaveBeenCalledTimes(1);
     });
 
-    it('should update the app root when the window is resized', () => {
-      const handlers: { [i: string]: (() => any) | undefined } = {};
+    it('should update the app root when the element is resized', () => {
+      const instance = enzyme.mount(<Footer fixed />).instance() as Footer;
 
-      (window.addEventListener as jest.Mock<any>).mockImplementation(
-        (type: string, callback: () => any) => {
-          if (type === 'resize') {
-            handlers[type] = callback;
-            jest.spyOn(handlers, type);
-          }
-        }
-      );
-
-      enzyme.mount(<Footer fixed />);
-
-      expect(window.addEventListener).toHaveBeenCalledTimes(1);
+      expect(mockObserve).toHaveBeenCalledTimes(1);
+      expect(mockConstructor).toHaveBeenCalledTimes(1);
+      // tslint:disable-next-line:no-string-literal
+      expect(mockConstructor).toHaveBeenCalledWith(instance['updateAppRoot']);
 
       (store.setState as jest.Mock<any>).mockClear();
 
-      const { resize } = handlers;
-
-      if (resize) {
-        resize();
-      }
+      // tslint:disable-next-line:no-string-literal
+      instance['updateAppRoot']();
 
       expect(store.setState).toHaveBeenCalledTimes(1);
     });
 
     it("should notify about the element's height", () => {
-      const handlers: { [i: string]: (() => any) | undefined } = {};
-
-      (window.addEventListener as jest.Mock<any>).mockImplementation(
-        (type: string, callback: () => any) => {
-          if (type === 'resize') {
-            handlers[type] = callback;
-            jest.spyOn(handlers, type);
-          }
-        }
-      );
-
       const fakeElement = document.createElement('div');
       fakeElement.getBoundingClientRect = () => ({
         height: 20,
@@ -290,17 +252,17 @@ describe('Footer', () => {
         .spyOn(ReactDOM, 'findDOMNode')
         .mockReturnValue(fakeElement);
 
-      enzyme.mount(<Footer fixed />);
+      const instance = enzyme.mount(<Footer fixed />).instance() as Footer;
 
-      expect(window.addEventListener).toHaveBeenCalledTimes(1);
+      expect(mockObserve).toHaveBeenCalledTimes(1);
+      expect(mockConstructor).toHaveBeenCalledTimes(1);
+      // tslint:disable-next-line:no-string-literal
+      expect(mockConstructor).toHaveBeenCalledWith(instance['updateAppRoot']);
 
       (store.setState as jest.Mock<any>).mockClear();
 
-      const { resize } = handlers;
-
-      if (resize) {
-        resize();
-      }
+      // tslint:disable-next-line:no-string-literal
+      instance['updateAppRoot']();
 
       expect(store.setState).toHaveBeenCalledTimes(1);
       expect(store.setState).toHaveBeenCalledWith({
