@@ -75,5 +75,5 @@
 @checkbox-icon-background: @checkbox-background;
 @checkbox-icon-border: 2px solid @checkbox-icon-background;
 @checkbox-shadow: inset 0 1px 1.5px 0 rgba(0, 0, 0, 0.1);
-@checkbox-border-radius-base: @border-radius-base * 2;
+@checkbox-border-radius: @border-radius-base * 2;
 ```
