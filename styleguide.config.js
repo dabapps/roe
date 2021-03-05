@@ -4,6 +4,8 @@ const fs = require('fs');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const path = require('path');
 
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+
 const introduction = [
   {
     name: 'About',
@@ -139,24 +141,51 @@ function updateExample(props, exampleFilePath) {
   return props;
 }
 
-const lessLoader = {
-  test: /\.(?:less|css)$/,
-  use: [
-    'style-loader', // creates style nodes from JS strings
-    'css-loader', // translates CSS into CommonJS
-    'postcss-loader',
-    {
-      loader: 'less-loader', // compiles Less to CSS
-      options: {
-        paths: [path.resolve(__dirname, 'node_modules')],
+const webpackConfig = {
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          // disable type checker - we will use it in fork plugin
+          transpileOnly: true,
+        },
       },
-    },
+      {
+        test: /\.(?:less|css)$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              paths: [path.resolve(__dirname, 'node_modules')],
+              // lessOptions: {
+              //   strictMath: true,
+              // },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        configFile: path.resolve(__dirname, 'tsconfig.docs.json'),
+      },
+    }),
   ],
 };
-
-const webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
-
-webpackConfig.module.rules[1].oneOf[3] = lessLoader;
 
 const reactDocGenTypescriptConfig = {
   propFilter: function(prop /*, component*/) {
