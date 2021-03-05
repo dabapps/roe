@@ -1,6 +1,3 @@
 {
-  "extends": ["dabapps/base", "dabapps/commonjs"],
-  "rules": {
-    "prettier/prettier": 0
-  }
+  "extends": ["dabapps"]
 }
