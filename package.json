@@ -107,8 +107,8 @@
   "peerDependencies": {
     "less": "3",
     "normalize.css": "8",
-    "react": ">= 15",
-    "react-dom": ">= 15",
+    "react": "16 || 17",
+    "react-dom": "16 || 17",
     "react-transition-group": "2"
   },
   "jest": {
