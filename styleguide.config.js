@@ -1,10 +1,10 @@
 /* global __dirname */
-'use strict';
 
-var fs = require('fs');
-var path = require('path');
+const fs = require('fs');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const path = require('path');
 
-var introduction = [
+const introduction = [
   {
     name: 'About',
     content: 'docs/introduction/about.md',
@@ -27,7 +27,7 @@ var introduction = [
   },
 ];
 
-var components = [
+const components = [
   {
     name: 'App',
     components: 'src/ts/components/app/**/*.tsx',
@@ -82,7 +82,7 @@ var components = [
   },
 ];
 
-var less = [
+const less = [
   {
     name: 'Atomic float classes',
     content: 'src/less/float.examples.md',
@@ -118,11 +118,10 @@ function getExampleFilename(componentPath) {
 }
 
 function updateExample(props, exampleFilePath) {
-  var settings = props.settings;
-  var lang = props.lang;
+  const { settings, lang } = props;
 
   if (typeof settings.file === 'string') {
-    var filepath = path.resolve(path.dirname(exampleFilePath), settings.file);
+    const filepath = path.resolve(path.dirname(exampleFilePath), settings.file);
 
     if (lang === 'less') {
       settings.static = true;
@@ -140,7 +139,7 @@ function updateExample(props, exampleFilePath) {
   return props;
 }
 
-var lessLoader = {
+const lessLoader = {
   test: /\.(?:less|css)$/,
   use: [
     'style-loader', // creates style nodes from JS strings
@@ -155,11 +154,11 @@ var lessLoader = {
   ],
 };
 
-var webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
+const webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
 
 webpackConfig.module.rules[1].oneOf[3] = lessLoader;
 
-var reactDocGenTypescriptConfig = {
+const reactDocGenTypescriptConfig = {
   propFilter: function(prop /*, component*/) {
     if (prop.description && prop.name.indexOf('aria-') !== 0) {
       return true;

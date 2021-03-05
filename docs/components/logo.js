@@ -1,7 +1,5 @@
-'use strict';
-
-var React = require('react');
-var Styled = require('rsg-components/Styled').default;
+const React = require('react');
+const Styled = require('react-styleguidist/lib/rsg-components/Styled').default;
 
 function styles(settings) {
   return {

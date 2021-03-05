@@ -1,3 +1,6 @@
 {
-  "extends": ["dabapps"]
+  "extends": ["dabapps"],
+  "rules": {
+    "react/prop-types": 0
+  }
 }
