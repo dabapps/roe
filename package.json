@@ -93,7 +93,7 @@
     "postcss-loader": "^2.0.7",
     "prettier": "^1.19.1",
     "react-docgen-typescript": "^1.2.2",
-    "react-scripts-ts": "^3.1.0",
+    "react-scripts-ts": "^4.0.8",
     "react-styleguidist": "^7.2.1",
     "react-test-renderer": "^15.5.4",
     "recast": "^0.13.0",
