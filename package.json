@@ -67,7 +67,7 @@
   "devDependencies": {
     "@types/enzyme": "^3.1.5",
     "@types/enzyme-adapter-react-15": "^1.0.1",
-    "@types/jest": "^22.2.0",
+    "@types/jest": "^26.0.20",
     "@types/node": "^7.0.13",
     "@types/react-test-renderer": "^15.4.5",
     "acorn": "^6.4.1",
@@ -83,7 +83,7 @@
     "eslint": "^6.8.0",
     "eslint-config-dabapps": "^5.1.1",
     "http-server": "^0.12.3",
-    "jest": "^22.4.2",
+    "jest": "^26.6.3",
     "less": "^3.12.2",
     "less-loader": "^4.1.0",
     "lesshint": "^3.3.1",
@@ -98,7 +98,7 @@
     "react-test-renderer": "^15.5.4",
     "recast": "^0.13.0",
     "style-loader": "^0.19.0",
-    "ts-jest": "^22.4.1",
+    "ts-jest": "^26.5.3",
     "tsify": "^3.0.4",
     "typescript": "^3.9.9",
     "webpack": "^3.7.1"
@@ -109,39 +109,5 @@
     "react": ">= 15",
     "react-dom": ">= 15",
     "react-transition-group": "2"
-  },
-  "jest": {
-    "testURL": "http://localhost/",
-    "collectCoverageFrom": [
-      "src/ts/**/*.(js|jsx|ts|tsx)"
-    ],
-    "setupFiles": [
-      "<rootDir>/tests/helpers/setup.ts"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    },
-    "transform": {
-      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": "tests/.+\\.(ts|tsx|js|jsx)$",
-    "testPathIgnorePatterns": [
-      "<rootDir>/tests/__mocks__/",
-      "<rootDir>/tests/helpers/"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
   }
 }
