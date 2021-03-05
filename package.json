@@ -13,9 +13,10 @@
     "lint-js": "eslint ./*.js docs/**/*.js && tslint --project tsconfig.json '@(src|tests|types|docs|examples)/**/*.@(ts|tsx)'",
     "lint-less": "lesshint 'src/less/' 'docs/less/'",
     "lint": "npm run lint-js && npm run lint-less",
+    "test-dist-react-17": "npm i @types/react@17.0.2 @types/react-dom@17.0.1 --no-save && tsc --project 'tsconfig.json' --noEmit && npm run dist",
     "test-dist-react-16": "npm i @types/react@16.4.7 @types/react-dom@16.0.6 --no-save && tsc --project 'tsconfig.json' --noEmit && npm run dist",
     "test-dist-react-15": "npm i @types/react@15.6.18 @types/react-dom@15.5.7 --no-save && tsc --project 'tsconfig.json' --noEmit && npm run dist",
-    "test-dist": "npm run test-dist-react-15 && npm run test-dist-react-16",
+    "test-dist": "npm run test-dist-react-15 && npm run test-dist-react-16 && npm run test-dist-react-17",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "tests": "jest",
     "test": "npm run prettier-check && npm run lint && npm run typecheck && npm run tests -- --coverage --runInBand && npm run test-dist",
@@ -107,8 +108,8 @@
   "peerDependencies": {
     "less": "3",
     "normalize.css": "8",
-    "react": "16 || 17",
-    "react-dom": "16 || 17",
+    "react": ">= 15",
+    "react-dom": ">= 15",
     "react-transition-group": "2"
   },
   "jest": {
