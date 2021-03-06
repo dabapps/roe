@@ -84,6 +84,18 @@ describe('NavBar', () => {
     expect(tree).toMatchSnapshot();
   });
 
+  it('should apply the dark class', () => {
+    const tree = renderer.create(<NavBar dark />);
+
+    expect(tree).toMatchSnapshot();
+  });
+
+  it('should apply the light class', () => {
+    const tree = renderer.create(<NavBar light />);
+
+    expect(tree).toMatchSnapshot();
+  });
+
   it('should apply the hidden class', () => {
     const instance = enzyme.mount(<NavBar shy />);
 
