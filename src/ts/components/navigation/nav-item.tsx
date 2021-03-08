@@ -1,9 +1,11 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
-export interface NavItemProps extends ComponentProps, HTMLProps<HTMLElement> {
+export interface NavItemProps
+  extends ComponentProps,
+    React.HTMLProps<HTMLElement> {
   /**
    * Apply an active class to the NavItem
    */
@@ -18,23 +20,16 @@ export interface NavItemProps extends ComponentProps, HTMLProps<HTMLElement> {
  * You may apply `button` and related classes to a NavItem e.g. for a logout button.
  * See the [Nav](#nav) section for a full example.
  */
-export class NavItem extends PureComponent<NavItemProps, {}> {
-  public render() {
-    const {
-      className,
-      children,
-      active,
-      component: Component = 'li',
-    } = this.props;
+const NavItem = (props: NavItemProps) => {
+  const { className, children, active, component: Component = 'li' } = props;
 
-    return (
-      <Component
-        className={classNames('nav-item', active && 'active', className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-}
+  return (
+    <Component
+      className={classNames('nav-item', active && 'active', className)}
+    >
+      {children}
+    </Component>
+  );
+};
 
-export default NavItem;
+export default React.memo(NavItem);
