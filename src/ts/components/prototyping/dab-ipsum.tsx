@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Component } from 'react';
+
 import { generateIpsum } from '../../utils';
 import { WORDS } from '../../words';
 
@@ -34,49 +34,41 @@ const ipsumItem = (component: DabIpsumProps['component'], index: number) => {
 /**
  * Custom Ipsum component, useful for rendering placeholder text when prototyping.
  */
-export class DabIpsum extends Component<DabIpsumProps, {}> {
-  public shouldComponentUpdate(prevProps: DabIpsumProps) {
-    return (
-      prevProps.component !== this.props.component ||
-      prevProps.count !== this.props.count
-    );
+const DabIpsum = (props: DabIpsumProps) => {
+  const { component = 'p', count = 5 } = props;
+
+  // eslint-disable-next-line prefer-spread
+  const items = Array.apply(null, new Array(count));
+
+  switch (component) {
+    case 'ul':
+      return (
+        <ul>
+          {items.map((value: void, index: number) =>
+            ipsumItem(component, index)
+          )}
+        </ul>
+      );
+    case 'ol':
+      return (
+        <ol>
+          {items.map((value: void, index: number) =>
+            ipsumItem(component, index)
+          )}
+        </ol>
+      );
+    case 'text':
+      return ipsumItem(component, 0);
+    // case 'p'
+    default:
+      return (
+        <div>
+          {items.map((value: void, index: number) =>
+            ipsumItem(component, index)
+          )}
+        </div>
+      );
   }
+};
 
-  public render() {
-    const { component = 'p', count = 5 } = this.props;
-
-    const items = Array.apply(null, new Array(count));
-
-    switch (component) {
-      case 'ul':
-        return (
-          <ul>
-            {items.map((value: void, index: number) =>
-              ipsumItem(component, index)
-            )}
-          </ul>
-        );
-      case 'ol':
-        return (
-          <ol>
-            {items.map((value: void, index: number) =>
-              ipsumItem(component, index)
-            )}
-          </ol>
-        );
-      case 'text':
-        return ipsumItem(component, 0);
-      // case 'p'
-      default:
-        return (
-          <div>
-            {items.map((value: void, index: number) =>
-              ipsumItem(component, index)
-            )}
-          </div>
-        );
-    }
-  }
-}
-
-export default DabIpsum;
+export default React.memo(DabIpsum);
