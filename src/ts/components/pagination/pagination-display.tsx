@@ -1,6 +1,6 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
 export interface PaginationDisplayProps extends ComponentProps {
@@ -22,41 +22,33 @@ export interface PaginationDisplayProps extends ComponentProps {
   itemCount: number;
 }
 
-export class PaginationDisplay extends PureComponent<
-  PaginationDisplayProps,
-  {}
-> {
-  public render() {
-    const {
-      className,
-      itemCount,
-      pageSize,
-      currentPageNumber,
-      ...remainingProps
-    } = this.props;
+const PaginationDisplay = (props: PaginationDisplayProps) => {
+  const {
+    className,
+    itemCount,
+    pageSize,
+    currentPageNumber,
+    ...remainingProps
+  } = props;
 
-    return (
-      <p
-        {...remainingProps}
-        className={classNames('pagination-display', className)}
-      >
-        Showing {this.showingLowerCount()}-{this.showingUpperCount()} of{' '}
-        {itemCount}
-      </p>
-    );
-  }
-
-  private showingLowerCount = () => {
-    const { currentPageNumber, pageSize } = this.props;
+  const showingLowerCount = React.useCallback(() => {
     return (currentPageNumber - 1) * pageSize || 1;
-  };
+  }, [currentPageNumber, pageSize]);
 
-  private showingUpperCount = () => {
-    const { pageSize, currentPageNumber, itemCount } = this.props;
+  const showingUpperCount = React.useCallback(() => {
     return pageSize * currentPageNumber > itemCount
       ? itemCount
       : pageSize * currentPageNumber;
-  };
-}
+  }, [pageSize, currentPageNumber, itemCount]);
 
-export default PaginationDisplay;
+  return (
+    <p
+      {...remainingProps}
+      className={classNames('pagination-display', className)}
+    >
+      Showing {showingLowerCount()}-{showingUpperCount()} of {itemCount}
+    </p>
+  );
+};
+
+export default React.memo(PaginationDisplay);
