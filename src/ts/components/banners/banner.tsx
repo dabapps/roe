@@ -41,4 +41,4 @@ const Banner = (props: BannerProps): React.ReactElement => {
   );
 };
 
-export default Banner;
+export default React.memo(Banner);
