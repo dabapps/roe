@@ -1,9 +1,11 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
-export interface TableProps extends ComponentProps, HTMLProps<HTMLElement> {
+export interface TableProps
+  extends ComponentProps,
+    React.HTMLProps<HTMLElement> {
   /**
    * Currently unused.
    * @default "'sm'"
@@ -50,52 +52,48 @@ export interface TableProps extends ComponentProps, HTMLProps<HTMLElement> {
 /**
  * Table component with additional styles & functionality.
  */
-export class Table extends PureComponent<TableProps, {}> {
-  public render() {
-    const {
-      className,
-      children,
-      collapse = 'sm',
-      scrollable = true,
-      fixRowHeaders,
-      rowHeaderWidth,
-      striped,
-      bordered,
-      hover,
-      condensed,
-      fill,
-      fixed,
-      component: Component = 'table',
-      ...remainingProps
-    } = this.props;
+const Table = (props: TableProps) => {
+  const {
+    className,
+    children,
+    collapse = 'sm',
+    scrollable = true,
+    fixRowHeaders,
+    rowHeaderWidth,
+    striped,
+    bordered,
+    hover,
+    condensed,
+    fill,
+    fixed,
+    component: Component = 'table',
+    ...remainingProps
+  } = props;
 
-    const myClassNames = [
-      'table',
-      `${collapse}-collapse`,
-      fixRowHeaders ? 'fix-row-headers' : null,
-      striped ? 'striped' : null,
-      bordered ? 'bordered' : null,
-      hover ? 'hover' : null,
-      condensed ? 'condensed' : null,
-      fill ? 'fill' : null,
-      fixed ? 'fixed' : null,
-      className,
-    ];
+  const myClassNames = [
+    'table',
+    `${collapse}-collapse`,
+    fixRowHeaders ? 'fix-row-headers' : null,
+    striped ? 'striped' : null,
+    bordered ? 'bordered' : null,
+    hover ? 'hover' : null,
+    condensed ? 'condensed' : null,
+    fill ? 'fill' : null,
+    fixed ? 'fixed' : null,
+    className,
+  ];
 
-    return (
-      <div className="table-wrapper">
-        <div
-          style={{ paddingLeft: fixRowHeaders ? rowHeaderWidth : undefined }}
-        >
-          <div className={scrollable ? 'table-scroller' : undefined}>
-            <Component {...remainingProps} className={classNames(myClassNames)}>
-              {children}
-            </Component>
-          </div>
+  return (
+    <div className="table-wrapper">
+      <div style={{ paddingLeft: fixRowHeaders ? rowHeaderWidth : undefined }}>
+        <div className={scrollable ? 'table-scroller' : undefined}>
+          <Component {...remainingProps} className={classNames(myClassNames)}>
+            {children}
+          </Component>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default Table;
+export default React.memo(Table);

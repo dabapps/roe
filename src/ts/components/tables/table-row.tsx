@@ -1,32 +1,30 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
-export type TableRowProps = ComponentProps & HTMLProps<HTMLElement>;
+export type TableRowProps = ComponentProps & React.HTMLProps<HTMLElement>;
 
 /**
  * Table row component with additional styles & functionality, used within a table head or body.
  * See the [Table](#table) section for a full example.
  */
-export class TableRow extends PureComponent<TableRowProps, {}> {
-  public render() {
-    const {
-      className,
-      children,
-      component: Component = 'tr',
-      ...remainingProps
-    } = this.props;
+const TableRow = (props: TableRowProps) => {
+  const {
+    className,
+    children,
+    component: Component = 'tr',
+    ...remainingProps
+  } = props;
 
-    return (
-      <Component
-        {...remainingProps}
-        className={classNames('table-row', className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-}
+  return (
+    <Component
+      {...remainingProps}
+      className={classNames('table-row', className)}
+    >
+      {children}
+    </Component>
+  );
+};
 
-export default TableRow;
+export default React.memo(TableRow);
