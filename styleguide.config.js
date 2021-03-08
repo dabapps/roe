@@ -1,10 +1,10 @@
 /* global __dirname */
+/* eslint-disable @typescript-eslint/no-var-requires */
 
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const fs = require('fs');
 // eslint-disable-next-line import/no-extraneous-dependencies
 const path = require('path');
-
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 const introduction = [
   {

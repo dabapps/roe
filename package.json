@@ -81,7 +81,7 @@
     "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.2.2",
     "eslint": "^6.8.0",
-    "eslint-config-dabapps": "^5.1.1",
+    "eslint-config-dabapps": "^7.0.0",
     "fork-ts-checker-webpack-plugin": "^6.1.1",
     "http-server": "^0.12.3",
     "jest": "^26.6.3",

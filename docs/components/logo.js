@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+
 const React = require('react');
 const Styled = require('react-styleguidist/lib/rsg-components/Styled').default;
 
