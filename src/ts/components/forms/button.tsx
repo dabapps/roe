@@ -1,9 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 
-export interface ButtonProps extends ComponentProps, HTMLProps<HTMLElement> {
+export interface ButtonProps extends ComponentProps, React.HTMLProps<HTMLElement> {
   /**
    * Set the style `display: block;`.
    */
@@ -21,8 +21,7 @@ export interface ButtonProps extends ComponentProps, HTMLProps<HTMLElement> {
 /**
  * Used in place of a standard `button` tag, this component adds additional styles and effects.
  */
-export class Button extends PureComponent<ButtonProps, {}> {
-  public render() {
+const Button = (props: ButtonProps) => {
     const {
       children,
       className,
@@ -31,7 +30,7 @@ export class Button extends PureComponent<ButtonProps, {}> {
       small,
       component: Component = 'button',
       ...remainingProps
-    } = this.props;
+    } = props;
 
     const myClassNames = [
       'button',
@@ -49,4 +48,4 @@ export class Button extends PureComponent<ButtonProps, {}> {
   }
 }
 
-export default Button;
+export default React.memo(Button);
