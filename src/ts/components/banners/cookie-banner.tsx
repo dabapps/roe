@@ -1,7 +1,7 @@
 import * as classNames from 'classnames';
 import * as cookie from 'cookie';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 import Banner from './banner';
 
@@ -11,11 +11,12 @@ export interface CookieBannerRenderProps {
 
 export type Render = (
   props: CookieBannerRenderProps
-) => React.ReactElement<any>;
+) => // eslint-disable-next-line @typescript-eslint/no-explicit-any
+React.ReactElement<any>;
 
 export interface CookieBannerProps
   extends ComponentProps,
-    HTMLProps<HTMLElement> {
+    React.HTMLProps<HTMLElement> {
   /**
    * Takes a component as a function and renders as a child
    */
@@ -27,57 +28,44 @@ export interface CookieBannerProps
   position?: 'top' | 'bottom';
 }
 
-export interface CookieBannerState {
-  dismissed: boolean;
-}
-
 /**
  * A [Banner](#banner) component that is permanently dismissed after setting a cookie.
  * This component takes a render prop, which can be a component or function, that is passed a dismiss prop
  * which you can then apply as an onClick prop to an element of your choice.
  */
-export class CookieBanner extends PureComponent<
-  CookieBannerProps,
-  CookieBannerState
-> {
-  public constructor(props: CookieBannerProps) {
-    super(props);
+const CookieBanner = (props: CookieBannerProps) => {
+  const [dismissed, setDismissed] = React.useState<boolean>();
 
-    this.state = {
-      dismissed: Boolean(cookie.parse(document.cookie)['cookies-accepted']),
-    };
-  }
-
-  public render() {
-    const {
-      ref,
-      className,
-      children,
-      render,
-      position = 'bottom',
-      ...remainingProps
-    } = this.props;
-
-    const { dismissed } = this.state;
-
-    return (
-      <Banner
-        {...remainingProps}
-        position={position}
-        open={!dismissed}
-        className={classNames('cookie-banner', className)}
-      >
-        {render && render({ dismiss: this.setCookie })}
-      </Banner>
-    );
-  }
-
-  private setCookie = () => {
+  const setCookie = () => {
     document.cookie = cookie.serialize('cookies-accepted', 'true');
-    this.setState({
-      dismissed: true,
-    });
+    setDismissed(true);
   };
-}
 
-export default CookieBanner;
+  React.useEffect(() => {
+    setDismissed(Boolean(cookie.parse(document.cookie)['cookies-accepted']));
+  }, []);
+
+  const {
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+    children,
+    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
+    ref,
+    className,
+    render,
+    position = 'bottom',
+    ...remainingProps
+  } = props;
+
+  return (
+    <Banner
+      {...remainingProps}
+      position={position}
+      open={!dismissed}
+      className={classNames('cookie-banner', className)}
+    >
+      {render && render({ dismiss: setCookie })}
+    </Banner>
+  );
+};
+
+export default React.memo(CookieBanner);
