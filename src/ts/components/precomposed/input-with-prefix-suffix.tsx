@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PureComponent } from 'react';
+
 import { ComponentProps } from '../../types';
 import InputGroup from '../forms/input-group';
 import InputGroupAddon from '../forms/input-group-addon';
@@ -41,39 +41,30 @@ export type InputWithPrefixSuffixProps = React.HTMLAttributes<
  * A precomposed Input containing an optional prefix (InputGroupAddon), an input,
  * and an optional suffix (InputGroupAddon).
  */
-export class InputWithPrefixSuffix extends PureComponent<
-  InputWithPrefixSuffixProps,
-  {}
-> {
-  public render() {
-    const {
-      prefix,
-      suffix,
-      block,
-      className,
-      inputClassName,
-      prefixClassName,
-      suffixClassName,
-      component,
-      ...remainingProps
-    } = this.props;
+const InputWithPrefixSuffix = (props: InputWithPrefixSuffixProps) => {
+  const {
+    prefix,
+    suffix,
+    block,
+    className,
+    inputClassName,
+    prefixClassName,
+    suffixClassName,
+    component,
+    ...remainingProps
+  } = props;
 
-    return (
-      <InputGroup component={component} block={block} className={className}>
-        {typeof prefix !== 'undefined' && (
-          <InputGroupAddon className={prefixClassName}>
-            {prefix}
-          </InputGroupAddon>
-        )}
-        <input className={inputClassName} {...remainingProps} />
-        {typeof suffix !== 'undefined' && (
-          <InputGroupAddon className={suffixClassName}>
-            {suffix}
-          </InputGroupAddon>
-        )}
-      </InputGroup>
-    );
-  }
-}
+  return (
+    <InputGroup component={component} block={block} className={className}>
+      {typeof prefix !== 'undefined' && (
+        <InputGroupAddon className={prefixClassName}>{prefix}</InputGroupAddon>
+      )}
+      <input className={inputClassName} {...remainingProps} />
+      {typeof suffix !== 'undefined' && (
+        <InputGroupAddon className={suffixClassName}>{suffix}</InputGroupAddon>
+      )}
+    </InputGroup>
+  );
+};
 
-export default InputWithPrefixSuffix;
+export default React.memo(InputWithPrefixSuffix);
