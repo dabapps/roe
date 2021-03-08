@@ -1,12 +1,14 @@
 import { ResizeObserver } from '@juggle/resize-observer';
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
 import * as ReactDOM from 'react-dom';
+
 import store from '../../store';
 import { ComponentProps } from '../../types';
 
-export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
+export interface FooterProps
+  extends ComponentProps,
+    React.HTMLProps<HTMLElement> {
   /**
    * Fix the footer to the bottom of the window when there is not enough content to push it down.
    */
@@ -17,80 +19,69 @@ export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
   fixed?: boolean;
 }
 
-export class Footer extends PureComponent<FooterProps, {}> {
-  public componentDidMount() {
-    this.notifyAppRoot(this.props);
-    this.toggleResizeListeners(this.props);
-  }
+const Footer = (props: FooterProps) => {
+  const {
+    sticky,
+    fixed,
+    component: Component = 'div',
+    children,
+    className,
+    ...remainingProps
+  } = props;
 
-  public componentDidUpdate(prevProps: FooterProps) {
-    if (
-      Boolean(this.props.sticky || this.props.fixed) !==
-      Boolean(prevProps.sticky || prevProps.fixed)
-    ) {
-      this.toggleResizeListeners(this.props);
-    }
+  const footerElement = React.useRef<Element | null>(null);
 
-    this.notifyAppRoot(this.props);
-  }
-
-  public componentWillUnmount() {
-    this.resizeObserver.disconnect();
-    this.notifyAppRoot({ sticky: false });
-  }
-
-  public render() {
-    const {
-      sticky,
-      fixed,
-      component: Component = 'div',
-      children,
-      className,
-      ...remainingProps
-    } = this.props;
-
-    return (
-      <Component
-        {...remainingProps}
-        className={classNames('footer', { sticky, fixed }, className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-
-  private notifyAppRoot(props: FooterProps) {
-    const { sticky, fixed } = props;
-    const element = ReactDOM.findDOMNode(this);
+  const notifyAppRoot = React.useCallback((prop: FooterProps) => {
+    const { sticky: isSticky, fixed: isFixed } = prop;
+    const element = ReactDOM.findDOMNode(footerElement.current);
 
     store.setState({
-      hasStickyFooter: Boolean(sticky || fixed),
+      hasStickyFooter: Boolean(isSticky || isFixed),
       footerHeight:
         element && element instanceof HTMLElement
           ? element.getBoundingClientRect().height
           : undefined,
     });
-  }
+  }, []);
 
-  private updateAppRoot = () => {
-    this.notifyAppRoot(this.props);
-  };
-
-  private toggleResizeListeners(props: FooterProps) {
-    const { sticky, fixed } = props;
-
-    if (sticky || fixed) {
-      const element = ReactDOM.findDOMNode(this);
-      if (element instanceof HTMLElement) {
-        this.resizeObserver.observe(element);
-      }
-    } else {
-      this.resizeObserver.disconnect();
-    }
-  }
+  const updateAppRoot = React.useCallback(() => notifyAppRoot(props), [
+    notifyAppRoot,
+    props,
+  ]);
 
   // tslint:disable-next-line:member-ordering
-  private resizeObserver = new ResizeObserver(this.updateAppRoot);
-}
+  const resizeObserver = new ResizeObserver(updateAppRoot);
 
-export default Footer;
+  const toggleResizeListeners = React.useCallback(() => {
+    if (sticky || fixed) {
+      const element = ReactDOM.findDOMNode(footerElement.current);
+      if (element instanceof HTMLElement) {
+        resizeObserver.observe(element);
+      }
+    } else {
+      resizeObserver.disconnect();
+    }
+  }, [resizeObserver, sticky, fixed]);
+
+  React.useEffect(() => {
+    notifyAppRoot(props);
+    toggleResizeListeners();
+
+    return () => {
+      resizeObserver.disconnect();
+      notifyAppRoot({ sticky: false });
+    };
+  }, [notifyAppRoot, toggleResizeListeners, resizeObserver, props]);
+
+  return (
+    <Component
+      {...remainingProps}
+      className={classNames('footer', { sticky, fixed }, className)}
+      ref={footerElement}
+    >
+      {children}
+    </Component>
+  );
+};
+
+export default React.memo(Footer);
