@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-export interface ModalRendererProps extends HTMLProps<HTMLElement> {
+export interface ModalRendererProps extends React.HTMLProps<HTMLElement> {
   /**
    * Array of modals to be rendered.
    */
@@ -20,25 +19,23 @@ const TIMEOUT = {
  * Should be rendered in the root of your app.
  * See the [Modal](#modal) section for a full example.
  */
-export class ModalRenderer extends PureComponent<ModalRendererProps, {}> {
-  public render() {
-    const { modals } = this.props;
+const ModalRenderer = (props: ModalRendererProps) => {
+  const { modals } = props;
 
-    return (
-      <TransitionGroup>
-        {modals &&
-          modals.map((modal, index) => (
-            <CSSTransition
-              key={index}
-              classNames="modal-transition"
-              timeout={TIMEOUT}
-            >
-              <div className="modal-container">{modal}</div>
-            </CSSTransition>
-          ))}
-      </TransitionGroup>
-    );
-  }
-}
+  return (
+    <TransitionGroup>
+      {modals &&
+        modals.map((modal, index) => (
+          <CSSTransition
+            key={index}
+            classNames="modal-transition"
+            timeout={TIMEOUT}
+          >
+            <div className="modal-container">{modal}</div>
+          </CSSTransition>
+        ))}
+    </TransitionGroup>
+  );
+};
 
-export default ModalRenderer;
+export default React.memo(ModalRenderer);
