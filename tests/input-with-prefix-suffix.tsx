@@ -41,6 +41,7 @@ describe('InputWithPrefixSuffix', () => {
         prefix="£"
         suffix="%"
         value="Value"
+        // eslint-disable-next-line react/jsx-no-bind
         onChange={onChange}
       />
     );
