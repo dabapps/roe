@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { DabIpsum } from '../src/ts/';
+import { DabIpsum } from '../src/ts';
 import { generateIpsum, resetRandomSeed } from '../src/ts/utils';
 import { WORDS } from '../src/ts/words';
 

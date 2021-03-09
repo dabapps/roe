@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { InputGroupAddon } from '../src/ts/';
+import { InputGroupAddon } from '../src/ts';
 
 describe('InputGroupAddon', () => {
   it('should match snapshot', () => {

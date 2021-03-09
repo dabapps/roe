@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Button } from '../src/ts/';
+import { Button } from '../src/ts';
 
 describe('Button', () => {
   it('should match snapshot', () => {

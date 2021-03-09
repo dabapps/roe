@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Highlight } from '../src/ts/';
+import { Highlight } from '../src/ts';
 
 describe('Highlight', () => {
   it('should match snapshot', () => {

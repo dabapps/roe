@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { CodeBlock } from '../src/ts/';
+import { CodeBlock } from '../src/ts';
 
 interface IHighlightJS {
   highlightBlock: jest.Mock<any>;

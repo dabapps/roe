@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Section } from '../src/ts/';
+import { Section } from '../src/ts';
 
 describe('Section', () => {
   it('should match snapshot', () => {

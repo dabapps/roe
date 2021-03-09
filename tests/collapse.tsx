@@ -2,7 +2,7 @@ import * as enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Collapse } from '../src/ts/';
+import { Collapse } from '../src/ts';
 
 describe('Collapse', () => {
   const createNodeMock = () => ({

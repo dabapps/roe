@@ -2,7 +2,7 @@ import * as enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { AppRoot } from '../src/ts/';
+import { AppRoot } from '../src/ts';
 import store from '../src/ts/store';
 
 jest.mock('../src/ts/store', () => {

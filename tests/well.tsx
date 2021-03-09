@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Well } from '../src/ts/';
+import { Well } from '../src/ts';
 
 describe('Well', () => {
   it('should match snapshot', () => {

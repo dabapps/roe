@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Anchor } from '../src/ts/';
+import { Anchor } from '../src/ts';
 import { getHref } from '../src/ts/utils';
 
 describe('Anchor', () => {

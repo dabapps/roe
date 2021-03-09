@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Badge } from '../src/ts/';
+import { Badge } from '../src/ts';
 
 describe('Badge', () => {
   it('should match snapshot', () => {

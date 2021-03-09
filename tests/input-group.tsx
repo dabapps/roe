@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { InputGroup } from '../src/ts/';
+import { InputGroup } from '../src/ts';
 
 describe('InputGroup', () => {
   it('should match snapshot', () => {

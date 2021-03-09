@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as renderer from 'react-test-renderer';
 
-import { Footer } from '../src/ts/';
+import { Footer } from '../src/ts';
 import store from '../src/ts/store';
 import {
   mockConstructor,
