@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 export interface FormGroupProps {
   /**
@@ -47,4 +48,4 @@ const FormGroup: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default React.memo(FormGroup);
+export default memoWithComponentProp(FormGroup);

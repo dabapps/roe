@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 export interface SpeechBubbleProps {
   /**
@@ -68,4 +69,4 @@ const SpeechBubble: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default React.memo(SpeechBubble);
+export default memoWithComponentProp(SpeechBubble);

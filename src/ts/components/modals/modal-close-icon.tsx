@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Used within a `ModalHeader` to add a close icon in the top right.
@@ -30,4 +31,4 @@ const ModalCloseIcon: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default React.memo(ModalCloseIcon);
+export default memoWithComponentProp(ModalCloseIcon);

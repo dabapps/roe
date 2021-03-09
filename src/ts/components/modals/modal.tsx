@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 export interface ModalProps {
   /**
@@ -67,4 +68,4 @@ const Modal: FunctionComponentOptionalComponentProp<'div', ModalProps> = (
   );
 };
 
-export default React.memo(Modal);
+export default memoWithComponentProp(Modal);

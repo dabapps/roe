@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Used within a `Modal` to contain the main content.
@@ -30,4 +31,4 @@ const ModalBody: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default React.memo(ModalBody);
+export default memoWithComponentProp(ModalBody);

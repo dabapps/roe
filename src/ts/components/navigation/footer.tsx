@@ -8,6 +8,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 export interface FooterProps {
   /**
@@ -87,4 +88,4 @@ const Footer: FunctionComponentOptionalComponentProp<'div', FooterProps> = (
   );
 };
 
-export default React.memo(Footer);
+export default memoWithComponentProp(Footer);

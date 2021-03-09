@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Box for displaying content within.
@@ -29,4 +30,4 @@ const ContentBox: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default React.memo(ContentBox);
+export default memoWithComponentProp(ContentBox);

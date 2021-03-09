@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Footer for `ContentBox`s, ideal for submit buttons, links & sub-text.
@@ -30,4 +31,4 @@ const ContentBoxFooter: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default React.memo(ContentBoxFooter);
+export default memoWithComponentProp(ContentBoxFooter);

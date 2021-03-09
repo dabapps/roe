@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * A badge component for displaying small pieces of information such as counts and statuses.
@@ -26,4 +27,4 @@ const Badge: FunctionComponentOptionalComponentProp<'span'> = (
   );
 };
 
-export default React.memo(Badge);
+export default memoWithComponentProp(Badge);

@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * A component for applying various styles to text, ideal for info, success, and error messages.
@@ -26,4 +27,4 @@ const Alert: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default React.memo(Alert);
+export default memoWithComponentProp(Alert);

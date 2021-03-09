@@ -8,7 +8,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
-import { getScrollOffset } from '../../utils';
+import { getScrollOffset, memoWithComponentProp } from '../../utils';
 
 export interface NavBarProps {
   /**
@@ -174,4 +174,4 @@ const NavBar: FunctionComponentOptionalComponentProp<'div', NavBarProps> = (
   );
 };
 
-export default React.memo(NavBar);
+export default memoWithComponentProp(NavBar);

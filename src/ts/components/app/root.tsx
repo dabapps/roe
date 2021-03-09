@@ -6,6 +6,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 export type AppRootState = Pick<
   StoreState,
@@ -75,4 +76,4 @@ const AppRoot: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default React.memo(AppRoot);
+export default memoWithComponentProp(AppRoot);

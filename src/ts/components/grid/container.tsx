@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 export interface ContainerProps {
   /**
@@ -46,4 +47,4 @@ const Container: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default React.memo(Container);
+export default memoWithComponentProp(Container);

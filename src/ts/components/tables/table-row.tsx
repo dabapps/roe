@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Table row component with additional styles & functionality, used within a table head or body.
@@ -30,4 +31,4 @@ const TableRow: FunctionComponentOptionalComponentProp<'tr'> = (
   );
 };
 
-export default React.memo(TableRow);
+export default memoWithComponentProp(TableRow);

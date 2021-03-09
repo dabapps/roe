@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Used within a container, section, or column, to keep content on separate rows.
@@ -31,4 +32,4 @@ const Row: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default React.memo(Row);
+export default memoWithComponentProp(Row);

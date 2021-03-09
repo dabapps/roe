@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 export interface ButtonProps {
   /**
@@ -52,4 +53,4 @@ const Button: FunctionComponentOptionalComponentProp<'button', ButtonProps> = (
   );
 };
 
-export default React.memo(Button);
+export default memoWithComponentProp(Button);

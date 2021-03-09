@@ -7,7 +7,7 @@ import {
   OptionalComponentProp,
   FunctionComponentOptionalComponentProp,
 } from '../../types';
-import { shouldNotBeRendered } from '../../utils';
+import { shouldNotBeRendered, memoWithComponentProp } from '../../utils';
 
 /**
  * Table header component with additional styles & functionality, used to style and or fix table headers.
@@ -37,4 +37,4 @@ const TableHeader: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default React.memo(TableHeader);
+export default memoWithComponentProp(TableHeader);

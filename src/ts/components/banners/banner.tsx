@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
+import { memoWithComponentProp } from '../../utils';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
@@ -44,4 +45,4 @@ const Banner: FunctionComponentOptionalComponentProp<'div', BannerProps> = (
   );
 };
 
-export default React.memo(Banner);
+export default memoWithComponentProp(Banner);

@@ -7,6 +7,7 @@ import {
   OptionalComponentProp,
 } from '../../types';
 import Banner from './banner';
+import { memoWithComponentProp } from '../../utils';
 
 export interface CookieBannerRenderProps {
   dismiss: () => void;
@@ -74,4 +75,4 @@ const CookieBanner: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default React.memo(CookieBanner);
+export default memoWithComponentProp(CookieBanner);

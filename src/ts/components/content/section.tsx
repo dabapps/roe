@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Used to separate sections of content with a horizontal-rule-like style.
@@ -30,4 +31,4 @@ const Section: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default React.memo(Section);
+export default memoWithComponentProp(Section);

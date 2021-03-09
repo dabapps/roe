@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { generateIpsum } from '../../utils';
+import { generateIpsum, memoWithComponentProp } from '../../utils';
 import { WORDS } from '../../words';
 
 export interface DabIpsumProps {
@@ -71,4 +71,4 @@ const DabIpsum = (props: DabIpsumProps) => {
   }
 };
 
-export default React.memo(DabIpsum);
+export default memoWithComponentProp(DabIpsum);

@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 export interface NavItemProps {
   /**
@@ -35,4 +36,4 @@ const NavItem: FunctionComponentOptionalComponentProp<'li', NavItemProps> = (
   );
 };
 
-export default React.memo(NavItem);
+export default memoWithComponentProp(NavItem);

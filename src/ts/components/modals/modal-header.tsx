@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Header for `Modal`s to display a title.
@@ -30,4 +31,4 @@ const ModalHeader: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default React.memo(ModalHeader);
+export default memoWithComponentProp(ModalHeader);

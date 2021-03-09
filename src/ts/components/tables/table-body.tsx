@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Table body component with additional styles & functionality, used to contain main table content.
@@ -30,4 +31,4 @@ const TableBody: FunctionComponentOptionalComponentProp<'tbody'> = (
   );
 };
 
-export default React.memo(TableBody);
+export default memoWithComponentProp(TableBody);

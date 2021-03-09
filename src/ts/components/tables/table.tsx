@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 export interface TableProps {
   /**
@@ -99,4 +100,4 @@ const Table: FunctionComponentOptionalComponentProp<'table', TableProps> = (
   );
 };
 
-export default React.memo(Table);
+export default memoWithComponentProp(Table);

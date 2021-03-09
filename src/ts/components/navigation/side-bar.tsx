@@ -6,6 +6,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 export interface SideBarProps {
   /**
@@ -74,4 +75,4 @@ const SideBar: FunctionComponentOptionalComponentProp<'div', SideBarProps> = (
   );
 };
 
-export default React.memo(SideBar);
+export default memoWithComponentProp(SideBar);

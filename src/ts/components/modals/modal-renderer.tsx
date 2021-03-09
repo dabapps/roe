@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
+import { memoWithComponentProp } from '../../utils';
+
 export interface ModalRendererProps extends React.HTMLProps<HTMLElement> {
   /**
    * Array of modals to be rendered.
@@ -38,4 +40,4 @@ const ModalRenderer = (props: ModalRendererProps) => {
   );
 };
 
-export default React.memo(ModalRenderer);
+export default memoWithComponentProp(ModalRenderer);

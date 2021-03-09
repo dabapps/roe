@@ -1,6 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
+import { memoWithComponentProp } from '../../utils';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
@@ -53,4 +54,4 @@ const SpacedGroup: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default React.memo(SpacedGroup);
+export default memoWithComponentProp(SpacedGroup);

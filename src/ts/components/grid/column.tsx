@@ -5,7 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
-import { isValidColumnNumber } from '../../utils';
+import { isValidColumnNumber, memoWithComponentProp } from '../../utils';
 
 export interface ColumnProps {
   /**
@@ -186,4 +186,4 @@ const Column: FunctionComponentOptionalComponentProp<'div', ColumnProps> = (
   );
 };
 
-export default React.memo(Column);
+export default memoWithComponentProp(Column);

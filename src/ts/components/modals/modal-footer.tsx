@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Footer for `Modal`s to contain submit buttons, link or sub-text.
@@ -30,4 +31,4 @@ const ModalFooter: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default React.memo(ModalFooter);
+export default memoWithComponentProp(ModalFooter);

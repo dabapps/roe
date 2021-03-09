@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Used to contain a set of `Tab` components.
@@ -26,4 +27,4 @@ const Tabs: FunctionComponentOptionalComponentProp<'ul'> = (
   );
 };
 
-export default React.memo(Tabs);
+export default memoWithComponentProp(Tabs);

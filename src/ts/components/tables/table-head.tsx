@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Table head component with additional styles & functionality, used to contain table headers.
@@ -30,4 +31,4 @@ const TableHead: FunctionComponentOptionalComponentProp<'thead'> = (
   );
 };
 
-export default React.memo(TableHead);
+export default memoWithComponentProp(TableHead);

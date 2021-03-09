@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 export interface TabProps {
   /**
@@ -39,4 +40,4 @@ const Tab: FunctionComponentOptionalComponentProp<'li', TabProps> = (
   );
 };
 
-export default React.memo(Tab);
+export default memoWithComponentProp(Tab);

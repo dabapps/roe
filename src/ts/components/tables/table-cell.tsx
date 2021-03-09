@@ -7,7 +7,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
-import { shouldNotBeRendered } from '../../utils';
+import { shouldNotBeRendered, memoWithComponentProp } from '../../utils';
 
 /**
  * Table cell component with additional styles & functionality, used within table rows.
@@ -37,4 +37,4 @@ const TableCell: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default React.memo(TableCell);
+export default memoWithComponentProp(TableCell);

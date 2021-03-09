@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Stylistic content container.
@@ -26,4 +27,4 @@ const Well: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default React.memo(Well);
+export default memoWithComponentProp(Well);

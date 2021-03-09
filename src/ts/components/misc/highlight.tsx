@@ -6,6 +6,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 export interface HighlightProps {
   /**
@@ -71,4 +72,4 @@ const Highlight: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default React.memo(Highlight);
+export default memoWithComponentProp(Highlight);

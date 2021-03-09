@@ -3,6 +3,7 @@ import * as React from 'react';
 import { ComponentProps } from '../../types';
 import InputGroup from '../forms/input-group';
 import InputGroupAddon from '../forms/input-group-addon';
+import { memoWithComponentProp } from '../../utils';
 
 export interface PrefixSuffixProps extends ComponentProps {
   /**
@@ -67,4 +68,4 @@ const InputWithPrefixSuffix = (props: InputWithPrefixSuffixProps) => {
   );
 };
 
-export default React.memo(InputWithPrefixSuffix);
+export default memoWithComponentProp(InputWithPrefixSuffix);

@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 export interface PaginationDisplayProps {
   /**
@@ -57,4 +58,4 @@ const PaginationDisplay: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default React.memo(PaginationDisplay);
+export default memoWithComponentProp(PaginationDisplay);

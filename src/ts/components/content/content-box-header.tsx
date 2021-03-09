@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Header for `ContentBox`s, used to display a content's title.
@@ -30,4 +31,4 @@ const ContentBoxHeader: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default React.memo(ContentBoxHeader);
+export default memoWithComponentProp(ContentBoxHeader);

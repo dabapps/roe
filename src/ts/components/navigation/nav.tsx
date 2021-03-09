@@ -5,6 +5,7 @@ import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
 } from '../../types';
+import { memoWithComponentProp } from '../../utils';
 
 /**
  * Used to group NavItems inside a NavBar or SideBar.
@@ -29,4 +30,4 @@ const Nav: FunctionComponentOptionalComponentProp<'ul'> = (
   );
 };
 
-export default React.memo(Nav);
+export default memoWithComponentProp(Nav);
