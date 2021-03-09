@@ -1,11 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface ButtonProps
-  extends ComponentProps,
-    React.HTMLProps<HTMLElement> {
+export interface ButtonProps {
   /**
    * Set the style `display: block;`.
    */
@@ -23,7 +24,9 @@ export interface ButtonProps
 /**
  * Used in place of a standard `button` tag, this component adds additional styles and effects.
  */
-const Button = (props: ButtonProps) => {
+const Button: FunctionComponentOptionalComponentProp<'button', ButtonProps> = (
+  props: OptionalComponentProp<'button'> & ButtonProps
+) => {
   const {
     children,
     className,

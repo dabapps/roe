@@ -1,11 +1,10 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
 import Button from '../forms/button';
 import SpacedGroup from '../misc/spaced-group';
 
-export interface PaginationProps extends ComponentProps {
+export interface PaginationProps {
   /**
    * className
    */

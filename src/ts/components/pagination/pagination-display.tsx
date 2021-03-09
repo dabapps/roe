@@ -1,9 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface PaginationDisplayProps extends ComponentProps {
+export interface PaginationDisplayProps {
   /**
    * className
    */
@@ -22,7 +25,10 @@ export interface PaginationDisplayProps extends ComponentProps {
   itemCount: number;
 }
 
-const PaginationDisplay = (props: PaginationDisplayProps) => {
+const PaginationDisplay: FunctionComponentOptionalComponentProp<
+  'div',
+  PaginationDisplayProps
+> = (props: OptionalComponentProp<'div'> & PaginationDisplayProps) => {
   const {
     className,
     itemCount,

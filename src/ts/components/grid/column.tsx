@@ -1,12 +1,13 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 import { isValidColumnNumber } from '../../utils';
 
-export interface ColumnProps
-  extends ComponentProps,
-    React.HTMLProps<HTMLElement> {
+export interface ColumnProps {
   /**
    * Columns to occupy on extra small screens
    */
@@ -113,7 +114,9 @@ export interface ColumnProps
  * Placed inside rows to align content in columns.
  * The default grid has 12 divisions.
  */
-const Column = (props: ColumnProps) => {
+const Column: FunctionComponentOptionalComponentProp<'div', ColumnProps> = (
+  props: OptionalComponentProp<'div'> & ColumnProps
+) => {
   const {
     children,
     className,

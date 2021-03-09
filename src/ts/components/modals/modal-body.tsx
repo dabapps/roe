@@ -1,15 +1,18 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
-
-export type ModalBodyProps = ComponentProps & React.HTMLProps<HTMLElement>;
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
 /**
  * Used within a `Modal` to contain the main content.
  * See the [Modal](#modal) section for a full example.
  */
-const ModalBody = (props: ModalBodyProps) => {
+const ModalBody: FunctionComponentOptionalComponentProp<'div'> = (
+  props: OptionalComponentProp<'div'>
+) => {
   const {
     className,
     children,

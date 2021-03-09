@@ -1,14 +1,17 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
-
-export type ContentBoxProps = ComponentProps & React.HTMLProps<HTMLElement>;
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
 /**
  * Box for displaying content within.
  */
-const ContentBox = (props: ContentBoxProps) => {
+const ContentBox: FunctionComponentOptionalComponentProp<'div'> = (
+  props: OptionalComponentProp<'div'>
+) => {
   const {
     className,
     children,

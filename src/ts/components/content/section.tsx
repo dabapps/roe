@@ -1,15 +1,18 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
-
-export type SectionProps = ComponentProps & React.HTMLProps<HTMLElement>;
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
 /**
  * Used to separate sections of content with a horizontal-rule-like style.
  * Should only be used inside `ContentBox`s or `Column`s.
  */
-const Section = (props: SectionProps) => {
+const Section: FunctionComponentOptionalComponentProp<'div'> = (
+  props: OptionalComponentProp<'div'>
+) => {
   const {
     children,
     className,

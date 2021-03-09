@@ -1,13 +1,17 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export type BadgeProps = ComponentProps & React.HTMLProps<HTMLElement>;
 /**
  * A badge component for displaying small pieces of information such as counts and statuses.
  */
-const Badge = (props: BadgeProps) => {
+const Badge: FunctionComponentOptionalComponentProp<'span'> = (
+  props: OptionalComponentProp<'span'>
+) => {
   const {
     className,
     children,

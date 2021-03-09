@@ -1,11 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface NavItemProps
-  extends ComponentProps,
-    React.HTMLProps<HTMLElement> {
+export interface NavItemProps {
   /**
    * Apply an active class to the NavItem
    */
@@ -20,7 +21,9 @@ export interface NavItemProps
  * You may apply `button` and related classes to a NavItem e.g. for a logout button.
  * See the [Nav](#nav) section for a full example.
  */
-const NavItem = (props: NavItemProps) => {
+const NavItem: FunctionComponentOptionalComponentProp<'li', NavItemProps> = (
+  props: OptionalComponentProp<'li'> & NavItemProps
+) => {
   const { className, children, active, component: Component = 'li' } = props;
 
   return (

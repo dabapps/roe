@@ -1,11 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface ContainerProps
-  extends ComponentProps,
-    React.HTMLProps<HTMLElement> {
+export interface ContainerProps {
   /**
    * Fill parent with no media queries to affect width.
    */
@@ -19,7 +20,10 @@ export interface ContainerProps
 /**
  * Used inside `NavBar`s or as the main wrapper for an application.
  */
-const Container = (props: ContainerProps) => {
+const Container: FunctionComponentOptionalComponentProp<
+  'div',
+  ContainerProps
+> = (props: OptionalComponentProp<'div'> & ContainerProps) => {
   const {
     children,
     className,

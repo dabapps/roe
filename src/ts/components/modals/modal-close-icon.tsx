@@ -1,15 +1,18 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
-
-export type ModalCloseIconProps = ComponentProps & React.HTMLProps<HTMLElement>;
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
 /**
  * Used within a `ModalHeader` to add a close icon in the top right.
  * See the [Modal](#modal) section for a full example.
  */
-const ModalCloseIcon = (props: ModalCloseIconProps) => {
+const ModalCloseIcon: FunctionComponentOptionalComponentProp<'div'> = (
+  props: OptionalComponentProp<'div'>
+) => {
   const {
     className,
     children,

@@ -1,11 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface InputGroupProps
-  extends ComponentProps,
-    React.HTMLProps<HTMLElement> {
+export interface InputGroupProps {
   /**
    * Set the style `display: block;` so the group fills its parent.
    */
@@ -15,7 +16,10 @@ export interface InputGroupProps
 /**
  * Used to group inputs, selects, buttons, and `InputGroupAddon`s.
  */
-const InputGroup = (props: InputGroupProps) => {
+const InputGroup: FunctionComponentOptionalComponentProp<
+  'div',
+  InputGroupProps
+> = (props: OptionalComponentProp<'div'> & InputGroupProps) => {
   const {
     children,
     className,

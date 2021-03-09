@@ -1,11 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface SpacedGroupProps
-  extends ComponentProps,
-    React.HTMLProps<HTMLElement> {
+export interface SpacedGroupProps {
   /**
    * Set the group to `display: block;` so it fills its parent.
    */
@@ -23,7 +24,10 @@ export interface SpacedGroupProps
 /**
  * Component to contain & automatically add space between inline elements.
  */
-const SpacedGroup = (props: SpacedGroupProps) => {
+const SpacedGroup: FunctionComponentOptionalComponentProp<
+  'span',
+  SpacedGroupProps
+> = (props: OptionalComponentProp<'span'> & SpacedGroupProps) => {
   const {
     children,
     className,

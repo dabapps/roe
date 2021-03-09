@@ -1,11 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface FormGroupProps
-  extends ComponentProps,
-    React.HTMLProps<HTMLElement> {
+export interface FormGroupProps {
   /**
    * Set the style `display: block;` with label above input.
    */
@@ -19,7 +20,10 @@ export interface FormGroupProps
 /**
  * Used to group a label & form input (or select).
  */
-const FormGroup = (props: FormGroupProps) => {
+const FormGroup: FunctionComponentOptionalComponentProp<
+  'div',
+  FormGroupProps
+> = (props: OptionalComponentProp<'div'> & FormGroupProps) => {
   const {
     children,
     className,

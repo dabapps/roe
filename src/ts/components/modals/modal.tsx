@@ -1,11 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface ModalProps
-  extends ComponentProps,
-    React.HTMLProps<HTMLDivElement> {
+export interface ModalProps {
   /**
    * Allows the `ModalBody` to be scrolled, rather than page.
    */
@@ -31,7 +32,9 @@ export interface ModalProps
 /**
  * Component used to render a modal.
  */
-const Modal = (props: ModalProps) => {
+const Modal: FunctionComponentOptionalComponentProp<'div', ModalProps> = (
+  props: OptionalComponentProp<'div'> & ModalProps
+) => {
   const {
     className,
     children,

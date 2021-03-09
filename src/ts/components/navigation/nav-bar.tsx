@@ -4,12 +4,13 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import store from '../../store';
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 import { getScrollOffset } from '../../utils';
 
-export interface NavBarProps
-  extends ComponentProps,
-    React.HTMLProps<HTMLElement> {
+export interface NavBarProps {
   /**
    * Fix the navbar to the top of the screen
    */
@@ -28,7 +29,9 @@ export interface NavBarState {
   hidden: boolean;
 }
 
-const NavBar = (props: NavBarProps) => {
+const NavBar: FunctionComponentOptionalComponentProp<'div', NavBarProps> = (
+  props: OptionalComponentProp<'div'> & NavBarProps
+) => {
   const {
     children,
     className,

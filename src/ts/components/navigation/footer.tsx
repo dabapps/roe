@@ -4,11 +4,12 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import store from '../../store';
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface FooterProps
-  extends ComponentProps,
-    React.HTMLProps<HTMLElement> {
+export interface FooterProps {
   /**
    * Fix the footer to the bottom of the window when there is not enough content to push it down.
    */
@@ -19,7 +20,9 @@ export interface FooterProps
   fixed?: boolean;
 }
 
-const Footer = (props: FooterProps) => {
+const Footer: FunctionComponentOptionalComponentProp<'div', FooterProps> = (
+  props: OptionalComponentProp<'div'> & FooterProps
+) => {
   const {
     sticky,
     fixed,

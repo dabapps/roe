@@ -1,11 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface SpeechBubbleProps
-  extends ComponentProps,
-    React.HTMLProps<HTMLElement> {
+export interface SpeechBubbleProps {
   /**
    * Set the style `display: block;`.
    */
@@ -28,7 +29,10 @@ export interface SpeechBubbleProps
 /**
  * Speech bubble component for displaying conversations / messages.
  */
-const SpeechBubble = (props: SpeechBubbleProps) => {
+const SpeechBubble: FunctionComponentOptionalComponentProp<
+  'div',
+  SpeechBubbleProps
+> = (props: OptionalComponentProp<'div'> & SpeechBubbleProps) => {
   const {
     className,
     children,

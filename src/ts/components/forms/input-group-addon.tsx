@@ -1,15 +1,22 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export type InputGroupAddonProps = ComponentProps &
-  React.HTMLProps<HTMLElement>;
+export interface InputGroupAddonProps {
+  width: number;
+}
 
 /**
  * Used to display additional context within an `InputGroup`.
  */
-const InputGroupAddon = (props: InputGroupAddonProps) => {
+const InputGroupAddon: FunctionComponentOptionalComponentProp<
+  'div',
+  InputGroupAddonProps
+> = (props: OptionalComponentProp<'div'> & InputGroupAddonProps) => {
   const {
     children,
     className,

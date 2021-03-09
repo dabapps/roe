@@ -1,9 +1,10 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
-
-export type RowProps = ComponentProps & React.HTMLProps<HTMLElement>;
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
 /**
  * Used within a container, section, or column, to keep content on separate rows.
@@ -13,7 +14,9 @@ export type RowProps = ComponentProps & React.HTMLProps<HTMLElement>;
  * a clearfix applied which allows floated elements to be placed inside it
  * without it collapsing.
  */
-const Row = (props: RowProps) => {
+const Row: FunctionComponentOptionalComponentProp<'div'> = (
+  props: OptionalComponentProp<'div'>
+) => {
   const {
     children,
     className,

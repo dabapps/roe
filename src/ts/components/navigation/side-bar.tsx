@@ -2,11 +2,12 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface SideBarProps
-  extends React.HTMLProps<HTMLElement>,
-    ComponentProps {
+export interface SideBarProps {
   /**
    * SideBar is hidden off screen if this is falsy.
    */
@@ -35,7 +36,9 @@ const TIMEOUT = {
  * SideBar navigation that opens over the content. Often used as the primary navigation on small devices.
  * See the [Nav](#nav) section for more details.
  */
-const SideBar = (props: SideBarProps) => {
+const SideBar: FunctionComponentOptionalComponentProp<'div', SideBarProps> = (
+  props: OptionalComponentProp<'div'> & SideBarProps
+) => {
   const {
     className,
     children,

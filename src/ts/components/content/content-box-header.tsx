@@ -1,16 +1,18 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
-
-export type ContentBoxHeaderProps = ComponentProps &
-  React.HTMLProps<HTMLElement>;
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
 /**
  * Header for `ContentBox`s, used to display a content's title.
  * See the [ContentBox](#contentbox) section for a full example.
  */
-const ContentBoxHeader = (props: ContentBoxHeaderProps) => {
+const ContentBoxHeader: FunctionComponentOptionalComponentProp<'div'> = (
+  props: OptionalComponentProp<'div'>
+) => {
   const {
     className,
     children,
