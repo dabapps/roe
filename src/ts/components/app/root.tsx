@@ -2,9 +2,10 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 
 import store, { StoreState } from '../../store';
-import { ComponentProps } from '../../types';
-
-export type AppRootProps = React.HTMLProps<HTMLElement> & ComponentProps;
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
 export type AppRootState = Pick<
   StoreState,
@@ -21,7 +22,9 @@ export type AppRootState = Pick<
  *
  * The "app" class ensures that the AppRoot is not affected by the outer, non-react element.
  */
-const AppRoot = (props: AppRootProps) => {
+const AppRoot: FunctionComponentOptionalComponentProp<'div'> = (
+  props: OptionalComponentProp<'div'>
+) => {
   const {
     component: Component = 'div',
     children,
@@ -57,8 +60,8 @@ const AppRoot = (props: AppRootProps) => {
   ];
 
   const style = {
-    paddingTop: hasFixedNavBar && navBarHeight,
-    paddingBottom: hasStickyFooter && footerHeight,
+    paddingTop: hasFixedNavBar ? navBarHeight : undefined,
+    paddingBottom: hasStickyFooter ? footerHeight : undefined,
   };
 
   return (
