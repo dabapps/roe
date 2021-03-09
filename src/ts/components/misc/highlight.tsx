@@ -1,10 +1,13 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { ComponentProps } from '../../types';
 
-export interface HighlightProps extends ComponentProps, HTMLProps<HTMLElement> {
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
+
+export interface HighlightProps {
   /**
    * Displays the overlay
    * @default false
@@ -31,40 +34,41 @@ const TIMEOUT = {
 /**
  * This highlight component is used to display a single element while shading everything else out.
  */
-export class Highlight extends PureComponent<HighlightProps, {}> {
-  public render() {
-    const {
-      className,
-      children,
-      open = false,
-      disabled = false,
-      backgroundColor = null,
-      component: Component = 'div',
-      ...remainingProps
-    } = this.props;
+const Highlight: FunctionComponentOptionalComponentProp<
+  'div',
+  HighlightProps
+> = (props: OptionalComponentProp<'div'> & HighlightProps) => {
+  const {
+    className,
+    children,
+    open = false,
+    disabled = false,
+    backgroundColor = null,
+    component: Component = 'div',
+    ...remainingProps
+  } = props;
 
-    return (
-      <Component
-        {...remainingProps}
-        className={classNames('highlight', className)}
+  return (
+    <Component
+      {...remainingProps}
+      className={classNames('highlight', className)}
+    >
+      <TransitionGroup>
+        {open && (
+          <CSSTransition classNames="highlight-transition" timeout={TIMEOUT}>
+            <div className="highlight-overlay" />
+          </CSSTransition>
+        )}
+      </TransitionGroup>
+      <div
+        className={classNames('highlight-content', open && 'open')}
+        style={backgroundColor ? { backgroundColor } : undefined}
       >
-        <TransitionGroup>
-          {open && (
-            <CSSTransition classNames="highlight-transition" timeout={TIMEOUT}>
-              <div className="highlight-overlay" />
-            </CSSTransition>
-          )}
-        </TransitionGroup>
-        <div
-          className={classNames('highlight-content', open && 'open')}
-          style={backgroundColor ? { backgroundColor } : undefined}
-        >
-          {children}
-          {open && disabled && <div className="highlight-overlay-disabled" />}
-        </div>
-      </Component>
-    );
-  }
-}
+        {children}
+        {open && disabled && <div className="highlight-overlay-disabled" />}
+      </div>
+    </Component>
+  );
+};
 
-export default Highlight;
+export default React.memo(Highlight);
