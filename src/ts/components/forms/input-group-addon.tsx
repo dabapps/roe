@@ -8,7 +8,7 @@ import {
 import { memoWithComponentProp } from '../../utils';
 
 export interface InputGroupAddonProps {
-  width: number;
+  width?: number;
 }
 
 /**
