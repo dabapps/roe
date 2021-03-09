@@ -1,9 +1,3 @@
-import * as React from 'react';
-
-export type ComponentType<P> =
-  | React.ComponentClass<P>
-  | React.StatelessComponent<P>;
-
 /**
  * @internal
  */
