@@ -14,7 +14,7 @@ export type StoreState = Partial<{
   footerHeight: number;
 }>;
 
-export type StoreListener = (state: StoreState) => any;
+export type StoreListener = (state: StoreState) => void;
 
 export class Store {
   private state: StoreState = {};
@@ -24,24 +24,22 @@ export class Store {
     this.state = initialState;
   }
 
-  public setState = (state: StoreState) => {
-    for (const key in state) {
-      /* istanbul ignore else */
-      if (Object.prototype.hasOwnProperty.call(state, key)) {
-        this.state[key as keyof StoreState] = state[key as keyof StoreState];
-      }
-    }
+  public setState = (state: StoreState): void => {
+    this.state = {
+      ...this.state,
+      ...state,
+    };
 
     this.listeners.forEach(listener => {
       listener({ ...this.state });
     });
   };
 
-  public getState = () => {
+  public getState = (): StoreState => {
     return { ...this.state };
   };
 
-  public subscribe = (listener: StoreListener) => {
+  public subscribe = (listener: StoreListener): (() => void) => {
     if (this.listeners.indexOf(listener) < 0) {
       this.listeners.push(listener);
     }
