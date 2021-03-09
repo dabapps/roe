@@ -5,24 +5,22 @@ import * as renderer from 'react-test-renderer';
 import { AppRoot } from '../src/ts';
 import store from '../src/ts/store';
 
-jest.mock('../src/ts/store', () => {
-  const unsubscribe = jest.fn();
-  const subscribe = jest.fn().mockReturnValue(unsubscribe);
-  const getState = jest.fn().mockReturnValue({});
+const mockUnsubscribe = jest.fn();
+const mockSubscribe = jest.fn().mockReturnValue(mockUnsubscribe);
+const mockGetState = jest.fn().mockReturnValue({});
 
-  return {
-    default: {
-      getState,
-      subscribe,
-      unsubscribe,
-    },
-  };
-});
+jest.mock('../src/ts/store', () => ({
+  default: {
+    getState: mockGetState,
+    subscribe: mockSubscribe,
+    unsubscribe: mockUnsubscribe,
+  },
+}));
 
 describe('AppRoot', () => {
   beforeEach(() => {
-    (store.subscribe as jest.Mock<any>).mockClear();
-    ((store as any).unsubscribe as jest.Mock<any>).mockClear();
+    mockSubscribe.mockClear();
+    mockUnsubscribe.mockClear();
   });
 
   it('should match snapshot', () => {
@@ -38,7 +36,7 @@ describe('AppRoot', () => {
   });
 
   it('should apply classes for fixed nav bar and sticky footer', () => {
-    (store.getState as jest.Mock<any>).mockReturnValue({
+    mockGetState.mockReturnValue({
       hasFixedNavBar: true,
       hasStickyFooter: true,
     });
@@ -49,7 +47,7 @@ describe('AppRoot', () => {
   });
 
   it('should apply padding for fixed nav bar and sticky footer', () => {
-    (store.getState as jest.Mock<any>).mockReturnValue({
+    mockGetState.mockReturnValue({
       hasFixedNavBar: true,
       hasStickyFooter: true,
       navBarHeight: 50,
@@ -63,16 +61,16 @@ describe('AppRoot', () => {
 
   it('should subscribe and unsubscribe from the store on mount and unmount', () => {
     expect(store.subscribe).not.toHaveBeenCalled();
-    expect((store as any).unsubscribe).not.toHaveBeenCalled();
+    expect(mockUnsubscribe).not.toHaveBeenCalled();
 
     const instance = enzyme.mount(<AppRoot />);
 
     expect(store.subscribe).toHaveBeenCalled();
-    expect((store as any).unsubscribe).not.toHaveBeenCalled();
+    expect(mockUnsubscribe).not.toHaveBeenCalled();
 
     instance.unmount();
 
     expect(store.subscribe).toHaveBeenCalledTimes(1);
-    expect((store as any).unsubscribe).toHaveBeenCalledTimes(1);
+    expect(mockUnsubscribe).toHaveBeenCalledTimes(1);
   });
 });
