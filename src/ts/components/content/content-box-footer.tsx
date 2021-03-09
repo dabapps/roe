@@ -1,16 +1,18 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
-
-export type ContentBoxFooterProps = ComponentProps &
-  React.HTMLProps<HTMLElement>;
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
 /**
  * Footer for `ContentBox`s, ideal for submit buttons, links & sub-text.
  * See the [ContentBox](#contentbox) section for a full example.
  */
-const ContentBoxFooter = (props: ContentBoxFooterProps) => {
+const ContentBoxFooter: FunctionComponentOptionalComponentProp<'div'> = (
+  props: OptionalComponentProp<'div'>
+) => {
   const {
     className,
     children,
