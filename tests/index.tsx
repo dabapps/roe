@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { PureComponent } from 'react';
 import * as renderer from 'react-test-renderer';
 
 import * as index from '../src/ts';
@@ -8,23 +7,13 @@ jest.mock('react-dom', () => ({
   findDOMNode: () => null,
 }));
 
-interface IHighlightJS {
-  highlightBlock: jest.Mock<any>;
-}
-
-// tslint:disable:no-namespace
-declare global {
-  // tslint:disable:interface-name
-  interface Window {
-    hljs: void | IHighlightJS;
-  }
-}
-
 describe('index file', () => {
+  const mockHighlightBlock = jest.fn();
+
   beforeEach(() => {
     if (!window.hljs) {
       window.hljs = {
-        highlightBlock: jest.fn(),
+        highlightBlock: mockHighlightBlock,
       };
     }
   });
@@ -49,7 +38,8 @@ describe('index file', () => {
       type Keys = keyof typeof index;
 
       for (const key in index) {
-        if (index.hasOwnProperty(key)) {
+        if (Object.prototype.hasOwnProperty.call(index, key)) {
+          // eslint-disable-next-line import/namespace
           const Component = index[key as Keys];
 
           if (Component) {
@@ -57,30 +47,27 @@ describe('index file', () => {
 
             if (
               exceptions.indexOf(key) < 0 &&
-              renderer.create(instance).toJSON().type !== 'p'
+              renderer.create(instance).toJSON()?.type !== 'p'
             ) {
-              throw new Error(`${key} cannot take a component prop. :\'(`);
+              throw new Error(`${key} cannot take a component prop. 😥`);
             }
           }
         }
       }
     });
 
-    it('should all extend PureComponent', () => {
-      const exceptions = ['DabIpsum'];
-
+    it('should all be function components', () => {
       type Keys = keyof typeof index;
 
       for (const key in index) {
-        if (index.hasOwnProperty(key)) {
+        if (Object.prototype.hasOwnProperty.call(index, key)) {
+          // eslint-disable-next-line import/namespace
           const Component = index[key as Keys];
 
-          if (
-            exceptions.indexOf(key) < 0 &&
-            Component &&
-            !(Component.prototype instanceof PureComponent)
-          ) {
-            throw new Error(`${key} does not extend PureComponent. :\'(`);
+          if (Component && Component.prototype instanceof React.PureComponent) {
+            throw new Error(
+              `${key} extends PureComponent but should be a function component. 😥`
+            );
           }
         }
       }
