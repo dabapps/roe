@@ -1,11 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface BannerProps
-  extends ComponentProps,
-    React.HTMLProps<HTMLElement> {
+export interface BannerProps {
   /**
    * If set, displays the component, otherwise it is hidden
    * @default true
@@ -21,7 +22,9 @@ export interface BannerProps
 /**
  * A Banner component that displays fixed to the top or bottom of the screen.
  */
-const Banner = (props: BannerProps): React.ReactElement => {
+const Banner: FunctionComponentOptionalComponentProp<'div', BannerProps> = (
+  props: OptionalComponentProp<'div'> & BannerProps
+): React.ReactElement => {
   const {
     className,
     children,
