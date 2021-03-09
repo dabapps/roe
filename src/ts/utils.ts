@@ -1,3 +1,4 @@
+import * as React from 'react';
 import * as randomSeed from 'random-seed';
 import {
   MATCHES_AMPERSAND,
@@ -8,7 +9,7 @@ import {
   MATCHES_NON_WORD_CHARACTERS,
 } from './constants';
 
-export const formatCode = (code: string) => {
+export const formatCode = (code: string): string => {
   const codeWithoutLeadingOrTrailingEmptyLines = code
     .replace(MATCHES_BLANK_FIRST_LINE, '')
     .replace(MATCHES_BLANK_LAST_LINE, '');
@@ -46,19 +47,19 @@ export const getHref = (
 
 let rand = randomSeed.create('dabapps');
 
-export const resetRandomSeed = () => {
+export const resetRandomSeed = (): void => {
   rand = randomSeed.create('dabapps');
 };
 
-export const generateIpsum = (words: ReadonlyArray<string>) => {
-  const ipsum = Array.apply(null, new Array(15))
+export const generateIpsum = (words: ReadonlyArray<string>): string => {
+  const ipsum = [...Array(15)]
     .map(() => words[Math.floor(rand.range(words.length))])
     .join(' ');
 
   return ipsum.charAt(0).toUpperCase() + ipsum.substring(1) + '.';
 };
 
-export const shouldNotBeRendered = (children: any) => {
+export const shouldNotBeRendered = (children: unknown): boolean => {
   return (
     children === false ||
     children === null ||
@@ -67,10 +68,10 @@ export const shouldNotBeRendered = (children: any) => {
   );
 };
 
-export const isValidColumnNumber = (value?: number) =>
+export const isValidColumnNumber = (value?: number): boolean =>
   typeof value === 'number' && value === +value;
 
-export const getScrollOffset = () => {
+export const getScrollOffset = (): { x: number; y: number } => {
   const doc = document.documentElement;
   const left = (window.pageXOffset || doc.scrollLeft) - (doc.clientLeft || 0);
   const top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
