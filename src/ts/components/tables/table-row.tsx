@@ -1,15 +1,18 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
-
-export type TableRowProps = ComponentProps & React.HTMLProps<HTMLElement>;
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
 /**
  * Table row component with additional styles & functionality, used within a table head or body.
  * See the [Table](#table) section for a full example.
  */
-const TableRow = (props: TableRowProps) => {
+const TableRow: FunctionComponentOptionalComponentProp<'tr'> = (
+  props: OptionalComponentProp<'tr'>
+) => {
   const {
     className,
     children,

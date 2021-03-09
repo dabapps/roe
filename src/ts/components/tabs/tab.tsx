@@ -1,9 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface TabProps extends ComponentProps, React.HTMLProps<HTMLElement> {
+export interface TabProps {
   /**
    * Apply active `Tab` styles.
    */
@@ -15,7 +18,9 @@ export interface TabProps extends ComponentProps, React.HTMLProps<HTMLElement> {
  * Easily style active tabs with the `active` prop.
  * See the [Tabs](#tabs) section for a full example.
  */
-const Tab = (props: TabProps) => {
+const Tab: FunctionComponentOptionalComponentProp<'li', TabProps> = (
+  props: OptionalComponentProp<'li'> & TabProps
+) => {
   const {
     className,
     children,

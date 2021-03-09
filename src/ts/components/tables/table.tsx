@@ -1,11 +1,12 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
-export interface TableProps
-  extends ComponentProps,
-    React.HTMLProps<HTMLElement> {
+export interface TableProps {
   /**
    * Currently unused.
    * @default "'sm'"
@@ -52,7 +53,9 @@ export interface TableProps
 /**
  * Table component with additional styles & functionality.
  */
-const Table = (props: TableProps) => {
+const Table: FunctionComponentOptionalComponentProp<'table', TableProps> = (
+  props: OptionalComponentProp<'table'> & TableProps
+) => {
   const {
     className,
     children,

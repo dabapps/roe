@@ -1,14 +1,17 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
-
-export type TabsProps = ComponentProps & React.HTMLProps<HTMLElement>;
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
 /**
  * Used to contain a set of `Tab` components.
  */
-const Tabs = (props: TabsProps) => {
+const Tabs: FunctionComponentOptionalComponentProp<'ul'> = (
+  props: OptionalComponentProp<'ul'>
+) => {
   const {
     className,
     children,

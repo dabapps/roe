@@ -1,15 +1,18 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
-
-export type TableBodyProps = ComponentProps & React.HTMLProps<HTMLElement>;
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 
 /**
  * Table body component with additional styles & functionality, used to contain main table content.
  * See the [Table](#table) section for a full example.
  */
-const TableBody = (props: TableBodyProps) => {
+const TableBody: FunctionComponentOptionalComponentProp<'tbody'> = (
+  props: OptionalComponentProp<'tbody'>
+) => {
   const {
     className,
     children,
