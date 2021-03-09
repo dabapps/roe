@@ -1,5 +1,10 @@
 import * as React from 'react';
 import * as randomSeed from 'random-seed';
+
+import {
+  FunctionComponentOptionalComponentProp,
+  IntrinsicElementType,
+} from './types';
 import {
   MATCHES_AMPERSAND,
   MATCHES_BLANK_FIRST_LINE,
@@ -80,4 +85,21 @@ export const getScrollOffset = (): { x: number; y: number } => {
     x: left,
     y: top,
   };
+};
+
+export const memoWithComponentProp = <
+  T extends FunctionComponentOptionalComponentProp<C, E>,
+  C extends IntrinsicElementType,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  E extends Record<string, any> = Record<string, unknown>
+>(
+  component: T
+): T & {
+  displayName?: string;
+  readonly $$typeof: symbol;
+  readonly type: T;
+} => {
+  // Ignore React's types because they get too "complex"
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  return React.memo(component as any) as any;
 };
