@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PureComponent, ReactElement } from 'react';
+
 import {
   AppRoot,
   Button,
@@ -28,14 +28,16 @@ import NavItems from './nav-items';
 const X_CHAR = String.fromCharCode(215);
 const MENU_CHAR = String.fromCharCode(9776);
 
+type UnknownProps = Record<string, unknown>;
+
 interface AppState {
   sidebarOpen: boolean;
   highlightActive: boolean;
-  modals: ReadonlyArray<ReactElement<{}>>;
+  modals: ReadonlyArray<React.ReactElement<UnknownProps>>;
 }
 
-class App extends PureComponent<{}, AppState> {
-  public constructor(props: {}) {
+class App extends React.PureComponent<UnknownProps, AppState> {
+  public constructor(props: UnknownProps) {
     super(props);
 
     this.state = {
@@ -45,7 +47,7 @@ class App extends PureComponent<{}, AppState> {
     };
   }
 
-  public render() {
+  public render(): React.ReactElement {
     return (
       <AppRoot>
         <NavBar shy>
@@ -56,7 +58,7 @@ class App extends PureComponent<{}, AppState> {
 
             <Button
               className="primary float-right display-block md-display-none"
-              onClick={this.showSidebar}
+              onClick={this.onClickShowSideBar}
             >
               {MENU_CHAR}
             </Button>
@@ -65,12 +67,12 @@ class App extends PureComponent<{}, AppState> {
 
         <SideBar
           open={this.state.sidebarOpen}
-          onClickOutside={this.hideSidebar}
+          onClickOutside={this.onClickHideSideBar}
           position="right"
           className="display-block md-display-none"
         >
           <div className="margin-vertical-base">
-            <Button className="primary" onClick={this.hideSidebar}>
+            <Button className="primary" onClick={this.onClickHideSideBar}>
               {X_CHAR}
             </Button>
           </div>
@@ -331,13 +333,13 @@ class App extends PureComponent<{}, AppState> {
     );
   }
 
-  private showSidebar = () => {
+  private onClickShowSideBar = () => {
     this.setState({
       sidebarOpen: true,
     });
   };
 
-  private hideSidebar = () => {
+  private onClickHideSideBar = () => {
     this.setState({
       sidebarOpen: false,
     });

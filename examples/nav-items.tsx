@@ -1,7 +1,12 @@
 import * as React from 'react';
-import { Nav, NavItem } from '../src/ts/';
 
-const NavItems = ({ className }: { className?: string }) => (
+import { Nav, NavItem } from '../src/ts';
+
+const NavItems = ({
+  className,
+}: {
+  className?: string;
+}): React.ReactElement => (
   <Nav className={className}>
     <NavItem active>
       <a href="#">One</a>
