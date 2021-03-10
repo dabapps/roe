@@ -59,7 +59,6 @@ const InputWithPrefixSuffix: FunctionComponentOptionalComponentProp<
     prefix,
     suffix,
     block,
-    className,
     inputClassName,
     prefixClassName,
     suffixClassName,
@@ -71,12 +70,7 @@ const InputWithPrefixSuffix: FunctionComponentOptionalComponentProp<
   } = props;
 
   return (
-    <InputGroup
-      {...remainingProps}
-      component={component}
-      block={block}
-      className={className}
-    >
+    <InputGroup {...remainingProps} component={component} block={block}>
       {typeof prefix !== 'undefined' && (
         <InputGroupAddon className={prefixClassName}>{prefix}</InputGroupAddon>
       )}
