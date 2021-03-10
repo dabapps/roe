@@ -1,9 +1,3 @@
-interface IHighlightJS {
-  highlightBlock(element: HTMLElement): void;
-}
-
-declare const hljs: void | IHighlightJS;
-
 import * as classNames from 'classnames';
 import * as React from 'react';
 
@@ -53,12 +47,12 @@ export const CodeBlock: FunctionComponentOptionalComponentProp<
   React.useEffect(() => {
     if (
       elementRef.current &&
-      typeof hljs === 'object' &&
+      typeof window.hljs === 'object' &&
       // tslint:disable-next-line:strict-type-predicates
-      typeof hljs.highlightBlock === 'function' &&
+      typeof window.hljs.highlightBlock === 'function' &&
       prevProps.current.children !== props.children
     ) {
-      hljs.highlightBlock(elementRef.current);
+      window.hljs.highlightBlock(elementRef.current);
     }
 
     prevProps.current = props;
