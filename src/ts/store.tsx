@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 /**
  * @internal
  */
@@ -47,6 +49,18 @@ export class Store {
     if (index >= 0) {
       this.listeners.splice(index, 1);
     }
+  };
+
+  public useState = (): StoreState => {
+    const [state, setState] = React.useState(this.getState());
+
+    React.useEffect(() => {
+      const unsubscribe = this.subscribe(setState);
+
+      return unsubscribe;
+    }, []);
+
+    return state;
   };
 }
 
