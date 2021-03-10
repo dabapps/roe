@@ -41,20 +41,27 @@ const Footer: FunctionComponentOptionalComponentProp<'div', FooterPropsBase> = (
   const [footer, setFooter] = React.useState<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
+    const notifyAppRoot = () => {
+      store.setState({
+        hasStickyFooter: Boolean(sticky || fixed),
+        footerHeight:
+          footer instanceof HTMLElement
+            ? footer.getBoundingClientRect().height
+            : undefined,
+      });
+    };
+
     // Add/remove resize observer subscriptions when sticky or fixed changes
     if (sticky || fixed) {
       if (footer instanceof HTMLElement) {
-        resizeObserverRef.current = new ResizeObserver(() => {
-          store.setState({
-            hasStickyFooter: Boolean(sticky || fixed),
-            footerHeight: footer.getBoundingClientRect().height,
-          });
-        });
+        resizeObserverRef.current = new ResizeObserver(notifyAppRoot);
         resizeObserverRef.current.observe(footer);
       }
     } else {
       resizeObserverRef.current?.disconnect();
     }
+
+    notifyAppRoot();
 
     // Remove resize observer subscription on unmount
     return () => {
