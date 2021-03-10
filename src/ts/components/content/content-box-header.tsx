@@ -36,4 +36,8 @@ const ContentBoxHeader: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default memoWithComponentProp(ContentBoxHeader);
+const ContentBoxHeaderMemo = memoWithComponentProp(ContentBoxHeader);
+
+export { ContentBoxHeaderMemo as ContentBoxHeader };
+
+export default ContentBoxHeaderMemo;

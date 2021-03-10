@@ -32,4 +32,8 @@ const Alert: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default memoWithComponentProp(Alert);
+const AlertMemo = memoWithComponentProp(Alert);
+
+export { AlertMemo as Alert };
+
+export default AlertMemo;

@@ -59,4 +59,8 @@ const Button: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(Button);
+const ButtonMemo = memoWithComponentProp(Button);
+
+export { ButtonMemo as Button };
+
+export default ButtonMemo;

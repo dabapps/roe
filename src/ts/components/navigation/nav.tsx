@@ -33,4 +33,8 @@ const Nav: FunctionComponentOptionalComponentProp<'ul'> = (props: NavProps) => {
   );
 };
 
-export default memoWithComponentProp(Nav);
+const NavMemo = memoWithComponentProp(Nav);
+
+export { NavMemo as Nav };
+
+export default NavMemo;

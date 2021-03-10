@@ -43,4 +43,8 @@ const InputGroup: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(InputGroup);
+const InputGroupMemo = memoWithComponentProp(InputGroup);
+
+export { InputGroupMemo as InputGroup };
+
+export default InputGroupMemo;

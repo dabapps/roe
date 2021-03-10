@@ -52,4 +52,8 @@ const Container: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(Container);
+const ContainerMemo = memoWithComponentProp(Container);
+
+export { ContainerMemo as Container };
+
+export default ContainerMemo;

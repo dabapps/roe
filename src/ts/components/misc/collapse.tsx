@@ -71,7 +71,7 @@ export interface CollapseState {
 /**
  * Component to expand and collapse content, optionally displaying a small preview.
  */
-export const Collapse: FunctionComponentOptionalComponentProp<
+const Collapse: FunctionComponentOptionalComponentProp<
   'div',
   CollapsePropsBase
 > = (props: CollapseProps) => {
@@ -188,4 +188,8 @@ export const Collapse: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(Collapse);
+const CollapseMemo = memoWithComponentProp(Collapse);
+
+export { CollapseMemo as Collapse };
+
+export default CollapseMemo;

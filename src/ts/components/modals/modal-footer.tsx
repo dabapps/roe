@@ -36,4 +36,8 @@ const ModalFooter: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default memoWithComponentProp(ModalFooter);
+const ModalFooterMemo = memoWithComponentProp(ModalFooter);
+
+export { ModalFooterMemo as ModalFooter };
+
+export default ModalFooterMemo;

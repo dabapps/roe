@@ -30,7 +30,7 @@ export type CodeBlockProps<
 /**
  * Component to nicely highlight code inside a `pre` element.
  */
-export const CodeBlock: FunctionComponentOptionalComponentProp<
+const CodeBlock: FunctionComponentOptionalComponentProp<
   'div',
   CodeBlockPropsBase
 > = (props: CodeBlockProps) => {
@@ -85,4 +85,8 @@ export const CodeBlock: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(CodeBlock);
+const CodeBlockMemo = memoWithComponentProp(CodeBlock);
+
+export { CodeBlockMemo as CodeBlock };
+
+export default CodeBlockMemo;

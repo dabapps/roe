@@ -36,4 +36,8 @@ const ModalBody: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default memoWithComponentProp(ModalBody);
+const ModalBodyMemo = memoWithComponentProp(ModalBody);
+
+export { ModalBodyMemo as ModalBody };
+
+export default ModalBodyMemo;

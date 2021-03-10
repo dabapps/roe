@@ -42,4 +42,8 @@ const TableHeader: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(TableHeader);
+const TableHeaderMemo = memoWithComponentProp(TableHeader);
+
+export { TableHeaderMemo as TableHeader };
+
+export default TableHeaderMemo;

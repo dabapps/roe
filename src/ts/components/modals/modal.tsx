@@ -68,4 +68,8 @@ const Modal: FunctionComponentOptionalComponentProp<'div', ModalProps> = (
   );
 };
 
-export default memoWithComponentProp(Modal);
+const ModalMemo = memoWithComponentProp(Modal);
+
+export { ModalMemo as Modal };
+
+export default ModalMemo;

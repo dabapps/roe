@@ -92,4 +92,8 @@ const InputWithPrefixSuffix: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(InputWithPrefixSuffix);
+const InputWithPrefixSuffixMemo = memoWithComponentProp(InputWithPrefixSuffix);
+
+export { InputWithPrefixSuffixMemo as InputWithPrefixSuffix };
+
+export default InputWithPrefixSuffixMemo;

@@ -36,4 +36,8 @@ const TableHead: FunctionComponentOptionalComponentProp<'thead'> = (
   );
 };
 
-export default memoWithComponentProp(TableHead);
+const TableHeadMemo = memoWithComponentProp(TableHead);
+
+export { TableHeadMemo as TableHead };
+
+export default TableHeadMemo;

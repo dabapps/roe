@@ -53,4 +53,8 @@ const FormGroup: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(FormGroup);
+const FormGroupMemo = memoWithComponentProp(FormGroup);
+
+export { FormGroupMemo as FormGroup };
+
+export default FormGroupMemo;

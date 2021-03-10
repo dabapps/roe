@@ -36,4 +36,8 @@ const TableRow: FunctionComponentOptionalComponentProp<'tr'> = (
   );
 };
 
-export default memoWithComponentProp(TableRow);
+const TableRowMemo = memoWithComponentProp(TableRow);
+
+export { TableRowMemo as TableRow };
+
+export default TableRowMemo;

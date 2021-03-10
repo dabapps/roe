@@ -42,4 +42,8 @@ const NavItem: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(NavItem);
+const NavItemMemo = memoWithComponentProp(NavItem);
+
+export { NavItemMemo as NavItem };
+
+export default NavItemMemo;

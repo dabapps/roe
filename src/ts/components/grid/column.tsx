@@ -191,4 +191,8 @@ const Column: FunctionComponentOptionalComponentProp<'div', ColumnPropsBase> = (
   );
 };
 
-export default memoWithComponentProp(Column);
+const ColumnMemo = memoWithComponentProp(Column);
+
+export { ColumnMemo as Column };
+
+export default ColumnMemo;

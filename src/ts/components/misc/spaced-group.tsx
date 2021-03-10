@@ -59,4 +59,8 @@ const SpacedGroup: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(SpacedGroup);
+const SpacedGroupMemo = memoWithComponentProp(SpacedGroup);
+
+export { SpacedGroupMemo as SpacedGroup };
+
+export default SpacedGroupMemo;

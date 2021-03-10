@@ -105,4 +105,8 @@ const Table: FunctionComponentOptionalComponentProp<'table', TablePropsBase> = (
   );
 };
 
-export default memoWithComponentProp(Table);
+const TableMemo = memoWithComponentProp(Table);
+
+export { TableMemo as Table };
+
+export default TableMemo;

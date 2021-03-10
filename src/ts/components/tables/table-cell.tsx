@@ -42,4 +42,8 @@ const TableCell: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(TableCell);
+const TableCellMemo = memoWithComponentProp(TableCell);
+
+export { TableCellMemo as TableCell };
+
+export default TableCellMemo;

@@ -81,4 +81,8 @@ const SideBar: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(SideBar);
+const SideBarMemo = memoWithComponentProp(SideBar);
+
+export { SideBarMemo as SideBar };
+
+export default SideBarMemo;

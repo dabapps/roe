@@ -36,4 +36,8 @@ const ModalCloseIcon: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default memoWithComponentProp(ModalCloseIcon);
+const ModalCloseIconMemo = memoWithComponentProp(ModalCloseIcon);
+
+export { ModalCloseIconMemo as ModalCloseIcon };
+
+export default ModalCloseIconMemo;

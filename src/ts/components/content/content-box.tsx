@@ -35,4 +35,8 @@ const ContentBox: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default memoWithComponentProp(ContentBox);
+const ContentBoxMemo = memoWithComponentProp(ContentBox);
+
+export { ContentBoxMemo as ContentBox };
+
+export default ContentBoxMemo;

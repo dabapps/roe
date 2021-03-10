@@ -37,4 +37,8 @@ const Row: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default memoWithComponentProp(Row);
+const RowMemo = memoWithComponentProp(Row);
+
+export { RowMemo as Row };
+
+export default RowMemo;

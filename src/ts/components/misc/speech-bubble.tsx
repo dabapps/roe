@@ -74,4 +74,8 @@ const SpeechBubble: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(SpeechBubble);
+const SpeechBubbleMemo = memoWithComponentProp(SpeechBubble);
+
+export { SpeechBubbleMemo as SpeechBubble };
+
+export default SpeechBubbleMemo;

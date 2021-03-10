@@ -43,4 +43,8 @@ const InputGroupAddon: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(InputGroupAddon);
+const InputGroupAddonMemo = memoWithComponentProp(InputGroupAddon);
+
+export { InputGroupAddonMemo as InputGroupAddon };
+
+export default InputGroupAddonMemo;

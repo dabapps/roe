@@ -71,4 +71,8 @@ const DabIpsum = (props: DabIpsumProps) => {
   }
 };
 
-export default memoWithComponentProp(DabIpsum);
+const DabIpsumMemo = memoWithComponentProp(DabIpsum);
+
+export { DabIpsumMemo as DabIpsum };
+
+export default DabIpsumMemo;

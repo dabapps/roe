@@ -77,4 +77,8 @@ const Highlight: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(Highlight);
+const HighlightMemo = memoWithComponentProp(Highlight);
+
+export { HighlightMemo as Highlight };
+
+export default HighlightMemo;

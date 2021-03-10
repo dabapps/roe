@@ -36,4 +36,8 @@ const Section: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default memoWithComponentProp(Section);
+const SectionMemo = memoWithComponentProp(Section);
+
+export { SectionMemo as Section };
+
+export default SectionMemo;

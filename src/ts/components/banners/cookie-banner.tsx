@@ -79,4 +79,8 @@ const CookieBanner: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(CookieBanner);
+const CookieBannerMemo = memoWithComponentProp(CookieBanner);
+
+export { CookieBannerMemo as CookieBanner };
+
+export default CookieBannerMemo;

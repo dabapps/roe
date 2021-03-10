@@ -149,4 +149,8 @@ const NavBar: FunctionComponentOptionalComponentProp<'div', NavBarPropsBase> = (
   );
 };
 
-export default memoWithComponentProp(NavBar);
+const NavBarMemo = memoWithComponentProp(NavBar);
+
+export { NavBarMemo as NavBar };
+
+export default NavBarMemo;

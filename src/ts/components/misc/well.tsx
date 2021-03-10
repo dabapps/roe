@@ -32,4 +32,8 @@ const Well: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default memoWithComponentProp(Well);
+const WellMemo = memoWithComponentProp(Well);
+
+export { WellMemo as Well };
+
+export default WellMemo;

@@ -36,4 +36,8 @@ const ContentBoxFooter: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default memoWithComponentProp(ContentBoxFooter);
+const ContentBoxFooterMemo = memoWithComponentProp(ContentBoxFooter);
+
+export { ContentBoxFooterMemo as ContentBoxFooter };
+
+export default ContentBoxFooterMemo;

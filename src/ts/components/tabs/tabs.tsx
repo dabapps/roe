@@ -32,4 +32,8 @@ const Tabs: FunctionComponentOptionalComponentProp<'ul'> = (
   );
 };
 
-export default memoWithComponentProp(Tabs);
+const TabsMemo = memoWithComponentProp(Tabs);
+
+export { TabsMemo as Tabs };
+
+export default TabsMemo;

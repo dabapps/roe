@@ -45,4 +45,8 @@ const Tab: FunctionComponentOptionalComponentProp<'li', TabPropsBase> = (
   );
 };
 
-export default memoWithComponentProp(Tab);
+const TabMemo = memoWithComponentProp(Tab);
+
+export { TabMemo as Tab };
+
+export default TabMemo;

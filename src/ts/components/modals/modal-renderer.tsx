@@ -38,4 +38,8 @@ const ModalRenderer = (props: ModalRendererProps) => {
   );
 };
 
-export default React.memo(ModalRenderer);
+const ModalRendererMemo = React.memo(ModalRenderer);
+
+export { ModalRendererMemo as ModalRenderer };
+
+export default ModalRendererMemo;

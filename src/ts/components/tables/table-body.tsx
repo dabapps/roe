@@ -36,4 +36,8 @@ const TableBody: FunctionComponentOptionalComponentProp<'tbody'> = (
   );
 };
 
-export default memoWithComponentProp(TableBody);
+const TableBodyMemo = memoWithComponentProp(TableBody);
+
+export { TableBodyMemo as TableBody };
+
+export default TableBodyMemo;

@@ -36,4 +36,8 @@ const ModalHeader: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default memoWithComponentProp(ModalHeader);
+const ModalHeaderMemo = memoWithComponentProp(ModalHeader);
+
+export { ModalHeaderMemo as ModalHeader };
+
+export default ModalHeaderMemo;

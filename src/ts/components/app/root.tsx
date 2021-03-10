@@ -68,4 +68,8 @@ const AppRoot: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-export default memoWithComponentProp(AppRoot);
+const AppRootMemo = memoWithComponentProp(AppRoot);
+
+export { AppRootMemo as AppRoot };
+
+export default AppRootMemo;

@@ -32,4 +32,8 @@ const Badge: FunctionComponentOptionalComponentProp<'span'> = (
   );
 };
 
-export default memoWithComponentProp(Badge);
+const BadgeMemo = memoWithComponentProp(Badge);
+
+export { BadgeMemo as Badge };
+
+export default BadgeMemo;

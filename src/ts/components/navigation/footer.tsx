@@ -90,4 +90,8 @@ const Footer: FunctionComponentOptionalComponentProp<'div', FooterPropsBase> = (
   );
 };
 
-export default memoWithComponentProp(Footer);
+const FooterMemo = memoWithComponentProp(Footer);
+
+export { FooterMemo as Footer };
+
+export default FooterMemo;

@@ -50,4 +50,8 @@ const Banner: FunctionComponentOptionalComponentProp<'div', BannerPropsBase> = (
   );
 };
 
-export default memoWithComponentProp(Banner);
+const BannerMemo = memoWithComponentProp(Banner);
+
+export { BannerMemo as Banner };
+
+export default BannerMemo;

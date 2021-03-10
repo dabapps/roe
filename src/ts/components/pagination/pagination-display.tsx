@@ -64,4 +64,8 @@ const PaginationDisplay: FunctionComponentOptionalComponentProp<
   );
 };
 
-export default memoWithComponentProp(PaginationDisplay);
+const PaginationDisplayMemo = memoWithComponentProp(PaginationDisplay);
+
+export { PaginationDisplayMemo as PaginationDisplay };
+
+export default PaginationDisplayMemo;
