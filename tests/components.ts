@@ -95,7 +95,7 @@ describe('components', () => {
 
       const indexContent = fs.readFileSync(INDEX_FILE_PATH, UTF8);
       const indexRegex = new RegExp(
-        `^export\\s+{\\s+default\\s+as\\s+${componentName},?\\s+${componentName}Props,?\\s+}\\s+from\\s+'[a-z/.-]+';$`,
+        `^export\\s+{\\s+default\\s+as\\s+${componentName},?\\s+${componentName}Props,?[^}]+}\\s+from\\s+'[a-z/.-]+';$`,
         'm'
       );
 

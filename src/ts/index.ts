@@ -28,8 +28,8 @@ export {
 } from './components/content/content-box-footer';
 export {
   default as CookieBanner,
-  CookieBannerRenderProps,
   CookieBannerProps,
+  CookieBannerRenderProps,
 } from './components/banners/cookie-banner';
 export {
   default as DabIpsum,
