@@ -4,10 +4,11 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export interface SpeechBubbleProps {
+export interface SpeechBubblePropsBase {
   /**
    * Set the style `display: block;`.
    */
@@ -27,13 +28,17 @@ export interface SpeechBubbleProps {
   footer?: React.ReactChild;
 }
 
+export type SpeechBubbleProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & SpeechBubblePropsBase;
+
 /**
  * Speech bubble component for displaying conversations / messages.
  */
 const SpeechBubble: FunctionComponentOptionalComponentProp<
   'div',
-  SpeechBubbleProps
-> = (props: OptionalComponentProp<'div'> & SpeechBubbleProps) => {
+  SpeechBubblePropsBase
+> = (props: SpeechBubbleProps<'div'>) => {
   const {
     className,
     children,

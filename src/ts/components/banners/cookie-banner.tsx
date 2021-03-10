@@ -5,6 +5,7 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import Banner from './banner';
 import { memoWithComponentProp } from '../../utils';
@@ -15,10 +16,9 @@ export interface CookieBannerRenderProps {
 
 export type Render = (
   props: CookieBannerRenderProps
-) => // eslint-disable-next-line @typescript-eslint/no-explicit-any
-React.ReactElement<any>;
+) => React.ReactElement<Record<string, unknown>>;
 
-export interface CookieBannerProps {
+export interface CookieBannerPropsBase {
   /**
    * Takes a component as a function and renders as a child
    */
@@ -30,6 +30,10 @@ export interface CookieBannerProps {
   position?: 'top' | 'bottom';
 }
 
+export type CookieBannerProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & CookieBannerPropsBase;
+
 /**
  * A [Banner](#banner) component that is permanently dismissed after setting a cookie.
  * This component takes a render prop, which can be a component or function, that is passed a dismiss prop
@@ -37,8 +41,8 @@ export interface CookieBannerProps {
  */
 const CookieBanner: FunctionComponentOptionalComponentProp<
   'div',
-  CookieBannerProps
-> = (props: OptionalComponentProp<'div'> & CookieBannerProps) => {
+  CookieBannerPropsBase
+> = (props: CookieBannerProps<'div'>) => {
   const [dismissed, setDismissed] = React.useState<boolean>();
 
   const setCookie = () => {

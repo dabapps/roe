@@ -4,15 +4,20 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
+
+export type ModalHeaderProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C>;
 
 /**
  * Header for `Modal`s to display a title.
  * See the [Modal](#modal) section for a full example.
  */
 const ModalHeader: FunctionComponentOptionalComponentProp<'div'> = (
-  props: OptionalComponentProp<'div'>
+  props: ModalHeaderProps<'div'>
 ) => {
   const {
     className,

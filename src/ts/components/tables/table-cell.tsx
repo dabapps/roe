@@ -3,11 +3,16 @@ import * as React from 'react';
 
 import { NBSP } from '../../constants';
 import {
-  BaseTableCellProps,
+  TableCellPropsBase,
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { shouldNotBeRendered, memoWithComponentProp } from '../../utils';
+
+export type TableCellProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & TableCellPropsBase;
 
 /**
  * Table cell component with additional styles & functionality, used within table rows.
@@ -15,8 +20,8 @@ import { shouldNotBeRendered, memoWithComponentProp } from '../../utils';
  */
 const TableCell: FunctionComponentOptionalComponentProp<
   'td',
-  BaseTableCellProps
-> = (props: OptionalComponentProp<'td'> & BaseTableCellProps) => {
+  TableCellPropsBase
+> = (props: TableCellProps<'td'>) => {
   const {
     className,
     children,

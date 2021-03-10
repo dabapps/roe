@@ -4,23 +4,28 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export interface InputGroupProps {
+export interface InputGroupPropsBase {
   /**
    * Set the style `display: block;` so the group fills its parent.
    */
   block?: boolean;
 }
 
+export type InputGroupProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & InputGroupPropsBase;
+
 /**
  * Used to group inputs, selects, buttons, and `InputGroupAddon`s.
  */
 const InputGroup: FunctionComponentOptionalComponentProp<
   'div',
-  InputGroupProps
-> = (props: OptionalComponentProp<'div'> & InputGroupProps) => {
+  InputGroupPropsBase
+> = (props: InputGroupProps<'div'>) => {
   const {
     children,
     className,

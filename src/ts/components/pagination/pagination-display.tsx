@@ -4,10 +4,11 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export interface PaginationDisplayProps {
+export interface PaginationDisplayPropsBase {
   /**
    * className
    */
@@ -26,15 +27,20 @@ export interface PaginationDisplayProps {
   itemCount: number;
 }
 
+export type PaginationDisplayProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & PaginationDisplayPropsBase;
+
 const PaginationDisplay: FunctionComponentOptionalComponentProp<
-  'div',
-  PaginationDisplayProps
-> = (props: OptionalComponentProp<'div'> & PaginationDisplayProps) => {
+  'p',
+  PaginationDisplayPropsBase
+> = (props: PaginationDisplayProps<'p'>) => {
   const {
     className,
     itemCount,
     pageSize,
     currentPageNumber,
+    component: Component = 'p',
     ...remainingProps
   } = props;
 
@@ -49,12 +55,12 @@ const PaginationDisplay: FunctionComponentOptionalComponentProp<
   }, [pageSize, currentPageNumber, itemCount]);
 
   return (
-    <p
+    <Component
       {...remainingProps}
       className={classNames('pagination-display', className)}
     >
       Showing {showingLowerCount()}-{showingUpperCount()} of {itemCount}
-    </p>
+    </Component>
   );
 };
 

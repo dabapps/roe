@@ -5,8 +5,13 @@ import store, { StoreState } from '../../store';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
+
+export type AppRootProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C>;
 
 export type AppRootState = Pick<
   StoreState,
@@ -24,7 +29,7 @@ export type AppRootState = Pick<
  * The "app" class ensures that the AppRoot is not affected by the outer, non-react element.
  */
 const AppRoot: FunctionComponentOptionalComponentProp<'div'> = (
-  props: OptionalComponentProp<'div'>
+  props: AppRootProps<'div'>
 ) => {
   const {
     component: Component = 'div',

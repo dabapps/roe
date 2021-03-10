@@ -4,15 +4,20 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
+
+export type ModalCloseIconProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C>;
 
 /**
  * Used within a `ModalHeader` to add a close icon in the top right.
  * See the [Modal](#modal) section for a full example.
  */
 const ModalCloseIcon: FunctionComponentOptionalComponentProp<'div'> = (
-  props: OptionalComponentProp<'div'>
+  props: ModalCloseIconProps<'div'>
 ) => {
   const {
     className,

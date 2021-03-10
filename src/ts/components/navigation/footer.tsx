@@ -7,10 +7,11 @@ import store from '../../store';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export interface FooterProps {
+export interface FooterPropsBase {
   /**
    * Fix the footer to the bottom of the window when there is not enough content to push it down.
    */
@@ -21,8 +22,13 @@ export interface FooterProps {
   fixed?: boolean;
 }
 
-const Footer: FunctionComponentOptionalComponentProp<'div', FooterProps> = (
-  props: OptionalComponentProp<'div'> & FooterProps
+export type FooterProps<C extends IntrinsicElementType> = OptionalComponentProp<
+  C
+> &
+  FooterPropsBase;
+
+const Footer: FunctionComponentOptionalComponentProp<'div', FooterPropsBase> = (
+  props: FooterProps<'div'>
 ) => {
   const {
     sticky,
@@ -35,7 +41,7 @@ const Footer: FunctionComponentOptionalComponentProp<'div', FooterProps> = (
 
   const footerElement = React.useRef<HTMLDivElement>(null);
 
-  const notifyAppRoot = React.useCallback((prop: FooterProps) => {
+  const notifyAppRoot = React.useCallback((prop: FooterProps<'div'>) => {
     const { sticky: isSticky, fixed: isFixed } = prop;
     const element = ReactDOM.findDOMNode(footerElement.current);
 

@@ -4,14 +4,19 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
+
+export type WellProps<C extends IntrinsicElementType> = OptionalComponentProp<
+  C
+>;
 
 /**
  * Stylistic content container.
  */
 const Well: FunctionComponentOptionalComponentProp<'div'> = (
-  props: OptionalComponentProp<'div'>
+  props: WellProps<'div'>
 ) => {
   const {
     children,

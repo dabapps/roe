@@ -4,10 +4,11 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { formatCode, memoWithComponentProp } from '../../utils';
 
-export interface CodeBlockProps {
+export interface CodeBlockPropsBase {
   /**
    * Code to display.
    */
@@ -22,13 +23,17 @@ export interface CodeBlockProps {
   codeBlockName?: string;
 }
 
+export type CodeBlockProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & CodeBlockPropsBase;
+
 /**
  * Component to nicely highlight code inside a `pre` element.
  */
 export const CodeBlock: FunctionComponentOptionalComponentProp<
   'div',
-  CodeBlockProps
-> = (props: OptionalComponentProp<'div'> & CodeBlockProps) => {
+  CodeBlockPropsBase
+> = (props: CodeBlockProps<'div'>) => {
   const {
     children,
     className,

@@ -5,9 +5,10 @@ import { memoWithComponentProp } from '../../utils';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 
-export interface BannerProps {
+export interface BannerPropsBase {
   /**
    * If set, displays the component, otherwise it is hidden
    * @default true
@@ -20,11 +21,16 @@ export interface BannerProps {
   position?: 'top' | 'bottom';
 }
 
+export type BannerProps<C extends IntrinsicElementType> = OptionalComponentProp<
+  C
+> &
+  BannerPropsBase;
+
 /**
  * A Banner component that displays fixed to the top or bottom of the screen.
  */
-const Banner: FunctionComponentOptionalComponentProp<'div', BannerProps> = (
-  props: OptionalComponentProp<'div'> & BannerProps
+const Banner: FunctionComponentOptionalComponentProp<'div', BannerPropsBase> = (
+  props: BannerProps<'div'>
 ): React.ReactElement => {
   const {
     className,

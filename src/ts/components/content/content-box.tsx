@@ -4,14 +4,19 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
+
+export type ContentBoxProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C>;
 
 /**
  * Box for displaying content within.
  */
 const ContentBox: FunctionComponentOptionalComponentProp<'div'> = (
-  props: OptionalComponentProp<'div'>
+  props: ContentBoxProps<'div'>
 ) => {
   const {
     className,

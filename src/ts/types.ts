@@ -32,7 +32,7 @@ export interface FunctionComponentOptionalComponentProp<
   ): React.ReactElement;
 }
 
-export interface BaseTableCellProps {
+export interface TableCellPropsBase {
   /**
    * Set an exact cell width.
    */

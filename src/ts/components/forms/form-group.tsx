@@ -4,10 +4,11 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export interface FormGroupProps {
+export interface FormGroupPropsBase {
   /**
    * Set the style `display: block;` with label above input.
    */
@@ -18,13 +19,17 @@ export interface FormGroupProps {
   noLabel?: boolean;
 }
 
+export type FormGroupProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & FormGroupPropsBase;
+
 /**
  * Used to group a label & form input (or select).
  */
 const FormGroup: FunctionComponentOptionalComponentProp<
   'div',
-  FormGroupProps
-> = (props: OptionalComponentProp<'div'> & FormGroupProps) => {
+  FormGroupPropsBase
+> = (props: FormGroupProps<'div'>) => {
   const {
     children,
     className,

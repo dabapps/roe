@@ -5,10 +5,11 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export interface HighlightProps {
+export interface HighlightPropsBase {
   /**
    * Displays the overlay
    * @default false
@@ -26,6 +27,10 @@ export interface HighlightProps {
   backgroundColor?: string | undefined;
 }
 
+export type HighlightProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & HighlightPropsBase;
+
 const TIMEOUT = {
   appear: 300,
   enter: 300,
@@ -37,8 +42,8 @@ const TIMEOUT = {
  */
 const Highlight: FunctionComponentOptionalComponentProp<
   'div',
-  HighlightProps
-> = (props: OptionalComponentProp<'div'> & HighlightProps) => {
+  HighlightPropsBase
+> = (props: HighlightProps<'div'>) => {
   const {
     className,
     children,

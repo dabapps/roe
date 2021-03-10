@@ -4,10 +4,11 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export interface TableProps {
+export interface TablePropsBase {
   /**
    * Currently unused.
    * @default "'sm'"
@@ -51,11 +52,16 @@ export interface TableProps {
   rowHeaderWidth?: number;
 }
 
+export type TableProps<C extends IntrinsicElementType> = OptionalComponentProp<
+  C
+> &
+  TablePropsBase;
+
 /**
  * Table component with additional styles & functionality.
  */
-const Table: FunctionComponentOptionalComponentProp<'table', TableProps> = (
-  props: OptionalComponentProp<'table'> & TableProps
+const Table: FunctionComponentOptionalComponentProp<'table', TablePropsBase> = (
+  props: TableProps<'table'>
 ) => {
   const {
     className,

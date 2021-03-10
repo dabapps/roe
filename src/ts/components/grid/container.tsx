@@ -4,10 +4,11 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export interface ContainerProps {
+export interface ContainerPropsBase {
   /**
    * Fill parent with no media queries to affect width.
    */
@@ -18,13 +19,17 @@ export interface ContainerProps {
   solid?: boolean;
 }
 
+export type ContainerProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & ContainerPropsBase;
+
 /**
  * Used inside `NavBar`s or as the main wrapper for an application.
  */
 const Container: FunctionComponentOptionalComponentProp<
   'div',
-  ContainerProps
-> = (props: OptionalComponentProp<'div'> & ContainerProps) => {
+  ContainerPropsBase
+> = (props: ContainerProps<'div'>) => {
   const {
     children,
     className,

@@ -4,10 +4,11 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { isValidColumnNumber, memoWithComponentProp } from '../../utils';
 
-export interface ColumnProps {
+export interface ColumnPropsBase {
   /**
    * Columns to occupy on extra small screens
    */
@@ -110,12 +111,17 @@ export interface ColumnProps {
   xlPull?: number;
 }
 
+export type ColumnProps<C extends IntrinsicElementType> = OptionalComponentProp<
+  C
+> &
+  ColumnPropsBase;
+
 /**
  * Placed inside rows to align content in columns.
  * The default grid has 12 divisions.
  */
-const Column: FunctionComponentOptionalComponentProp<'div', ColumnProps> = (
-  props: OptionalComponentProp<'div'> & ColumnProps
+const Column: FunctionComponentOptionalComponentProp<'div', ColumnPropsBase> = (
+  props: ColumnProps<'div'>
 ) => {
   const {
     children,

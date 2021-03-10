@@ -4,15 +4,20 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
+
+export type TableHeadProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C>;
 
 /**
  * Table head component with additional styles & functionality, used to contain table headers.
  * See the [Table](#table) section for a full example.
  */
 const TableHead: FunctionComponentOptionalComponentProp<'thead'> = (
-  props: OptionalComponentProp<'thead'>
+  props: TableHeadProps<'thead'>
 ) => {
   const {
     className,

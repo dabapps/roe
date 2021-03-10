@@ -3,11 +3,16 @@ import * as React from 'react';
 
 import { NBSP } from '../../constants';
 import {
-  BaseTableCellProps,
+  TableCellPropsBase,
   OptionalComponentProp,
   FunctionComponentOptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { shouldNotBeRendered, memoWithComponentProp } from '../../utils';
+
+export type TableHeaderProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & TableCellPropsBase;
 
 /**
  * Table header component with additional styles & functionality, used to style and or fix table headers.
@@ -15,8 +20,8 @@ import { shouldNotBeRendered, memoWithComponentProp } from '../../utils';
  */
 const TableHeader: FunctionComponentOptionalComponentProp<
   'th',
-  BaseTableCellProps
-> = (props: OptionalComponentProp<'th'> & BaseTableCellProps) => {
+  TableCellPropsBase
+> = (props: TableHeaderProps<'th'>) => {
   const {
     className,
     children,

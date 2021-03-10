@@ -4,15 +4,20 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
+
+export type SectionProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C>;
 
 /**
  * Used to separate sections of content with a horizontal-rule-like style.
  * Should only be used inside `ContentBox`s or `Column`s.
  */
 const Section: FunctionComponentOptionalComponentProp<'div'> = (
-  props: OptionalComponentProp<'div'>
+  props: SectionProps<'div'>
 ) => {
   const {
     children,

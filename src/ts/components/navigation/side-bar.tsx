@@ -5,10 +5,11 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export interface SideBarProps {
+export interface SideBarPropsBase {
   /**
    * SideBar is hidden off screen if this is falsy.
    */
@@ -27,6 +28,10 @@ export interface SideBarProps {
   onClickOutside(event: React.MouseEvent<HTMLDivElement>): void;
 }
 
+export type SideBarProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & SideBarPropsBase;
+
 const TIMEOUT = {
   appear: 300,
   enter: 300,
@@ -37,9 +42,10 @@ const TIMEOUT = {
  * SideBar navigation that opens over the content. Often used as the primary navigation on small devices.
  * See the [Nav](#nav) section for more details.
  */
-const SideBar: FunctionComponentOptionalComponentProp<'div', SideBarProps> = (
-  props: OptionalComponentProp<'div'> & SideBarProps
-) => {
+const SideBar: FunctionComponentOptionalComponentProp<
+  'div',
+  SideBarPropsBase
+> = (props: SideBarProps<'div'>) => {
   const {
     className,
     children,

@@ -5,9 +5,10 @@ import { memoWithComponentProp } from '../../utils';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 
-export interface SpacedGroupProps {
+export interface SpacedGroupPropsBase {
   /**
    * Set the group to `display: block;` so it fills its parent.
    */
@@ -22,13 +23,17 @@ export interface SpacedGroupProps {
   large?: boolean;
 }
 
+export type SpacedGroupProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & SpacedGroupPropsBase;
+
 /**
  * Component to contain & automatically add space between inline elements.
  */
 const SpacedGroup: FunctionComponentOptionalComponentProp<
   'span',
-  SpacedGroupProps
-> = (props: OptionalComponentProp<'span'> & SpacedGroupProps) => {
+  SpacedGroupPropsBase
+> = (props: SpacedGroupProps<'span'>) => {
   const {
     children,
     className,

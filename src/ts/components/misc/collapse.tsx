@@ -4,6 +4,7 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
@@ -14,7 +15,7 @@ const DEFAULT_FADE_HEIGHT = 50;
 const DEFAULT_TRANSPARENT_COLOR = 'rgba(255, 255, 255, 0)';
 const DEFAULT_FADE_COLOR = 'rgba(255, 255, 255, 1)';
 
-export interface CollapseProps {
+export interface CollapsePropsBase {
   /**
    * Whether the collapse is open or not
    * @default false
@@ -57,6 +58,10 @@ export interface CollapseProps {
   fadeHeight?: number;
 }
 
+export type CollapseProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & CollapsePropsBase;
+
 export interface CollapseState {
   // tslint:disable-line:no-unused-variable
   height: number | string;
@@ -69,8 +74,8 @@ export interface CollapseState {
  */
 export const Collapse: FunctionComponentOptionalComponentProp<
   'div',
-  CollapseProps
-> = (props: OptionalComponentProp<'div'> & CollapseProps) => {
+  CollapsePropsBase
+> = (props: CollapseProps<'div'>) => {
   const {
     children,
     className,

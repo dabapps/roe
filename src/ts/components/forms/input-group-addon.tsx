@@ -4,20 +4,25 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export interface InputGroupAddonProps {
+export interface InputGroupAddonPropsBase {
   width?: number;
 }
+
+export type InputGroupAddonProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C> & InputGroupAddonPropsBase;
 
 /**
  * Used to display additional context within an `InputGroup`.
  */
 const InputGroupAddon: FunctionComponentOptionalComponentProp<
   'div',
-  InputGroupAddonProps
-> = (props: OptionalComponentProp<'div'> & InputGroupAddonProps) => {
+  InputGroupAddonPropsBase
+> = (props: InputGroupAddonProps<'div'>) => {
   const {
     children,
     className,

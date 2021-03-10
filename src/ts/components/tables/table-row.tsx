@@ -4,15 +4,20 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
+
+export type TableRowProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C>;
 
 /**
  * Table row component with additional styles & functionality, used within a table head or body.
  * See the [Table](#table) section for a full example.
  */
 const TableRow: FunctionComponentOptionalComponentProp<'tr'> = (
-  props: OptionalComponentProp<'tr'>
+  props: TableRowProps<'tr'>
 ) => {
   const {
     className,

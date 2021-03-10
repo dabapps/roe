@@ -4,10 +4,11 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export interface ButtonProps {
+export interface ButtonPropsBase {
   /**
    * Set the style `display: block;`.
    */
@@ -22,12 +23,18 @@ export interface ButtonProps {
   small?: boolean;
 }
 
+export type ButtonProps<C extends IntrinsicElementType> = OptionalComponentProp<
+  C
+> &
+  ButtonPropsBase;
+
 /**
  * Used in place of a standard `button` tag, this component adds additional styles and effects.
  */
-const Button: FunctionComponentOptionalComponentProp<'button', ButtonProps> = (
-  props: OptionalComponentProp<'button'> & ButtonProps
-) => {
+const Button: FunctionComponentOptionalComponentProp<
+  'button',
+  ButtonPropsBase
+> = (props: ButtonProps<'button'>) => {
   const {
     children,
     className,

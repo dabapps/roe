@@ -4,8 +4,11 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
+
+export type NavProps<C extends IntrinsicElementType> = OptionalComponentProp<C>;
 
 /**
  * Used to group NavItems inside a NavBar or SideBar.
@@ -14,7 +17,7 @@ import { memoWithComponentProp } from '../../utils';
  * The same Nav can be used in both a NavBar and SideBar, and will automatically style itself sensibly.
  */
 const Nav: FunctionComponentOptionalComponentProp<'ul'> = (
-  props: OptionalComponentProp<'ul'>
+  props: NavProps<'ul'>
 ) => {
   const {
     className,

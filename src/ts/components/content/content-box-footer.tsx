@@ -4,15 +4,20 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
+
+export type ContentBoxFooterProps<
+  C extends IntrinsicElementType
+> = OptionalComponentProp<C>;
 
 /**
  * Footer for `ContentBox`s, ideal for submit buttons, links & sub-text.
  * See the [ContentBox](#contentbox) section for a full example.
  */
 const ContentBoxFooter: FunctionComponentOptionalComponentProp<'div'> = (
-  props: OptionalComponentProp<'div'>
+  props: ContentBoxFooterProps<'div'>
 ) => {
   const {
     className,

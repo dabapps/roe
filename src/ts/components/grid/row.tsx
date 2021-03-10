@@ -4,8 +4,11 @@ import * as React from 'react';
 import {
   FunctionComponentOptionalComponentProp,
   OptionalComponentProp,
+  IntrinsicElementType,
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
+
+export type RowProps<C extends IntrinsicElementType> = OptionalComponentProp<C>;
 
 /**
  * Used within a container, section, or column, to keep content on separate rows.
@@ -16,7 +19,7 @@ import { memoWithComponentProp } from '../../utils';
  * without it collapsing.
  */
 const Row: FunctionComponentOptionalComponentProp<'div'> = (
-  props: OptionalComponentProp<'div'>
+  props: RowProps<'div'>
 ) => {
   const {
     children,
