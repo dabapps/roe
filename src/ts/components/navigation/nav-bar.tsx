@@ -42,7 +42,7 @@ const NavBar: FunctionComponentOptionalComponentProp<'div', NavBarProps> = (
     ...remainingProps
   } = props;
 
-  const navBarElement = React.useRef<null | HTMLElement>(null);
+  const navBarElement = React.useRef<HTMLDivElement>(null);
 
   const [hidden, setHidden] = React.useState<boolean>(false);
   const [mountTime] = React.useState<number>(new Date().getTime());

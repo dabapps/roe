@@ -33,7 +33,7 @@ const Footer: FunctionComponentOptionalComponentProp<'div', FooterProps> = (
     ...remainingProps
   } = props;
 
-  const footerElement = React.useRef<null | HTMLElement>(null);
+  const footerElement = React.useRef<HTMLDivElement>(null);
 
   const notifyAppRoot = React.useCallback((prop: FooterProps) => {
     const { sticky: isSticky, fixed: isFixed } = prop;
