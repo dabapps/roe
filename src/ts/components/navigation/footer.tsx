@@ -70,6 +70,15 @@ const Footer: FunctionComponentOptionalComponentProp<'div', FooterPropsBase> = (
     };
   }, [sticky, fixed, footer]);
 
+  React.useEffect(
+    () => () => {
+      store.setState({
+        hasStickyFooter: false,
+      });
+    },
+    []
+  );
+
   return (
     <Component
       {...remainingProps}
