@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { getHref, memoWithComponentProp } from '../../utils';
+import { getHref } from '../../utils';
 
 export type AnchorProps = React.HTMLProps<HTMLAnchorElement>;
 
@@ -23,4 +23,4 @@ const Anchor = (props: AnchorProps) => {
   );
 };
 
-export default memoWithComponentProp(Anchor);
+export default React.memo(Anchor);

@@ -3,7 +3,6 @@ import * as React from 'react';
 
 import Button from '../forms/button';
 import SpacedGroup from '../misc/spaced-group';
-import { memoWithComponentProp } from '../../utils';
 
 export interface PaginationProps {
   /**
@@ -229,4 +228,4 @@ const Pagination = (props: PaginationProps) => {
   );
 };
 
-export default memoWithComponentProp(Pagination);
+export default React.memo(Pagination);
