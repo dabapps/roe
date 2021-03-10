@@ -53,7 +53,6 @@ export const CodeBlock: FunctionComponentOptionalComponentProp<
     if (
       elementRef.current &&
       typeof window.hljs === 'object' &&
-      // tslint:disable-next-line:strict-type-predicates
       typeof window.hljs.highlightBlock === 'function' &&
       prevProps.current.children !== props.children
     ) {

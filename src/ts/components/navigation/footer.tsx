@@ -58,7 +58,6 @@ const Footer: FunctionComponentOptionalComponentProp<'div', FooterPropsBase> = (
     props,
   ]);
 
-  // tslint:disable-next-line:member-ordering
   const resizeObserver = new ResizeObserver(updateAppRoot);
 
   const toggleResizeListeners = React.useCallback(() => {

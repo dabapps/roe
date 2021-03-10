@@ -63,7 +63,6 @@ export type CollapseProps<
 > = OptionalComponentProp<C> & CollapsePropsBase;
 
 export interface CollapseState {
-  // tslint:disable-line:no-unused-variable
   height: number | string;
   opened: boolean;
   opening: boolean;

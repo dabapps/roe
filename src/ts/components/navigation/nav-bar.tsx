@@ -71,7 +71,6 @@ const NavBar: FunctionComponentOptionalComponentProp<'div', NavBarPropsBase> = (
 
   const updateAppRoot = () => notifyAppRoot(props);
 
-  // tslint:disable-next-line:member-ordering
   const resizeObserver = new ResizeObserver(updateAppRoot);
 
   const toggleResizeListeners = React.useCallback(
