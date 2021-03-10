@@ -47,10 +47,7 @@ const Footer: FunctionComponentOptionalComponentProp<'div', FooterPropsBase> = (
         resizeObserverRef.current = new ResizeObserver(() => {
           store.setState({
             hasStickyFooter: Boolean(sticky || fixed),
-            footerHeight:
-              footer instanceof HTMLElement
-                ? footer.getBoundingClientRect().height
-                : undefined,
+            footerHeight: footer.getBoundingClientRect().height,
           });
         });
         resizeObserverRef.current.observe(footer);
