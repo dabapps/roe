@@ -6,11 +6,14 @@ declare const hljs: void | IHighlightJS;
 
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
-import { ComponentProps } from '../../types';
-import { formatCode } from '../../utils';
 
-export interface CodeBlockProps extends ComponentProps, HTMLProps<HTMLElement> {
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
+import { formatCode, memoWithComponentProp } from '../../utils';
+
+export interface CodeBlockProps {
   /**
    * Code to display.
    */
@@ -28,71 +31,60 @@ export interface CodeBlockProps extends ComponentProps, HTMLProps<HTMLElement> {
 /**
  * Component to nicely highlight code inside a `pre` element.
  */
-export class CodeBlock extends PureComponent<CodeBlockProps, {}> {
-  public element: HTMLPreElement;
+export const CodeBlock: FunctionComponentOptionalComponentProp<
+  'div',
+  CodeBlockProps
+> = (props: OptionalComponentProp<'div'> & CodeBlockProps) => {
+  const {
+    children,
+    className,
+    language,
+    codeBlockName,
+    component: Component = 'div',
+    ...remainingProps
+  } = props;
+  const languageClassName = language && `language-${language}`;
+  const elementRef = React.useRef<HTMLPreElement>(null);
+  const prevProps = React.useRef(props);
 
-  public constructor(props: CodeBlockProps) {
-    super(props);
+  const content =
+    typeof children === 'string' ? formatCode(children) : children;
 
-    this.highlightBlock = this.highlightBlock.bind(this);
-  }
-
-  public highlightBlock(element: HTMLPreElement) {
-    this.element = element;
-
-    // tslint:disable-next-line:strict-type-predicates
-    if (typeof hljs === 'object' && typeof hljs.highlightBlock === 'function') {
-      hljs.highlightBlock(this.element);
-    }
-  }
-
-  public componentDidUpdate(prevProps: CodeBlockProps) {
+  React.useEffect(() => {
     if (
+      elementRef.current &&
       typeof hljs === 'object' &&
       // tslint:disable-next-line:strict-type-predicates
       typeof hljs.highlightBlock === 'function' &&
-      prevProps.children !== this.props.children
+      prevProps.current.children !== props.children
     ) {
-      hljs.highlightBlock(this.element);
+      hljs.highlightBlock(elementRef.current);
     }
-  }
 
-  public render() {
-    const {
-      children,
-      className,
-      language,
-      codeBlockName,
-      component: Component = 'div',
-      ...remainingProps
-    } = this.props;
-    const languageClassName = language && `language-${language}`;
+    prevProps.current = props;
+  }, [props]);
 
-    const content =
-      typeof children === 'string' ? formatCode(children) : children;
-
-    return (
-      <Component
-        {...remainingProps}
-        className={classNames('code-block-wrapper', className)}
+  return (
+    <Component
+      {...remainingProps}
+      className={classNames('code-block-wrapper', className)}
+    >
+      {typeof codeBlockName !== 'undefined' && (
+        <div className="code-block-name">
+          {typeof language !== 'undefined' && (
+            <div className="code-block-language">{language}</div>
+          )}
+          {codeBlockName}
+        </div>
+      )}
+      <pre
+        ref={elementRef}
+        className={classNames('code-block', languageClassName)}
       >
-        {typeof codeBlockName !== 'undefined' && (
-          <div className="code-block-name">
-            {typeof language !== 'undefined' && (
-              <div className="code-block-language">{language}</div>
-            )}
-            {codeBlockName}
-          </div>
-        )}
-        <pre
-          ref={this.highlightBlock}
-          className={classNames('code-block', languageClassName)}
-        >
-          {content}
-        </pre>
-      </Component>
-    );
-  }
-}
+        {content}
+      </pre>
+    </Component>
+  );
+};
 
-export default CodeBlock;
+export default memoWithComponentProp(CodeBlock);
