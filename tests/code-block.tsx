@@ -3,18 +3,6 @@ import * as renderer from 'react-test-renderer';
 
 import { CodeBlock } from '../src/ts';
 
-interface IHighlightJS {
-  highlightBlock: jest.Mock<any>;
-}
-
-// tslint:disable:no-namespace
-declare global {
-  // tslint:disable:interface-name
-  interface Window {
-    hljs: void | IHighlightJS;
-  }
-}
-
 describe('CodeBlock', () => {
   beforeEach(() => {
     if (!window.hljs) {
