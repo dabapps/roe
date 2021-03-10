@@ -1,7 +1,6 @@
 import { ResizeObserver } from '@juggle/resize-observer';
 import * as classNames from 'classnames';
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
 
 import store from '../../store';
 import {
@@ -38,54 +37,39 @@ const Footer: FunctionComponentOptionalComponentProp<'div', FooterPropsBase> = (
     ...remainingProps
   } = props;
 
-  const footerElement = React.useRef<HTMLDivElement>(null);
-
-  const notifyAppRoot = React.useCallback((prop: FooterProps) => {
-    const { sticky: isSticky, fixed: isFixed } = prop;
-    const element = ReactDOM.findDOMNode(footerElement.current);
-
-    store.setState({
-      hasStickyFooter: Boolean(isSticky || isFixed),
-      footerHeight:
-        element && element instanceof HTMLElement
-          ? element.getBoundingClientRect().height
-          : undefined,
-    });
-  }, []);
-
-  const updateAppRoot = React.useCallback(() => notifyAppRoot(props), [
-    notifyAppRoot,
-    props,
-  ]);
-
-  const resizeObserver = new ResizeObserver(updateAppRoot);
-
-  const toggleResizeListeners = React.useCallback(() => {
-    if (sticky || fixed) {
-      const element = ReactDOM.findDOMNode(footerElement.current);
-      if (element instanceof HTMLElement) {
-        resizeObserver.observe(element);
-      }
-    } else {
-      resizeObserver.disconnect();
-    }
-  }, [resizeObserver, sticky, fixed]);
+  const resizeObserverRef = React.useRef<ResizeObserver | null>(null);
+  const [footer, setFooter] = React.useState<HTMLDivElement | null>(null);
 
   React.useEffect(() => {
-    notifyAppRoot(props);
-    toggleResizeListeners();
+    // Add/remove resize observer subscriptions when sticky or fixed changes
+    if (sticky || fixed) {
+      if (footer instanceof HTMLElement) {
+        resizeObserverRef.current = new ResizeObserver(() => {
+          store.setState({
+            hasStickyFooter: Boolean(sticky || fixed),
+            footerHeight:
+              footer instanceof HTMLElement
+                ? footer.getBoundingClientRect().height
+                : undefined,
+          });
+        });
+        resizeObserverRef.current.observe(footer);
+      }
+    } else {
+      resizeObserverRef.current?.disconnect();
+    }
 
+    // Remove resize observer subscription on unmount
     return () => {
-      resizeObserver.disconnect();
-      notifyAppRoot({ sticky: false });
+      resizeObserverRef.current?.disconnect();
     };
-  }, [notifyAppRoot, toggleResizeListeners, resizeObserver, props]);
+  }, [sticky, fixed, footer]);
 
   return (
     <Component
       {...remainingProps}
       className={classNames('footer', { sticky, fixed }, className)}
-      ref={footerElement}
+      ref={setFooter}
     >
       {children}
     </Component>
