@@ -11,7 +11,7 @@ import {
 import { shouldNotBeRendered, memoWithComponentProp } from '../../utils';
 
 export type TableCellProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'td'
 > = OptionalComponentProp<C> & TableCellPropsBase;
 
 /**
@@ -21,7 +21,7 @@ export type TableCellProps<
 const TableCell: FunctionComponentOptionalComponentProp<
   'td',
   TableCellPropsBase
-> = (props: TableCellProps<'td'>) => {
+> = (props: TableCellProps) => {
   const {
     className,
     children,

@@ -21,16 +21,15 @@ export interface BannerPropsBase {
   position?: 'top' | 'bottom';
 }
 
-export type BannerProps<C extends IntrinsicElementType> = OptionalComponentProp<
-  C
-> &
-  BannerPropsBase;
+export type BannerProps<
+  C extends IntrinsicElementType = 'div'
+> = OptionalComponentProp<C> & BannerPropsBase;
 
 /**
  * A Banner component that displays fixed to the top or bottom of the screen.
  */
 const Banner: FunctionComponentOptionalComponentProp<'div', BannerPropsBase> = (
-  props: BannerProps<'div'>
+  props: BannerProps
 ): React.ReactElement => {
   const {
     className,

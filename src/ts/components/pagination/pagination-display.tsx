@@ -28,13 +28,13 @@ export interface PaginationDisplayPropsBase {
 }
 
 export type PaginationDisplayProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'p'
 > = OptionalComponentProp<C> & PaginationDisplayPropsBase;
 
 const PaginationDisplay: FunctionComponentOptionalComponentProp<
   'p',
   PaginationDisplayPropsBase
-> = (props: PaginationDisplayProps<'p'>) => {
+> = (props: PaginationDisplayProps) => {
   const {
     className,
     itemCount,

@@ -16,7 +16,7 @@ export interface InputGroupPropsBase {
 }
 
 export type InputGroupProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C> & InputGroupPropsBase;
 
 /**
@@ -25,7 +25,7 @@ export type InputGroupProps<
 const InputGroup: FunctionComponentOptionalComponentProp<
   'div',
   InputGroupPropsBase
-> = (props: InputGroupProps<'div'>) => {
+> = (props: InputGroupProps) => {
   const {
     children,
     className,

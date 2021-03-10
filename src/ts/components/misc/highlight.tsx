@@ -28,7 +28,7 @@ export interface HighlightPropsBase {
 }
 
 export type HighlightProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C> & HighlightPropsBase;
 
 const TIMEOUT = {
@@ -43,7 +43,7 @@ const TIMEOUT = {
 const Highlight: FunctionComponentOptionalComponentProp<
   'div',
   HighlightPropsBase
-> = (props: HighlightProps<'div'>) => {
+> = (props: HighlightProps) => {
   const {
     className,
     children,

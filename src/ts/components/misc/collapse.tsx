@@ -59,7 +59,7 @@ export interface CollapsePropsBase {
 }
 
 export type CollapseProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C> & CollapsePropsBase;
 
 export interface CollapseState {
@@ -75,7 +75,7 @@ export interface CollapseState {
 export const Collapse: FunctionComponentOptionalComponentProp<
   'div',
   CollapsePropsBase
-> = (props: CollapseProps<'div'>) => {
+> = (props: CollapseProps) => {
   const {
     children,
     className,

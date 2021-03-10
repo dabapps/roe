@@ -29,7 +29,7 @@ export interface SideBarPropsBase {
 }
 
 export type SideBarProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C> & SideBarPropsBase;
 
 const TIMEOUT = {
@@ -45,7 +45,7 @@ const TIMEOUT = {
 const SideBar: FunctionComponentOptionalComponentProp<
   'div',
   SideBarPropsBase
-> = (props: SideBarProps<'div'>) => {
+> = (props: SideBarProps) => {
   const {
     className,
     children,

@@ -9,7 +9,7 @@ import {
 import { memoWithComponentProp } from '../../utils';
 
 export type ModalHeaderProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C>;
 
 /**
@@ -17,7 +17,7 @@ export type ModalHeaderProps<
  * See the [Modal](#modal) section for a full example.
  */
 const ModalHeader: FunctionComponentOptionalComponentProp<'div'> = (
-  props: ModalHeaderProps<'div'>
+  props: ModalHeaderProps
 ) => {
   const {
     className,

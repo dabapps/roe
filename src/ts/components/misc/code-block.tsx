@@ -24,7 +24,7 @@ export interface CodeBlockPropsBase {
 }
 
 export type CodeBlockProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C> & CodeBlockPropsBase;
 
 /**
@@ -33,7 +33,7 @@ export type CodeBlockProps<
 export const CodeBlock: FunctionComponentOptionalComponentProp<
   'div',
   CodeBlockPropsBase
-> = (props: CodeBlockProps<'div'>) => {
+> = (props: CodeBlockProps) => {
   const {
     children,
     className,

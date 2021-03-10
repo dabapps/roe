@@ -24,7 +24,7 @@ export interface SpacedGroupPropsBase {
 }
 
 export type SpacedGroupProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'span'
 > = OptionalComponentProp<C> & SpacedGroupPropsBase;
 
 /**
@@ -33,7 +33,7 @@ export type SpacedGroupProps<
 const SpacedGroup: FunctionComponentOptionalComponentProp<
   'span',
   SpacedGroupPropsBase
-> = (props: SpacedGroupProps<'span'>) => {
+> = (props: SpacedGroupProps) => {
   const {
     children,
     className,

@@ -16,7 +16,7 @@ export interface NavItemPropsBase {
 }
 
 export type NavItemProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'li'
 > = OptionalComponentProp<C> & NavItemPropsBase;
 
 /**
@@ -30,7 +30,7 @@ export type NavItemProps<
 const NavItem: FunctionComponentOptionalComponentProp<
   'li',
   NavItemPropsBase
-> = (props: NavItemProps<'li'>) => {
+> = (props: NavItemProps) => {
   const { className, children, active, component: Component = 'li' } = props;
 
   return (

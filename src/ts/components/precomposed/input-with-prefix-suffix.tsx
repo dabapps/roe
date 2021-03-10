@@ -49,17 +49,17 @@ export interface InputWithPrefixSuffixPropsBase {
 }
 
 export type InputWithPrefixSuffixProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C> & InputWithPrefixSuffixPropsBase;
 
 /**
- * A precomposed Input containing an optional prefix (InputGroupAddon), an input,
+ * A pre-composed Input containing an optional prefix (InputGroupAddon), an input,
  * and an optional suffix (InputGroupAddon).
  */
 const InputWithPrefixSuffix: FunctionComponentOptionalComponentProp<
   'div',
   InputWithPrefixSuffixPropsBase
-> = (props: InputWithPrefixSuffixProps<'div'>) => {
+> = (props: InputWithPrefixSuffixProps) => {
   const {
     prefix,
     suffix,

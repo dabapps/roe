@@ -31,7 +31,7 @@ export interface CookieBannerPropsBase {
 }
 
 export type CookieBannerProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C> & CookieBannerPropsBase;
 
 /**
@@ -42,7 +42,7 @@ export type CookieBannerProps<
 const CookieBanner: FunctionComponentOptionalComponentProp<
   'div',
   CookieBannerPropsBase
-> = (props: CookieBannerProps<'div'>) => {
+> = (props: CookieBannerProps) => {
   const [dismissed, setDismissed] = React.useState<boolean>();
 
   const setCookie = () => {

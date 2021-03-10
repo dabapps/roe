@@ -9,7 +9,7 @@ import {
 import { memoWithComponentProp } from '../../utils';
 
 export type ContentBoxHeaderProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C>;
 
 /**
@@ -17,7 +17,7 @@ export type ContentBoxHeaderProps<
  * See the [ContentBox](#contentbox) section for a full example.
  */
 const ContentBoxHeader: FunctionComponentOptionalComponentProp<'div'> = (
-  props: ContentBoxHeaderProps<'div'>
+  props: ContentBoxHeaderProps
 ) => {
   const {
     className,

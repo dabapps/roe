@@ -9,7 +9,7 @@ import {
 import { memoWithComponentProp } from '../../utils';
 
 export type TableRowProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'tr'
 > = OptionalComponentProp<C>;
 
 /**
@@ -17,7 +17,7 @@ export type TableRowProps<
  * See the [Table](#table) section for a full example.
  */
 const TableRow: FunctionComponentOptionalComponentProp<'tr'> = (
-  props: TableRowProps<'tr'>
+  props: TableRowProps
 ) => {
   const {
     className,

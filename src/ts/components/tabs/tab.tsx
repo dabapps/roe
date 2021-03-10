@@ -15,10 +15,9 @@ export interface TabPropsBase {
   active?: boolean;
 }
 
-export type TabProps<C extends IntrinsicElementType> = OptionalComponentProp<
-  C
-> &
-  TabPropsBase;
+export type TabProps<
+  C extends IntrinsicElementType = 'li'
+> = OptionalComponentProp<C> & TabPropsBase;
 
 /**
  * Tab component for use within the `Tabs` component.
@@ -26,7 +25,7 @@ export type TabProps<C extends IntrinsicElementType> = OptionalComponentProp<
  * See the [Tabs](#tabs) section for a full example.
  */
 const Tab: FunctionComponentOptionalComponentProp<'li', TabPropsBase> = (
-  props: TabProps<'li'>
+  props: TabProps
 ) => {
   const {
     className,

@@ -111,17 +111,16 @@ export interface ColumnPropsBase {
   xlPull?: number;
 }
 
-export type ColumnProps<C extends IntrinsicElementType> = OptionalComponentProp<
-  C
-> &
-  ColumnPropsBase;
+export type ColumnProps<
+  C extends IntrinsicElementType = 'div'
+> = OptionalComponentProp<C> & ColumnPropsBase;
 
 /**
  * Placed inside rows to align content in columns.
  * The default grid has 12 divisions.
  */
 const Column: FunctionComponentOptionalComponentProp<'div', ColumnPropsBase> = (
-  props: ColumnProps<'div'>
+  props: ColumnProps
 ) => {
   const {
     children,

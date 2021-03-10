@@ -8,15 +8,15 @@ import {
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export type BadgeProps<C extends IntrinsicElementType> = OptionalComponentProp<
-  C
->;
+export type BadgeProps<
+  C extends IntrinsicElementType = 'span'
+> = OptionalComponentProp<C>;
 
 /**
  * A badge component for displaying small pieces of information such as counts and statuses.
  */
 const Badge: FunctionComponentOptionalComponentProp<'span'> = (
-  props: BadgeProps<'span'>
+  props: BadgeProps
 ) => {
   const {
     className,

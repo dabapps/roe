@@ -8,7 +8,9 @@ import {
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export type RowProps<C extends IntrinsicElementType> = OptionalComponentProp<C>;
+export type RowProps<
+  C extends IntrinsicElementType = 'div'
+> = OptionalComponentProp<C>;
 
 /**
  * Used within a container, section, or column, to keep content on separate rows.
@@ -19,7 +21,7 @@ export type RowProps<C extends IntrinsicElementType> = OptionalComponentProp<C>;
  * without it collapsing.
  */
 const Row: FunctionComponentOptionalComponentProp<'div'> = (
-  props: RowProps<'div'>
+  props: RowProps
 ) => {
   const {
     children,

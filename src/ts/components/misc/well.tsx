@@ -8,15 +8,15 @@ import {
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export type WellProps<C extends IntrinsicElementType> = OptionalComponentProp<
-  C
->;
+export type WellProps<
+  C extends IntrinsicElementType = 'div'
+> = OptionalComponentProp<C>;
 
 /**
  * Stylistic content container.
  */
 const Well: FunctionComponentOptionalComponentProp<'div'> = (
-  props: WellProps<'div'>
+  props: WellProps
 ) => {
   const {
     children,

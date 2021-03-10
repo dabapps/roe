@@ -52,16 +52,15 @@ export interface TablePropsBase {
   rowHeaderWidth?: number;
 }
 
-export type TableProps<C extends IntrinsicElementType> = OptionalComponentProp<
-  C
-> &
-  TablePropsBase;
+export type TableProps<
+  C extends IntrinsicElementType = 'table'
+> = OptionalComponentProp<C> & TablePropsBase;
 
 /**
  * Table component with additional styles & functionality.
  */
 const Table: FunctionComponentOptionalComponentProp<'table', TablePropsBase> = (
-  props: TableProps<'table'>
+  props: TableProps
 ) => {
   const {
     className,

@@ -8,15 +8,15 @@ import {
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export type TabsProps<C extends IntrinsicElementType> = OptionalComponentProp<
-  C
->;
+export type TabsProps<
+  C extends IntrinsicElementType = 'ul'
+> = OptionalComponentProp<C>;
 
 /**
  * Used to contain a set of `Tab` components.
  */
 const Tabs: FunctionComponentOptionalComponentProp<'ul'> = (
-  props: TabsProps<'ul'>
+  props: TabsProps
 ) => {
   const {
     className,

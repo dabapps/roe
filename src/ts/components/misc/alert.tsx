@@ -8,15 +8,15 @@ import {
 } from '../../types';
 import { memoWithComponentProp } from '../../utils';
 
-export type AlertProps<C extends IntrinsicElementType> = OptionalComponentProp<
-  C
->;
+export type AlertProps<
+  C extends IntrinsicElementType = 'div'
+> = OptionalComponentProp<C>;
 
 /**
  * A component for applying various styles to text, ideal for info, success, and error messages.
  */
 const Alert: FunctionComponentOptionalComponentProp<'div'> = (
-  props: AlertProps<'div'>
+  props: AlertProps
 ) => {
   const {
     children,

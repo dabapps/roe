@@ -29,7 +29,7 @@ export interface SpeechBubblePropsBase {
 }
 
 export type SpeechBubbleProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C> & SpeechBubblePropsBase;
 
 /**
@@ -38,7 +38,7 @@ export type SpeechBubbleProps<
 const SpeechBubble: FunctionComponentOptionalComponentProp<
   'div',
   SpeechBubblePropsBase
-> = (props: SpeechBubbleProps<'div'>) => {
+> = (props: SpeechBubbleProps) => {
   const {
     className,
     children,

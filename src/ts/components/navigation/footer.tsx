@@ -22,13 +22,12 @@ export interface FooterPropsBase {
   fixed?: boolean;
 }
 
-export type FooterProps<C extends IntrinsicElementType> = OptionalComponentProp<
-  C
-> &
-  FooterPropsBase;
+export type FooterProps<
+  C extends IntrinsicElementType = 'div'
+> = OptionalComponentProp<C> & FooterPropsBase;
 
 const Footer: FunctionComponentOptionalComponentProp<'div', FooterPropsBase> = (
-  props: FooterProps<'div'>
+  props: FooterProps
 ) => {
   const {
     sticky,
@@ -41,7 +40,7 @@ const Footer: FunctionComponentOptionalComponentProp<'div', FooterPropsBase> = (
 
   const footerElement = React.useRef<HTMLDivElement>(null);
 
-  const notifyAppRoot = React.useCallback((prop: FooterProps<'div'>) => {
+  const notifyAppRoot = React.useCallback((prop: FooterProps) => {
     const { sticky: isSticky, fixed: isFixed } = prop;
     const element = ReactDOM.findDOMNode(footerElement.current);
 

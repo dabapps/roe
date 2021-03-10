@@ -23,10 +23,9 @@ export interface ButtonPropsBase {
   small?: boolean;
 }
 
-export type ButtonProps<C extends IntrinsicElementType> = OptionalComponentProp<
-  C
-> &
-  ButtonPropsBase;
+export type ButtonProps<
+  C extends IntrinsicElementType = 'button'
+> = OptionalComponentProp<C> & ButtonPropsBase;
 
 /**
  * Used in place of a standard `button` tag, this component adds additional styles and effects.
@@ -34,7 +33,7 @@ export type ButtonProps<C extends IntrinsicElementType> = OptionalComponentProp<
 const Button: FunctionComponentOptionalComponentProp<
   'button',
   ButtonPropsBase
-> = (props: ButtonProps<'button'>) => {
+> = (props: ButtonProps) => {
   const {
     children,
     className,

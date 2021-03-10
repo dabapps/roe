@@ -9,7 +9,7 @@ import {
 import { memoWithComponentProp } from '../../utils';
 
 export type ModalFooterProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C>;
 
 /**
@@ -17,7 +17,7 @@ export type ModalFooterProps<
  * See the [Modal](#modal) section for a full example.
  */
 const ModalFooter: FunctionComponentOptionalComponentProp<'div'> = (
-  props: ModalFooterProps<'div'>
+  props: ModalFooterProps
 ) => {
   const {
     className,

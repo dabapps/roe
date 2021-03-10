@@ -9,7 +9,7 @@ import {
 import { memoWithComponentProp } from '../../utils';
 
 export type SectionProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C>;
 
 /**
@@ -17,7 +17,7 @@ export type SectionProps<
  * Should only be used inside `ContentBox`s or `Column`s.
  */
 const Section: FunctionComponentOptionalComponentProp<'div'> = (
-  props: SectionProps<'div'>
+  props: SectionProps
 ) => {
   const {
     children,

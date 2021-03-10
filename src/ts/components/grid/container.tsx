@@ -20,7 +20,7 @@ export interface ContainerPropsBase {
 }
 
 export type ContainerProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C> & ContainerPropsBase;
 
 /**
@@ -29,7 +29,7 @@ export type ContainerProps<
 const Container: FunctionComponentOptionalComponentProp<
   'div',
   ContainerPropsBase
-> = (props: ContainerProps<'div'>) => {
+> = (props: ContainerProps) => {
   const {
     children,
     className,

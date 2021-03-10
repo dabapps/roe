@@ -20,7 +20,7 @@ export interface FormGroupPropsBase {
 }
 
 export type FormGroupProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C> & FormGroupPropsBase;
 
 /**
@@ -29,7 +29,7 @@ export type FormGroupProps<
 const FormGroup: FunctionComponentOptionalComponentProp<
   'div',
   FormGroupPropsBase
-> = (props: FormGroupProps<'div'>) => {
+> = (props: FormGroupProps) => {
   const {
     children,
     className,

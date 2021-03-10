@@ -9,7 +9,7 @@ import {
 import { memoWithComponentProp } from '../../utils';
 
 export type TableHeadProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'thead'
 > = OptionalComponentProp<C>;
 
 /**
@@ -17,7 +17,7 @@ export type TableHeadProps<
  * See the [Table](#table) section for a full example.
  */
 const TableHead: FunctionComponentOptionalComponentProp<'thead'> = (
-  props: TableHeadProps<'thead'>
+  props: TableHeadProps
 ) => {
   const {
     className,

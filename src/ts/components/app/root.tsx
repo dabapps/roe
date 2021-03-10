@@ -10,7 +10,7 @@ import {
 import { memoWithComponentProp } from '../../utils';
 
 export type AppRootProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C>;
 
 export type AppRootState = Pick<
@@ -29,7 +29,7 @@ export type AppRootState = Pick<
  * The "app" class ensures that the AppRoot is not affected by the outer, non-react element.
  */
 const AppRoot: FunctionComponentOptionalComponentProp<'div'> = (
-  props: AppRootProps<'div'>
+  props: AppRootProps
 ) => {
   const {
     component: Component = 'div',

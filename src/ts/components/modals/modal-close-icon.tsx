@@ -9,7 +9,7 @@ import {
 import { memoWithComponentProp } from '../../utils';
 
 export type ModalCloseIconProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C>;
 
 /**
@@ -17,7 +17,7 @@ export type ModalCloseIconProps<
  * See the [Modal](#modal) section for a full example.
  */
 const ModalCloseIcon: FunctionComponentOptionalComponentProp<'div'> = (
-  props: ModalCloseIconProps<'div'>
+  props: ModalCloseIconProps
 ) => {
   const {
     className,

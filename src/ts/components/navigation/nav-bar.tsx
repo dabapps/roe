@@ -26,17 +26,16 @@ export interface NavBarPropsBase {
   noShadow?: boolean;
 }
 
-export type NavBarProps<C extends IntrinsicElementType> = OptionalComponentProp<
-  C
-> &
-  NavBarPropsBase;
+export type NavBarProps<
+  C extends IntrinsicElementType = 'div'
+> = OptionalComponentProp<C> & NavBarPropsBase;
 
 export interface NavBarState {
   hidden: boolean;
 }
 
 const NavBar: FunctionComponentOptionalComponentProp<'div', NavBarPropsBase> = (
-  props: NavBarProps<'div'>
+  props: NavBarProps
 ) => {
   const {
     children,
@@ -56,7 +55,7 @@ const NavBar: FunctionComponentOptionalComponentProp<'div', NavBarPropsBase> = (
     getScrollOffset().y
   );
 
-  const notifyAppRoot = React.useCallback((prop: NavBarProps<'div'>) => {
+  const notifyAppRoot = React.useCallback((prop: NavBarProps) => {
     const { fixed: isFixed, shy: isShy } = prop;
 
     const element = ReactDOM.findDOMNode(navBarElement.current);
@@ -76,7 +75,7 @@ const NavBar: FunctionComponentOptionalComponentProp<'div', NavBarPropsBase> = (
   const resizeObserver = new ResizeObserver(updateAppRoot);
 
   const toggleResizeListeners = React.useCallback(
-    (prop: NavBarProps<'div'>) => {
+    (prop: NavBarProps) => {
       const { fixed: isFixed, shy: isShy } = prop;
 
       if (isFixed || isShy) {
@@ -118,7 +117,7 @@ const NavBar: FunctionComponentOptionalComponentProp<'div', NavBarPropsBase> = (
   }, [previousScrollY, mountTime]);
 
   const toggleShyListeners = React.useCallback(
-    (prop: NavBarProps<'div'>) => {
+    (prop: NavBarProps) => {
       const { shy: isShy } = prop;
 
       if (isShy) {

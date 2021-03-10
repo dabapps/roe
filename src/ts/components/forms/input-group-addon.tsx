@@ -13,7 +13,7 @@ export interface InputGroupAddonPropsBase {
 }
 
 export type InputGroupAddonProps<
-  C extends IntrinsicElementType
+  C extends IntrinsicElementType = 'div'
 > = OptionalComponentProp<C> & InputGroupAddonPropsBase;
 
 /**
@@ -22,7 +22,7 @@ export type InputGroupAddonProps<
 const InputGroupAddon: FunctionComponentOptionalComponentProp<
   'div',
   InputGroupAddonPropsBase
-> = (props: InputGroupAddonProps<'div'>) => {
+> = (props: InputGroupAddonProps) => {
   const {
     children,
     className,
