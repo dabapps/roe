@@ -1,11 +1,14 @@
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
+import {
+  FunctionComponentOptionalComponentProp,
+  OptionalComponentProp,
+} from '../../types';
 import InputGroup from '../forms/input-group';
 import InputGroupAddon from '../forms/input-group-addon';
 import { memoWithComponentProp } from '../../utils';
 
-export interface PrefixSuffixProps extends ComponentProps {
+export interface InputWithPrefixSuffixProps {
   /**
    * Content to display to the left of the input.
    */
@@ -30,19 +33,28 @@ export interface PrefixSuffixProps extends ComponentProps {
    * Class name to apply to the suffix.
    */
   suffixClassName?: string;
-  value?: string | string[] | number; // Adds compatibility with React 15 and 16 types
+  /**
+   * Input type
+   */
+  type?: string;
+  /**
+   * Input value
+   */
+  value?: string | string[] | number;
+  /**
+   * Input change handler
+   */
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
-
-export type InputWithPrefixSuffixProps = React.HTMLAttributes<
-  HTMLInputElement
-> &
-  PrefixSuffixProps;
 
 /**
  * A precomposed Input containing an optional prefix (InputGroupAddon), an input,
  * and an optional suffix (InputGroupAddon).
  */
-const InputWithPrefixSuffix = (props: InputWithPrefixSuffixProps) => {
+const InputWithPrefixSuffix: FunctionComponentOptionalComponentProp<
+  'div',
+  InputWithPrefixSuffixProps
+> = (props: OptionalComponentProp<'div'> & InputWithPrefixSuffixProps) => {
   const {
     prefix,
     suffix,
@@ -51,16 +63,29 @@ const InputWithPrefixSuffix = (props: InputWithPrefixSuffixProps) => {
     inputClassName,
     prefixClassName,
     suffixClassName,
-    component,
+    component = 'div',
+    type,
+    value,
+    onChange,
     ...remainingProps
   } = props;
 
   return (
-    <InputGroup component={component} block={block} className={className}>
+    <InputGroup
+      {...remainingProps}
+      component={component}
+      block={block}
+      className={className}
+    >
       {typeof prefix !== 'undefined' && (
         <InputGroupAddon className={prefixClassName}>{prefix}</InputGroupAddon>
       )}
-      <input className={inputClassName} {...remainingProps} />
+      <input
+        className={inputClassName}
+        type={type}
+        value={value}
+        onChange={onChange}
+      />
       {typeof suffix !== 'undefined' && (
         <InputGroupAddon className={suffixClassName}>{suffix}</InputGroupAddon>
       )}
