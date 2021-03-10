@@ -61,6 +61,7 @@ const Footer: FunctionComponentOptionalComponentProp<'div', FooterPropsBase> = (
       resizeObserverRef.current?.disconnect();
     }
 
+    // Notify app root of new sticky/fixed and footer height
     notifyAppRoot();
 
     // Remove resize observer subscription on unmount
