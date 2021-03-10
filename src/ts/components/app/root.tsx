@@ -43,20 +43,7 @@ const AppRoot: FunctionComponentOptionalComponentProp<'div'> = (
     hasFixedNavBar,
     navBarHeight,
     footerHeight,
-  } = store.getState();
-
-  const unsubscribe = store.subscribe(prop => {
-    store.setState({
-      hasStickyFooter: prop.hasStickyFooter,
-      hasFixedNavBar: prop.hasFixedNavBar,
-      navBarHeight: prop.navBarHeight,
-      footerHeight: prop.footerHeight,
-    });
-  });
-
-  React.useEffect(() => {
-    return () => unsubscribe();
-  }, [unsubscribe]);
+  } = store.useState();
 
   const myClassNames = [
     'app-root',
