@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { Anchor } from '@dabapps/roe';
+
 <div>
   <p>
     <Anchor>Anchor example: automatically generated href</Anchor>
@@ -10,5 +12,5 @@
       Anchor example: explicit href
     </Anchor>
   </p>
-</div>
+</div>;
 ```

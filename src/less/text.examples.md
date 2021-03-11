@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { SpacedGroup } from '@dabapps/roe';
+
 <div>
   <p className="font-size-h1">font-size-h1</p>
 
@@ -32,5 +34,5 @@
     <span className="warning">warning</span>
     <span className="error">error</span>
   </SpacedGroup>
-</div>
+</div>;
 ```

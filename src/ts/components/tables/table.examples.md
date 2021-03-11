@@ -1,11 +1,13 @@
 #### Example
 
 ```js
-const { TableHead } = require('./table-head');
-const { TableBody } = require('./table-body');
-const { TableRow } = require('./table-row');
-const { TableHeader } = require('./table-header');
-const { TableCell } = require('./table-cell');
+import {
+  TableHead,
+  TableBody,
+  TableRow,
+  TableHeader,
+  TableCell,
+} from '@dabapps/roe';
 
 <div>
   <Table bordered condensed>

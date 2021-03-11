@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { ContentBox, Highlight, Button } from '@dabapps/roe';
+
 const X_CHAR = String.fromCharCode(215);
 
 const closeTextStyles = {

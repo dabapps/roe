@@ -1,6 +1,8 @@
 #### Pagination example:
 
 ```js
+import { Row, Column, PaginationDisplay, Pagination } from '@dabapps/roe';
+
 class PaginationExample extends React.Component {
   constructor(props) {
     super(props);

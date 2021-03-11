@@ -3,6 +3,8 @@
 Standard speech bubbles
 
 ```js
+import { SpeechBubble, DabIpsum } from '@dabapps/roe';
+
 <div>
   <SpeechBubble
     header={<span className="info">5 minutes ago</span>}
@@ -40,12 +42,14 @@ Standard speech bubbles
   >
     <DabIpsum count={1} />
   </SpeechBubble>
-</div>
+</div>;
 ```
 
 Block speech bubbles
 
 ```js
+import { SpeechBubble, DabIpsum } from '@dabapps/roe';
+
 <div>
   <SpeechBubble block className="info" tailPosition="right">
     <p>Hello</p>
@@ -62,7 +66,7 @@ Block speech bubbles
   <SpeechBubble block className="primary">
     <p>Wat?</p>
   </SpeechBubble>
-</div>
+</div>;
 ```
 
 #### Custom speech bubbles

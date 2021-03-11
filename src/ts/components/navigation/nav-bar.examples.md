@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { NavBar, Nav, NavItem, Column, FormGroup } from '@dabapps/roe';
+
 class NavBarExample extends React.Component {
   constructor(props) {
     super(props);

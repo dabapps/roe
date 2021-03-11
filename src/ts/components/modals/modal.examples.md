@@ -5,6 +5,17 @@ ModalRenderer is required to render modals.
 Place ModalRenderer in the root component of your app.
 
 ```js
+import {
+  Modal,
+  ModalHeader,
+  ModalCloseIcon,
+  ModalBody,
+  ModalFooter,
+  ModalRenderer,
+  SpacedGroup,
+  Button,
+} from '@dabapps/roe';
+
 const X_CHAR = String.fromCharCode(215);
 
 class ModalExample extends React.Component {

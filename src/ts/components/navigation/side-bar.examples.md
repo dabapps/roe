@@ -1,6 +1,8 @@
 #### Examples
 
 ```js
+import { Button, SideBar, Nav, NavItem } from '@dabapps/roe';
+
 class SideBarExample extends React.Component {
   constructor() {
     this.state = {

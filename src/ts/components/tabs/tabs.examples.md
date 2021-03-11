@@ -1,7 +1,7 @@
 #### Example
 
 ```js
-const { Tab } = require('./tab');
+import { Tabs, Tab } from '@dabapps/roe';
 
 <Tabs>
   <Tab active>

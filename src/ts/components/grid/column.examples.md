@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { Row, Column } from '@dabapps/roe';
+
 <div className="display-columns">
   <Row>
     <Column xs={12} md={4} mdOffset={2} lg={3} lgOffset={0}>
@@ -16,7 +18,7 @@
       Column 4
     </Column>
   </Row>
-</div>
+</div>;
 ```
 
 #### Less variables

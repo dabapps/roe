@@ -1,15 +1,19 @@
 #### Inline
 
 ```js
+import { FormGroup } from '@dabapps/roe';
+
 <FormGroup>
   <label>Label</label>
   <input type="text" />
-</FormGroup>
+</FormGroup>;
 ```
 
 #### No Label
 
 ```js
+import { FormGroup } from '@dabapps/roe';
+
 <div>
   <FormGroup>
     <label>Label</label>
@@ -21,23 +25,27 @@
   <FormGroup noLabel>
     <p>Info text</p>
   </FormGroup>
-</div>
+</div>;
 ```
 
 #### Block
 
 ```js
+import { FormGroup } from '@dabapps/roe';
+
 <FormGroup block>
   <label>Label</label>
   <select>
     <option>Option</option>
   </select>
-</FormGroup>
+</FormGroup>;
 ```
 
 #### Checkboxes and Radios
 
 ```js
+import { FormGroup } from '@dabapps/roe';
+
 <div>
   <FormGroup>
     <label>Label 1</label>
@@ -50,7 +58,7 @@
     <input type="checkbox" />
     <label>Label</label>
   </FormGroup>
-</div>
+</div>;
 ```
 
 #### Less variables

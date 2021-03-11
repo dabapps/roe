@@ -1,6 +1,13 @@
 #### Example
 
 ```js
+import {
+  ContentBox,
+  ContentBoxFooter,
+  SpacedGroup,
+  Button,
+} from '@dabapps/roe';
+
 <ContentBox>
   <p>Content</p>
   <ContentBoxFooter>
@@ -9,7 +16,7 @@
       <Button className="primary">Done</Button>
     </SpacedGroup>
   </ContentBoxFooter>
-</ContentBox>
+</ContentBox>;
 ```
 
 #### Less variables

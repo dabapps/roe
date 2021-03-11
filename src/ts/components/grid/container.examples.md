@@ -1,11 +1,13 @@
 #### Example
 
 ```js
+import { Container, Row, Column } from '@dabapps/roe';
+
 <Container fluid>
   <Row>
     <Column>Content</Column>
   </Row>
-</Container>
+</Container>;
 ```
 
 #### Less variables

@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { Row, Column } from '@dabapps/roe';
+
 <div className="display-columns">
   <Row>
     <Column>Row 1</Column>
@@ -14,12 +16,14 @@
     <Column xs={4}>Row 3</Column>
     <Column xs={4}>Row 3</Column>
   </Row>
-</div>
+</div>;
 ```
 
 The `flex-grid` class can be added to a row to allow columns of varying heights to reflow nicely.
 
 ```js
+import { Row, Column, ContentBox, DabIpsum } from '@dabapps/roe';
+
 <Row className="flex-grid">
   <Column xs={12} sm={6} md={4} lg={3}>
     <ContentBox>
@@ -51,7 +55,7 @@ The `flex-grid` class can be added to a row to allow columns of varying heights 
       <DabIpsum count={2} />
     </ContentBox>
   </Column>
-</Row>
+</Row>;
 ```
 
 #### Less variables

@@ -1,9 +1,11 @@
 #### Example
 
 ```js
+import { Footer } from '@dabapps/roe';
+
 <Footer>
   <p>Footer</p>
-</Footer>
+</Footer>;
 ```
 
 #### Less variables

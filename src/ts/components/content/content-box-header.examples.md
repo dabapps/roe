@@ -1,12 +1,14 @@
 #### Example
 
 ```js
+import { ContentBox, ContentBoxHeader } from '@dabapps/roe';
+
 <ContentBox>
   <ContentBoxHeader>
     <h5>Header</h5>
   </ContentBoxHeader>
   <p>Content</p>
-</ContentBox>
+</ContentBox>;
 ```
 
 #### Less variables

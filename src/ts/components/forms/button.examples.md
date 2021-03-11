@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { SpacedGroup, Button } from '@dabapps/roe';
+
 <div>
   <SpacedGroup block>
     <Button>Default</Button>
@@ -33,7 +35,7 @@
     <Button small>Small</Button>
     <Button large>Large</Button>
   </SpacedGroup>
-</div>
+</div>;
 ```
 
 #### Custom buttons
@@ -55,13 +57,15 @@ button {
 You can then use your custom buttons by supplying the name you provided to the mixin as the class name.
 
 ```js
+import { ContentBox, SpacedGroup, Button } from '@dabapps/roe';
+
 <ContentBox className="grey-background">
   <SpacedGroup block className="margin-vertical-base">
     <Button className="custom-light">Custom light</Button>
 
     <button className="custom-light hollow">Custom light hollow</button>
   </SpacedGroup>
-</ContentBox>
+</ContentBox>;
 ```
 
 #### Less variables

@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { InputGroup, InputGroupAddon } from '@dabapps/roe';
+
 <div>
   <InputGroup>
     <InputGroupAddon>$</InputGroupAddon>
@@ -12,7 +14,7 @@
     <input type="number" />
     <InputGroupAddon>%</InputGroupAddon>
   </InputGroup>
-</div>
+</div>;
 ```
 
 #### Less variables
