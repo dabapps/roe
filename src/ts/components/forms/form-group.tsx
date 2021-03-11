@@ -1,14 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export interface FormGroupPropsBase {
+export type FormGroupProps = {
   /**
    * Set the style `display: block;` with label above input.
    */
@@ -17,19 +12,12 @@ export interface FormGroupPropsBase {
    * Offset the input, select, etc as if there was a label to the left of it
    */
   noLabel?: boolean;
-}
-
-export type FormGroupProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C> & FormGroupPropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Used to group a label & form input (or select).
  */
-const FormGroup: FunctionComponentOptionalComponentProp<
-  'div',
-  FormGroupPropsBase
-> = (props: FormGroupProps) => {
+const FormGroup = (props: FormGroupProps) => {
   const {
     children,
     className,
@@ -53,8 +41,4 @@ const FormGroup: FunctionComponentOptionalComponentProp<
   );
 };
 
-const FormGroupMemo = memoWithComponentProp(FormGroup);
-
-export { FormGroupMemo as FormGroup };
-
-export default FormGroupMemo;
+export default React.memo(FormGroup);

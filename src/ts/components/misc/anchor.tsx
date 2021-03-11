@@ -23,8 +23,4 @@ const Anchor = (props: AnchorProps) => {
   );
 };
 
-const AnchorMemo = React.memo(Anchor);
-
-export { AnchorMemo as Anchor };
-
-export default AnchorMemo;
+export default React.memo(Anchor);

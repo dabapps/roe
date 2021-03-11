@@ -1,14 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export interface ContainerPropsBase {
+export type ContainerProps = {
   /**
    * Fill parent with no media queries to affect width.
    */
@@ -17,19 +12,12 @@ export interface ContainerPropsBase {
    * Allows applying a background color with `@container-background` variable.
    */
   solid?: boolean;
-}
-
-export type ContainerProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C> & ContainerPropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Used inside `NavBar`s or as the main wrapper for an application.
  */
-const Container: FunctionComponentOptionalComponentProp<
-  'div',
-  ContainerPropsBase
-> = (props: ContainerProps) => {
+const Container = (props: ContainerProps) => {
   const {
     children,
     className,
@@ -52,8 +40,4 @@ const Container: FunctionComponentOptionalComponentProp<
   );
 };
 
-const ContainerMemo = memoWithComponentProp(Container);
-
-export { ContainerMemo as Container };
-
-export default ContainerMemo;
+export default React.memo(Container);

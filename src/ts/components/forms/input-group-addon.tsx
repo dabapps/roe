@@ -1,28 +1,16 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export interface InputGroupAddonPropsBase {
+export type InputGroupAddonProps = {
   width?: number;
-}
-
-export type InputGroupAddonProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C> & InputGroupAddonPropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Used to display additional context within an `InputGroup`.
  */
-const InputGroupAddon: FunctionComponentOptionalComponentProp<
-  'div',
-  InputGroupAddonPropsBase
-> = (props: InputGroupAddonProps) => {
+const InputGroupAddon = (props: InputGroupAddonProps) => {
   const {
     children,
     className,
@@ -43,8 +31,4 @@ const InputGroupAddon: FunctionComponentOptionalComponentProp<
   );
 };
 
-const InputGroupAddonMemo = memoWithComponentProp(InputGroupAddon);
-
-export { InputGroupAddonMemo as InputGroupAddon };
-
-export default InputGroupAddonMemo;
+export default React.memo(InputGroupAddon);

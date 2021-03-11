@@ -1,24 +1,15 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export type ModalHeaderProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C>;
+export type ModalHeaderProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Header for `Modal`s to display a title.
  * See the [Modal](#modal) section for a full example.
  */
-const ModalHeader: FunctionComponentOptionalComponentProp<'div'> = (
-  props: ModalHeaderProps
-) => {
+const ModalHeader = (props: ModalHeaderProps) => {
   const {
     className,
     children,
@@ -36,8 +27,4 @@ const ModalHeader: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-const ModalHeaderMemo = memoWithComponentProp(ModalHeader);
-
-export { ModalHeaderMemo as ModalHeader };
-
-export default ModalHeaderMemo;
+export default React.memo(ModalHeader);

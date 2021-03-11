@@ -1,24 +1,15 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export type TableBodyProps<
-  C extends IntrinsicElementType = 'tbody'
-> = OptionalComponentProp<C>;
+export type TableBodyProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Table body component with additional styles & functionality, used to contain main table content.
  * See the [Table](#table) section for a full example.
  */
-const TableBody: FunctionComponentOptionalComponentProp<'tbody'> = (
-  props: TableBodyProps
-) => {
+const TableBody = (props: TableBodyProps) => {
   const {
     className,
     children,
@@ -36,8 +27,4 @@ const TableBody: FunctionComponentOptionalComponentProp<'tbody'> = (
   );
 };
 
-const TableBodyMemo = memoWithComponentProp(TableBody);
-
-export { TableBodyMemo as TableBody };
-
-export default TableBodyMemo;
+export default React.memo(TableBody);

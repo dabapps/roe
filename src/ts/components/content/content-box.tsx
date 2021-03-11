@@ -1,23 +1,14 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export type ContentBoxProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C>;
+export type ContentBoxProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Box for displaying content within.
  */
-const ContentBox: FunctionComponentOptionalComponentProp<'div'> = (
-  props: ContentBoxProps
-) => {
+const ContentBox = (props: ContentBoxProps) => {
   const {
     className,
     children,
@@ -35,8 +26,4 @@ const ContentBox: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-const ContentBoxMemo = memoWithComponentProp(ContentBox);
-
-export { ContentBoxMemo as ContentBox };
-
-export default ContentBoxMemo;
+export default React.memo(ContentBox);

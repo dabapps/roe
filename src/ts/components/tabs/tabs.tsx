@@ -1,23 +1,14 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export type TabsProps<
-  C extends IntrinsicElementType = 'ul'
-> = OptionalComponentProp<C>;
+export type TabsProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Used to contain a set of `Tab` components.
  */
-const Tabs: FunctionComponentOptionalComponentProp<'ul'> = (
-  props: TabsProps
-) => {
+const Tabs = (props: TabsProps) => {
   const {
     className,
     children,
@@ -32,8 +23,4 @@ const Tabs: FunctionComponentOptionalComponentProp<'ul'> = (
   );
 };
 
-const TabsMemo = memoWithComponentProp(Tabs);
-
-export { TabsMemo as Tabs };
-
-export default TabsMemo;
+export default React.memo(Tabs);

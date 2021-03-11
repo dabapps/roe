@@ -1,15 +1,10 @@
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 import InputGroup from '../forms/input-group';
 import InputGroupAddon from '../forms/input-group-addon';
-import { memoWithComponentProp } from '../../utils';
 
-export interface InputWithPrefixSuffixPropsBase {
+export type InputWithPrefixSuffixProps = {
   /**
    * Content to display to the left of the input.
    */
@@ -46,20 +41,13 @@ export interface InputWithPrefixSuffixPropsBase {
    * Input change handler
    */
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-}
-
-export type InputWithPrefixSuffixProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C> & InputWithPrefixSuffixPropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * A pre-composed Input containing an optional prefix (InputGroupAddon), an input,
  * and an optional suffix (InputGroupAddon).
  */
-const InputWithPrefixSuffix: FunctionComponentOptionalComponentProp<
-  'div',
-  InputWithPrefixSuffixPropsBase
-> = (props: InputWithPrefixSuffixProps) => {
+const InputWithPrefixSuffix = (props: InputWithPrefixSuffixProps) => {
   const {
     prefix,
     suffix,
@@ -92,8 +80,4 @@ const InputWithPrefixSuffix: FunctionComponentOptionalComponentProp<
   );
 };
 
-const InputWithPrefixSuffixMemo = memoWithComponentProp(InputWithPrefixSuffix);
-
-export { InputWithPrefixSuffixMemo as InputWithPrefixSuffix };
-
-export default InputWithPrefixSuffixMemo;
+export default React.memo(InputWithPrefixSuffix);

@@ -1,24 +1,15 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export type ContentBoxHeaderProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C>;
+export type ContentBoxHeaderProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Header for `ContentBox`s, used to display a content's title.
  * See the [ContentBox](#contentbox) section for a full example.
  */
-const ContentBoxHeader: FunctionComponentOptionalComponentProp<'div'> = (
-  props: ContentBoxHeaderProps
-) => {
+const ContentBoxHeader = (props: ContentBoxHeaderProps) => {
   const {
     className,
     children,
@@ -36,8 +27,4 @@ const ContentBoxHeader: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-const ContentBoxHeaderMemo = memoWithComponentProp(ContentBoxHeader);
-
-export { ContentBoxHeaderMemo as ContentBoxHeader };
-
-export default ContentBoxHeaderMemo;
+export default React.memo(ContentBoxHeader);

@@ -1,24 +1,15 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export type TableRowProps<
-  C extends IntrinsicElementType = 'tr'
-> = OptionalComponentProp<C>;
+export type TableRowProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Table row component with additional styles & functionality, used within a table head or body.
  * See the [Table](#table) section for a full example.
  */
-const TableRow: FunctionComponentOptionalComponentProp<'tr'> = (
-  props: TableRowProps
-) => {
+const TableRow = (props: TableRowProps) => {
   const {
     className,
     children,
@@ -36,8 +27,4 @@ const TableRow: FunctionComponentOptionalComponentProp<'tr'> = (
   );
 };
 
-const TableRowMemo = memoWithComponentProp(TableRow);
-
-export { TableRowMemo as TableRow };
-
-export default TableRowMemo;
+export default React.memo(TableRow);

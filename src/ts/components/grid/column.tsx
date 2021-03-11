@@ -1,14 +1,10 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { isValidColumnNumber, memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
+import { isValidColumnNumber } from '../../utils';
 
-export interface ColumnPropsBase {
+export type ColumnProps = {
   /**
    * Columns to occupy on extra small screens
    */
@@ -109,19 +105,13 @@ export interface ColumnPropsBase {
    * Columns to be pulled left by, with `left`, on on extra large screens
    */
   xlPull?: number;
-}
-
-export type ColumnProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C> & ColumnPropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Placed inside rows to align content in columns.
  * The default grid has 12 divisions.
  */
-const Column: FunctionComponentOptionalComponentProp<'div', ColumnPropsBase> = (
-  props: ColumnProps
-) => {
+const Column = (props: ColumnProps) => {
   const {
     children,
     className,
@@ -191,8 +181,4 @@ const Column: FunctionComponentOptionalComponentProp<'div', ColumnPropsBase> = (
   );
 };
 
-const ColumnMemo = memoWithComponentProp(Column);
-
-export { ColumnMemo as Column };
-
-export default ColumnMemo;
+export default React.memo(Column);

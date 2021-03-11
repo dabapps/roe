@@ -1,14 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export interface TablePropsBase {
+export type TableProps = {
   /**
    * Currently unused.
    * @default "'sm'"
@@ -50,18 +45,12 @@ export interface TablePropsBase {
    * Set a width for the first column when fixed.
    */
   rowHeaderWidth?: number;
-}
-
-export type TableProps<
-  C extends IntrinsicElementType = 'table'
-> = OptionalComponentProp<C> & TablePropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Table component with additional styles & functionality.
  */
-const Table: FunctionComponentOptionalComponentProp<'table', TablePropsBase> = (
-  props: TableProps
-) => {
+const Table = (props: TableProps) => {
   const {
     className,
     children,
@@ -105,8 +94,4 @@ const Table: FunctionComponentOptionalComponentProp<'table', TablePropsBase> = (
   );
 };
 
-const TableMemo = memoWithComponentProp(Table);
-
-export { TableMemo as Table };
-
-export default TableMemo;
+export default React.memo(Table);

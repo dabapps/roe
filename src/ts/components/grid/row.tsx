@@ -1,16 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export type RowProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C>;
+export type RowProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Used within a container, section, or column, to keep content on separate rows.
@@ -20,9 +13,7 @@ export type RowProps<
  * a clearfix applied which allows floated elements to be placed inside it
  * without it collapsing.
  */
-const Row: FunctionComponentOptionalComponentProp<'div'> = (
-  props: RowProps
-) => {
+const Row = (props: RowProps) => {
   const {
     children,
     className,
@@ -37,8 +28,4 @@ const Row: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-const RowMemo = memoWithComponentProp(Row);
-
-export { RowMemo as Row };
-
-export default RowMemo;
+export default React.memo(Row);

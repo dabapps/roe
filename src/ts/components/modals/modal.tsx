@@ -1,13 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export interface ModalProps {
+export type ModalProps = {
   /**
    * Allows the `ModalBody` to be scrolled, rather than page.
    */
@@ -28,14 +24,12 @@ export interface ModalProps {
    * Callback to trigger when the user clicks outside of the `Modal`.
    */
   onClickOutside(event: React.MouseEvent<HTMLDivElement>): void;
-}
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Component used to render a modal.
  */
-const Modal: FunctionComponentOptionalComponentProp<'div', ModalProps> = (
-  props: OptionalComponentProp<'div'> & ModalProps
-) => {
+const Modal = (props: ModalProps) => {
   const {
     className,
     children,
@@ -68,8 +62,4 @@ const Modal: FunctionComponentOptionalComponentProp<'div', ModalProps> = (
   );
 };
 
-const ModalMemo = memoWithComponentProp(Modal);
-
-export { ModalMemo as Modal };
-
-export default ModalMemo;
+export default React.memo(Modal);

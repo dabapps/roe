@@ -1,14 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { memoWithComponentProp } from '../../utils';
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export interface SpacedGroupPropsBase {
+export type SpacedGroupProps = {
   /**
    * Set the group to `display: block;` so it fills its parent.
    */
@@ -21,19 +16,12 @@ export interface SpacedGroupPropsBase {
    * Increased spacing between items.
    */
   large?: boolean;
-}
-
-export type SpacedGroupProps<
-  C extends IntrinsicElementType = 'span'
-> = OptionalComponentProp<C> & SpacedGroupPropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Component to contain & automatically add space between inline elements.
  */
-const SpacedGroup: FunctionComponentOptionalComponentProp<
-  'span',
-  SpacedGroupPropsBase
-> = (props: SpacedGroupProps) => {
+const SpacedGroup = (props: SpacedGroupProps) => {
   const {
     children,
     className,
@@ -59,8 +47,4 @@ const SpacedGroup: FunctionComponentOptionalComponentProp<
   );
 };
 
-const SpacedGroupMemo = memoWithComponentProp(SpacedGroup);
-
-export { SpacedGroupMemo as SpacedGroup };
-
-export default SpacedGroupMemo;
+export default React.memo(SpacedGroup);

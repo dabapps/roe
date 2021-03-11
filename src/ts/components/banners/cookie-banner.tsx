@@ -2,13 +2,8 @@ import * as classNames from 'classnames';
 import * as cookie from 'cookie';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 import Banner from './banner';
-import { memoWithComponentProp } from '../../utils';
 
 export interface CookieBannerRenderProps {
   dismiss: () => void;
@@ -18,7 +13,7 @@ export type Render = (
   props: CookieBannerRenderProps
 ) => React.ReactElement<Record<string, unknown>>;
 
-export interface CookieBannerPropsBase {
+export type CookieBannerProps = {
   /**
    * Takes a component as a function and renders as a child
    */
@@ -28,21 +23,14 @@ export interface CookieBannerPropsBase {
    * @default 'bottom'
    */
   position?: 'top' | 'bottom';
-}
-
-export type CookieBannerProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C> & CookieBannerPropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * A [Banner](#banner) component that is permanently dismissed after setting a cookie.
  * This component takes a render prop, which can be a component or function, that is passed a dismiss prop
  * which you can then apply as an onClick prop to an element of your choice.
  */
-const CookieBanner: FunctionComponentOptionalComponentProp<
-  'div',
-  CookieBannerPropsBase
-> = (props: CookieBannerProps) => {
+const CookieBanner = (props: CookieBannerProps) => {
   const [dismissed, setDismissed] = React.useState<boolean>();
 
   const setCookie = () => {
@@ -57,8 +45,6 @@ const CookieBanner: FunctionComponentOptionalComponentProp<
   const {
     /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
     children,
-    /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
-    ref,
     className,
     render,
     position = 'bottom',
@@ -79,8 +65,4 @@ const CookieBanner: FunctionComponentOptionalComponentProp<
   );
 };
 
-const CookieBannerMemo = memoWithComponentProp(CookieBanner);
-
-export { CookieBannerMemo as CookieBanner };
-
-export default CookieBannerMemo;
+export default React.memo(CookieBanner);

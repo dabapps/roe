@@ -1,23 +1,14 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export type WellProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C>;
+export type WellProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Stylistic content container.
  */
-const Well: FunctionComponentOptionalComponentProp<'div'> = (
-  props: WellProps
-) => {
+const Well = (props: WellProps) => {
   const {
     children,
     className,
@@ -32,8 +23,4 @@ const Well: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-const WellMemo = memoWithComponentProp(Well);
-
-export { WellMemo as Well };
-
-export default WellMemo;
+export default React.memo(Well);

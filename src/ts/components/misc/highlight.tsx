@@ -2,14 +2,9 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export interface HighlightPropsBase {
+export type HighlightProps = {
   /**
    * Displays the overlay
    * @default false
@@ -25,11 +20,7 @@ export interface HighlightPropsBase {
    * @default undefined
    */
   backgroundColor?: string | undefined;
-}
-
-export type HighlightProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C> & HighlightPropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 const TIMEOUT = {
   appear: 300,
@@ -40,10 +31,7 @@ const TIMEOUT = {
 /**
  * This highlight component is used to display a single element while shading everything else out.
  */
-const Highlight: FunctionComponentOptionalComponentProp<
-  'div',
-  HighlightPropsBase
-> = (props: HighlightProps) => {
+const Highlight = (props: HighlightProps) => {
   const {
     className,
     children,
@@ -77,8 +65,4 @@ const Highlight: FunctionComponentOptionalComponentProp<
   );
 };
 
-const HighlightMemo = memoWithComponentProp(Highlight);
-
-export { HighlightMemo as Highlight };
-
-export default HighlightMemo;
+export default React.memo(Highlight);

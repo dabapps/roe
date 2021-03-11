@@ -1,14 +1,10 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { formatCode, memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
+import { formatCode } from '../../utils';
 
-export interface CodeBlockPropsBase {
+export type CodeBlockProps = {
   /**
    * Code to display.
    */
@@ -21,19 +17,12 @@ export interface CodeBlockPropsBase {
    * Name of the code block e.g. "index.js".
    */
   codeBlockName?: string;
-}
-
-export type CodeBlockProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C> & CodeBlockPropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Component to nicely highlight code inside a `pre` element.
  */
-const CodeBlock: FunctionComponentOptionalComponentProp<
-  'div',
-  CodeBlockPropsBase
-> = (props: CodeBlockProps) => {
+const CodeBlock = (props: CodeBlockProps) => {
   const {
     children,
     className,
@@ -85,8 +74,4 @@ const CodeBlock: FunctionComponentOptionalComponentProp<
   );
 };
 
-const CodeBlockMemo = memoWithComponentProp(CodeBlock);
-
-export { CodeBlockMemo as CodeBlock };
-
-export default CodeBlockMemo;
+export default React.memo(CodeBlock);

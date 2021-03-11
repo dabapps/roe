@@ -3,14 +3,10 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 
 import store from '../../store';
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { getScrollOffset, memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
+import { getScrollOffset } from '../../utils';
 
-export interface NavBarPropsBase {
+export type NavBarProps = {
   /**
    * Fix the navbar to the top of the screen
    */
@@ -23,19 +19,13 @@ export interface NavBarPropsBase {
    * Remove NavBar shadow
    */
   noShadow?: boolean;
-}
-
-export type NavBarProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C> & NavBarPropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 export interface NavBarState {
   hidden: boolean;
 }
 
-const NavBar: FunctionComponentOptionalComponentProp<'div', NavBarPropsBase> = (
-  props: NavBarProps
-) => {
+const NavBar = (props: NavBarProps) => {
   const {
     children,
     className,
@@ -138,19 +128,17 @@ const NavBar: FunctionComponentOptionalComponentProp<'div', NavBarPropsBase> = (
     className,
   ];
 
+  const CastComponent = Component as 'div';
+
   return (
-    <Component
+    <CastComponent
       ref={setNavBar}
       {...remainingProps}
       className={classNames(myClassNames)}
     >
       {children}
-    </Component>
+    </CastComponent>
   );
 };
 
-const NavBarMemo = memoWithComponentProp(NavBar);
-
-export { NavBarMemo as NavBar };
-
-export default NavBarMemo;
+export default React.memo(NavBar);

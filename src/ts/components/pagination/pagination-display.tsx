@@ -1,14 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export interface PaginationDisplayPropsBase {
+export type PaginationDisplayProps = {
   /**
    * className
    */
@@ -25,16 +20,9 @@ export interface PaginationDisplayPropsBase {
    * total number of items to display
    */
   itemCount: number;
-}
+} & OptionalComponentPropAndHTMLAttributes;
 
-export type PaginationDisplayProps<
-  C extends IntrinsicElementType = 'p'
-> = OptionalComponentProp<C> & PaginationDisplayPropsBase;
-
-const PaginationDisplay: FunctionComponentOptionalComponentProp<
-  'p',
-  PaginationDisplayPropsBase
-> = (props: PaginationDisplayProps) => {
+const PaginationDisplay = (props: PaginationDisplayProps) => {
   const {
     className,
     itemCount,
@@ -64,8 +52,4 @@ const PaginationDisplay: FunctionComponentOptionalComponentProp<
   );
 };
 
-const PaginationDisplayMemo = memoWithComponentProp(PaginationDisplay);
-
-export { PaginationDisplayMemo as PaginationDisplay };
-
-export default PaginationDisplayMemo;
+export default React.memo(PaginationDisplay);

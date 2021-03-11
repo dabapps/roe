@@ -1,14 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export interface ButtonPropsBase {
+export type ButtonProps = {
   /**
    * Set the style `display: block;`.
    */
@@ -21,19 +16,13 @@ export interface ButtonPropsBase {
    * Make the button small
    */
   small?: boolean;
-}
-
-export type ButtonProps<
-  C extends IntrinsicElementType = 'button'
-> = OptionalComponentProp<C> & ButtonPropsBase;
+} & OptionalComponentPropAndHTMLAttributes &
+  React.ButtonHTMLAttributes<HTMLElement>;
 
 /**
  * Used in place of a standard `button` tag, this component adds additional styles and effects.
  */
-const Button: FunctionComponentOptionalComponentProp<
-  'button',
-  ButtonPropsBase
-> = (props: ButtonProps) => {
+const Button = (props: ButtonProps) => {
   const {
     children,
     className,
@@ -52,15 +41,13 @@ const Button: FunctionComponentOptionalComponentProp<
     className,
   ];
 
+  const CastComponent = Component as 'button';
+
   return (
-    <Component {...remainingProps} className={classNames(myClassNames)}>
+    <CastComponent {...remainingProps} className={classNames(myClassNames)}>
       {children}
-    </Component>
+    </CastComponent>
   );
 };
 
-const ButtonMemo = memoWithComponentProp(Button);
-
-export { ButtonMemo as Button };
-
-export default ButtonMemo;
+export default React.memo(Button);

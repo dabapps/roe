@@ -3,14 +3,9 @@ import * as classNames from 'classnames';
 import * as React from 'react';
 
 import store from '../../store';
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export interface FooterPropsBase {
+export type FooterProps = {
   /**
    * Fix the footer to the bottom of the window when there is not enough content to push it down.
    */
@@ -19,15 +14,9 @@ export interface FooterPropsBase {
    * Fix the footer to the bottom of the screen always
    */
   fixed?: boolean;
-}
+} & OptionalComponentPropAndHTMLAttributes;
 
-export type FooterProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C> & FooterPropsBase;
-
-const Footer: FunctionComponentOptionalComponentProp<'div', FooterPropsBase> = (
-  props: FooterProps
-) => {
+const Footer = (props: FooterProps) => {
   const {
     sticky,
     fixed,
@@ -79,19 +68,17 @@ const Footer: FunctionComponentOptionalComponentProp<'div', FooterPropsBase> = (
     []
   );
 
+  const CastComponent = Component as 'div';
+
   return (
-    <Component
+    <CastComponent
       {...remainingProps}
       className={classNames('footer', { sticky, fixed }, className)}
       ref={setFooter}
     >
       {children}
-    </Component>
+    </CastComponent>
   );
 };
 
-const FooterMemo = memoWithComponentProp(Footer);
-
-export { FooterMemo as Footer };
-
-export default FooterMemo;
+export default React.memo(Footer);

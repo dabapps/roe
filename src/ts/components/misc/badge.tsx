@@ -1,23 +1,14 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export type BadgeProps<
-  C extends IntrinsicElementType = 'span'
-> = OptionalComponentProp<C>;
+export type BadgeProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * A badge component for displaying small pieces of information such as counts and statuses.
  */
-const Badge: FunctionComponentOptionalComponentProp<'span'> = (
-  props: BadgeProps
-) => {
+const Badge = (props: BadgeProps) => {
   const {
     className,
     children,
@@ -32,8 +23,4 @@ const Badge: FunctionComponentOptionalComponentProp<'span'> = (
   );
 };
 
-const BadgeMemo = memoWithComponentProp(Badge);
-
-export { BadgeMemo as Badge };
-
-export default BadgeMemo;
+export default React.memo(Badge);

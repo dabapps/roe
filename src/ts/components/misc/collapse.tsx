@@ -1,12 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
 const ENOUGH_TIME_FOR_RERENDER = 50;
 const DEFAULT_HEIGHT = 0;
@@ -15,7 +10,7 @@ const DEFAULT_FADE_HEIGHT = 50;
 const DEFAULT_TRANSPARENT_COLOR = 'rgba(255, 255, 255, 0)';
 const DEFAULT_FADE_COLOR = 'rgba(255, 255, 255, 1)';
 
-export interface CollapsePropsBase {
+export type CollapseProps = {
   /**
    * Whether the collapse is open or not
    * @default false
@@ -56,11 +51,7 @@ export interface CollapsePropsBase {
    * @default 50
    */
   fadeHeight?: number;
-}
-
-export type CollapseProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C> & CollapsePropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 export interface CollapseState {
   height: number | string;
@@ -71,10 +62,7 @@ export interface CollapseState {
 /**
  * Component to expand and collapse content, optionally displaying a small preview.
  */
-const Collapse: FunctionComponentOptionalComponentProp<
-  'div',
-  CollapsePropsBase
-> = (props: CollapseProps) => {
+const Collapse = (props: CollapseProps) => {
   const {
     children,
     className,
@@ -169,8 +157,10 @@ const Collapse: FunctionComponentOptionalComponentProp<
     transition: `ease-in-out ${animationDuration}ms opacity`,
   };
 
+  const CastComponent = Component as 'div';
+
   return (
-    <Component
+    <CastComponent
       ref={elementRef}
       {...remainingProps}
       className={classNames(
@@ -184,12 +174,8 @@ const Collapse: FunctionComponentOptionalComponentProp<
       {fadeOut && !opened && (
         <div className="collapse-fade" style={fadeStyle} />
       )}
-    </Component>
+    </CastComponent>
   );
 };
 
-const CollapseMemo = memoWithComponentProp(Collapse);
-
-export { CollapseMemo as Collapse };
-
-export default CollapseMemo;
+export default React.memo(Collapse);

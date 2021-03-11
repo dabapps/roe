@@ -1,14 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import { memoWithComponentProp } from '../../utils';
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export interface BannerPropsBase {
+export type BannerProps = {
   /**
    * If set, displays the component, otherwise it is hidden
    * @default true
@@ -19,18 +14,12 @@ export interface BannerPropsBase {
    * @default 'bottom'
    */
   position?: 'top' | 'bottom';
-}
-
-export type BannerProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C> & BannerPropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * A Banner component that displays fixed to the top or bottom of the screen.
  */
-const Banner: FunctionComponentOptionalComponentProp<'div', BannerPropsBase> = (
-  props: BannerProps
-): React.ReactElement => {
+const Banner = (props: BannerProps): React.ReactElement => {
   const {
     className,
     children,
@@ -50,8 +39,4 @@ const Banner: FunctionComponentOptionalComponentProp<'div', BannerPropsBase> = (
   );
 };
 
-const BannerMemo = memoWithComponentProp(Banner);
-
-export { BannerMemo as Banner };
-
-export default BannerMemo;
+export default React.memo(Banner);

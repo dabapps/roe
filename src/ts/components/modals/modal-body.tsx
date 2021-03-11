@@ -1,24 +1,15 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export type ModalBodyProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C>;
+export type ModalBodyProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Used within a `Modal` to contain the main content.
  * See the [Modal](#modal) section for a full example.
  */
-const ModalBody: FunctionComponentOptionalComponentProp<'div'> = (
-  props: ModalBodyProps
-) => {
+const ModalBody = (props: ModalBodyProps) => {
   const {
     className,
     children,
@@ -36,8 +27,4 @@ const ModalBody: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-const ModalBodyMemo = memoWithComponentProp(ModalBody);
-
-export { ModalBodyMemo as ModalBody };
-
-export default ModalBodyMemo;
+export default React.memo(ModalBody);

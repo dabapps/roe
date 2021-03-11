@@ -1,24 +1,15 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export type TableHeadProps<
-  C extends IntrinsicElementType = 'thead'
-> = OptionalComponentProp<C>;
+export type TableHeadProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Table head component with additional styles & functionality, used to contain table headers.
  * See the [Table](#table) section for a full example.
  */
-const TableHead: FunctionComponentOptionalComponentProp<'thead'> = (
-  props: TableHeadProps
-) => {
+const TableHead = (props: TableHeadProps) => {
   const {
     className,
     children,
@@ -36,8 +27,4 @@ const TableHead: FunctionComponentOptionalComponentProp<'thead'> = (
   );
 };
 
-const TableHeadMemo = memoWithComponentProp(TableHead);
-
-export { TableHeadMemo as TableHead };
-
-export default TableHeadMemo;
+export default React.memo(TableHead);

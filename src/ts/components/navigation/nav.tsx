@@ -1,16 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export type NavProps<
-  C extends IntrinsicElementType = 'ul'
-> = OptionalComponentProp<C>;
+export type NavProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Used to group NavItems inside a NavBar or SideBar.
@@ -18,7 +11,7 @@ export type NavProps<
  * to hide the nav and replace it with a menu button (for controlling the SideBar) on smaller screens.
  * The same Nav can be used in both a NavBar and SideBar, and will automatically style itself sensibly.
  */
-const Nav: FunctionComponentOptionalComponentProp<'ul'> = (props: NavProps) => {
+const Nav = (props: NavProps) => {
   const {
     className,
     children,
@@ -33,8 +26,4 @@ const Nav: FunctionComponentOptionalComponentProp<'ul'> = (props: NavProps) => {
   );
 };
 
-const NavMemo = memoWithComponentProp(Nav);
-
-export { NavMemo as Nav };
-
-export default NavMemo;
+export default React.memo(Nav);

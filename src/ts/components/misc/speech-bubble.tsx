@@ -1,14 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export interface SpeechBubblePropsBase {
+export type SpeechBubbleProps = {
   /**
    * Set the style `display: block;`.
    */
@@ -26,19 +21,12 @@ export interface SpeechBubblePropsBase {
    * Elements to display below the speech bubble such as user name or time of post.
    */
   footer?: React.ReactChild;
-}
-
-export type SpeechBubbleProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C> & SpeechBubblePropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Speech bubble component for displaying conversations / messages.
  */
-const SpeechBubble: FunctionComponentOptionalComponentProp<
-  'div',
-  SpeechBubblePropsBase
-> = (props: SpeechBubbleProps) => {
+const SpeechBubble = (props: SpeechBubbleProps) => {
   const {
     className,
     children,
@@ -74,8 +62,4 @@ const SpeechBubble: FunctionComponentOptionalComponentProp<
   );
 };
 
-const SpeechBubbleMemo = memoWithComponentProp(SpeechBubble);
-
-export { SpeechBubbleMemo as SpeechBubble };
-
-export default SpeechBubbleMemo;
+export default React.memo(SpeechBubble);

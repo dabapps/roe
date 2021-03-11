@@ -1,23 +1,14 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export interface NavItemPropsBase {
+export type NavItemProps = {
   /**
    * Apply an active class to the NavItem
    */
   active?: boolean;
-}
-
-export type NavItemProps<
-  C extends IntrinsicElementType = 'li'
-> = OptionalComponentProp<C> & NavItemPropsBase;
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * NavItems are used inside of a Nav. These already have basic hover styles applied.
@@ -27,10 +18,7 @@ export type NavItemProps<
  * You may apply `button` and related classes to a NavItem e.g. for a logout button.
  * See the [Nav](#nav) section for a full example.
  */
-const NavItem: FunctionComponentOptionalComponentProp<
-  'li',
-  NavItemPropsBase
-> = (props: NavItemProps) => {
+const NavItem = (props: NavItemProps) => {
   const { className, children, active, component: Component = 'li' } = props;
 
   return (
@@ -42,8 +30,4 @@ const NavItem: FunctionComponentOptionalComponentProp<
   );
 };
 
-const NavItemMemo = memoWithComponentProp(NavItem);
-
-export { NavItemMemo as NavItem };
-
-export default NavItemMemo;
+export default React.memo(NavItem);

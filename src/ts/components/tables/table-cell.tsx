@@ -4,24 +4,18 @@ import * as React from 'react';
 import { NBSP } from '../../constants';
 import {
   TableCellPropsBase,
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
+  OptionalComponentPropAndHTMLAttributes,
 } from '../../types';
-import { shouldNotBeRendered, memoWithComponentProp } from '../../utils';
+import { shouldNotBeRendered } from '../../utils';
 
-export type TableCellProps<
-  C extends IntrinsicElementType = 'td'
-> = OptionalComponentProp<C> & TableCellPropsBase;
+export type TableCellProps = TableCellPropsBase &
+  OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Table cell component with additional styles & functionality, used within table rows.
  * See the [Table](#table) section for a full example.
  */
-const TableCell: FunctionComponentOptionalComponentProp<
-  'td',
-  TableCellPropsBase
-> = (props: TableCellProps) => {
+const TableCell = (props: TableCellProps) => {
   const {
     className,
     children,
@@ -42,8 +36,4 @@ const TableCell: FunctionComponentOptionalComponentProp<
   );
 };
 
-const TableCellMemo = memoWithComponentProp(TableCell);
-
-export { TableCellMemo as TableCell };
-
-export default TableCellMemo;
+export default React.memo(TableCell);

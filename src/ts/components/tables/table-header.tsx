@@ -4,24 +4,18 @@ import * as React from 'react';
 import { NBSP } from '../../constants';
 import {
   TableCellPropsBase,
-  OptionalComponentProp,
-  FunctionComponentOptionalComponentProp,
-  IntrinsicElementType,
+  OptionalComponentPropAndHTMLAttributes,
 } from '../../types';
-import { shouldNotBeRendered, memoWithComponentProp } from '../../utils';
+import { shouldNotBeRendered } from '../../utils';
 
-export type TableHeaderProps<
-  C extends IntrinsicElementType = 'th'
-> = OptionalComponentProp<C> & TableCellPropsBase;
+export type TableHeaderProps = TableCellPropsBase &
+  OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Table header component with additional styles & functionality, used to style and or fix table headers.
  * See the [Table](#table) section for a full example.
  */
-const TableHeader: FunctionComponentOptionalComponentProp<
-  'th',
-  TableCellPropsBase
-> = (props: TableHeaderProps) => {
+const TableHeader = (props: TableHeaderProps) => {
   const {
     className,
     children,
@@ -42,8 +36,4 @@ const TableHeader: FunctionComponentOptionalComponentProp<
   );
 };
 
-const TableHeaderMemo = memoWithComponentProp(TableHeader);
-
-export { TableHeaderMemo as TableHeader };
-
-export default TableHeaderMemo;
+export default React.memo(TableHeader);
