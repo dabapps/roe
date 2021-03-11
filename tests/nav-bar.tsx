@@ -172,12 +172,10 @@ describe('NavBar', () => {
 
     expect(mockObserve).toHaveBeenCalledTimes(1);
     expect(mockConstructor).toHaveBeenCalledTimes(1);
-    // tslint:disable-next-line:no-string-literal
     expect(mockConstructor).toHaveBeenCalledWith(instance['updateAppRoot']);
 
     mockSetState.mockClear();
 
-    // tslint:disable-next-line:no-string-literal
     instance['updateAppRoot']();
 
     expect(store.setState).toHaveBeenCalledTimes(1);

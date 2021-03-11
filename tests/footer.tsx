@@ -122,12 +122,10 @@ describe('Footer', () => {
 
       expect(mockObserve).toHaveBeenCalledTimes(1);
       expect(mockConstructor).toHaveBeenCalledTimes(1);
-      // tslint:disable-next-line:no-string-literal
       expect(mockConstructor).toHaveBeenCalledWith(instance['updateAppRoot']);
 
       (store.setState as jest.Mock<any>).mockClear();
 
-      // tslint:disable-next-line:no-string-literal
       instance['updateAppRoot']();
 
       expect(store.setState).toHaveBeenCalledTimes(1);
@@ -152,12 +150,10 @@ describe('Footer', () => {
 
       expect(mockObserve).toHaveBeenCalledTimes(1);
       expect(mockConstructor).toHaveBeenCalledTimes(1);
-      // tslint:disable-next-line:no-string-literal
       expect(mockConstructor).toHaveBeenCalledWith(instance['updateAppRoot']);
 
       (store.setState as jest.Mock<any>).mockClear();
 
-      // tslint:disable-next-line:no-string-literal
       instance['updateAppRoot']();
 
       expect(store.setState).toHaveBeenCalledTimes(1);
@@ -234,12 +230,10 @@ describe('Footer', () => {
 
       expect(mockObserve).toHaveBeenCalledTimes(1);
       expect(mockConstructor).toHaveBeenCalledTimes(1);
-      // tslint:disable-next-line:no-string-literal
       expect(mockConstructor).toHaveBeenCalledWith(instance['updateAppRoot']);
 
       (store.setState as jest.Mock<any>).mockClear();
 
-      // tslint:disable-next-line:no-string-literal
       instance['updateAppRoot']();
 
       expect(store.setState).toHaveBeenCalledTimes(1);
@@ -264,12 +258,10 @@ describe('Footer', () => {
 
       expect(mockObserve).toHaveBeenCalledTimes(1);
       expect(mockConstructor).toHaveBeenCalledTimes(1);
-      // tslint:disable-next-line:no-string-literal
       expect(mockConstructor).toHaveBeenCalledWith(instance['updateAppRoot']);
 
       (store.setState as jest.Mock<any>).mockClear();
 
-      // tslint:disable-next-line:no-string-literal
       instance['updateAppRoot']();
 
       expect(store.setState).toHaveBeenCalledTimes(1);
