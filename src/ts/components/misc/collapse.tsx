@@ -157,6 +157,7 @@ const Collapse = (props: CollapseProps) => {
     transition: `ease-in-out ${animationDuration}ms opacity`,
   };
 
+  // Cast necessary otherwise types are too complex
   const CastComponent = Component as 'div';
 
   return (

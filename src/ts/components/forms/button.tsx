@@ -41,6 +41,7 @@ const Button = (props: ButtonProps) => {
     className,
   ];
 
+  // Cast necessary otherwise types are too complex
   const CastComponent = Component as 'button';
 
   return (

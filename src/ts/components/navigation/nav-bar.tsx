@@ -128,6 +128,7 @@ const NavBar = (props: NavBarProps) => {
     className,
   ];
 
+  // Cast necessary otherwise types are too complex
   const CastComponent = Component as 'div';
 
   return (

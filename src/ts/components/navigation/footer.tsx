@@ -68,6 +68,7 @@ const Footer = (props: FooterProps) => {
     []
   );
 
+  // Cast necessary otherwise types are too complex
   const CastComponent = Component as 'div';
 
   return (
