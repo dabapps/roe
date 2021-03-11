@@ -189,7 +189,10 @@ const webpackConfig = {
 
 const reactDocGenTypescriptConfig = {
   propFilter: function(prop /*, component*/) {
-    if (prop.description && prop.name.indexOf('aria-') !== 0) {
+    if (
+      prop.description &&
+      (!prop.parent || !prop.parent.fileName.endsWith('react/index.d.ts'))
+    ) {
       return true;
     }
 
