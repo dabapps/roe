@@ -1,35 +1,51 @@
-export type IntrinsicElementType = keyof JSX.IntrinsicElements;
+export type IntrinsicElementType =
+  | 'a'
+  | 'article'
+  | 'aside'
+  | 'blockquote'
+  | 'button'
+  | 'caption'
+  | 'code'
+  | 'dd'
+  | 'div'
+  | 'dl'
+  | 'dt'
+  | 'fieldset'
+  | 'figcaption'
+  | 'figure'
+  | 'footer'
+  | 'form'
+  | 'h1'
+  | 'h2'
+  | 'h3'
+  | 'h4'
+  | 'h5'
+  | 'h6'
+  | 'header'
+  | 'label'
+  | 'li'
+  | 'main'
+  | 'nav'
+  | 'ol'
+  | 'p'
+  | 'pre'
+  | 'section'
+  | 'span'
+  | 'strong'
+  | 'table'
+  | 'tbody'
+  | 'td'
+  | 'th'
+  | 'thead'
+  | 'tr'
+  | 'ul';
 
-export type NoComponentProp<D extends IntrinsicElementType> = {
+export interface OptionalComponentPropAndHTMLAttributes
+  extends React.HTMLAttributes<HTMLElement> {
   /**
    * Set the component to render a different element type.
    */
-  component?: undefined;
-} & JSX.IntrinsicElements[D];
-
-export type WithComponentProp<C extends IntrinsicElementType> = {
-  /**
-   * Set the component to render a different element type.
-   */
-  component: C;
-} & JSX.IntrinsicElements[C];
-
-export type OptionalComponentProp<C extends IntrinsicElementType> = {
-  /**
-   * Set the component to render a different element type.
-   */
-  component?: C;
-} & JSX.IntrinsicElements[C];
-
-export interface FunctionComponentOptionalComponentProp<
-  D extends IntrinsicElementType,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  E extends Record<string, any> = Record<string, unknown>
-> {
-  (props: NoComponentProp<D> & E): React.ReactElement;
-  <C extends IntrinsicElementType>(
-    props: WithComponentProp<C> & E
-  ): React.ReactElement;
+  component?: IntrinsicElementType;
 }
 
 export interface TableCellPropsBase {

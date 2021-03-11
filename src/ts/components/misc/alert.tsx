@@ -1,23 +1,14 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
 
-import {
-  FunctionComponentOptionalComponentProp,
-  OptionalComponentProp,
-  IntrinsicElementType,
-} from '../../types';
-import { memoWithComponentProp } from '../../utils';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
-export type AlertProps<
-  C extends IntrinsicElementType = 'div'
-> = OptionalComponentProp<C>;
+export type AlertProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * A component for applying various styles to text, ideal for info, success, and error messages.
  */
-const Alert: FunctionComponentOptionalComponentProp<'div'> = (
-  props: AlertProps
-) => {
+const Alert = (props: AlertProps): React.ReactElement => {
   const {
     children,
     className,
@@ -32,8 +23,4 @@ const Alert: FunctionComponentOptionalComponentProp<'div'> = (
   );
 };
 
-const AlertMemo = memoWithComponentProp(Alert);
-
-export { AlertMemo as Alert };
-
-export default AlertMemo;
+export default React.memo(Alert);
