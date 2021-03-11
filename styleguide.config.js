@@ -204,6 +204,9 @@ module.exports = {
   require: [path.join(__dirname, 'docs/less/index.less')],
   title: "Roe - DabApps' Project Development Kit",
   components: 'src/ts/components/**/*.{ts,tsx}',
+  moduleAliases: {
+    '@dabapps/roe': path.resolve(__dirname, 'src/ts/index.ts'),
+  },
   ignore: [],
   propsParser: require('react-docgen-typescript').withCustomConfig(
     './tsconfig.json',
