@@ -11,22 +11,22 @@ import {
   Row,
 } from '../src/ts';
 
-describe('CookieBanner', () => {
-  const TestComponent = ({ dismiss }: CookieBannerRenderProps) => (
-    <Container>
-      <Row>
-        <Column xs={10}>
-          <p>We use cookies! Roe is awesome</p>
-        </Column>
-        <Column xs={2}>
-          <Button onClick={dismiss} className="margin-top-base float-right">
-            Accept
-          </Button>
-        </Column>
-      </Row>
-    </Container>
-  );
+const TestComponent = ({ dismiss }: CookieBannerRenderProps) => (
+  <Container>
+    <Row>
+      <Column xs={10}>
+        <p>We use cookies! Roe is awesome</p>
+      </Column>
+      <Column xs={2}>
+        <Button onClick={dismiss} className="margin-top-base float-right">
+          Accept
+        </Button>
+      </Column>
+    </Row>
+  </Container>
+);
 
+describe('CookieBanner', () => {
   it('should match snapshot and take required render prop', () => {
     const tree = renderer.create(<CookieBanner render={TestComponent} />);
 
