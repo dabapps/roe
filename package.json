@@ -19,7 +19,7 @@
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "tests": "jest",
     "test": "npm run prettier-check && npm run lint && npm run typecheck && npm run tests -- --coverage --runInBand && npm run test-dist",
-    "budo": "budo src/less/index.less examples/index.tsx --live -- -t node-lessify -p [tsify -p tsconfig.examples.json]",
+    "examples": "budo src/less/index.less examples/index.tsx --live -- -t node-lessify -p [tsify -p tsconfig.examples.json]",
     "prepublishOnly": "./scripts/dist"
   },
   "repository": {
