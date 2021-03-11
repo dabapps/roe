@@ -25,7 +25,7 @@ describe('Column', () => {
       .map(size =>
         modifiers.map(modifier =>
           values.map(value => {
-            const props: any = {};
+            const props = {};
             props[size + modifier] = value;
             return React.createElement(Column, props);
           })
@@ -34,7 +34,7 @@ describe('Column', () => {
       .concat(
         sizes.map(size =>
           values.map(value => {
-            const props: any = {};
+            const props = {};
             props[size] = value;
             return React.createElement(Column, props);
           })
