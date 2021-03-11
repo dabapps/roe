@@ -59,7 +59,7 @@ const { TableCell } = require('./table-cell');
 
 #### Less variables
 
-```less
+```css
 @table-stripe: @grey-lightest;
 @table-hover: darken(@grey-lightest, 3%);
 @table-border: @border-base;

@@ -170,7 +170,7 @@ class ModalExample extends React.Component {
 
 #### Less variables
 
-```less
+```css
 @modal-overlay-background: @overlay-background;
 @modal-background: @content-box-background;
 @modal-header-background: @content-box-header-background;

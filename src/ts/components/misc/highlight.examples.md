@@ -90,7 +90,7 @@ class HighlightExample extends React.Component {
 
 #### Less variables
 
-```less
+```css
 @highlight-overlay-background: @overlay-background-dark;
 @highlight-border-radius: @border-radius-base;
 

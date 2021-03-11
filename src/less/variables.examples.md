@@ -1,2 +1,2 @@
-```less { "file": "variables.less" }
+```css { "file": "variables.less" }
 ```

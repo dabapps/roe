@@ -56,7 +56,7 @@ The `flex-grid` class can be added to a row to allow columns of varying heights 
 
 #### Less variables
 
-```less
+```css
 @grid-divisions: 12;
 @gutter-width: 30px;
 ```

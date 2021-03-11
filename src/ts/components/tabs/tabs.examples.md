@@ -18,7 +18,7 @@ const { Tab } = require('./tab');
 
 #### Less variables
 
-```less
+```css
 @tab-background: @grey-lightest;
 @tab-active-background: @white;
 @tab-border: @border-base;

@@ -21,7 +21,7 @@
 
 #### Less variables
 
-```less
+```css
 @grid-divisions: 12;
 @gutter-width: 30px;
 ```

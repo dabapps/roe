@@ -17,6 +17,6 @@
 
 #### Less variables
 
-```less
+```css
 @content-box-background: @white;
 ```

@@ -18,7 +18,7 @@
 
 #### Less variables
 
-```less
+```css
 @code-block-background: @grey-lightest;
 @code-block-name-background: contrast(
   @code-block-background,

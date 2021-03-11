@@ -42,7 +42,7 @@ In order to have these buttons also get the click effect, they must be focusable
 
 #### Less variables
 
-```less
+```css
 @input-group-addon-background: @grey-lightest;
 
 @input-border: @border-dark;

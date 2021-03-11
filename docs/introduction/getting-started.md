@@ -4,7 +4,7 @@
 
 Include Roe in your main `index.less` file. Do not use `./` or `../` in the path.
 
-```less
+```css
 @import 'node_modules/@dabapps/roe/src/less/index.less';
 ```
 

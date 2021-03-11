@@ -8,7 +8,7 @@
 
 #### Less variables
 
-```less
+```css
 @well-background: @grey-lightest;
 @well-border: @border-base;
 ```

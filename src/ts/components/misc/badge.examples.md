@@ -16,7 +16,7 @@
 
 #### Less variables
 
-```less
+```css
 @badge-font-size: @font-size-small;
 @badge-line-height: 1.5;
 @badge-border-radius: unit(@badge-line-height / 2, em);

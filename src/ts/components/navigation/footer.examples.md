@@ -8,7 +8,7 @@
 
 #### Less variables
 
-```less
+```css
 @footer-background: @body-background;
 @footer-border: @border-base;
 @footer-height: auto;

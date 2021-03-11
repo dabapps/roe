@@ -51,7 +51,7 @@ class PaginationExample extends React.Component {
 
 #### Less variables
 
-```less
+```css
 @pagination-button-color: @grey-dark;
 @pagination-button-background: @grey-lighter;
 @pagination-selected-color: @white;

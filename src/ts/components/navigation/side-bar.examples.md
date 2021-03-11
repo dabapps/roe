@@ -54,7 +54,7 @@ class SideBarExample extends React.Component {
 
 #### Less variables
 
-```less
+```css
 @side-bar-overlay-background: @overlay-background;
 @side-bar-background: @body-background;
 @side-bar-border: @border-base;

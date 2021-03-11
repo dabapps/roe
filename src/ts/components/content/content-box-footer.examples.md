@@ -14,7 +14,7 @@
 
 #### Less variables
 
-```less
+```css
 @content-box-footer-background: @content-box-header-background; // @primary-lightest;
 @content-box-footer-border: @content-box-header-border; // 1px solid @primary-lighter;
 ```

@@ -43,7 +43,7 @@ This should be applied within the selector (element / class) that you want to ap
 
 Note: the background color is used for the text & border of hollow buttons.
 
-```less
+```css
 .button,
 button {
   // You must use the mixin within the selectors you want the new class to apply to
@@ -66,7 +66,7 @@ You can then use your custom buttons by supplying the name you provided to the m
 
 #### Less variables
 
-```less
+```css
 @button-border-width: 2px;
 @button-text-color-dark: @grey-dark;
 @button-text-color-light: @grey-lightest;

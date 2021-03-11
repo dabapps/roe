@@ -70,7 +70,7 @@ Block speech bubbles
 A mixin is available that allows you to define custom speech bubble styles.
 This should be applied within the selector (element / class) that you want to apply the speech bubble styles to.
 
-```less
+```css
 .speech-bubble {
   // You must use the mixin within the selectors you want the new class to apply to
   // This example will generate selectors for: '.speech-bubble.custom-name'
@@ -106,7 +106,7 @@ HTML
 
 #### Less variables
 
-```less
+```css
 @speech-bubble-arrow-size: 10px;
 @speech-bubble-border-radius: 10px;
 @speech-bubble-background-default: @grey-lightest;

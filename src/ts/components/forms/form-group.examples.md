@@ -55,7 +55,7 @@
 
 #### Less variables
 
-```less
+```css
 @form-group-margin: @margin-large;
 @form-group-label-margin: @margin-base;
 
