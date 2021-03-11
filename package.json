@@ -59,8 +59,8 @@
     "cookie": "^0.3.1",
     "normalize.css": "8",
     "random-seed": "^0.3.0",
-    "react": "16.8",
-    "react-dom": "16.8",
+    "react": "^16.8 || 17",
+    "react-dom": "^16.8 || 17",
     "react-transition-group": "2"
   },
   "devDependencies": {
@@ -68,7 +68,7 @@
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.20",
     "@types/node": "^12.20.4",
-    "@types/react-test-renderer": "16.8",
+    "@types/react-test-renderer": "^16.8",
     "acorn": "^6.4.1",
     "autoprefixer": "^6.7.7",
     "brfs": "^1.6.1",
@@ -106,8 +106,8 @@
   "peerDependencies": {
     "less": "3",
     "normalize.css": "8",
-    "react": "16.8",
-    "react-dom": "16.8",
+    "react": "^16.8 || 17",
+    "react-dom": "^16.8 || 17",
     "react-transition-group": "2"
   }
 }
