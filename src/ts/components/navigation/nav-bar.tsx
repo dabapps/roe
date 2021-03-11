@@ -21,10 +21,6 @@ export type NavBarProps = {
   noShadow?: boolean;
 } & OptionalComponentPropAndHTMLAttributes;
 
-export interface NavBarState {
-  hidden: boolean;
-}
-
 const NavBar = (props: NavBarProps) => {
   const {
     children,

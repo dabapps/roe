@@ -53,12 +53,6 @@ export type CollapseProps = {
   fadeHeight?: number;
 } & OptionalComponentPropAndHTMLAttributes;
 
-export interface CollapseState {
-  height: number | string;
-  opened: boolean;
-  opening: boolean;
-}
-
 /**
  * Component to expand and collapse content, optionally displaying a small preview.
  */
