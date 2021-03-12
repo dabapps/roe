@@ -78,7 +78,7 @@ describe('index file', () => {
         });
     });
 
-    it('should all be function components', () => {
+    it('should all be function components wrapped with React.memo', () => {
       type Keys = keyof typeof index;
 
       for (const key in index) {
@@ -86,7 +86,11 @@ describe('index file', () => {
           // eslint-disable-next-line import/namespace
           const Component = index[key as Keys];
 
-          if (Component && Component.prototype instanceof React.PureComponent) {
+          if (Component.$$typeof !== Symbol.for('react.memo')) {
+            throw new Error(`${key} was not wrapped with React.memo`);
+          }
+
+          if (Component.type.prototype instanceof React.PureComponent) {
             throw new Error(
               `${key} extends PureComponent but should be a function component. 😥`
             );
