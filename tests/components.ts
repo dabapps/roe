@@ -3,7 +3,7 @@ import * as path from 'path';
 
 const UTF8 = 'utf8';
 const MATCHES_TS_FILE = /\.tsx?/i;
-const MATCHES_DEFAULT_EXPORT = /^export\sdefault\s(?:React\.memo\(|\w+\()?([^;)]+).*$/im;
+const MATCHES_DEFAULT_EXPORT = /^export\sdefault\s(React\.memo\(|\w+\()?([^;)]+).*$/im;
 const MATCHES_MEMO_NAMING = /Memo$/;
 const TS_SOURCE_DIR = 'src/ts';
 const COMPONENTS_DIR = path.join(process.cwd(), TS_SOURCE_DIR, 'components');
@@ -46,25 +46,27 @@ describe('components', () => {
         throw new Error(`No default export in component at ${filePath}`);
       }
 
-      const memoName = defaultExport[1];
+      const [, memo, componentName] = defaultExport;
 
-      if (!MATCHES_MEMO_NAMING.test(memoName)) {
+      if (!memo) {
         throw new Error(
-          `Default export for "${memoName}" did not have the expected name "${memoName}Memo"`
+          `Default export "${componentName}" was not wrapped with React.memo`
         );
       }
 
-      const componentName = memoName.replace(MATCHES_MEMO_NAMING, '');
+      if (MATCHES_MEMO_NAMING.test(componentName)) {
+        throw new Error(
+          `Default export "${componentName}" should not end with container "Memo"`
+        );
+      }
 
       const matchesNamedExport = new RegExp(
-        `^export\\s*{\\s*${memoName}\\s+as\\s+${componentName}\\s*}`,
+        `^export\\s*{\\s*${componentName}\\s+as\\s+${componentName}\\s*}`,
         'm'
       );
 
-      if (!matchesNamedExport.test(content)) {
-        throw new Error(
-          `Default export "${memoName}" does not have a named export matching "export { ${memoName} as ${componentName} }"`
-        );
+      if (matchesNamedExport.test(content)) {
+        throw new Error(`Unnecessary named export for "${componentName}"`);
       }
     });
   });
@@ -79,15 +81,7 @@ describe('components', () => {
         throw new Error(`No default export in component at ${filePath}`);
       }
 
-      const memoName = defaultExport[1];
-
-      if (!MATCHES_MEMO_NAMING.test(memoName)) {
-        throw new Error(
-          `Default export for "${memoName}" did not have the expected name "${memoName}Memo"`
-        );
-      }
-
-      const componentName = memoName.replace(MATCHES_MEMO_NAMING, '');
+      const [, , componentName] = defaultExport;
 
       if (!fs.existsSync(INDEX_FILE_PATH)) {
         throw new Error(`Could not find index file at ${INDEX_FILE_PATH}`);
