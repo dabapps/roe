@@ -65,8 +65,14 @@ describe('index file', () => {
           const Component = index[key];
 
           const element = <Component {...otherProps} component="p" />;
+          const elementJSON = renderer.create(element).toJSON();
 
-          if (renderer.create(element).toJSON()?.type !== 'p') {
+          if (
+            !elementJSON ||
+            (Array.isArray(elementJSON)
+              ? elementJSON[0].type !== 'p'
+              : elementJSON.type !== 'p')
+          ) {
             throw new Error(`${key} cannot take a component prop. 😥`);
           }
         });
