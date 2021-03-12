@@ -8,8 +8,7 @@ exports[`PaginationDisplay should render the text "Showing 24-26 of 26" 1`] = `
   24
   -
   26
-   of
-   
+   of 
   26
 </p>
 `;
