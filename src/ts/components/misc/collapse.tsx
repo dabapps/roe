@@ -91,7 +91,8 @@ const Collapse = (props: CollapseProps) => {
         opening: prevProps.current.open,
         height: props.open
           ? props.maxCollapsedHeight ?? DEFAULT_HEIGHT
-          : elementRef.current?.scrollHeight ?? 0,
+          : /* istanbul ignore next */
+            elementRef.current?.scrollHeight ?? 0,
       });
 
       timeoutRef.current = window.setTimeout(() => {
@@ -99,7 +100,8 @@ const Collapse = (props: CollapseProps) => {
           opened: false,
           opening: props.open,
           height: props.open
-            ? elementRef.current?.scrollHeight ?? 0
+            ? /* istanbul ignore next */
+              elementRef.current?.scrollHeight ?? 0
             : props.maxCollapsedHeight ?? DEFAULT_HEIGHT,
         });
 
@@ -119,7 +121,10 @@ const Collapse = (props: CollapseProps) => {
   React.useEffect(() => {
     setState(prevState => ({
       ...prevState,
-      height: open ? elementRef.current?.scrollHeight ?? 0 : maxCollapsedHeight,
+      height: open
+        ? /* istanbul ignore next */
+          elementRef.current?.scrollHeight ?? 0
+        : maxCollapsedHeight,
     }));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

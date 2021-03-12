@@ -60,9 +60,11 @@ const NavBar = (props: NavBarProps) => {
         return;
       }
 
+      /* istanbul ignore else */
       if (navBar instanceof HTMLElement) {
         const { height } = navBar.getBoundingClientRect();
 
+        /* istanbul ignore else */
         if (y > previousScrollYRef.current + height / 2 && y > height) {
           setHidden(true);
 
