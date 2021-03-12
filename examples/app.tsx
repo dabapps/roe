@@ -3,6 +3,7 @@ import * as React from 'react';
 import {
   AppRoot,
   Button,
+  Collapse,
   Column,
   Container,
   ContentBox,
@@ -34,6 +35,7 @@ interface AppState {
   sidebarOpen: boolean;
   highlightActive: boolean;
   modals: ReadonlyArray<React.ReactElement<UnknownProps>>;
+  collapseOpen: boolean;
 }
 
 class App extends React.PureComponent<UnknownProps, AppState> {
@@ -44,6 +46,7 @@ class App extends React.PureComponent<UnknownProps, AppState> {
       sidebarOpen: false,
       highlightActive: false,
       modals: [],
+      collapseOpen: false,
     };
   }
 
@@ -318,6 +321,17 @@ class App extends React.PureComponent<UnknownProps, AppState> {
               <ModalRenderer modals={this.state.modals} />
             </ContentBox>
           </Highlight>
+
+          <ContentBox>
+            <Collapse open={this.state.collapseOpen} minHeight={100} fadeOut>
+              <p className="text-align-right">
+                <a onClick={this.onClickToggleCollapse}>
+                  {this.state.collapseOpen ? 'Collapse' : 'Expand'}
+                </a>
+              </p>
+              <DabIpsum count={5} />
+            </Collapse>
+          </ContentBox>
         </Container>
 
         <Footer fixed>
@@ -332,6 +346,12 @@ class App extends React.PureComponent<UnknownProps, AppState> {
       </AppRoot>
     );
   }
+
+  private onClickToggleCollapse = () => {
+    this.setState(({ collapseOpen }) => ({
+      collapseOpen: !collapseOpen,
+    }));
+  };
 
   private onClickShowSideBar = () => {
     this.setState({
