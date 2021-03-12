@@ -1,6 +1,7 @@
 import * as enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
+import * as testUtils from 'react-dom/test-utils';
 
 import { Collapse } from '../src/ts';
 
@@ -52,7 +53,9 @@ describe('Collapse', () => {
 
     expect(instance).toMatchSnapshot();
 
-    jest.runOnlyPendingTimers();
+    testUtils.act(() => {
+      jest.runOnlyPendingTimers();
+    });
 
     expect(instance).toMatchSnapshot();
   });
@@ -101,10 +104,10 @@ describe('Collapse', () => {
     jest.useFakeTimers();
 
     const instance = enzyme.mount(<Collapse open={false} fadeOut />);
-    const node = instance.getDOMNode();
 
     // Set a scrollHeight
-    Object.defineProperty(node, 'scrollHeight', {
+    Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+      configurable: true,
       get: () => 500,
     });
 
@@ -120,13 +123,17 @@ describe('Collapse', () => {
     instance.update();
     expect(instance).toMatchSnapshot();
 
-    jest.runOnlyPendingTimers();
+    testUtils.act(() => {
+      jest.runOnlyPendingTimers();
+    });
 
     // Begin open sequence
     instance.update();
     expect(instance).toMatchSnapshot();
 
-    jest.runOnlyPendingTimers();
+    testUtils.act(() => {
+      jest.runOnlyPendingTimers();
+    });
 
     // Complete open sequence
     instance.update();
@@ -139,10 +146,10 @@ describe('Collapse', () => {
     const instance = enzyme.mount(
       <Collapse open={false} maxCollapsedHeight={100} fadeOut />
     );
-    const node = instance.getDOMNode();
 
     // Set a scrollHeight
-    Object.defineProperty(node, 'scrollHeight', {
+    Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+      configurable: true,
       get: () => 500,
     });
 
@@ -158,13 +165,17 @@ describe('Collapse', () => {
     instance.update();
     expect(instance).toMatchSnapshot();
 
-    jest.runOnlyPendingTimers();
+    testUtils.act(() => {
+      jest.runOnlyPendingTimers();
+    });
 
     // Begin open sequence
     instance.update();
     expect(instance).toMatchSnapshot();
 
-    jest.runOnlyPendingTimers();
+    testUtils.act(() => {
+      jest.runOnlyPendingTimers();
+    });
 
     // Complete open sequence
     instance.update();
@@ -175,10 +186,10 @@ describe('Collapse', () => {
     jest.useFakeTimers();
 
     const instance = enzyme.mount(<Collapse open fadeOut />);
-    const node = instance.getDOMNode();
 
     // Set a scrollHeight
-    Object.defineProperty(node, 'scrollHeight', {
+    Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+      configurable: true,
       get: () => 500,
     });
 
@@ -194,13 +205,17 @@ describe('Collapse', () => {
     instance.update();
     expect(instance).toMatchSnapshot();
 
-    jest.runOnlyPendingTimers();
+    testUtils.act(() => {
+      jest.runOnlyPendingTimers();
+    });
 
     // Begin close sequence
     instance.update();
     expect(instance).toMatchSnapshot();
 
-    jest.runOnlyPendingTimers();
+    testUtils.act(() => {
+      jest.runOnlyPendingTimers();
+    });
 
     // Complete close sequence
     instance.update();
@@ -213,10 +228,10 @@ describe('Collapse', () => {
     const instance = enzyme.mount(
       <Collapse open maxCollapsedHeight={100} fadeOut />
     );
-    const node = instance.getDOMNode();
 
     // Set a scrollHeight
-    Object.defineProperty(node, 'scrollHeight', {
+    Object.defineProperty(HTMLElement.prototype, 'scrollHeight', {
+      configurable: true,
       get: () => 500,
     });
 
@@ -232,13 +247,17 @@ describe('Collapse', () => {
     instance.update();
     expect(instance).toMatchSnapshot();
 
-    jest.runOnlyPendingTimers();
+    testUtils.act(() => {
+      jest.runOnlyPendingTimers();
+    });
 
     // Begin close sequence
     instance.update();
     expect(instance).toMatchSnapshot();
 
-    jest.runOnlyPendingTimers();
+    testUtils.act(() => {
+      jest.runOnlyPendingTimers();
+    });
 
     // Complete close sequence
     instance.update();
