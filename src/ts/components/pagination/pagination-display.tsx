@@ -28,22 +28,18 @@ const PaginationDisplay = (props: PaginationDisplayProps) => {
     ...remainingProps
   } = props;
 
-  const showingLowerCount = React.useCallback(() => {
-    return (currentPageNumber - 1) * pageSize || 1;
-  }, [currentPageNumber, pageSize]);
-
-  const showingUpperCount = React.useCallback(() => {
-    return pageSize * currentPageNumber > itemCount
+  const lowerCount = (currentPageNumber - 1) * pageSize || 1;
+  const upperCount =
+    pageSize * currentPageNumber > itemCount
       ? itemCount
       : pageSize * currentPageNumber;
-  }, [pageSize, currentPageNumber, itemCount]);
 
   return (
     <Component
       {...remainingProps}
       className={classNames('pagination-display', className)}
     >
-      Showing {showingLowerCount()}-{showingUpperCount()} of {itemCount}
+      Showing {lowerCount}-{upperCount} of {itemCount}
     </Component>
   );
 };
