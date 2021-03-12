@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Column } from '../src/ts';
+import { Column, ColumnProps } from '../src/ts';
 
 describe('Column', () => {
   it('should match snapshot', () => {
@@ -18,25 +18,30 @@ describe('Column', () => {
 
   it('should convert column modifier props to class names', () => {
     const values = [undefined, NaN, 0, 1, 2, 3];
-    const sizes = ['xs', 'sm', 'md', 'lg', 'xl'];
-    const modifiers = ['Offset', 'Fill', 'Push', 'Pull'];
+    const sizes = ['xs', 'sm', 'md', 'lg', 'xl'] as const;
+    const modifiers = ['Offset', 'Fill', 'Push', 'Pull'] as const;
 
     const columns = sizes
       .map(size =>
         modifiers.map(modifier =>
           values.map(value => {
-            const props = {};
-            props[size + modifier] = value;
-            return React.createElement(Column, props);
+            const props: ColumnProps = {};
+            const prop = `${size}${modifier}` as keyof ColumnProps;
+
+            props[prop] = value;
+
+            return <Column key={`${prop}:${value}`} {...props} />;
           })
         )
       )
       .concat(
         sizes.map(size =>
           values.map(value => {
-            const props = {};
+            const props: ColumnProps = {};
+
             props[size] = value;
-            return React.createElement(Column, props);
+
+            return <Column key={`${size}:${value}`} {...props} />;
           })
         )
       );
