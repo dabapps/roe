@@ -31,16 +31,14 @@ export type CookieBannerProps = {
  * which you can then apply as an onClick prop to an element of your choice.
  */
 const CookieBanner = (props: CookieBannerProps) => {
-  const [dismissed, setDismissed] = React.useState(false);
+  const [dismissed, setDismissed] = React.useState(
+    Boolean(cookie.parse(document.cookie)['cookies-accepted'])
+  );
 
   const setCookie = () => {
     document.cookie = cookie.serialize('cookies-accepted', 'true');
     setDismissed(true);
   };
-
-  React.useEffect(() => {
-    setDismissed(Boolean(cookie.parse(document.cookie)['cookies-accepted']));
-  }, []);
 
   const {
     /* eslint-disable-next-line @typescript-eslint/no-unused-vars */
