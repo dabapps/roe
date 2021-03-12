@@ -14,6 +14,7 @@ import {
   ModalRenderer,
   SpacedGroup,
   Button,
+  DabIpsum,
 } from '@dabapps/roe';
 
 const X_CHAR = String.fromCharCode(215);
