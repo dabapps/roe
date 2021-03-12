@@ -165,10 +165,7 @@ const Pagination = (props: PaginationProps) => {
   }, [numFullPages, pageSize, itemCount]);
 
   const paginationSeries = (start: number, end: number, range: number) => {
-    // eslint-disable-next-line prefer-spread
-    return Array.apply(null, {
-      length: range,
-    }).map((item: number, index: number) =>
+    return [...Array(range)].map((_item, index) =>
       Math.floor(start + index * ((end - start) / range))
     );
   };
