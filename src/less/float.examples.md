@@ -16,5 +16,5 @@ import { Row, Column } from '@dabapps/roe';
   <Column xs={6} className="xs-float-left sm-float-right md-float-left">
     float-left sm-float-right md-float-left
   </Column>
-</Row>
+</Row>;
 ```
