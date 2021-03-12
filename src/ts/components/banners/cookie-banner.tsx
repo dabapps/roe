@@ -31,7 +31,7 @@ export type CookieBannerProps = {
  * which you can then apply as an onClick prop to an element of your choice.
  */
 const CookieBanner = (props: CookieBannerProps) => {
-  const [dismissed, setDismissed] = React.useState<boolean>();
+  const [dismissed, setDismissed] = React.useState(false);
 
   const setCookie = () => {
     document.cookie = cookie.serialize('cookies-accepted', 'true');
