@@ -122,7 +122,7 @@ function getExampleFilename(componentPath) {
 function updateExample(props, exampleFilePath) {
   const { settings, lang } = props;
 
-  if (typeof settings.file === 'string') {
+  if (settings && typeof settings.file === 'string') {
     const filepath = path.resolve(path.dirname(exampleFilePath), settings.file);
 
     if (lang === 'less') {
