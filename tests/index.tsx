@@ -7,6 +7,14 @@ jest.mock('react-dom', () => ({
   findDOMNode: () => null,
 }));
 
+const otherProps = {
+  open: false,
+  render: () => <div />,
+  pageSize: 0,
+  currentPageNumber: 1,
+  itemCount: 0,
+};
+
 describe('index file', () => {
   const mockHighlightBlock = jest.fn();
 
@@ -26,7 +34,7 @@ describe('index file', () => {
 
   describe('components', () => {
     it('should all accept a component prop', () => {
-      const exceptions = [
+      const exceptions: readonly IndexKey[] = [
         'Anchor',
         'DabIpsum',
         'ModalRenderer',
@@ -35,25 +43,33 @@ describe('index file', () => {
         'SideBar',
         'Pagination',
       ];
-      type Keys = keyof typeof index;
+      type Exceptions =
+        | 'Anchor'
+        | 'DabIpsum'
+        | 'ModalRenderer'
+        | 'Modal'
+        | 'Table'
+        | 'SideBar'
+        | 'Pagination';
+      type IndexKey = keyof typeof index;
+      type IndexKeyWithComponentProp = Exclude<IndexKey, Exceptions>;
 
-      for (const key in index) {
-        if (Object.prototype.hasOwnProperty.call(index, key)) {
+      const indexKeys = Object.keys(index) as readonly IndexKey[];
+
+      indexKeys
+        .filter(
+          (key): key is IndexKeyWithComponentProp => !exceptions.includes(key)
+        )
+        .forEach(key => {
           // eslint-disable-next-line import/namespace
-          const Component = index[key as Keys];
+          const Component = index[key];
 
-          if (Component) {
-            const instance = <Component component="p" />;
+          const element = <Component {...otherProps} component="p" />;
 
-            if (
-              exceptions.indexOf(key) < 0 &&
-              renderer.create(instance).toJSON()?.type !== 'p'
-            ) {
-              throw new Error(`${key} cannot take a component prop. 😥`);
-            }
+          if (renderer.create(element).toJSON()?.type !== 'p') {
+            throw new Error(`${key} cannot take a component prop. 😥`);
           }
-        }
-      }
+        });
     });
 
     it('should all be function components', () => {
