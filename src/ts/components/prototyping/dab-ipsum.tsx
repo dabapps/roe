@@ -37,36 +37,23 @@ const ipsumItem = (component: DabIpsumProps['component'], index: number) => {
 const DabIpsum = (props: DabIpsumProps) => {
   const { component = 'p', count = 5 } = props;
 
-  // eslint-disable-next-line prefer-spread
-  const items = Array.apply(null, new Array(count));
+  const items = [...Array(count)];
 
   switch (component) {
     case 'ul':
       return (
-        <ul>
-          {items.map((value: void, index: number) =>
-            ipsumItem(component, index)
-          )}
-        </ul>
+        <ul>{items.map((_value, index) => ipsumItem(component, index))}</ul>
       );
     case 'ol':
       return (
-        <ol>
-          {items.map((value: void, index: number) =>
-            ipsumItem(component, index)
-          )}
-        </ol>
+        <ol>{items.map((_value, index) => ipsumItem(component, index))}</ol>
       );
     case 'text':
       return ipsumItem(component, 0);
     // case 'p'
     default:
       return (
-        <div>
-          {items.map((value: void, index: number) =>
-            ipsumItem(component, index)
-          )}
-        </div>
+        <div>{items.map((_value, index) => ipsumItem(component, index))}</div>
       );
   }
 };
