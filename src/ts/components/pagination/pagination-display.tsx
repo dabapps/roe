@@ -5,19 +5,15 @@ import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
 export type PaginationDisplayProps = {
   /**
-   * className
-   */
-  className?: string;
-  /**
-   * items count per page
+   * Number of items per page
    */
   pageSize: number;
   /**
-   * current page number (1 indexed)
+   * Current page number to highlight (1 indexed)
    */
   currentPageNumber: number;
   /**
-   * total number of items to display
+   * Total number of items available
    */
   itemCount: number;
 } & OptionalComponentPropAndHTMLAttributes;

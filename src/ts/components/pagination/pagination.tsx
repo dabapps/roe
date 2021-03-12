@@ -6,41 +6,37 @@ import SpacedGroup from '../misc/spaced-group';
 
 export type PaginationProps = {
   /**
-   * className
-   */
-  className?: string;
-  /**
-   * is disabled
+   * Disable the pagination
    * @default false
    */
   disabled?: boolean;
   /**
-   * items count per page
+   * Number of items per page
    */
   pageSize: number;
   /**
-   * current page number (1 indexed)
+   * Current page number to highlight (1 indexed)
    */
   currentPageNumber: number;
   /**
-   * total number of items to display
+   * Total number of items available
    */
   itemCount: number;
   /**
-   * next button text
+   * Next button text
    * @default '>'
    */
   nextText?: string;
   /**
-   * prev button text
+   * Previous button text
    * @default '<'
    */
   prevText?: string;
   /**
-   * changePage
+   * Called when a page is selected
    */
   changePage: (pageNumber: number) => void;
-};
+} & React.HTMLAttributes<HTMLDivElement>;
 
 const LEFT_BUTTONS = 2;
 const RIGHT_BUTTONS = 2;
