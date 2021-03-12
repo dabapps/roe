@@ -16,28 +16,23 @@ exports[`Pagination should add a "next" button when there are more than 3 pages 
     </button>
     <button
       className="button selected"
-      disabled={undefined}
-      onClick={undefined}
     >
       1
     </button>
     <button
       className="button"
-      disabled={undefined}
       onClick={[Function]}
     >
       2
     </button>
     <button
       className="button"
-      disabled={undefined}
       onClick={[Function]}
     >
       3
     </button>
     <button
       className="button next"
-      disabled={undefined}
       onClick={[Function]}
     >
       &gt;
@@ -63,7 +58,6 @@ exports[`Pagination should disable buttons when disabled is true 1`] = `
     <button
       className="button selected disabled"
       disabled={true}
-      onClick={undefined}
     >
       1
     </button>
@@ -124,21 +118,17 @@ exports[`Pagination should display custom next and previous text 1`] = `
     </button>
     <button
       className="button selected"
-      disabled={undefined}
-      onClick={undefined}
     >
       1
     </button>
     <button
       className="button"
-      disabled={undefined}
       onClick={[Function]}
     >
       2
     </button>
     <button
       className="button next"
-      disabled={undefined}
       onClick={[Function]}
     >
       <span
@@ -167,21 +157,17 @@ exports[`Pagination should display less than 5 buttons for minimal page counts 1
     </button>
     <button
       className="button selected"
-      disabled={undefined}
-      onClick={undefined}
     >
       1
     </button>
     <button
       className="button"
-      disabled={undefined}
       onClick={[Function]}
     >
       2
     </button>
     <button
       className="button next"
-      disabled={undefined}
       onClick={[Function]}
     >
       &gt;
@@ -199,14 +185,12 @@ exports[`Pagination should render page 1 as the first option, followed by an ell
   >
     <button
       className="button prev"
-      disabled={undefined}
       onClick={[Function]}
     >
       &lt;
     </button>
     <button
       className="button"
-      disabled={undefined}
       onClick={[Function]}
     >
       1
@@ -218,8 +202,6 @@ exports[`Pagination should render page 1 as the first option, followed by an ell
     </div>
     <button
       className="button selected"
-      disabled={undefined}
-      onClick={undefined}
     >
       5
     </button>
@@ -230,14 +212,12 @@ exports[`Pagination should render page 1 as the first option, followed by an ell
     </div>
     <button
       className="button"
-      disabled={undefined}
       onClick={[Function]}
     >
       24
     </button>
     <button
       className="button next"
-      disabled={undefined}
       onClick={[Function]}
     >
       &gt;
@@ -262,21 +242,17 @@ exports[`Pagination should render the button for page 1 as selected when the cur
     </button>
     <button
       className="button selected"
-      disabled={undefined}
-      onClick={undefined}
     >
       1
     </button>
     <button
       className="button"
-      disabled={undefined}
       onClick={[Function]}
     >
       2
     </button>
     <button
       className="button"
-      disabled={undefined}
       onClick={[Function]}
     >
       3
@@ -288,14 +264,12 @@ exports[`Pagination should render the button for page 1 as selected when the cur
     </div>
     <button
       className="button"
-      disabled={undefined}
       onClick={[Function]}
     >
       9
     </button>
     <button
       className="button next"
-      disabled={undefined}
       onClick={[Function]}
     >
       &gt;
