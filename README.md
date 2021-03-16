@@ -49,6 +49,8 @@ Run all our tests, linting, etc:
 npm test
 ```
 
+Note: the above script will install several different versions of React types, so run `npm ci` once they're done to get back to the correct types.
+
 Format all relevant files using prettier:
 
 ```
