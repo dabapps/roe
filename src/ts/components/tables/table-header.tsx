@@ -9,6 +9,7 @@ import {
 import { shouldNotBeRendered } from '../../utils';
 
 export type TableHeaderProps = TableCellPropsBase &
+  React.ThHTMLAttributes<HTMLTableHeaderCellElement> &
   OptionalComponentPropAndHTMLAttributes;
 
 /**

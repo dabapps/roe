@@ -9,6 +9,7 @@ import {
 import { shouldNotBeRendered } from '../../utils';
 
 export type TableCellProps = TableCellPropsBase &
+  React.TdHTMLAttributes<HTMLTableCellElement> &
   OptionalComponentPropAndHTMLAttributes;
 
 /**
