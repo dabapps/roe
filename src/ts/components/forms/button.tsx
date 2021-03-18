@@ -16,8 +16,8 @@ export type ButtonProps = {
    * Make the button small
    */
   small?: boolean;
-} & OptionalComponentPropAndHTMLAttributes &
-  React.ButtonHTMLAttributes<HTMLElement>;
+} & React.ButtonHTMLAttributes<HTMLElement> &
+  OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Used in place of a standard `button` tag, this component adds additional styles and effects.
