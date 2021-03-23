@@ -1,7 +1,6 @@
 {
   "extends": ["dabapps"],
   "rules": {
-    "react/prop-types": 0,
     "dabapps/no-relative-parent-import": 0
   },
   "settings": {
