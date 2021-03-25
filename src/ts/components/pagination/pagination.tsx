@@ -70,16 +70,12 @@ const Pagination = (props: PaginationProps) => {
     return changePage(currentPageNumber + 1);
   }, [currentPageNumber, changePage]);
 
-  const shouldGetMorePages = React.useCallback(() => totalPages > MAX_BUTTONS, [
-    totalPages,
-  ]);
-
   const getDisplayDots = React.useCallback(
     (index: number, page: number) =>
-      shouldGetMorePages() &&
+      totalPages > MAX_BUTTONS &&
       ((index === 1 && page > 2) ||
         (index === MAX_BUTTONS - 2 && page < totalPages - 1)),
-    [shouldGetMorePages, totalPages]
+    [totalPages]
   );
 
   const getButtonType = React.useCallback(
