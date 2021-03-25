@@ -57,6 +57,10 @@ const Pagination = (props: PaginationProps) => {
 
   const pageCount = itemCount / pageSize;
   const totalPages = Math.ceil(pageCount);
+  const isPrevButtonDisabled = currentPageNumber === 1 || disabled;
+  const isNextButtonDisabled =
+    !totalPages || currentPageNumber === totalPages || disabled;
+  const isPageButtonDisabled = itemCount <= pageSize || disabled;
 
   const decrementPage = React.useCallback(() => {
     return changePage(currentPageNumber - 1);
@@ -65,18 +69,6 @@ const Pagination = (props: PaginationProps) => {
   const incrementPage = React.useCallback(() => {
     return changePage(currentPageNumber + 1);
   }, [currentPageNumber, changePage]);
-
-  const isNextButtonDisabled = React.useCallback(() => {
-    return !totalPages || currentPageNumber === totalPages || disabled;
-  }, [totalPages, currentPageNumber, disabled]);
-
-  const isPrevButtonDisabled = React.useCallback(() => {
-    return currentPageNumber === 1 || disabled;
-  }, [currentPageNumber, disabled]);
-
-  const isPageButtonDisabled = React.useCallback(() => {
-    return itemCount <= pageSize || disabled;
-  }, [itemCount, pageSize, disabled]);
 
   const shouldGetMorePages = React.useCallback(() => totalPages > MAX_BUTTONS, [
     totalPages,
@@ -169,10 +161,10 @@ const Pagination = (props: PaginationProps) => {
       <SpacedGroup className="pagination-group" large>
         <Button
           className={classNames('prev', {
-            disabled: isPrevButtonDisabled(),
+            disabled: isPrevButtonDisabled,
           })}
           onClick={decrementPage}
-          disabled={isPrevButtonDisabled()}
+          disabled={isPrevButtonDisabled}
         >
           {prevText ? <span className="prev-icon">{prevText}</span> : '<'}
         </Button>
@@ -190,9 +182,9 @@ const Pagination = (props: PaginationProps) => {
               <Button
                 key={index}
                 className={classNames(getButtonType(page, index), {
-                  disabled: isPageButtonDisabled(),
+                  disabled: isPageButtonDisabled,
                 })}
-                disabled={isPageButtonDisabled()}
+                disabled={isPageButtonDisabled}
                 onClick={onClickPageNumber(index, page)}
               >
                 {getPageToGoTo(page, index)}
@@ -203,9 +195,9 @@ const Pagination = (props: PaginationProps) => {
 
         <Button
           className={classNames('next', {
-            disabled: isNextButtonDisabled(),
+            disabled: isNextButtonDisabled,
           })}
-          disabled={isNextButtonDisabled()}
+          disabled={isNextButtonDisabled}
           onClick={incrementPage}
         >
           {nextText ? <span className="next-icon">{nextText}</span> : '>'}
