@@ -74,7 +74,7 @@ const getRange = (itemCount: number, pageSize: number, pageCount: number) => {
   return MAX_BUTTONS;
 };
 
-export const paginationSeries = (
+export const getPaginationSeries = (
   totalPages: number,
   pageCount: number,
   itemCount: number,

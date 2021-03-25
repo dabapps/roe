@@ -4,7 +4,7 @@ import * as React from 'react';
 import Button from '../forms/button';
 import SpacedGroup from '../misc/spaced-group';
 import {
-  paginationSeries,
+  getPaginationSeries,
   getIsDots,
   getPageToGoTo,
   getButtonType,
@@ -94,7 +94,7 @@ const Pagination = (props: PaginationProps) => {
           {prevText ? <span className="prev-icon">{prevText}</span> : '<'}
         </Button>
 
-        {paginationSeries(
+        {getPaginationSeries(
           totalPages,
           pageCount,
           itemCount,
