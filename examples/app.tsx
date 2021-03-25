@@ -17,6 +17,7 @@ import {
   InputGroupAddon,
   ModalRenderer,
   NavBar,
+  Pagination,
   Row,
   Section,
   SideBar,
@@ -28,6 +29,10 @@ import NavItems from './nav-items';
 
 const X_CHAR = String.fromCharCode(215);
 const MENU_CHAR = String.fromCharCode(9776);
+const PAGINATION_PROPS = {
+  pageSize: 10,
+  itemCount: 123,
+};
 
 type UnknownProps = Record<string, unknown>;
 
@@ -36,6 +41,7 @@ interface AppState {
   highlightActive: boolean;
   modals: ReadonlyArray<React.ReactElement<UnknownProps>>;
   collapseOpen: boolean;
+  currentPageNumber: number;
 }
 
 class App extends React.PureComponent<UnknownProps, AppState> {
@@ -47,6 +53,7 @@ class App extends React.PureComponent<UnknownProps, AppState> {
       highlightActive: false,
       modals: [],
       collapseOpen: false,
+      currentPageNumber: 1,
     };
   }
 
@@ -332,6 +339,14 @@ class App extends React.PureComponent<UnknownProps, AppState> {
               <DabIpsum count={5} />
             </Collapse>
           </ContentBox>
+
+          <ContentBox>
+            <Pagination
+              {...PAGINATION_PROPS}
+              currentPageNumber={this.state.currentPageNumber}
+              changePage={this.changePage}
+            />
+          </ContentBox>
         </Container>
 
         <Footer fixed>
@@ -394,6 +409,12 @@ class App extends React.PureComponent<UnknownProps, AppState> {
         ...state,
         modals: modalsCopy,
       };
+    });
+  };
+
+  private changePage = (page: number) => {
+    this.setState({
+      currentPageNumber: page,
     });
   };
 }
