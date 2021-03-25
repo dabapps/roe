@@ -44,6 +44,45 @@ export type PaginationProps = {
   changePage: (pageNumber: number) => void;
 } & React.HTMLAttributes<HTMLDivElement>;
 
+interface PaginationButtonProps {
+  totalPages: number;
+  currentPageNumber: number;
+  page: number;
+  index: number;
+  disabled: boolean | undefined;
+  className: string | undefined;
+  changePage: PaginationProps['changePage'];
+}
+
+const PaginationButton = ({
+  currentPageNumber,
+  totalPages,
+  page,
+  index,
+  disabled,
+  className,
+  changePage,
+}: PaginationButtonProps) => {
+  const onClickPageNumber = React.useCallback(() => {
+    if (currentPageNumber !== page && !getIsDots(totalPages, index, page)) {
+      return () => changePage(getPageToGoTo(totalPages, page, index));
+    }
+  }, [totalPages, currentPageNumber, index, page, changePage]);
+
+  return (
+    <Button
+      key={index}
+      className={classNames(className, { disabled })}
+      disabled={disabled}
+      onClick={onClickPageNumber}
+    >
+      {getPageToGoTo(totalPages, page, index)}
+    </Button>
+  );
+};
+
+const PaginationButtonMemo = React.memo(PaginationButton);
+
 const Pagination = (props: PaginationProps) => {
   const {
     className,
@@ -71,15 +110,6 @@ const Pagination = (props: PaginationProps) => {
   const incrementPage = React.useCallback(() => {
     return changePage(currentPageNumber + 1);
   }, [currentPageNumber, changePage]);
-
-  const onClickPageNumber = React.useCallback(
-    (index: number, page: number) => {
-      if (currentPageNumber !== page && !getIsDots(totalPages, index, page)) {
-        return () => changePage(getPageToGoTo(totalPages, page, index));
-      }
-    },
-    [currentPageNumber, changePage, totalPages]
-  );
 
   return (
     <div {...remainingProps} className={classNames('pagination', className)}>
@@ -113,16 +143,16 @@ const Pagination = (props: PaginationProps) => {
               ...
             </div>
           ) : (
-            <Button
+            <PaginationButtonMemo
               key={index}
-              className={classNames(buttonType, {
-                disabled: isPageButtonDisabled,
-              })}
+              index={index}
+              page={page}
+              totalPages={totalPages}
+              currentPageNumber={currentPageNumber}
+              className={buttonType}
               disabled={isPageButtonDisabled}
-              onClick={onClickPageNumber(index, page)}
-            >
-              {getPageToGoTo(totalPages, page, index)}
-            </Button>
+              changePage={changePage}
+            />
           );
         })}
 
