@@ -25,7 +25,7 @@ const ipsumItem = (component: DabIpsumProps['component'], index: number) => {
       return <li key={index}>{ipsum}</li>;
     case 'text':
       return <span key={index}>{ipsum}</span>;
-    // case 'p': NOTE: this is the default, so a case for it is not needed
+    case 'p':
     default:
       return <p key={index}>{ipsum}</p>;
   }
@@ -50,7 +50,7 @@ const DabIpsum = (props: DabIpsumProps) => {
       );
     case 'text':
       return ipsumItem(component, 0);
-    // case 'p'
+    case 'p':
     default:
       return (
         <div>{items.map((_value, index) => ipsumItem(component, index))}</div>
