@@ -8,6 +8,7 @@ const MATCHES_MEMO_NAMING = /Memo$/;
 const TS_SOURCE_DIR = 'src/ts';
 const COMPONENTS_DIR = path.join(process.cwd(), TS_SOURCE_DIR, 'components');
 const INDEX_FILE_PATH = path.join(process.cwd(), TS_SOURCE_DIR, 'index.ts');
+const NOT_COMPONENTS = ['constants.ts', 'utils.ts'];
 
 const getAllComponents = (directory: string): string[] => {
   if (!fs.existsSync(directory)) {
@@ -17,7 +18,11 @@ const getAllComponents = (directory: string): string[] => {
   const files = fs.readdirSync(directory);
 
   return files
-    .reduce((memo, file) => {
+    .reduce<string[]>((memo, file) => {
+      if (!NOT_COMPONENTS.includes(file)) {
+        return memo;
+      }
+
       const filePath = path.join(directory, file);
 
       if (fs.statSync(filePath).isDirectory()) {
@@ -29,7 +34,7 @@ const getAllComponents = (directory: string): string[] => {
       }
 
       return memo;
-    }, [] as string[])
+    }, [])
     .sort();
 };
 
