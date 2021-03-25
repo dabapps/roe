@@ -64,6 +64,7 @@ const PaginationButton = ({
   changePage,
 }: PaginationButtonProps) => {
   const onClickPageNumber = React.useCallback(() => {
+    /* istanbul ignore else */
     if (currentPageNumber !== page && !getIsDots(totalPages, index, page)) {
       changePage(getPageToGoTo(totalPages, page, index));
     }
