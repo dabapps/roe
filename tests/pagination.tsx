@@ -124,8 +124,8 @@ describe('Pagination', () => {
     );
 
     const previousButton = instance
-      .find('.spaced-group.pagination-group')
-      .childAt(1);
+      .find('.spaced-group.pagination-group button')
+      .at(1);
 
     previousButton.simulate('click');
 
