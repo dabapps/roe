@@ -55,6 +55,9 @@ const Pagination = (props: PaginationProps) => {
     ...remainingProps
   } = props;
 
+  const pageCount = itemCount / pageSize;
+  const totalPages = Math.ceil(pageCount);
+
   const decrementPage = React.useCallback(() => {
     return changePage(currentPageNumber - 1);
   }, [currentPageNumber, changePage]);
@@ -63,17 +66,9 @@ const Pagination = (props: PaginationProps) => {
     return changePage(currentPageNumber + 1);
   }, [currentPageNumber, changePage]);
 
-  const numFullPages = React.useCallback(() => {
-    return itemCount / pageSize;
-  }, [itemCount, pageSize]);
-
-  const getMaxPages = React.useCallback(() => Math.ceil(numFullPages()), [
-    numFullPages,
-  ]);
-
   const isNextButtonDisabled = React.useCallback(() => {
-    return !getMaxPages() || currentPageNumber === getMaxPages() || disabled;
-  }, [getMaxPages, currentPageNumber, disabled]);
+    return !totalPages || currentPageNumber === totalPages || disabled;
+  }, [totalPages, currentPageNumber, disabled]);
 
   const isPrevButtonDisabled = React.useCallback(() => {
     return currentPageNumber === 1 || disabled;
@@ -83,17 +78,16 @@ const Pagination = (props: PaginationProps) => {
     return itemCount <= pageSize || disabled;
   }, [itemCount, pageSize, disabled]);
 
-  const shouldGetMorePages = React.useCallback(
-    () => getMaxPages() > MAX_BUTTONS,
-    [getMaxPages]
-  );
+  const shouldGetMorePages = React.useCallback(() => totalPages > MAX_BUTTONS, [
+    totalPages,
+  ]);
 
   const getDisplayDots = React.useCallback(
     (index: number, page: number) =>
       shouldGetMorePages() &&
       ((index === 1 && page > 2) ||
-        (index === MAX_BUTTONS - 2 && page < getMaxPages() - 1)),
-    [shouldGetMorePages, getMaxPages]
+        (index === MAX_BUTTONS - 2 && page < totalPages - 1)),
+    [shouldGetMorePages, totalPages]
   );
 
   const getButtonType = React.useCallback(
@@ -112,19 +106,19 @@ const Pagination = (props: PaginationProps) => {
 
   const getPageToGoTo = React.useCallback(
     (page: number, index: number) => {
-      if (getMaxPages() > MAX_BUTTONS && index === 0 && page > 1) {
+      if (totalPages > MAX_BUTTONS && index === 0 && page > 1) {
         return 1;
       } else if (
-        getMaxPages() > MAX_BUTTONS &&
+        totalPages > MAX_BUTTONS &&
         index === MAX_BUTTONS - 1 &&
-        page < getMaxPages()
+        page < totalPages
       ) {
-        return getMaxPages();
+        return totalPages;
       }
 
       return page;
     },
-    [getMaxPages]
+    [totalPages]
   );
 
   const onClickPageNumber = React.useCallback(
@@ -140,29 +134,29 @@ const Pagination = (props: PaginationProps) => {
     return Math.max(
       Math.min(
         currentPageNumber - LEFT_BUTTONS,
-        getMaxPages() - LEFT_BUTTONS - RIGHT_BUTTONS
+        totalPages - LEFT_BUTTONS - RIGHT_BUTTONS
       ),
       1
     );
-  }, [currentPageNumber, getMaxPages]);
+  }, [currentPageNumber, totalPages]);
 
   const getEnd = React.useCallback(
-    () => Math.min(getStart() + MAX_BUTTONS, getMaxPages() + 1),
-    [getStart, getMaxPages]
+    () => Math.min(getStart() + MAX_BUTTONS, totalPages + 1),
+    [getStart, totalPages]
   );
 
   const getRange = React.useCallback(() => {
     const remainder = itemCount % pageSize;
 
-    if (remainder === 0 && numFullPages() < MAX_BUTTONS) {
-      return Math.floor(numFullPages());
+    if (remainder === 0 && pageCount < MAX_BUTTONS) {
+      return Math.floor(pageCount);
     }
-    if (remainder !== 0 && numFullPages() < MAX_BUTTONS) {
-      return Math.floor(numFullPages()) + 1;
+    if (remainder !== 0 && pageCount < MAX_BUTTONS) {
+      return Math.floor(pageCount) + 1;
     }
 
     return MAX_BUTTONS;
-  }, [numFullPages, pageSize, itemCount]);
+  }, [pageCount, pageSize, itemCount]);
 
   const paginationSeries = (start: number, end: number, range: number) => {
     return [...Array(range)].map((_item, index) =>
