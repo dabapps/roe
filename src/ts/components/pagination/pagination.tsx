@@ -3,6 +3,12 @@ import * as React from 'react';
 
 import Button from '../forms/button';
 import SpacedGroup from '../misc/spaced-group';
+import {
+  paginationSeries,
+  getIsDots,
+  getPageToGoTo,
+  getButtonType,
+} from './utils';
 
 export type PaginationProps = {
   /**
@@ -38,10 +44,6 @@ export type PaginationProps = {
   changePage: (pageNumber: number) => void;
 } & React.HTMLAttributes<HTMLDivElement>;
 
-const LEFT_BUTTONS = 2;
-const RIGHT_BUTTONS = 2;
-const MAX_BUTTONS = LEFT_BUTTONS + RIGHT_BUTTONS + 1;
-
 const Pagination = (props: PaginationProps) => {
   const {
     className,
@@ -70,87 +72,14 @@ const Pagination = (props: PaginationProps) => {
     return changePage(currentPageNumber + 1);
   }, [currentPageNumber, changePage]);
 
-  const getDisplayDots = React.useCallback(
-    (index: number, page: number) =>
-      totalPages > MAX_BUTTONS &&
-      ((index === 1 && page > 2) ||
-        (index === MAX_BUTTONS - 2 && page < totalPages - 1)),
-    [totalPages]
-  );
-
-  const getButtonType = React.useCallback(
-    (page: number, index: number) => {
-      if (currentPageNumber === page) {
-        return 'selected';
-      }
-      if (getDisplayDots(index, page)) {
-        return 'dots';
-      }
-
-      return undefined;
-    },
-    [currentPageNumber, getDisplayDots]
-  );
-
-  const getPageToGoTo = React.useCallback(
-    (page: number, index: number) => {
-      if (totalPages > MAX_BUTTONS && index === 0 && page > 1) {
-        return 1;
-      } else if (
-        totalPages > MAX_BUTTONS &&
-        index === MAX_BUTTONS - 1 &&
-        page < totalPages
-      ) {
-        return totalPages;
-      }
-
-      return page;
-    },
-    [totalPages]
-  );
-
   const onClickPageNumber = React.useCallback(
     (index: number, page: number) => {
-      if (currentPageNumber !== page && !getDisplayDots(index, page)) {
-        return () => changePage(getPageToGoTo(page, index));
+      if (currentPageNumber !== page && !getIsDots(totalPages, index, page)) {
+        return () => changePage(getPageToGoTo(totalPages, page, index));
       }
     },
-    [currentPageNumber, changePage, getPageToGoTo, getDisplayDots]
+    [currentPageNumber, changePage, totalPages]
   );
-
-  const getStart = React.useCallback(() => {
-    return Math.max(
-      Math.min(
-        currentPageNumber - LEFT_BUTTONS,
-        totalPages - LEFT_BUTTONS - RIGHT_BUTTONS
-      ),
-      1
-    );
-  }, [currentPageNumber, totalPages]);
-
-  const getEnd = React.useCallback(
-    () => Math.min(getStart() + MAX_BUTTONS, totalPages + 1),
-    [getStart, totalPages]
-  );
-
-  const getRange = React.useCallback(() => {
-    const remainder = itemCount % pageSize;
-
-    if (remainder === 0 && pageCount < MAX_BUTTONS) {
-      return Math.floor(pageCount);
-    }
-    if (remainder !== 0 && pageCount < MAX_BUTTONS) {
-      return Math.floor(pageCount) + 1;
-    }
-
-    return MAX_BUTTONS;
-  }, [pageCount, pageSize, itemCount]);
-
-  const paginationSeries = (start: number, end: number, range: number) => {
-    return [...Array(range)].map((_item, index) =>
-      Math.floor(start + index * ((end - start) / range))
-    );
-  };
 
   return (
     <div {...remainingProps} className={classNames('pagination', className)}>
@@ -165,29 +94,37 @@ const Pagination = (props: PaginationProps) => {
           {prevText ? <span className="prev-icon">{prevText}</span> : '<'}
         </Button>
 
-        {paginationSeries(getStart(), getEnd(), getRange()).map(
-          (page: number, index: number) => {
-            return getDisplayDots(index, page) ? (
-              <div
-                key={index}
-                className={classNames(getButtonType(page, index))}
-              >
-                ...
-              </div>
-            ) : (
-              <Button
-                key={index}
-                className={classNames(getButtonType(page, index), {
-                  disabled: isPageButtonDisabled,
-                })}
-                disabled={isPageButtonDisabled}
-                onClick={onClickPageNumber(index, page)}
-              >
-                {getPageToGoTo(page, index)}
-              </Button>
-            );
-          }
-        )}
+        {paginationSeries(
+          totalPages,
+          pageCount,
+          itemCount,
+          pageSize,
+          currentPageNumber
+        ).map((page: number, index: number) => {
+          const buttonType = getButtonType(
+            totalPages,
+            page,
+            index,
+            currentPageNumber
+          );
+
+          return getIsDots(totalPages, index, page) ? (
+            <div key={index} className={buttonType}>
+              ...
+            </div>
+          ) : (
+            <Button
+              key={index}
+              className={classNames(buttonType, {
+                disabled: isPageButtonDisabled,
+              })}
+              disabled={isPageButtonDisabled}
+              onClick={onClickPageNumber(index, page)}
+            >
+              {getPageToGoTo(totalPages, page, index)}
+            </Button>
+          );
+        })}
 
         <Button
           className={classNames('next', {
