@@ -16,6 +16,7 @@ exports[`Pagination should add a "next" button when there are more than 3 pages 
     </button>
     <button
       className="button selected"
+      onClick={[Function]}
     >
       1
     </button>
@@ -58,6 +59,7 @@ exports[`Pagination should disable buttons when disabled is true 1`] = `
     <button
       className="button selected disabled"
       disabled={true}
+      onClick={[Function]}
     >
       1
     </button>
@@ -118,6 +120,7 @@ exports[`Pagination should display custom next and previous text 1`] = `
     </button>
     <button
       className="button selected"
+      onClick={[Function]}
     >
       1
     </button>
@@ -157,6 +160,7 @@ exports[`Pagination should display less than 5 buttons for minimal page counts 1
     </button>
     <button
       className="button selected"
+      onClick={[Function]}
     >
       1
     </button>
@@ -202,6 +206,7 @@ exports[`Pagination should render page 1 as the first option, followed by an ell
     </div>
     <button
       className="button selected"
+      onClick={[Function]}
     >
       5
     </button>
@@ -242,6 +247,7 @@ exports[`Pagination should render the button for page 1 as selected when the cur
     </button>
     <button
       className="button selected"
+      onClick={[Function]}
     >
       1
     </button>
