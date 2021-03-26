@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Container } from '../src/ts/';
+import { Container } from '../src/ts';
 
 describe('Container', () => {
   it('should match snapshot', () => {

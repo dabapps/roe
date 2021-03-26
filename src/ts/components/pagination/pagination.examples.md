@@ -1,6 +1,8 @@
 #### Pagination example:
 
 ```js
+import { Row, Column, PaginationDisplay, Pagination } from '@dabapps/roe';
+
 class PaginationExample extends React.Component {
   constructor(props) {
     super(props);
@@ -51,7 +53,7 @@ class PaginationExample extends React.Component {
 
 #### Less variables
 
-```less
+```css
 @pagination-button-color: @grey-dark;
 @pagination-button-background: @grey-lighter;
 @pagination-selected-color: @white;

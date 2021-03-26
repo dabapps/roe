@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { NavBar, Nav, NavItem, Column, FormGroup } from '@dabapps/roe';
+
 class NavBarExample extends React.Component {
   constructor(props) {
     super(props);
@@ -61,7 +63,7 @@ class NavBarExample extends React.Component {
 
 #### Less variables
 
-```less
+```css
 @nav-bar-text-color: @font-color-base; // @grey-dark
 @nav-bar-link-color: @link-color; // @primary
 @nav-bar-link-color-hover: @link-color-hover; // darken(@primary, 15%)

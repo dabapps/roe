@@ -1,11 +1,13 @@
 #### Example
 
 ```js
-const { TableHead } = require('./table-head');
-const { TableBody } = require('./table-body');
-const { TableRow } = require('./table-row');
-const { TableHeader } = require('./table-header');
-const { TableCell } = require('./table-cell');
+import {
+  TableHead,
+  TableBody,
+  TableRow,
+  TableHeader,
+  TableCell,
+} from '@dabapps/roe';
 
 <div>
   <Table bordered condensed>
@@ -59,7 +61,7 @@ const { TableCell } = require('./table-cell');
 
 #### Less variables
 
-```less
+```css
 @table-stripe: @grey-lightest;
 @table-hover: darken(@grey-lightest, 3%);
 @table-border: @border-base;

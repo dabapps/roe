@@ -62,6 +62,82 @@ exports[`DabIpsum should allow setting how many items to render 1`] = `
 
 exports[`DabIpsum should generate some ipsum 1`] = `"Teaching kittens coffee agile developers apps training product projects toolkit events tea careers cats javascript."`;
 
+exports[`DabIpsum should only update if type or count changed 1`] = `
+<Memo(DabIpsum)
+  component="text"
+  count={1}
+>
+  <span
+    key="0"
+  >
+    Teaching kittens coffee agile developers apps training product projects toolkit events tea careers cats javascript.
+  </span>
+</Memo(DabIpsum)>
+`;
+
+exports[`DabIpsum should only update if type or count changed 2`] = `
+<Memo(DabIpsum)
+  component="text"
+  count={1}
+>
+  <span
+    key="0"
+  >
+    Teaching kittens coffee agile developers apps training product projects toolkit events tea careers cats javascript.
+  </span>
+</Memo(DabIpsum)>
+`;
+
+exports[`DabIpsum should only update if type or count changed 3`] = `
+<Memo(DabIpsum)
+  component="p"
+  count={1}
+>
+  <div>
+    <p
+      key="0"
+    >
+      Objective-c testimonial academia projects designers coffee toolkit apprentice business product technical documentation react-native tea designers.
+    </p>
+  </div>
+</Memo(DabIpsum)>
+`;
+
+exports[`DabIpsum should only update if type or count changed 4`] = `
+<Memo(DabIpsum)
+  component="p"
+  count={1}
+>
+  <div>
+    <p
+      key="0"
+    >
+      Objective-c testimonial academia projects designers coffee toolkit apprentice business product technical documentation react-native tea designers.
+    </p>
+  </div>
+</Memo(DabIpsum)>
+`;
+
+exports[`DabIpsum should only update if type or count changed 5`] = `
+<Memo(DabIpsum)
+  component="p"
+  count={2}
+>
+  <div>
+    <p
+      key="0"
+    >
+      Python tea angular client development service news testimonial academia prototyping development technical apps events web.
+    </p>
+    <p
+      key="1"
+    >
+      Development innovation technical ios service networking testimonial technical web technical cats agile django service documentation.
+    </p>
+  </div>
+</Memo(DabIpsum)>
+`;
+
 exports[`DabIpsum should render some paragraphs by default 1`] = `
 <div>
   <p>

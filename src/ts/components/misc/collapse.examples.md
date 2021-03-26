@@ -3,6 +3,8 @@
 With lots of content:
 
 ```js
+import { Collapse, Button, DabIpsum } from '@dabapps/roe';
+
 class CollapseExample extends React.Component {
   constructor(props) {
     super(props);
@@ -54,6 +56,8 @@ class CollapseExample extends React.Component {
 With small content:
 
 ```js
+import { Collapse, Button, DabIpsum } from '@dabapps/roe';
+
 class CollapseExample extends React.Component {
   constructor(props) {
     super(props);
@@ -105,6 +109,8 @@ class CollapseExample extends React.Component {
 With minimum height:
 
 ```js
+import { Collapse, Button, DabIpsum } from '@dabapps/roe';
+
 class CollapseExample extends React.Component {
   constructor(props) {
     super(props);

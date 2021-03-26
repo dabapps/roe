@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { ContentBox, Highlight, Button } from '@dabapps/roe';
+
 const X_CHAR = String.fromCharCode(215);
 
 const closeTextStyles = {
@@ -90,7 +92,7 @@ class HighlightExample extends React.Component {
 
 #### Less variables
 
-```less
+```css
 @highlight-overlay-background: @overlay-background-dark;
 @highlight-border-radius: @border-radius-base;
 

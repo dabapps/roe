@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { SpacedGroup, Button } from '@dabapps/roe';
+
 <div>
   <SpacedGroup block>
     <Button>Default</Button>
@@ -33,7 +35,7 @@
     <Button small>Small</Button>
     <Button large>Large</Button>
   </SpacedGroup>
-</div>
+</div>;
 ```
 
 #### Custom buttons
@@ -43,7 +45,7 @@ This should be applied within the selector (element / class) that you want to ap
 
 Note: the background color is used for the text & border of hollow buttons.
 
-```less
+```css
 .button,
 button {
   // You must use the mixin within the selectors you want the new class to apply to
@@ -55,18 +57,20 @@ button {
 You can then use your custom buttons by supplying the name you provided to the mixin as the class name.
 
 ```js
+import { ContentBox, SpacedGroup, Button } from '@dabapps/roe';
+
 <ContentBox className="grey-background">
   <SpacedGroup block className="margin-vertical-base">
     <Button className="custom-light">Custom light</Button>
 
     <button className="custom-light hollow">Custom light hollow</button>
   </SpacedGroup>
-</ContentBox>
+</ContentBox>;
 ```
 
 #### Less variables
 
-```less
+```css
 @button-border-width: 2px;
 @button-text-color-dark: @grey-dark;
 @button-text-color-light: @grey-lightest;

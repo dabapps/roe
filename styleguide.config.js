@@ -1,10 +1,12 @@
 /* global __dirname */
-'use strict';
+/* eslint-disable @typescript-eslint/no-var-requires */
 
-var fs = require('fs');
-var path = require('path');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const fs = require('fs');
+// eslint-disable-next-line import/no-extraneous-dependencies
+const path = require('path');
 
-var introduction = [
+const introduction = [
   {
     name: 'About',
     content: 'docs/introduction/about.md',
@@ -27,7 +29,7 @@ var introduction = [
   },
 ];
 
-var components = [
+const components = [
   {
     name: 'App',
     components: 'src/ts/components/app/**/*.tsx',
@@ -82,7 +84,7 @@ var components = [
   },
 ];
 
-var less = [
+const less = [
   {
     name: 'Atomic float classes',
     content: 'src/less/float.examples.md',
@@ -118,11 +120,10 @@ function getExampleFilename(componentPath) {
 }
 
 function updateExample(props, exampleFilePath) {
-  var settings = props.settings;
-  var lang = props.lang;
+  const { settings, lang } = props;
 
-  if (typeof settings.file === 'string') {
-    var filepath = path.resolve(path.dirname(exampleFilePath), settings.file);
+  if (settings && typeof settings.file === 'string') {
+    const filepath = path.resolve(path.dirname(exampleFilePath), settings.file);
 
     if (lang === 'less') {
       settings.static = true;
@@ -140,28 +141,58 @@ function updateExample(props, exampleFilePath) {
   return props;
 }
 
-var lessLoader = {
-  test: /\.(?:less|css)$/,
-  use: [
-    'style-loader', // creates style nodes from JS strings
-    'css-loader', // translates CSS into CommonJS
-    'postcss-loader',
-    {
-      loader: 'less-loader', // compiles Less to CSS
-      options: {
-        paths: [path.resolve(__dirname, 'node_modules')],
+const webpackConfig = {
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          // disable type checker - we will use it in fork plugin
+          transpileOnly: true,
+        },
       },
-    },
+      {
+        test: /\.(?:less|css)$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              paths: [path.resolve(__dirname, 'node_modules')],
+              // lessOptions: {
+              //   strictMath: true,
+              // },
+            },
+          },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new ForkTsCheckerWebpackPlugin({
+      typescript: {
+        configFile: path.resolve(__dirname, 'tsconfig.docs.json'),
+      },
+    }),
   ],
 };
 
-var webpackConfig = require('react-scripts-ts/config/webpack.config.dev.js');
-
-webpackConfig.module.rules[1].oneOf[3] = lessLoader;
-
-var reactDocGenTypescriptConfig = {
+const reactDocGenTypescriptConfig = {
   propFilter: function(prop /*, component*/) {
-    if (prop.description && prop.name.indexOf('aria-') !== 0) {
+    if (
+      prop.description &&
+      (!prop.parent || !prop.parent.fileName.endsWith('react/index.d.ts'))
+    ) {
       return true;
     }
 
@@ -173,6 +204,9 @@ module.exports = {
   require: [path.join(__dirname, 'docs/less/index.less')],
   title: "Roe - DabApps' Project Development Kit",
   components: 'src/ts/components/**/*.{ts,tsx}',
+  moduleAliases: {
+    '@dabapps/roe': path.resolve(__dirname, 'src/ts/index.ts'),
+  },
   ignore: [],
   propsParser: require('react-docgen-typescript').withCustomConfig(
     './tsconfig.json',

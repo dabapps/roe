@@ -1,235 +1,174 @@
 import * as classNames from 'classnames';
-import { PureComponent } from 'react';
 import * as React from 'react';
 
-import { ComponentProps } from '../../types';
 import Button from '../forms/button';
 import SpacedGroup from '../misc/spaced-group';
+import {
+  getPaginationSeries,
+  getIsDots,
+  getPageToGoTo,
+  getButtonType,
+} from './utils';
 
-export interface PaginationProps extends ComponentProps {
+export type PaginationProps = {
   /**
-   * className
-   */
-  className?: string;
-  /**
-   * is disabled
+   * Disable the pagination
    * @default false
    */
   disabled?: boolean;
   /**
-   * items count per page
+   * Number of items per page
    */
   pageSize: number;
   /**
-   * current page number (1 indexed)
+   * Current page number to highlight (1 indexed)
    */
   currentPageNumber: number;
   /**
-   * total number of items to display
+   * Total number of items available
    */
   itemCount: number;
   /**
-   * next button text
+   * Next button text
    * @default '>'
    */
   nextText?: string;
   /**
-   * prev button text
+   * Previous button text
    * @default '<'
    */
   prevText?: string;
   /**
-   * changePage
+   * Called when a page is selected
    */
   changePage: (pageNumber: number) => void;
+} & React.HTMLAttributes<HTMLDivElement>;
+
+interface PaginationButtonProps {
+  totalPages: number;
+  currentPageNumber: number;
+  page: number;
+  index: number;
+  disabled: boolean | undefined;
+  className: string | undefined;
+  changePage: PaginationProps['changePage'];
 }
 
-const LEFT_BUTTONS = 2;
-const RIGHT_BUTTONS = 2;
-const MAX_BUTTONS = LEFT_BUTTONS + RIGHT_BUTTONS + 1;
+const PaginationButton = ({
+  currentPageNumber,
+  totalPages,
+  page,
+  index,
+  disabled,
+  className,
+  changePage,
+}: PaginationButtonProps) => {
+  const onClickPageNumber = React.useCallback(() => {
+    /* istanbul ignore else */
+    if (currentPageNumber !== page && !getIsDots(totalPages, index, page)) {
+      changePage(getPageToGoTo(totalPages, page, index));
+    }
+  }, [totalPages, currentPageNumber, index, page, changePage]);
 
-export class Pagination extends PureComponent<PaginationProps, {}> {
-  public render() {
-    const {
-      className,
-      disabled,
-      itemCount,
-      pageSize,
-      currentPageNumber,
-      changePage,
-      nextText,
-      prevText,
-      ...remainingProps
-    } = this.props;
+  return (
+    <Button
+      key={index}
+      className={classNames(className, { disabled })}
+      disabled={disabled}
+      onClick={onClickPageNumber}
+    >
+      {getPageToGoTo(totalPages, page, index)}
+    </Button>
+  );
+};
 
-    return (
-      <div {...remainingProps} className={classNames('pagination', className)}>
-        <SpacedGroup className="pagination-group" large>
-          <Button
-            className={classNames('prev', {
-              disabled: this.isPrevButtonDisabled(),
-            })}
-            onClick={this.decrementPage}
-            disabled={this.isPrevButtonDisabled()}
-          >
-            {prevText ? <span className="prev-icon">{prevText}</span> : '<'}
-          </Button>
+const PaginationButtonMemo = React.memo(PaginationButton);
 
-          {this.paginationSeries(
-            this.getStart(),
-            this.getEnd(),
-            this.getRange()
-          ).map((page: number, index: number) => {
-            return this.getDisplayDots(index, page) ? (
-              <div
-                key={index}
-                className={classNames(this.getButtonType(page, index))}
-              >
-                ...
-              </div>
-            ) : (
-              <Button
-                key={index}
-                className={classNames(this.getButtonType(page, index), {
-                  disabled: this.isPageButtonDisabled(),
-                })}
-                disabled={this.isPageButtonDisabled()}
-                onClick={this.onClickPageNumber(index, page)}
-              >
-                {this.getPageToGoTo(page, index)}
-              </Button>
-            );
-          })}
+const Pagination = (props: PaginationProps) => {
+  const {
+    className,
+    disabled,
+    itemCount,
+    pageSize,
+    currentPageNumber,
+    changePage,
+    nextText,
+    prevText,
+    ...remainingProps
+  } = props;
 
-          <Button
-            className={classNames('next', {
-              disabled: this.isNextButtonDisabled(),
-            })}
-            disabled={this.isNextButtonDisabled()}
-            onClick={this.incrementPage}
-          >
-            {nextText ? <span className="next-icon">{nextText}</span> : '>'}
-          </Button>
-        </SpacedGroup>
-      </div>
-    );
-  }
+  const pageCount = itemCount / pageSize;
+  const totalPages = Math.ceil(pageCount);
+  const isPrevButtonDisabled = currentPageNumber === 1 || disabled;
+  const isNextButtonDisabled =
+    !totalPages || currentPageNumber === totalPages || disabled;
+  const isPageButtonDisabled = itemCount <= pageSize || disabled;
 
-  private decrementPage = () => {
-    const { currentPageNumber, changePage } = this.props;
+  const decrementPage = React.useCallback(() => {
     return changePage(currentPageNumber - 1);
-  };
+  }, [currentPageNumber, changePage]);
 
-  private incrementPage = () => {
-    const { currentPageNumber, changePage } = this.props;
+  const incrementPage = React.useCallback(() => {
     return changePage(currentPageNumber + 1);
-  };
+  }, [currentPageNumber, changePage]);
 
-  private isNextButtonDisabled = () => {
-    const { currentPageNumber, disabled } = this.props;
-    return (
-      !this.getMaxPages() ||
-      currentPageNumber === this.getMaxPages() ||
-      disabled
-    );
-  };
+  return (
+    <div {...remainingProps} className={classNames('pagination', className)}>
+      <SpacedGroup className="pagination-group" large>
+        <Button
+          className={classNames('prev', {
+            disabled: isPrevButtonDisabled,
+          })}
+          onClick={decrementPage}
+          disabled={isPrevButtonDisabled}
+        >
+          {prevText ? <span className="prev-icon">{prevText}</span> : '<'}
+        </Button>
 
-  private isPrevButtonDisabled = () => {
-    const { currentPageNumber, disabled } = this.props;
-    return currentPageNumber === 1 || disabled;
-  };
+        {getPaginationSeries(
+          totalPages,
+          pageCount,
+          itemCount,
+          pageSize,
+          currentPageNumber
+        ).map((page: number, index: number) => {
+          const buttonType = getButtonType(
+            totalPages,
+            page,
+            index,
+            currentPageNumber
+          );
 
-  private isPageButtonDisabled = () => {
-    const { itemCount, pageSize, disabled } = this.props;
-    return itemCount <= pageSize || disabled;
-  };
+          return getIsDots(totalPages, index, page) ? (
+            <div key={index} className={buttonType}>
+              ...
+            </div>
+          ) : (
+            <PaginationButtonMemo
+              key={index}
+              index={index}
+              page={page}
+              totalPages={totalPages}
+              currentPageNumber={currentPageNumber}
+              className={buttonType}
+              disabled={isPageButtonDisabled}
+              changePage={changePage}
+            />
+          );
+        })}
 
-  private getButtonType = (page: number, index: number) => {
-    const { currentPageNumber } = this.props;
+        <Button
+          className={classNames('next', {
+            disabled: isNextButtonDisabled,
+          })}
+          disabled={isNextButtonDisabled}
+          onClick={incrementPage}
+        >
+          {nextText ? <span className="next-icon">{nextText}</span> : '>'}
+        </Button>
+      </SpacedGroup>
+    </div>
+  );
+};
 
-    if (currentPageNumber === page) {
-      return 'selected';
-    }
-    if (this.getDisplayDots(index, page)) {
-      return 'dots';
-    }
-
-    return undefined;
-  };
-
-  private shouldGetMorePages = () => this.getMaxPages() > MAX_BUTTONS;
-
-  private numFullPages = () => {
-    const { itemCount, pageSize } = this.props;
-    return itemCount / pageSize;
-  };
-
-  private getMaxPages = () => Math.ceil(this.numFullPages());
-
-  private getDisplayDots = (index: number, page: number) =>
-    this.shouldGetMorePages() &&
-    ((index === 1 && page > 2) ||
-      (index === MAX_BUTTONS - 2 && page < this.getMaxPages() - 1));
-
-  private getPageToGoTo = (page: number, index: number) => {
-    if (this.getMaxPages() > MAX_BUTTONS && index === 0 && page > 1) {
-      return 1;
-    } else if (
-      this.getMaxPages() > MAX_BUTTONS &&
-      index === MAX_BUTTONS - 1 &&
-      page < this.getMaxPages()
-    ) {
-      return this.getMaxPages();
-    }
-
-    return page;
-  };
-
-  private onClickPageNumber = (index: number, page: number) => {
-    const { currentPageNumber, changePage } = this.props;
-
-    if (currentPageNumber !== page && !this.getDisplayDots(index, page)) {
-      return () => changePage(this.getPageToGoTo(page, index));
-    }
-  };
-
-  private getStart = () => {
-    const { currentPageNumber } = this.props;
-
-    return Math.max(
-      Math.min(
-        currentPageNumber - LEFT_BUTTONS,
-        this.getMaxPages() - LEFT_BUTTONS - RIGHT_BUTTONS
-      ),
-      1
-    );
-  };
-
-  private getEnd = () =>
-    Math.min(this.getStart() + MAX_BUTTONS, this.getMaxPages() + 1);
-
-  private getRange = () => {
-    const { itemCount, pageSize } = this.props;
-
-    const remainder = itemCount % pageSize;
-
-    if (remainder === 0 && this.numFullPages() < MAX_BUTTONS) {
-      return Math.floor(this.numFullPages());
-    }
-    if (remainder !== 0 && this.numFullPages() < MAX_BUTTONS) {
-      return Math.floor(this.numFullPages()) + 1;
-    }
-
-    return MAX_BUTTONS;
-  };
-
-  private paginationSeries = (start: number, end: number, range: number) => {
-    return Array.apply(null, {
-      length: range,
-    }).map((item: number, index: number) =>
-      Math.floor(start + index * ((end - start) / range))
-    );
-  };
-}
-
-export default Pagination;
+export default React.memo(Pagination);

@@ -8,7 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '../src/ts/';
+} from '../src/ts';
 
 describe('Tables', () => {
   it('should match snapshot', () => {

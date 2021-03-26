@@ -1,7 +1,7 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { PureComponent } from 'react';
-import { ComponentProps } from '../../types';
+
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 
 const ENOUGH_TIME_FOR_RERENDER = 50;
 const DEFAULT_HEIGHT = 0;
@@ -10,9 +10,7 @@ const DEFAULT_FADE_HEIGHT = 50;
 const DEFAULT_TRANSPARENT_COLOR = 'rgba(255, 255, 255, 0)';
 const DEFAULT_FADE_COLOR = 'rgba(255, 255, 255, 1)';
 
-export interface CollapseProps
-  extends ComponentProps,
-    React.HTMLAttributes<HTMLDivElement> {
+export type CollapseProps = {
   /**
    * Whether the collapse is open or not
    * @default false
@@ -53,136 +51,131 @@ export interface CollapseProps
    * @default 50
    */
   fadeHeight?: number;
-}
-
-export interface CollapseState {
-  // tslint:disable-line:no-unused-variable
-  height: number | string;
-  opened: boolean;
-  opening: boolean;
-}
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Component to expand and collapse content, optionally displaying a small preview.
  */
-export class Collapse extends PureComponent<CollapseProps, CollapseState> {
-  private element: Element;
-  private timeout: number;
+const Collapse = (props: CollapseProps) => {
+  const {
+    children,
+    className,
+    fadeOut,
+    fadeColor = DEFAULT_FADE_COLOR,
+    fadeHeight = DEFAULT_FADE_HEIGHT,
+    transparentColor = DEFAULT_TRANSPARENT_COLOR,
+    open,
+    maxCollapsedHeight = DEFAULT_HEIGHT,
+    minHeight = undefined,
+    animationDuration = DEFAULT_DURATION,
+    component: Component = 'div',
+    ...remainingProps
+  } = props;
 
-  public constructor(props: CollapseProps) {
-    super(props);
+  const elementRef = React.useRef<HTMLDivElement>(null);
+  const timeoutRef = React.useRef<number>();
+  const prevProps = React.useRef(props);
 
-    const { maxCollapsedHeight = DEFAULT_HEIGHT, open } = props;
+  const [state, setState] = React.useState({
+    height: maxCollapsedHeight,
+    opening: false,
+    opened: open,
+  });
 
-    this.state = {
-      height: maxCollapsedHeight,
-      opening: false,
-      opened: open,
-    };
-  }
+  React.useEffect(() => {
+    if (props.open !== prevProps.current.open) {
+      window.clearTimeout(timeoutRef.current);
 
-  public componentDidUpdate(previousProps: CollapseProps) {
-    if (this.props.open !== previousProps.open) {
-      window.clearTimeout(this.timeout);
-
-      const {
-        maxCollapsedHeight = DEFAULT_HEIGHT,
-        animationDuration = DEFAULT_DURATION,
-      } = this.props;
-
-      this.setState({
+      setState({
         opened: false,
-        opening: previousProps.open,
-        height: this.props.open
-          ? maxCollapsedHeight
-          : this.element.scrollHeight,
+        opening: prevProps.current.open,
+        height: props.open
+          ? props.maxCollapsedHeight ?? DEFAULT_HEIGHT
+          : /* istanbul ignore next */
+            elementRef.current?.scrollHeight ?? 0,
       });
 
-      this.timeout = window.setTimeout(() => {
-        this.setState({
+      timeoutRef.current = window.setTimeout(() => {
+        setState({
           opened: false,
-          opening: this.props.open,
-          height: this.props.open
-            ? this.element.scrollHeight
-            : maxCollapsedHeight,
+          opening: props.open,
+          height: props.open
+            ? /* istanbul ignore next */
+              elementRef.current?.scrollHeight ?? 0
+            : props.maxCollapsedHeight ?? DEFAULT_HEIGHT,
         });
 
-        this.timeout = window.setTimeout(() => {
-          this.setState({
-            opened: this.props.open,
-            opening: this.props.open,
-          });
-        }, animationDuration);
+        timeoutRef.current = window.setTimeout(() => {
+          setState(prevState => ({
+            ...prevState,
+            opened: props.open,
+            opening: props.open,
+          }));
+        }, props.animationDuration ?? DEFAULT_DURATION);
       }, ENOUGH_TIME_FOR_RERENDER);
     }
-  }
 
-  public componentDidMount() {
-    const { maxCollapsedHeight = DEFAULT_HEIGHT } = this.props;
+    prevProps.current = props;
+  }, [props]);
 
-    this.setState({
-      height: this.props.open ? this.element.scrollHeight : maxCollapsedHeight,
-    });
-  }
+  React.useEffect(() => {
+    setState(prevState => ({
+      ...prevState,
+      height: open
+        ? /* istanbul ignore next */
+          elementRef.current?.scrollHeight ?? 0
+        : maxCollapsedHeight,
+    }));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  public componentWillUnmount() {
-    window.clearTimeout(this.timeout);
-  }
+  React.useEffect(
+    () => () => {
+      window.clearTimeout(timeoutRef.current);
+    },
+    []
+  );
 
-  public render() {
-    const {
-      children,
-      className,
-      fadeOut,
-      fadeColor = DEFAULT_FADE_COLOR,
-      fadeHeight = DEFAULT_FADE_HEIGHT,
-      transparentColor = DEFAULT_TRANSPARENT_COLOR,
-      open,
-      maxCollapsedHeight,
-      minHeight = null,
-      animationDuration = DEFAULT_DURATION,
-      component: Component = 'div',
-      ...remainingProps
-    } = this.props;
+  const { opening, opened, height } = state;
 
-    const { opening, opened, height } = this.state;
+  const collapseStyle = {
+    minHeight,
+    maxHeight: opened ? undefined : height,
+    position: 'relative' as const,
+    overflow: (opened ? undefined : 'hidden') as 'hidden' | undefined,
+    transition: `ease-in-out ${animationDuration}ms max-height`,
+  };
 
-    const collapseStyle = {
-      minHeight,
-      maxHeight: opened ? null : height,
-      position: 'relative' as 'relative',
-      overflow: (opened ? null : 'hidden') as 'hidden' | null,
-      transition: `ease-in-out ${animationDuration}ms max-height`,
-    };
+  const fadeStyle = {
+    height: fadeHeight,
+    width: '100%',
+    position: 'absolute' as const,
+    bottom: 0,
+    opacity: opening ? 0 : 1,
+    background: `linear-gradient(${transparentColor}, ${fadeColor} 80%)`,
+    transition: `ease-in-out ${animationDuration}ms opacity`,
+  };
 
-    const fadeStyle = {
-      height: fadeHeight,
-      width: '100%',
-      position: 'absolute' as 'absolute',
-      bottom: 0,
-      opacity: opening ? 0 : 1,
-      background: `linear-gradient(${transparentColor}, ${fadeColor} 80%)`,
-      transition: `ease-in-out ${animationDuration}ms opacity`,
-    };
+  // Cast necessary otherwise types are too complex
+  const CastComponent = Component as 'div';
 
-    return (
-      <Component
-        ref={(element: HTMLDivElement) => (this.element = element)}
-        {...remainingProps}
-        className={classNames(
-          'clearfix collapse',
-          open ? 'collapse-open' : null,
-          className
-        )}
-        style={collapseStyle}
-      >
-        {children}
-        {fadeOut && !opened && (
-          <div className="collapse-fade" style={fadeStyle} />
-        )}
-      </Component>
-    );
-  }
-}
+  return (
+    <CastComponent
+      ref={elementRef}
+      {...remainingProps}
+      className={classNames(
+        'clearfix collapse',
+        open ? 'collapse-open' : null,
+        className
+      )}
+      style={collapseStyle}
+    >
+      {children}
+      {fadeOut && !opened && (
+        <div className="collapse-fade" style={fadeStyle} />
+      )}
+    </CastComponent>
+  );
+};
 
-export default Collapse;
+export default React.memo(Collapse);

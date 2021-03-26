@@ -1,6 +1,6 @@
 {
   "name": "@dabapps/roe",
-  "version": "0.12.3",
+  "version": "0.13.0",
   "description": "A collection of React components, styles, mixins, and atomic CSS classes to aid with the development of web applications.",
   "main": "dist/js/index.js",
   "types": "dist/js/index.d.ts",
@@ -10,16 +10,16 @@
     "dist": "./scripts/dist",
     "prettier": "prettier --write '**/*.{ts,tsx,js,jsx,json,md}'",
     "prettier-check": "prettier --check '**/*.{ts,tsx,js,jsx,json,md}'",
-    "lint-js": "eslint ./*.js docs/**/*.js && tslint --project tsconfig.json '@(src|tests|types|docs|examples)/**/*.@(ts|tsx)'",
+    "lint-js": "eslint '**/*.{js,jsx,ts,tsx}'",
     "lint-less": "lesshint 'src/less/' 'docs/less/'",
     "lint": "npm run lint-js && npm run lint-less",
-    "test-dist-react-16": "npm i @types/react@16.4.7 @types/react-dom@16.0.6 --no-save && tsc --project 'tsconfig.json' --noEmit && npm run dist",
-    "test-dist-react-15": "npm i @types/react@15.6.18 @types/react-dom@15.5.7 --no-save && tsc --project 'tsconfig.json' --noEmit && npm run dist",
-    "test-dist": "npm run test-dist-react-15 && npm run test-dist-react-16",
+    "test-dist-react-17": "npm i @types/react@17 @types/react-dom@17 --no-save && tsc --project 'tsconfig.json' --noEmit && npm run dist",
+    "test-dist-react-16": "npm i @types/react@16.8 @types/react-dom@16.8 --no-save && tsc --project 'tsconfig.json' --noEmit && npm run dist",
+    "test-dist": "npm run test-dist-react-16 && npm run test-dist-react-17",
     "typecheck": "tsc --project tsconfig.json --noEmit",
     "tests": "jest",
     "test": "npm run prettier-check && npm run lint && npm run typecheck && npm run tests -- --coverage --runInBand && npm run test-dist",
-    "budo": "budo src/less/index.less examples/index.tsx --live -- -t node-lessify -p [tsify -p tsconfig.examples.json]",
+    "examples": "budo src/less/index.less examples/index.tsx --live -- -t node-lessify -p [tsify -p tsconfig.examples.json]",
     "prepublishOnly": "./scripts/dist"
   },
   "repository": {
@@ -38,9 +38,6 @@
     "classes",
     "styles"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "author": "DabApps",
   "license": "BSD-3-Clause",
   "bugs": {
@@ -52,23 +49,23 @@
     "@types/classnames": "^2.2.0",
     "@types/cookie": "^0.3.1",
     "@types/random-seed": "^0.3.2",
-    "@types/react": ">= 15",
-    "@types/react-dom": ">= 15",
-    "@types/react-transition-group": "^2.9.2",
+    "@types/react": "^16.8 || 17",
+    "@types/react-dom": "^16.8 || 17",
+    "@types/react-transition-group": "^4.4.1",
     "classnames": "^2.2.5",
     "cookie": "^0.3.1",
-    "normalize.css": "^8.0.1",
+    "normalize.css": "8",
     "random-seed": "^0.3.0",
-    "react": ">= 15",
-    "react-dom": ">= 15",
-    "react-transition-group": "^2.9.0"
+    "react": "^16.8 || 17",
+    "react-dom": "^16.8 || 17",
+    "react-transition-group": "4"
   },
   "devDependencies": {
-    "@types/enzyme": "^3.1.5",
-    "@types/enzyme-adapter-react-15": "^1.0.1",
-    "@types/jest": "^22.2.0",
-    "@types/node": "^7.0.13",
-    "@types/react-test-renderer": "^15.4.5",
+    "@types/enzyme": "^3.10.8",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/jest": "^26.0.20",
+    "@types/node": "^12.20.4",
+    "@types/react-test-renderer": "^16.8",
     "acorn": "^6.4.1",
     "autoprefixer": "^6.7.7",
     "brfs": "^1.6.1",
@@ -76,13 +73,14 @@
     "budo": "^11.6.3",
     "css-loader": "^0.28.7",
     "envify": "^4.0.0",
-    "enzyme": "^3.2.0",
-    "enzyme-adapter-react-15": "^1.0.5",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
     "enzyme-to-json": "^3.2.2",
     "eslint": "^6.8.0",
-    "eslint-config-dabapps": "^5.0.0",
+    "eslint-config-dabapps": "^7.0.0",
+    "fork-ts-checker-webpack-plugin": "^6.1.1",
     "http-server": "^0.12.3",
-    "jest": "^22.4.2",
+    "jest": "^26.6.3",
     "less": "^3.12.2",
     "less-loader": "^4.1.0",
     "lesshint": "^3.3.1",
@@ -92,57 +90,21 @@
     "postcss-loader": "^2.0.7",
     "prettier": "^1.19.1",
     "react-docgen-typescript": "^1.2.2",
-    "react-scripts-ts": "^2.17.0",
-    "react-styleguidist": "^7.2.1",
-    "react-test-renderer": "^15.5.4",
+    "react-styleguidist": "^11.1.5",
+    "react-test-renderer": "16.8",
     "recast": "^0.13.0",
     "style-loader": "^0.19.0",
-    "ts-jest": "^22.4.1",
+    "ts-jest": "^26.5.3",
+    "ts-loader": "^8.0.17",
     "tsify": "^3.0.4",
-    "tslint": "^5.8.0",
-    "tslint-config-dabapps": "github:dabapps/tslint-config-dabapps#v0.5.1",
-    "typescript": "^2.3.3",
-    "webpack": "^3.7.1"
+    "typescript": "^3.9.9",
+    "webpack": "^4.46.0"
   },
   "peerDependencies": {
     "less": "3",
     "normalize.css": "8",
-    "react": ">= 15",
-    "react-dom": ">= 15",
-    "react-transition-group": "2"
-  },
-  "jest": {
-    "testURL": "http://localhost/",
-    "collectCoverageFrom": [
-      "src/ts/**/*.(js|jsx|ts|tsx)"
-    ],
-    "setupFiles": [
-      "<rootDir>/tests/helpers/setup.ts"
-    ],
-    "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
-    },
-    "transform": {
-      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
-    },
-    "testRegex": "tests/.+\\.(ts|tsx|js|jsx)$",
-    "testPathIgnorePatterns": [
-      "<rootDir>/tests/__mocks__/",
-      "<rootDir>/tests/helpers/"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx"
-    ],
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ]
+    "react": "^16.8 || 17",
+    "react-dom": "^16.8 || 17",
+    "react-transition-group": "4"
   }
 }

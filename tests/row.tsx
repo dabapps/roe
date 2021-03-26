@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Row } from '../src/ts/';
+import { Row } from '../src/ts';
 
 describe('Row', () => {
   it('should match snapshot', () => {

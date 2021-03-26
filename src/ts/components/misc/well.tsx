@@ -1,31 +1,26 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
-import { ComponentProps } from '../../types';
 
-export type WellProps = ComponentProps & HTMLProps<HTMLElement>;
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
+
+export type WellProps = OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Stylistic content container.
  */
-export class Well extends PureComponent<WellProps, {}> {
-  public render() {
-    const {
-      children,
-      className,
-      component: Component = 'div',
-      ...remainingProps
-    } = this.props;
+const Well = (props: WellProps) => {
+  const {
+    children,
+    className,
+    component: Component = 'div',
+    ...remainingProps
+  } = props;
 
-    return (
-      <Component
-        {...remainingProps}
-        className={classNames(['well', className])}
-      >
-        {children}
-      </Component>
-    );
-  }
-}
+  return (
+    <Component {...remainingProps} className={classNames(['well', className])}>
+      {children}
+    </Component>
+  );
+};
 
-export default Well;
+export default React.memo(Well);

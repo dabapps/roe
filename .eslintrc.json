@@ -1,6 +1,13 @@
 {
-  "extends": ["dabapps/base", "dabapps/commonjs"],
+  "extends": ["dabapps"],
   "rules": {
-    "prettier/prettier": 0
+    "dabapps/no-relative-parent-import": 0
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   }
 }

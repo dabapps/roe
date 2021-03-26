@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Tab, Tabs } from '../src/ts/';
+import { Tab, Tabs } from '../src/ts';
 
 describe('Tabs', () => {
   it('should match snapshot', () => {

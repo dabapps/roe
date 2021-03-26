@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { SpacedGroup, Badge } from '@dabapps/roe';
+
 <SpacedGroup block>
   <Badge>1.00</Badge>
   <Badge>Default</Badge>
@@ -11,12 +13,12 @@
   <Badge className="success">Success</Badge>
   <Badge className="warning">Warning</Badge>
   <Badge className="error">Error</Badge>
-</SpacedGroup>
+</SpacedGroup>;
 ```
 
 #### Less variables
 
-```less
+```css
 @badge-font-size: @font-size-small;
 @badge-line-height: 1.5;
 @badge-border-radius: unit(@badge-line-height / 2, em);

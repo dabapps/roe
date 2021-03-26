@@ -12,6 +12,52 @@ exports[`CodeBlock should handle empty code snippets 1`] = `
 </div>
 `;
 
+exports[`CodeBlock should highlight its contents 1`] = `
+<Memo(CodeBlock)>
+  <div
+    className="code-block-wrapper"
+  >
+    <pre
+      className="code-block"
+    >
+      &lt;p&gt;
+  Hello, World!
+&lt;/p&gt;
+    </pre>
+  </div>
+</Memo(CodeBlock)>
+`;
+
+exports[`CodeBlock should highlight its contents on update 1`] = `
+<Memo(CodeBlock)>
+  <div
+    className="code-block-wrapper"
+  >
+    <pre
+      className="code-block"
+    >
+      &lt;p&gt;
+  Hello, World!
+&lt;/p&gt;
+    </pre>
+  </div>
+</Memo(CodeBlock)>
+`;
+
+exports[`CodeBlock should highlight its contents on update 2`] = `
+<Memo(CodeBlock)>
+  <div
+    className="code-block-wrapper"
+  >
+    <pre
+      className="code-block"
+    >
+      &lt;div&gt;Goodbye, World!&lt;/div&gt;
+    </pre>
+  </div>
+</Memo(CodeBlock)>
+`;
+
 exports[`CodeBlock should match snapshot 1`] = `
 <div
   className="code-block-wrapper"

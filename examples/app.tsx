@@ -1,8 +1,9 @@
 import * as React from 'react';
-import { PureComponent, ReactElement } from 'react';
+
 import {
   AppRoot,
   Button,
+  Collapse,
   Column,
   Container,
   ContentBox,
@@ -16,6 +17,7 @@ import {
   InputGroupAddon,
   ModalRenderer,
   NavBar,
+  Pagination,
   Row,
   Section,
   SideBar,
@@ -27,25 +29,35 @@ import NavItems from './nav-items';
 
 const X_CHAR = String.fromCharCode(215);
 const MENU_CHAR = String.fromCharCode(9776);
+const PAGINATION_PROPS = {
+  pageSize: 10,
+  itemCount: 123,
+};
+
+type UnknownProps = Record<string, unknown>;
 
 interface AppState {
   sidebarOpen: boolean;
   highlightActive: boolean;
-  modals: ReadonlyArray<ReactElement<{}>>;
+  modals: ReadonlyArray<React.ReactElement<UnknownProps>>;
+  collapseOpen: boolean;
+  currentPageNumber: number;
 }
 
-class App extends PureComponent<{}, AppState> {
-  public constructor(props: {}) {
+class App extends React.PureComponent<UnknownProps, AppState> {
+  public constructor(props: UnknownProps) {
     super(props);
 
     this.state = {
       sidebarOpen: false,
       highlightActive: false,
       modals: [],
+      collapseOpen: false,
+      currentPageNumber: 1,
     };
   }
 
-  public render() {
+  public render(): React.ReactElement {
     return (
       <AppRoot>
         <NavBar shy>
@@ -56,7 +68,7 @@ class App extends PureComponent<{}, AppState> {
 
             <Button
               className="primary float-right display-block md-display-none"
-              onClick={this.showSidebar}
+              onClick={this.onClickShowSideBar}
             >
               {MENU_CHAR}
             </Button>
@@ -65,12 +77,12 @@ class App extends PureComponent<{}, AppState> {
 
         <SideBar
           open={this.state.sidebarOpen}
-          onClickOutside={this.hideSidebar}
+          onClickOutside={this.onClickHideSideBar}
           position="right"
           className="display-block md-display-none"
         >
           <div className="margin-vertical-base">
-            <Button className="primary" onClick={this.hideSidebar}>
+            <Button className="primary" onClick={this.onClickHideSideBar}>
               {X_CHAR}
             </Button>
           </div>
@@ -316,6 +328,25 @@ class App extends PureComponent<{}, AppState> {
               <ModalRenderer modals={this.state.modals} />
             </ContentBox>
           </Highlight>
+
+          <ContentBox>
+            <Collapse open={this.state.collapseOpen} minHeight={100} fadeOut>
+              <p className="text-align-right">
+                <a onClick={this.onClickToggleCollapse}>
+                  {this.state.collapseOpen ? 'Collapse' : 'Expand'}
+                </a>
+              </p>
+              <DabIpsum count={5} />
+            </Collapse>
+          </ContentBox>
+
+          <ContentBox>
+            <Pagination
+              {...PAGINATION_PROPS}
+              currentPageNumber={this.state.currentPageNumber}
+              changePage={this.changePage}
+            />
+          </ContentBox>
         </Container>
 
         <Footer fixed>
@@ -331,13 +362,19 @@ class App extends PureComponent<{}, AppState> {
     );
   }
 
-  private showSidebar = () => {
+  private onClickToggleCollapse = () => {
+    this.setState(({ collapseOpen }) => ({
+      collapseOpen: !collapseOpen,
+    }));
+  };
+
+  private onClickShowSideBar = () => {
     this.setState({
       sidebarOpen: true,
     });
   };
 
-  private hideSidebar = () => {
+  private onClickHideSideBar = () => {
     this.setState({
       sidebarOpen: false,
     });
@@ -372,6 +409,12 @@ class App extends PureComponent<{}, AppState> {
         ...state,
         modals: modalsCopy,
       };
+    });
+  };
+
+  private changePage = (page: number) => {
+    this.setState({
+      currentPageNumber: page,
     });
   };
 }

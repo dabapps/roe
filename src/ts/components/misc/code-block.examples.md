@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { CodeBlock } from '@dabapps/roe';
+
 <div>
   <CodeBlock language="javascript">
     {`
@@ -13,12 +15,12 @@
   <CodeBlock language="javascript" codeBlockName="example.js">
     {`const exampleWithName = this;`}
   </CodeBlock>
-</div>
+</div>;
 ```
 
 #### Less variables
 
-```less
+```css
 @code-block-background: @grey-lightest;
 @code-block-name-background: contrast(
   @code-block-background,

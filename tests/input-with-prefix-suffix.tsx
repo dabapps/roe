@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { InputWithPrefixSuffix } from '../src/ts/';
+import { InputWithPrefixSuffix } from '../src/ts';
 
 describe('InputWithPrefixSuffix', () => {
   it('should match snapshot', () => {
@@ -41,6 +41,7 @@ describe('InputWithPrefixSuffix', () => {
         prefix="£"
         suffix="%"
         value="Value"
+        // eslint-disable-next-line react/jsx-no-bind
         onChange={onChange}
       />
     );

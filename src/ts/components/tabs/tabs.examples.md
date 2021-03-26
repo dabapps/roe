@@ -1,7 +1,7 @@
 #### Example
 
 ```js
-const { Tab } = require('./tab');
+import { Tabs, Tab } from '@dabapps/roe';
 
 <Tabs>
   <Tab active>
@@ -18,7 +18,7 @@ const { Tab } = require('./tab');
 
 #### Less variables
 
-```less
+```css
 @tab-background: @grey-lightest;
 @tab-active-background: @white;
 @tab-border: @border-base;

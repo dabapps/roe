@@ -1,9 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
-import { ComponentProps } from '../../types';
 
-export interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
+
+export type BannerProps = {
   /**
    * If set, displays the component, otherwise it is hidden
    * @default true
@@ -14,31 +14,29 @@ export interface BannerProps extends ComponentProps, HTMLProps<HTMLElement> {
    * @default 'bottom'
    */
   position?: 'top' | 'bottom';
-}
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * A Banner component that displays fixed to the top or bottom of the screen.
  */
-export class Banner extends PureComponent<BannerProps, {}> {
-  public render() {
-    const {
-      className,
-      children,
-      open = true,
-      position = 'bottom',
-      component: Component = 'div',
-      ...remainingProps
-    } = this.props;
+const Banner = (props: BannerProps): React.ReactElement => {
+  const {
+    className,
+    children,
+    open = true,
+    position = 'bottom',
+    component: Component = 'div',
+    ...remainingProps
+  } = props;
 
-    return (
-      <Component
-        {...remainingProps}
-        className={classNames('banner', open && 'open', position, className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-}
+  return (
+    <Component
+      {...remainingProps}
+      className={classNames('banner', open && 'open', position, className)}
+    >
+      {children}
+    </Component>
+  );
+};
 
-export default Banner;
+export default React.memo(Banner);

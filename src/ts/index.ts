@@ -29,8 +29,8 @@ export {
 export {
   default as CookieBanner,
   CookieBannerProps,
+  CookieBannerRenderProps,
 } from './components/banners/cookie-banner';
-export { CookieBannerRenderProps } from './components/banners/cookie-banner';
 export {
   default as DabIpsum,
   DabIpsumProps,

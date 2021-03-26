@@ -1,17 +1,19 @@
 #### Example
 
 ```js
+import { ContentBox, ContentBoxHeader } from '@dabapps/roe';
+
 <ContentBox>
   <ContentBoxHeader>
     <h5>Header</h5>
   </ContentBoxHeader>
   <p>Content</p>
-</ContentBox>
+</ContentBox>;
 ```
 
 #### Less variables
 
-```less
+```css
 @content-box-header-background: @primary-lightest;
 @content-box-header-border: 1px solid @primary-lighter;
 ```

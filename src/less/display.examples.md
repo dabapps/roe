@@ -7,6 +7,8 @@ Note: `display-none` is an alias for `xs-display-none`, and `display-block` an a
 #### Examples
 
 ```js
+import { Row, Column } from '@dabapps/roe';
+
 <Row className="display-column">
   <Column xs={6} className="xs-display-none sm-display-block md-display-none">
     xs-display-none sm-display-block md-display-none
@@ -14,12 +16,14 @@ Note: `display-none` is an alias for `xs-display-none`, and `display-block` an a
   <Column xs={6} className="xs-display-block sm-display-none md-display-block">
     xs-display-block sm-display-none md-display-block
   </Column>
-</Row>
+</Row>;
 ```
 
 You can use `display-flex` to easily make a child component fill its parent, for example, in a flex grid:
 
 ```js
+import { Row, Column, ContentBox, DabIpsum } from '@dabapps/roe';
+
 <Row className="flex-grid">
   <Column xs={12} sm={6} md={4} lg={3} className="display-flex">
     <ContentBox>
@@ -51,5 +55,5 @@ You can use `display-flex` to easily make a child component fill its parent, for
       <DabIpsum count={2} />
     </ContentBox>
   </Column>
-</Row>
+</Row>;
 ```

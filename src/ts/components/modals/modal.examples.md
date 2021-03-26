@@ -5,6 +5,18 @@ ModalRenderer is required to render modals.
 Place ModalRenderer in the root component of your app.
 
 ```js
+import {
+  Modal,
+  ModalHeader,
+  ModalCloseIcon,
+  ModalBody,
+  ModalFooter,
+  ModalRenderer,
+  SpacedGroup,
+  Button,
+  DabIpsum,
+} from '@dabapps/roe';
+
 const X_CHAR = String.fromCharCode(215);
 
 class ModalExample extends React.Component {
@@ -170,7 +182,7 @@ class ModalExample extends React.Component {
 
 #### Less variables
 
-```less
+```css
 @modal-overlay-background: @overlay-background;
 @modal-background: @content-box-background;
 @modal-header-background: @content-box-header-background;

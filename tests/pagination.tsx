@@ -2,7 +2,7 @@ import * as enzyme from 'enzyme';
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Pagination } from '../src/ts';
+import { Pagination, PaginationProps } from '../src/ts';
 
 describe('Pagination', () => {
   it('should render the button for page 1 as selected when the currentPageNumber is 1', () => {
@@ -114,7 +114,7 @@ describe('Pagination', () => {
   });
 
   it('should go the page by clicking the page number', () => {
-    const instance = enzyme.mount(
+    const instance = enzyme.mount<PaginationProps>(
       <Pagination
         pageSize={3}
         changePage={jest.fn()}
@@ -124,13 +124,13 @@ describe('Pagination', () => {
     );
 
     const previousButton = instance
-      .find('.spaced-group.pagination-group')
-      .childAt(1);
+      .find('.spaced-group.pagination-group button')
+      .at(1);
 
     previousButton.simulate('click');
 
-    expect(instance.instance().props.changePage).toHaveBeenCalledTimes(1);
-    expect(instance.instance().props.changePage).toHaveBeenCalledWith(1);
+    expect(instance.props().changePage).toHaveBeenCalledTimes(1);
+    expect(instance.props().changePage).toHaveBeenCalledWith(1);
 
     instance.unmount();
   });

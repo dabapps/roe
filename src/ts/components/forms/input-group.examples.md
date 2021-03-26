@@ -3,6 +3,8 @@
 Note: for buttons to render correctly you must set their `component` prop to something else e.g. `"div"`.
 
 ```js
+import { InputGroup, Button, InputGroupAddon } from '@dabapps/roe';
+
 <div>
   <InputGroup>
     <input type="number" />
@@ -33,7 +35,7 @@ Note: for buttons to render correctly you must set their `component` prop to som
       4
     </Button>
   </InputGroup>
-</div>
+</div>;
 ```
 
 Note: to use buttons within an `InputGroup` you must change the component to another tag (e.g. `component="div"`).
@@ -42,7 +44,7 @@ In order to have these buttons also get the click effect, they must be focusable
 
 #### Less variables
 
-```less
+```css
 @input-group-addon-background: @grey-lightest;
 
 @input-border: @border-dark;

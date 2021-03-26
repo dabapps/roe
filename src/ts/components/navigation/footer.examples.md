@@ -1,14 +1,16 @@
 #### Example
 
 ```js
+import { Footer } from '@dabapps/roe';
+
 <Footer>
   <p>Footer</p>
-</Footer>
+</Footer>;
 ```
 
 #### Less variables
 
-```less
+```css
 @footer-background: @body-background;
 @footer-border: @border-base;
 @footer-height: auto;

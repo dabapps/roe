@@ -1,7 +1,8 @@
-'use strict';
+/* eslint-disable @typescript-eslint/no-var-requires */
 
-var React = require('react');
-var Styled = require('rsg-components/Styled').default;
+const React = require('react');
+const Styled = require('react-styleguidist/lib/client/rsg-components/Styled')
+  .default;
 
 function styles(settings) {
   return {

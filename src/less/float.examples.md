@@ -7,6 +7,8 @@ Note: float-left is an alias for `xs-float-left`, and `float-right` an alias for
 #### Example
 
 ```js
+import { Row, Column } from '@dabapps/roe';
+
 <Row className="display-columns">
   <Column xs={6} className="xs-float-right sm-float-left md-float-right">
     float-right sm-float-left md-float-right
@@ -14,5 +16,5 @@ Note: float-left is an alias for `xs-float-left`, and `float-right` an alias for
   <Column xs={6} className="xs-float-left sm-float-right md-float-left">
     float-left sm-float-right md-float-left
   </Column>
-</Row>
+</Row>;
 ```

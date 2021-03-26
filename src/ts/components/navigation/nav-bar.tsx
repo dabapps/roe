@@ -1,13 +1,12 @@
 import { ResizeObserver } from '@juggle/resize-observer';
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
-import * as ReactDOM from 'react-dom';
+
 import store from '../../store';
-import { ComponentProps } from '../../types';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 import { getScrollOffset } from '../../utils';
 
-export interface NavBarProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type NavBarProps = {
   /**
    * Fix the navbar to the top of the screen
    */
@@ -20,161 +19,125 @@ export interface NavBarProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Remove NavBar shadow
    */
   noShadow?: boolean;
-}
+} & OptionalComponentPropAndHTMLAttributes;
 
-export interface NavBarState {
-  hidden: boolean;
-}
+const NavBar = (props: NavBarProps) => {
+  const {
+    children,
+    className,
+    fixed,
+    shy,
+    noShadow,
+    component: Component = 'div',
+    ...remainingProps
+  } = props;
 
-export class NavBar extends PureComponent<NavBarProps, NavBarState> {
-  private previousScrollY: number;
-  private mountTime: number | undefined;
+  const resizeObserverRef = React.useRef<ResizeObserver | null>(null);
+  const previousScrollYRef = React.useRef(getScrollOffset().y);
+  const mountTimeRef = React.useRef<number>();
+  const [hidden, setHidden] = React.useState(false);
+  const [navBar, setNavBar] = React.useState<HTMLDivElement | null>(null);
 
-  public constructor(props: NavBarProps) {
-    super(props);
-
-    this.previousScrollY = getScrollOffset().y;
-
-    this.state = {
-      hidden: false,
+  React.useEffect(() => {
+    const notifyAppRoot = () => {
+      store.setState({
+        hasFixedNavBar: Boolean(shy || fixed),
+        navBarHeight:
+          navBar instanceof HTMLElement
+            ? navBar.getBoundingClientRect().height
+            : undefined,
+      });
     };
-  }
 
-  public componentDidMount() {
-    this.notifyAppRoot(this.props);
-    this.toggleShyListeners(this.props);
-    this.toggleResizeListeners(this.props);
+    const hideOrShowNavBar = () => {
+      const { y } = getScrollOffset();
 
-    this.mountTime = new Date().getTime();
-  }
+      if (
+        typeof mountTimeRef.current === 'undefined' ||
+        new Date().getTime() < mountTimeRef.current + 250
+      ) {
+        previousScrollYRef.current = y;
+        return;
+      }
 
-  public componentDidUpdate(prevProps: NavBarProps) {
-    if (Boolean(this.props.shy) !== Boolean(prevProps.shy)) {
-      this.toggleShyListeners(this.props);
-    }
+      /* istanbul ignore else */
+      if (navBar instanceof HTMLElement) {
+        const { height } = navBar.getBoundingClientRect();
 
-    if (
-      Boolean(this.props.fixed) !== Boolean(prevProps.fixed) ||
-      Boolean(this.props.shy) !== Boolean(prevProps.shy)
-    ) {
-      this.toggleResizeListeners(this.props);
-    }
+        /* istanbul ignore else */
+        if (y > previousScrollYRef.current + height / 2 && y > height) {
+          setHidden(true);
 
-    this.notifyAppRoot(this.props);
-  }
+          previousScrollYRef.current = y;
+        } else if (y < previousScrollYRef.current - height / 2) {
+          setHidden(false);
 
-  public componentWillUnmount() {
-    window.removeEventListener('scroll', this.hideOrShowNavBar);
-    window.removeEventListener('resize', this.hideOrShowNavBar);
-    this.resizeObserver.disconnect();
-    this.notifyAppRoot({ fixed: false });
-  }
+          previousScrollYRef.current = y;
+        }
+      }
+    };
 
-  public render() {
-    const {
-      children,
-      className,
-      fixed,
-      shy,
-      noShadow,
-      component: Component = 'div',
-      ...remainingProps
-    } = this.props;
-
-    const { hidden } = this.state;
-
-    const myClassNames = [
-      'nav-bar',
-      fixed || shy ? 'fixed' : null,
-      shy ? 'shy' : null,
-      hidden ? 'hidden' : null,
-      noShadow ? 'no-shadow' : null,
-      className,
-    ];
-
-    return (
-      <Component {...remainingProps} className={classNames(myClassNames)}>
-        {children}
-      </Component>
-    );
-  }
-
-  private notifyAppRoot(props: NavBarProps) {
-    const { fixed, shy } = props;
-    const element = ReactDOM.findDOMNode(this);
-
-    store.setState({
-      hasFixedNavBar: Boolean(fixed || shy),
-      navBarHeight:
-        element && element instanceof HTMLElement
-          ? element.getBoundingClientRect().height
-          : undefined,
-    });
-  }
-
-  private updateAppRoot = () => {
-    this.notifyAppRoot(this.props);
-  };
-
-  private toggleResizeListeners(props: NavBarProps) {
-    const { fixed, shy } = props;
-
-    if (fixed || shy) {
-      const element = ReactDOM.findDOMNode(this);
-      if (element instanceof HTMLElement) {
-        this.resizeObserver.observe(element);
+    // Add/remove resize observer subscriptions when sticky or fixed changes
+    if (shy || fixed) {
+      if (navBar instanceof HTMLElement) {
+        resizeObserverRef.current = new ResizeObserver(notifyAppRoot);
+        resizeObserverRef.current.observe(navBar);
       }
     } else {
-      this.resizeObserver.disconnect();
+      resizeObserverRef.current?.disconnect();
     }
-  }
 
-  private toggleShyListeners(props: NavBarProps) {
-    const { shy } = props;
+    // Notify app root of new shy/fixed and nav bar height
+    notifyAppRoot();
 
+    // Subscribe/unsubscribe from scroll/resize
     if (shy) {
-      window.addEventListener('scroll', this.hideOrShowNavBar);
-      window.addEventListener('resize', this.hideOrShowNavBar);
+      window.addEventListener('scroll', hideOrShowNavBar);
+      window.addEventListener('resize', hideOrShowNavBar);
     } else {
-      window.removeEventListener('scroll', this.hideOrShowNavBar);
-      window.removeEventListener('resize', this.hideOrShowNavBar);
-    }
-  }
-
-  private hideOrShowNavBar = () => {
-    const { y } = getScrollOffset();
-
-    if (
-      typeof this.mountTime === 'undefined' ||
-      new Date().getTime() < this.mountTime + 250
-    ) {
-      this.previousScrollY = y;
-      return;
+      window.removeEventListener('scroll', hideOrShowNavBar);
+      window.removeEventListener('resize', hideOrShowNavBar);
     }
 
-    const element = ReactDOM.findDOMNode(this);
+    // Remove listeners on unmount
+    return () => {
+      resizeObserverRef.current?.disconnect();
+      window.removeEventListener('scroll', hideOrShowNavBar);
+      window.removeEventListener('resize', hideOrShowNavBar);
+    };
+  }, [shy, fixed, navBar]);
 
-    if (element && element instanceof HTMLElement) {
-      const { height } = element.getBoundingClientRect();
+  React.useEffect(() => {
+    mountTimeRef.current = new Date().getTime();
 
-      if (y > this.previousScrollY + height / 2 && y > height) {
-        this.setState({
-          hidden: true,
-        });
+    return () => {
+      store.setState({
+        hasFixedNavBar: false,
+      });
+    };
+  }, []);
 
-        this.previousScrollY = y;
-      } else if (y < this.previousScrollY - height / 2) {
-        this.setState({
-          hidden: false,
-        });
+  const myClassNames = [
+    'nav-bar',
+    fixed || shy ? 'fixed' : null,
+    shy ? 'shy' : null,
+    hidden ? 'hidden' : null,
+    noShadow ? 'no-shadow' : null,
+    className,
+  ];
 
-        this.previousScrollY = y;
-      }
-    }
-  };
+  // Cast necessary otherwise types are too complex
+  const CastComponent = Component as 'div';
 
-  // tslint:disable-next-line:member-ordering
-  private resizeObserver = new ResizeObserver(this.updateAppRoot);
-}
+  return (
+    <CastComponent
+      ref={setNavBar}
+      {...remainingProps}
+      className={classNames(myClassNames)}
+    >
+      {children}
+    </CastComponent>
+  );
+};
 
-export default NavBar;
+export default React.memo(NavBar);

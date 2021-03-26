@@ -1,11 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
-import { ComponentProps } from '../../types';
 
-export interface SpacedGroupProps
-  extends ComponentProps,
-    HTMLProps<HTMLElement> {
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
+
+export type SpacedGroupProps = {
   /**
    * Set the group to `display: block;` so it fills its parent.
    */
@@ -18,37 +16,35 @@ export interface SpacedGroupProps
    * Increased spacing between items.
    */
   large?: boolean;
-}
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Component to contain & automatically add space between inline elements.
  */
-export class SpacedGroup extends PureComponent<SpacedGroupProps, {}> {
-  public render() {
-    const {
-      children,
-      className,
-      block,
-      small,
-      large,
-      component: Component = 'span',
-      ...remainingProps
-    } = this.props;
+const SpacedGroup = (props: SpacedGroupProps) => {
+  const {
+    children,
+    className,
+    block,
+    small,
+    large,
+    component: Component = 'span',
+    ...remainingProps
+  } = props;
 
-    const myClassNames = [
-      'spaced-group',
-      block ? 'block' : null,
-      small ? 'small' : null,
-      large ? 'large' : null,
-      className,
-    ];
+  const myClassNames = [
+    'spaced-group',
+    block ? 'block' : null,
+    small ? 'small' : null,
+    large ? 'large' : null,
+    className,
+  ];
 
-    return (
-      <Component {...remainingProps} className={classNames(myClassNames)}>
-        {children}
-      </Component>
-    );
-  }
-}
+  return (
+    <Component {...remainingProps} className={classNames(myClassNames)}>
+      {children}
+    </Component>
+  );
+};
 
-export default SpacedGroup;
+export default React.memo(SpacedGroup);

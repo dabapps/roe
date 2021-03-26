@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { Nav, NavItem } from '@dabapps/roe';
+
 <Nav>
   <NavItem active>
     <a>One</a>
@@ -14,5 +16,5 @@
   <NavItem className="button hollow primary">
     <a>Logout</a>
   </NavItem>
-</Nav>
+</Nav>;
 ```

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Alert } from '../src/ts/';
+import { Alert } from '../src/ts';
 
 describe('Alert', () => {
   it('should match snapshot', () => {

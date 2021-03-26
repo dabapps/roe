@@ -1,6 +1,8 @@
 #### Examples
 
 ```js
+import { Button, SideBar, Nav, NavItem } from '@dabapps/roe';
+
 class SideBarExample extends React.Component {
   constructor() {
     this.state = {
@@ -54,7 +56,7 @@ class SideBarExample extends React.Component {
 
 #### Less variables
 
-```less
+```css
 @side-bar-overlay-background: @overlay-background;
 @side-bar-background: @body-background;
 @side-bar-border: @border-base;

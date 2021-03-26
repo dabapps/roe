@@ -1,9 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
-import { ComponentProps } from '../../types';
 
-export interface ModalProps extends ComponentProps, HTMLProps<HTMLDivElement> {
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
+
+export type ModalProps = {
   /**
    * Allows the `ModalBody` to be scrolled, rather than page.
    */
@@ -24,44 +24,42 @@ export interface ModalProps extends ComponentProps, HTMLProps<HTMLDivElement> {
    * Callback to trigger when the user clicks outside of the `Modal`.
    */
   onClickOutside(event: React.MouseEvent<HTMLDivElement>): void;
-}
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Component used to render a modal.
  */
-export class Modal extends PureComponent<ModalProps, {}> {
-  public render() {
-    const {
-      className,
-      children,
-      onClickOutside,
-      scrollable,
-      small,
-      large,
-      fill,
-      component: Component = 'div',
-      ...remainingProps
-    } = this.props;
+const Modal = (props: ModalProps) => {
+  const {
+    className,
+    children,
+    onClickOutside,
+    scrollable,
+    small,
+    large,
+    fill,
+    component: Component = 'div',
+    ...remainingProps
+  } = props;
 
-    const myClassNames = [
-      'modal-position',
-      scrollable ? 'scrollable' : null,
-      small ? 'small' : null,
-      large ? 'large' : null,
-      fill ? 'fill' : null,
-    ];
+  const myClassNames = [
+    'modal-position',
+    scrollable ? 'scrollable' : null,
+    small ? 'small' : null,
+    large ? 'large' : null,
+    fill ? 'fill' : null,
+  ];
 
-    return (
-      <div>
-        <div className="modal-overlay" onClick={onClickOutside} />
-        <div {...remainingProps} className={classNames(myClassNames)}>
-          <Component className={classNames('modal', className)}>
-            {children}
-          </Component>
-        </div>
+  return (
+    <div>
+      <div className="modal-overlay" onClick={onClickOutside} />
+      <div {...remainingProps} className={classNames(myClassNames)}>
+        <Component className={classNames('modal', className)}>
+          {children}
+        </Component>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
-export default Modal;
+export default React.memo(Modal);

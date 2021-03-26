@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { SpacedGroup } from '../src/ts/';
+import { SpacedGroup } from '../src/ts';
 
 describe('SpacedGroup', () => {
   it('should match snapshot', () => {

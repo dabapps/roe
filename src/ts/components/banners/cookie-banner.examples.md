@@ -22,7 +22,7 @@
 
 #### Less variables
 
-```less
+```css
 @banner-background: @body-background;
 @banner-border: @border-base;
 @banner-height: auto;

@@ -5,10 +5,15 @@ export const mockUnobserve = jest.fn();
 export const mockDisconnect = jest.fn();
 
 class MockResizeObserver {
-  public observe = mockObserve;
+  private callback: () => void;
+  public observe = (): void => {
+    this.callback();
+    mockObserve();
+  };
   public unobserve = mockUnobserve;
   public disconnect = mockDisconnect;
   public constructor(callback: () => void) {
+    this.callback = callback;
     mockConstructor(callback);
   }
 }

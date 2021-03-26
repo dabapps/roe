@@ -1,6 +1,8 @@
 #### Example
 
 ```js
+import { Alert, DabIpsum } from '@dabapps/roe';
+
 <div>
   <Alert>
     <DabIpsum count={1} />
@@ -26,5 +28,5 @@
   <Alert className="info">
     <DabIpsum count={1} />
   </Alert>
-</div>
+</div>;
 ```

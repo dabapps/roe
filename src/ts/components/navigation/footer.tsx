@@ -1,12 +1,11 @@
 import { ResizeObserver } from '@juggle/resize-observer';
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
-import * as ReactDOM from 'react-dom';
-import store from '../../store';
-import { ComponentProps } from '../../types';
 
-export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
+import store from '../../store';
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
+
+export type FooterProps = {
   /**
    * Fix the footer to the bottom of the window when there is not enough content to push it down.
    */
@@ -15,82 +14,72 @@ export interface FooterProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Fix the footer to the bottom of the screen always
    */
   fixed?: boolean;
-}
+} & OptionalComponentPropAndHTMLAttributes;
 
-export class Footer extends PureComponent<FooterProps, {}> {
-  public componentDidMount() {
-    this.notifyAppRoot(this.props);
-    this.toggleResizeListeners(this.props);
-  }
+const Footer = (props: FooterProps) => {
+  const {
+    sticky,
+    fixed,
+    component: Component = 'div',
+    children,
+    className,
+    ...remainingProps
+  } = props;
 
-  public componentDidUpdate(prevProps: FooterProps) {
-    if (
-      Boolean(this.props.sticky || this.props.fixed) !==
-      Boolean(prevProps.sticky || prevProps.fixed)
-    ) {
-      this.toggleResizeListeners(this.props);
-    }
+  const resizeObserverRef = React.useRef<ResizeObserver | null>(null);
+  const [footer, setFooter] = React.useState<HTMLDivElement | null>(null);
 
-    this.notifyAppRoot(this.props);
-  }
+  React.useEffect(() => {
+    const notifyAppRoot = () => {
+      store.setState({
+        hasStickyFooter: Boolean(sticky || fixed),
+        footerHeight:
+          footer instanceof HTMLElement
+            ? footer.getBoundingClientRect().height
+            : undefined,
+      });
+    };
 
-  public componentWillUnmount() {
-    this.resizeObserver.disconnect();
-    this.notifyAppRoot({ sticky: false });
-  }
-
-  public render() {
-    const {
-      sticky,
-      fixed,
-      component: Component = 'div',
-      children,
-      className,
-      ...remainingProps
-    } = this.props;
-
-    return (
-      <Component
-        {...remainingProps}
-        className={classNames('footer', { sticky, fixed }, className)}
-      >
-        {children}
-      </Component>
-    );
-  }
-
-  private notifyAppRoot(props: FooterProps) {
-    const { sticky, fixed } = props;
-    const element = ReactDOM.findDOMNode(this);
-
-    store.setState({
-      hasStickyFooter: Boolean(sticky || fixed),
-      footerHeight:
-        element && element instanceof HTMLElement
-          ? element.getBoundingClientRect().height
-          : undefined,
-    });
-  }
-
-  private updateAppRoot = () => {
-    this.notifyAppRoot(this.props);
-  };
-
-  private toggleResizeListeners(props: FooterProps) {
-    const { sticky, fixed } = props;
-
+    // Add/remove resize observer subscriptions when sticky or fixed changes
     if (sticky || fixed) {
-      const element = ReactDOM.findDOMNode(this);
-      if (element instanceof HTMLElement) {
-        this.resizeObserver.observe(element);
+      if (footer instanceof HTMLElement) {
+        resizeObserverRef.current = new ResizeObserver(notifyAppRoot);
+        resizeObserverRef.current.observe(footer);
       }
     } else {
-      this.resizeObserver.disconnect();
+      resizeObserverRef.current?.disconnect();
     }
-  }
 
-  // tslint:disable-next-line:member-ordering
-  private resizeObserver = new ResizeObserver(this.updateAppRoot);
-}
+    // Notify app root of new sticky/fixed and footer height
+    notifyAppRoot();
 
-export default Footer;
+    // Remove resize observer subscription on unmount
+    return () => {
+      resizeObserverRef.current?.disconnect();
+    };
+  }, [sticky, fixed, footer]);
+
+  React.useEffect(
+    () => () => {
+      store.setState({
+        hasStickyFooter: false,
+      });
+    },
+    []
+  );
+
+  // Cast necessary otherwise types are too complex
+  const CastComponent = Component as 'div';
+
+  return (
+    <CastComponent
+      {...remainingProps}
+      className={classNames('footer', { sticky, fixed }, className)}
+      ref={setFooter}
+    >
+      {children}
+    </CastComponent>
+  );
+};
+
+export default React.memo(Footer);

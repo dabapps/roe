@@ -1,16 +1,10 @@
-interface IHighlightJS {
-  highlightBlock(element: HTMLElement): void;
-}
-
-declare const hljs: void | IHighlightJS;
-
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
-import { ComponentProps } from '../../types';
+
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
 import { formatCode } from '../../utils';
 
-export interface CodeBlockProps extends ComponentProps, HTMLProps<HTMLElement> {
+export type CodeBlockProps = {
   /**
    * Code to display.
    */
@@ -23,76 +17,61 @@ export interface CodeBlockProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Name of the code block e.g. "index.js".
    */
   codeBlockName?: string;
-}
+} & OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Component to nicely highlight code inside a `pre` element.
  */
-export class CodeBlock extends PureComponent<CodeBlockProps, {}> {
-  public element: HTMLPreElement;
+const CodeBlock = (props: CodeBlockProps) => {
+  const {
+    children,
+    className,
+    language,
+    codeBlockName,
+    component: Component = 'div',
+    ...remainingProps
+  } = props;
+  const languageClassName = language && `language-${language}`;
+  const elementRef = React.useRef<HTMLPreElement>(null);
+  const prevProps = React.useRef(props);
 
-  public constructor(props: CodeBlockProps) {
-    super(props);
+  const content =
+    typeof children === 'string' ? formatCode(children) : children;
 
-    this.highlightBlock = this.highlightBlock.bind(this);
-  }
-
-  public highlightBlock(element: HTMLPreElement) {
-    this.element = element;
-
-    // tslint:disable-next-line:strict-type-predicates
-    if (typeof hljs === 'object' && typeof hljs.highlightBlock === 'function') {
-      hljs.highlightBlock(this.element);
-    }
-  }
-
-  public componentDidUpdate(prevProps: CodeBlockProps) {
+  React.useEffect(() => {
     if (
-      typeof hljs === 'object' &&
-      // tslint:disable-next-line:strict-type-predicates
-      typeof hljs.highlightBlock === 'function' &&
-      prevProps.children !== this.props.children
+      elementRef.current &&
+      typeof window.hljs === 'object' &&
+      typeof window.hljs.highlightBlock === 'function' &&
+      prevProps.current.children !== props.children
     ) {
-      hljs.highlightBlock(this.element);
+      window.hljs.highlightBlock(elementRef.current);
     }
-  }
 
-  public render() {
-    const {
-      children,
-      className,
-      language,
-      codeBlockName,
-      component: Component = 'div',
-      ...remainingProps
-    } = this.props;
-    const languageClassName = language && `language-${language}`;
+    prevProps.current = props;
+  }, [props]);
 
-    const content =
-      typeof children === 'string' ? formatCode(children) : children;
-
-    return (
-      <Component
-        {...remainingProps}
-        className={classNames('code-block-wrapper', className)}
+  return (
+    <Component
+      {...remainingProps}
+      className={classNames('code-block-wrapper', className)}
+    >
+      {typeof codeBlockName !== 'undefined' && (
+        <div className="code-block-name">
+          {typeof language !== 'undefined' && (
+            <div className="code-block-language">{language}</div>
+          )}
+          {codeBlockName}
+        </div>
+      )}
+      <pre
+        ref={elementRef}
+        className={classNames('code-block', languageClassName)}
       >
-        {typeof codeBlockName !== 'undefined' && (
-          <div className="code-block-name">
-            {typeof language !== 'undefined' && (
-              <div className="code-block-language">{language}</div>
-            )}
-            {codeBlockName}
-          </div>
-        )}
-        <pre
-          ref={this.highlightBlock}
-          className={classNames('code-block', languageClassName)}
-        >
-          {content}
-        </pre>
-      </Component>
-    );
-  }
-}
+        {content}
+      </pre>
+    </Component>
+  );
+};
 
-export default CodeBlock;
+export default React.memo(CodeBlock);

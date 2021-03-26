@@ -1,9 +1,9 @@
 import * as classNames from 'classnames';
 import * as React from 'react';
-import { HTMLProps, PureComponent } from 'react';
-import { ComponentProps } from '../../types';
 
-export interface ButtonProps extends ComponentProps, HTMLProps<HTMLElement> {
+import { OptionalComponentPropAndHTMLAttributes } from '../../types';
+
+export type ButtonProps = {
   /**
    * Set the style `display: block;`.
    */
@@ -16,37 +16,39 @@ export interface ButtonProps extends ComponentProps, HTMLProps<HTMLElement> {
    * Make the button small
    */
   small?: boolean;
-}
+} & React.ButtonHTMLAttributes<HTMLElement> &
+  OptionalComponentPropAndHTMLAttributes;
 
 /**
  * Used in place of a standard `button` tag, this component adds additional styles and effects.
  */
-export class Button extends PureComponent<ButtonProps, {}> {
-  public render() {
-    const {
-      children,
-      className,
-      block,
-      large,
-      small,
-      component: Component = 'button',
-      ...remainingProps
-    } = this.props;
+const Button = (props: ButtonProps) => {
+  const {
+    children,
+    className,
+    block,
+    large,
+    small,
+    component: Component = 'button',
+    ...remainingProps
+  } = props;
 
-    const myClassNames = [
-      'button',
-      block ? 'block' : null,
-      small ? 'small' : null,
-      large ? 'large' : null,
-      className,
-    ];
+  const myClassNames = [
+    'button',
+    block ? 'block' : null,
+    small ? 'small' : null,
+    large ? 'large' : null,
+    className,
+  ];
 
-    return (
-      <Component {...remainingProps} className={classNames(myClassNames)}>
-        {children}
-      </Component>
-    );
-  }
-}
+  // Cast necessary otherwise types are too complex
+  const CastComponent = Component as 'button';
 
-export default Button;
+  return (
+    <CastComponent {...remainingProps} className={classNames(myClassNames)}>
+      {children}
+    </CastComponent>
+  );
+};
+
+export default React.memo(Button);

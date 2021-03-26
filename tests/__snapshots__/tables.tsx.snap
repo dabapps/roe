@@ -11,9 +11,7 @@ exports[`Tables Table should allow disabling scrolling 1`] = `
       }
     }
   >
-    <div
-      className={undefined}
-    >
+    <div>
       <table
         className="table sm-collapse"
       />

@@ -1,30 +1,27 @@
 import * as React from 'react';
-import { PureComponent } from 'react';
 import * as renderer from 'react-test-renderer';
 
-import * as index from '../src/ts/';
+import * as index from '../src/ts';
 
 jest.mock('react-dom', () => ({
   findDOMNode: () => null,
 }));
 
-interface IHighlightJS {
-  highlightBlock: jest.Mock<any>;
-}
-
-// tslint:disable:no-namespace
-declare global {
-  // tslint:disable:interface-name
-  interface Window {
-    hljs: void | IHighlightJS;
-  }
-}
+const otherProps = {
+  open: false,
+  render: () => <div />,
+  pageSize: 0,
+  currentPageNumber: 1,
+  itemCount: 0,
+};
 
 describe('index file', () => {
+  const mockHighlightBlock = jest.fn();
+
   beforeEach(() => {
     if (!window.hljs) {
       window.hljs = {
-        highlightBlock: jest.fn(),
+        highlightBlock: mockHighlightBlock,
       };
     }
   });
@@ -37,7 +34,7 @@ describe('index file', () => {
 
   describe('components', () => {
     it('should all accept a component prop', () => {
-      const exceptions = [
+      const exceptions: readonly IndexKey[] = [
         'Anchor',
         'DabIpsum',
         'ModalRenderer',
@@ -46,41 +43,57 @@ describe('index file', () => {
         'SideBar',
         'Pagination',
       ];
-      type Keys = keyof typeof index;
+      type Exceptions =
+        | 'Anchor'
+        | 'DabIpsum'
+        | 'ModalRenderer'
+        | 'Modal'
+        | 'Table'
+        | 'SideBar'
+        | 'Pagination';
+      type IndexKey = keyof typeof index;
+      type IndexKeyWithComponentProp = Exclude<IndexKey, Exceptions>;
 
-      for (const key in index) {
-        if (index.hasOwnProperty(key)) {
-          const Component = index[key as Keys];
+      const indexKeys = Object.keys(index) as readonly IndexKey[];
 
-          if (Component) {
-            const instance = <Component component="p" />;
+      indexKeys
+        .filter(
+          (key): key is IndexKeyWithComponentProp => !exceptions.includes(key)
+        )
+        .forEach(key => {
+          // eslint-disable-next-line import/namespace
+          const Component = index[key];
 
-            if (
-              exceptions.indexOf(key) < 0 &&
-              renderer.create(instance).toJSON().type !== 'p'
-            ) {
-              throw new Error(`${key} cannot take a component prop. :\'(`);
-            }
-          }
-        }
-      }
-    });
-
-    it('should all extend PureComponent', () => {
-      const exceptions = ['DabIpsum'];
-
-      type Keys = keyof typeof index;
-
-      for (const key in index) {
-        if (index.hasOwnProperty(key)) {
-          const Component = index[key as Keys];
+          const element = <Component {...otherProps} component="p" />;
+          const elementJSON = renderer.create(element).toJSON();
 
           if (
-            exceptions.indexOf(key) < 0 &&
-            Component &&
-            !(Component.prototype instanceof PureComponent)
+            !elementJSON ||
+            (Array.isArray(elementJSON)
+              ? elementJSON[0].type !== 'p'
+              : elementJSON.type !== 'p')
           ) {
-            throw new Error(`${key} does not extend PureComponent. :\'(`);
+            throw new Error(`${key} cannot take a component prop. 😥`);
+          }
+        });
+    });
+
+    it('should all be function components wrapped with React.memo', () => {
+      type Keys = keyof typeof index;
+
+      for (const key in index) {
+        if (Object.prototype.hasOwnProperty.call(index, key)) {
+          // eslint-disable-next-line import/namespace
+          const Component = index[key as Keys];
+
+          if (Component.$$typeof !== Symbol.for('react.memo')) {
+            throw new Error(`${key} was not wrapped with React.memo`);
+          }
+
+          if (Component.type.prototype instanceof React.PureComponent) {
+            throw new Error(
+              `${key} extends PureComponent but should be a function component. 😥`
+            );
           }
         }
       }

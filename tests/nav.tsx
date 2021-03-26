@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
 
-import { Nav } from '../src/ts/';
+import { Nav } from '../src/ts';
 
 describe('Nav', () => {
   it('should match snapshot', () => {

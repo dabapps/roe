@@ -8,7 +8,7 @@ import {
   ModalFooter,
   ModalHeader,
   ModalRenderer,
-} from '../src/ts/';
+} from '../src/ts';
 
 describe('Modal', () => {
   it('should match snapshot', () => {

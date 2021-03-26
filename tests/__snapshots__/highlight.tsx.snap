@@ -7,7 +7,6 @@ exports[`Highlight should match snapshot 1`] = `
   <div />
   <div
     className="highlight-content"
-    style={undefined}
   >
     <p>
       Hello, World!
@@ -27,7 +26,6 @@ exports[`Highlight should match snapshot with props (open) 1`] = `
   </div>
   <div
     className="highlight-content open"
-    style={undefined}
   >
     <p>
       Hello, World!

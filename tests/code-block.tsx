@@ -1,33 +1,22 @@
 import * as React from 'react';
 import * as renderer from 'react-test-renderer';
+import * as enzyme from 'enzyme';
 
-import { CodeBlock } from '../src/ts/';
+import { CodeBlock } from '../src/ts';
 
-interface IHighlightJS {
-  highlightBlock: jest.Mock<any>;
-}
-
-// tslint:disable:no-namespace
-declare global {
-  // tslint:disable:interface-name
-  interface Window {
-    hljs: void | IHighlightJS;
-  }
-}
+const mockHighlightBlock = jest.fn();
 
 describe('CodeBlock', () => {
   beforeEach(() => {
     if (!window.hljs) {
       window.hljs = {
-        highlightBlock: jest.fn(),
+        highlightBlock: mockHighlightBlock,
       };
     }
   });
 
   afterEach(() => {
-    if (window.hljs) {
-      window.hljs.highlightBlock.mockReset();
-    }
+    mockHighlightBlock.mockReset();
   });
 
   it('should match snapshot', () => {
@@ -114,12 +103,9 @@ describe('CodeBlock', () => {
       </p>
     `;
 
-    const instance = new CodeBlock({ children });
-    const element = document.createElement('pre');
+    const mount = () => enzyme.mount(<CodeBlock>{children}</CodeBlock>);
 
-    instance.highlightBlock(element);
-    instance.componentDidUpdate({ children });
-    instance.componentDidUpdate({ children: 'Different children' });
+    expect(mount).not.toThrow();
   });
 
   it('should highlight its contents', () => {
@@ -129,16 +115,9 @@ describe('CodeBlock', () => {
       </p>
     `;
 
-    const instance = new CodeBlock({ children });
-    const element = document.createElement('pre');
+    const instance = enzyme.mount(<CodeBlock>{children}</CodeBlock>);
 
-    expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled();
-
-    instance.highlightBlock(element);
-
-    expect(window.hljs && window.hljs.highlightBlock).toHaveBeenCalledWith(
-      element
-    );
+    expect(instance).toMatchSnapshot();
   });
 
   it('should highlight its contents on update', () => {
@@ -148,21 +127,12 @@ describe('CodeBlock', () => {
       </p>
     `;
 
-    const instance = new CodeBlock({ children });
-    const element = document.createElement('pre');
+    const instance = enzyme.mount(<CodeBlock>{children}</CodeBlock>);
 
-    expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled();
+    expect(instance).toMatchSnapshot();
 
-    instance.element = element;
+    instance.setProps({ children: '<div>Goodbye, World!</div>' });
 
-    instance.componentDidUpdate({ children });
-
-    expect(window.hljs && window.hljs.highlightBlock).not.toHaveBeenCalled();
-
-    instance.componentDidUpdate({ children: 'Different children' });
-
-    expect(window.hljs && window.hljs.highlightBlock).toHaveBeenCalledWith(
-      element
-    );
+    expect(instance).toMatchSnapshot();
   });
 });
