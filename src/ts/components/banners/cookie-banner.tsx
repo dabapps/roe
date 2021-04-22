@@ -23,6 +23,11 @@ export type CookieBannerProps = {
    * @default 'bottom'
    */
   position?: 'top' | 'bottom';
+  /**
+   * Sets maximum age for the cookie in seconds
+   * @default 60 * 60 * 24 * 365
+   */
+  maxAge?: number;
 } & OptionalComponentPropAndHTMLAttributes;
 
 /**
@@ -30,13 +35,18 @@ export type CookieBannerProps = {
  * This component takes a render prop, which can be a component or function, that is passed a dismiss prop
  * which you can then apply as an onClick prop to an element of your choice.
  */
+
+const A_YEAR_IN_SECONDS = 60 * 60 * 24 * 365;
+
 const CookieBanner = (props: CookieBannerProps) => {
   const [dismissed, setDismissed] = React.useState(
     Boolean(cookie.parse(document.cookie)['cookies-accepted'])
   );
 
   const setCookie = () => {
-    document.cookie = cookie.serialize('cookies-accepted', 'true');
+    document.cookie = cookie.serialize('cookies-accepted', 'true', {
+      maxAge: props.maxAge || A_YEAR_IN_SECONDS,
+    });
     setDismissed(true);
   };
 
