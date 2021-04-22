@@ -16,6 +16,10 @@ export type ButtonProps = {
    * Make the button small
    */
   small?: boolean;
+  /**
+   * Add link to button
+   */
+  href?: string;
 } & React.ButtonHTMLAttributes<HTMLElement> &
   OptionalComponentPropAndHTMLAttributes;
 
