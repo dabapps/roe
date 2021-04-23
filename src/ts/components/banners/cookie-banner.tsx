@@ -46,6 +46,7 @@ const CookieBanner = (props: CookieBannerProps) => {
   const setCookie = () => {
     document.cookie = cookie.serialize('cookies-accepted', 'true', {
       maxAge: props.maxAge || A_YEAR_IN_SECONDS,
+      path: '/'
     });
     setDismissed(true);
   };
