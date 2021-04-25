@@ -104,3 +104,80 @@
 .error {
   color: @error;
 }
+
+dl {
+  margin: 0;
+  padding: 0;
+}
+
+dl + dl {
+margin-top: @padding-base;
+}
+
+dl.list {
+  dt {
+    float: left;
+    clear: left;
+    width: @dl-label-width;
+    text-align: right;
+    font-weight: @font-weight-bold;
+    color: @dl-label-color;
+  }
+
+  dt::after {
+    content: ':';
+  }
+
+  dd {
+    margin: 0 0 0 @dl-label-width + @padding-base;
+    padding: 0 0 @margin-base 0;
+  }
+}
+
+dl.stacked {
+
+  dt {
+    font-weight: @font-weight-bold;
+    color: @dl-label-color;
+    margin-top: @padding-base;
+    margin-bottom: @padding-small;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+
+  dd {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+dl.inline {
+
+  dt,
+  dd {
+    display: inline;
+    padding: 0;
+    margin: 0;
+  }
+
+  dt {
+    font-weight: @font-weight-bold;
+    color: @dl-label-color;
+  }
+
+  dt::after {
+    content: ':';
+    margin-right: @margin-base;
+  }
+
+  dd::after {
+    content: ', ';
+  }
+
+  dd:last-child:after {
+    content: '';
+  }
+}
