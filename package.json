@@ -86,7 +86,7 @@
     "lesshint": "^3.3.1",
     "livereload": "^0.9.1",
     "node-lessify": "^0.1.5",
-    "postcss": "^5.2.18",
+    "postcss": "^8.4.31",
     "postcss-loader": "^2.0.7",
     "prettier": "^1.19.1",
     "react-docgen-typescript": "^1.2.2",
